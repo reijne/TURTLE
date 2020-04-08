@@ -1,0 +1,153 @@
+.SUFFIXES: .lex .cc .cpp .c .f
+
+SUBDIRS = $(filter-out include/,$(dir $(wildcard */Makefile)))
+
+SOURCESCC =	$(filter-out main.cc,$(wildcard [^~]*.cc))
+SOURCESCPP = $(filter-out main.cpp,$(wildcard [^~]*.cpp))
+SOURCESC =  $(filter-out main.c,$(wildcard [^~]*.c))
+SOURCESF =  $(filter-out main.f,$(wildcard [^~]*.f))
+SOURCESLEX =  $(wildcard [^~]*.lex)
+HEADERS = $(wildcard [^~]*.h) $(wildcard [^~]*.cch)
+
+OBJECTS =	\
+	${SOURCESCC:.cc=.o} \
+	${SOURCESCPP:.cpp=.o} \
+	${SOURCESC:.c=.o} \
+	${SOURCESF:.f=.o} \
+	${SOURCESLEX:.lex=.o}
+
+LIBINCLUDE = $(wildcard include)
+
+MAINSOURCE = $(wildcard main.cc) $(wildcard main.c) $(wildcard main.f)
+ifdef MAINSOURCE 
+	MAINOBJECT = main.o 
+else
+	MAINOBJECT = 
+endif
+
+DEPENDENCIES =
+ifeq ($(LIBINCLUDE),include)
+	DEPENDENCIES += IncDir
+	IncDirclean = IncDirclean
+endif
+
+ifneq ($(SUBDIRS),)
+	DEPENDENCIES += SUBDIRS
+	SUBDIRclean = SUBDIRclean
+endif
+
+DEPENDENCIES += $(LIB)
+
+
+ifeq ($(APP),)
+
+all: $(DEPENDENCIES)
+
+IncDir:
+	@$(MAKE) -C include
+
+IncDirclean:
+	@$(MAKE) -C include clean
+else
+all: $(APP) 
+
+endif
+
+main.o:	$(LIB) main.cc
+
+
+main: 	$(LIB) main.o
+	g++ $(LDFLAGS) -o main main.o $(LIB) $(LIBS) $(STDLIBS)
+
+
+$(LIB):  $(OBJECTS) 
+	echo $(OBJECTS)
+	ar $(ARFLAGS) $(LIB) $(OBJECTS)
+	$(RANLIB) $(LIB)
+	sleep 1
+
+SUBDIRS:
+	@set -e; for i in $(SUBDIRS); do $(MAKE) -C $$i; done
+
+
+SUBDIRclean:
+	@for i in $(SUBDIRS); do $(MAKE) -C $$i clean CLEAN=clean; done
+
+clean: $(SUBDIRclean) 
+	rm -f *.o .*.d *.u *.bak *~ *.bck main lib*.a $(APP) Compiled.h Configured.h
+
+
+
+
+Compiled.h: $(QMLIBS) $(OBJECTS)
+	@echo "#define COMPILED_BANNER \\" >Compiled.h
+	@echo "compiled/linked on "`date`" by "`whoami` >Compiled
+	@awk '{print "center(\"" $$0 "\", w);\\"}' Compiled >>Compiled.h
+	@rm Compiled
+	@echo >>Compiled.h
+
+
+##############################################################################
+
+
+ifneq ($(CLEAN),clean)
+ifeq ($(LIBINCLUDE),include)
+dummy := $(shell $(MAKE) -C include)
+endif
+-include $(patsubst %.cc,.%.d,$(SOURCESCC)) \
+	$(patsubst %.cpp,.%.d,$(SOURCESCPP)) \
+	$(patsubst %.c,.%.d,$(SOURCESC)) \
+	$(patsubst %.lex,.%.d,$(SOURCESLEX))
+endif
+
+##############################################################################
+
+
+.%.d: %.c
+	@$(SHELL) -ec '$(CC) -M $(CFLAGS) $< | sed '\''s/$*.o:/$*.o $@:/'\'' > $@'
+
+.%.d: %.cc
+	@$(SHELL) -ec '$(CXX) -M $(CXXFLAGS) $< | sed '\''s/$*.o:/$*.o $@:/'\'' > $@'
+
+.%.d: %.cpp
+	@$(SHELL) -ec '$(CXX) -M $(CXXFLAGS) $< | sed '\''s/$*.o:/$*.o $@:/'\'' > $@'
+
+.%.h.d: %.h
+	@$(SHELL) -ec 'grep "\#include" $< >$<.c;\
+		 $(CXX) -M $(CXXFLAGS) $<.c | \
+		 sed '\''s/$*.o:/$*.o $@:/'\'' | \
+		 sed '\''s/$*.h.o:/$*.moc.o:/'\'' | \
+		 sed '\''s/$*.h.c/$*.h/'\''> $@; \
+		 rm -f $<.c'
+
+.%.d: %.lex
+	@$(SHELL) -ec 'grep "\#include" $< >$<.cc;\
+		 $(CXX) -M $(CXXFLAGS) $<.cc | \
+		 sed '\''s/$*.o:/$*.o $@:/'\'' | \
+		 sed '\''s/$*.lex.o:/$*.o:/'\'' | \
+		 sed '\''s/$*.lex.cc/$*.lex/'\''> $@; \
+		 rm -f $<.cc'
+
+
+##############################################################################
+
+.c.o:
+	$(CC) $(CFLAGS) $(OBJ_RENAME) $*.c
+
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(OBJ_RENAME) $*.cc
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) $(OBJ_RENAME) $*.cpp
+
+.f.o:
+	$(FCOMPILER) $(FFLAGS) $*.f
+
+.lex.o:
+	$(FLEX) -+ -i $*.lex
+	if `$(CXX) -c $(INCS) $(CXXFLAGS) lex.yy.cc -o $@`; then\
+		rm -f lex.yy.cc;\
+		exit;\
+	else\
+		rm -f lex.yy.cc;\
+	fi

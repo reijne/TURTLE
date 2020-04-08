@@ -1,0 +1,65 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+Gd 3+, Stuttgart-Cologne large core 46+n4f ECP
+mult 1
+charge 3
+geometry angstrom
+0.0 0.0 0.0 64 Gd
+end
+harmonic
+basis
+S     Gd
+ -0.1522640  7.9250430
+  0.4939230  6.2717590
+ -1.2945530  2.5909130
+S     Gd
+  1.0        0.6425090
+S     Gd     
+  1.0        0.3128260
+S     Gd     
+  1.0        0.0584800
+S     Gd     
+  1.0        0.0269240
+P     Gd
+  0.1141430  5.2050550
+ -0.4426100  3.1110210
+  1.1665320  0.7437650
+P     Gd
+  1.0        0.3127020
+P     Gd
+  1.0        0.0943750
+P     Gd
+  1.0        0.0336140
+D     Gd
+ -0.0394870  2.5342090
+  0.3908310  0.8067320
+  0.7016280  0.3203550
+D     Gd
+  1.0        0.1242070
+D     Gd
+  1.0        0.0480910
+end
+pseudo ecp
+#ECP53MWB from http://www.theochem.uni-stuttgart.de/pseudopotentials/clickpse.en.html
+CARDS  Gd 
+    4    53 
+ 1
+2      0.000000    1.000000
+ 2
+2    139.601619    5.026000
+2     -6.879694    2.513000
+ 2
+2     79.873824    4.302200
+2      0.938419    2.151100
+ 2
+2      32.709729   3.001100
+2       1.241952   1.505500
+ 1
+2     -74.248790   6.204900
+scftype direct rhf
+vectors atoms conf
+gd conf f0s2d1
+end
+enter
+EOF

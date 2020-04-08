@@ -1,0 +1,26 @@
+
+SUBDIRS = $(filter-out ../include/,$(dir $(wildcard ../*/Makefile)))
+
+
+ifneq ($(SUBDIRS),)
+#	FIND = for i in $(SUBDIRS); do \
+#		find $$i -name "*.h" -exec ln -sf {} . \;; \
+#		find $$i -name "*.hT" -exec ln -sf {} . \;; \
+#		find $$i -name "*.cch" -exec ln -sf {} . \;; \
+#	done
+endif
+
+all:
+#	$(MAKE) clean
+	@$(FIND)
+#	@for i in ../*.h; do \
+#		if 	
+#		ln -sf $$i . ;\
+#	done
+#	@ln -sf $(QMCBaseDir)/config.h .
+#	@ln -sf $(QMCBaseDir)/VersionDate.h .
+	$(LOCALMAKE)
+
+clean:
+	rm -f *.cch *.h *.hT *.bck
+

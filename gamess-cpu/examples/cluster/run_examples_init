@@ -1,0 +1,23 @@
+#!/bin/csh
+#
+# run initial parallel validation jobs for GAMESS-UK
+# on commodity cluster. Note that usage of
+# the script rungamess is assumed here, where
+# rungamess is added to the users path .. thus
+#
+set path=($path ~/GAMESS-UK/rungamess .)
+#
+date
+#
+date
+#
+rungamess -p 8 -q h2co_direct_rhf
+rungamess -p 8 -q h2co_conv_rhf
+rungamess -p 8 -q h2co_direct_uhf
+rungamess -p 8 -q h2co_mp2_opt
+rungamess -p 8 -q h2co_direct_gvb
+rungamess -p 8 -q h2co_dft
+rungamess -p 8 -q h2co_secd
+rungamess -p 8 -q h2co_secd.ecp
+#
+date

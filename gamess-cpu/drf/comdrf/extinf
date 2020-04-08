@@ -1,0 +1,46 @@
+c
+      REAL xpts
+      common /extpts/ xpts(3,mxpts)
+c
+      character*16 nxcent
+      common /namext/ nxcent(mxpts)
+c
+      REAL chrg
+      common /extcha/ chrg(mxpts)
+c
+      REAL polar
+      common /extpol/ polar(mxpol)
+c
+      REAL atpol
+      common /extpol2/ atpol(mxpts)
+c
+      REAL atpolt
+      common /extpolt/ atpolt(6,mxpts)
+c
+      REAL alfext
+      common /extalf/ alfext(mxpts)
+c
+      integer mpol
+      common /ipol/ mpol(mxpol)
+c
+      integer ncutpt
+      common /drfcut/ ncutpt(mxpts)
+c
+      integer nspecl
+      common /drfspe/ nspecl(mxspe)
+c
+      integer nvalel
+      common /drfval/ nvalel(mxpts)
+c
+      REAL vale
+      common /clasval/ vale(mxpts)
+c
+      REAL valat
+      common /atval/ valat(mxpts)
+c
+      REAL polars
+      common /claspol/ polars(mxpts)
+c
+      REAL alfat
+      common /atalf/ alfat(mxat)
+c

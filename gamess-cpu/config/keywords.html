@@ -1,0 +1,953 @@
+<html>
+
+<!-- Configure keywords -->
+<table border=1>
+<tr>
+<th>Configure keyword</th>
+<th>Function</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>1000at</td>
+<td>1000 atoms (instead of 500)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>base</td>
+<td>mimimal SCF/DFT</td>
+<td></td>
+</tr>
+
+<tr>
+<td>bench</td>
+<td>mimimal SCF/DFT (benchmark dft code)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charmm</td>
+<td>Activate the GAMESS-UK / CHARMM interface (when building with CHARMM).</td>
+<td></td>
+</tr>
+
+<tr>
+<td>chemshell</td>
+<td>Activate the GAMESS-UK / ChemShell interface </td>
+<td></td>
+</tr>
+
+<tr>
+<td>ci</td>
+<td>SCF, DFT, MP2, SCF Hessian (not qm/mm), direct-CI, Green's Functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>coverage</td>
+<td>Builds the code enabling GNU's gcov coverage analysis (requires gcc/gfortran)</td>
+<td>Works in serial.</td>
+</tr>
+
+<tr>
+<td>demo</td>
+<td>maximum 200  basis functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>dfttest</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>drf</td>
+<td>include DRF code (requires code in GAMESS-UK/drf)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>f90</td>
+<td>Use F90 features (developmental)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>flucq</td>
+<td>code in support of CHARMM's optional fluctuating charge option</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ga</td>
+<td>link GA tools (available for base + mp2 + ci builds only)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>giga</td>
+<td>8192 basis functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>gigagiga</td>
+<td>16384 basis functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>huge</td>
+<td>4096 basis functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>large</td>
+<td>2048 basis functions</td>
+<td></td>
+</tr>
+
+<tr>
+<td>mopac</td>
+<td>include mopac version 7 code (requires code in GAMESS-UK/mopac)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>mopac6</td>
+<td>include mopac version 6 code (requires code in GAMESS-UK/mopac)</td>
+<td>OBSOLETE?</td>
+</tr>
+
+<tr>
+<td>mopac7</td>
+<td>include mopac version 7 code (requires code in GAMESS-UK/mopac)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>mp2</td>
+<td>SCF, DFT, MP2, SCF Hessian (not qm/mm)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>mpi</td>
+<td>parallel code (no GA) using MPI</td>
+<td></td>
+</tr>
+
+<tr>
+<td>mrdci</td>
+<td>Activate new MRDCI code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>nbo</td>
+<td>Activate NBO code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>newints</td>
+<td>Huub's experiment to speed up shell structured loops for pure p functions</td>
+<td>OBSOLETE? Yes!!!</td>
+</tr>
+
+<tr>
+<td>newscf</td>
+<td>include developmental SCF code (requires code in GAMESS-UK/newscf)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>newscf_f90</td>
+<td>include the FORTRAN90 MPI/ScaLAPACK version of the parallel code (requires code in ../newscf_f90)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>nodft</td>
+<td>exclude the dft code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>old-dft</td>
+<td>Activate old post-HF DFT code</td>
+<td>OBSOLETE?</td>
+</tr>
+
+<tr>
+<td>peigs</td>
+<td>PeIGS Parallel diagonaliser</td>
+<td></td>
+</tr>
+
+<tr>
+<td>protect-source</td>
+<td>chmod o-w on fortran/C files</td>
+<td></td>
+</tr>
+
+<tr>
+<td>qmmm</td>
+<td>Include the QM/MM code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>rpagrad</td>
+<td>RPA excited state gradients</td>
+<td></td>
+</tr>
+
+<tr>
+<td>t3d</td>
+<td>Build for the Cray T3D </td>
+<td>OBSOLETE?</td>
+</tr>
+
+<tr>
+<td>taskfarm</td>
+<td>Include the parallel taskfarming code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>tcgmsg</td>
+<td>Use the tcgmsg library with the GA code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>tcgmsg-mpi</td>
+<td>Use the tcgmsg library that is based on MPI with the GA code</td>
+<td></td>
+</tr>
+
+<tr>
+<td>timings</td>
+<td>Detailed timing breakdown</td>
+<td></td>
+</tr>
+
+<tr>
+<td>vb</td>
+<td>Include the Valence Bond code (requires code in GAMESS-UK/vb)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>zora</td>
+<td>Include the Zeroth Order Regular Approximation relativisitic code.</td>
+<td></td>
+</tr>
+
+</table>
+<!-- End Configure Section -->
+
+<br>
+<br>
+
+<!-- M4 Keywords -->
+<table border=1>
+<tr>
+<th>M4 Key</th>
+<th>Function</th>
+<th>Status</th>
+</tr>
+
+<td>1s</td>
+<td>Cray-1S </ts>
+<td>?</td>
+</tr>
+
+<td>3090vf</td>
+<td>?</ts>
+<td>?</td>
+</tr>
+
+<td>64bitpointers</td>
+<td>declare a few integer*8 variables in the memory management routines, needed for some 64 bit builds where the rest of the code is integer*4</ts>
+<td>?</td>
+</tr>
+
+<tr>
+<td>absoft</td>
+<td>Absoft compiler for intel processors</td>
+<td>?</td>
+</tr>
+
+<tr>
+<td>alliant</td>
+<td>Code specific to Alliant</td>
+<td>?</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>Code specific to DEC/Compaq Alpha proccessor</td>
+<td>?</td>
+</tr>
+<tr>
+<td>altix</td>
+<td>code specific to the SGI Altix build</td>
+<td>?</td>
+</tr>
+<tr>
+<td>apollo</td>
+<td>Apollo Aegis specific features</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>aprtest</td>
+<td>Alistair Rendell's test code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>assem</td>
+<td>Active assembler coded sections</td>
+<td>?</td>
+</tr>
+<tr>
+<td>base_build</td>
+<td>only include minimal functionality ( SCF and DFT code )</td>
+<td>?</td>
+</tr>
+<tr>
+<td>bench_build</td>
+<td>build with functionality required for benchmark suite</td>
+<td>?</td>
+</tr>
+<tr>
+<td>bits8</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>blas</td>
+<td>use external system blas rather than GAMESS-UK's own unoptimised blas</td>
+<td>?</td>
+</tr>
+<tr>
+<td>c</td>
+<td>????</td>
+<td>?</td>
+</tr>
+<tr>
+<td>c90</td>
+<td>Cray C90 specific code</td>
+<td>OBSOLETE?</td>
+</tr>
+<tr>
+<td>cary</td>
+<td>???? type or hack???</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ccpdft</td>
+<td>include the DFT code.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>cfs</td>
+<td>Intel i-PSCs concurrent file system</td>
+<td>?</td>
+</tr>
+<tr>
+<td>charmm</td>
+<td>used then building the GAMESS-UK / CHARMM interface</td>
+<td>?</td>
+</tr>
+<tr>
+<td>charmmtest</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>chemshell</td>
+<td>used when building GAMESS-UK as part of ChemShell</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ci_build</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>ga</td>
+<td>code specific for the Global Arrays build</td>
+<td>?</td>
+</tr>
+<tr>
+<td>cio</td>
+<td>Use c-functions read(), write(), seek() etc. for the I/O subsystem</td>
+<td>?</td>
+</tr>
+<tr>
+<td>convex</td>
+<td>Convex</td>
+<td>?</td>
+</tr>
+<tr>
+<td>cray</td>
+<td>Cray</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ctss</td>
+<td>ctss?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>cyber205</td>
+<td>Cyber 205</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>datain</td>
+<td>some MPI implementations do not read correctly from stdin - the datain keyword causes GAMESS-UK to look for it's input from a file called datain in the working directory.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ddoti</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>debug-bits</td>
+<td>code to activate tests for bit manipulation</td>
+<td>?</td>
+</tr>
+<tr>
+<td>debug_S</td>
+<td>special code to test the DFT quadrature by performing a numerical integral</td>
+<td>?</td>
+</tr>
+<tr>
+<td>of the overlap matrix and comparing it to the analytical one</td>
+<td>dec</td>
+<td>?</td>
+</tr>
+<tr>
+<td>DEC</td>
+<td>DEC system</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dfill</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dgthr</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<tr>
+<td>diag_parallel</td>
+<td>activate interface to Peigs </td>
+<td>?</td>
+</tr>
+<td>doublebackslash</td>
+<td>if the machine requires \ occurring in fortran format statements to be escaped (as \\) use this keyword.</td>
+
+<td>?</td>
+</tr>
+<tr>
+<td>drf</td>
+<td>include the Direct Reaction Field code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dsctr</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dsum</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dynamic</td>
+<td>use dynamic load balancing in mpi code (based on an extra process)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>dynamic_mpi2</td>
+<td>use dynamic load balancing in mpi code (based on an MPI-2 calls)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>edgafs</td>
+<td>Put the ed files in the Global Arrays by default</td>
+<td>Current</td>
+</tr>
+<tr>
+<td>ev5</td>
+<td>Alpha EV5 specific</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ev6</td>
+<td>Alpha EV6 specific code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>f2c</td>
+<td>specific to the GNU f2c &quot;compiler&quot;</td>
+<td>?</td>
+</tr>
+<tr>
+<td>f90</td>
+<td>test code that uses f90 features to allocate arrays as part of modules rather than static commons</td>
+<td>?</td>
+</tr>
+<tr>
+<td>fcio</td>
+<td>?? mixed fortran/c I/O system</td>
+<td>?</td>
+</tr>
+<tr>
+<td>flucq</td>
+<td>code in support of CHARMM's optional fluctuating charge option</td>
+<td>?</td>
+</tr>
+<tr>
+<td>fortio</td>
+<td>Fortran I/O subsystem</td>
+<td>?</td>
+</tr>
+<tr>
+<td>fps</td>
+<td>code in support of FPS 164,264 series machines</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>ga</td>
+<td>code specific for the Global Arrays build</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ga_ci_build</td>
+<td>code specific for the Global Arrays build with parallel direct CI</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ga_mp2_build</td>
+<td>code specific for the Global Arrays build with parallel MP2</td>
+<td>?</td>
+</tr>
+<tr>
+<td>helfey</td>
+<td>Extract subroutine helfey from m4/drv1e.m for separate compilation.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>hitachi</td>
+<td>hitachi ???vector system</td>
+<td>?</td>
+</tr>
+<tr>
+<td>hp700</td>
+<td>HP series 700 (755, 753 etc)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>hp800</td>
+<td>HP series 800 </td>
+<td>?</td>
+</tr>
+<tr>
+<td>hpux11</td>
+<td>version 11 of HP-UX</td>
+<td>?</td>
+</tr>
+<tr>
+<td>hpux_parisc</td>
+<td>HP-UX with PA-RISC processor</td>
+<td>?</td>
+</tr>
+<tr>
+<td>i8</td>
+<td>use 8 bytes to store integers</td>
+<td>?</td>
+</tr>
+<tr>
+<td>i8drct</td>
+<td>this relates to a problem on some Pentium architectures whereby the integer variables that go through the floating point unit get mangled. Or something like that...</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ibm</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>ibm.vax</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>idamin</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>idmax</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>idmin</td>
+<td>see newutil3</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ipsc</td>
+<td>Intel i-PSC 2 and i-PSC 860 hypercube</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>ipsc_io</td>
+<td>Use special features of Intel i-PSC 2 and i-PSC 860 hypercube</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>itanium</td>
+<td>code specific to the Itanium processor</td>
+<td>?</td>
+</tr>
+<tr>
+<td>j90</td>
+<td>Cray J90 vector system</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ksr</td>
+<td>KSR machine (Kendall Square Research)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>linux</td>
+<td>Linux O/S</td>
+<td>?</td>
+</tr>
+<tr>
+<td>taskfarm</td>
+<td>code for taskfarming mode</td>
+<td>?</td>
+</tr>
+<tr>
+<td>littleendian</td>
+<td>machine stores variables with its least significant bytes first.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ma</td>
+<td>Use MA tools for memory allocation (part of Global Array suite)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>macosx</td>
+<td>code for the Macintosh OSX</td>
+<td>?</td>
+</tr>
+<tr>
+<td>max</td>
+<td>????</td>
+<td>?</td>
+</tr>
+<tr>
+<td>meiko</td>
+<td>code for Meiko CS-2 and similar parallel machines</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mips2</td>
+<td>MIPS-2 series processors</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mips4</td>
+<td>MIPS-4 series processors</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mp2_build</td>
+<td>include the code for the mp2 build (in serial?)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mp2_parallel</td>
+<td>include the parallel mp2 code (this is only applicable of the GA build)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mpi</td>
+<td>Use the MPI Message Passing Library</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mpole</td>
+<td>developmental multipolar coulomb code in DFT module</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mrdci</td>
+<td>Use new semi-direct MRDCI module (should be default for serial build)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>mvs</td>
+<td>Use assembler timers for IBM MVS/SA O/S</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>nbo</td>
+<td>include the Natural Bond Orbital code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>nec</td>
+<td>NEC SX-? series vector machines</td>
+<td>?</td>
+</tr>
+<tr>
+<td>never</td>
+<td>dummy options for excluded coded</td>
+<td>?</td>
+</tr>
+<tr>
+<td>newints</td>
+<td>Huub's experiment to speed up shell structured loops for pure p functions</td>
+<td>?</td>
+</tr>
+<tr>
+<td>newscf</td>
+<td>include an alternative, programmable, SCF driver</td>
+<td>?</td>
+</tr>
+<tr>
+<td>newscf_f90</td>
+<td>include the FORTRAN 90 distributed memory MPI code that uses BLACS and ScaLAPACK</td>
+<td>?</td>
+</tr>
+<tr>
+<td>newutil3</td>
+<td>the file m4/util3.m contains various blas routines that are provided by some vendor blas' but not others. Normally these are all included, but with the newutil3 keyword all are excluded and have to be pulled in explicitly. See ddoti, dfill, dgthr, dsctr, dsum, idamin, idman, idmin</td>
+<td>?</td>
+</tr>
+<tr>
+<td>notused</td>
+<td>dummy options for excluded coded</td>
+<td>?</td>
+</tr>
+<tr>
+<td>nx</td>
+<td>NX comms system (for Intel i-PSC computers)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>old-dft</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>old-junk</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>oldpack</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>oldpack3</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>oldx</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>opteron</td>
+<td>changes specific to the Opteron architecture</td>
+<td>?</td>
+</tr>
+<tr>
+<td>osf</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>parallel</td>
+<td>enable parallel code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>qmmm</td>
+<td>disable some arrays in common and code which will fail for large MAXAT</td>
+<td>?</td>
+</tr>
+<tr>
+<td>r10000</td>
+<td>R10000 (MIPS) processor</td>
+<td>?</td>
+</tr>
+<tr>
+<td>rpagrad</td>
+<td>activate developmental rpa gradient code</td>
+<td>?</td>
+</tr>
+<tr>
+<td>rs6000</td>
+<td>code specific to RS6000, AIX</td>
+<td>?</td>
+</tr>
+<tr>
+<td>rs6000_noextname</td>
+<td>code specific to RS6000, AIX, without -qEXTNAME, Fortran names lack trailing _</td>
+<td>?</td>
+</tr>
+<tr>
+<td>secd_parallel</td>
+<td>activate parallel 2nd derivatve module</td>
+<td>?</td>
+</tr>
+<tr>
+<td>sgi</td>
+<td>changes for SGI/Irix</td>
+<td>?</td>
+</tr>
+<tr>
+<td>signals</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>single</td>
+<td>Single precision build (as often used on Cray systems)</td>
+<td>?</td>
+</tr>
+<tr>
+<td>sun</td>
+<td>SunOS/Solaris specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>sv1</td>
+<td>Cray SV1 specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>t3d</td>
+<td>Cray T3D specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>t3e         </td>
+<td>Cray T3E specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>taskfarm</td>
+<td>code for taskfarming mode</td>
+<td>?</td>
+</tr>
+<tr>
+<td>tcgmsg</td>
+<td>TCGMSG Message Passing Library</td>
+<td>?</td>
+</tr>
+<tr>
+<td>timings</td>
+<td>switch on the interval timers in the serial code (default in parallel).</td>
+<td>?</td>
+</tr>
+<tr>
+<td>titan</td>
+<td>Titan specific features</td>
+<td>obsolete</td>
+</tr>
+<tr>
+<td>tools</td>
+<td>TCGMSG-specific CHECK THIS</td>
+<td>?</td>
+</tr>
+<tr>
+<td>unicos</td>
+<td>Cray Unicos specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>unix</td>
+<td>indicate whether to use the C-language interface to the UNIX system calls such as malloc(), getenv(), etc. The &quot;unix&quot; keyword requests these, and is recommended as otherwise the code will generally try and link non-standard fortran language extensions.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>upck-equiv</td>
+<td>Activate code that performs unpack using equivalence statements</td>
+<td>?</td>
+</tr>
+<tr>
+<td>usenag</td>
+<td>??</td>
+<td>?</td>
+</tr>
+<tr>
+<td>vax</td>
+<td>DEC Vax/VMS specific stuff</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>VAX</td>
+<td>DEC Vax/VMS specific stuff</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>vaxh</td>
+<td>DEC Vax/VMS specific stuff</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>A vectorised version of some of the integral generation routines is available and these are selected with this keyword.</td>
+<td>?</td>
+</tr>
+<tr>
+<td>vmcms</td>
+<td>IBM VM/CMS specific features</td>
+<td>?</td>
+</tr>
+<tr>
+<td>vmh</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>vms</td>
+<td>DEC Vax/VMS specific stuff</td>
+<td>OBSOLETE</td>
+</tr>
+<tr>
+<td>win95</td>
+<td>Changes specific to Windows builds (not just Win 95 )</td>
+<td>?</td>
+</tr>
+<tr>
+<td>zora</td>
+<td>Zeroth Order Regular Approximation code for relativistic calculations</td>
+<td>?</td>
+</tr>
+</table>
+</html>

@@ -1,0 +1,682 @@
+\documentclass[11pt,fleqn]{article}
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\newcommand{\http}[1]{\href{#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+ 
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\newcommand{\degree}[1]{\mbox{$#1^{o}$}}
+\newcommand{\cah}{\mbox{CaH$_{2}$}}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+ 
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2008}\\ [.2in]
+{\large PART 9. TROUBLE SHOOTING}\\
+\vspace{.1in}
+{\large M.F. Guest, J. Kendrick, J.H. van Lenthe and P. Sherwood}\\[0.2in]
+ 
+Copyright (c) 1993-2008 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{3mm}\\
+\end{flushleft}
+
+% 
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section[Introduction]{Introduction}
+
+In this chapter we try to anticipate areas where the user may run into
+problems, either from lack of appreciation of the workings of the
+program, or from the author's failure to present a clear picture of
+requirements.  The items below are presented in no real order, but
+reflect some of the known aspects of running the program that have
+given problems historically. Again users are welcome to use the EMAIL
+addresses given in Chapter~1 in trying to resolve matters not discussed
+herein. Note that the original use of error numbers has been replaced
+with textual messages designed to provide some insight into the problem
+causing the abort. If the user meets an error condition characterised
+only by a number in the log, please inform the author.
+
+\section[SCF Calculations]{SCF Calculations}
+\begin{enumerate}
+\item {\em The SCF aborts at the outset of processing}; this
+will almost certainly have arisen from supplying a two-electron
+file that is not in the format expected. Care must be taken
+in understanding the workings of the SUPER directive and the
+use of BYPASS.
+\item {\em The SCF fails to converge, with violent oscillations
+in the total energy}; increase the LEVEL parameters, which
+should remove the problem.
+\item {\em Large negative values for the energy}: the program
+assumes in constructing the Fock matrix that the 
+density matrix transforms as the totally symmetric
+representation i.e. the wave function belongs to a
+non-degenerate representation of the molecular point group.
+If this is not the case, the energy may collapse to a
+meaningless value. If this occurs, the user should 
+modify the TAGs in the z-matrix to lower the effective
+molecular point group.
+\item {\em The SCF output reveals that the DIIS procedure has
+been initiated, but the energy still fluctuates, with DIIS
+appearing to push the energy up}; this may be 
+indicative of trying to converge on an excited state,
+particularly in closed-shell calculations. If the TESTER
+is small, and the problem persists, it may be advantageous
+to suppress DIIS through the data line DIIS OFF.
+\item {\em The two-electron integral file
+is lost or corrupted}, say in the middle of an optimisation,
+use the REGEN parameter on the RESTART directive.
+\item {\em The error message ATTEMPTING TO RETRIEVE UNDEFINED DUMPFILE
+SECTION appears during vector generation in a restart job}; this
+may have arisen from specifying an incorrect section on the
+VECTORS directive, but it is also indicative of
+the user having inadvertently omitted the RESTART directive, or
+incorrectly allocated the Dumpfile to the Job.
+\item {\em Confusion over Multiple Section Specification}: When
+performing open shell or GVB calculations, the user should be
+aware that the final list of output vectors refers to the
+canonicalised set i.e. to the set of MOs residing in the
+{\em second} section specified on the ENTER directive. Confusion
+may arise when restoring MOs from the first section, and
+assigning, for example, orbital symmetries from the SCF output.
+\item {\em Symmetry contaminated molecular orbitals}: the SCF
+modules are fairly demanding in their attempts to maintain the
+symmetry classification of the MOs. If the orbitals appear
+contaminated, the cause may lie in the choice of an 
+inappropriate starting set used to initialise the SCF.
+
+\end{enumerate}
+
+\section[The role of the VECTORS and ENTER Directives]{The role of the VECTORS and ENTER Directives}
+
+{\em GAMESS is reporting an error when trying to restore vectors
+in a restart job after a startup step has completed successfully,
+referencing a section number unknown to the User}\\
+
+Consider the following data, that aims to first conduct an initial
+geometry optimisation, followed in a subsequent step by a direct-CI
+calculation at the optimised geometry.
+
+{
+\footnotesize
+\begin{verbatim}
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE OPTIMIZE
+       ENTER 1
+\end{verbatim}
+}
+with the following data specified in the restart job;
+
+{
+\footnotesize
+\begin{verbatim}
+       RESTART
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE CI
+       DIRECT
+       ENTER 1
+\end{verbatim}
+}
+This restart will fail, with the diagnostics shown below taken from the
+failing output:
+
+{
+\footnotesize
+\begin{verbatim}
+ MOLECULAR ORBITALS RESTORED FROM DUMPFILE
+ -A-   VECTORS RESTORED FROM SECTION 410 OF DUMPFILE ON ED3
+ 
+ *********************
+ PROBLEM WITH SECTION
+ *********************
+ MPOS, MTYPE, BLOCK   410    3*****
+ CURRENT INPUT LINE IS:
+ ENTER 1
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+                                                  ERROR DETECTED
+                                                  **************
+ 
+                    ATTEMPTING TO RETRIEVE UNDEFINED DUMPFILE SECTION
+ 
+*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+ 
+ 
+GAMESS-UK ERROR: ATTEMPTING TO RETRIEVE UNDEFINED DUMPFILE SECTION
+\end{verbatim}
+}
+{\bf Diagnosis}\\
+
+In the absence of section specification on the VECTORS and ENTER
+directive, GAMESS will use a default section (410) for keeping the
+current set of vectors. If the user specifies a section on the ENTER
+directive of the startup job (section 1) above, then that section MUST
+be specified in subsequent jobs, for GAMESS will not redefine the
+initial "ENTER" section in the first step as being the section for use
+of VECTORS in the second step. If no VECTORS directive is specified,
+its default choice is a function of the perceived status of the
+processing:
+\begin{itemize}
+\item in startup job, with no vectors available, it will assume "VECTORS
+ATOMS" and proceed from an atomic startup.
+ 
+\item in a restart job, it will assume that vectors are available, and
+that such vectors are to be restored from a section on the Dumpfile. If
+no such section is specified, it will try to input those from a default
+section, 410. This will lead to the diagnostic above.
+\end{itemize}
+{\bf Solution 1}\\
+
+Do not specify section numbers and let the programme defaults apply
+(this is somewhat limiting, since direct, data-driven access to the
+default section is not permitted by the user i.e. section 410 cannot be
+explicitly specified on a directive). However, in the present example
+the following data will suffice:
+
+{\bf Data for Step 1}
+{
+\footnotesize
+\begin{verbatim}
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE OPTIMIZE
+       ENTER
+\end{verbatim}
+}
+
+{\bf Data for Step 2}
+{
+\footnotesize
+\begin{verbatim}
+       RESTART
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE CI
+       DIRECT
+       ENTER
+\end{verbatim}
+}
+
+{\bf Solution 2}\\
+
+Use section number for explicit control of vector placing.
+This will require use of the VECTORS directive in the second
+step to nominate section 1.
+
+{\bf Data for Step 1}\\
+
+This is just the data specified in the startup job above:
+{
+\footnotesize
+\begin{verbatim}
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE OPTIMIZE
+       ENTER 1
+\end{verbatim}
+}
+
+{\bf Data for Step 2}\\
+
+This now specifies the explicit section for the VECTORS the absence of
+which caused the problem in the restart job above:
+{
+\footnotesize
+\begin{verbatim}
+       RESTART
+       TITLE
+       WATER
+       ZMAT ANGS
+       O
+       H 1 R
+       H 1 R 2 A
+       VARIABLES
+       R             0.9429786  HESSIAN    0.749526
+       A            105.9806454 HESSIAN    0.178413
+       END
+       BASIS 6-31G
+       RUNTYPE CI
+       DIRECT
+       VECTORS 1
+       ENTER 1
+\end{verbatim}
+}
+
+
+\section[Transition State and Geometry Optimisation]{Transition State and Geometry Optimisation}
+
+\begin{enumerate}
+\item {\em ZMATRIX and Point Group Problems}: One of the constraints
+in the z-matrix formalism concerns potential problems in dealing with
+directly bonded angles of \degree{180}. The use of dummy X-centres
+in circumventing these problems has been discussed in Part 3, \S8.3. Consider
+below the data file for optimisation of the \cah\ species, where we
+are starting the optimisation with a bond angle of \degree{150}.
+
+{
+\footnotesize
+\begin{verbatim}
+          TITLE\CAH2 .. 3-21G
+          ZMAT ANGS\CA\H 1 CAH\H 1 CAH 2 HCAH
+          VARIABLES\CAH 2.148 HESS 0.7\HCAH 150.0 HESS 0.1\END
+          RUNTYPE OPTIMIZE
+          VECTORS EXTGUESS\ENTER 1
+\end{verbatim}
+}
+This job will fail, with the diagnostics shown below taken from the
+failing output:
+
+{
+\footnotesize
+\begin{verbatim}
+     ==================================================================
+                             Z-MATRIX (ANGSTROMS AND DEGREES)
+     CD CENT ATOM  N1      LENGTH      N2     ALPHA      N3      BETA 
+     ------------------------------------------------------------------
+      1   1   CA
+      2   2   H     1   2.148195 (  1)
+      3   3   H     1   2.148195 (  2)  2  181.008 (  3)
+     ==================================================================
+
+     ==============================================
+     VARIABLE           VALUE              HESSIAN
+     ==============================================
+     CAH            2.1481952 ANGS        0.699998
+     HCAH         181.0076613 DEGS        0.034888
+     
+     ERROR ON Z-MATRIX CARD NUMBER    3
+     
+     ANGLE ALPHA IS OUTSIDE THE VALID RANGE OF 0 TO 180
+
+     *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+
+                                   ERROR DETECTED
+                                   **************
+
+      ERROR DETECTED IN CONVERTING Z-MATRIX TO CARTESIAN COORDINATES 
+
+     *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+\end{verbatim}
+}
+In most cases this can be avoided by using the half-angle and
+dummy centre specification, as shown below:
+
+{
+\footnotesize
+\begin{verbatim}
+          TIME 60 
+          TITLE\CAH2 .. 3-21G
+          ZMAT ANGS\CA\X 1 1.0\ H 1 CAH 2 XCAH\H 1 CAH 2 XCAH 3 180.0
+          VARIABLES\CAH 2.148 HESSIAN  0.7\XCAH 75.0 HESSIAN 0.1\END
+          RUNTYPE OPTIMIZE
+          VECTORS EXTGUESS\ENTER 1
+\end{verbatim}
+}
+An additional constraint in the default optimisation algorithm
+is the inability to handle a change in point group during the
+optimisation pathway. This example has been chosen to illustrate
+this point: thus while the above data file avoids the angle
+problem, it will again fail because of the point group change,
+as shown below:
+
+{
+\footnotesize
+\begin{verbatim}
+     ====================================================================
+                              Z-MATRIX (ANGSTROMS AND DEGREES)
+      CD CENT ATOM  N1      LENGTH      N2     ALPHA      N3      BETA  
+     --------------------------------------------------------------------
+       1   1   CA
+       2       X     1   1.000000 (  1)
+       3   2   H     1   2.148105 (  2)  2   89.998 (  4)
+       4   3   H     1   2.148105 (  3)  2   89.998 (  5)  3  180.000 (  6) 
+     ===================================================================
+     
+      ==============================================
+      VARIABLE           VALUE              HESSIAN
+      ==============================================
+      CAH            2.1481048 ANGS        0.699995
+      XCAH          89.9978901 DEGS        0.156813
+     
+      **** CHANGE IN POINT GROUP ****
+     
+               CNV          2     DNH          2
+     
+     *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+               ERROR DETECTED
+       POINT GROUP CHANGE DURING OPTIMISATION 
+     *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+\end{verbatim}
+}
+In such cases the optimisation may be completed by changing to the
+OPTXYZ algorithm, using the RESTART option to retrieve the partially
+converged geometry from the Dumpfile as the starting point. Note that
+OPTXYZ will not suffer from either ZMATRIX or Point group problems.
+
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE\CAH2 .. 3-21G
+          ZMAT ANGS\CA\X 1 1.0\ H 1 CAH 2 XCAH\H 1 CAH 2 XCAH 3 180.0
+          VARIABLES\CAH 2.148 HESSIAN  0.7\XCAH 75.0 HESSIAN 0.1\END
+          RUNTYPE OPTXY
+          VECTORS 1\ENTER 1
+\end{verbatim}
+}
+\item Particular care should be taken when dealing with the
+ZMATRIX specification for cyclic systems. If this is specified
+such that a multiple bond is not explicitly defined, then the
+initial step taken in an optimisation with either a poor
+starting geometry or ill-defined Hessian can lead to unreasonable
+values for such a bond. In the worst case, the bond can become so
+compressed (with a disastrous effect on the total energy) that
+linear dependence will be (correctly) diagnosed! Certainly 
+in such cases the starting hessian should be taken from a smaller
+basis calculation (STO-3G will do ..).
+\item {\em PARAMETER ERRORS}: Possible errors may stem from the 
+user not appreciating
+the workings of the optimisation modules (as loaded 
+under RUNTYPE OPTIMIZE or RUNTYPE SADDLE). Both algorithms
+are based on the notion of a `history' file, with any restart
+jobs working through the previous points along the
+optimisation pathway, prior to continuing execution 
+at the interrupted point. Anything which perturbs this
+process, causing the `history' file, as present on the 
+Dumpfile, to appear at odds with that generated from the
+data input will lead to a `PARAMETER ERROR', and
+termination of execution. Basically, once the optimisation
+has been initiated, the user should not modify the
+input data, other than through the introduction of the
+RESTART directive, modification of the VECTORS specification etc.
+Specifically, modifying the ZMATRIX data or optimisation controls
+(XTOL etc.) will lead to this error condition.
+Let us consider one example where this might occur. In the
+data files below we are using the results of a 3-21G
+optimisation as a basis for a larger TZVP optimisation. The 3-21G
+data might appear as follows:
+
+{
+\footnotesize
+\begin{verbatim}
+          TITLE
+          H2O -- 3-21G
+          ZMAT ANGSTROM
+          O 
+          H 1 OH 
+          H 1 OH 2 HOH 
+          VARIABLES
+          OH 0.956  HESSIAN 1.1
+          HOH 109.05  HESSIAN 0.2
+          END
+          RUNTYPE OPTIMIZE
+          VECTORS EXTGUESS
+          ENTER 1
+\end{verbatim}
+}
+with the TZVP startup job below using the vectors and hessian
+from the split-valence calculation:
+
+{
+\footnotesize
+\begin{verbatim}
+          DUMPFILE ED3 300
+          TITLE
+          H2O -- TZVP -- RESTARTING FROM 3-21G
+          ZMAT ANGSTROM
+          O 
+          H 1 OH 
+          H 1 OH 2 HOH 
+          VARIABLES
+          OH 0.956  HESSIAN 1.1
+          HOH 109.05  HESSIAN 0.2
+          END
+          BASIS TZVP
+          RUNTYPE OPTIMIZE ED3
+          VECTORS GETQ ED3 1 1
+          ENTER 1
+\end{verbatim}
+}
+Let us assume the above calculation terminated on time up: typical
+restart data is shown below. Note that the RUNTYPE directive
+is as before i.e. still restoring the 3-21G Hessian. If the
+ED3 specification is removed from this line, the job would fail
+immediately since the starting-Hessian will now be
+different from that resident on the `history' file.
+
+{
+\footnotesize
+\begin{verbatim}
+          DUMPFILE ED3 300
+          RESTART OPTIMIZE
+          TITLE
+          H2O -- TZVP -- RESTARTING FROM 3-21G
+          ZMAT ANGSTROM
+          O 
+          H 1 OH 
+          H 1 OH 2 HOH 
+          VARIABLES
+          OH 0.956  HESSIAN 1.1
+          HOH 109.05  HESSIAN 0.2
+          END
+          BASIS TZVP
+          RUNTYPE OPTIMIZE ED3
+          VECTORS 1
+          ENTER 1
+\end{verbatim}
+}
+\item  {\em The optimisation appears to have converged but 
+iterations continue}; if too small a value of XTOL is specified 
+the energy is not sufficiently numerically accurate 
+to justify using line searches. This is especially true 
+when employing default accuracy integrals.
+\item {\em The optimisation will not converge}:
+\begin{itemize}
+\item Check that the starting guess is reasonable
+\item In a SADDLE calculation  the quality of the initial 
+hessian is crucial, and the user should if possible generate this
+at the outset of the optimisation (ie. specify TYPE 3 for all
+the variables) - it should have only one negative eigenvalue
+if the starting point is reasonable.
+\item If a large step is made it is possible for the wavefunction
+to change state. Usually this is manifested by the linear 
+search returning
+to a previous point on the surface, or by exceptionally large values
+in the hessian matrix. To avoid this reduce STEPMAX, and if dealing
+with a closed shell system use LOCK.
+\end{itemize}
+\end{enumerate}
+\subsection{Synchronous Transit Algorithm}
+\begin{enumerate}
+\item {\em Too many z-subspace iterations}: If 
+many more than (n-1) iterations are performed in any one
+z-subspace minimisation then the parameter TOLMAX should be reduced.
+\item {\em The optimisation will not converge}:
+
+\begin{itemize}
+\item Check that the minima have been input correctly
+\item Check that the starting guess is reasonable
+\item Try calculating the full hessian (ie. specify TYPE 3 for all
+the variables) - it should have only one negative eigenvalue
+if the starting point is reasonable.
+\item Sometimes the linear search along the polynomial for a
+maximum causes problems which result in very large rises in energy.
+Occasionally this may be overcome by increasing the VALUE
+parameter so that the linear search is not as rigorous (check
+also that STEPMAX is not too large).
+\end{itemize}
+\end{enumerate}
+
+\section{Direct-CI Calculations}
+
+The internal symmetry manipulations within the Direct-CI module
+are largely hidden from the user, although the re-ordering
+performed to align both internal and external MOs into
+groups of common IRrep is recorded on the output. It is 
+possible for incorrect CONF specification to lead to problems,
+and one of the best ways to monitor such effects is to
+look at the output from the 'pre-sorting' of the transformed
+integrals, a typical example of which is shown below. 
+
+{
+\footnotesize
+\begin{verbatim}
+        **** TRANSFORMED INTEGRAL PRE-SORT CALLED AT   380.21 SECS
+
+        TRANSFORMED 1-ELECTRON INTEGRALS RESTORED FROM SECTION 466 
+        OF DUMPFILE STARTING AT BLOCK       1 OF ED3 
+       
+        *** SYMMETRY CHECK / LARGEST FORBIDDEN H-INTEGRAL :  39  2 -0.40457E-12
+\end{verbatim}
+}
+If there are inconsistencies between the ACTIVE and CONF
+specification, this will almost certainly lead to a large
+value in the symmetry check, in which case the diagonalisation
+results are probably meaningless.
+
+\section{Table-CI Calculations}
+
+In previous releases of the code, failing to allocate, or pre-compute 
+the Table-CI data base lead to an operand range, or related error, 
+at the outset of selection mode processing. This situation has now
+been addressed, with the program checking for correct assignment of
+the data base in the absence of the table directive.
+
+\section{Known Bugs/Issues}
+
+The list of know bugs, as well as a list of feature requests, is
+maintained on the GAMESS-UK CCPForge site at:
+
+\http{http://ccpforge.cse.rl.ac.uk/tracker/?group\_id=14}
+
+If you think you have encountered a bug that is not listed there,
+please send an email to the gamess-uk-users list at:
+
+\http{http://ccpforge.cse.rl.ac.uk/mailman/listinfo/gamess-uk-users}
+
+%% \section{Known Problems in Version 6.0}
+
+%% The following comprises a list of the known problems that
+%% have been reported by users of Version 6.0 of GAMESS-UK. We
+%% are actively working to fix these bugs - should you encounter examples
+%% of these, or any other error, please forward the associated data 
+%% file and error to gamess\_uk\_support@dl.ac.uk.
+
+%% \begin{enumerate}
+
+%% \item {\em Restarting MCSCF Calculations (94-5)}:
+%% Occasionally MCSCF calculations restart incorrectly. This is not, in
+%% general, a serious problem, but can sometimes lead to convergence
+%% problems (with the energy increasing).
+
+%% \item {\em  Error during integral evaluation in DIRECT MP2 (94-8)}:
+%% This sometimes occurs with large DIRECT MP2 calculations, the code
+%% producing an error message stating that the indices for processing 
+%% the integrals are too large. Note that this error refers to the
+%% serial version of the code; it is {\em NOT} evident if the parallel
+%% direct-MP2 described in Part 16.
+
+%% \item {\em Invalid TABLE file (94-10)}:
+%% The MRDCI Table generator on the SGI R8000 gives incorrect
+%% results, producing an invalid TABLE file, This will lead to slight
+%% discrepancies on subsequent MRDCI runs. This problem may be
+%% circumvented by using the TABLE file generated from an R4000
+%% or R4400.
+
+%% \item {\em Incorrect orbital energies with Green's Functions (and TDA)
+%% Calculations (95-7)}:
+%% This error was first detected in a pseudopotential calculation on 
+%% the Nickel complex NiCpNO. This problem remains to be resolved.
+
+%% \item {\em Automatic Generation of z-matrices (95-11)}
+%% The routine which automatically generates a zmatrix from
+%% cartesian coordinates may fail when "non-bonded" atoms are present. 
+%% This error was first reported for a Potassium crown ether, 
+%% with GAMESS failing to bond the potassium to the rest of the structure. 
+%% This has been partially resolved, although the algorithm may still 
+%% fail for sandwich structures e.g., ferrocene.
+
+%% \end{enumerate}
+%% \clearpage
+
+\end{document}

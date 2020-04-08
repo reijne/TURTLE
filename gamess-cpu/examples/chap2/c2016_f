@@ -1,0 +1,43 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ed4 mfged4
+setenv ed12 mfged12
+../../bin/gamess << EOF
+title
+h2co - 3-21g - mp2/rhf - / optimised MP2 
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype optimize
+scftype mp2
+xtol 0.0001
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  mp2/rhf 
+# MP2 feq.  1225.3, 1306.8, 1524.4, 1715.2, 2986.1, 3047.7
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype hessian
+scftype mp2
+enter
+EOF

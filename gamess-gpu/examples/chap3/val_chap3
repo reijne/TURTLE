@@ -1,0 +1,54 @@
+#!/bin/csh
+#
+# validation for chap3
+#
+setenv GAMESS_VTAB ./chap3.vtab
+set path=(../../utilities $path)
+validate c3000  LOG/c3000.log
+validate c3001  LOG/c3001.log
+validate c3002  LOG/c3002.log
+validate c3002a LOG/c3002a.log
+validate c3002b LOG/c3002b.log
+validate c3003  LOG/c3003.log
+validate c3004  LOG/c3004.log
+validate c3005  LOG/c3005.log
+validate c3005a LOG/c3005a.log
+validate c3006  LOG/c3006.log
+validate c3007  LOG/c3007.log
+validate c3008  LOG/c3008.log
+validate c3009  LOG/c3009.log
+validate c3010  LOG/c3010.log
+validate c3011  LOG/c3011.log
+validate c3012  LOG/c3012.log
+validate c3013  LOG/c3013.log
+validate c3014  LOG/c3014.log
+validate c3015  LOG/c3015.log
+validate c3015a LOG/c3015a.log
+validate c3015b LOG/c3015b.log
+validate c3016  LOG/c3016.log
+validate c3016a LOG/c3016a.log
+validate c3016b LOG/c3016b.log
+validate c3017  LOG/c3017.log
+validate c3018  LOG/c3018.log
+validate c3019  LOG/c3019.log
+validate c3020  LOG/c3020.log
+validate c3020a  LOG/c3020a.log
+#  n.b. c3021 requires extensive disk space 
+#validate c3021  LOG/c3021.log
+#
+validate c3022  LOG/c3022.log
+validate c3023  LOG/c3023.log
+validate c3023a  LOG/c3023a.log
+validate c3023b  LOG/c3023b.log
+validate c3024  LOG/c3024.log
+validate c3025  LOG/c3025.log
+validate c3026  LOG/c3026.log
+validate c3026a  LOG/c3026a.log
+validate c3026b  LOG/c3026b.log
+validate c3026c  LOG/c3026c.log
+validate c3027  LOG/c3027.log
+validate c3028  LOG/c3028.log
+validate c3029  LOG/c3029.log
+validate c3030  LOG/c3030.log
+validate c3031  LOG/c3031.log
+validate c3032  LOG/c3032.log

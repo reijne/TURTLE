@@ -1,0 +1,22 @@
+c
+      integer ngrpol,igrpol
+      common /polgrp/ ngrpol,igrpol(mxgrp+1)
+c
+      REAL grpol
+      common /grpols/ grpol(6,mxgrp+1)
+c
+      integer nvalgrp
+      common /grpnval/ nvalgrp(mxgrp+1)
+c
+      integer igranl
+      common /grpanl/ igranl(mxpts)
+c
+      integer imemgrp
+      common /grpmem/ imemgrp(mxpts)
+c
+      integer neqgrp
+      common /grpneq/ neqgrp(mxgran)
+c
+      character*80 grlabel
+      common /grlab/ grlabel(mxgrp)
+c

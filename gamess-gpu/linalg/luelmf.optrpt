@@ -1,0 +1,59 @@
+
+Begin optimization report for: LUELMF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at luelmf.f(40,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at luelmf.f(40,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(40,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(40,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(40,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at luelmf.f(43,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at luelmf.f(49,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(49,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(49,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at luelmf.f(56,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at luelmf.f(61,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(61,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at luelmf.f(61,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

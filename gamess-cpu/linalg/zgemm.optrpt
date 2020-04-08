@@ -1,0 +1,222 @@
+
+Begin optimization report for: ZGEMM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zgemm.f(212,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(213,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(213,22)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(213,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(218,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(219,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(219,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(234,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(236,26)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(236,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(236,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(240,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(244,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(247,30)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(247,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(240,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(257,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(258,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(260,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(274,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(275,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(277,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(277,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(293,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(295,26)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(295,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(295,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(299,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(303,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(306,30)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(306,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(299,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(316,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(318,26)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(318,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(318,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(322,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(326,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(329,30)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(329,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zgemm.f(322,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(341,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(342,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(344,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(358,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(359,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(361,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(377,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(378,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(380,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgemm.f(394,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgemm.f(395,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zgemm.f(397,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zgemm.f(397,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

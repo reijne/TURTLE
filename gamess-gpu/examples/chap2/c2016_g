@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+HCN <--> CNH Transition State
+geometry angs
+0.        0.          0.   7.0  n
+1.22      0.          0.   6.0  c
+0.8696721 1.147724    0.   1.0  h
+end
+iprint dist
+basis sto3g
+runtype hessian
+scftype rhf
+enter
+EOF
+../../bin/gamess << EOF
+time 10.
+restart new
+title
+  HCN <--> CNH Transition State
+geometry angs
+0.        0.          0.   7.0  n
+1.22      0.          0.   6.0  c
+0.8696721 1.147724    0.   1.0  h
+end
+iprint dist
+basis sto3g
+runtype irc
+scftype rhf
+irc
+pace linear imk-stable end
+npoint 60
+forward
+nextpnt 2
+stride 0.075
+tsenergy
+saddle
+end
+vect atoms
+enter
+EOF

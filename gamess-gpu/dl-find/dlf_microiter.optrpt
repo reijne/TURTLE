@@ -1,0 +1,269 @@
+
+Begin optimization report for: DLF_MICROITER_CHECK_MACROSTEP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(233,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(236,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(236,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(236,6)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_RESET_MACROSTEP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(268,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(272,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(272,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(272,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(273,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(273,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(273,6)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(273,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(278,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(278,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(278,6)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(278,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(280,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(280,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(280,6)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_ENTER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(315,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(315,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(315,3)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_ITOMIC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(360,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(365,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_microiter_d.F90(365,6)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(365,6)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(365,6)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(365,6)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(366,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_microiter_d.F90(366,6)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(366,6)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(366,6)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_microiter_d.F90(366,6)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_SCALESTEP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(437,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(437,3)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(437,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(437,3)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(437,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_STEP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(469,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(474,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(474,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(474,6)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(474,6)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(477,6)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(477,6)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(477,6)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(477,6)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_MICROITER_TEST_ACCEPTANCE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_microiter_d.F90(522,6)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_microiter_d.F90(527,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(527,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(527,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(527,9)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(530,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(530,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(530,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_microiter_d.F90(530,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

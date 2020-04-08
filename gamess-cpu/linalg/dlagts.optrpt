@@ -1,0 +1,65 @@
+
+Begin optimization report for: DLAGTS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlagts.f(144,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlagts.f(144,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlagts.f(144,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlagts.f(144,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlagts.f(144,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlagts.f(155,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 157 and  line 160
+LOOP END
+
+LOOP BEGIN at dlagts.f(165,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlagts.f(230,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlagts.f(291,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 293 and  line 297
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlagts.f(193,16)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlagts.f(205,25)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlagts.f(258,16)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlagts.f(270,25)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+===========================================================================

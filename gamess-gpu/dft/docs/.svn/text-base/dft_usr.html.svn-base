@@ -1,0 +1,840 @@
+<HTML>
+<HEAD>
+   <TITLE>
+      GAMESS-UK Density Functional Theory (DFT) User Manual 
+   </TITLE>
+   <META NAME="description" 
+         CONTENT="GAMESS-UK user manual on the CCP1 Density Functional Theory 
+                  (DFT) module">
+   <META NAME="keywords" 
+         CONTENT="DFT Lebedev Gauss-Legendre Euler-MacLaurin logarithmic ">
+   <META NAME=resource-type"
+         CONTENT="document">
+   <META NAME="distribution" 
+         CONTENT="global">
+</HEAD>
+<BODY bgcolor="#ffffff"
+      link="#0000f0"
+      alink="#000080"
+      vlink="#000080"
+      lang="EN">
+
+<FONT COLOR="#005511"><I>
+Computing for Science (CFS) Ltd.,<BR> 
+CCLRC Daresbury Laboratory.<BR>
+Generalised Atomic and Molecular Electronic Structure System <BR>
+<BR></I> </FONT>
+
+<FONT COLOR="#000080">
+<H2>G&nbsp;A&nbsp;M&nbsp;E&nbsp;S&nbsp;S&nbsp;-&nbsp;U&nbsp;K<BR>
+</H2>
+</FONT>
+
+<FONT COLOR="#000080">
+<H2>USER'S GUIDE and REFERENCE MANUAL<BR>
+Version 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;January 1998<BR>
+PART ?. Density Functional Theory (DFT)<BR> 
+</H2>
+</FONT>
+<BR> 
+
+<FONT COLOR="#005511"><I>
+M.F. Guest, J. Kendrick, J.H. van Lenthe and P. Sherwood<BR>
+<P>
+Copyright (c) 1993,1994,1995,1996,1997,1998 Computing for Science Ltd.<BR>
+This document may be freely reproduced provided that it is reproduced<BR> 
+unaltered and in its entirety.<BR>
+<P>
+</I></FONT>
+<BR> 
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="contents">
+<H2>Contents</H2>
+</A>
+<UL>
+<LI><A HREF="#preface">Preface</A>
+<LI><A HREF="#introduction">Introduction</A>
+    <UL>
+    <LI><A HREF="#intro_program_and_input">
+        The structure of the program and input</A>
+    <LI><A HREF="#intro_functionals">
+        The functionals</A>
+    <LI><A HREF="#intro_grids">
+        The integration grids</A>
+    <LI><A HREF="#intro_integration_efficiency">
+        Improving integration efficiency</A>
+    </UL>
+<LI><A HREF="#default_settings">Default settings</A>
+<LI><A HREF="#directives">Directives</A>
+    <UL>
+    <LI><A HREF="#cdft"><CODE>CDFT</CODE></A>
+    <LI><A HREF="#functionals">Selecting functionals</A>
+        <UL>
+        <LI><A HREF="#hfex"><CODE>HFEX</CODE></A>
+        <LI><A HREF="#becke88"><CODE>BECKE88</CODE></A>
+        <LI><A HREF="#lyp"><CODE>LYP</CODE></A>
+        <LI><A HREF="#nocorr"><CODE>NOCORR</CODE></A>
+        <LI><A HREF="#b3lyp"><CODE>B3LYP</CODE></A>
+        </UL>
+    <LI><A HREF="#grids">Selecting integration grids</A>
+        <UL>
+        <LI><A HREF="#lebedev"><CODE>LEBEDEV</CODE></A>
+        <LI><A HREF="#gauss-legendre"><CODE>GAUSS-LEGENDRE</CODE></A>
+        <LI><A HREF="#euler-maclaurin"><CODE>EULER-MACLAURIN</CODE></A>
+        <LI><A HREF="#scale"><CODE>SCALE</CODE></A>
+        <LI><A HREF="#weight"><CODE>WEIGHT</CODE></A>
+        <LI><A HREF="#screen"><CODE>SCREEN</CODE></A>
+        <LI><A HREF="#quadrature"><CODE>QUADRATURE</CODE></A>
+        <LI><A HREF="#angprune"><CODE>ANGPRUNE</CODE></A>
+        </UL>
+    </UL>
+<LI><A HREF="#references">References</A>
+</UL>
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="preface">
+<H2>Preface</H2>
+</A>
+This document describes the use of the CCP1 DFT module included in GAMESS-UK. 
+The DFT module was produced at Daresbury Laboratory on request of the academic 
+community in the United Kingdom and was funded through CCP1. The aims of the 
+project are 
+<OL>
+<LI>to promote a major UK presence in the area of DFT methodology,
+<LI>to develop a full featured DFT code and to demonstrate the code on a
+    variety of chemical problems,
+<LI>and to target those developments to both present and future generations of
+    massively parallel hardware.
+</OL>
+The project is supervised by the CCP1 DFT project working group comprising
+Prof. Nicholas Handy, Prof. Peter Knowles, Prof. Mike Robb, Dr. Chris Reynolds,
+and Vic Saunders. Coding started in 1994 by Dr. Phillip Young.
+</P><P>
+In order to allow many academic groups to benefit from the module code it was
+designed with portability in mind. As a consequence it may be present in a 
+variety of programs but this documentation is particular to the way the module
+has been incorporated in GAMESS-UK.
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="introduction">
+<H2>Introduction</H2>
+</A>
+Here those aspects particular to DFT that play an essential role in setting up
+a sensible input will be touched upon. The emphasis is on introducing the
+concepts that can be controlled through the various directives. For details, 
+please see the description of the directives.
+
+<A NAME="intro_program_and_input">
+<H3>The structure of the program and the input</H3>
+</A>
+After the variational theorems for Density Functional Theory had been proven by
+Hohenberg and Kohn 
+[<A HREF="#Hohenberg:1964">Hohenberg:1964</A>]
+Kohn and Sham
+[<A HREF="#Kohn:1965">Kohn:1965</A>]
+devised a self consistent formalism to put the theory to work.
+They wrote the energy functional of the density as 
+<DL>
+<DD><I>G[n] = T<SUB>s</SUB>[n]+E<SUB>xc</SUB>[n]</I>
+</DD>
+</DL>
+where <I>T<SUB>s</SUB>[n]</I> is the kinetic energy of a system of
+non-interacting electrons with density <I>n(r)</I> and <I>E<SUB>xc</SUB>[n]</I>
+is, by definition, the exchange-correlation energy. 
+</P><P>
+The important observation by Kohn and Sham is that the above approach leads to 
+self consistent equations that are very similar to the Hartree-Fock equations.
+The only difference is that the exchange term in the Hartree-Fock equations is
+replaced by the exchange-correlation term. 
+</P><P>
+The consequence of this observation is that nearly every DFT program is 
+implemented as a modified Hartree-Fock program. The DFT part of GAMESS-UK
+is no exception. Therefore the input for a DFT calculation is essentially a
+Hartree-Fock input with some additional keywords to control the DFT specific
+modifications.
+</P><P>
+For example a DFT input for H<SUB>2</SUB>O could be
+<DL>
+<DD>
+<PRE>
+title
+h2o sto3g
+zmat angstrom
+    o
+    h 1 roh
+    h 1 roh 2 hoh
+variables
+    roh 0.95
+    hoh 104.5
+end
+basis sto3g
+scftype rhf
+cdft
+vectors atoms
+enter 1
+</PRE>
+</DD>
+</DL>
+The directive <CODE>CDFT</CODE> switches on the DFT specific modifications to 
+the Hartree-Fock scheme. Leaving the directive out would yield the corresponding
+Hartree-Fock input.
+</P>
+
+<P>
+<A NAME="intro_functionals">
+<H3>The functionals</H3>
+</A>
+An essential result from the paper by Hohenberg and Kohn 
+[<A HREF="#Hohenberg:1964">Hohenberg:1964</A>]
+that DFT would yield the exact ground state energy and electron density if the
+exchange-correlation functional was known. In practice the exact functional is
+unknown but one may try some approximate functional. This has lead to a 
+extensive search for functionals with new ones being published each month. 
+</P><P>
+Because the quality of the results depends critically on the functional 
+selecting a proper functional will be a central theme in generating an input.
+</P>
+
+<P>
+<A NAME="intro_grids">
+<H3>The integration grids</H3>
+</A>
+Another issue related to the functionals stems from their form. Namely most 
+functionals have a form such that they can not be intregrated analytically 
+over all space. Therefore, the exchange-correlation energy can be evaluated
+only through numerical integration. 
+</P><P>
+It was found that this numerical integration could only be succesful if the 
+integration grid is adapted to the particular features of the molecular 
+density. These features are that the density is high and nearly spherically 
+symmetric near the nuclei. Between the nuclei the density has less symmetry and
+is smaller. However because most of the chemistry depends on the density between
+the nuclei accurate integration in that region is essential.
+</P><P>
+To devise integration grids adapted to these features the atoms of a molecule
+were taken as the central points. Each nucleus would be the center of a set of 
+spherical grids with ever larger radii. The simplest way to obtain such a grid
+would be to take the Cartesian product of a radial grid with a spherical grid.
+But more advanced schemes can be engineered. 
+</P><P>
+Once the atomic grids have been constructed they have to be merged into a 
+molecular grid. To avoid artefacts from the finite size of the atomic grids it 
+is essential that grid points be faded out if they get to close to another atom.
+So called weighting functions were designed for this purpose. 
+</P><P>
+So for proper integration the selection of angular grids, radial grids and
+weighting functions has to be addressed.
+</P>
+
+<P>
+<A NAME="intro_integration_efficiency">
+<H3>Improving integration efficiency</H3>
+</A>
+Although the above approach properly defines the molecular integration grid
+the efficiency of applying this grid can be improved through 2 strategies:
+<DL>
+<DT>Screening
+<DD>This is based on removing grid points or functions at grid points that
+    contribute little to the exchange-correlation energy from the calculation
+    as soon as possible.
+<DT>Pruning
+<DD>This is based on replacing 2 close grid points by 1 new grid point.
+    (Not implemented in the current version.)
+</DL>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="default_settings">
+<H2>Default settings</H2>
+</A>
+If the DFT module is switched on without specifying any options then the 
+settings used will include
+<UL>
+<LI>the LDA exchange functional
+<LI>the Vosko, Wilk, and Nusair (VWN) correlation functional 
+    [<A HREF="#Vosko:1980">Vosko:1980</A>]
+<LI>the Standard Grid No. 1 (SG1)
+    [<A HREF="#Gill:1993">Gill:1993</A>]
+    implying
+    <UL>
+    <LI> Lebedev angular grids
+         [<A HREF="#Lebedev:1975">Lebedev:1975</A>,
+          <A HREF="#Lebedev:1976">Lebedev:1976</A>,
+          <A HREF="#Lebedev:1977">Lebedev:1977</A>]
+    <LI> Euler-MacLaurin radial grids
+         [<A HREF="#Murray:1993">Murray:1993</A>], with 50 points
+    <LI> Different angular grid sizes in different radial regimes, 
+         employing 6, 38, 86, 194, 86 point angular grids from the
+         nucleus outward
+    <LI> Becke weighting scheme
+         [<A HREF="#Becke:1988a">Becke:1988a</A>]
+    </UL>
+<LI>no screening 
+<LI>no pruning
+</UL>
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="directives">
+<H2>Directives</H2>
+</A>
+</P>
+
+<P>
+<A NAME="cdft">
+<H3><CODE>CDFT</CODE></H3>
+</A>
+The <CODE>CDFT</CODE> directive is meant to switch on the DFT module. All 
+options following it on the same line will be passed to the DFT module.
+The directive may be repeated on as many lines as one desires. This offers the
+possibility to split long lines of options into several lines.
+</P><P>
+To work properly the directive should always appear after a <CODE>SCFTYPE</CODE>
+directive and before a <CODE>VECTORS</CODE> directive.
+</P><P>
+For example
+<DL>
+<DD>
+<PRE>
+...
+scftype rhf
+cdft 
+vectors atoms
+enter 1
+</PRE>
+</DL>
+switches on the DFT module with the default settings. Entering
+<DL>
+<DD>
+<PRE>
+...
+scftype rhf
+cdft becke lyp
+vectors atoms
+enter 1
+</PRE>
+</DL>
+tells the program to perform a DFT calculation with the Becke88 exchange 
+functional
+[<A HREF="#Becke:1988">Becke:1988</A>]
+and the LYP correlation functional
+[<A HREF="#Lee:1988">Lee:1988</A>]. 
+Exactly the same is effected though inputting
+<DL>
+<DD>
+<PRE>
+...
+scftype rhf
+cdft becke 
+cdft lyp
+vectors atoms
+enter 1
+</PRE>
+</DL>
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=3>
+</P>
+
+<P>
+<A NAME="functionals">
+<H2>Directives selecting functionals</H2>
+</A>
+</P>
+
+<P>
+<A NAME="hfex">
+<H3><CODE>HFEX</CODE></H3>
+</A>
+The directive <CODE>HFEX</CODE> selects the Hartree-Fock exchange term as the
+exchange functional.
+</P>
+<P>
+
+<A NAME="becke88">
+<H3><CODE>BECKE88</CODE></H3>
+</A>
+The directive <CODE>BECKE88</CODE> selects the Becke88 exchange functional
+[<A HREF="#Becke:1988">Becke:1988</A>]. 
+This is a gradient-corrected exchange energy functional with correct <I>1/r</I>
+asymptotic behaviour of the exchange-energy density.
+</P>
+
+<P>
+<A NAME="lyp">
+<H3><CODE>LYP</CODE></H3>
+</A>
+The directive <CODE>LYP</CODE> selects the Lee, Yang and Parr correlation 
+energy functional
+[<A HREF="#Lee:1988">Lee:1988</A>].
+</P>
+
+<P>
+<A NAME="nocorr">
+<H3><CODE>NOCORR</CODE></H3>
+</A>
+The directive <CODE>NOCORR</CODE> selects the nill functional for the 
+correlation energy. I.e. it switches all correlation energy functionals off.
+</P>
+
+<P>
+<A NAME="b3lyp">
+<H3><CODE>B3LYP</CODE></H3>
+</A>
+The directive <CODE>B3LYP</CODE> selects the exchange-correlation 
+energy functional by Becke
+[<A HREF="#Beck:1993">Becke:1993</A>].
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=3>
+</P>
+
+<P>
+<A NAME="grids">
+<H2>Directives selecting integration grids</H2>
+</A>
+</P>
+
+<P>
+<A NAME="lebedev">
+<H3><CODE>LEBEDEV [<I>NPT<SUB>1</SUB> RZ<SUB>1</SUB></I> 
+                  [<I>NPT<SUB>2</SUB> RZ<SUB>2</SUB></I> [...] ] ] <I>NPT</I>
+    </CODE></H3>
+</A>
+The directive <CODE>LEBEDEV</CODE> selects the grids by Lebedev for the
+angular integration
+[<A HREF="#Lebedev:1975">Lebedev:1975</A>,
+ <A HREF="#Lebedev:1976">Lebedev:1976</A>,
+ <A HREF="#Lebedev:1977">Lebedev:1977</A>].
+These grids have been designed to integrate polynomials on a sphere exactly 
+upto a specific order. 
+Grids with 6, 18, 26, 38, 50, 86, 110, 146, 194, 266, 302, and 434 points are
+supported. To select a grid specify the required number of points 
+<I><CODE>NPT</CODE></I>.
+</P><P>
+It has been noted that close to the nucleus the density is more spherically
+symmetric than at larger distances. Therefore a smaller angular grid can be used
+for smaller radii. To select different angular grid for different radii 
+<CODE><I>NPT</I></CODE> may be preceeded by a number of pairs of
+the form <CODE><I>NPT<SUB>i</SUB> RZ<SUB>i</SUB></I></CODE>:
+<DL>
+<DT><CODE><I>RZ<SUB>i</SUB></I></CODE>
+<DD>The floating point values of the <CODE><I>RZ<SUB>i</SUB></I></CODE> 
+    subdivide the radial coordinate into different zones. Where the values
+    <CODE><I>RZ<SUB>i</SUB></I></CODE> are fractions of the Bragg-Slater radius
+    [<A HREF="#Slater:1964">Slater:1964</A>]
+    of the atom. Each zone runs from <CODE><I>RZ<SUB>i-1</SUB></I></CODE> to
+    <CODE><I>RZ<SUB>i</SUB></I></CODE>. The first zone starts at 0 and the last
+    zone runs upto infinity.
+<DT><CODE><I>NPT<SUB>i</SUB></I></CODE>
+<DD>The grid size in the <I>i</I>-th radial zone.
+</DL>
+</P><P>
+Lebedev published the grids with 38, 50, 86, 110, 146, 194, 266, 302, and 434
+points to be exact for polynomials upto orders 9, 11, 15, 17, 19, 23, 27,
+29, and 35 respectively.
+</P>
+
+<P>
+<A NAME="gauss-legendre">
+<H3><CODE>GAUSS-LEGENDRE 
+          [<I>NTHETA<SUB>1</SUB> RZ<SUB>1</SUB></I>
+          [<I>NTHETA<SUB>2</SUB> RZ<SUB>2</SUB></I> [...] ] ]
+          <I>NTHETA</I></CODE></H3>
+</A>
+The directive <CODE>GAUSS-LEGENDRE</CODE> or shorter <CODE>GAUSS</CODE> selects
+a Gauss-Legendre grid for the angular integration. This grid is based on 
+separating functions on a sphere into 2 functions of angles, 
+<I>theta (0 &lt;= theta &lt;= Pi)</I> and <I>phi (0 &lt;= phi &lt;= 2Pi)</I>
+resepctively.
+The total grid size is specified through the number of grid points 
+<I><CODE>NTHETA</CODE></I> in the <I>theta</I> coordinate. 
+The number of points in the <I>phi</I> coordinate will be simply 
+<I>2 * <CODE>NTHETA</CODE></I>, so that the total angular
+grid size will be <I>2 * <CODE>NTHETA</CODE><SUP>2</SUP></I>.
+</P><P>
+It has been noted that close to the nucleus the density is more spherically
+symmetric than at larger distances. Therefore a smaller angular grid can be used
+for smaller radii. To select different angular grid for different radii 
+<CODE><I>NTHETA</I></CODE> may be preceeded by a number of pairs of
+the form <CODE><I>NTHETA<SUB>i</SUB> RZ<SUB>i</SUB></I></CODE>:
+<DL>
+<DT><CODE><I>RZ<SUB>i</SUB></I></CODE>
+<DD>The floating point values of the <CODE><I>RZ<SUB>i</SUB></I></CODE> 
+    subdivide the radial coordinate into different zones. Where the values
+    <CODE><I>RZ<SUB>i</SUB></I></CODE> are fractions of the Bragg-Slater radius
+    [<A HREF="#Slater:1964">Slater:1964</A>]
+    of the atom. Each zone runs from <CODE><I>RZ<SUB>i-1</SUB></I></CODE> to
+    <CODE><I>RZ<SUB>i</SUB></I></CODE>. The first zone starts at 0 and the last
+    zone runs upto infinity.
+<DT><CODE><I>NTHETA<SUB>i</SUB></I></CODE>
+<DD>The number of points in the theta coordinate in the <I>i</I>-th radial zone.
+</DL>
+</P>
+
+<P>
+<A NAME="euler-maclaurin">
+<H3><CODE>EULER-MACLAURIN <I>NPT</I></CODE></H3>
+</A>
+The directive <CODE>EULER-MACLAURIN</CODE> or shorter <CODE>EULER</CODE> selects
+the Euler-MacLaurin radial integration grid
+[<A HREF="#Murray:1993">Murray:1993</A>].
+The grid size is specified through the number of grid points 
+<I><CODE>NPT</CODE></I>.
+</P><P>
+The grid points will be located at
+<DL> 
+<DD> 
+<PRE><I>
+            x<SUB>i</SUB><SUP>2</SUP>
+r<SUB>i</SUB> = a * ---------,   0 &lt i &lt <CODE>NPT</CODE>+1
+         (1 - x<SUB>i</SUB>)<SUP>2</SUP>
+
+       i
+x<SUB>i</SUB> = -----
+     <CODE>NPT</CODE>+1
+</I></PRE>
+</DD>
+</DL>
+where <I>a</I> is an element dependent scale factor. Note that all points with
+<I>i &gt; (<CODE>NPT</CODE>+1)/2</I> will have <I>r<SUB>i</SUB> &gt; a</I>. 
+Moreover the most distant point will be at 
+<I>r<SUB>i</SUB> = a * <CODE>NPT</CODE><SUP>2</SUP></I>.
+In practice this means that relatively many points will be far from the nucleus.
+</P>
+
+<P>
+<A NAME="scale">
+<H3><CODE>SCALE <I>FACTOR</I></CODE></H3>
+</A>
+The directive <CODE>SCALE</CODE> offers the possibility to scale the radial
+grids of all atoms by a uniform factor <I><CODE>FACTOR</CODE></I>. This may 
+prove helpful in moving points into a sensible range, especially with the 
+<A HREF="#euler-maclaurin">Euler-MacLaurin</A> grid
+[<A HREF="#Murray:1993">Murray:1993]</A>.
+</P>
+
+<P>
+<A NAME="weight">
+<H3><CODE>WEIGHT <I>SCHEME</I></CODE></H3>
+</A>
+The directive <CODE>WEIGHT</CODE> allows to select a weighting scheme to 
+combine the atomic integration grids to a molecular integration grid.
+In order to select the desired weighting scheme set <I><CODE>SCHEME</CODE></I> 
+to the name of the scheme.
+</P><P>
+Currently the following weighting schemes are supported
+<DL>
+<DT>BECKE
+<DD>The original Becke weighting scheme 
+    [<A HREF="#Becke:1988a">Becke:1988a</A>].
+<DT>BECKESCR
+<DD>The Becke weighting scheme
+    [<A HREF="#Becke:1988a">Becke:1988a</A>]
+    with additional screening.
+<DT>HML
+<DD>The Murray, Handy and Laming weighting scheme
+    [<A HREF="#Murray:1993">Murray:1993</A>]. 
+    This scheme differs from the Becke scheme in that it used a different
+    cell function. It leads to more accurate integrals than the Becke scheme.
+<DT>SSF
+<DD>The Stratmann, Scuseria and Frisch weighting scheme
+    [<A HREF="#Stratmann:1996">Stratmann:1996</A>].
+    For sufficiently large quadrature grids this scheme seems to be the most
+    accurate.
+<DT>SSFSCR
+<DD>The Stratmann, Scuseria and Frisch weighting scheme
+    [<A HREF="#Stratmann:1996">Stratmann:1996</A>]
+    with additional screening.
+</DL>
+The screening referred to removes those grid points that after weighting have 
+a weight factor close to zero. This may improve the efficiency significantly.
+</P>
+
+<P>
+<A NAME="screen">
+<H3><CODE>SCREEN [PSI <I>PSITOL</I>] [P <I>DENTOL</I>] [RHO <I>RHOTOL</I>] 
+    [CONV]</CODE></H3>
+</A>
+The directive <CODE>SCREEN</CODE> switches on the screening of grid points. 
+Optionally floating point number tolerances for various quantities may be set, 
+and the quadrature grid size may be changed dynamically with the convergence
+of the calculation.
+<DL>
+<DT><CODE>PSI <I>PSITOL</I></CODE>
+<DD>This criterion is used in generating the radial grids for the atoms. 
+    Based on this criterion a radius is computed for every atom beyond which
+    the most diffuse basis function is assumed to be zero. When building the
+    radial grid all grid points that would end up outside this radius will be
+    discarded. 
+</DD>
+<DT><CODE>P <I>DENTOL</I></CODE>
+<DD>The tolerance for the (spin) density in a particular point. If the 
+    (spin) density in a point is less than the tolerance the point will not be 
+    used in the integration of the functionals.
+</DD>
+<DT><CODE>RHO <I>RHOTOL</I></CODE>
+<DD>The tolerance for the (spin) density in a batch of grid points. If the
+    maximal (spin) density in a batch of grid points is below the tolerance the
+    whole batch will excluded from the functional integration.
+</DD>
+<DT><CODE>CONV</CODE>
+<DD>This option switches on the dynamic adaption of the quadrature precision 
+    with the convergence of the calculation. The idea is that if the Kohn-Sham
+    orbitals are not very precise than there is no reason to integrate the
+    exchange-correlation energy very accurately. Through choosing a smaller
+    quadrature computation can be save in the early iterations. Along with 
+    the calculation converging the quadrature is improved. Near the convergence
+    criterion the full quadrature grid as input will be applied.
+</DD>
+</DL>
+The use of screening may improve the efficiency significantly.
+</P>
+
+<P>
+<A NAME="quadrature">
+<H3><CODE>QUADRATURE LOW/MEDIUM/HIGH/VERYHIGH</CODE></H3>
+</A>
+This directive can be used to select a quadrature grid that should yield the
+selected accuracy. The grids generated when using this directive are constructed
+from 
+<UL>
+<LI> the logarithmic radial grid 
+     [<A HREF="#Mura:1996">Mura:1993</A>],
+<LI> the Gauss-Legendre angular grid,
+<LI> and using the SSF weighting scheme with screening 
+     [<A HREF="#Stratman:1996">Stratmann</A>],
+<LI> and the MHL angular grid pruning
+     [<A HREF="#Murray:1993">Murray:1993</A>.
+</UL>
+The available accuracies are
+<DL>
+<DT><CODE>LOW</CODE>
+<DD> The low accuracy grid is to be used only for a first guess of the real 
+     answer.
+     It is designed to obtain the total number of electrons from the density 
+     integration with a relative error of 1.0e-4 per atom.
+<DT><CODE>MEDIUM</CODE>
+<DD> The medium accuracy grid is designed to obtain a relative error of less
+     than 1.0e-6 in the number of electrons per atom.
+<DT><CODE>HIGH</CODE>
+<DD> The high accuracy grid is designed to obtain a relative error of less
+     than 1.0e-8 in the number of electrons per atom.
+<DT><CODE>VERYHIGH</CODE>
+<DD> The veryhigh accuracy grid is meant for benchmark type of calculations. 
+     It is designed to be significantly more accurate than the high accuracy
+     grid.
+</DL>
+<P>
+<A NAME="angprune">
+<H3><CODE>ANGPRUNE</CODE></H3>
+</A>
+This directive switches the angular grid prune as function of the radius on. It
+uses the scheme proposed by Murray, Handy and Laming 
+[<A HREF="#Murray:1993">Murray:1993</A>].
+They proposed to choose the number of angular grid points according to the
+equation
+<CENTER>
+<I>n<SUB>theta</SUB></I> = 
+   min (<I>K<SUB>theta</SUB>N<SUB>theta</SUB>r</I>/<I>r</I><SUB>Bragg</SUB>,
+        <I>N<SUB>theta</SUB></I> )
+</CENTER>
+where
+<DL>
+<DT><I>n<SUB>theta</SUB></I>
+<DD> is the current number of grid points in the theta coordinate
+<DT><I>N<SUB>theta</SUB></I>
+<DD> is the maximum number of grid points in the theta coordinate,
+<DT><I>K<SUB>theta</SUB></I>
+<DD> is some scaling factor which is set to 5 in as suggested by Murray et al. 
+<DT><I>r</I><SUB>Bragg</SUB>
+<DD> is the Bragg-Slater radius of the atom
+<DT><I>r</I>
+<DD> is the radius of the current angular shell.
+</DL>
+</P><P>
+From the above equation it is clear that this pruning scheme is designed to be
+used with the Gauss-Legendre angular grid. When it is applied to the Lebedev
+grids the total number of grid points is set to 
+2<I>n<SUB>theta</SUB></I><SUP>2</SUP> and then truncate to the first smaller 
+sized Lebedev grid.
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+
+<P>
+<A NAME="references">
+<H2>References</H2>
+</A>
+<DL>
+<DT><A NAME="Mura:1996">Mura:1996</A>
+<DD>Michael E. Mura, and Peter J. Knowles<BR>
+    <I>Improved radial grids for quadrature in molecular density-functional
+    calculations</I><BR>
+    The journal of chemical physics <B>104</B> (1996) 9848-9858.
+</DD>
+</P><P>
+<DT><A NAME="Stratmann:1996">Stratmann:1996</A>
+<DD>R. Eric Stratmann, Gustavo E. Scuseria, and Michael J. Frisch<BR>
+    <I>Achieving linear scaling in exchange-correlation density functional
+    quadratures</I><BR>
+    Chemical Physics Letters <B>257</B> (1996) 213-223.
+</DD>
+</P><P>
+<DT><A NAME="Johnson:1995">Johnson:1995</A>
+<DD>Benny G. Johnson<BR>
+    <I>Development, implementation and applications of efficient methodologies
+    for density functional calculations</I> pages 169 and further<BR>
+    In: J. M. Seminario and P. Politzer (Ed.)<BR>
+    <I>Modern Density Functional Theory: A Tool for Chemistry</I><BR>
+    Theoretical and Computational Chemistry, Vol. 2<BR>
+    (Elsevier Science B.V., 1995)
+</DD>
+</P><P>
+<DT><A NAME="Becke:1993">Becke:1993</A>
+<DD>Axel D. Becke<BR>
+    <I>Density-functional thermochemistry. III.
+    The role of exact exchange</I><BR>
+    Journal of Chemical Physics <B>98</B> (1993) 5648.
+</DD>
+</P><P>
+<DT><A NAME="Gill:1993">Gill:1993</A>
+<DD>Peter M. W. Gill, Benny G. Johnson, and John A. Pople<BR>
+    <I>A standard grid for density functional calculations</I><BR>
+    Chemical Physics Letters <B>209</B> (1993) 506-512.
+</DD>
+</P><P>
+<DT><A NAME="Murray:1993">Murray:1993</A>
+<DD>Christopher W. Murray, Nicholas C. Handy, and Gregory J. Laming<BR>
+    <I>Quadrature schemes for integrals of density functional theory</I><BR>
+    Molecular Physics <B>78</B> (1993) 997.
+</DD>
+</P><P>
+<DT><A NAME="Becke:1988">Becke:1988</A>
+<DD>Axel D. Becke<BR>
+    <I>Density-functional exchange-energy approximation with correct asymptotic
+    behaviour</I><BR>
+    Physical Reviews <B>A38</B> (1988) 3098.
+</DD>
+</P><P>
+<DT><A NAME="Becke:1988a">Becke:1988a</A>
+<DD>Axel D. Becke<BR>
+    <I>A multicenter numerical integration scheme for polyatomic
+    molecules</I><BR>
+    Journal of Chemical Physics <B>88</B> (1988) 2547.
+</DD>
+</P><P>
+<DT><A NAME="Lee:1988">Lee:1988</A>
+</P><P>
+<DD>Chengteh Lee, Weitao Yang, and Robert G. Parr<BR>
+    <I>Development of the Colle-Salvetti correlation-energy formula into a
+       functional of the density</I><BR>
+       Physical Reviews <B>B37</B> (1988) 785-789.
+</DD>
+</P><P>
+<DT><A NAME="Vosko:1980">Vosko:1980</A>
+<DD>S. J. Vosko, L. Wilk, and M. Nusair<BR>
+    The Canadian Journal of Physics <B>58</B> (1980) 1200.
+</DD>
+</P><P>
+<DT><A NAME="Lebedev:1977">Lebedev:1977</A>
+<DD>V. I. Lebedev<BR>
+    <I>Spherical quadrature formulas exact to orders 25-29</I> (Eng.)<BR>
+    Siberian Mathematical Journal <B>18</B> (1977) 99-107.
+    <DL>
+    <DD>
+    <B>Erratum:</B> There is a typo on page 103 of this paper. For <I>n = 27</I>
+    it should read <I>m<SUB>5</SUB> = 0.9896948074629</I> in stead of the
+    <I>0.9869...</I> printed.
+    </DD>
+    </DL>
+</DD>
+</P><P>
+<DT><A NAME="Lebedev:1976">Lebedev:1976</A>
+<DD>V. I. Lebedev<BR>
+    <I>Quadratures on a sphere</I> (Eng.)<BR>
+    Computational Mathematics and Mathematical Physics <B>16</B> (1976) 10-24.
+</DD>
+</P><P>
+<DT><A NAME="Lebedev:1975">Lebedev:1975</A>
+<DD>V. I. Lebedev<BR>
+    <I>Values of the nodes and weights of ninth to seventeenth order
+       Gauss-Markov quadrature formulae invariant under the octahedron group
+       with inversion</I> (Eng.)<BR>
+    Computational Mathematics and Mathematical Physics <B>15</B> (1975) 44-51.
+</DD>
+</P><P>
+<DT><A NAME="Clementi:1967">Clementi:1967</A>
+<DD>E. Clementi, D. L. Raimondi, and W. P. Reinhardt<BR>
+    <I>Atomic Screening Constants from SCF Functions.<BR>
+       II. Atoms with 37 to 86 Electrons.</I><BR>
+    The Journal of Chemical Physics <B>47</B> (1967) 1300-1307.
+</P><P>
+<DT><A NAME="Kohn:1965">Kohn:1965</A>
+<DD>W. Kohn, and L. J. Sham<BR>
+    <I>Self-Consistent Equations Including Exchange and Correlation 
+       Effects</I><BR>
+    Physical Review <B>140</B> (1965) A1133-A1138.
+</P><P>
+<DT><A NAME="Hohenberg:1964">Hohenberg:1964</A>
+<DD>P. Hohenberg, and W. Kohn<BR>
+    <I>Inhomogeneous Electron Gas</I><BR>
+    Physical Review <B>136</B> (1964) B864.
+</DD>
+</P><P>
+<DT><A NAME="Slater:1964">Slater:1964</A>
+<DD>J. C. Slater<BR>
+    <I>Atomic Radii in Crystals</I><BR>
+    The Journal of Chemical Physics <B>41</B> (1964) 3199-3204.<BR>
+    <DL>
+    <DD><B>Note:</B> For some elements there are no Bragg-Slater radii 
+        available. In that case radii by Clementi et al.
+        [<A HREF="#Clementi:1967">Clementi:1967</A>]
+        are used.
+    </DL>
+</P><P>
+<DT><A NAME="Dirac:1930">Dirac:1930</A>
+<DD>P. A. M. Dirac,
+    Proceeding of the Cambridge Philosophical Society <B>26</B> (1930) 376.
+</DD>
+</P><P>
+<DT><A NAME="Bloch:1929">Bloch:1929</A>
+<DD>F. Bloch, Zeitschrift f&uuml;r Physik <B>57</B> (1929) 545.
+</DD>
+</DL>
+
+</P>
+
+<P ALIGN="CENTER">
+<IMG SRC="http://www.dl.ac.uk/CFS/Images/line1.gif" WIDTH=548 HEIGHT=6>
+</P>
+<ADDRESS>
+Huub van Dam
+$Date: 1998-11-02 17:22:46 $
+</ADDRESS>
+</BODY>
+</HTML>

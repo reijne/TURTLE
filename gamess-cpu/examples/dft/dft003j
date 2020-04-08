@@ -1,0 +1,66 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP harmonics - DFT/B97-1  / energy = -114.5098484971 au
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype direct
+dft b97-1
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+f harmonics - DFT/B97-1 / energy = -114.5124391682 au
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype direct
+dft b97-1
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg harmonics - DFT/B97-1 / energy = -114.5130167156 au
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct
+dft b97-1
+enter
+EOF

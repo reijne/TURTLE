@@ -1,0 +1,66 @@
+
+Begin optimization report for: MEMREQ_JFITG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at jfitg.f(870,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: JFITG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at jfitg.f(2377,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2378 and  line 2378
+LOOP END
+
+LOOP BEGIN at jfitg.f(2412,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2413 and  line 2413
+LOOP END
+
+LOOP BEGIN at jfitg.f(2489,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2490 and  line 2490
+LOOP END
+
+LOOP BEGIN at jfitg.f(2510,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at jfitg.f(2524,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2525 and  line 2525
+LOOP END
+
+LOOP BEGIN at jfitg.f(2552,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2553 and  line 2553
+LOOP END
+
+LOOP BEGIN at jfitg.f(2580,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2581 and  line 2581
+LOOP END
+
+LOOP BEGIN at jfitg.f(870,7) inlined into jfitg.f(2605,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at jfitg.f(2438,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ jfitg.f(2432,18) ]
+LOOP END
+
+LOOP BEGIN at jfitg.f(2474,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ jfitg.f(2468,18) ]
+LOOP END
+===========================================================================

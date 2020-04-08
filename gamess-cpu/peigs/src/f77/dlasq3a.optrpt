@@ -1,0 +1,27 @@
+
+Begin optimization report for: DLASQ3A
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlasq3a.f(99,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq3a.f(165,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 166 and  line 177
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlasq3a.f(153,7)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at dlasq3a.f(205,10)
+   remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+LOOP END
+===========================================================================

@@ -1,0 +1,22 @@
+restart new
+title
+water 3-21G CASSCF geom. opt. / optimised energy = -75.64130793
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype optimise
+scftype casscf
+config bypass
+doc 1 to 5
+uoc 6 7
+end
+superci 1 to 5
+newton 6 to 20
+hessian 6 to 20
+simul 6 to 20
+enter

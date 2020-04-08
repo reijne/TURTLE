@@ -1,0 +1,20 @@
+#!/bin/csh
+../../bin/gamess <<EOF
+title
+h2co - 3-21G  ZORA cisd 3-reference CI
+zora
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+direct 16 10 10
+conf
+2 2 2 2 2 2 2 2 0 0
+2 2 2 2 2 0 2 2 2 0
+2 2 2 2 2 0 2 2 0 2
+NATORB 10 0 PRINT
+enter
+EOF

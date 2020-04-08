@@ -1,0 +1,28 @@
+time 120
+title
+fe(co)5  SCF total energy     -1816.67752345
+zmat angstrom
+fe
+c  1  rceq
+x  2  1.00   1   90
+o  2  rco    3   90  1 180
+c  1  rceq   2  120  3 180
+x  5  1.00   1   90  2 180
+o  5  rco    6   90  1 180
+c  1  rceq   2  120  3   0
+x  8  1.00   1   90  2 180
+o  8  rco    9   90  1 180
+c  1  rcax   2   90  3  90
+x 11  1.00   1   90  2 180
+o 11  rco   12   90  1 180
+c  1  rcax   2   90  3 -90
+x 14  1.00   1   90  2 180
+o 14  rco   15   90  1 180
+constants
+rceq 1.8273000
+rcax 1.8068000
+rco  1.1520
+end
+scftype direct
+level 3.0 15 2.0
+enter 1

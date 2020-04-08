@@ -1,0 +1,92 @@
+#Dplot x-param schar-param x-value y-value
+#x-param, schar-param = {root, thresh}
+#x-value, y-value = {step, conf, csfs, sum, ci, refci, lambda, extci, david1, david2}
+awk '
+BEGIN{
+	nRoots = 0; 
+	if ( ARGC!=5 ) 
+	{
+		print "usage:"
+		print "Dplot x-param schar-param x-value y-value"
+		print "x-param, schar-param = {root, thresh}"
+		print "x-value, y-value = {step, thresh, conf, csfs, sum, ci, refci, lambda, extci, david1, david2}"
+		exit;
+	}
+	ARGC = 1;
+}
+$1=="root" { nRoots = $3; iThresh = 0; }
+$1!="root" { iThresh++; for ( j=1 ; j<=10 ; j++ ) v[nRoots,iThresh,j] = $j; }
+END{
+	si = ei = sj = ej = 0;
+	if ( ARGV[1]=="root" && ARGV[2]=="thresh" )
+	{
+		swap = 0;
+		for ( j=1 ; j<=nRoots ; j++ )
+			for ( i=1 ; i<=iThresh ; i++ )
+				v[j,i,0] = j;
+	}
+	else
+	if ( ARGV[2]=="root" && ARGV[1]=="thresh" )
+	{
+		swap = 1;
+		for ( j=1 ; j<=nRoots ; j++ )
+			for ( i=1 ; i<=iThresh ; i++ )
+				v[j,i,0] = i;
+	}
+	else
+	{
+		print "unknown combination of x-param and schar-param"
+		exit;
+	}
+	
+	s[ 0] = "step";
+	s[ 1] = "thresh";
+	s[ 2] = "conf";
+	s[ 3] = "csfs";
+	s[ 4] = "sum";
+	s[ 5] = "ci";
+	s[ 6] = "refci";
+	s[ 7] = "lambda";
+	s[ 8] = "extci";
+	s[ 9] = "david1";
+	s[10] = "david2";
+	xi = -1;
+	yi = -1;
+	for ( i=0 ; i<=10 ; i++ )
+		if ( s[i]==ARGV[3] )
+			xi = i;
+	if ( xi==-1 )
+	{
+		print "unknown x-value \"" ARGV[3]"\""
+		exit;
+	}
+	for ( i=0 ; i<=10 ; i++ )
+		if ( s[i]==ARGV[4] )
+			yi = i;
+	if ( yi==-1 )
+	{
+		print "unknown y-value \"" ARGV[4]"\""
+		exit;
+	}
+		
+	if ( swap )
+	{
+		for ( i=1 ; i<=nRoots ; i++ )
+		{
+			for ( j=1 ; j<=iThresh ; j++ )
+				if ( v[i,j,xi]>"" && v[i,j,yi]>"" )
+					print v[i,j,xi], v[i,j,yi]
+			print ""
+		}
+	}
+	else
+	{
+		for ( i=1 ; i<=iThresh ; i++ )
+		{
+			for ( j=1 ; j<=nRoots ; j++ )
+				if ( v[i,j,xi]>"" && v[i,j,yi]>"" )
+					print v[i,j,xi], v[i,j,yi]
+			print ""
+		}
+	}
+}' $1 $2 $3 $4

@@ -1,0 +1,82 @@
+#
+# $Id: GNUmakefile,v 1.4 2000-12-06 16:46:59 hvd Exp $
+#
+
+LIBRARY = libpeigs.a
+
+#include ../config/makefile.h
+include ./DEFS
+
+#peigs.lib:; $(MAKE) -f makefile.peigs lib
+
+# Added GAMESS-UK
+LIBDIR=$(peigs_DIR)/lib/$(TARGET)
+peigs_LIB=${LIBDIR}/${LIBRARY}
+
+# GAMESS-UK change target name to peigslib
+peigs_stamp:	include_stamp
+		($(MAKE) peigslib ) || exit 1
+		touch peigs_stamp.$(TARGET)
+
+# no include files needed. 
+# The tie to an include file is necessary for timing issues in parallel makes RAK 2/16/98
+
+include_stamp:	./h/blas_lapack.h
+	touch include_stamp
+
+.EXPORT_ALL_VARIABLES:
+
+.PHONY :        clean	cleanF	realclean
+
+cleanF:
+	@echo " not done here"
+cleanDEP:
+	@echo " not done here"
+clean:
+	(cd ./src/c; $(MAKE) clean)
+	(cd ./src/f77; $(MAKE) clean)
+	(cd ./comm; $(MAKE) clean)
+	(cd ./ctof; $(MAKE) clean)
+
+realclean: clean
+	rm -f $(LIBDIR)/$(LIBRARY)
+	rm -f peigs_stamp.$(TARGET) include_stamp
+
+sngl_to_dbl dbl_to_sngl:
+	@echo No conversion necessary
+
+depend:
+	@echo No dependencies in include
+
+
+source:
+	@echo Nothing to be done for $@
+
+$(LIBDIR):
+	mkdir -p $(LIBDIR)
+
+# GAMESS-UK change target name to peigslib
+peigslib:	$(LIBDIR)
+	(cd ./src/c; $(MAKE))
+	(cd ./src/f77; $(MAKE))
+	(cd ./comm; $(MAKE))
+	(cd ./ctof; $(MAKE))
+	-rm -f libpeigs.a
+	$(peigs_AR) $(peigs_LIB) comm/*.o ctof/*.o src/c/*.o src/f77/*.o
+	$(peigs_RANLIB) $(peigs_LIB)
+#	($(MAKE) clean)
+
+examples:
+	( cd example; $(MAKE) all )
+
+all:
+	$(MAKE) peigs.a
+	$(MAKE) examples
+
+doc:
+	( cd doc; $(MAKE) )
+
+
+
+
+

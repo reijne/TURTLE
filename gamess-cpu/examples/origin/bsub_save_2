@@ -1,0 +1,19 @@
+#!/bin/sh
+#BSUB -n 4
+#BSUB -W 60
+#BSUB -o crno4.o%J
+#BSUB -e crno4.e%J
+#BSUB -J crno4
+
+cd /home/u3/gamess/GAMESS-UK/examples/origin
+
+rm -rf /scratch/local/gamess/crno4
+mkdir /scratch/local/gamess/crno4
+ 
+cp /home/u3/gamess/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/crno4
+cp save_2.in /scratch/local/gamess/crno4
+cp crno4.dzp /scratch/local/gamess/crno4 
+cd /scratch/local/gamess/crno4
+
+mpirun -np 4 gamess-uk < save_2.in > /home/u3/gamess/GAMESS-UK/examples/origin/save_2.out
+cp crno4.dzp /home/u3/gamess/GAMESS-UK/examples/origin

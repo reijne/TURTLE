@@ -1,0 +1,42 @@
+c
+c integral accuracy parameters
+c
+c for energy integrals
+c (if -1 use generic parameters)
+c
+c  icut_2c
+c  icut_3c
+c  icut_4c [ not yet used ]
+c
+c  itol_2c
+c  itol_3c
+c  itol_4c [ not yet used ]
+c
+c For derivative integrals code
+c (if -1 use generic parameters)
+c
+c  icutd_2c
+c  icutd_3c
+c  icutd_4c
+c
+c  itold_2c
+c  itold_3c
+c  itold_4c
+c
+c  Generic parameters
+c
+c  icut_dft
+c  itol_dft
+c  icutd_dft
+c  itold_dft
+
+      integer icut_dft,  itol_dft, icutd_dft, itold_dft,
+     &     icut_2c,  itol_2c, icutd_2c, itold_2c,
+     &     icut_3c,  itol_3c, icutd_3c, itold_3c,
+     &     icut_4c,  itol_4c, icutd_4c, itold_4c
+
+      common/dft_intctl/ icut_dft,  itol_dft, icutd_dft, itold_dft,
+     &     icut_2c,  itol_2c, icutd_2c, itold_2c,
+     &     icut_3c,  itol_3c, icutd_3c, itold_3c,
+     &     icut_4c,  itol_4c, icutd_4c, itold_4c
+

@@ -1,0 +1,22 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+cro4 2- s-vwn tzvp basis td symmetry veryhigh quadrature, Energy -1341.282891106650 au
+charge -2
+zmat angstrom
+cr
+o 1 cro
+o 1 cro 2 109.471
+o 1 cro 2 109.471 3 120.0
+o 1 cro 2 109.471 4 120.0
+variables
+cro 1.6520632 hessian    1.888758
+end
+basis tzvp
+runtype optimize
+scftype direct
+dft s-vwn
+dft quadrature generation 2 medium 
+level 3
+enter
+EOF

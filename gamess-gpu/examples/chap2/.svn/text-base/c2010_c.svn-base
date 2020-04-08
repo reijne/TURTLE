@@ -1,0 +1,68 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3a2 uhf - 3-21g - generate spinfree NOs
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype uhf
+natorb 10 print 
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3a2 uhf - 3-21g default basis - 1-e properties
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+scftype uhf
+property
+4 c
+4 o
+end
+vectors 10
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3a2 uhf - 3-21g - generate annihilated spinfree NOs
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype uhf
+natorb 10 print annihilate
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3a2 uhf - 3-21g default basis - 1-e properties
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+scftype uhf
+property
+4 c
+4 o
+end
+vectors 10
+enter
+EOF

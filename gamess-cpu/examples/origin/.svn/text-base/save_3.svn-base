@@ -1,0 +1,4 @@
+#!/bin/csh
+cd  /usr/local/GAMESS/GAMESS-UK/examples/origin
+cp crno4.dzp /xlv1/GAMESS
+time ../../bin/parallel gamess < save_3.in > LOGS/save_3.out

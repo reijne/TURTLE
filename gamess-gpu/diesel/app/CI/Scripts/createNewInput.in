@@ -1,0 +1,14 @@
+#!@BASH@
+@AWK@ '$1!="RefConfs" { print } $1=="RefConfs" { exit }' $1 
+echo "RefConfs                = {"
+echo "#automatically generated reference space:"
+@AWK@ '$1== "configurations" && $2=="above" && $3=="reference" && $4=="threshold" {
+	getline;
+	while ( (getline > 0) && ($1!="}") ) print; next }'	$2
+echo "}"
+echo "PTRefConfs                = {"
+echo "#automatically generated PT reference space:"
+@AWK@ '$1== "configurations" && $2=="above" && $3=="PT" && $4=="reference" && $5=="threshold" {
+	getline;
+	while ( (getline > 0) && ($1!="}") ) print; next }'	$2
+echo "}"

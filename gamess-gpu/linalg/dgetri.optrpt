@@ -1,0 +1,58 @@
+
+Begin optimization report for: DGETRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetri.f(161,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgetri.f(162,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgetri.f(162,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgetri.f(162,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dgetri.f(162,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgetri.f(139,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dgetri.f(139,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgetri.f(139,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dgetri.f(139,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgetri.f(155,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgetri.f(171,16) ]
+LOOP END
+
+LOOP BEGIN at dgetri.f(135,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgetri.f(147,16) ]
+LOOP END
+
+LOOP BEGIN at dgetri.f(181,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgetri.f(184,13) ]
+LOOP END
+===========================================================================

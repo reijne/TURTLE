@@ -1,0 +1,64 @@
+#!/bin/csh
+setenv ed2 nh3main
+setenv ed3 nh3dump
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title
+nh3+ 3-21g SCF energy -55.53325817 au
+super off nosym
+charge 1
+mult 2
+zmat angstrom
+n
+h 1 roh
+h 1 roh 2 theta
+h 1 roh 2 theta 3 theta  1
+variables
+roh 1.03   hessian 0.7
+theta 104.2  hessian 0.2
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+nh3+  3-21g MRDCI energy R1 -55.6393335 R2 -55.4116210
+bypass scf
+charge 1
+mult 2
+zmat angstrom
+n
+h 1 roh
+h 1 roh 2 theta
+h 1 roh 2 theta 3 theta  1
+variables
+roh 1.03   hessian 0.7
+theta 104.2  hessian 0.2
+end
+runtype ci
+mrdci
+adapt 
+tran 
+select  
+symmetry 1
+spin 2
+cntrl 9
+conf
+1 4 1 2 3  12
+1 3 1 2 4  12
+roots 2
+thresh 5 5
+ci 
+diag 
+extrap 3
+dthr 0.0001 0.0001
+natorb
+cive 1 2
+prop
+cive 1 2
+1 4  1 2 3  12
+1 3  1 2 4  12
+moment
+36 1 36 2 1
+enter
+EOF

@@ -1,0 +1,397 @@
+Index: m4/master.m
+===================================================================
+--- m4/master.m	(revision 6248)
++++ m4/master.m	(working copy)
+@@ -80,6 +80,9 @@
+ INCLUDE(common/limy)
+ INCLUDE(common/scra7)
+ INCLUDE(common/infoa)
++_IF(drf)
++INCLUDE(../drf/comdrf/dppop)
++_ENDIF
+       common/dfcalc/cdata(5,mxcalc),ictype(mxcalc),icsect(mxcalc),
+      &     icgrid(mxcalc),icgsec(mxcalc),ndata(mxcalc),
+      &     icstat(mxcalc),icdata(5,mxcalc),ncalc
+@@ -213,6 +216,11 @@
+ c ----- reset core allocation
+ c
+ 20    call gmem_free(ibase)
++_IF(drf)
++        if (idpa.ge.1) then
++            call dppop(core)
++        endif
++_ENDIF
+ c
+ 30    cpu = cpulft(1)
+       write (iwr,6030) cpu,charwall()
+@@ -3525,6 +3533,7 @@
+ c
+ _IF(drf)
+ INCLUDE(../drf/comdrf/sizesrf)
++INCLUDE(../drf/comdrf/dppop)
+ c
+ _ENDIF
+       dimension core(*)
+@@ -5319,6 +5328,7 @@
+       po_scalefac_co=-1.D0
+       po_nsave_co=-1
+       ntasks_co=1
++      nfreeze=0
+ c     tdlf_farm_co=
+ 
+ c     loop over input lines
+@@ -5459,6 +5469,11 @@
+ 10272   call input
+         call inpa4(ytext)
+         if(ytext.eq.yend)go to 10273
++        if (ytext.eq.'froz') then
++           nfreeze=nfreeze+1
++           call inpi(itest)
++           ifreeze(nfreeze)=itest
++        endif
+         ncons_co=ncons_co+1
+         go to 10272
+ 10273   continue
+Index: m4/sysmo.m
+===================================================================
+--- m4/sysmo.m	(revision 6248)
++++ m4/sysmo.m	(working copy)
+@@ -59,13 +59,17 @@
+ INCLUDE(common/syminf)
+ INCLUDE(common/harmon)
+ INCLUDE(common/tran)
+-      common/craypk/mmmm(65),isymao(maxorb),isymmo(maxorb)
++INCLUDE(common/gjs)
++INCLUDE(common/machin)
++INCLUDE(common/restri)
++c     common/craypk/mmmm(65),isymao(maxorb),isymmo(maxorb)
+       character *4 nogr,zelement,zirrep
+       dimension eta(mxprim,5),ns(8),buf(9)
+       dimension ideg(3), iddeg(6),inv(8),imp(8),ndri(8)
+       dimension dtras(3,8),ddtras(6,8),tcar(3,3,8),m(maxorb,8)
+       character*4 its(8)
+       dimension q(*),drenorm(*)
++      data m51/51/
+ c
+ c eerste record
+ c
+@@ -332,17 +336,20 @@
+ c
+ c vijftiende record
+ c
++      nav=lenwrd()
++      call secget(isect(490),m51,iblk51)
++      call readi(nirr,mach(13)*nav,iblk51,idaf)
+       do i=1,8
+          ns(i)=0
+       enddo
+       do i=1,num
+-         ns(isymmo(i))=ns(isymmo(i))+1
++         ns(isymao(i))=ns(isymao(i))+1
+       enddo
+       write(3)nt,(ns(i),i=1,nt)
+ c
+ c zestiende record met scf informatie
+ c
+-      nmo=num
++      nmo=newbas0
+       norocc=na
+       nb=nt
+ c     do i=1,8
+@@ -1094,6 +1101,7 @@
+ INCLUDE(common/atmblk)
+ INCLUDE(common/atmol3)
+ INCLUDE(common/mapper)
++INCLUDE(common/harmon)
+ INCLUDE(../dft/common/ccpdft.hf77)
+       common/blkin/g(510),nnn
+ _IF(ibm,vax)
+@@ -1153,7 +1161,7 @@
+ c
+ c try to see if it all fits in core, if not go to low memory version
+ c
+-      l1=na*(num-na)
++      l1=na*(newbas0-na)
+       l2=l1*l1
+       nx=num*(num+1)/2
+ c
+@@ -1181,7 +1189,7 @@
+       call rdedx(q(ieps),lds(isect(9)),isec9,ifild)
+       ind1=0
+       do iq = 1,na
+-         do ip = na+1,num
++         do ip = na+1,newbas0
+              ind1=ind1+1
+              if (ind1.gt.l1)call caserr('strange0')
+              if (oexch) then
+@@ -1197,7 +1205,7 @@
+ c
+       if (.not.oexch) goto 110
+ c
+-      nvirtual=num-na
++      nvirtual=newbas0-na
+       call setsto(1360,0,i205)
+       do 20 ifile=1,lfile
+       iunit=lotape(ifile)
+@@ -1331,7 +1339,7 @@
+          call vclr(q(ibmat),1,l1)
+          ili=0
+          do j=1,na
+-          do i=na+1,num
++          do i=na+1,newbas0
+               ikl=lind(i,j)
+               ili=ili+1
+               q(ibmat-1+ili)=-2.0d0*q(i0-1+ikl)
+@@ -1352,7 +1360,7 @@
+          print *,'component',ijk,ijk,ccc
+          indx=0
+          do i=1,na
+-            do j=na+1,num
++            do j=na+1,newbas0
+                indx=indx+1
+                do k=1,num
+                   q(icc1-1+num*(i-1)+k)=q(icc1-1+num*(i-1)+k)+
+@@ -1417,6 +1425,7 @@
+ INCLUDE(common/atmblk)
+ INCLUDE(common/atmol3)
+ INCLUDE(common/mapper)
++INCLUDE(common/harmon)
+ INCLUDE(../dft/common/ccpdft.hf77)
+       common/blkin/g(510),nnn
+ _IF(ibm,vax)
+@@ -1459,7 +1468,7 @@
+       write (iwr,6720) acc1
+ c
+       call setbfa
+-      norbt=num
++      norbt=newbas0
+       norbc=0
+       nb = na
+       do i = 1 , norbt
+@@ -1523,6 +1532,7 @@
+ INCLUDE(common/scra7)
+ INCLUDE(common/sysmo)
+ INCLUDE(common/mapper)
++INCLUDE(common/harmon)
+ INCLUDE(../dft/common/ccpdft.hf77)
+       common/blkin/g(510),nnn
+       common/bloksort/ibb,numw
+@@ -1561,7 +1571,7 @@
+ c
+ c
+ c
+-      l1=na*(num-na)
++      l1=na*(newbas0-na)
+       nx=num*(num+1)/2
+ c
+       idiag=igmem_alloc(l1)
+@@ -1570,7 +1580,7 @@
+       call rdedx(q(ieps),lds(isect(9)),isec9,ifild)
+       ind1=0
+       do jq = 1,na
+-         do jp = na+1,num
++         do jp = na+1,newbas0
+              ind1=ind1+1
+              if (ind1.gt.l1)call caserr('strange0')
+              q(idiag+ind1-1)=2.0d0*(q(ieps+jp-1)-q(ieps+jq-1))
+@@ -1578,7 +1588,7 @@
+       enddo
+       call gmem_free(ieps)
+ c
+-      nvirtual=num-na
++      nvirtual=newbas0-na
+ c
+       ibucketinfo=igmem_alloc(l1)
+       call vclr(q(ibucketinfo),1,l1)
+@@ -1865,7 +1875,7 @@
+          call vclr(q(ibmat),1,l1)
+          ili=0
+          do j=1,na
+-          do i=na+1,num
++          do i=na+1,newbas0
+               ikl=lind(i,j)
+               ili=ili+1
+               q(ibmat-1+ili)=-2.0d0*q(i0-1+ikl)
+@@ -1892,7 +1902,7 @@
+          print *,'component',ijk,ijk,ccc
+          indx=0
+          do i=1,na
+-            do j=na+1,num
++            do j=na+1,newbas0
+                indx=indx+1
+                do k=1,num
+                   q(icc1-1+num*(i-1)+k)=q(icc1-1+num*(i-1)+k)+
+Index: m4/newmrd1.m
+===================================================================
+--- m4/newmrd1.m	(revision 6248)
++++ m4/newmrd1.m	(working copy)
+@@ -742,17 +742,9 @@
+ c
+ c 2 electron integral sort complete, now do 1 electron integral sort
+ c
++      n1e=nmo*(nmo+1)/2
+       call vclr(q,1,maxint)
+-      call search(jblkk,idaf)
+-   6  call fget(q2,nword,idaf)
+-      do ikk=1,nword
+-         q(n1e+ikk)=q2(ikk)
+-      enddo
+-      n1e=n1e+nword
+-      if (n1e.gt.maxint) call caserr('core error')
+-      if (nword.lt.511) goto 7
+-      goto 6
+-   7  continue
++      call rdedx(q,n1e,jblkk,idaf)
+ c
+ c  sort 1e int.
+ c
+Index: m4/common/dlfind
+===================================================================
+--- m4/common/dlfind	(revision 6248)
++++ m4/common/dlfind	(working copy)
+@@ -30,3 +30,6 @@
+       character(64) geom2
+       character*256 geomfile
+       common/dlfindc/geom2,geomfile
++      integer maxfreeze,nfreeze,ifreeze
++      parameter (maxfreeze = 1000)
++      common/dlfindfreez/nfreeze,ifreeze(maxfreeze)
+Index: config/x86_64-unknown-linux-gnu-parallel-intel11.mk
+===================================================================
+--- config/x86_64-unknown-linux-gnu-parallel-intel11.mk	(revision 6248)
++++ config/x86_64-unknown-linux-gnu-parallel-intel11.mk	(working copy)
+@@ -23,7 +23,7 @@
+ #doc  debug - add debugging information to the executable
+ #
+ # DEFAULT OPTIONS
+-#dopt ga mpi ci peigs vdw mpiwrap dl-find masscf vb zora i8
++#dopt ga mpi ci peigs vdw mpiwrap dl-find masscf vb zora i8 drf
+ #opt debug score myrinet infiniband openib mkl scalapack newscf i8 datain
+ #
+ # ================ M4 Processing options
+@@ -61,8 +61,8 @@
+ 
+ #--#if mpiwrap#
+ MPI_INCLUDE=
+-MPI_LIB=
+-LIBMPI = 
++MPI_LIB=-L/cm/shared/apps/openmpi/intel/64/1.3.3/lib64/openmpi
++LIBMPI = /cm/shared/apps/openmpi/intel/64/1.3.3/lib64/openmpi/mca_btl_ofud.so /cm/shared/apps/openmpi/intel/64/1.3.3/lib64/openmpi/mca_btl_openib.so
+ # IC_INCLUDE is the include required
+ # to build against the interconnect
+ IC_INCLUDE=
+Index: vb/vbscf.m
+===================================================================
+--- vb/vbscf.m	(revision 6248)
++++ vb/vbscf.m	(working copy)
+@@ -4407,7 +4407,7 @@
+       khaomo = igmem_alloc_inf(nam*(nam+1)/2,'vbscf.m','reexc',
+      &                        'khaomo',IGMEM_DEBUG)
+       call fmove(haomo,qq(khaomo),nam*(nam+1)/2)
+-c     if (nosymm) goto 666
++      if (nosymm) goto 666
+ c
+ c.....next only works if equivalent orbitals are neighbours
+ c.....make an array that tells to which equivalence group a
+Index: vb/vbprop.m
+===================================================================
+--- vb/vbprop.m	(revision 6248)
++++ vb/vbprop.m	(working copy)
+@@ -165,10 +165,10 @@
+            nam = nbasis + nscf
+            khmoao = igmem_alloc(nam*(nam+1)/2)
+            kiex2 = igmem_alloc(nactiv*(nbasis+1))
+-           call redorb( q(ksao),q(kvec+ncore*nbasis),q(kvcopy),
+-     &     q(kvec),q(kiocvi),
+-     &     q(kiset),q(kiact),q(kidoc),q(kisoc),q(kivir),
+-     &     q(khmoao),q(kiex2),nbasis,q)
++c          call redorb( q(ksao),q(kvec+ncore*nbasis),q(kvcopy),
++c    &     q(kvec),q(kiocvi),
++c    &     q(kiset),q(kiact),q(kidoc),q(kisoc),q(kivir),
++c    &     q(khmoao),q(kiex2),nbasis,q)
+ c     print *,'remco na redorb',ipg_nodeid()
+       call gmem_free(kiex2)
+       call gmem_free(khmoao)
+@@ -187,6 +187,11 @@
+       norb=nsa+nvirt
+       nsa=norb
+       lenact=norb*(norb+1)/2
++      do i=1,nvirt
++         do j=1,nbasis
++            q(kvirt-1+(i-1)*nbasis+j)=q(kvirt-1+(nscf+i-1)*nbasis+j)
++         enddo
++      enddo
+       call prsq(q(kvec),norb,nbasis,nbasis)
+       write(iwr,6001)
+       ismat=igmem_alloc(lenact)
+Index: drf/dppop.m
+===================================================================
+--- drf/dppop.m	(revision 6248)
++++ drf/dppop.m	(working copy)
+@@ -63,9 +63,11 @@
+ INCLUDE(../m4/common/nshel)
+ INCLUDE(comdrf/mollab)
+ INCLUDE(comdrf/nmorb)
+-INCLUDE(comdrf/opt)
++cxxxINCLUDE(comdrf/opt)
+ INCLUDE(comdrf/auxdrf)
+-INCLUDE(comdrf/scfopt)
++cxxxINCLUDE(comdrf/scfopt)
++      character *8 title2,scftyp
++      common/restrz/title2(10),scftyp
+ c
+ c
+ INCLUDE(comdrf/dafil)
+@@ -85,7 +87,10 @@
+ c
+ c-----  data statements
+ c
+-      data imat /53,54,55,12/
++c     data imat /53,54,55,12/
++      data imat/4,5,6,1/
++      dimension potnuc(10),ostf(6)
++      logical ostf
+       data one,two /1.0d00,2.0d00/
+ c
+ c-----  begin
+@@ -110,7 +115,7 @@
+ cxxx  call daread(idafh,ioda,b,nx,16)
+ cxxx  if(scftyp.eq.'uhf') then
+       if((scftyp.eq.'uhf') .or. (scftyp.eq.'rohf')
+-     1 .or. (scftyp .eq. 'gvb')) then
++     1 .or. (scftyp .eq. 'gvb').or.(scftyp.eq.'grhf')) then
+         call rdedx(a,nx,ibl3pb,idaf)
+ cxxx    call daread(idafh,ioda,a,nx,20)
+         do 10 l=1,nx
+@@ -124,7 +129,12 @@
+ c
+ c  -----  read x, y, z, s
+ c
+-        call daread(idafh,ioda,a,nx,imat(l))
++        do i=1,6
++            ostf(i)=.false.
++        enddo
++        ostf(imat(l))=.true.
++        call getmat(a,a,a,a,a,a,potnuc,num,ostf,ionsec)
++c       call daread(idafh,ioda,a,nx,imat(l))
+ c
+ c  -----  set up loop over charge distributions
+ c
+@@ -289,7 +299,7 @@
+ c
+ c-----  local variables
+ c
+-      character*16 names(100)
++      character*16 names(1000)
+ c
+ c-----  data statements
+ c
+@@ -533,7 +543,7 @@
+         call shrink(b,b,3)
+ cxxx    call diagiv(b,bvec,cr,ia,3,3,3)
+         call jacobi(b,ia,3,bvec,ib,3,cr,2,2,
+-     * 1.0e-08)
++     * 1.0d-08)
+ cxxx    call jacobi(a,iky,newb,q,ilifq,nrow,e,iop1,iop2,
+ cxxx * thresh)
+ c

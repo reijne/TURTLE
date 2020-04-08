@@ -1,0 +1,63 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP - DFT/B97-1 default quadrature / energy = -114.5100922 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype direct
+dft b97-1
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+f - DFT/B97-1 default quadrature / energy = -114.5131077 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype direct
+dft b97-1
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg - DFT/B97-1 default quadrature / energy = -114.5151975 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct
+dft b97-1
+enter
+EOF

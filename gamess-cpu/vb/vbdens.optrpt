@@ -1,0 +1,745 @@
+
+Begin optimization report for: NATORBT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(1054,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdens.f(3328,10) inlined into vbdens.f(1149,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(1149,24)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 3332 and  line 3333
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3328,10) inlined into vbdens.f(1149,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(1149,24)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 3332 and  line 3333
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3389,10) inlined into vbdens.f(1149,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3390,13) inlined into vbdens.f(1149,24)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3394,16) inlined into vbdens.f(1149,24)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3395,19) inlined into vbdens.f(1149,24)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 3399 and  line 3403
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(1161,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdens.f(1211,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(1212,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1215 and  line 1215
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(1212,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(1277,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(1278,11)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(1278,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(1317,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1318 and  line 1319
+LOOP END
+
+LOOP BEGIN at vbdens.f(1317,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(1383,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(1383,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(1383,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(1386,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdens.f(1386,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdens.f(1139,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1142,43) ]
+
+   LOOP BEGIN at vbdens.f(1140,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1142,43) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(1309,17)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1316,10) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CF3XTOY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3543,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdens.f(3544,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbdens.f(3545,17)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbdens.f(3545,17)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbdens.f(3545,17)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbdens.f(3545,17)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3557,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdens.f(3558,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3558,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3558,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3558,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3577,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3584 and  line 3581
+LOOP END
+
+LOOP BEGIN at vbdens.f(3623,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdens.f(3623,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3626,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdens.f(3627,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3627,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3632,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3633,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3634,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 3635 and  line 3635
+      LOOP END
+
+      LOOP BEGIN at vbdens.f(3634,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3642,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdens.f(3643,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3643,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3643,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3643,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3648,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3648,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdens.f(3648,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3648,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3656,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3656,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdens.f(3656,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3656,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3725,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdens.f(3725,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(3728,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdens.f(3729,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3729,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3734,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3735,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3736,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 3737 and  line 3737
+      LOOP END
+
+      LOOP BEGIN at vbdens.f(3736,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdens.f(3594,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+
+   LOOP BEGIN at vbdens.f(3595,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+
+      LOOP BEGIN at vbdens.f(3596,17)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+
+         LOOP BEGIN at vbdens.f(3597,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+
+            LOOP BEGIN at vbdens.f(3598,21)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+
+               LOOP BEGIN at vbdens.f(3599,23)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3602,27) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3662,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+
+   LOOP BEGIN at vbdens.f(3663,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+
+      LOOP BEGIN at vbdens.f(3664,17)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+
+         LOOP BEGIN at vbdens.f(3665,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+
+            LOOP BEGIN at vbdens.f(3666,21)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+
+               LOOP BEGIN at vbdens.f(3667,23)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3705,26) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3743,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+
+   LOOP BEGIN at vbdens.f(3744,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+
+      LOOP BEGIN at vbdens.f(3745,17)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+
+         LOOP BEGIN at vbdens.f(3746,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+
+            LOOP BEGIN at vbdens.f(3747,21)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+
+               LOOP BEGIN at vbdens.f(3748,23)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3762,27) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3778,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+
+   LOOP BEGIN at vbdens.f(3779,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+
+      LOOP BEGIN at vbdens.f(3780,14)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+
+         LOOP BEGIN at vbdens.f(3781,16)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+
+            LOOP BEGIN at vbdens.f(3782,18)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+
+               LOOP BEGIN at vbdens.f(3783,20)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(3788,24) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC12..1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3429,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3430,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3433,14)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3434,16)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at vbdens.f(3435,18)
+               remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+               LOOP BEGIN at vbdens.f(3436,20)
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed OUTPUT dependence between  line 3449 and  line 3457
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3352,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3353,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3354,14)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3355,16)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 3363 and  line 3366
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC12..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3429,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3430,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3433,14)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3434,16)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at vbdens.f(3435,18)
+               remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+               LOOP BEGIN at vbdens.f(3436,20)
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed OUTPUT dependence between  line 3449 and  line 3457
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MKD1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(4864,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4865 and  line 4865
+LOOP END
+
+LOOP BEGIN at vbdens.f(4864,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(4868,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4869 and  line 4869
+LOOP END
+
+LOOP BEGIN at vbdens.f(4868,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(4875,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(4875,7)
+   <Multiversioned v2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(4875,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(4889,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(4890,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(4890,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(4932,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdens.f(4932,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdens.f(5015,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdens.f(5015,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdens.f(4853,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(4855,18) ]
+
+   LOOP BEGIN at vbdens.f(4854,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(4855,18) ]
+
+      LOOP BEGIN at vbdens.f(5149,13) inlined into vbdens.f(4861,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(5151,18) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(4936,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(4917,27) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MKLD1D2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3328,10) inlined into vbdens.f(3258,17)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(3258,17)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3332 and  line 3332
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(3258,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3328,10) inlined into vbdens.f(3262,17)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(3262,17)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3332 and  line 3332
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3329,13) inlined into vbdens.f(3262,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdens.f(3389,10) inlined into vbdens.f(3291,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3390,13) inlined into vbdens.f(3291,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3394,16) inlined into vbdens.f(3291,15)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3395,19) inlined into vbdens.f(3291,15)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 3399 and  line 3401
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WEIGH2
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdens.f(1608,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1610,18) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1617,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1618,18) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1677,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1679,27) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1723,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1724,24) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1771,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1773,27) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1826,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1828,27) ]
+LOOP END
+
+LOOP BEGIN at vbdens.f(1909,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(1911,24) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC11
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3389,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3390,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3394,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3395,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 3399 and  line 3401
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC12
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3429,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3430,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdens.f(3433,14)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbdens.f(3434,16)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at vbdens.f(3435,18)
+               remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+               LOOP BEGIN at vbdens.f(3436,20)
+                  remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+                  remark #15346: vector dependence: assumed OUTPUT dependence between  line 3449 and  line 3457
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LAGRC1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdens.f(3328,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdens.f(3329,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3332 and  line 3332
+   LOOP END
+
+   LOOP BEGIN at vbdens.f(3329,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WEIGH1
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdens.f(5149,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdens.f(5151,18) ]
+LOOP END
+===========================================================================

@@ -1,0 +1,51 @@
+#!/bin/csh
+#
+# Test jobs from semi-empirical Chapter of GAMESS Manual
+# This is for MOPAC Version 7.0
+#
+# for running all examples under nqs (eg on C90), use
+# the following
+#    qsub -lm 8Mw -lT 1800 run_mopac
+#
+date
+#
+./RUN_7 ./mopac_1
+./RUN_7 ./mopac_2
+rm -f DENSITY archive logfile
+./RUN_7 ./mopac_3
+rm -f DENSITY archive logfile
+./RUN_7 ./mopac_4
+rm -f DENSITY archive logfile
+./RUN_7 ./mopac_5
+#
+#  following give segmentation violation given ldima problem
+#  RUN_7 h2om
+#  RUN_7 h2omort
+./RUN_7 ./ph3
+./RUN_7 ./test
+rm -rf density restart
+./RUN_7 ./cosmo
+./RUN_7 ./ef_1
+rm -rf density restart
+./RUN_7 ./ef_2
+rm -rf density restart
+./RUN_7 ./ef_3
+rm -rf density restart
+./RUN_7 ./ef_4
+rm -rf density restart
+./RUN_7 ./ef_5
+rm -rf density restart
+./RUN_7 ./greenf
+./RUN_7 ./polar
+./RUN_7 ./pmep1
+rm -rf fort.7
+./RUN_7 ./pmep2
+rm -rf fort.7
+./RUN_7 ./pmep3
+rm -rf fort.7
+./RUN_7 ./pmep4
+rm -rf fort.7
+./RUN_7 ./pmep5
+#
+date
+rm -f gamess_i* archive*

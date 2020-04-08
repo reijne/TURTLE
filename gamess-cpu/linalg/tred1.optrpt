@@ -1,0 +1,92 @@
+
+Begin optimization report for: TRED1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at tred1.f(74,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at tred1.f(74,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at tred1.f(77,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tred1.f(84,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred1.f(84,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred1.f(84,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred1.f(92,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred1.f(92,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred1.f(92,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred1.f(106,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred1.f(109,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred1.f(109,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at tred1.f(115,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred1.f(115,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred1.f(115,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at tred1.f(124,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred1.f(129,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred1.f(129,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred1.f(129,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at tred1.f(133,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred1.f(133,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

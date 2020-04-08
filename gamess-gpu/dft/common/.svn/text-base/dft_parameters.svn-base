@@ -1,0 +1,43 @@
+C *Parameter module for CCP1/DFT            
+C *Memory information		
+C *----------------
+C * max_block 	- maximum number of blocks which can be allocate
+      integer max_block
+      parameter(max_block=20)
+C *							
+C *Basis sets information                              
+C *----------------------				
+C *max_tag 	- maximum number of basis sets which can be alloc
+C *max_atype	- maximum number of centre types	
+C *max_gtype	- maximum number of grid types (at least every element 
+C                 has different grid type)
+C *max_grids    - maximum number of grids (different terms may have
+C                 different grids, i.e. CPKS equations use a different
+C                 grid than the one used for the KS-matrix)
+C *max_shel	- maximum number of shells on centre
+C *max_prm	- maximum number of primitives for any given centre
+C *maxL		- maximum angular momentum allowed	
+C *max_func	- maximum number of basis functions for any centre
+      integer max_tag,max_atype,max_shel,max_prm,max_ang
+      integer max_gtype,max_grids
+      parameter(max_tag=3,max_atype=30,max_shel=100,max_prm=200)
+      parameter(max_ang=5,max_gtype=10,max_grids=2)
+C *								
+C *Geometry information					
+C *--------------------					
+C *max_atom	- maximum number of atoms in system
+      integer max_atom
+      parameter(max_atom=MAXAT)
+C *
+C *Accuracy information				
+C ---------------------			
+C *global_accuracy 	- global accuracy	
+      REAL  global_accuracy
+      parameter(global_accuracy=1.0d-14)
+
+C *Grid information
+c *----------------
+c *maxradzn - The maximum number of radial zones. 
+      integer maxgpt,maxrad,maxfpt,maxang,maxradzn,maxtablerows
+      parameter(maxgpt=2900,maxrad=50,maxang=302,maxfpt=100)
+      parameter(maxradzn=35,maxtablerows=7)

@@ -1,0 +1,32 @@
+Running the Parallel GA-based Examples and Validation tests
+-----------------------------------------------------------
+
+This directory contains various subdirectories for validating the
+code. The examples should be run in a subdirectory of test_jobs.
+
+The script runall_example.sh is an example submission script that you
+can use as a basis for creating your own script if your machine /
+queueing sustem is not already supported.
+
+To do this create a directory in the "test_jobs" directory named after
+your machine, copy the script to this directory and edit it as
+necessary. Comments in the script should help you set up your own
+version. You should ensure that all the *.out output files end up back
+in this directory.
+
+Once you have run all the jobs, the script validate.sh in the
+test_jobs directory can be used to validate the outputs. The script
+takes a single argument, which is the name of the directory to
+validate.
+
+For example, if you have run your jobs in the directory:
+
+/home/me/GAMESS-UK/examples/parallel_GAs/test_jobs/mydirectory
+
+and the *.out files are sat there, cd up one directory to:
+
+/home/me/GAMESS-UK/examples/parallel_GAs/test_jobs
+
+and then run validate.sh from there as follows:
+
+./validate.sh ./mydirectory

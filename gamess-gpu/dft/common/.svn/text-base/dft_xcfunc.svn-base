@@ -1,0 +1,114 @@
+c
+c     Density functional identifiers
+c
+      integer XC_NONE
+      integer X_NONE
+      integer C_NONE
+      parameter(XC_NONE=-1,X_NONE=-2,C_NONE=-3)
+c
+c     Exchange-correlation functional identifiers
+c
+      integer XC_B3LYP
+      integer XC_B3LYP_VWN5
+      integer XC_B3LYP_VWN5RPA
+      integer XC_B3PW91
+      integer XC_B97
+      integer XC_B97_1
+      integer XC_B97_2
+      integer XC_B97_3
+      integer XC_B97_D
+      integer XC_BB95
+      integer XC_B1B95
+      integer XC_BB1K
+      integer XC_EDF1
+      integer XC_FT97
+      integer XC_HCTH, XC_HCTH120, XC_HCTH147, XC_HCTH407
+      integer XC_KT1
+      integer XC_KT2
+      integer XC_MPW1K
+      integer XC_MPWB1K
+      integer XC_PBE, XC_REVPBE, XC_RPBE
+      integer XC_PW91
+      parameter(XC_B3LYP         = 1001)
+      parameter(XC_B3LYP_VWN5    = 1+XC_B3LYP)
+      parameter(XC_B3LYP_VWN5RPA = 1+XC_B3LYP_VWN5)
+      parameter(XC_B3PW91        = 1+XC_B3LYP_VWN5RPA)
+      parameter(XC_B97           = 1+XC_B3PW91)
+      parameter(XC_B97_1         = 1+XC_B97)
+      parameter(XC_B97_2         = 1+XC_B97_1)
+      parameter(XC_B97_3         = 1+XC_B97_2)
+      parameter(XC_B97_D         = 1+XC_B97_3)
+      parameter(XC_BB95          = 1+XC_B97_D)
+      parameter(XC_B1B95         = 1+XC_BB95)
+      parameter(XC_BB1K          = 1+XC_B1B95)
+      parameter(XC_EDF1          = 1+XC_BB1K)
+      parameter(XC_FT97          = 1+XC_EDF1)
+      parameter(XC_HCTH          = 1+XC_FT97)
+      parameter(XC_HCTH120       = 1+XC_HCTH)
+      parameter(XC_HCTH147       = 1+XC_HCTH120)
+      parameter(XC_HCTH407       = 1+XC_HCTH147)
+      parameter(XC_KT1           = 1+XC_HCTH407)
+      parameter(XC_KT2           = 1+XC_KT1)
+      parameter(XC_MPW1K         = 1+XC_KT2)
+      parameter(XC_MPWB1K        = 1+XC_MPW1K)
+      parameter(XC_PBE           = 1+XC_MPWB1K)
+      parameter(XC_REVPBE        = 1+XC_PBE)
+      parameter(XC_RPBE          = 1+XC_REVPBE)
+      parameter(XC_PW91          = 1+XC_RPBE)
+c
+c     Exchange functional identifiers
+c
+      integer X_B3
+      integer X_B88
+      integer X_B97
+      integer X_EDF1
+      integer X_FT97A
+      integer X_FT97B
+      integer X_LDA
+      integer X_PBE
+      integer X_PW91
+      integer X_MPW
+      parameter(X_B3    = 2001)
+      parameter(X_B88   = 1+X_B3)
+      parameter(X_B97   = 1+X_B88)
+      parameter(X_EDF1  = 1+X_B97)
+      parameter(X_FT97A = 1+X_EDF1)
+      parameter(X_FT97B = 1+X_FT97A)
+      parameter(X_LDA   = 1+X_FT97B)
+      parameter(X_PBE   = 1+X_LDA)
+      parameter(X_PW91  = 1+X_PBE)
+      parameter(X_MPW   = 1+X_PW91)
+c
+c     Correlation functional identifiers
+c
+      integer C_EDF1
+      integer C_FT97
+      integer C_LYP
+      integer C_PBE
+      integer C_PZ81
+      integer C_P86
+      integer C_PW91
+      integer C_PW92
+      integer C_VWN5
+      integer C_VWN5RPA
+      integer C_B95
+      parameter(C_EDF1    = 3001)
+      parameter(C_FT97    = 3002)
+      parameter(C_LYP     = 3003)
+      parameter(C_PBE     = 3004)
+      parameter(C_PZ81    = 3005)
+      parameter(C_P86     = 3006)
+      parameter(C_PW91    = 3007)
+      parameter(C_PW92    = 3008)
+      parameter(C_VWN5    = 3009)
+      parameter(C_VWN5RPA = 3010)
+      parameter(C_B95     = 3011)
+c
+c     Density functional definition
+c
+      REAL    hf_exch_wght
+      integer xc_fun, x_fun, c_fun
+      logical hf_exch_sw,gradcorr_sw,kinetic_sw
+      common/xc_func/hf_exch_wght,
+     &               xc_fun,x_fun,c_fun,
+     &               hf_exch_sw,gradcorr_sw,kinetic_sw

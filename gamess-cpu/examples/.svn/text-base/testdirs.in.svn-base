@@ -1,0 +1,63 @@
+#
+# List of directories to process when running all of the examples
+#
+# This is processed by utilities/ccnvrt during the configure process
+# so that we don't run any examples that the code hasn't been built
+# for.
+
+chap2
+
+#--#if !parallel#
+chap3
+chap4
+
+# Analysis
+chap7
+
+# dft
+dft
+
+# CI examples
+chap5
+chap6
+
+# Punchfile
+#chap10
+
+# more CI
+chap11
+
+# Don't run benchmark jobs as they don't tell us anything
+# we don't already know and take too long.
+#benchmark
+#benchmark_99
+
+#--#if mopac#
+mopac
+#--#endif mopac#
+
+#--#if drf#
+drf
+#--#endif drf#
+
+#--#endif !parallel#
+
+#--#if vb#
+vb
+#--#endif vb#
+
+#--#if zora#
+zora
+#--#endif zora#
+
+#--#if newscf#
+#newscf
+#--#endif newscf#
+
+#--#if dl-find#
+dl-find
+#--#endif dl-find#
+
+#--#if masscf#
+masscf
+#--#endif masscf#

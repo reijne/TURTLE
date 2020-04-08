@@ -1,0 +1,9 @@
+c
+c... common to  sitmch from 8 to 16 bits orb ital packing
+c...  n8_16 is # bits used for packing; i.e. 8 (255 orbitals) 16 (32000)
+c...  n16_32 is the correspnding one for 16 vs 32 bits packin 
+c...  GAMESS  parameters cannot be used as VB may have more MO's than AO's
+c...  parameters are set in vbcrestr
+c
+      integer n8_16,n16_32,n340
+      common/c8_16vb/n8_16,n16_32,n340

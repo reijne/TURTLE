@@ -1,0 +1,73 @@
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = z001
+#@ job_name = BENCH
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI/benchmark_jobs/hpcx/bench.err
+#@ wall_clock_limit = 02:00:00
+#@ tasks_per_node = 32
+#@ cpus = 256
+#@ network.MPI = csss,shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export MP_EAGER_LIMIT=65536
+export MP_SHARED_MEMORY=yes
+export MP_USE_BULK_XFER=yes
+export MEMORY_AFFINITY=MCM
+export MP_EUILIB=us
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI
+
+cp input_files_benchmarks/HF.cyclo.6-31G-dp.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.cyclo.6-31G-dp.out
+
+cp input_files_benchmarks/HF.cyclo.DZP.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.cyclo.DZP.out
+
+cp input_files_benchmarks/HF.valino.6-31G-dp.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.valino.6-31G-dp.out
+
+cp input_files_benchmarks/HF_grad.CAG.1291.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF_grad.CAG.1291.out
+
+cp input_files_benchmarks/DFT.cyclo.6-31G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.cyclo.6-31G.out
+
+cp input_files_benchmarks/DFT.cyclo.6-31G-dp.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.cyclo.6-31G-dp.out
+
+cp input_files_benchmarks/DFT.valino.A2.DZVP.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.valino.A2.DZVP.out
+
+cp input_files_benchmarks/DFT.valino.A2.DZVP2.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.valino.A2.DZVP2.out
+
+cp input_files_benchmarks/DFT.siosi6.1687.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.siosi6.1687.out
+
+cp input_files_benchmarks/DFT_opt.exti4a1.3-21G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT_opt.exti4a1.3-21G.out
+
+cp input_files_benchmarks/DFT.pcfe.814.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.pcfe.814.out
+
+cp input_files_benchmarks/HF.hf12z-shell4.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.hf12z-shell4.out
+
+cp input_files_benchmarks/DFT.hf12z-shell4.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.hf12z-shell4.out
+
+cp input_files_benchmarks/HF.siosi7.3975.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.siosi7.3975.out
+
+cp input_files_benchmarks/DFT.siosi7.3975.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/DFT.siosi7.3975.out

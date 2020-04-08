@@ -1,0 +1,586 @@
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::CONNECT_PRIM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(256,5) inlined into dlf_hdlc_primitive_d.F90(112,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(112,33)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(279,5) inlined into dlf_hdlc_primitive_d.F90(127,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(280,7) inlined into dlf_hdlc_primitive_d.F90(127,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 280 and  line 280
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(145,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(145,5)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(145,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(153,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(155,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 162 and  line 161
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(256,5) inlined into dlf_hdlc_primitive_d.F90(174,11)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(174,31)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(279,5) inlined into dlf_hdlc_primitive_d.F90(184,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(280,7) inlined into dlf_hdlc_primitive_d.F90(184,14)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 280 and  line 280
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(279,5) inlined into dlf_hdlc_primitive_d.F90(196,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(280,7) inlined into dlf_hdlc_primitive_d.F90(196,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 280 and  line 280
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(137,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(111,7)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(192,13)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::NOT_CONNECTED
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(256,5)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::CONN_GROW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(279,5)
+<Multiversioned v1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(280,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 280 and  line 280
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(279,5)
+<Multiversioned v2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(280,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 280 and  line 280
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::CONNECT_ALL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(316,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(317,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::CI_CONN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(366,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(368,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(368,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(367,7)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(368,7)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(373,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(373,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(372,9)
+      remark #25460: No loop optimizations reported
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(373,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(400,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(393,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(396,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(401,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_primitive_d.F90(400,11) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::VALCOOR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(509,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(509,5)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(509,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(528,5)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(528,5)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(528,5)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(528,5)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(530,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(541,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 542 and  line 542
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(541,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(546,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(546,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(546,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(551,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 556 and  line 575
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(581,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(584,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 584 and  line 584
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(709,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 734 and  line 734
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(749,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(749,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(793,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(793,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(793,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(799,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 800 and  line 801
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(799,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(808,5)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(815,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(815,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(815,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(819,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 820 and  line 821
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(819,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(980,5) inlined into dlf_hdlc_primitive_d.F90(903,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(981,7) inlined into dlf_hdlc_primitive_d.F90(903,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 981 and  line 981
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(913,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 914 and  line 914
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(918,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 922 and  line 920
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(918,11)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(523,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_primitive_d.F90(518,14) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(780,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_primitive_d.F90(634,18) ]
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(694,7)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_primitive_d.F90(634,18) ]
+
+      LOOP BEGIN at dlf_hdlc_primitive_d.F90(693,9)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_primitive_d.F90(634,18) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(955,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(858,11)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_primitive_d.F90(868,7)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::ROTS_GROW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(980,5)
+<Multiversioned v1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(981,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 981 and  line 981
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(980,5)
+<Multiversioned v2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_primitive_d.F90(981,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 981 and  line 981
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_PRIMITIVE::VALCOOR_PRINT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(1017,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1018 and  line 1018
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(1030,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1036 and  line 1036
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(1073,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1078 and  line 1078
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_primitive_d.F90(1067,9)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================

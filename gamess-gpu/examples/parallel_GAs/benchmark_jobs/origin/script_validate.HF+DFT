@@ -1,0 +1,67 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 360
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin
+
+rm -rf /scratch/local/gamess/benchmark
+mkdir /scratch/local/gamess/benchmark
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/benchmark
+
+cp ../../input_files_benchmarks/HF.morphine.6-31G-d.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.morphine.6-31G-dp.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.Alpha-pinene.6-311g-dfp.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF_grad.CAG.1291.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF_incore.Alpha-pinene.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF_incore.TFMtoluene.6-31G-d.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.Alpha-pinene.6-311g-3dfp.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.morphine.6-31G-dp.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.morphine.A2.DZVP.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfit.morphine.A2.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.pcfe.814.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_opt.exti4a1.3-21G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.siosi7.3975.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfitA.siosi3.347.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfitA.siosi4.617.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfitA.siosi5.1199.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfitA.siosi6.1687.in /scratch/local/gamess/benchmark
+ 
+cd /scratch/local/gamess/benchmark
+
+mpirun -np 128 gamess-uk < HF.morphine.6-31G-d.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.morphine.6-31G-d.out
+
+mpirun -np 128 gamess-uk < HF.morphine.6-31G-dp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.morphine.6-31G-dp.out
+
+mpirun -np 128 gamess-uk < HF.Alpha-pinene.6-311g-dfp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.Alpha-pinene.6-311g-dfp.out
+
+mpirun -np 128 gamess-uk < HF_grad.CAG.1291.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF_grad.CAG.1291.out
+
+mpirun -np 128 gamess-uk < HF_incore.Alpha-pinene.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF_incore.Alpha-pinene.out
+
+mpirun -np 128 gamess-uk < HF_incore.TFMtoluene.6-31G-d.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF_incore.TFMtoluene.6-31G-d.out
+
+mpirun -np 128 gamess-uk < DFT.Alpha-pinene.6-311g-3dfp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.Alpha-pinene.6-311g-3dfp.out
+
+mpirun -np 128 gamess-uk < DFT.morphine.6-31G-dp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.morphine.6-31G-dp.out
+
+mpirun -np 128 gamess-uk < DFT.morphine.A2.DZVP.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.morphine.A2.DZVP.out
+
+mpirun -np 128 gamess-uk < DFT_jfit.morphine.A2.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfit.morphine.A2.out
+
+mpirun -np 128 gamess-uk < DFT.pcfe.814.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.pcfe.814.out
+
+mpirun -np 128 gamess-uk < DFT_opt.exti4a1.3-21G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_opt.exti4a1.3-21G.out
+
+mpirun -np 128 gamess-uk < DFT_jfitA.siosi3.347.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfitA.siosi3.347.out
+
+mpirun -np 128 gamess-uk < DFT_jfitA.siosi4.617.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfitA.siosi4.617.out
+
+mpirun -np 128 gamess-uk < DFT_jfitA.siosi5.1199.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfitA.siosi5.1199.out
+
+mpirun -np 128 gamess-uk < DFT_jfitA.siosi6.1687.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfitA.siosi6.1687.out
+
+mpirun -np 128 gamess-uk < DFT.siosi7.3975.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.siosi7.3975.out

@@ -1,0 +1,100 @@
+      integer maxorb, maxat,  maxvar, maxnz,  mxshel, mxprim
+      integer mxgrps, mxgaus, mxgrid, mxcalc, mxplot, mxrest
+      integer mxstp,  maxlfn, maxfrt, maxbuf, maxblo, mxprms
+      integer nd200,  mxcan1, mxcan2, lenci,  numspl, nbrkmx
+      integer mxcsf,  mxnshl, mxroot, mxconf, maxig, mxtrm
+      integer mxtda1, mxtda2, mxtda3, mxtda4, mxorb3, maxat3
+      integer mxcrec, mxcrc2, mxproc
+      integer mcprim, mcfzc
+************************************************************************
+*   ==========  parameters defining the maximum system size =========
+*
+*   there are eight    parameters that the programmer need set:
+*     maxorb = maximum number of basis functions
+*     maxat  = maximum number of atoms (including point charges)
+*     maxvar = maximum number of z-matrix variables
+*     maxnz  = maximum number of z-matrix cards
+*     mxshel = maximum number of shells
+*     mxprim = maximum number of shell primitives
+*     mxprms = maximum number of primitives in a shell
+*
+      parameter (maxorb= MAXORB, maxat=MAXAT)
+      parameter (maxvar= MAXVAR, maxnz=MAXNZ)
+      parameter (mxshel= MXSHEL, mxprim=MXPRIM, mxprms=25)
+*
+*   following parameters refer to analysis modules
+*     mxgaus = maximum number of orbital primitives
+*     mxgrps = maximum number of shells
+      parameter ( mxgrps = MXGRPS, mxgaus = MXGAUS)
+*
+*   following parameters refer to graphics module
+      parameter (mxgrid=10, mxcalc=10, mxplot=10, mxrest=10)
+      parameter (mxstp=mxcalc+mxgrid+mxplot+mxrest)
+*
+*   following parameters refer to I/O system
+*   parameters control no. of ed/mt files+ buffers
+*
+*     maxlfn *  no. of ed/mt streams
+*     maxfrt *  no. of fortran data sets
+*     maxbuf *  no. of fortran store buffers
+*     maxblo *  no. of blocks in 1 buffer
+*
+      parameter (maxlfn = 40, maxfrt = 60)
+      parameter (maxbuf = 9, maxblo=32)
+*
+*   following parameters refer to direct-CI module
+*   max # (external) orbitals
+      parameter (nd200 = 255)
+*   parameters control canonical set size
+*     mxcan1 *  default setting 2508 : high-spin 19606
+*     mxcan2 *  default setting 5016 : high-spin 39212
+*     parameter (mxcan1  = 2508, mxcan2 = 5016)
+      parameter (mxcan1  = 19606, mxcan2 = 39212)
+*
+*   following parameters refer to full-CI module
+*
+*     lenci *  default setting 500000
+      parameter (lenci = 500000)
+*
+*   following parameters are needed for DIRECT
+*
+      parameter (numspl=50)
+      parameter (nbrkmx=20)
+*
+*   following parameters are needed for MRD-CI
+*
+      parameter (mxcsf=100)
+      parameter (mxnshl=30)
+      parameter (mxroot=50)
+      parameter (mxconf=200000)
+      parameter (maxig=400000)
+      parameter (mxtrm=600000)
+      parameter (mxcrec=2000,mxcrc2=1000)
+*
+* following parameters are used in the TDA module
+*
+      parameter (mxtda1=3600)
+      parameter (mxtda2=50)
+      parameter (mxtda3=20)
+      parameter (mxtda4=600)
+c
+c following parameters are used in the MCSCF
+c
+      parameter (mcprim=128) ! the max. number of active orbitals
+      parameter (mcfzc =512) ! the max. number of frozen core orbitals
+
+************************************************************************
+*  
+*   for parallel code
+*
+************************************************************************
+      parameter (mxproc=512)
+
+************************************************************************
+*
+*   the following values should not be altered
+*
+************************************************************************
+      parameter (mxorb3=maxorb*3)
+      parameter (maxat3=maxat+3)
+************************************************************************

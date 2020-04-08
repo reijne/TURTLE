@@ -1,0 +1,274 @@
+\section{Tool Programs}
+Most of the following tool programs are called from within the 
+{\tt diesel} main driver program. So you usually do not need to interact
+with them directly. 
+
+\subsection{Diesel Results ({\tt dr})}
+This program collects the energy results of the calculation within one irrep,
+performs several extrapolation schemes, and prints the results.
+
+\bigskip
+command line:
+{\tt dr [-R=$n$] [-T=$t$] [-C=$r$,$c$] [-h] [-w]}
+
+\begin{enumerate}
+\item -R: restrict output to root $n$
+\item -T: restrict output to threshold $t$
+\item -C: print row $r$ and column $c$ for each root block only
+\item -h: surpress table headers
+\item -w: surpress wave function output
+\end{enumerate}
+
+These options are especially useful to grep a certain number out of
+the output in order to generate a potential surface for example.
+
+
+\subsection{Getting Project Information ({\tt getDirInfo})}
+{\tt getDirInfo} evaluates the directory structure of a calculation
+and prints information about it.
+
+For example:
+\begin{verbatim}
+             Project = c6
+            Geometry = linear
+               Basis = C.DUN...5S3P1D
+        Multiplicity = 3
+               IrRep = 3
+\end{verbatim}
+
+
+\subsection{Grepping the Dominating Configurations ({\tt grepImp})}
+\bigskip
+
+command line:
+{\tt grepImp {\it threshold} <diag.out.{\it thresh}}
+
+Print the configurations in the wave function having a coefficient
+greater than {\it threshold}.
+
+
+\subsection{Calculation of excitation statistics ({\tt confStat})}
+\bigskip
+
+command line:
+{\tt confStat ConfTree.dat {\it ref} }
+
+Print the excitation levels in tree "{\tt ConfTree.dat}" relative
+to configuration in file {\it ref}.
+
+
+\subsection{Symmetrization of selected configurations ({\tt symTree})}
+\bigskip
+
+command line:
+{\tt symTree "equivalence" ["fort.31"-file]  }
+
+\subsection{Symmetrization of references ({\tt refsym})}
+
+command line:
+{\tt refsym <equivalences irrep sel.in.all-files}
+
+The file "equivalences" contains equivalent MOs per line. For example if
+1 2 3 were $\sigma$- and (10,20), (11,21) were $\pi$-orbitals this
+file would look like:
+{\obeylines
+{\tt
+1
+2
+3
+10 20
+11 21
+}}
+The references in "sel.in.all" are transformed to the representation
+of the degenerated point group. By transforming this orbital representation
+back to the original non degenerated point group the program completes
+or discards whole classes of configurations with respect to the full
+point group. 
+%The decision of discarsion or completion is made from the 
+%amount 
+%%!!!!!!!!!!!!!!!!!!
+
+\subsection{Listing the Configuration Tree ({\tt lstconfs})}
+\bigskip
+
+command line:
+{\tt lstconfs ConfTree.dat}
+
+For example:
+\begin{verbatim}
+lstconfs (Part of DIESEL-MR-CI), Version 1.08pre, 22. Jan 1999
+
+intern-0: 125
+intern-1: 10
+intern-2: 3
+
+number of reference configurations          : 112
+number of CSFs from reference configurations: 216
+total number of configurations              : 138
+total number of CSFs                        : 254
+
+  ref.   2 38 58 1-3 39-40 59-60 83-85 121-122 141-142
+  ref.   2 38 58 1-3 39-40 59 83-85 121-123 141-142
+  ref.   2 38 58 1-3 39-40 59 83-85 121-122 141-143
+  ref.   2 38 58 1-3 39 59-60 83-85 121-123 141-142
+  ref.   2 38 58 1-3 39 59-60 83-85 121-122 141-143
+.
+.
+.
+\end{verbatim}
+
+\subsection{Set Operations ({\tt setops})}
+The program calculates merge, intersection or difference sets
+of given configurations and writes them to the standard output
+in tree format.
+
+\bigskip
+command line:
+{\tt setops -{c|s|t} -{m|i|d} file1 file2 ...}
+
+\begin{enumerate}
+\item -c: configurations in plain format
+\item -s: configurations to be read from selector input
+\item -t: configurations in tree format (as produced by the selector)
+\end{enumerate}
+
+\begin{enumerate}
+\item -m: perform merge
+\item -i: perform intersection
+\item -d: perform difference
+\end{enumerate}
+
+
+\subsection{Fort.31 File Format Conversion ({\tt f31endian})}
+The program {tt f31endian} is capable of converting the "fort.31" integral file
+format between little (e. g. Intel, Transputer, VAX) and 
+big endian (e. g. RISC, HP, IBM, Sun) notation.
+
+command line:
+{\tt f31endian {l2b|b2l} {old|new|tradpt} input-filename output-filename}
+
+\begin{enumerate}
+\item l2b: little $\to$ big endian conversion
+\item b2l: big $\to$ little endian conversion
+\end{enumerate}
+
+\begin{enumerate}
+\item old: fort.31 format from the HONDO program suite
+\item new: fort.31 format from the MOLCAS program suite
+\item tradpt: fort.31 format from the TRADPT program
+\end{enumerate}
+
+
+
+\subsection{One Electron Density Matrices ({\tt dens})}
+\label{Density}
+The program {\tt dens} calculates the (transition) one electron density matrices.
+It depends on the configuration tree and the eigenvector files from
+a previous MR-CI calculation.
+
+\bigskip
+command line:
+
+{\tt dens motra-input-file Thresh\\
+{\#Lstate1[-\#LstateN], all} Ldir {[\#Rstate1[-\#RstateM], all}}  [Rdir]]
+
+
+{\it state} means the nth state calculated in an MR-CI calculation.
+Arguments in square brackets are optional. If missing they default to
+corresponding arguments given first. The output is written
+to a file "Density.dat".
+%The matrix is echoed to stdout in formatted long line format.
+
+
+
+
+\subsection{Natural Orbitals ({\tt natorb})}
+\label{Natural}
+The program {\tt natorb} calculates natural orbitals from one electron 
+density matrices.
+
+\bigskip
+command line:
+
+{\tt natorb DensityMatrix1 ... [-weight w1 ... ] <InputOrbitals >OutputOrbitals}
+
+Several density matrices may be weighted by the option {\it weight}.
+The input and output orbitals are in MOLCAS format.
+
+
+
+
+
+
+
+\subsection{Properties ({\tt prop})}
+
+The program {\tt prop} calculates one electron operator properties
+based on the one electron density matrices generated with the program
+described in \ref{Density} and on the one electron integral file
+(ONEINT) generated by the MOLCAS program package. The result is
+written to stdout.
+
+\bigskip
+command line:
+
+{\tt prop} {\it operator component IntegralPath OrbitalPath DensityPath $\ldots$}
+
+with
+
+\begin{center}
+\begin{tabular}{rl}
+{\it operator}: &\{ "Mltpl1", "Kinetic", "OneHam" \}\\
+{\it component}: &\{ 1, 2, $\ldots$ \}\\
+{\it IntegralPath}: &path to MOLCAS ONEINT File\\
+{\it OrbitalPath}: &path to MOLCAS orbitals file (e.g. "SCFORB", "RASORB")\\
+{\it DensityPath}: &path to CI density matrix(ces) (generated with "dens")\\
+\end{tabular}
+\end{center}
+
+
+
+\subsubsection{Driver to calculate and nicely print several Properties ({\tt prettyProp})}
+
+The program {\tt prettyProp} is a driver for the {\tt prop}-program.
+
+calculates one electron operator properties
+based on the one electron density matrices generated with the program
+described in \ref{Density} and on the one electron integral file
+(ONEINT) generated by the MOLCAS program package. The result is
+written to stdout.
+
+\bigskip
+command line:
+
+%{\tt prettyProp} {\it -global options  -printing modes}
+%
+%with the following global options:
+
+%\begin{center}
+%\begin{tabular}{rl}
+%-unit \{au, eV, kcal/mol\}: &set printing unit, default: au\\
+%-mode \{E\underbar{ }CI, E\underbar{ }extpolCI, E\underbar{ }Dav1, E\underbar{ }Dav2\}: 
+%&which energy type to be used,\\
+%&default: E\underbar{ }Dav2\\
+%-thresh {\it value}: &threshold value\\
+%-intpath {\it IntegralPath}: &path to MOLCAS ONEINT file\\
+%&default: ../ONEINT\\
+%-orbpath {\it OrbitalPath}: &path to MOLCAS orbitals file\\
+%&(e.g. "SCFORB", "RASORB")\\
+%&default: ../SCFORB\\
+%\end{tabular}
+%\end{center}
+
+%and the following printing modes:
+%\begin{center}
+%\begin{tabular}{rl}
+%-e: & print excitation energies\\
+%-prop {\it operator component}: &calculate properties (depends on density matrices)\\
+% & the {\it operator} and {\it component} are the same as\\
+% &for the {\tt prop} program\\
+%-osc: &calculate oscillator strengths (depends on density matrices)\\
+%\end{tabular}
+%\end{center}
+
+

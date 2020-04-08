@@ -1,0 +1,32 @@
+#!/bin/csh
+setenv ed3 mfged3
+setenv ed2 mfged2
+../../bin/gamess << EOF
+TITLE
+C(CN)4 - problem with old gradients energy -406.874377585
+ZMAT ANGSTROM
+C
+C 1 rcc 
+C 1 rcc  2  109.471
+C 1 rcc  2  109.471 3  120.0
+C 1 rcc  2  109.471 4  120.0
+X 2 1.0  1  90.0    3  180.0
+N 2 rcn  6  90.0    1  180.0
+X 3 1.0  1  90.0    2  180.0
+N 3 rcn  8  90.0    1  180.0
+X 4 1.0  1  90.0    5  180.0
+N 4 rcn  10 90.0    1  180.0
+X 5 1.0  1  90.0    4  180.0
+N 5 rcn  12 90.0    1  180.0
+variables
+rcc            1.4739
+rcn            1.1378
+END
+BASIS DZ
+SCFT DIRECT
+RUNTYPE OPTIMISE
+THRESH 7
+LEVEL 1.0
+MAXCYC 30
+ENTER
+EOF

@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+rg_info()
+{
+   if [ $info -eq 2 ] 
+   then
+      echo  "rungamess has been configured with these settings:"
+      echo  "   Function               Variable         Setting "
+      echo  "   --------               --------         ------- "   
+      echo  "   Job Submission:        GAMESS_SUBMODE   $submode"
+      echo  "   Parallel Execution:    GAMESS_PARMODE   $GAMESS_PARMODE"
+      echo  " "
+      echo  "To change these settings  edit ../rungamess/rg_site_defaults"
+   else
+   echo
+   echo Rungamess version $VERSION
+   echo
+   echo the following options are accepted by ${PROG} 
+   echo
+   echo '   option argument       function  '
+   echo '  ------- -------------  ----------'
+   echo '   -h    hostname       set execution host '
+   echo '   -n    rootname       set root part of filenames to rootname '
+   echo '   -k    lfn            save file on stream lfn as ./rootname.lfn '
+   echo '   -k    lfn=file       save file on stream lfn as ./file '
+   echo '   -k    lfn=/dir/file  save file on stream lfn as /dir/file '
+   echo '   -t    lfn            save file on stream lfn as $GAMESS_SCR/rootname.lfn '
+   echo '   -l    lfn            connect lfn to library file (lfn=ed0 or table)'
+   echo '   -p    nproc          set number of processes to run on'
+#   echo '         file           give name of file with desired hosts'
+   echo '   -e    file           use file as GAMESS executable'
+   echo '   -s    (none)         output on stdout'
+   echo '   -r    option         save files required to restart option'
+   echo '                          (option=hf, mcscf, casscf, ci or mrdci)'
+   echo '   -i    (none)         print this information'
+   echo
+
+   case $submode in
+     none) ;;
+     *)  echo ' Job submission to queueing system (mode='$submode') is available:'
+         echo '   -q    (none)         submit to queueing system '
+         echo '   -T    time           set job time limit for batch system'
+         echo '   -P    ppn            set number of processes per node '
+     ;;
+   esac
+
+   echo
+   echo GAMESS environment on this host:
+   echo GAMESS executable         = $GAMESS_EXE
+   case ${GAMESS_PAREXE-unset} in 
+   unset) 
+     ;; 
+   *) 
+     echo multiprocessor version \(for mode=${GAMESS_PARMODE}\) is available : 
+     echo    parallel GAMESS executable= $GAMESS_PAREXE 
+     ;;
+   esac
+   echo Temporary directory       = $GAMESS_TMP
+   echo Scratch directory         = $GAMESS_SCR
+   echo Location of library files = $GAMESS_LIB
+
+   fi
+
+}

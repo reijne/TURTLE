@@ -1,0 +1,34 @@
+title
+Cr(NO)4 Td / MP2 ECPDZ geom. opt -188.4595870 au
+zmat angstrom
+cr
+n 1 crn
+n 1 crn 2 109.471
+n1 1 crn 2 109.471 3 120.0
+n1 1 crn 2 109.471 4 120.0
+x 2 1.0 1 90.0 3 180.0
+o 2 no 6 90.0 1 180.0
+x 3 1.0 1 90.0 2 180.0
+o 3 no 8 90.0 1 180.0
+x 4 1.0 1 90.0 5 180.0
+o 4 no 10 90.0 1 180.0
+x 5 1.0 1 90.0 4 180.0
+o 5 no 12 90.0 1 180.0
+variables
+crn       1.6872723 hess    1.611087
+no        1.1725574 hess    3.923818
+end
+basis
+ecpdz cr cep
+ecpdz o cep
+ecpdz n cep
+ecpdz n1 cep
+end
+pseudo
+crcep cr
+ocep o
+ncep n n1
+runtype optimize
+scftype direct mp2
+level 3.0 15 1.5
+enter

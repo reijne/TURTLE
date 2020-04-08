@@ -1,0 +1,45 @@
+#!/bin/bash
+#BSUB -n 32
+#BSUB -W 120
+#BSUB -o validate.o%J
+#BSUB -e validate.e%J
+#BSUB -J validate
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix 
+
+rm -rf /santmp/dlwab/validate
+mkdir /santmp/dlwab/validate
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/validate
+
+cp ../../input_files/HF.crno4.in  /santmp/dlwab/validate
+cp ../../input_files/HF_2e.crno4.in /santmp/dlwab/validate
+cp ../../input_files/ROHF.pyridine.in  /santmp/dlwab/validate
+cp ../../input_files/ROHF_incore.pyridine.in  /santmp/dlwab/validate
+cp ../../input_files/ROHF_opt.pyridine.in  /santmp/dlwab/validate
+cp ../../input_files/UHF.morphine.6-31G-d.in  /santmp/dlwab/validate
+cp ../../input_files/UHF_incore.pyridine.in  /santmp/dlwab/validate
+cp ../../input_files/UHF_opt.pyridine.in  /santmp/dlwab/validate
+cp ../../input_files/HF.Bz_crco3.TZVP.in  /santmp/dlwab/validate
+cp ../../input_files/ROHF.Bz_crco3.TZVP.in  /santmp/dlwab/validate
+cp ../../input_files/ECP_opt.crno4.in  /santmp/dlwab/validate
+ 
+cd /santmp/dlwab/validate
+
+pam -mpi -auto_place ./gamess-uk < HF.crno4.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/HF.crno4.out
+pam -mpi -auto_place ./gamess-uk < HF_2e.crno4.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/HF_2e.crno4.out
+pam -mpi -auto_place ./gamess-uk < ROHF.pyridine.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/ROHF.pyridine.out
+pam -mpi -auto_place ./gamess-uk < ROHF_incore.pyridine.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/ROHF_incore.pyridine.out
+pam -mpi -auto_place ./gamess-uk < ROHF_opt.pyridine.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/ROHF_opt.pyridine.out
+pam -mpi -auto_place ./gamess-uk < UHF.morphine.6-31G-d.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/UHF.morphine.6-31G-d.out
+pam -mpi -auto_place ./gamess-uk < UHF_incore.pyridine.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/UHF_incore.pyridine.out
+pam -mpi -auto_place ./gamess-uk < UHF_opt.pyridine.in   > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/UHF_opt.pyridine.out
+pam -mpi -auto_place ./gamess-uk < HF.Bz_crco3.TZVP.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/HF.Bz_crco3.TZVP.out
+pam -mpi -auto_place ./gamess-uk < ROHF.Bz_crco3.TZVP.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/ROHF.Bz_crco3.TZVP.out
+pam -mpi -auto_place ./gamess-uk < ECP_opt.crno4.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/ECP_opt.crno4.out
+

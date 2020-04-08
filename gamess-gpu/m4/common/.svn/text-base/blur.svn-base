@@ -1,0 +1,17 @@
+      integer mxbltyp
+      parameter(mxbltyp = 50)
+
+      logical oblur
+      common/blurrr/oblur
+
+      integer nbltyp, bltab(maxat), nutab(maxat)
+
+      REAL blexpo(maxat), blwght(maxat)
+      REAL blexpo2(mxbltyp), blwght2(mxbltyp)
+
+      common/blurr2/blexpo, blwght,
+     &     blexpo2, blwght2,
+     &     bltab,nbltyp,nutab
+
+      character*8 ztagbl
+      common/blurrc/ztagbl(mxbltyp)

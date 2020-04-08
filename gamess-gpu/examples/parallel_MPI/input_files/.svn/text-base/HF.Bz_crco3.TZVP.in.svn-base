@@ -1,0 +1,67 @@
+file ed3 ed3-c6h6 keep
+parallel diag pdsyevd
+title
+(c6h6)cr(co)3 TZVP HF Energy = -1612.1208930516 au
+zmatrix angstrom
+cr
+x  1  crx
+c  2  cx  1  90.0
+c  2  cx  1  90.0  3  60.0
+c  2  cx  1  90.0  3  120.0
+c  2  cx  1  90.0  3  180.0
+c  2  cx  1  90.0  3  -120.0
+c  2  cx  1  90.0  3  -60.0
+x  3  1.0  2  90.0  1  180.0
+h  3  ch  9  r  2  180.0
+x  4  1.0  2  90.0  1  180.0
+h  4  ch  11  r  2  180.0
+x  5  1.0  2  90.0  1  180.0
+h  5  ch  13  r  2  180.0
+x  6  1.0  2  90.0  1  180.0
+h  6  ch  15  r  2  180.0
+x  7  1.0  2  90.0  1  180.0
+h  7  ch  17  r  2  180.0
+x  8  1.0  2  90.0  1  180.0
+h  8  ch  19  r  2  180.0
+c  1  crc  2  xcrc  3  0.0
+x 21  1.0  1  90.0  2  0.0
+o 21  co  22  90.0  1  180.0
+c  1  crc  2  xcrc 21  120.0
+x 24  1.0  1  90.0  2  0.0
+o 24  co  25  90.0  1  180.0
+c  1  crc  2  xcrc 21 -120.0
+x 27  1.0  1  90.0  2  0.0
+o 27  co  28  90.0  1  180.0
+variables
+crx            1.6562898 hess     .228424
+cx             1.4216234 hess    3.069981
+ch             1.0890479 hess    2.780431
+crc            1.7764444 hess     .898205
+co             1.1882500 hess    2.617821
+r             93.6845362 hess     .662115
+xcrc         130.5898172 hess    1.903249
+end
+basis 
+tzvp cr
+dzp c
+dzp o
+dz h
+end
+scftype direct
+newscf
+print full
+Phase  1
+Level  2.000000000000000000
+DIIS
+#  Switch to phase  2
+next  2
+Tester below  0.015
+Phase  2
+Level  0.000000000000000000E+00
+DIIS
+#  Converge calculation
+next  0
+Tester below  1.0e-5
+maxcyc 50
+end
+enter

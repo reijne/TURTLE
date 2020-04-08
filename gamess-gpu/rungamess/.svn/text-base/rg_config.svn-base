@@ -1,0 +1,65 @@
+#!/bin/ksh
+#
+rg_config() {
+
+echo rungamess does not seem to be configured correctly on `hostname`
+echo 
+echo Ensure the following environment variables are set
+echo
+echo The executable name is taken from the environment variable GAMESS_EXE.
+echo 
+echo The environment variable GAMESS_SCR must be set to the name of a
+echo directory in which the user has permission to create files. A
+echo directory will be created under this directory for each job that is
+echo run, and all binary datasets that are not routed elsewhere will be
+echo written here for the duration of the job. The directory is deleted at
+echo the end of the job. If GAMESS_SCR does not exist, an attempt will be
+echo made to create it. 
+echo 
+echo The environment variable GAMESS_TMP should be set to a directory in
+echo which storage of files between jobs is possible.
+echo 
+echo The environment variable GAMESS_LIB must be set to the name of a
+echo directory containing the GAMESS-UK Library files \(typically of the
+echo form ../GAMESS-UK/libs in the current distribution\).
+echo
+echo Note that if you wish to use the host as a server for running 
+echo GAMESS-UK jobs from another host, be sure to place these settings
+echo in the .cshrc file rather than .login, so that they will be 
+echo available even under a rsh \(rather than a rlogin\) process.
+
+}
+
+case $jobmode in
+serial)
+  case ${GAMESS_EXE-unset} in 
+   unset) echo $PROG: environment variable GAMESS_EXE must be set;
+          rg_config;
+          exit 107;; 
+  esac
+  ;;
+*)
+  #case ${GAMESS_PAREXE-unset} in 
+   #unset) echo $PROG: environment variable GAMESS_PAREXE must be set to run parallel;
+          #rg_config;
+          #exit 107;; 
+  #esac
+  ;;
+esac
+
+
+case ${GAMESS_LIB-unset} in 
+   unset) echo $PROG: environment variable GAMESS_LIB must be set; 
+          rg_config;
+          exit 107;;
+esac
+case ${GAMESS_SCR-unset} in 
+   unset) echo $PROG: environment variable GAMESS_SCR must be set;
+          rg_config;
+          exit 107;; 
+esac
+case ${GAMESS_TMP-unset} in 
+   unset) echo $PROG: environment variable GAMESS_TMP must be set; 
+          rg_config;
+          exit 107;; 
+esac

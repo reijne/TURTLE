@@ -1,0 +1,8 @@
+_IF(cray,ksr,i8)
+      integer dmsk
+_ELSEIF(convex,i8drct)
+      integer *8 dmsk
+_ELSE
+      REAL dmsk
+_ENDIF
+      common/mp3/dmsk(3),mpcblk,mp(26),mpxpat,mpbssi(8,8)

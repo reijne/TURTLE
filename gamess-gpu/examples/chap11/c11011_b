@@ -1,0 +1,179 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title\GaN2+ startup  2Pi sv dunning +(N,sp2d;Ga,2sp3d) opt
+super off 
+charge 1
+zmat angstrom
+ga 
+n 1 r
+n 2 nn 1 180.0
+variables
+r 3.1574391
+nn 1.0770951
+end
+basis
+sv n 
+s n
+1.0 0.0609428
+p n
+1.0 0.0472571
+d n
+1.0 1.654
+d n
+1.0 0.469
+sv ga 
+s ga
+1.0 0.0204514
+p ga 
+1.0 0.0175142
+l ga 
+1.0 0.005 1.0
+d ga
+1.0 0.03
+d ga 
+1.0 0.01
+d ga
+1.0 0.0033333
+end
+scftype rhf
+level 2.0 
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\GaN2 2Pi sv dunning +(N,sp2d;Ga,2sp3d) opt
+super off 
+mult 2
+charge 0
+zmat angstrom
+ga 
+n 1 r
+n 2 nn 1 180.0
+variables
+r 3.1574391
+nn 1.0770951
+end
+basis
+sv n 
+s n
+1.0 0.0609428
+p n
+1.0 0.0472571
+d n
+1.0 1.654
+d n
+1.0 0.469
+sv ga 
+s ga
+1.0 0.0204514
+p ga 
+1.0 0.0175142
+l ga 
+1.0 0.005 1.0
+d ga
+1.0 0.03
+d ga 
+1.0 0.01
+d ga
+1.0 0.0033333
+end
+runtype optimize
+scftype rhf
+maxcyc 50
+open 2 1
+level 0.1 1.0
+enter
+EOF
+../../bin/gamess << EOF
+restart 
+title\GaN2 2Pi sv dunning +(N,sp2d;Ga,2sp3d) opt
+super off 
+mult 2
+charge 0
+zmat angstrom
+ga 
+n 1 r
+n 2 nn 1 180.0
+variables
+r 3.1574391
+nn 1.0770951
+end
+basis
+sv n 
+s n
+1.0 0.0609428
+p n
+1.0 0.0472571
+d n
+1.0 1.654
+d n
+1.0 0.469
+sv ga 
+s ga
+1.0 0.0204514
+p ga 
+1.0 0.0175142
+l ga 
+1.0 0.005 1.0
+d ga
+1.0 0.03
+d ga 
+1.0 0.01
+d ga
+1.0 0.0033333
+end
+runtype hessian
+scftype gvb
+maxcyc 50
+open 2 1
+level 0.1 1.0
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\GaN2 2Pi sv dunning +(N,sp2d;Ga,2sp3d) numerical forces
+super off 
+mult 2
+charge 0
+zmat angstrom
+ga 
+n 1 r
+n 2 nn 1 180.0
+variables
+r     3.5307512 hessian  0.002129
+nn    1.0776838 hessian  2.416200
+end
+basis
+sv n 
+s n
+1.0 0.0609428
+p n
+1.0 0.0472571
+d n
+1.0 1.654
+d n
+1.0 0.469
+sv ga 
+s ga
+1.0 0.0204514
+p ga 
+1.0 0.0175142
+l ga 
+1.0 0.005 1.0
+d ga
+1.0 0.03
+d ga 
+1.0 0.01
+d ga
+1.0 0.0033333
+end
+runtype force
+scftype gvb
+maxcyc 50
+open 2 1
+vectors 5
+level 0.1 1.0
+enter 11 12
+EOF

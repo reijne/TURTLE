@@ -1,0 +1,974 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co - dz basis - ovgf valence i.e.s
+ >>>>> super off nosym
+ >>>>> noprint
+ >>>>> zmatrix angstrom
+ >>>>> c
+ >>>>> o 1 1.203
+ >>>>> h 1 1.099 2 121.8
+ >>>>> h 1 1.099 2 121.8 3 180.0
+ >>>>> end
+ >>>>> runtype gf
+ >>>>> active\3 to 22 end\core\1 to 2\end
+ >>>>> i.p.
+ >>>>> second 3 to 8 end
+ >>>>> third 3 to 8  end
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:18:56
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+ local       status  external file name
+ file name 
+ ********************************************************************************
+ ed2         old      mfged2                                                                          
+ ed3         old      mfged3                                                                          
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co - dz basis - ovgf valence i.e.s                                                *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 1.203                                                                                                                           
+ h 1 1.099 2 121.8                                                                                                                   
+ h 1 1.099 2 121.8 3 180.0                                                                                                           
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.203000 (   1)
+   3    3   h     1   1.099000 (   2)   2  121.800 (   4)
+   4    4   h     1   1.099000 (   3)   2  121.800 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.273340
+              3  h                1.765065       0.000000      -1.094386
+              4  h               -1.765065       0.000000      -1.094386
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sv      3-21g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.0000000      0.0000000      0.9998719       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -1.2734685       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *******************************************************************************
+
+
+ total number of shells                  10
+ total number of basis functions         22
+ number of electrons                     16
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      8
+ total number of atoms                    4
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                gf       *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+
+ **************************************************** 
+ *            PRINT OPTIONS in EFFECT               * 
+ **************************************************** 
+ * suppress printing of distance matrix             * 
+ * suppress printing of basis functions             * 
+ * suppress printing of sabf specification          * 
+ * suppress printing of optimization history file   * 
+ * suppress printing of non-canonicalised vectors   * 
+ * suppress printing of wave function analysis      * 
+ * suppress printing of force constant matrix       * 
+ * suppress printing of bq coordinates and forces   * 
+ **************************************************** 
+
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          12
+   2           4
+   3           6
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -112.82485034 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.01 seconds
+
+ end of 2-electron integral evaluation at     0.01 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        closed-shell rhf scf calculation
+                                        ********************************
+
+ ----- nuclear energy ----- =      31.383720045129
+
+ use symmetry adapted jacobi diagonalisation
+
+               convergence data
+               ================
+
+
+ minimise dump and scratchfile i/o
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criterion        =1.0e- 7
+ punch out option             =      0
+
+ =======================================================================================================
+   cycle           total      electronic         e conv.         tester   virtual damping           diis
+                  energy          energy                                   shift
+ =======================================================================================================
+   1   1   -113.14766643   -144.53138648   -144.53138648     0.12448429     0.000   1.000    0.000000000   
+   2   2   -113.18352246   -144.56724250     -0.03585602     0.03820441     0.000   1.000    0.000000000   
+   3   3   -113.21978474   -144.60350479     -0.03626229     0.01015427     0.000   0.000    0.000000000   
+   4   4   -113.22088116   -144.60460120     -0.00109641     0.01018806     0.000   0.000    0.000000000   
+   5   0   -113.22119379   -144.60491383     -0.00031263     0.00438399     0.000   0.000    0.000048588   
+   6   1   -113.22130721   -144.60502725     -0.00011342     0.00411847     0.000   0.000    0.000005014   
+   7   2   -113.22138486   -144.60510491     -0.00007765     0.00040077     0.000   0.000    0.000000090   
+   8   3   -113.22138575   -144.60510579     -0.00000089     0.00013995     0.000   0.000    0.000000003   
+   9   4   -113.22138586   -144.60510590     -0.00000011     0.00001911     0.000   0.000    0.000000000   
+  10   5   -113.22138586   -144.60510590      0.00000000     0.00000403     0.000   0.000    0.000000000   
+  11   6   -113.22138586   -144.60510590      0.00000000     0.00000008     0.000   0.000    0.000000000   
+
+          ----------------
+          energy converged
+          ----------------
+
+          --------------
+          final energies   after  11 cycles at       0.04 seconds
+          --------------
+
+
+          electronic energy               -144.6051059034
+          nuclear energy                    31.3837200451
+          total energy                    -113.2213858583
+          convergence on density             0.0000011085
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          CONVERGENCE / TESTER ANALYSIS            From DIIS
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Iter.   Tester   (domo/vmo)             Tester   (domo/vmo)
+
+              1  0.1244843 (   7   9) (*)        0.1244843 (   7   9)
+              2  0.0382044 (   8  21) (*)        0.0382044 (   8  21)
+              3  0.0101543 (   4  18) (*)        0.0101543 (   4  18)
+              4  0.0101881 (   7   9) (*)        0.0101881 (   7   9)
+              5  0.0061732 (   8  21)            0.0043840 (   8  21) (*)
+              6  0.0025504 (   7   9)            0.0041185 (   7   9) (*)
+              7  0.0003083 (   6  15)            0.0004008 (   6  20) (*)
+              8  0.0000885 (   6  20)            0.0001399 (   6  20) (*)
+              9  0.0000167 (   6  20)            0.0000191 (   6  20) (*)
+             10  0.0000028 (   8  21)            0.0000040 (   7   9) (*)
+             11  0.0000001 (   6  15)            0.0000001 (   6  15) (*)
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.48360054       -557.3926        2.0000
+    2     1    -11.28388020       -307.0530        2.0000
+    3     1     -1.42107165        -38.6697        2.0000
+    4     1     -0.86257740        -23.4722        2.0000
+    5     3     -0.69835433        -19.0034        2.0000
+    6     1     -0.63657488        -17.3223        2.0000
+    7     2     -0.52867345        -14.3861        2.0000
+    8     3     -0.43116442        -11.7327        2.0000
+    9     2      0.14867179          4.0456        0.0000
+   10     1      0.27270231          7.4207        0.0000
+   11     3      0.36811401         10.0170        0.0000
+   12     1      0.45408002         12.3563        0.0000
+   13     2      0.93005469         25.3083        0.0000
+   14     3      1.01802374         27.7021        0.0000
+   15     1      1.04135675         28.3370        0.0000
+   16     1      1.15882717         31.5336        0.0000
+   17     3      1.26988913         34.5558        0.0000
+   18     1      1.56946441         42.7077        0.0000
+   19     2      1.86711687         50.8073        0.0000
+   20     1      1.90075168         51.7226        0.0000
+   21     3      1.98283551         53.9562        0.0000
+   22     1      3.32677974         90.5272        0.0000
+ ========================================================
+
+
+ end of closed shell scf at       0.04 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ========================================================================================================
+
+                                        ***********************
+                                        integral transformation
+                                        ***********************
+
+
+ vectors restored from section    1
+
+ header block information : 
+ rhf    vectors created at 12:18:56 on Mar 26   in the job jmht    
+ with the title: h2co - dz basis - ovgf valence i.e.s                                            
+
+ the following orbitals included in active list
+ ==============================================
+ function e/i label     function e/i label     function e/i label     function e/i label
+ ----------------------------------------------------------------------------------------
+        3         1            4         2            5         3            6         4
+        7         5            8         6            9         7           10         8
+       11         9           12        10           13        11           14        12
+       15        13           16        14           17        15           18        16
+       19        17           20        18           21        19           22        20
+
+ the following mos included in frozen core list
+ ----------------------------------------------
+ function e/i label     function e/i label     function e/i label     function e/i label
+        1         1            2         2
+
+ route transformed core hamiltonian to section  466
+ 4-index information dumped to section 486 of dumpfile starting at block     1 on ed3 
+
+ 2-electron integral files
+ *************************
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ secondary mainfile
+ ******************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ start of integral transformation at    0.04 seconds
+
+ no. of sort1 passes=   1
+
+ end of sort1 pass     1 at     0.04 seconds
+
+ job dumped after calc1 pass     1 at      0.05 seconds
+
+ status of secondary mainfile
+ ****************************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks    65
+
+ no. of sort2 passes=   1
+
+ end of sort2 pass     1 at     0.05 seconds
+
+ job dumped after calc2 pass     1 at      0.06 seconds
+
+ end of 4-index transformation at    0.06 seconds
+
+ status of transformed integral file
+ ***********************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    22
+
+ start of 2-index transformation at     0.06 seconds
+
+ effective nuclear repulsion term  -0.731582239824E+02
+
+ end of 2-index transformation at     0.06 seconds
+
+ end of integral transformation at     0.06 seconds
+
+
+ ========================================================================================================
+                                        ****************************
+                                        ionization spectra gf module
+                                        ****************************
+
+
+
+     dumpfile resides on ed3  at block      1
+
+     core hamiltonian to be retrieved from section  466
+
+     header block information :
+     number of active orbitals   20
+     number of core   orbitals    2
+     nuclear repulsion energy    0.313837200451E+02
+     core energy                -0.731582239824E+02
+
+
+
+     second  order perturbation calculation requested for the following   6  orbitals :
+
+     1     2     3     4     5     6
+
+
+     third   order perturbation calculation requested for the following   6  orbitals :
+
+     1     2     3     4     5     6
+
+     scf mo specifications restored from section    1 of dumpfile
+
+     header block information :
+     rhf     vectors created at 12:18:56 on Mar 26   in the job jmht    
+     with the title :     h2co - dz basis - ovgf valence i.e.s                                            
+     no. of gtos          22
+     no. of scf vectors   22
+
+
+    *********************************************************************************************
+     case :     h2co - dz basis - ovgf valence i.e.s                                            
+
+     number of active orbitals           20
+
+     number of doubly occupied orbitals   6
+
+     number of virtual orbitals          14
+    *********************************************************************************************
+
+                                                  scf orbital energies (au)
+                                                  *************************
+
+              -1.4210717    -0.8625774    -0.6983543    -0.6365749    -0.5286734    -0.4311644     0.1486718     0.2727023
+
+               0.3681140     0.4540800     0.9300547     1.0180237     1.0413567     1.1588272     1.2698891     1.5694644
+
+               1.8671169     1.9007517     1.9828355     3.3267797
+
+                                                  scf orbital energies (ev)
+                                                  *************************
+
+             -38.6696334   -23.4721111   -19.0033386   -17.3222210   -14.3860504   -11.7326738     4.0455974     7.4206662
+
+              10.0169712    12.3562438    25.3082762    27.7020549    28.3369832    31.5335415    34.5557150    42.7076377
+
+              50.8072374    51.7224944    53.9561268    90.5269996
+    ------------------------------------------------------------------------
+     input orbital specifications :
+
+     orbital   tran4    scf    symmetry   occup   2-nd order    3-rd order
+       no.     label   label                      calculation   calculation
+    ------------------------------------------------------------------------
+        1         1       3       1        domo            *             *   
+        2         2       4       1        domo            *             *   
+        3         3       5       3        domo            *             *   
+        4         4       6       1        domo            *             *   
+        5         5       7       2        domo            *             *   
+        6         6       8       3        domo            *             *   
+        7         7       9       2        vmo                               
+        8         8      10       1        vmo                               
+        9         9      11       3        vmo                               
+       10        10      12       1        vmo                               
+       11        11      13       2        vmo                               
+       12        12      14       3        vmo                               
+       13        13      15       1        vmo                               
+       14        14      16       1        vmo                               
+       15        15      17       3        vmo                               
+       16        16      18       1        vmo                               
+       17        17      19       2        vmo                               
+       18        18      20       1        vmo                               
+       19        19      21       3        vmo                               
+       20        20      22       1        vmo                               
+    ------------------------------------------------------------------------
+
+     main core not used:     3991230 words
+
+
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    22
+
+
+        6691   integrals are to be read in and processed
+
+        6691  2-electron integrals scanned
+
+
+ ********************************************************************************************************
+
+     commence  second  order perturbation calculation at    0.06 secs
+     ================================================================
+
+   second order perturbation theory, diagonal form,final results
+   ==============================================================
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1          -38.66963           -36.53726       0.17736
+
+      2          -23.47211           -21.08974       0.88723
+
+      3          -19.00334           -16.48509       0.86561
+
+      4          -17.32222           -14.35167       0.88067
+
+      5          -14.38605           -13.96016       0.91028
+
+      6          -11.73267            -9.33016       0.90290
+
+
+ ********************************************************************************************************
+
+
+ ********************************************************************************************************
+
+     commence  third   order perturbation calculation at    0.06 secs
+     ================================================================
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1          -38.66963           -34.43893       0.08251
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1           38.66963            33.93427       0.10760
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1           38.66963            33.93491       0.10520
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1           38.66963            33.93617       0.10514
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      1           38.66963            33.93427       0.10760
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      2          -23.47211           -21.67089       0.90857
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      2           23.47211            21.46641       0.90045
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      2           23.47211            21.42228       0.90140
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      2           23.47211            21.52190       0.90157
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      2           23.47211            21.46641       0.90045
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      3          -19.00334           -17.52011       0.90937
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      3           19.00334            17.13010       0.88949
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      3           19.00334            17.12556       0.89400
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      3           19.00334            17.20650       0.89290
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      3           19.00334            17.13010       0.88949
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      4          -17.32222           -16.25025       0.93980
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      4           17.32222            15.55297       0.91751
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      4           17.32222            15.66217       0.91941
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      4           17.32222            15.65378       0.91848
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      4           17.32222            15.55297       0.91751
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      5          -14.38605           -14.22842       0.91581
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      5           14.38605            14.07758       0.92413
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      5           14.38605            14.13549       0.91322
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      5           14.38605            14.17210       0.91423
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      5           14.38605            14.17210       0.91423
+
+
+ ********************************************************************************************************
+
+
+   third order perturbation theory, diagonal form,final  results
+ ---------------------------------------------------------------
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      6          -11.73267           -10.70252       0.94590
+
+   renormalization of interaction, methods involving 2nd and 3rd order diagrams
+
+
+
+   final results for method a
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      6           11.73267            10.20255       0.93133
+
+
+   final results for method b
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      6           11.73267            10.27407       0.93249
+
+
+   final results for method c
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      6           11.73267            10.29939       0.93173
+
+
+
+
+   renormalization of interaction, final results
+
+
+
+   orbital   hf-eigenvalue     corrected value    polestrength
+   ============================================================
+      6           11.73267            10.27407       0.93249
+
+
+ end of gf module at    0.12 seconds
+
+ ========================================================================================================
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      0.12          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      0.12 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               316 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     230      34
+ *    205    5     225       1
+ *    206    6     226       1
+ *    207    7     266       1
+ *    208    8     267      34
+ *    209    9     301       1
+ *    213   13     187       1
+ *    242   42     264       1
+ *    244   44     179       7
+ *    253   53     207       4
+ *    303  103     186       1
+ *    420  100     108      71
+ *    466 1004     303      14
+ *    467  167     227       3
+ *    470 1005     188      15
+ *    486  500     302       1
+ *    490   51     218       5
+ *    491    1      47      61
+ *    492    2     211       7
+ *    493   15       6       1
+ *    494   16     265       1
+ *    496   18       7      40
+ *    497   19     223       2
+ *    501   21       2       4
+ *    504   23     203       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      12:18:56 on Mar 26  h2co - dz basis - ovgf valence i.e.s
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       47      47
+ ed3      231     231
+ ed6       22      22
+ ed7        8       8
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.00      0.00            0.02      5.16
+ vector generation                     0.01      8.33            0.00      0.95
+ 2e-integral evaluation                0.00      0.00            0.01      1.92
+ scf                                   0.03     25.00            0.02      7.02
+ integral transformation               0.02     16.67            0.02      7.87
+ greens function i.p.                  0.06     50.00            0.26     84.43
+ ******************************************************************************
+ Total                                 0.12                      0.31
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =      2666385 words
+Return Code =  0

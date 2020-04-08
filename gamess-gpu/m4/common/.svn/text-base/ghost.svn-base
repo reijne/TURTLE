@@ -1,0 +1,8 @@
+c
+c...  counterpoise common
+c
+      character *8 ztag00
+      integer maxghost,nghost
+      parameter (maxghost=100)
+      common/ghost/ ztag00(maxghost)
+      common/ghostn/ nghost

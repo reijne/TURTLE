@@ -1,0 +1,7 @@
+#!/bin/csh
+setenv GAMESS_VTAB ./develop.vtab
+set path=(../../utilities $path)
+validate h2co_rpagrad      LOG/h2co_rpagrad.log
+validate h2co_rpaopt_6311g LOG/h2co_rpaopt_6311g.log
+validate h2co_rpaopt_631g  LOG/h2co_rpaopt_631g.log
+

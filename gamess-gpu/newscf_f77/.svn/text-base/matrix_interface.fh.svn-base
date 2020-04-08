@@ -1,0 +1,122 @@
+C     
+C     Defines which operations are availible
+C     
+
+C     
+C     P. Sherwood and A. J. Turner
+C     
+C     Oct 1997 
+C     
+C     This include file hold the names of the matrix
+C     library functions that are shared between chemsh
+C     and the other codes
+C     
+
+      integer  handle_alloc,handle_free,stack_alloc,stack_free
+      external handle_alloc,handle_free,stack_alloc,stack_free
+
+      integer  matrix_create
+      external matrix_create
+
+      integer  matrix_assign_unit
+      external matrix_assign_unit
+
+      integer  matrix_assign_zero
+      external matrix_assign_zero
+
+      integer  matrix_add
+      external matrix_add
+
+      integer  matrix_print
+      external matrix_print
+
+      integer  matrix_print_titled
+      external matrix_print_titled
+
+      integer  matrix_destroy
+      external matrix_destroy
+
+      integer  matrix_daxpy
+      external matrix_daxpy
+
+      integer  matrix_set
+      external matrix_set
+
+      integer  matrix_get
+      external matrix_get
+
+      double precision matrix_length
+      external matrix_length
+
+      double precision matrix_dot_product
+      external matrix_dot_product
+
+      integer  matrix_dimension
+      external matrix_dimension
+
+      integer  matrix_multiply
+      external matrix_multiply
+
+      integer  matrix_dgemm
+      external matrix_dgemm
+
+      external matrix_absmax
+      double precision matrix_absmax
+
+      integer  matrix_scale
+      external matrix_scale
+
+      integer  matrix_combine
+      external matrix_combine
+
+      integer  matrix_transpose
+      external matrix_transpose
+
+      integer  matrix_get_element
+      external matrix_get_element
+
+      integer  matrix_set_element
+      external matrix_set_element
+
+      integer  matrix_get_row
+      external matrix_get_row
+
+      integer  matrix_set_row    
+      external matrix_set_row    
+
+      integer  matrix_get_column
+      external matrix_get_column
+
+      integer  matrix_set_column 
+      external matrix_set_column 
+
+      integer  matrix_invert
+      external matrix_invert
+      
+      integer  matrix_copy
+      external matrix_copy
+
+      integer  matrix_diagonalise
+      external matrix_diagonalise
+
+      integer  matrix_to_array   
+      external matrix_to_array   
+
+      integer  matrix_from_array   
+      external matrix_from_array
+
+      double precision matrix_symmetrise
+      external matrix_symmetrise
+
+      integer matrix_get_to_triangle
+      external matrix_get_to_triangle
+
+      integer matrix_set_from_triangle
+      external matrix_set_from_triangle
+
+      integer matrix_mult2
+      external matrix_mult2 
+
+      integer matrix_mult2t
+      external matrix_mult2t
+

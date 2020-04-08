@@ -1,0 +1,73 @@
+Running the Parallel MPI-based Examples and Validation tests
+-----------------------------------------------------------
+
+This directory is designed for use in running the validation and
+benchmark jobs associated with the MPI/ScaLAPACK/BLACS based parallel
+GAMESS-UK code. The overall directory structure for GAMESS-UK depicting
+the various components employed is shown below:
+
+
+            |            |-- chap2            *
+            |            |-- chap3            *
+            |            |-- chap4            *
+            |            |-- chap5            *
+            |            |-- chap6            *
+            |            |-- chap7            *
+            |            |-- chap10           *
+            |            |-- chap11, chap12   * SERIAL test cases
+            |            |-- nbo              *
+            |            |-- workshop         *
+            |            |-- zora             *
+            |--examples/-|-  dft              *
+            |            |-- drf              *
+            |            |-- benchmark        *
+            |            |-- 
+            |            |--                |-- input_files
+            |            |--                |                      |
+GAMESS-UK/--|            |-- parallel_MPI/--|-- test_jobs ---------|- hpcx
+            |            |--                |                      |- origin
+            |            |--                |                      |- altix
+            |            |--                |                      |- cluster
+            |            |--                |                      |- etc etc
+            |            |--                |   
+            |            |--                |-- input_files_benchmarks
+            |            |--                |   
+            |            |--                |   
+            |            |--                |-- benchmark_jobs ----|- origin
+            |            |--                |                      |- etc etc
+            |            |-- 
+            |            |-- parallel_GAs   [Global Array examples, as above]
+
+The directories under parallel_MPI serve the following purpose:
+
+input_files  - a single copy of the .in files for use across all
+	       machines. These hold the minimal set used for
+	       validation, and are intended to characterise 
+               simple use of the code. These files should be common to
+	       all machines, with a minimum of pre-directives.
+
+input_files_benchmarks - a single copy of all the benchmark input
+	       files for use across all machines - these will contain
+	       redirectives for e.g. using select/thresh to minimise run
+	       time etc.
+
+test_jobs   - this directory contains the vtab file for the runs - this
+	      file should be used on ALL machines. Within test_jobs
+	      there are a no. of sub-directories that characterise the
+	      machine under test. These will only hold scripts to run
+	      the validation jobs, and eventually O/P files from the
+	      completed tests.
+
+benchmark_jobs - similar to test_jobs above, with machine specific
+              scripts to run the more extensive benchmark tests.
+
+Thus to test and validate the code on a given machine, simply head for
+examples/parallel_MPI/test_jobs/machine [where machine = hpcx, origin,
+altix etc] and run the example scripts and validation tests provided.
+The latter scripts are intended to help in this process and should be
+modified as appropriate to run the 30 odd cases required for successful
+validation.  Many of these tests are short - between them they test out
+all the key functionality in the parallel code. A mixture of 32 and 64
+CPU runs required about 2 hours on HPCx.
+
+August 2005

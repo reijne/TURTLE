@@ -1,0 +1,12 @@
+      common /brill/ nex(maxact) ,iex (maxex,maxact),
+     &               nexw(maxact),iexw(maxex,maxact),
+     &                            ieqsig(maxex,maxact),
+     &               iequi(maxact),nequi,iredund(mxorbvb),nredund,
+     &               inteq(maxact+1,maxact),ninteq(maxact),ninter,
+     &               nscf,nullity,ortscf,schmi,reduce,autscf,
+     &               exact(maxact),nbrill,idequi,
+     &               ieqs(maxact),nexeq(maxact),iexeq(maxact*maxact)
+      logical ortscf,schmi,reduce,autscf,exact
+      integer nequi,nredund,ninter,nscf,nullity,nbrill,nex,nexw,
+     &        iex,iexw,ieqsig,iequi,iredund,inteq,ninteq,idequi,
+     &        ieqs,nexeq,iexeq

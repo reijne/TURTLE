@@ -1,0 +1,27 @@
+
+Begin optimization report for: ISWAP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at iswap.f(70,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at iswap.f(70,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at iswap.f(77,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at iswap.f(93,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at iswap.f(55,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 56 and  line 57
+LOOP END
+===========================================================================

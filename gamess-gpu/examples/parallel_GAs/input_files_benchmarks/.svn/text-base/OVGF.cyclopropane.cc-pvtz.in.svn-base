@@ -1,0 +1,39 @@
+parallel iomode nzo
+title
+cyclopropane c3h6 cc-pvtz + Rydberg at cc-pvdz opt. geom A1 OVGF
+harmonic
+super off nosym
+zmat angstrom
+c
+bq 1 rcc2
+c1 2 rcc2 1 120.0
+c1 2 rcc2 1 120.0 3 180.0
+h 1 r2 2 theta1 3 90.0
+h 1 r2 2 theta1 3 -90.0
+h 3 r2 2 theta1 1 90.0
+h 3 r2 2 theta1 1 -90.0
+h 4 r2 2 theta1 1 90.0
+h 4 r2 2 theta1 1 -90.0
+variables
+rcc2           0.8664951 hessian       2.907284
+r2             1.0826972 hessian       2.321543
+theta1       122.9176671 hessian       2.583264
+coordinates 
+end
+basis nwchem
+c cc-pvtz
+c1 cc-pvtz 
+h cc-pvtz 
+bq s
+0.02 1.0
+bq p
+0.02 1.0
+bq d
+0.02 1.0
+end
+runtype gf
+active\4 to 183 end\core\1 to 3\end
+i.p.
+second 4 to 12 end
+third  4 to 12 end
+enter

@@ -1,0 +1,17 @@
+#!@BASH@
+@AWK@ 'BEGIN{ ARGC--; print ARGV[1]; }
+	$1=="R" && $2=="e" && $3=="s" && $4=="u" && $5=="l" && $6=="t" && $7=="s" { status = 1 } 
+	$1=="threshold/mH" && status==1 { status = 10 }
+	status==10 && substr($1,1,4)=="====" { for ( i=1 ; i<=ARGV[1] ; i++ ) getline; status = 11 }
+	status==11 { status = 0; result[0,1] = $2; result[0,2] = $3;
+	for ( i=4 ; i<=NF ; i++ ) result[i-4,3] = $i }
+	$1=="no." && status==1 { getline; getline; status = 2 ; roots = 0 ; r = 0 }
+	status==2 && $1>"" { result[roots,4] = $4 ; roots = roots + 1 }
+	status==2 && $1=="" { status = 1 }
+	$1=="ci^2" && $2=="of" && $3=="references:" && status==1 { result[r,5] = $4 ; r = r + 1 }
+	END {
+		print "root #   sel. confs      sel. CSFs      sum PT dE      CI energy   ci^2 of ref."
+		print "--------------------------------------------------------------------------------"
+		for ( i=0 ; i<roots ; i++ )
+		printf("%4d %14s %14s %14s %14s %14s\n", i+1, result[0,1], result[0,2], result[i,3], result[i,4], result[i,5]) } \
+	' $1

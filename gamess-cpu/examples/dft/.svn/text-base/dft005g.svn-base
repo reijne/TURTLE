@@ -1,0 +1,111 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg - DFT/BLYP / energy = -114.5285695650 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct
+dft 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg - BLYP in-core Jfit (Ahlrichs) / energy = -114.5288097325 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct 
+dft jfit memory
+# request Ahlrichs Coulommb fitting basis
+dft jbas ahlrichs
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg harmonic - DFT/BLYP / energy = -114.5259544749 au
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct
+dft 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+fg harmonic - BLYP in-core Jfit (Ahlrichs)  -114.5261736312 au
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c
+1 1.0
+g o
+1.0 1.0
+end
+scftype direct 
+dft jfit memory
+# request Ahlrichs Coulommb fitting basis
+dft jbas ahlrichs
+enter
+EOF

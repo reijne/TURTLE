@@ -1,0 +1,14 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title\h2o dz optimized energy = -76.011000872
+geometry all
+0.0    0.0    -0.2212037 8      o
+0.0     1.4284429     0.8848150 1      h
+0.0    -1.4284429     0.8848150 1      h
+end
+basis dz
+runtype optimize
+enter
+EOF

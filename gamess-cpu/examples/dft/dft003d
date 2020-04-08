@@ -1,0 +1,65 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 6-31G* - DFT/B-LYP default quadrature / energy = -114.4711638577 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g*
+scftype direct
+dft beck88 lyp
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G** - DFT/B-LYP default quadrature / energy = -114.4738069201 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g**
+scftype direct
+dft beck88 lyp
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP - DFT/B-LYP default quadrature / energy = -114.5230331615 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype direct
+dft beck88 lyp
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+f - DFT/B-LYP default quadrature / energy = -114.5262168998 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype direct
+dft beck88 lyp
+enter
+EOF

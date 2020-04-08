@@ -1,0 +1,41 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  - SCF startup for CASSCF geom. optimisation
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - casscf geom opt. (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype optimize
+scftype casscf
+config 
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF

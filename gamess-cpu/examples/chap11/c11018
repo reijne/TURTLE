@@ -1,0 +1,75 @@
+#!/bin/csh
+setenv ed2 beomain
+setenv ed3 beodump
+setenv ed4 beoed4
+setenv ed6 beoed6
+setenv ed13 beoed13
+../../bin/gamess << EOF
+title\beo .. dzp SCF energy -89.4268424
+super off nosym
+zmat angstrom\be\o 1 beo
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\beo .. dzp
+super off nosym
+bypass
+zmat angstrom\be\o 1 beo
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+scftype mcscf
+thresh 4
+mcscf
+orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+enter
+EOF
+../../bin/gamess << EOF
+restart scf
+title\beo .. dzp
+super off nosym
+zmat angstrom\be\o 1 beo
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+scftype mcscf
+thresh 4
+mcscf
+orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+dont sort
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\beo .. dzp mcscf+2nd-order ci (6 electrons in 6 mos)
+super off nosym
+# MCSCF energy -89.54556664 au
+# CI energy  -0.896036866E+02 au
+zmat angstrom\be\o 1 beo
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+runtype ci
+active\4 to 31\end
+core\1 to 3\end
+scftype mcscf
+thresh 4
+mcscf
+orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+direct 6 6 22
+conf 
+2 2 2 0 0 0
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+vectors 1\enter 20 21 
+EOF

@@ -1,0 +1,25 @@
+#!/bin/csh -f
+
+
+set begin = $1
+set end   = $2
+set steps = $3
+set i = 0
+set ener = 0
+
+while ($i <= $steps )
+
+cd step_{$i}
+
+set ener = `grep 'Potential Energy  =' md.log |awk '{printf("%f\n",$4)}'`
+cat <<EOF 
+`echo 1 |awk '{printf("%f",${begin}+(${end}-${begin})/${steps}*$i) }'` $ener 
+EOF
+
+@ i++
+
+cd ..
+
+
+end
+

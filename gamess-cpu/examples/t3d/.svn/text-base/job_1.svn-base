@@ -1,0 +1,7 @@
+#!/bin/sh
+#QSUB -l mpp_p=4
+#QSUB -l mpp_t=0:10:0
+#QSUB -eo
+#QSUB -r par_1
+cd  /u/rech/euf/reuf004/mfg/GAMESS-UK/examples/t3d
+mpprun ../../bin/gamess_mp2.4 < par_1.in  > par_1.out_4

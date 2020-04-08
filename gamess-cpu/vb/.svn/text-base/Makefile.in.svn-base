@@ -1,0 +1,66 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+# 
+# Use the configure script in ../m4
+#
+#
+VBOBJ = vbaivb.o\
+	vbci.o\
+	vbdebug.o\
+	vbin.o\
+	vbscf.o\
+	vbqcscf.o\
+	vbutil.o\
+	vbcrestr.o\
+	vbgamess.o\
+	vbmatre.o\
+	vbtran.o\
+	vbdens.o\
+	vbprop.o\
+	vbversion.o\
+	servec.o\
+	sendrecv.o
+
+#--#if gromacs#
+VBLIB = $(GMSLIB)
+#--#else#
+VBLIB = libvb.a
+#--#endif#
+
+vb:	$(VBLIB)
+	
+
+$(VBLIB):	$(VBOBJ) $(VBEXTRA)
+		$(ARCHIVE) $(VBLIB)  $(VBOBJ)  $(VBEXTRA)
+		$(RANLIB) $(VBLIB)
+
+
+vbversion.f:	vbaivb.m vbci.m vbdebug.m vbin.m vbutil.m vbcrestr.m vbgamess.m vbmatre.m vbtran.m vbdens.m vbqcscf.m servec.m
+		echo "      subroutine vbversion(cdate,ctime,cname)" > vbversion.f
+		echo "      character*10 cdate,cname" >> vbversion.f
+		echo "      character*5 ctime" >> vbversion.f
+		echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> vbversion.f
+		echo "      ctime=\""`date '+%H:%M'`"\"" >> vbversion.f
+		echo "      cname=\""`${WHOAMI}`"\"" >> vbversion.f
+		echo "      return" >> vbversion.f
+		echo "      end" >> vbversion.f
+
+# Only include MPI_INCLUDE dir if is has been set
+sendrecv.o:	sendrecv.c
+	if  [ "${MPI_INCLUDE}" ] ; \
+	then $(CC) $(CFLAGS)  -I${MPI_INCLUDE} -I../g/tcgmsg-mpi $(OBJNAME) sendrecv.c ; \
+	else $(CC) $(CFLAGS)  -I../g/tcgmsg-mpi $(OBJNAME) sendrecv.c ; \
+	fi
+
+clean:
+	touch x.o x~ x.f \#x
+	rm -f *.o *.f *.c *~ \#* $(VBLIB) 
+#if coverage#
+	rm -f *.gcda *.gcno *.html
+#endif#
+
+.DEFAULT: vb
+	
+#	(cd ../m4; make $@)
+#

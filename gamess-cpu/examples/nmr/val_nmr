@@ -1,0 +1,7 @@
+#!/bin/csh
+#
+# validation for NMR
+#
+setenv GAMESS_VTAB ./nmr.vtab
+set path=(../../utilities $path)
+validate ethanol_nosym  ethanol_nosym.out

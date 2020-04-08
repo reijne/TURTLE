@@ -1,0 +1,27 @@
+#!/bin/csh -f
+#
+# parallel examples = modify the gamess.p configuration
+# file to specify number of processors
+#
+date
+#
+time c2001 > LOG/c2001.log
+time c2002 > LOG/c2002.log
+time c2003 > LOG/c2003.log
+time c2004 > LOG/c2004.log
+time ecp_0 > LOG/ecp_0.log
+time ecp_1 > LOG/ecp_1.log
+#
+#  only single-node at present
+#
+#casscf > LOG/casscf.log
+#mcscf > LOG/mcscf.log
+#
+#time ci_small > LOG/ci_small.log
+#time ci_tzv > LOG/ci_tzv.log
+#time ci_tzvp > LOG/ci_tzvp.log
+#time ci_ion > LOG/ci_ion.log
+time gf > LOG/gf.log 
+time memory > LOG/memory.log
+#
+date

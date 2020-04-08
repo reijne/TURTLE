@@ -1,0 +1,18 @@
+#!/bin/sh
+#BSUB -n 64
+#BSUB -W 60
+#BSUB -o morphine.o%J
+#BSUB -e morphine.e%J
+#BSUB -J morphine
+
+cd /home/u3/gamess/GAMESS-UK/examples/morphine
+
+rm -rf /scratch/local/gamess/morphine
+mkdir /scratch/local/gamess/morphine
+ 
+cp /home/u3/gamess/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/morphine
+cp morphine_jfitA2.in /scratch/local/gamess/morphine
+ 
+cd /scratch/local/gamess/morphine
+
+mpirun -np 64 gamess-uk < morphine_jfitA2.in > /home/u3/gamess/GAMESS-UK/examples/morphine/morphine_jfitA2.out.64

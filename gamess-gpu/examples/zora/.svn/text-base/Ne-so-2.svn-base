@@ -1,0 +1,11 @@
+#!/bin/csh -f
+../../bin/gamess << EOF
+Core 12000000
+super off nosym
+zora spin c 10
+zmat angstrom
+ ne
+end
+harmonic
+enter
+EOF

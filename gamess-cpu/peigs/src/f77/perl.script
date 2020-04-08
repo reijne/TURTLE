@@ -1,0 +1,6 @@
+#! /bin/csh
+# $Id: perl.script,v 1.2 2000-10-26 15:38:35 psh Exp $
+#
+perl -pi.bak -e 's/\bDLAMCH( 'U' )\b/DLAMCHU/g' *.c
+
+

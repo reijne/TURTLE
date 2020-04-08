@@ -1,0 +1,42 @@
+
+Begin optimization report for: DORG2L
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dorg2l.f(99,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorg2l.f(100,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dorg2l.f(100,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dorg2l.f(100,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dorg2l.f(119,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorg2l.f(119,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dorg2l.f(119,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dorg2l.f(106,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dorg2l.f(112,15) ]
+LOOP END
+===========================================================================

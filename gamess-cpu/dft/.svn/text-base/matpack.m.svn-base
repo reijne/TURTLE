@@ -1,0 +1,437 @@
+c---- memory counting routines -----------------------------------------
+c
+      subroutine memreq_matPack_drv(memory_int,
+     &                              memory_fp,
+     &                              matdiag_sw,matinv_sw,
+     &                              svd_sw,lu_sw,
+     &                              nelements,matrix)
+C **********************************************************************
+C *Description                                                         *
+C *Top level driver for intPack.
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations
+C *
+C *Parameters
+INCLUDE(common/dft_parameters)
+C *In variables
+INCLUDE(common/dft_module_comm)
+      integer nelements
+      REAL matrix(nelements,nelements)
+C *Scratch space and pointers
+      integer memory_int(*)
+      REAL memory_fp(*)
+      integer scratch_pt,index_pt
+C *Local variables
+      logical matdiag_sw,matinv_sw,svd_sw,lu_sw
+C *Functions
+      integer incr_memory
+C *End declarations                                                    *
+C **********************************************************************
+      if(debug_sw) then
+        write(6,*) 'Entered into matPack'
+        write(6,*) 'Matrix calculations to be performed:'
+        write(6,*) 'Matrix diagonalisation        - ',matdiag_sw
+        write(6,*) 'Matrix inversion              - ',matinv_sw
+        write(6,*) 'Singular valued decomposition - ',svd_sw
+        write(6,*) 'LU decomposition              - ',lu_sw
+      endif
+      if(matinv_sw) then
+C **********************************************************************
+C *Matrix invertion - Use Lapack routines
+C * A -> A-1
+C *
+C *Pointers
+C *
+C *pointer		length		type
+C *iden_pt		nelements^2	double
+C *index_pt		nelements	integer
+
+        scratch_pt    = incr_memory(nelements*nelements,'d')
+        index_pt      = incr_memory(nelements*2,'i')
+
+c       call mat_inverse(matrix,nelements,
+c    &                   memory_fp(scratch_pt),
+c    &                   memory_int(index_pt))
+
+        call decr_memory(index_pt,'i')
+        call decr_memory(scratch_pt,'d')
+
+C *End matrix inversion
+C **********************************************************************
+      endif
+      if(svd_sw) then
+C **********************************************************************
+C *Singular valued decomposition
+C *
+C *
+C *Pointers
+ 
+C *End singular valued decomposition
+C **********************************************************************
+      endif
+      if(lu_sw) then
+C **********************************************************************
+C *LU decomposition
+C *
+C *
+C *Pointers
+ 
+C *End LU decomposition
+C **********************************************************************
+      endif
+C **********************************************************************
+C *Gauss Jordon elimination
+C *
+C *
+C *Pointers
+ 
+C *End Gauss Jordon elimination
+C **********************************************************************
+
+      return
+      end
+c
+c---- the routines that do the real work -------------------------------
+c
+      subroutine matPack_drv(memory_int,
+     &                       memory_fp,
+     &                       matdiag_sw,matinv_sw,
+     &                       svd_sw,lu_sw,
+     &                       nelements,matrix)
+C **********************************************************************
+C *Description                                                         *
+C *Top level driver for intPack.
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations
+C *
+C *Parameters
+INCLUDE(common/dft_parameters)
+C *In variables
+INCLUDE(common/dft_module_comm)
+      integer nelements
+      REAL matrix(nelements,nelements)
+C *Scratch space and pointers
+      integer memory_int(*)
+      REAL memory_fp(*)
+      integer scratch_pt,index_pt
+C *Local variables
+      logical matdiag_sw,matinv_sw,svd_sw,lu_sw
+C *Functions
+      integer allocate_memory
+C *End declarations                                                    *
+C **********************************************************************
+      if(debug_sw) then
+        write(6,*) 'Entered into matPack'
+        write(6,*) 'Matrix calculations to be performed:'
+        write(6,*) 'Matrix diagonalisation        - ',matdiag_sw
+        write(6,*) 'Matrix inversion              - ',matinv_sw
+        write(6,*) 'Singular valued decomposition - ',svd_sw
+        write(6,*) 'LU decomposition              - ',lu_sw
+      endif
+      if(matinv_sw) then
+C **********************************************************************
+C *Matrix invertion - Use Lapack routines
+C * A -> A-1
+C *
+C *Pointers
+C *
+C *pointer		length		type
+C *iden_pt		nelements^2	double
+C *index_pt		nelements	integer
+
+        scratch_pt    = allocate_memory(nelements*nelements,'d')
+        index_pt      = allocate_memory(nelements*2,'i')
+
+        call mat_inverse(matrix,nelements,
+     &                   memory_fp(scratch_pt),
+     &                   memory_int(index_pt))
+
+        call free_memory(index_pt,'i')
+        call free_memory(scratch_pt,'d')
+
+C *End matrix inversion
+C **********************************************************************
+      endif
+      if(svd_sw) then
+C **********************************************************************
+C *Singular valued decomposition
+C *
+C *
+C *Pointers
+ 
+C *End singular valued decomposition
+C **********************************************************************
+      endif
+      if(lu_sw) then
+C **********************************************************************
+C *LU decomposition
+C *
+C *
+C *Pointers
+ 
+C *End LU decomposition
+C **********************************************************************
+      endif
+C **********************************************************************
+C *Gauss Jordon elimination
+C *
+C *
+C *Pointers
+ 
+C *End Gauss Jordon elimination
+C **********************************************************************
+
+      return
+      end
+      subroutine mat_inverse(A,nelements,scratch,index)
+C **********************************************************************
+C *Description:                                                        *
+C *Inverts a matrix using lapack routines                              *
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations                                                        *
+C *                                                                    *
+C *In/Out variables                                                    *
+      integer nelements
+      REAL A(nelements,nelements)      
+C *Scratch space and pointers                                          *
+      REAL scratch(nelements*nelements)
+      integer index(nelements)
+C *Local variables                                                     *
+      integer lwork,info
+c     integer i,j
+C *End declarations                                                    *
+C **********************************************************************
+      lwork=nelements*nelements
+c     do i=1,nelements
+c       do j=1,i
+c         write(6,*) 'MATRIX Before INVERSE:',i,j,A(i,j)
+c       enddo
+c     enddo
+_IF(single)
+      call ssytrf('L',nelements,A,nelements,index,scratch,lwork,info)
+_ELSE
+      call dsytrf('L',nelements,A,nelements,index,scratch,lwork,info)
+_ENDIF
+c     write(6,*) 'Info from dsytrf:',info
+c     write(6,*) 'Optimal scratch size:',scratch(1)
+_IF(single)
+      call ssytri('L',nelements,A,nelements,index,scratch,info)
+_ELSE
+      call dsytri('L',nelements,A,nelements,index,scratch,info)
+_ENDIF
+
+c     do i=1,nelements
+c       do j=1,i
+c         write(6,*) 'MATRIX INVERSE:',i,j,A(i,j)
+c       enddo
+c     enddo
+c     write(6,*) 'Info from dsytri:',info
+      return
+      end
+      subroutine mat_ludcmp(A,n,vv,indx,d)
+C **********************************************************************
+C *Description:                                                        *
+C *Routine to perform LU decomposition                                 *
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations                                                        *
+C *                                                                    *
+C *In variables                                                        *
+      integer n
+      REAL a(n,n),vv(n)
+C *Out variables                                                       *
+      integer indx(n)
+C *Local variables                                                     *
+      integer i,j,k,imax
+      REAL aamax,dum,sum,d,tiny
+C *End declarations                                                    *
+C **********************************************************************
+      d=1.0d0
+      tiny=1.0d-20
+      do 10 i=1,n
+        aamax=0.0d0
+        do 20 j=1,n
+          if(abs(a(i,j)).gt.aamax) aamax=abs(a(i,j))
+20      continue
+        if(aamax.eq.0.0d0) call caserr('mat_ludcmp: Singular matrix')
+        vv(i)=1.0d0/aamax
+10    continue
+      do 30 j=1,n
+        if(j.gt.1) then
+          do 40 i=1,j-1
+            sum=a(i,j)
+            if(i.gt.1)then
+              do 50 k=1,i-1
+                sum=sum-a(i,k)*a(k,j)
+50            continue
+              a(i,j)=sum
+            endif
+40        continue
+        endif
+        aamax=0.0d0
+        do 60 i=j,n
+          sum=a(i,j)
+          if(j.gt.1) then
+            do 70 k=1,j-1
+              sum=sum-a(i,k)*a(k,j)
+70          continue
+            a(i,j)=sum
+          endif
+          dum=vv(i)*abs(sum)
+          if(dum.ge.aamax) then
+            imax=i
+            aamax=dum
+          endif
+60      continue
+        if(j.ne.imax) then
+          do 80 k=1,n
+            dum=a(imax,k)
+            a(imax,k)=a(j,k)
+            a(j,k)=dum
+80        continue
+          d=-d
+          vv(imax)=vv(j)
+        endif
+        indx(j)=imax
+        if(j.ne.n) then
+          if(a(j,j).eq.0.0d0)a(j,j)=tiny
+          dum=1.0d0/a(j,j)
+          do 90 i=j+1,n
+            a(i,j)=a(i,j)*dum
+90        continue
+        endif
+30    continue 
+      if(a(n,n).eq.0.0d0)a(n,n)=tiny
+      return
+      end
+      subroutine mat_lubksb(a,n,indx,b)
+C **********************************************************************
+C *Description:                                                        *
+C *Do forward and backsubstition. For use with ludcmp.                 *
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations                                                        *
+C *                                                                    *
+C *In variables                                                        *
+      integer n
+      REAL a(n,n)
+      integer indx(n)
+C *Out variables                                                       *
+      REAL b(n)
+C *Local variables                                                     *
+      integer i,ii,ll,j
+      REAL sum
+C *End declarations                                                    *
+C **********************************************************************
+      ii=0
+      do 10 i=1,n
+        ll=indx(i)
+        write(6,*) 'll:',ll
+        sum=b(ll)
+        b(ll)=b(i)
+        if(ii.ne.0) then
+          do 20 j=ii,i-1
+            sum=sum-a(i,j)*b(j)
+20        continue
+        else if(sum.ne.0.0d0) then
+          ii=i
+        endif
+        b(i)=sum
+10    continue
+      do 30 i=n,1,-1
+        sum=b(i)
+        if(i.lt.n) then
+          do 40 j=i+1,n
+            sum=sum-a(i,j)*b(j)
+40        continue
+        endif
+        b(i)=sum/a(i,i)
+30    continue
+      return
+      end
+      subroutine mat_tri2sq(matrix,nelements)
+C **********************************************************************
+C *Description:                                                        *
+C *Converts triangular matrix to square one. Off diagonal elements of  *
+C *triangle must NOT have been multiplied by two for this routine to   *
+C *give the correct results.                                           *
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations
+C *
+C *In/Out variables
+      integer nelements
+      REAL matrix(nelements,nelements) 
+C *Local variables
+      integer l1,l2,tri
+C *End declarations
+C **********************************************************************
+      tri=0
+      do l1=1,nelements
+        do l2=l1,nelements
+          tri=tri+1
+          matrix(l1,l2) = matrix(tri,1)
+        enddo
+      enddo
+      do l1=1,nelements
+        do l2=l1,nelements
+          matrix(l2,l1)=matrix(l1,l2)
+        enddo
+      enddo
+      return
+      end
+      subroutine write_squmatrix(matrix,nelements)
+C **********************************************************************
+C *Description:                                                        *
+C *Writes out a square matrix
+C **********************************************************************
+      implicit none
+C **********************************************************************
+C *Declarations                                                        *
+C *                                                                    *
+C *In/Out variables                                                    *
+      integer nelements
+      REAL matrix(*)
+C *Local variables                                                     *
+      integer l1,l2,count
+C *End declarations                                                    *
+C **********************************************************************
+      count=0
+      write(6,*) 'Writing out ',nelements,' matrix elements'
+      do l1=1,nelements
+        do l2=1,nelements
+          count=count+1
+          write(6,*) matrix(count)
+        enddo
+      enddo
+      return
+      end
+
+      subroutine ver_dft_matpack(s,r,d)
+      character*80 source
+      character*30 revision
+      character*60 date
+      character s*(*), r*(*), d*(*)
+      data source /
+     +     "$Source: /c/qcg/cvs/psh/GAMESS-UK/dft/matpack.m,v $
+     +     "/
+      data revision /
+     +     "$Revision$"
+     +      /
+      data date /
+     +     "$Date$"
+     +     /
+      s=source(9:)
+      r=revision(11:)
+      d=date(7:)
+      return
+      end

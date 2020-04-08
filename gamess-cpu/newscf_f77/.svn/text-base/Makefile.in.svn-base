@@ -1,0 +1,44 @@
+#
+# This is an extra section designed to be
+# appended to a copy of the GAMESS-UK/m4 Makefile
+# 
+# Use the configure script in ../m4 to generate the Makefile
+#
+NEWSCFOBJ = newscf.o scfp.o matrix.o matrix_extra.o vectors.o memory.o
+
+NEWSCFLIB = libnewscf.a
+
+newscf:	$(NEWSCFLIB)
+
+$(NEWSCFLIB):	$(NEWSCFOBJ)
+		$(ARCHIVE) $(NEWSCFLIB)  $(NEWSCFOBJ) 
+		$(RANLIB) $(NEWSCFLIB)
+
+clean:
+	touch x.c x.o x~ x.f \#x
+	rm -f *.c *.o *.f *~ \#* $(NEWSCFLIB) 
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+#
+
+
+memory.o:	memory.m
+	rm -f memory.F memory.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > memory.f
+	echo "c       DO  NOT  HAND  EDIT  " >> memory.f
+#--#endif#
+#--#if secd ga gascf#
+	cat ../utilities/gener.m memory.m | $(M4) $(M4OPTS) $(SNGL) > memory.F
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < memory.F | sed '/^#/D' >> memory.f
+	rm -f memory.F
+#--#else#
+	cat ../utilities/gener.m memory.m | $(M4) $(M4OPTS) $(SNGL) >> memory.f
+#--#endif#
+	$(FC) $(FFLAGSS) memory.f
+#--#if protect-source#
+	chmod u-w memory.f
+#--#endif#
+#

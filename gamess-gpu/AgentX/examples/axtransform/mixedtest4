@@ -1,0 +1,19 @@
+
+This is a test script for axtransform
+It extracts the atomic positions for each molecule
+
+Data:
+
+Number of Molecules = <axSubstitute property="Molecule.count" />
+<axLoop id="molecules" concept="Molecule">
+For Molecule <axSubstitute id="molecules" property="position"/>:
+
+Number of Atoms = <axSubstitute property="Atom.count"/>
+<axLoop id="atoms" concept="Atom">
+For Atom <axSubstitute id="atoms" property="position"/>:
+elementType = <axSubstitute id="atoms" property="elementType"/>
+xCoordinate = <axSubstitute id="atoms" property="xCoordinate"/>
+yCoordinate = <axSubstitute id="atoms" property="yCoordinate"/>
+zCoordinate = <axSubstitute id="atoms" property="zCoordinate"/>
+</axLoop>
+</axLoop>

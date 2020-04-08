@@ -1,0 +1,148 @@
+#!@BASH@
+##########################################################################
+# generate MR-CI space
+#
+declare -i maxiter=6
+declare -i nRoots=0
+declare -i parallel=0
+declare -i preArgs=0
+
+if [ $1 = "-p" ]; then
+	preArgs=$preArgs+2
+	parallel=$2
+fi
+
+if (test ! -r sel.in.space) then
+	echo "generating reference space"
+	declare -i i=1
+	until false
+	do
+		echo "	running selector pass #"$i
+		rm -f ConfTree.dat
+		if ! $DIESEL_EXE_DIR/sel <sel.in.$i >genspace.$i; then
+			echo "error in selector run, please check file genspace.$i"
+			exit;
+		fi
+		echo "	selector finished"
+		thresh=`@AWK@ '$1=="SelectionThresholds" { print $4; }' sel.in.$i`
+		ln -sf ConfTree.dat.$thresh ConfTree.dat
+		echo "	running diagonalisator pass #"$i
+		if [ -r diag.in.RefGen ]; then
+			if ! $DIESEL_EXE_DIR/diag -i <diag.in.RefGen >>genspace.$i; then
+				echo "error in diagonalisator run, please check file genspace.$i"
+				exit;
+			fi
+		else
+			if ! $DIESEL_EXE_DIR/diag >>genspace.$i; then
+				echo "error in diagonalisator run, please check file genspace.$i"
+				exit;
+			fi
+		fi
+		echo "	diagonalisator finished"
+		echo
+		declare -i j=$i+1
+		$DIESEL_EXE_DIR/createNewInput sel.in.$i genspace.$i >sel.in.$j
+		# check if no change in references
+		if `diff sel.in.$i sel.in.$j >/dev/null`; then
+			break;
+		fi
+#		# check if reference space is decreasing
+#		if test `wc -l sel.in.$j | @AWK@ '{ print $1 }' -` -lt `wc -l sel.in.$i | @AWK@ '{ print $1 }' -`; then
+#			break;
+#		fi
+
+		if test $nRoots -gt 0; then
+			nRoots=`grep "root no." genspace.1 | wc -l`
+			maxiter=$maxiter+$nRoots
+			echo $nRoots ", " $maxiter
+			echo "maximum number of iterations: " $maxiter
+		fi
+
+		if test $i -ge $maxiter; then
+			echo "no reference space convergence"
+			break;
+		fi
+		i=$j
+	done
+	rm -f sel.in.$j
+	mv sel.in.$i sel.in.space
+	echo "reference space generated"
+	echo
+	echo 
+fi
+
+##########################################################################
+# perform calculations on given thresholds
+#
+echo "performing calculations on given thresholds"
+
+if (test ! -r sel.out.all) then
+	@AWK@ ' BEGIN { n = ARGC; ARGC = 2; }
+		$1=="SelectionThresholds" { printf("%s     = { ", $1);
+		for ( i=3+ARGV[2] ; i<n ; i++ ) printf("%s ", ARGV[i]);
+		print "}"  }
+		$1!="SelectionThresholds" { print }' sel.in.space $preArgs $* >sel.in.all
+
+	if ! $DIESEL_EXE_DIR/sel <sel.in.all >sel.out.all; then
+		echo "error in selector run, please check file sel.out.all"
+		exit;
+	fi
+
+fi
+@AWK@ '
+	$1=="number" && $2=="of" && $3=="configurations:" { print $4,"reference configurations,"; }
+	$1=="dimension" && $2=="of" && $3=="ci" && $4=="matrix" && $5==":" { print "dimension of reference ci-space: ",$6; print ""; }
+	$2=="<---" && $3=="selected" { root = root + 1; print "root #",root,": ",$1; }
+	$1=="total" && $2=="generated" && $3=="configurations/CSFs:" {
+		print "";
+		print; 
+		getline line; print line;
+		getline line; print line;
+		getline line; print line;
+		getline line; print line;
+		getline line; print line;
+		getline line; print line;
+		getline line; print line;
+	} ' sel.out.all
+echo
+echo
+kold=""
+declare -i i=1
+declare -i ii=1
+for k; do
+	if [ $ii -gt $preArgs ]; then
+		echo
+		echo "Threshold: " $k
+		echo
+        	rm -f ConfTree.dat
+		ln -sf ConfTree.dat.$k ConfTree.dat
+		command="$DIESEL_EXE_DIR/diag >diag.out.$k"
+		if test $kold; then
+			command=$command" -s $kold"
+		fi
+		if [ -r diag.in.$k ]; then
+			command=$command" -i <diag.in.$k"
+		else
+			if [ -r diag.in ]; then
+				command=$command" -i <diag.in"
+			fi
+		fi
+		if [ $parallel -ge 2 ]; then
+			command=$command" -p $parallel"
+		fi
+		if ! sh -c "$command"; then
+			echo "error in diagonalisator run, please check file diag.out.$k";
+			exit;
+		fi
+		cat sel.out.all diag.out.$k | $DIESEL_EXE_DIR/grepResults $i
+		mv -f Eigenvectors.dat Eigenvectors.dat.$k
+		echo
+		echo "======="
+		echo
+		kold=$k
+		i=$i+1
+	fi
+	ii=$ii+1
+done
+
+

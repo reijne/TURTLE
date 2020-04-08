@@ -1,0 +1,187 @@
+c ncmax  : max. # von konf. einer sk
+      parameter (ncmax  =    5000)
+c icmax  : recordlaenge fuer sortierte integrale
+      parameter (icmax  =  100000)
+c motmax : dimension des ot-feldes fuer die table-eintraege
+      parameter (motmax =  152000)
+      parameter (mxroot =      50)
+      parameter (nad    =    4000)
+      parameter (nad1   =   -3999)
+      parameter (iaeq   =    1501)
+c maxref : max. # der referenzkonfigurationen
+      parameter (maxref =     256)
+c momax  : max. # von mo's
+      parameter (momax  =     256)
+c maxshl : max. # besetzter mo's pro konfiguration
+      parameter (maxshl =      50)
+c nopmax : max. # offener schalen
+      parameter (nopmax =      10)
+c iswhm  : max. # von superkategorien
+      parameter (iswhm  =       5)
+      parameter (ksafm  =      48)
+      parameter (kdetm  =     126)
+c nirmax : max. # irred. darst. (d_{2h})
+      parameter (nirmax =       8)
+csut : bufferlaenge fuer hamiltonmatrix
+      parameter (ndims  =    2048)
+c ideksm : dimension von ideks(i)= i ueber 2
+      parameter (ideksm = momax*(momax+1)/2+1)
+c nitmax : dimension des nit-feldes --> startadressen fuer integrale
+      parameter (nitmax = nirmax*(nirmax+1)*(nirmax*(nirmax+1)+2)/8)
+c jabmax : dim. produkt-tabelle der irred. darst.
+      parameter (jabmax = nirmax*(nirmax+1)/2)
+cvp
+c common-block fuer vergleich in checkx
+c iottr  : konfigurationen (nach chfeld in 'transponierter' form)
+c niot   : startadresse einer sk auf iot (konfigurationen nicht
+c          transponiert)
+c nconf  : # (selektierte) konfigurationen pro sk
+c imo    : # mo's
+c ibinom : binomialkoeffizienten
+c nirred gibt an, in welcher irred. darst. ein mo ist
+c mopos gibt die nummer eines mo's innerhalb einer irred. darst. an
+c ndub   : # doppelt besetzte mo's pro konf. einer sk
+c nytl   : # aller besetzten mo's pro konf. einer sk
+c nod    : # einfach besetzte mo's pro konf. einer sk
+      integer niot,nconf,imo,ibinom,nirred,mopos
+      integer nytl,ndub,nod
+      common/rvergl/ niot(iswhm),nconf(iswhm),imo
+     & ,ibinom(0:nopmax+1,0:nopmax+1)
+     & ,nirred(momax),mopos(momax)
+     & ,ndub(iswhm),nytl(iswhm)
+     & ,nod(iswhm)
+c
+c ideks(i) : (i ueber 2)
+c nit      : startadresse fuer integrale
+c ncimo    : # ci-mo's pro irred. darst.
+      integer ideks,nit,ncimo
+      common/rintgr/ ideks(ideksm),nit(nitmax),ncimo(nirmax)
+cvp
+cvp labels aus konfigurationsvergleich und zwischengroessen
+c sumint : fuer p=3 summe ueber dreiindexintegrale
+c nwwmo  : fuer p=3 dreiindexintegrale (bzgl. gemeinsamer einfach
+c          besetzter mo's; z.t. dummy fuer integraladressen
+c intcb  : integraladresse
+c intex  : integraladresse
+c moafal : adresse fuer einelektronenintegral oder zwischengroesse
+c mobfal : adresse fuer einelektronenintegral oder zwischengroesse
+c idiff  : # unterschiede bzgl. testkonfiguration
+c jdiff  : unterschiede bzgl. testkonfiguration
+c jmerkd : # unterschiede in den doppelt besetzten mo's
+c jmerko : # unterschiede in den einfach besetzten mo's
+c npfal  : p-faelle bzw. nummern der konf. mit best. p-fall
+c nrfal  : r-faelle bzw. irred. darst. der wechselwirkenden mo's
+c          bei p=3
+c nqlfal : ql-fall
+c nqrfal : qr-fall
+c npos   : zwischengroesse (i.w. zur r-fall bestimmung)
+c jposo  : position von einfach besetzten mo's in der testkonf.
+c jposc  : position von doppelt besetzten mo's in der testkonf.
+c jcon   : testkonfiguration --> welche mo's doppelt bzw. einfach
+c                                besetzt sind
+c jcon1  : testkonfiguration --> zum vergleich mit einfach bes. mo's
+c jcon2  : testkonfiguration --> zum vergleich mit doppelt bes. mo's
+c itest  : testkonfiguration
+      REAL sumint
+      integer nwwmo,intcb,intex,moafal,mobfal
+     & ,ispiel,idiff,jdiff,jmerkd,jmerko
+     & ,npfal,nrfal,nqlfal,nqrfal,npos
+     & ,jposo,jposc,jcon,jcon1,jcon2,itest
+      common/rlabel/ sumint(ncmax)
+     & ,nwwmo(ncmax,nopmax-1),intcb(ncmax),intex(ncmax)
+     & ,moafal(ncmax),mobfal(ncmax)
+     & ,ispiel(ncmax),idiff(ncmax),jdiff(ncmax)
+     & ,jmerkd(ncmax),jmerko(ncmax)
+     & ,npfal(ncmax),nrfal(ncmax),nqlfal(ncmax),nqrfal(ncmax)
+     & ,npos(ncmax,2)
+     & ,jposo(momax),jposc(momax)
+     & ,jcon(momax),jcon1(momax),jcon2(momax)
+     & ,itest(maxshl)
+cvp
+cvp hilfsfelder fuer konfigurationsvergleich
+cvp
+c iqmo(i,j): i=hoeheres mo, j=niedrigeres mo, aus den mo-nummern
+c folgt der q-fall
+c imoq(q-fall,1): hoeheres mo
+c imoq(q-fall,2): niedrigeres mo
+c imo3q(q-fall,1): hoechstes mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,2): mittleres mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,3): tiefstes mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,1...3): aus q-fall die positionen ww mo's der
+c                      groesse nach sortiert
+c imo4q(q-fall,1...4): aus q-fall die positionen ww mo's der
+c idk2r: zur bestimmung des r-falles bei dk=2 fuer
+c        linksbuendige mo-positionen
+c nra,nrb,nrc: codierung fuer adressen von ex-integralen
+cvp                      groesse nach sortiert
+c
+      integer iqmo,imoq,imo3q,imo4q
+      integer idk2r,nra,nrb,nrc
+      common/rhelp/iqmo(nopmax,nopmax-1),imoq(nopmax*(nopmax-1)/2,2)
+     +     ,imo3q(nopmax*(nopmax-1)*(nopmax-2)/6,3)
+     +     ,imo4q(nopmax*(nopmax-1)*(nopmax-2)*(nopmax-3)/24,4)
+     +     ,idk2r(4,3),nra(3),nrb(3),nrc(3)
+cvp
+cvp felder bei erzeugung der hamiltonmatrix inklusive der indices
+cvp
+c hp3    :  matrixelemente fuer p=3
+c fakcb  :  faktor aus sga-matrix fuer cb-integral
+c fakex  :  faktor aus sga-matrix fuer ex-integral
+c sac    :  dreiindexintegrale ueber gemeinsame einfach besetzte
+c           mo's fuer p=3
+c qfeld  :  matrixelemente
+c cbfeld :  integrale
+c exfeld :  integrale
+c vgath1 :  gather des vektors h*c
+c vgath2 :  gather des vektors   c
+c mifeld :  erster index von h(i,j)
+c mjfeld :  zweiter index von h(i,j)
+c iaddr  :  startadresse fuer mifeld bzgl. einer konfiguration
+c ipfeld :  paritaet der permutation (bisher nur fuer dk=2)
+c nrcas  :  r-fall, falls nrfal anders belegt
+c icas   :  fuer dk=0 benoetigt:   icas = 0 --> qr >= ql
+c                                  icas = 1 --> qr <  ql
+c ibob2  :  kodierung der tabelle bzgl. r und z fuer erstes integral
+c jbob2  :  kodierung der tabelle bzgl. r und z fuer zweites integral
+c ntabl  :  enthaelt die table-information bzgl. der determinanten
+c           als integer*4 (bisher nur fuer dk=2)
+c q      :  hamiltonmatrix  fuer ft35
+c mi     :  erster  index   fuer ft35
+c mj     :  zweiter index   fuer ft35
+cvp
+      REAL sac,hp3,fakcb,fakex
+      REAL qfeld,vgath1,vgath2
+      common/rsghm/hp3(ncmax),fakcb(ncmax),fakex(ncmax),sac(nopmax)
+     +            ,qfeld(2*ncmax),vgath1(ncmax),vgath2(ncmax) 
+      REAL cbfeld,exfeld,q
+      common/rsghm2/cbfeld(ncmax),exfeld(ncmax),q(1000)
+      integer mifeld, mjfeld, iaddr, ipfeld, nrcas, icas
+      integer ibob2, jbob2, ntabl
+      integer mi,mj
+      common/rsghm3/mifeld(2*ncmax),mjfeld(2*ncmax),iaddr(ncmax)
+     &             ,ipfeld(ncmax),nrcas(ncmax),icas(ncmax)
+     &             ,ibob2(3,3),jbob2(3,3)
+     &             ,ntabl(motmax)
+     &             ,mi(1000),mj(1000)
+cvp
+cvp felder zur bestimmung der wechselwirkenden konfigurationen
+cvp  mit hilfe von erzeugern und vernichtern
+cvp
+c    nko=anzahl der referenzkonfigurationen
+c    maindf=anregung der referenzen untereinander
+c    iotnew=konfigurationen bzgl. anregung aus den referenzen
+c    iotnst=startadressen der sk fuer iotnew
+c    iref=referenzen wie bei input, iref(0,*)=sk der mains
+c    jconb=langes jcon-feld fuer alle mains
+c
+      integer nko, iotnst, iref
+      common/rref/nko,iotnst(iswhm),
+     +            iref(0:maxshl,maxref)
+c
+c    idref=anregung von \phi_r bzgl. aller mains
+c    jcona=jcon-feld fuer korrektur von idref zur bestimmung von idiff
+c    fuer recon bzw. refcon1
+c
+      integer idref,jcona
+      common/rwkref/idref(maxref),jcona(momax*2)
+c

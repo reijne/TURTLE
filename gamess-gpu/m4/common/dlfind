@@ -1,0 +1,35 @@
+c 
+      integer icoord,ncons_co,nimage_co,iopt_co,mem_co
+      integer upd_co,rec_co,fd_co,maxc_co,dump_co
+      integer task_co, po_pop_size_co, po_distribution_co
+      integer po_maxcycle_co, po_init_pop_size_co, po_reset_co
+      integer po_nsave_co, ntasks_co 
+      REAL    delta_co,nebk_co,time_co,fri0_co,frif_co,frip_co
+      REAL    soft_co,tol_co,maxs_co
+      REAL    temperature_co, po_radius_co, po_contraction_co
+      REAL    po_tolerance_r_co, po_tolerance_g_co
+      REAL    po_mutation_rate_co, po_death_rate_co, po_scalefac_co
+      logical odlfind,rst_co
+      logical tdlf_farm_co
+c real vars
+      common/dlfind/delta_co,
+     + time_co,fri0_co,frif_co,frip_co,
+     +     nebk_co,
+     + soft_co,tol_co,
+     + temperature_co, po_radius_co, 
+     + po_contraction_co, po_tolerance_r_co, po_tolerance_g_co,
+     + po_mutation_rate_co, po_death_rate_co, po_scalefac_co,
+c integer/logical vars
+     + odlfind,maxc_co,icoord,ncons_co,nimage_co,
+     +     iopt_co,mem_co,upd_co,rec_co,fd_co,
+     +     maxs_co,dump_co,rst_co,
+     + task_co, po_pop_size_co, 
+     + po_distribution_co, po_maxcycle_co, po_init_pop_size_co, 
+     + po_reset_co, po_nsave_co, ntasks_co, tdlf_farm_co
+c character vars
+      character(64) geom2
+      character*256 geomfile
+      common/dlfindc/geom2,geomfile
+      integer maxfreeze,nfreeze,ifreeze
+      parameter (maxfreeze = 1000)
+      common/dlfindfreez/nfreeze,ifreeze(maxfreeze)

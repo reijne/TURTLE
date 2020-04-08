@@ -1,0 +1,26 @@
+
+Begin optimization report for: ZGETRF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zgetrf.f(123,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at zgetrf.f(123,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at zgetrf.f(123,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zgetrf.f(111,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zgetrf.f(117,18) ]
+LOOP END
+===========================================================================

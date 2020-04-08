@@ -1,0 +1,26 @@
+
+Begin optimization report for: MXCOMBV1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxcombv1.F(177,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxcombv1.F(203,17)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ mxcombv1.F(277,31) ]
+
+   LOOP BEGIN at mxcombv1.F(256,23)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxcombv1.F(322,16)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

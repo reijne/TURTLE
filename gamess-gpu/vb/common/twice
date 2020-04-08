@@ -1,0 +1,14 @@
+c
+c     twice contains info on pauli-principle related restrictions
+c     ("doubly","redorb","iflip"), and super, which indicates wether
+c     internal excitations are allowed for (not so if super-mcscf)
+c     alos ifreez/nfreez orbitals to be frozen
+      integer inforb,ninfor,idoubly,ndoubly,isingly,nsingly,kaart,
+     &        ioror,igno_sh,igno_sel
+      logical super,super_hybrid,ofrzmo,super_cas,super_act
+      common /twice/ inforb(maxact*5,maxact),ninfor(maxact),
+     &               idoubly(maxact),ndoubly,isingly(maxact),nsingly,
+     &               kaart(mxorbvb+maxact),ioror(maxact,maxact),super,
+     &               super_hybrid,igno_sh(maxato),ofrzmo(maxact),
+     &               super_cas,super_act,igno_sel
+c...

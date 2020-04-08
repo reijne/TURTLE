@@ -1,0 +1,62 @@
+run_vb
+Thu Apr 21 18:39:47 CEST 2005
+h2
+0.070u 0.240s 0:01.13 27.4%     0+0k 6+49io 0pf+0w
+benzyn
+18.680u 9.190s 0:32.83 84.8%    0+0k 42+154io 0pf+0w
+h2o2-mi
+222.720u 14.250s 4:10.66 94.5%  0+0k 95+296io 0pf+0w
+c2h2
+69.910u 0.270s 1:10.22 99.9%    0+0k 6+62io 0pf+0w
+hexatriene
+32.270u 16.670s 1:00.97 80.2%   0+0k 79+281io 0pf+0w
+mo-sto3g
+9.260u 2.500s 0:13.99 84.0%     0+0k 23+102io 0pf+0w
+mo-dzp
+60.440u 34.250s 2:08.06 73.9%   0+0k 134+449io 0pf+0w
+c12h8
+15.100u 7.250s 0:35.41 63.1%    0+0k 135+428io 0pf+0w
+c2030_b
+** coulexch   === End of Compilation 1 ===
+** find   === End of Compilation 2 ===
+** skip   === End of Compilation 3 ===
+1501-510  Compilation successful for file clex.f.
+0.700u 0.610s 0:02.21 59.2%     0+0k 16+79io 0pf+0w
+c2030_c
+0.230u 0.190s 0:00.65 64.6%     0+0k 6+45io 0pf+0w
+Thu Apr 21 18:49:44 CEST 2005
+                  h2 (     h2 optimal hybrids energy) test 1 OK 
+                  h2 (h2 optimal hybrids orbital overlap) test 2 OK 
+              benzyn (           benzyn start up rhf) test 1 OK 
+              benzyn (   VB sigma-core hybrid energy) test 2 OK 
+              benzyn (  VB sigma-core hybrid weights) test 3 OK 
+              benzyn (          VB sigma-core energy) test 4 OK 
+              benzyn (         VB sigma-core overlap) test 5 OK 
+             h2o2-mi (           h2o2 mi calculation) test 1 OK 
+             h2o2-mi (    h2o2 mi calculation vector) test 2 OK 
+                c2h2 (       c2h2 1-iteration energy) test 1 OK 
+                c2h2 (             c2h2 final energy) test 2 OK 
+                c2h2 (                  c2h2 overlap) test 3 OK 
+          hexatriene (         hexatriene scf energy) test 1 OK 
+          hexatriene (      hexatriene local rumer 1) test 2 OK 
+          hexatriene (     hexatriene 2-atom rumer 1) test 3 OK 
+          hexatriene (    hexatriene delocal rumer 1) test 4 OK 
+          hexatriene (  hexatriene delocal all rumer) test 5 OK 
+            mo-sto3g (          Benzene 2-structure ) test 1 OK 
+            mo-sto3g (             Benzene vb-vector) test 2 OK 
+            mo-sto3g (   Benzene 1-structure 2center) test 3 OK 
+            mo-sto3g (      Benzene 1-structure free) test 4 OK 
+            mo-sto3g (Benzene 1-structure 2center+sigma) test 5 OK 
+              mo-dzp (               Benzene dzp SCF) test 1 OK 
+              mo-dzp (   Benzene 1-structure 2center) test 2 OK 
+               c12h8 (     partial matrix evaluation) test 1 OK 
+             c2030_b (  water dimer coulomb, monom A) test 1 OK 
+             c2030_b (   water dimer coulomb - monom) test 2 OK 
+             c2030_b (   water dimer coulomb - dimer) test 3 OK 
+             c2030_b (        water dimer  1st order) test 4 OK 
+             c2030_b (      water dimer  final dimer) test 5 OK 
+             c2030_b (            water dimer  Coul ) test 6 OK 
+             c2030_b (            water dimer  Exch ) test 7 OK 
+             c2030_b (           water dimer BSSE-B ) test 8 OK 
+             c2030_b (            water dimer E-int ) test 9 OK 
+             c2030_c (   he2 polarisation dispersion) test 1 OK 

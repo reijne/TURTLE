@@ -1,0 +1,27 @@
+#!@BASH@
+while [ `pwd` != "/" ]
+do
+	path1=`pwd`
+	cd ..
+	path2=`pwd`
+	v=`echo $path1 | sed s!$path2/!!1`
+	if [ -r =* ]
+	then
+		s=`ls =* | sed s/=//1`
+		echo $s "=" $v
+	fi
+done | awk '
+{
+	i = 1;
+	l1[i] = $1; l2[i++] = $3;
+	while ( getline ) 
+	{
+		l1[i] = $1;
+		l2[i++] = $3;
+	}
+}
+END {
+	i--;
+	for ( ; i>0 ; i-- ) 
+		printf("%20s = %s\n", l1[i], l2[i]);
+}'

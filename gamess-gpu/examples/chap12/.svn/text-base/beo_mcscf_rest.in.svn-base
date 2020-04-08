@@ -1,0 +1,12 @@
+restart scf
+title\beo .. dzp
+super off nosym
+zmat angstrom\be\o 1 beo\
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+scftype mcscf
+thresh 4
+mcscf
+orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+dont sort
+enter

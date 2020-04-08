@@ -1,0 +1,45 @@
+#!/bin/csh -f
+../../bin/gamess << EOF
+core 8000000
+title
+h2co <-> h2 + co cc-pvtz direct-CI/16M (in store) total energy  -114.1733900978
+harmon
+zmat angs
+o
+c 1 co
+x 2 1.0 1 90.0
+x 2 chh 3 ang1 1 180.0
+x 4 1.0 2 90.0 3 0.0
+x 4 1.0 5 ang2 3 0.0
+h 4 xh 6 90.0 2 180.0
+h 4 xh 6 90.0 2 0.0
+variables
+co             1.1567647 
+chh            1.2933382 
+xh             0.6560768 
+ang1          42.5856325 
+ang2          57.8963721 
+end
+basis cc-pvtz
+runtype ci
+direct 16 10 78
+conf
+2 2 2 2 2 2 2 2 0 0
+2 2 2 2 2 2 0 2 2 0
+2 2 2 2 2 0 2 2 0 2
+2 2 2 2 2 2 0 2 0 2
+2 2 2 2 2 2 2 0 0 2
+2 2 2 2 2 2 0 0 2 2
+2 2 2 2 2 0 0 2 2 2
+2 2 2 0 2 2 0 2 2 2
+2 2 0 2 2 2 0 2 2 2
+2 0 2 2 2 2 0 2 2 2
+0 2 2 2 2 2 0 2 2 2
+2 2 2 2 0 0 2 2 2 2
+2 2 2 0 0 2 2 2 2 2
+2 2 0 0 2 2 2 2 2 2
+2 0 0 2 2 2 2 2 2 2
+0 0 2 2 2 2 2 2 2 2
+natorb 10 0 print
+enter
+EOF

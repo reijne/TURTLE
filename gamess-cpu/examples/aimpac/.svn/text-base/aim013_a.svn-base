@@ -1,0 +1,22 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP - CASSCF - aimpac - FAILS
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype casscf
+config
+  fzc 1 to 3
+  doc 4 to 8
+  uoc 9 to 12
+end
+natorb 10 print
+savefile aimpac section 10 file aim013_a.wfn
+enter
+EOF

@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# Script for generating each Part of the GAMESS-UK Manual
+# As post script files
+#
+
+# The version of the manual we are making
+version="8.0"
+
+# Directory - make if it does not exist
+directory=gamess${version}_ps
+if [ ! -d $directory ]; then
+mkdir $directory    
+fi
+
+# Function to generate the ps
+gener(){
+latex $1.tex
+latex $1.tex
+latex $1.tex
+#
+dvips $1.dvi -o
+/bin/rm -f $1.tex $1.log $1.aux $1.log $1.toc $1.dvi
+}
+#
+
+# The chapters of the manual
+parts="part1 part2 part3 part4 part5 part6 part7 part8 part9 \
+part10 part11 part12 part13 part14 turtle mopac"
+
+for part in $parts
+  do
+  echo " Generating $part..."
+  # For part14 generate p14_fig1.eps before doing the latex stuff
+  if [ ${part:4:5} = "14" ]
+  then
+     inkscape p14_fig1.svg --export-eps=$directory/p14_fig1.eps
+  fi
+  cp $part.tex $directory
+  ( cd $directory; gener $part )
+done
+
+exit

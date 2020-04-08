@@ -1,0 +1,53 @@
+#!/bin/csh
+#
+# morokuma analysis - direct SCF
+#
+../../bin/gamess<<EOF
+title
+morokuma test frag1
+adapt off
+nosym
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h
+ 0.00000000  -1.10092542  1.43475395  1.0 h
+ 0.00000000   0.00000000  0.00000000  8.0 o
+end
+morokuma frag 1 frg1.tmp
+basis tzvp
+scftype direct
+enter
+EOF
+../../bin/gamess<<EOF
+title
+morokuma test frag2
+adapt off
+nosym
+geometry
+ 3.24201636   2.02583666  0.00000000  1.0 h
+ 4.24693920   4.71362490  0.00000000  1.0 h
+ 4.77568401   2.98417857  0.00000000  8.0 o
+end
+morokuma frag 2 frg2.tmp
+basis tzvp
+scftype direct
+enter
+EOF
+../../bin/gamess<<EOF
+title
+morokuma test
+adapt off
+nosym
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h
+ 0.00000000  -1.10092542  1.43475395  1.0 h
+ 0.00000000   0.00000000  0.00000000  8.0 o
+ 3.24201636   2.02583666  0.00000000  1.0 h
+ 4.24693920   4.71362490  0.00000000  1.0 h
+ 4.77568401   2.98417857  0.00000000  8.0 o
+end
+basis tzvp
+morok interact frg1.tmp frg2.tmp
+scftype direct
+enter
+EOF
+/bin/rm -f frg1.tmp frg2.tmp

@@ -1,0 +1,148 @@
+
+Begin optimization report for: DGEMV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgemv.f(177,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemv.f(177,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(177,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemv.f(181,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dgemv.f(181,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgemv.f(181,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dgemv.f(188,22)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgemv.f(188,22)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dgemv.f(193,22)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgemv.f(193,22)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dgemv.f(193,22)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgemv.f(193,22)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dgemv.f(207,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemv.f(210,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(210,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(210,26)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(210,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemv.f(217,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Peeled, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Multiversioned v1>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Remainder, Multiversioned v1>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(221,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemv.f(235,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemv.f(237,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(237,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(237,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(237,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemv.f(244,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemv.f(247,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(247,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemv.f(247,22)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,52 @@
+#!/bin/csh -f
+setenv ed2 dia2
+setenv ed3 dia3
+../../bin/gamess << EOF
+memory 24000000
+time 3000
+title
+diazirina cc-pvtz  optimized geometry
+zmatrix angstrom
+x
+n 1 halfg
+c 1 cx 2 90.
+n 1 halfg 3 90. 2 180.
+h 3 r 4 alfa 2 alfa 1
+h 3 r 2 alfa 4 alfa 1
+variables
+halfg          0.6178502 hessian    2.456265
+cx             1.3379148 hessian    0.408768
+r              1.0695048 hessian    0.790331
+alfa         116.7948660 hessian    0.904716
+end
+basis cc-pvtz
+runtype optimize
+scftype mp2
+xtol 0.00001
+enter 1
+EOF
+../../bin/gamess << EOF
+memory 24000000
+time 3000
+restart
+title
+diazirina cc-pvtz  vibrational analysis
+zmatrix angstrom
+x
+n 1 halfg
+c 1 cx 2 90.
+n 1 halfg 3 90. 2 180.
+h 3 r 4 alfa 2 alfa 1
+h 3 r 2 alfa 4 alfa 1
+variables
+halfg          0.6178502 hessian    2.456265
+cx             1.3379148 hessian    0.408768
+r              1.0695048 hessian    0.790331
+alfa         116.7948660 hessian    0.904716
+end
+basis cc-pvtz
+runtype hessian
+scftype mp2
+vectors 1
+enter 1
+EOF

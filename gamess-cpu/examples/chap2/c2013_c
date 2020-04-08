@@ -1,0 +1,49 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title 
+ethylene DZ SCF optimization
+super off nosym
+zmatrix angstrom
+c
+c 1 cc
+h 1 ch 2 hcc
+h 1 ch 2 hcc 3 180.0
+h 2 ch 1 hcc 3 0.0
+h 2 ch 1 hcc 3 180.0
+variables
+cc 1.4
+ch 1.1
+hcc 120.0
+end
+basis dz
+runtype optimize
+enter
+EOF
+../../bin/gamess << EOF
+title
+ethylene DZ SCF/ mixed cart-zmtrix 
+adapt off
+nosym
+zmatrix angstrom
+cartesians
+c   0.000    0.000    0.000
+c   0.000    0.000    cc
+h   width    0.000   -depth
+h  -width    0.000   -depth
+internals
+h 2  ch  1  cch  3  twist
+h 2  ch  1  cch  5  180.0
+variables
+cc 1.4
+ch 1.0
+width 0.8
+depth 0.5
+cch 120.0
+twist 10.0
+end
+basis dz
+runtype optimise
+enter
+EOF

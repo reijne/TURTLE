@@ -1,0 +1,19 @@
+c
+      REAL xnpts
+      common /mcmod1/ xnpts(3,mxnpts)
+c
+      integer ngrpmc, nnpts, inpt
+      common /mcmod2/ ngrpmc,nnpts,inpt(mxnpts)
+c
+      integer ngrppt
+      common /mcmod3/ ngrppt(mxnpts)
+c
+      integer igrpst
+      common /mcmod4/ igrpst(mxgrp+1)
+c
+      integer igrlast
+      common /mcmod5/ igrlast(mxgrp+1)
+c
+      integer ibitmc
+      common /mcmod6/ ibitmc(mxgrp+1)
+c

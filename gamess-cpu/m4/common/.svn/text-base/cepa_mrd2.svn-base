@@ -1,0 +1,10 @@
+c crtest is the criterion for the tester for invoking cepa
+c crres is the criterion for the residue norm for invokinf cepa
+c enaught is the reference energy to be used for shift calculation
+c corren is a correlation energy to be use for shift calculation
+c crshift used to suppress shift calculation every iteration
+c
+      logical crcorr,cre0
+      REAL crtest,crres,enaught,corren
+      common/cepa_mrd2/crtest,crres,enaught,corren,crcorr,cre0
+c

@@ -1,0 +1,134 @@
+
+Begin optimization report for: DLANSY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlansy.f(103,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlansy.f(104,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(104,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(104,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(104,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlansy.f(109,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlansy.f(110,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(110,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(110,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(110,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlansy.f(122,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlansy.f(124,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(124,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(124,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(124,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(124,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlansy.f(131,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlansy.f(131,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlansy.f(131,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlansy.f(135,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlansy.f(135,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(135,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlansy.f(138,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlansy.f(140,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(140,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(140,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(140,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlansy.f(140,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlansy.f(155,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlansy.f(156,21) ]
+LOOP END
+
+LOOP BEGIN at dlansy.f(159,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlansy.f(160,21) ]
+LOOP END
+===========================================================================

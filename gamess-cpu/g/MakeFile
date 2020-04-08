@@ -1,0 +1,17 @@
+SUBDIRS = .\ma .\tcgmsg-mpi \
+          .\LinAlg\lapack+blas .\global .\pario
+
+
+all: $(SUBDIRS)
+	cd .\armci\src & nmake -nologo LIBDIR=..\..\lib\win32
+	!cd $** & nmake -nologo 
+	
+clean: $(SUBDIRS)
+	!cd $** & nmake -nologo clean
+	cd .\armci\src & nmake -nologo LIBDIR=..\..\lib\win32 clean
+	-@erase /q .\include\*
+	-@erase /q *.stamp
+	-@erase /q lib\win32\*.* 
+
+realclean: clean
+

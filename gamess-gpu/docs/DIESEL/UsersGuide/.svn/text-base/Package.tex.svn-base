@@ -1,0 +1,451 @@
+\section{The program package}
+
+The following section discusses aspects common to all programs of the
+program package.
+
+
+\subsection{Program parts}
+The DIESEL-CI consists out of the main programs selector ("{\tt sel}"),
+diagonalisator ("{\tt diag}") and Multi-Reference Perturbation Theory
+("{\tt mrpt}"). Table \ref{TabDIESELTeileHaupt} shows a short description
+of these programs. In addition 
+there are several tools to calculate density matrices or properties
+and the like. They are summarized in table \ref{TabDIESELTeileHilf}.
+
+The program "{\tt diesel}" is the central point of control 
+and automization within the package. It improves user friendlyness and
+simplifies the task of an individually selected MR-CI calculation.
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c|c|p{6cm}}
+&name of &former$^a$ &\\
+purpose &program &name &description\\[5pt]
+\hline&&&\\[-9pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+excitation\\
+and\\
+selection
+\end{center}
+\end{minipage}
+ &{\tt sel} &
+\begin{minipage}[t]{1.5cm}
+\begin{center}
+parkwa,\\
+parkeu
+\end{center}
+\end{minipage}
+&
+performs excitation from reference space and selects configurations
+with respect to several criterions
+\\[5pt]
+diagonalisation &{\tt diag} &
+\begin{minipage}[t]{1.5cm}
+\begin{center}
+adler,\\
+condox
+\end{center}
+\end{minipage}
+&solving the eigenvalue problem (generation of the Hamilton Matrix
+and diagonalisation by a multi root Davidson algorithm)\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+MR-MP\\ 
+perturbation theory
+\end{center}
+\end{minipage}
+& {\tt mrpt} & --- &calculation of multi referenz perturbation
+theory
+(generation of the Hamilton Matrix and the inhomogenity, solving the
+linear equation system)
+\end{tabular}
+\end{center}
+$^a${\footnotesize These are the names within the old MRDCI package.}
+\caption{\label{TabDIESELTeileHaupt} Main programs of DIESEL-CI}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c|c|p{6cm}}
+&name of &former$^a$ &\\
+purpose &program &name &description\\[5pt]
+\hline&&&\\[-9pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+control\\programm
+\end{center}
+\end{minipage}
+& {\tt diesel} & --- &automization of a MR-CI Rechnung:
+generation of space,
+perform selection of several thresholds,
+calculation of density matrices and properties,
+use of natural orbitals
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+density matrix calculation
+\end{center}
+\end{minipage}
+& {\tt dens} & {\tt jackal} &calculation of one-particle
+density matrices
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+natural orbitals
+\end{center}
+\end{minipage}
+& {\tt natorb} & --- &calculation of natural orbitals
+from one-particle density matrices, output to MOLCAS-format
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+properties
+\end{center}
+\end{minipage}
+& {\tt prop} & {\tt wolf} &calculation of properties from
+one-particle density matrices and one-electron integrals
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+set operations
+\end{center}
+\end{minipage}
+& {\tt setops} & --- &calculation of a set intersection, union,
+and difference
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+symmetrization
+\end{center}
+\end{minipage}
+& {\tt symTree} & --- &symmetrization of selected configurations
+with respect to MO equivalences
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+exciatation\\
+statistics
+\end{center}
+\end{minipage}
+& {\tt confStat} & --- &calculation of excitation levels in selected
+configuration with respect to a set of reference configurations
+\\[5pt]
+\begin{minipage}[t]{2.5cm}
+\begin{center}
+format conversion
+\end{center}
+\end{minipage}
+& {\tt f31endian} & --- &conversion of STONEY MO integral file
+between little- and big-endian architectures
+\\[5pt]
+\end{tabular}
+\end{center}
+$^a${\footnotesize These are the names within the old MRDCI package.}
+\caption{\label{TabDIESELTeileHilf} Tool programs of DIESEL-CI}
+\end{table}
+
+
+
+\subsection{Data flow}
+
+Figure \ref{FigDataFlow} shows the flow of data in a DIESEL-CI calculation.
+For reasons of completeness the relevant MOLCAS programs and files 
+required to generate the MO based integrals are
+also shown. The "{\tt form31}"-program transforms the "{\tt TRAONE}"
+and "{\tt TRAINT}" files into the STONEY-format\footnote{It was
+orginally used by the Hondo-package.}. This file contains symmetry
+information, one- and two-electron intergrals with double and single
+precision respectively.
+
+Figure \ref{FigDataFlow} is especially useful if you are carring out 
+a property or natural orbital calculation.
+
+\begin{figure}
+\begin{center}
+\input XFig/ProgDataFlow.pstex
+\caption{\label{FigDataFlow}
+Programs and flow of data}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{User Input}
+
+There are two possible ways to supply the programs with input:
+\begin{enumerate}
+\item command line arguments
+\item separate input files
+\end{enumerate}
+Depending of the degree of complexity either method is chosen.
+
+
+
+\subsubsection{Philosophy}
+
+
+
+The input is designed on a "keyword = $\ldots$" philosophy.
+
+Keywords are not case sensitive. The input is freely formatted.
+For a more precise input syntax rule specification see appendix \ref{Syntax}.
+
+
+In order to improve readability the keywords described in the following 
+sections are chosen to be quite long.
+As users tend to copy input files and successively
+change parameters in them there should be no real drawback from the
+lack of abbreviation of the keywords.
+
+The input in its completed form is repeated in the output. So one
+can check the "reasonability" of certain default parameters.
+
+
+\subsubsection{Structure of input description}
+
+The following sections describe the user input for selection,
+diagonalisation and MRPT programs. These sections are organized
+in the following way:
+
+\begin{enumerate}
+
+\item {\bf invocation:} the name of program and how to call it
+
+\item {\bf command line arguments:}
+optional arguments to be given on the command line
+
+\item {\bf files:}
+input and output files with meaning and type (binary/ASCII)
+
+\item {\bf keywords:}\\
+The keywords are listed in a table consisting of 4 columns:
+keyword, status, argument type and description. The status and argument type
+need to be explained in more detail:
+
+
+\begin{enumerate}
+\item The status column:
+\begin{itemize}
+\item required: 
+
+A miss of this statement will cause an error.
+
+
+\item optional/checked: 
+
+If this statement is missing the appropriate
+value will be taken from the remaining input.
+If the statement is given the input will
+be checked if it complains. In other words the specification of this
+statement produces some kind of redundancy.
+
+
+\item optional: 
+
+The program will set some
+reasonable default values if this statement is missing.
+\end{itemize}
+
+
+
+\item The argument type:
+\begin{itemize}
+\item num: natural number
+
+\item floatnum: floating point number
+
+\item numSet: set of natural numbers, written: \{$i_1 \ldots i_n$\}
+
+\item confSet: set of configurations, written: \{conf$_1 \ldots $conf$_n$\}
+
+A configuration is a sequence of natural numbers representing the
+MO numbers. This sequence consists
+of three parts and is structured as follows:
+
+$\underbrace{n_{\rm open}}_{
+\parbox{1cm}{\begin{center}\# open shells \end{center}}}
+\underbrace{s_1 \ldots s_{n_{\rm open}}}_{
+\parbox{1cm}{\begin{center} open shells \end{center}}}
+\underbrace{d_1 \ldots d_{n_{\rm closed}}}_{
+\parbox{1cm}{\begin{center} closed shells \end{center}}}$
+
+example: 1 4 1 2 3 15 16 
+
+(meaning: one open shell "4" and five closed shells "1 2 3 15 16")
+
+The number of closed shells $n_{\rm closed}$ is not explicitly given. Therefore
+to make this way of specification unique
+a configuration must be terminated by a separator.
+
+\item bool: "yes" or "no"
+
+\end{itemize}
+
+
+\end{enumerate}
+\item {\bf input example}
+
+\end{enumerate}
+
+
+\subsection{Levels of verbosity}
+Table \ref{TabVerbosity} shows the available
+levels of verbosity. All information is written to the standard output.
+
+\def\yes{$\bullet$}
+\def\no{--}
+
+
+\begin{table}
+\begin{tabular}{r|c|c|c|c|p{6cm}}
+&de-&\multicolumn{3}{c|}{available with}&\\
+keyword& fault &{\tt sel} &{\tt diag} &{\tt mrpt}& description\\[5pt]
+\hline&&&&&\\[-9pt]
+Input &\yes &\yes&\yes&\yes&
+The input in its with default values completed form is echoed to the standard
+output.\\[5pt]
+Integrals &\no &\yes&\yes&\yes&
+Information on the number of one- and two-electron
+integrals is printed to the standard output.\\[5pt]
+MOs&\no&\yes&\yes&\yes&
+The following information is printed to the output:
+\begin{itemize}
+\item MO-mapping to continous space within each irreducible representation
+\item number of total MOs
+\item MOs per irreducible representation (total/internal/external)
+\item product table
+\item list of internal/external MOs
+\item share of internal MOs in percent
+\end{itemize}
+\\[5pt]
+RefGuess&\yes &\yes&\no&\no&
+Details on the reference configuration first guess are printed.
+\\[5pt]
+SGA&\no&\yes&\yes&\yes&
+Output from the SGA table initialisation is printed.
+\\[5pt]
+RefMat&\no&\yes&\yes&\yes&
+The reference matrix is printed. Attention: probably quite large!
+\\[5pt]
+RefMatEigenValues&\yes&\yes&\no&\no&
+The eigenvalues of the reference matrix are printed.
+\\[5pt]
+RefMatEigenVectors&\no&\yes&\no&\no&
+The first $1.5*n_{\rm roots}$ reference vectors are written to the standard
+output.
+\\[5pt]
+IterationBlocks&\yes&\no&\yes&\no&
+The progress of one hamilton matrix generation and multiplication including
+\\[5pt]
+WaveFunction&\yes&\no&\yes&\no&
+The dominant configurations of the resultant wavefunction are printed out.
+\\[5pt]
+SelectionPerRoot&\no&\yes&\no&\no&
+\\[5pt]
+CacheStatistics&\no&\yes&\yes&\yes&
+The cache statistics are printed.
+\\[5pt]
+DegenGuess&\yes&\yes&\no&\no&
+Details on the MO degeneration guess are printed.
+\\[5pt]
+DiagHist&\no&\yes&\no&\no&
+A histogram of the diagonal elements is printed.
+\\[5pt]
+
+\end{tabular}
+\caption{\label{TabVerbosity}Verbosity levels, default values and availability}
+\end{table}
+
+
+
+\subsection{Directory Structure}
+In order not to end up in chaos the {\tt diesel} driver program creates
+a specific directory structure. Before presenting it there should be
+some general thoughts about organization.
+
+\subsubsection{Some thoughts concerning organization}  
+
+There are lots of data involved with carrying out some quantum chemical
+project. The natural organization form is some kind of a matrix with several 
+dimensions (e.g. geometry, basis, multiplicity, irreducible representation).
+Now there is a contradiction between this structure
+and the tools given by most operating systems which offer a hierarchical
+structure made up of directories. As a consequence there are many different
+opinions and personal preferences of how to manage and organize such a problem.
+
+As the hierarchical filesystem does not fit the problem structure one 
+possibility is simply to ignore it and create a naming scheme like the
+following: "{\tt 1\ub 2}" or somewhat more explicit "{\tt Mult=1\ub IrRep=2}".
+The first one has the drawback of being not quite intuitive and the second one
+repeats some redundant information with every file. Both tend to become rather
+complex and ugly for problems described by matrices of higher dimensions.
+
+A second possibility is to try to map the matrix problem to the hierarchical
+tree of directories. In such a scheme each level in the tree corresponds to one
+dimension in the matrix problem and every directory contains information on
+that dimension only. As a consequence without tricks you do not see any
+information from the higher levels of the tree. You may print the whole working
+directory path but in this case you would see again only "{\tt 1\ub 2...}" or
+somewhat confusing and long  "{\tt Mult=1\ub IrRep=2...}". To get rid of these
+drawbacks one may put a tag into each directory describing the name of the
+dimension contained and use a shell script to evaluate the path.  This method
+is described in the following section. As a
+partial drawback there is again a repetition of the names of a dimension in the
+distinct branches of the tree.
+
+
+\subsubsection{The {\tt diesel} directory structure} 
+The {\tt diesel} directory structure consists mainly of the levels
+multiplicity and irreducible representation. Figure \ref{FigDirLevels}
+shows an example. The dashed parts are optional and are only created if a
+calculation involving natural orbitals\footnote{For details
+on how to do a calculation with natural orbitals see section
+\ref{SecNatOrb}} or density matrices is carried out. Listing \ref{ListDir}
+shows the directory contents on the level of irreducible representations
+of some example.
+
+\begin{figure}[h]
+\begin{center}
+\input XFig/DirLevels.pstex
+\caption{\label{FigDirLevels}
+Directory structure}
+\end{center}
+\end{figure}
+
+\begin{prog}
+\begin{verbatim}
+user@machine>ls
+0/             5/             dens.out.1e-3  fort.31        prop.out.1e-7
+1/             6/             dens.out.1e-4  prop.out.1e-3
+2/             7/             dens.out.1e-5  prop.out.1e-4
+3/             =Irrep         dens.out.1e-6  prop.out.1e-5
+4/             Densities/     dens.out.1e-7  prop.out.1e-6
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListDir} Listing of a directory on the level of irreducible representations}
+\end{prog}
+
+Listing \ref{ListProjectInfo} shows the output of the shell script
+{\tt getDirInfo} in a directory of some imaginary project:
+
+\begin{prog}
+\begin{verbatim}
+user@machine>getDirInfo
+             Project = c8
+            Geometry = linear
+               Basis = C.DUN...5S3P1D
+       ReferenceType = CI.RefActive
+        Multiplicity = 3
+               Irrep = 3
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListProjectInfo} Project info by getDirInfo}
+\end{prog}
+
+
+ 
+ 

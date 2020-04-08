@@ -1,0 +1,66 @@
+#!/bin/sh
+#
+# Rungamess execution script - SGI MPI version
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+mode=master-slave
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+if test -d $jobworkdir
+then
+  echo re-using scratch directory
+else
+  mkdir -p $jobworkdir
+fi
+cd $jobworkdir
+
+#mkdir -p $scratchtopdir/$jobname
+#cd $scratchtopdir/$jobname
+
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+echo Start at `date`
+cat $homedir/$jobname.in | mpirun -np $nprocs $executable
+stat=$?
+echo End at `date`
+
+case $stat in
+   0) echo ${IDENT}: SGI MPI gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

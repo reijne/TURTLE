@@ -1,0 +1,30 @@
+#!/bin/csh
+#
+# Test jobs from Chapter 5 of GAMESS Manual
+#     qsub -lm 8Mw -lT 3600 run_chap5
+#
+date
+RUN c5000
+RUN c5001
+RUN c5001a
+RUN c5002
+RUN c5002a
+RUN c5003
+RUN c5003a
+RUN c5004
+RUN c5004a
+RUN c5005
+RUN c5006
+RUN c5006a
+RUN c5006b
+RUN c5007
+RUN c5007a
+RUN c5008
+RUN c5008a
+RUN c5009
+RUN c5009a
+RUN c5010
+RUN c5011a
+RUN c5011b
+date
+/bin/rm -rf mfg* sort psort

@@ -1,0 +1,57 @@
+                          Generate M4 macros
+                          ------------------
+
+This file gener.m provides a set of macros for use with the 
+M4 (system V specification) to allow conditional inclusion 
+of lines and/or blocks of source code. 
+
+The macros provide
+
+
+Specification of the macros
+---------------------------
+
+For blocks of code
+
+_IF(opt,...)  and _IFN(opt,..)
+_ELSEIF(opt,..) and _ELSEIFN(opt,..)
+_ELSE
+_ENDIF
+
+For Individual lines, the argument is a list of letters.
+One of these letters
+
+_IF1(xy..)<code   >  and _IFN1(xy..)<code   >
+_ELS1<code  >
+
+
+_ERROR(string)       used to cause an about, place in a bit of code that
+                     should never be included
+
+_MACRO(a,b($1,$2))   defines an m4 macro if the line is not excluded from
+                     inclusion by a block if structure
+                     (_MACRO should not be combined with _IF1, _IFN1, _ELS1)
+DATE                 the date and time at which the processing started
+
+The following should be defined in the machine file, for the 
+generation of GAMESS source.
+
+GEN_MACHINE          a single character machine key
+GEN_OPTIONS          a comma separated list of options
+INCLUDE(file)        the FORTRAN include statement for file
+REAL                 FORTRAN delcaration for real*8
+COMPLEX              FORTRAN delcaration for complex*16
+
+Notes
+----
+
+Relation to the GAMESS pre-processor
+
+xi?         is equivalent to _IF1(xi)
+-xi?         is equivalent to _IFN1(xi)
+
+
+?if unicos     is equivalent to _IF(unicos)
+?if not unicos is equivalent to _IFN(unicos)
+
+

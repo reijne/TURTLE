@@ -1,0 +1,65 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2c2 - 6-31G* - DFT/BLYP medium. / energy = -114.4345149242 au
+charge 0
+zmatrix angstrom
+c
+c1  1 cc   
+bq  1 1.0 2 90.0
+bq  2 1.0 1 90.0 3   0.0
+h   1 hc  3 90.0 2 180.0
+h1  2 hc1 4 90.0 1 180.0 
+bq  1 1.0 2 90.0 3 180.0
+bq  2 1.0 1 90.0 4 180.0
+variables
+cc  1.24 hessian 0.8901
+hc  1.09 hessian 0.3559
+hc1 1.09 hessian 0.3559
+end
+weights
+subst c1  mass 12.0
+subst h1  mass 1.007825
+subst bq  mass 0.0
+end
+bqbq
+basis 
+sv c 6-31g
+sv h 6-31g
+  S   h1
+          0.03349460        18.73113700
+          0.23472695         2.82539370
+          0.81375733         0.64012170
+  S   h1
+          1.00000000         0.16127780
+  P   h1
+          1.00000000         1.10000000
+  S   c1
+          0.00183470      3047.52490000
+          0.01403730       457.36951000
+          0.06884260       103.94869000
+          0.23218440        29.21015500
+          0.46794130         9.28666300
+          0.36231200         3.16392700
+  L   c1
+         -0.11933240         7.86827240         0.06899910
+         -0.16085420         1.88128850         0.31642400
+          1.14345640         0.54424930         0.74430830
+  L   c1
+          1.00000000         0.16871440         1.00000000
+end
+runtype optimise
+scftype rhf
+dft quadrature medium
+dft weight mhlscr
+dft gradquad on
+dft lebedev element c   50 0.11 170 0.20 266 0.25 302
+dft lebedev element h   50 0.09 170 0.15 266 0.19 302
+dft lebedev label   c1  50 0.11 170 0.20 266 0.25 302
+dft lebedev label   h1  50 0.09 170 0.15 266 0.19 302
+dft log     label h1  25 3.0
+dft radii   label h1  3.305130754 
+dft pradii  label h1  1.001554774 
+dft wradii  label h1  1.001554774 
+enter
+EOF

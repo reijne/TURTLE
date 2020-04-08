@@ -1,0 +1,54 @@
+c
+C *Basis sets include file
+c
+      REAL  alpha
+      REAL  cont_coeff
+      integer num_bset,bset_tags
+      common/basis_sets/alpha(max_tag,max_atype,max_prm),
+     &                  cont_coeff(max_tag,max_atype,max_prm,max_ang),
+     &                  num_bset,bset_tags(max_tag)
+
+      integer Ashl, Aprm, Abfn, totshl, totprm, totbfn, size_shlA
+      integer size_basA, size_primA, maxi_shlA, maxi_basA, maxi_primA
+      integer num_types, atom_tag , num_shl, atm_typ, nprim, angmom
+      integer hybrid, pstart
+
+      common/basis_size_info/Ashl(max_tag,max_atype),
+     &                       Aprm(max_tag,max_atype),
+     &                       Abfn(max_tag,max_atype),
+     &                       totshl(max_tag),
+     &                       totprm(max_tag),
+     &                       totbfn(max_tag),
+     &                       size_shlA,maxi_shlA,
+     &                       size_basA,maxi_basA,
+     &                       size_primA,maxi_primA
+C
+C Descriptions
+C 
+C  num_types		-	number of types of atoms for a given basis
+C  atom_tag		-	list of atom type id numbers
+C
+      common/basis_cent_info/num_types(max_tag),
+     &                       atom_tag(max_tag,max_atom)
+C
+C Descriptions
+C
+C  num_shl		-	number of shells for given atom type
+C  atm_typ		-	atomic number of atom type
+C  nprim		-  	number of primitives 
+C  angmom		-	angular momentum
+C  hybrid		-	level of hybrid shell. Is same as angmom if
+C				shell is not a hybrid. For hybrid shells is
+C				always less than angmom e.g. for an sp shell
+C				angmom=2, hybrid=1
+C  pstart		-	start of exponents and contraction coeffs 
+C				contained in include basis.hf77, for a given
+C				shell
+C
+      common/basis_cont_info/num_shl(max_tag,max_atype),
+     &                       atm_typ(max_tag,max_atype),
+     &                       nprim(max_tag,max_atype,max_shel),
+     &                       angmom(max_tag,max_atype,max_shel),
+     &                       hybrid(max_tag,max_atype,max_shel),
+     &                       pstart(max_tag,max_atype,max_shel)
+

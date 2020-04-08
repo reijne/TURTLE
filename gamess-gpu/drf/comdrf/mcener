@@ -1,0 +1,47 @@
+c
+      REAL ureft, uold, eqm, eqmol, eclas, eclasol, eclase, ecleol
+      REAL eclasd, ecldol, eclasr, eclrol, eint, eintol, eelst, eelstol
+      REAL edisp, edisol, erep, erepol, extnol, epol, epolol
+      REAL eneq, eneqol, eneqp, eneqpol, edifol
+      common /mcener/ ureft(mxst),uold(mxst),eqm(mxst),eqmol(mxst),
+     +  eclas,eclasol,eclase,ecleol,eclasd,ecldol,eclasr,eclrol,
+     +  eint(mxst),eintol(mxst),eelst(mxst),eelstol(mxst),edisp(mxst),
+     +  edisol(mxst),erep(mxst),erepol(mxst),extnol(mxst),epol(mxst),
+     +  epolol(mxst),eneq(mxst),eneqol(mxst),eneqp(mxst),eneqpol(mxst),
+     +  edifol(mxst*(mxst+1)/2)
+c
+      REAL utav, utav2, utavq, utavq2, utavc
+      REAL utavc2, utavce, utavce2, utavcd, utavcd2, utavcr, utavcr2
+      REAL utavi, utavi2, utave, utave2, utavd, utavd2, utavr, utavr2
+      REAL utavp, utavp2, utavn, utavn2, utavnp, utavnp2
+      REAL utavdf, utavdf2, q1tot
+      common /mcener2/ utav(mxst),utav2(mxst),utavq(mxst),utavq2(mxst),
+     +  utavc,utavc2,utavce,utavce2,utavcd,utavcd2,utavcr,utavcr2,
+     +  utavi(mxst),utavi2(mxst),utave(mxst),utave2(mxst),utavd(mxst),
+     +  utavd2(mxst),utavr(mxst),utavr2(mxst),utavp(mxst),utavp2(mxst),
+     +  utavn(mxst),utavn2(mxst),utavnp(mxst),utavnp2(mxst),
+     +  utavdf(mxst*(mxst+1)/2),utavdf2(mxst*(mxst+1)/2),q1tot(mxst)
+c
+      integer itotacc
+      common /mcres/ itotacc
+c
+      REAL eclasg, eclsolg, eclaseg, ecleolg, eclasdg, ecldolg
+      REAL eclasrg, eclrolg, eintg, eintolg, eelstg, elstolg
+      REAL edispg, edisolg, erepg, erepolg, extnolg
+      common/mcener3/eclasg(mxgrpar),eclsolg(mxgrpar),eclaseg(mxgrpar),
+     +  ecleolg(mxgrpar),eclasdg(mxgrpar),ecldolg(mxgrpar),
+     +  eclasrg(mxgrpar),eclrolg(mxgrpar),eintg(mxgran,mxst),
+     +  eintolg(mxgran,mxst),eelstg(mxgran,mxst),elstolg(mxgran,mxst),
+     +  edispg(mxgran,mxst),edisolg(mxgran,mxst),erepg(mxgran,mxst),
+     +  erepolg(mxgran,mxst),extnolg(mxgran,mxst)
+c
+      REAL utavcg, utavcg2, utavceg, utvceg2, utavcdg, utvcdg2
+      REAL utavcrg, utvcrg2, utavig, utavig2, utaveg, utaveg2
+      REAL utavdg, utavdg2, utavrg, utavrg2
+      common/mcener4/utavcg(mxgrpar),utavcg2(mxgrpar),utavceg(mxgrpar),
+     +  utvceg2(mxgrpar),utavcdg(mxgrpar),utvcdg2(mxgrpar),
+     +  utavcrg(mxgrpar),utvcrg2(mxgrpar),utavig(mxgran,mxst),
+     +  utavig2(mxgran,mxst),utaveg(mxgran,mxst),utaveg2(mxgran,mxst),
+     +  utavdg(mxgran,mxst),utavdg2(mxgran,mxst),utavrg(mxgran,mxst),
+     +  utavrg2(mxgran,mxst)
+c

@@ -1,0 +1,30 @@
+#!/bin/bash
+#BSUB -n 32
+#BSUB -W 180
+#BSUB -o validate_CI.o%J
+#BSUB -e validate_CI.e%J
+#BSUB -J validate_CI
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix 
+
+rm -rf /santmp/dlwab/validate
+mkdir /santmp/dlwab/validate
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/validate
+
+cp ../../input_files/DCI.cf2.cc-pvtz.in /santmp/dlwab/validate
+cp ../../input_files/DCI.mnco5h.DZP.in  /santmp/dlwab/validate
+cp ../../input_files/DCI.pyridine.tzvp.in /santmp/dlwab/validate
+cp ../../input_files/DCI.pyridine.cc-pvtz.in /santmp/dlwab/validate
+ 
+cd /santmp/dlwab/validate
+
+pam -mpi -auto_place ./gamess-uk < DCI.cf2.cc-pvtz.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DCI.cf2.cc-pvtz.out
+pam -mpi -auto_place ./gamess-uk < DCI.mnco5h.DZP.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DCI.mnco5h.DZP.out
+pam -mpi -auto_place ./gamess-uk < DCI.pyridine.tzvp.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DCI.pyridine.tzvp.out
+pam -mpi -auto_place ./gamess-uk < DCI.pyridine.cc-pvtz.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DCI.pyridine.cc-pvtz.out

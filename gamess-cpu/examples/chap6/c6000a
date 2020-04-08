@@ -1,0 +1,61 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+TITLE
+PH3 *6-31G*  VAL-CI 3M/1R extrapolated energy =  -342.5722733
+SUPER OFF NOSYM
+ZMAT 
+P
+H 1 RPH
+H 1 RPH 2 THETA
+H 1 RPH 2 THETA 3 THETA  1
+VARIABLES
+RPH 2.685   
+THETA 93.83  
+END
+BASIS 6-31G*
+RUNTYPE CI
+# compute properties with respect to all centres
+PROPERTY ATOMS
+MRDCI
+TRAN CORE
+4 1
+1 TO 4 1
+SELECT
+SINGLES 1
+CONF
+0 1 2 3 15
+0 1 3 4 15
+0 1 2 3 16
+NATORB IPRIN
+PUTQ AOS 50
+# mrdci-properties package
+PROP
+CIVEC 1
+0 1 2 3 15
+ENTER
+EOF
+../../bin/gamess << EOF
+RESTART NEW
+TITLE
+PH3 *6-31G*  VAL-CI 3M/1R compute properties using NOs
+ZMAT 
+P
+H 1 RPH
+H 1 RPH 2 THETA
+H 1 RPH 2 THETA 3 THETA  1
+VARIABLES
+RPH 2.685   
+THETA 93.83  
+END
+BASIS 6-31G*
+RUNTYPE ANALYSE
+PROPERTY
+4 P
+4 H
+end
+vectors 50
+enter 
+EOF

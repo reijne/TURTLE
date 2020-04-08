@@ -1,0 +1,49 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title        
+c6h5.no2  3-21g / SCF energy -431.6987420
+accuracy 20 7
+noprint
+zmat angstrom
+c
+n 1 rcn
+x 2 1.0 1 90.0
+c 1 rcc1 2 t1 3 p1
+c 1 rcc1 2 t1 3 -p1
+c 4 rcc2 1 t2 2 p2
+c 5 rcc2 1 t2 2 p2
+c 7 rcc3 5 t3 1 p3
+o 2 rno1 1 t5 3 -90.0
+o 2 rno1 1 t5 3  90.0
+h 4 rch1 1 t6 2 p5
+h 5 rch1 1 t6 2 p5
+h 6 rch2 4 t7 11 p6
+h 7 rch2 5 t7 12 p6
+h 8 rch3 7 t8 14 p7
+variables
+rcn 1.49
+rcc1 1.37
+rcc2 1.43
+rcc3 1.37
+rno1 1.21
+rch1 1.084
+rch2 1.084
+rch3 1.084
+t1 120.0
+t2 120.0
+t3 120.0
+t5 120.0
+t6 120.0
+t7 120.0
+t8 120.0
+p1 90.0
+p2 180.0
+p3 0.0
+p5 0.0
+p6 0.0
+p7 0.0
+end
+maxcyc 20
+enter
+EOF
+#

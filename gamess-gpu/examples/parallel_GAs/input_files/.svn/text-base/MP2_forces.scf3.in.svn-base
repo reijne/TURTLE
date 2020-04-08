@@ -1,0 +1,21 @@
+title
+scf3 - BASIS II mp2 - energy = -1059.40579532 au
+zmat angstrom
+sc
+x 1 1.0
+f 1 scf 2 90.0
+f1 1 scf 2 90.0 3 120.0
+f1 1 scf 2 90.0 3 -120.0
+variables
+scf 1.8661788 hess     .803548
+end
+basis
+tzvp sc
+dzp f
+dzp f1
+end
+runtype force
+scftype direct mp2
+level 2
+maxcyc 25
+enter

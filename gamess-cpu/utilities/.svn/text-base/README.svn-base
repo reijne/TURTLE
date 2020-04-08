@@ -1,0 +1,26 @@
+requirements for generic source
+
+1) no spaces in call vclr (..)
+
+2) no line breaks inside argument lists
+
+       call vclr(a,b,
+      + c)
+
+3) no odd parentheses as parts of arguments 
+
+    idint(reada(index(a,'a=('))))
+
+4) number representation for floating pt numbers
+
+OK
+---
+1.d1
+.1d1
+1.1d1
+
+NOT OK
+---
+1d1
+
+5) ensure lines are < 72 characters

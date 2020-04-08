@@ -1,0 +1,47 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 3a2 uhf properties - 3-21g basis
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct uhf
+property atoms
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3a2 uhf no-based properties - 3-21g basis
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct uhf
+property atoms
+natorb 10 
+natorb spin 11
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3a2 annihilated uhf properties 3-21g basis 
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct uhf
+property atoms
+natorb 10 annihilate
+natorb spin 11 annihilate
+enter
+EOF

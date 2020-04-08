@@ -1,0 +1,10 @@
+c
+c  control information for Bader (AIMPAC) interface
+c
+      integer aimpac_unit
+      logical write_aimpac
+      integer aimpac_sec
+      common/aimpaci/aimpac_unit, write_aimpac, aimpac_sec
+c
+      character*132 aimpac_file
+      common/aimpacc/aimpac_file

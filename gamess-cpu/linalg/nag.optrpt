@@ -1,0 +1,4129 @@
+
+Begin optimization report for: F04ATF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(21,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(22,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(22,10)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(22,10)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(22,10)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(22,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(24,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 117 and  line 117
+LOOP END
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(24,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 122 and  line 122
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(125,10) inlined into nag.f(24,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(126,10) inlined into nag.f(24,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 127 and  line 127
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(77,10) inlined into nag.f(24,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(77,10) inlined into nag.f(24,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(77,10) inlined into nag.f(24,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(77,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(94,10) inlined into nag.f(24,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(94,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(140,10) inlined into nag.f(24,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(140,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(145,10) inlined into nag.f(24,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(145,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(150,10) inlined into nag.f(24,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(24,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(24,12)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(24,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(103,10) inlined into nag.f(24,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(103,10) inlined into nag.f(24,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(38,10) inlined into nag.f(26,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(38,10) inlined into nag.f(26,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10) inlined into nag.f(26,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10) inlined into nag.f(26,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10) inlined into nag.f(26,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(40,10) inlined into nag.f(26,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 42 and  line 44
+LOOP END
+
+LOOP BEGIN at nag.f(40,10) inlined into nag.f(26,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(45,10) inlined into nag.f(26,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(48,10) inlined into nag.f(26,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10) inlined into nag.f(26,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10) inlined into nag.f(26,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10) inlined into nag.f(26,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(52,10) inlined into nag.f(26,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(55,10) inlined into nag.f(26,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10) inlined into nag.f(26,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10) inlined into nag.f(26,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10) inlined into nag.f(26,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(68,10) inlined into nag.f(24,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: LUS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(38,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(38,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(38,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(40,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 42 and  line 44
+LOOP END
+
+LOOP BEGIN at nag.f(40,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(45,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(48,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(48,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(52,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(55,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(55,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LU
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(69,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(69,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(69,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(116,10) inlined into nag.f(69,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(69,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(69,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(69,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10) inlined into nag.f(69,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(125,10) inlined into nag.f(69,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(126,10) inlined into nag.f(69,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10) inlined into nag.f(69,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10) inlined into nag.f(69,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10) inlined into nag.f(69,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(77,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(77,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(77,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(77,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(94,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(94,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(140,10) inlined into nag.f(101,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(140,10) inlined into nag.f(101,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(145,10) inlined into nag.f(101,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(145,10) inlined into nag.f(101,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(150,10) inlined into nag.f(101,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(101,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(101,12)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10) inlined into nag.f(101,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(103,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(103,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(68,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: SXMPY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(140,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(140,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(145,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(145,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(150,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(149,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(149,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SMXPY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(116,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(116,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(116,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(116,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(121,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(121,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(125,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(126,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(126,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AEF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(179,10)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(180,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 181 and  line 181
+   LOOP END
+
+   LOOP BEGIN at nag.f(180,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(179,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(179,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(194,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(194,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(194,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(194,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(197,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(197,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(197,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(197,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(197,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(197,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(197,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(197,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(197,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(197,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(197,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(197,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(197,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(219,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(219,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(203,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(203,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(203,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(203,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(203,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(203,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(203,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(203,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(203,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(203,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(203,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(203,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(203,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(204,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(204,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(204,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(204,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(213,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(213,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(213,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(213,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(213,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(213,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(213,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(213,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(213,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(213,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(213,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(213,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(213,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(242,10) inlined into nag.f(214,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(214,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(214,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(214,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(214,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(186,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at nag.f(200,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at nag.f(211,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AEZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(242,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(248,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F03AEZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(684,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AFF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(274,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(297,10) inlined into nag.f(275,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(275,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(275,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(275,15)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(275,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AFZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(297,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(303,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(303,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(303,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(303,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AGZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(334,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(334,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(334,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(338,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(338,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(338,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(338,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(342,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(343,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(343,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(343,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(343,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(346,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(346,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(346,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(346,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01CKY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(486,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(485,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(485,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(485,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(492,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(492,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(492,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(492,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(497,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(497,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(497,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AJF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(367,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(368,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(368,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(368,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(368,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(368,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(374,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(380,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(380,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(380,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(380,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(404,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(404,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(404,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(404,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(404,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(334,13) inlined into nag.f(408,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(334,13) inlined into nag.f(408,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(334,13) inlined into nag.f(408,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(338,13) inlined into nag.f(408,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(338,13) inlined into nag.f(408,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(338,13) inlined into nag.f(408,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(338,13) inlined into nag.f(408,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(342,10) inlined into nag.f(408,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(343,13) inlined into nag.f(408,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(343,13) inlined into nag.f(408,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(343,13) inlined into nag.f(408,15)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(343,13) inlined into nag.f(408,15)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at nag.f(346,13) inlined into nag.f(408,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(346,13) inlined into nag.f(408,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(346,13) inlined into nag.f(408,15)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at nag.f(346,13) inlined into nag.f(408,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(410,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(410,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(410,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(410,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(414,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(414,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(414,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(414,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(420,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(420,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(420,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(420,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(424,13)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(427,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(427,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(427,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at nag.f(427,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(424,13)
+   <Distributed chunk2>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(424,13)
+   <Remainder, Distributed chunk2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(390,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(390,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(390,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(390,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(390,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(393,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(393,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(393,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(442,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(442,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(442,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(486,13) inlined into nag.f(445,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(485,10) inlined into nag.f(445,15)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(485,10) inlined into nag.f(445,15)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(485,10) inlined into nag.f(445,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(492,13) inlined into nag.f(445,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(492,13) inlined into nag.f(445,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(492,13) inlined into nag.f(445,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(492,13) inlined into nag.f(445,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(497,13) inlined into nag.f(445,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(497,13) inlined into nag.f(445,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(497,13) inlined into nag.f(445,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(446,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(446,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(446,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(446,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(449,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(450,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(450,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(450,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(450,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(454,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(454,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(454,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(458,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(458,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(458,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(436,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F02AMF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(569,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(569,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at nag.f(569,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(569,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(580,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(602,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(602,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(602,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(611,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(630,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(630,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(630,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(630,16)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(630,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(642,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(647,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(647,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(647,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(655,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(655,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(655,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(655,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(576,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at nag.f(638,24)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F02AEF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(179,10) inlined into nag.f(532,12)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(180,13) inlined into nag.f(532,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 181 and  line 181
+   LOOP END
+
+   LOOP BEGIN at nag.f(180,13) inlined into nag.f(532,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(179,10) inlined into nag.f(532,12)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(179,10) inlined into nag.f(532,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(194,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(194,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(194,13) inlined into nag.f(532,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(194,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(532,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(219,10) inlined into nag.f(532,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(219,10) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(532,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(204,13) inlined into nag.f(532,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(204,13) inlined into nag.f(532,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(204,13) inlined into nag.f(532,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(204,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(684,10) inlined into nag.f(532,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(685,13) inlined into nag.f(532,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 686 and  line 686
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 692 and  line 692
+LOOP END
+
+LOOP BEGIN at nag.f(691,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 697 and  line 697
+LOOP END
+
+LOOP BEGIN at nag.f(696,13) inlined into nag.f(532,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(242,10) inlined into nag.f(532,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(532,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(532,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(532,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(248,13) inlined into nag.f(532,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(274,10) inlined into nag.f(544,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(297,10) inlined into nag.f(544,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(544,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(544,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(544,12)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(303,13) inlined into nag.f(544,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(186,10) inlined into nag.f(532,12)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at nag.f(200,10) inlined into nag.f(532,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at nag.f(211,10) inlined into nag.f(532,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F04ARF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(912,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(912,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(912,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(912,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(941,10) inlined into nag.f(921,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 945 and  line 947
+LOOP END
+
+LOOP BEGIN at nag.f(941,10) inlined into nag.f(921,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(975,10) inlined into nag.f(921,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(921,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(921,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(921,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(921,12)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F03AFF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(724,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(724,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(724,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(727,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(728,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(728,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(728,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(728,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(732,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(741,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(741,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(741,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(741,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(749,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(749,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(738,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at nag.f(760,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at nag.f(764,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F04AJF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(941,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(944,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(944,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(975,10) inlined into nag.f(954,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(954,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(954,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(954,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(954,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(950,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(952,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: F04AJZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(975,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(980,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AKF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1032,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1033 and  line 1034
+LOOP END
+
+LOOP BEGIN at nag.f(1032,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1040,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1040,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1248,10) inlined into nag.f(1056,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1056,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1056,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1056,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1056,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1056,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1056,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1056,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1056,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1056,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1056,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1056,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1056,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1088,10) inlined into nag.f(1057,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1057,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1057,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1057,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1057,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1057,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1057,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1057,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1057,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Alternate Alignment Vectorized Loop, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1057,15)
+<Remainder, Multiversioned v2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1028,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01AKY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1088,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1093,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01CKZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1248,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1249,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01APF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1125,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1124,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1124,10)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1124,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1124,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1124,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1132,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1136,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1136,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1141,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1141,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F01BDF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1177,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1177,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1190,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1192,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1196,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1196,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1196,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1196,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1200,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1200,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1200,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1208,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1211,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1214,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1214,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1214,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1214,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1172,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at nag.f(1174,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F02AGF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1032,13) inlined into nag.f(1282,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1033 and  line 1034
+LOOP END
+
+LOOP BEGIN at nag.f(1032,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1040,13) inlined into nag.f(1282,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1040,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13) inlined into nag.f(1282,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13) inlined into nag.f(1282,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13) inlined into nag.f(1282,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1045,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13) inlined into nag.f(1282,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13) inlined into nag.f(1282,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13) inlined into nag.f(1282,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1053,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1248,10) inlined into nag.f(1282,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1282,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1250 and  line 1250
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1282,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1256 and  line 1256
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1282,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1261 and  line 1261
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1088,10) inlined into nag.f(1282,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1282,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1282,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1282,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1093,13) inlined into nag.f(1282,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1282,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1282,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1282,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1100,13) inlined into nag.f(1282,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1105,13) inlined into nag.f(1282,12)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(1125,13) inlined into nag.f(1283,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1124,10) inlined into nag.f(1283,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1124,10) inlined into nag.f(1283,12)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1124,10) inlined into nag.f(1283,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1124,10) inlined into nag.f(1283,12)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1124,10) inlined into nag.f(1283,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1132,10) inlined into nag.f(1283,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1136,13) inlined into nag.f(1283,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1136,13) inlined into nag.f(1283,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1141,13) inlined into nag.f(1283,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1141,13) inlined into nag.f(1283,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1289,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1297,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1297,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1297,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(1301,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1301,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1301,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1301,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1301,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(1292,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1292,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1292,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1292,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1305,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1308,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1308,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1308,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1308,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1308,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1314,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1314,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1314,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1314,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1314,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1319,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 1322 and  line 1323
+   LOOP END
+
+   LOOP BEGIN at nag.f(1319,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1330,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1330,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1330,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1330,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1028,10) inlined into nag.f(1282,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F02AQF..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1370,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1371,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1371,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1371,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Alternate Alignment Vectorized Loop, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1401,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(1418,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1418,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1430,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(1448,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1448,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1453,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1453,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1457,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1489,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1489,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1658,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1709,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1712,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(1716,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1248,10) inlined into nag.f(1729,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1533,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at nag.f(1456,12)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1587,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at nag.f(1596,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1722,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F02AQF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1370,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1371,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1371,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1371,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Alternate Alignment Vectorized Loop, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1380,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Alternate Alignment Vectorized Loop, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1387,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at nag.f(1401,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(1418,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1418,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1430,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at nag.f(1448,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1448,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1453,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at nag.f(1453,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1457,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1489,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1489,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1483,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1505,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1499,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1520,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1514,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1558,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1570,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1654,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1658,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1698,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1689,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1635,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1610,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1619,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1709,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1712,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1712,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nag.f(1716,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1716,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1725,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1248,10) inlined into nag.f(1729,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1249,13) inlined into nag.f(1729,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1255,13) inlined into nag.f(1729,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1260,13) inlined into nag.f(1729,24)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1533,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at nag.f(1456,12)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1587,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at nag.f(1596,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1722,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: F04AEF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1754,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1753,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nag.f(1753,10)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1753,10)
+      <Multiversioned v2>
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at nag.f(1753,10)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at nag.f(1753,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1793,10) inlined into nag.f(1763,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1794,13) inlined into nag.f(1763,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13) inlined into nag.f(1763,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13) inlined into nag.f(1763,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13) inlined into nag.f(1763,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(941,10) inlined into nag.f(1763,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(944,13) inlined into nag.f(1763,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(944,13) inlined into nag.f(1763,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(975,10) inlined into nag.f(1763,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1763,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1763,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1763,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1763,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1805,10) inlined into nag.f(1763,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1806,13) inlined into nag.f(1763,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13) inlined into nag.f(1763,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13) inlined into nag.f(1763,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13) inlined into nag.f(1763,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1823,14) inlined into nag.f(1763,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at nag.f(950,10) inlined into nag.f(1763,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(952,15) ]
+   LOOP END
+
+   LOOP BEGIN at nag.f(1810,10) inlined into nag.f(1763,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(1816,31) ]
+
+      LOOP BEGIN at nag.f(1813,13) inlined into nag.f(1763,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(1816,31) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F04AHF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1793,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1794,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1794,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(941,10) inlined into nag.f(1801,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(944,13) inlined into nag.f(1801,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(944,13) inlined into nag.f(1801,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(975,10) inlined into nag.f(1801,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1801,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1801,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1801,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(980,13) inlined into nag.f(1801,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1805,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(1806,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(1806,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1823,14)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at nag.f(950,10) inlined into nag.f(1801,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(952,15) ]
+   LOOP END
+
+   LOOP BEGIN at nag.f(1810,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(1816,31) ]
+
+      LOOP BEGIN at nag.f(1813,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ nag.f(1816,31) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: F03AFZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(795,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nag.f(802,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at nag.f(802,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at nag.f(802,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at nag.f(802,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(810,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(810,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(810,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(810,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at nag.f(816,13)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: M01AJF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at nag.f(1846,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1846,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1846,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1860,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at nag.f(1863,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1865 and  line 1869
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nag.f(1901,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1902 and  line 1902
+LOOP END
+
+LOOP BEGIN at nag.f(1901,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1907,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at nag.f(1907,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at nag.f(1907,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at nag.f(1907,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1890,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1891 and  line 1891
+LOOP END
+
+LOOP BEGIN at nag.f(1890,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at nag.f(1877,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1880 and  line 1878
+LOOP END
+
+LOOP BEGIN at nag.f(1877,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at nag.f(1915,26)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at nag.f(1884,7)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at nag.f(1918,7)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+         LOOP BEGIN at nag.f(1912,7)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

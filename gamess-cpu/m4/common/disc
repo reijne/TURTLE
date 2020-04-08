@@ -1,0 +1,17 @@
+      integer isel,iselr ,iselw,irep,ichek,ipos,
+     *  nam,keep,istat,
+     *  len,iop,iwhere,isync,
+     *  iposf,keepf,
+     *  istatf,lrecf,nrecf
+      logical oform
+      logical oedpr, oftpr, ogafsmode
+      integer ioupd
+      logical oadd
+      common/disc/isel,iselr ,iselw,irep,ichek,ipos(maxlfn),
+     *  nam(maxlfn),keep(maxlfn),istat(maxlfn),
+     *  len(maxlfn),iop(maxlfn),iwhere(maxlfn),isync(maxlfn),
+     *  iposf(maxfrt),keepf(maxfrt),
+     *  istatf(maxfrt),lrecf(maxfrt),nrecf(maxfrt)
+     * ,oform(maxfrt)
+     *  ,oedpr(maxlfn),oftpr(maxfrt), ogafsmode,
+     *  ioupd,oadd(maxlfn)

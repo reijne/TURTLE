@@ -1,0 +1,3 @@
+#
+echo $1 $2
+mpirun -np $1 -stdio=i ../../bin/gamess-uk < $2.in > $2.out.$1

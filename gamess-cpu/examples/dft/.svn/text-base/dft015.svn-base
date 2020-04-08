@@ -1,0 +1,26 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+cro2f2 - tzvp basis c2v geometry high quadrature, Energy -1390.389803202427 au
+zmat angstrom
+cr
+x 1 1.0
+x 1 1.0 2 90.0
+o 1 cro 2 90.0 3 xcro
+o 1 cro 2 90.0 3 -xcro
+f 1 crf 3 fcrx 2 0.0
+f 1 crf 3 fcrx 2 180.0
+variables
+cro            1.5502960 hessian    1.211311
+crf            1.6905870 hessian     .728578
+fcrx          55.2123871 hessian     .650488
+xcro         125.8572336 hessian    2.142634
+end
+basis tzvp
+runtype optimize
+scftype direct
+dft s-vwn
+dft quadrature high
+level 2
+enter
+EOF

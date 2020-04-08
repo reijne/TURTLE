@@ -1,0 +1,21 @@
+#
+# --------------------------------------------------------------
+# Create a working directory under GAMESS_SCR
+# --------------------------------------------------------------
+#
+if ! test -d $GAMESS_SCR/$jobname
+then
+  mkdir -p $GAMESS_SCR/$jobname
+fi
+cd $GAMESS_SCR/$jobname
+
+rcp $originator:$remotedir/$jobname.in .
+if test $? -ne 0
+then
+   echo ${PROG}: rungamess failed to rcp file $originator:$remotedir/$jobname.in to $host
+   echo ${PROG}: Please check .rhosts file on $originator
+   echo ${PROG}: Error detected on server $host
+   exit -1
+fi
+
+echo ${PROG}: rungamess client=$originator, server=$host

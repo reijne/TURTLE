@@ -1,0 +1,19 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+time 120
+title
+mof6  3-21G SCF total energy  -4550.17439460 hartree
+zmat angstrom
+mo
+f 1 mof
+f 1 mof 2 90.0
+f 1 mof 2 90.0 3 90.0
+f 1 mof 2 90.0 3 180.0
+f 1 mof 2 90.0 3 -90.0
+f 1 mof 3 90.0 2 180.0
+variables
+mof 1.814
+end
+scftype direct
+enter 1
+EOF

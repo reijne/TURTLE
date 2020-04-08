@@ -1,0 +1,258 @@
+
+Begin optimization report for: GATHER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(68,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbgamess.f(68,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCATTER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(81,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbgamess.f(81,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SUBVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(93,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(93,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbgamess.f(93,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(93,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ZERO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(106,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbgamess.f(106,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbgamess.f(106,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TMODEN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(299,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbgamess.f(300,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbgamess.f(306,10)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbgamess.f(308,10)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbgamess.f(308,10)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbgamess.f(308,10)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbgamess.f(308,10)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TP1OUT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(489,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbgamess.f(490,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbgamess.f(490,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TP2OUT
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbgamess.f(727,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbgamess.f(740,12) ]
+
+   LOOP BEGIN at vbgamess.f(728,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbgamess.f(740,12) ]
+
+      LOOP BEGIN at vbgamess.f(729,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbgamess.f(740,12) ]
+
+         LOOP BEGIN at vbgamess.f(732,10)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbgamess.f(740,12) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TDPCONV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(903,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbgamess.f(904,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbgamess.f(906,10)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbgamess.f(909,10)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 917 and  line 917
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbgamess.f(921,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbgamess.f(923,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 926 and  line 926
+   LOOP END
+
+   LOOP BEGIN at vbgamess.f(923,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRANVBINI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(1272,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1272,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1301,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1301,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1355,10)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1355,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1355,10)
+<Distributed chunk2>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1358 and  line 1359
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1355,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbgamess.f(1362,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETQVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(1767,25)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1767 and  line 1767
+LOOP END
+===========================================================================
+
+Begin optimization report for: PUTQNATORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(1928,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: PUTQVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbgamess.f(2103,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================

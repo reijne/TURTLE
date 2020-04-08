@@ -1,0 +1,25 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - DZ mrdci direct-ci 
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co        1.2359174 
+ch        1.0991666
+hco     122.7868963
+end
+basis DZ
+runtype optimize ci
+direct 16 10 14
+conf
+2 2 2 2 2 2 2 2 0 0
+2 2 2 2 2 2 0 2 2 0
+2 2 2 2 2 0 2 2 0 2
+enter
+EOF

@@ -1,0 +1,24 @@
+#!/bin/csh
+
+#   chapter NMR examples using rungamess script
+#
+set path=(../../rungamess ../../utilities $path)
+unalias cd
+
+(cd ../../utilities; make validate)
+set root=`cd ../..;pwd`
+set here=`pwd`
+setenv GAMESS_EXE $root/bin/gamess
+setenv GAMESS_SCR $here
+setenv GAMESS_TMP $here
+setenv GAMESS_LIB $root/libs
+#
+# If local disk space is short you may want to 
+# edit the next two lines
+#
+#setenv GAMESS_SCR /scr1/psh
+#setenv GAMESS_TMP /scr1/psh
+#
+time rungamess ethanol_nosym
+#time rungamess ethanol
+\rm -f ft*

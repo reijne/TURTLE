@@ -1,0 +1,69 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g - closed shell SCF/total energy = -113.22138585
+super force
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter 1
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co+ - 2b2 - 3-21g - open shell RHF/total energy = -112.87217374
+charge 1
+mult 2
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+open 1 1
+vectors 1
+enter 2 3
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co+ - 2b1 - 3-21g - open shell RHF/total energy = -112.75699469
+charge 1
+mult 2
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+open 1 1
+vectors 1
+swap
+7 8
+end
+enter 4 5
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co+ - 2b2 - 3-21g - UHF/total energy = -112.87761239
+charge 1
+mult 2
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype uhf
+vectors 1
+enter 6 7
+EOF

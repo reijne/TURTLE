@@ -1,0 +1,160 @@
+#!/bin/sh
+#
+# Rungamess execution script - TCGMSG version
+#
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_tcgmsg:=${GAMESS_PAREXE}}
+
+
+procgrp=gamess
+user=`whoami`
+scr=${GAMESS_SCR}
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to /tmp/filedefs
+# --------------------------------------------------------------
+#
+
+rm -f /tmp/filedefs
+use_file_directives=1
+spool_in_file=/tmp/filedefs
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Check environment vars
+# --------------------------------------------------------------
+#
+. $RUNGAMESS_DIR/rg_config
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir/$jobname
+
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+case ${NODE0:=null} in
+null) ;;
+   *)  job_environment=LOBOSQ;;
+esac
+
+case ${QSUB_HOST:=null} in
+null) ;;
+   *)  job_environment=NQS;;
+esac
+
+case ${LSF_VERSION:=null} in
+null) ;;
+   *)  job_environment=LSF;;
+esac
+
+echo rungamess: GAMESS-UK Job environment : $job_environment
+
+#
+# --------------------------------------------------------------
+# Build hostfile if required
+# --------------------------------------------------------------
+#
+case $job_environment in 
+
+LOBOSQ)
+  oldhost=XXX
+  j=0
+  jj=0
+  GAMESS_HOSTS=""
+  newhost=`printenv NODE$j`
+  while test ABC$newhost != ABC
+  do
+     if test $oldhost = $newhost 
+     then
+        # re-use previous key if we are sharing the node
+        jj=`expr $jj - 1`
+     fi
+     oldhost=$newhost
+     GAMESS_HOSTS="${GAMESS_HOSTS} $newhost"     
+     j=`expr $j + 1`
+     jj=`expr $jj + 1`
+     newhost=`printenv NODE$j`
+  done;;
+
+#
+PBS) 
+  GAMESS_HOSTS=`cat $PBS_NODEFILE`;;
+
+NQS) 
+  GAMESS_HOSTS=`hostname`,9999;;
+
+LSF) 
+  GAMESS_HOSTS=`hostname`,9999;;
+
+INTER) 
+   # rely on GAMESS_HOSTS in environment
+   ;;
+esac
+
+# Take hosts from GAMESS_HOSTS
+echo rungamess: TCGMSG job dir=`pwd` master=`hostname` user=$user
+echo rungamess: procs=$nprocs hostlist=$GAMESS_HOSTS
+
+rm -f ${procgrp}.p
+i=0
+lasthost=none
+ for key in ${GAMESS_HOSTS}
+do
+    host=`echo $key | awk -F , '{print $1}'`
+    np=`echo $key | awk -F , '{print $2}'`
+    if test ${np:=X} = X; then np=1; fi
+    if test $i -lt $nprocs 
+    then
+         np1=`expr $nprocs - $i`
+         if test $np1 -lt $np ; then np=$np1; fi
+         echo $user $host $np $app $scr >> ${procgrp}.p
+         lasthost=$host
+    fi
+    i=`expr $i + $np`
+done
+
+echo ============== Process group file for this job ===========
+cat ${procgrp}.p
+echo ========================================================
+
+#
+# Execute the application (inherit stdin/stdout)
+#
+
+echo Start at `date`
+cat /tmp/filedefs  $homedir/$jobname.in  | parallel $procgrp
+stat=$?
+echo End at `date`
+
+rm -f /tmp/filedefs
+case $stat in
+   0) echo ${IDENT}: TCGMSG gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

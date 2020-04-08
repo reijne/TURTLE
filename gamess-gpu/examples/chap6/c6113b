@@ -1,0 +1,72 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - TZVP+D(sp) scf energy  -113.83095795
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+tzvp o
+tzvp c
+tzvp h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+enter
+EOF
+../../bin/gamess << EOF
+core 30000000
+time 300
+restart
+title
+h2co - TZVP+D(sp) - mrdci 10M/8R - CI R5-R8
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+tzvp o
+tzvp c
+tzvp h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci direct
+symmetry 1
+spin 1
+cntrl 16
+conf
+0    1   2   3   4   5  31  41  42
+2   42  43   1   2   3   4   5  31  41
+2   31  33   1   2   3   4   5  41  42
+2   31  32   1   2   3   4   5  41  42
+2    5   6   1   2   3   4  31  41  42
+2    5   7   1   2   3   4  31  41  42
+2    5   8   1   2   3   4  31  41  42
+2   42  45   1   2   3   4   5  31  41
+0    1   2   3   4   5  31  33  41
+2    32  33  1   2   3   4   5  31  41
+end
+thresh 5 5
+roots 8
+davidson 5 6 7 8
+enter
+EOF

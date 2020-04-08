@@ -1,0 +1,936 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co - dz - dl-find energy = -113.8307609
+ >>>>> zmatrix angstrom
+ >>>>> c
+ >>>>> o 1 co
+ >>>>> h 1 ch 2 hco
+ >>>>> h 1 ch 2 hco 3 180.0
+ >>>>> variables
+ >>>>> co 1.203
+ >>>>> ch 1.099
+ >>>>> hco 121.8
+ >>>>> end
+ >>>>> basis dz
+ >>>>> runtype optimize
+ >>>>> dlfind
+ >>>>>   coordinates dlc
+ >>>>> end
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : computer-users-macbook.local                
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 01-07-2008 15:38 by jmht      
+                                        job name   jmht    
+                                        date    Jul  4 2008
+                                        time       15:09:15
+                                        acct            502
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   5000000 real*8  words
+
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co - dz - dl-find energy = -113.8307609                                           *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 co                                                                                                                              
+ h 1 ch 2 hco                                                                                                                        
+ h 1 ch 2 hco 3 180.0                                                                                                                
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ co           1.203000     0    0.000000    1.203000    1.203000
+ ch           1.099000     0    0.000000    1.099000    1.099000
+ hco        121.800000     0    0.000000  121.800000  121.800000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.203000 (   1)
+   3    3   h     1   1.099000 (   2)   2  121.800 (   4)
+   4    4   h     1   1.099000 (   3)   2  121.800 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.273340
+              3  h                1.765065       0.000000      -1.094386
+              4  h               -1.765065       0.000000      -1.094386
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is dz                 *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.0000000      0.0000000      0.9998719       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0  -0.0000000     -0.0000000     -1.2734685       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.7650647      2.0942583       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.7650647      2.0942583       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *******************************************************************************
+
+
+                                        *******************
+                                        molecular basis set
+                                        *******************
+
+
+                                        ==============================
+                                        contracted primitive functions
+                                        ==============================
+
+ atom        shell   type  prim       exponents            contraction coefficients
+ =================================================================================================================
+
+ c       
+
+
+                 1   s        1     4232.610000       0.758837  (    0.002029  )
+                 1   s        2      634.882000       1.400365  (    0.015535  )
+                 1   s        3      146.097000       2.258530  (    0.075411  )
+                 1   s        4       42.497400       3.050138  (    0.257121  )
+                 1   s        5       14.189200       3.108344  (    0.596555  )
+                 1   s        6        1.966600       0.287038  (    0.242517  )
+
+
+                 2   s        7        5.147700       2.435679  (    1.000000  )
+
+
+                 3   s        8        0.496200       0.421359  (    1.000000  )
+
+
+                 4   s        9        0.153300       0.174609  (    1.000000  )
+
+
+                 5   p       10       18.155700       0.990092  (    0.018534  )
+                 5   p       11        3.986400       0.926894  (    0.115442  )
+                 5   p       12        1.142900       0.650533  (    0.386206  )
+                 5   p       13        0.359400       0.253894  (    0.640089  )
+
+
+                 6   p       14        0.114600       0.095043  (    1.000000  )
+
+ o       
+
+
+                 7   s       15     7816.540000       1.203318  (    0.002031  )
+                 7   s       16     1175.820000       2.209022  (    0.015436  )
+                 7   s       17      273.188000       3.532983  (    0.073771  )
+                 7   s       18       81.169600       4.772170  (    0.247606  )
+                 7   s       19       27.183600       5.191252  (    0.611832  )
+                 7   s       20        3.413600       0.431723  (    0.241205  )
+
+
+                 8   s       21        9.532200       3.866384  (    1.000000  )
+
+
+                 9   s       22        0.939800       0.680278  (    1.000000  )
+
+
+                10   s       23        0.284600       0.277707  (    1.000000  )
+
+
+                11   p       24       35.183200       2.391506  (    0.019580  )
+                11   p       25        7.904000       2.346019  (    0.124189  )
+                11   p       26        2.305100       1.598081  (    0.394727  )
+                11   p       27        0.717100       0.590122  (    0.627375  )
+
+
+                12   p       28        0.213700       0.207107  (    1.000000  )
+
+ h       
+
+
+                15   s       29       19.238400       0.214922  (    0.032828  )
+                15   s       30        2.898720       0.366067  (    0.231204  )
+                15   s       31        0.653472       0.423324  (    0.817226  )
+
+
+                16   s       32        0.163064       0.182885  (    1.000000  )
+ =================================================================================================================
+
+ total number of shells                  16
+ total number of basis functions         24
+ number of electrons                     16
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      8
+ total number of atoms                    4
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                optimize *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-7 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-13 *
+ ****************************************************** 
+
+ ********************************************************** 
+ *          optimisation options in effect                * 
+ ********************************************************** 
+ * optimization procedure invoked                         *
+ ********************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in p-supermatrix form         *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.2733404   1--3  2.0768089   1--4  2.0768089
+       (1.2030000)       (1.0990000)       (1.0990000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  121.800000   2--1--4  121.800000   3--1--4  116.400000
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          14
+   2           4
+   3           6
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -113.44115329 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+***********************************************************************
+**                                                                   **
+**                              DL-FIND                              **
+**                       Geometry Optimisation                       **
+**               written by Johannes Kaestner, in 2006               **
+**               Copyright:  STFC Daresbury Laboratory               **
+**                           Revision: 344M                          **
+**                                                                   **
+***********************************************************************
+Residue member list:
+    0 :     1    1    1    1
+           0  groups will be deleted as they only contain one atom
+
+Generating new HDLC for    1 residues
+
+Located a new residue for HDLC
+   Residue number is    1
+   Number of atoms it contains     4
+   Atoms:      1     2     3     4
+   Generating HDLC for residue    1
+       System near planar - making improper
+
+   The Cartesian coordinates
+         1     0.00000000000000     0.00000000000000     0.99987187392035
+         2    -0.00000000000000    -0.00000000000000    -1.27346849034010
+         3     0.00000000000001     1.76506467607522     2.09425833959935
+         4     0.00000000000000    -1.76506467607522     2.09425833959935
+
+   The primitive internal coordinates
+
+
+     The system has     3 stretches
+         1 Stre     2     1              =    2.27334036
+         2 Stre     3     1              =    2.07680886
+         3 Stre     4     1              =    2.07680886
+
+
+     The system has     3 bends and impropers
+         4 Bend     3     1     2        =  121.80000000 deg =    2.12581103
+         5 Bend     4     1     2        =  121.80000000 deg =    2.12581103
+         6 Impr     4     1     3     2  =  180.00000000 deg =    3.14159265
+
+
+     The system has     0 dihedrals
+
+
+
+DL-FIND Report:
+===============
+Optimisation algorithm: L-BFGS
+Number of steps in L-BFGS memory ...............         12
+
+Trust radius based on energy
+Maximum step length ............................  5.000E-01
+
+Coordinate system: Delocalised internal coordinates (DLC)
+
+Number of atoms ................................          4
+Number of input geometries .....................          2
+Variables to be optimised ......................          6
+No restart information is written
+This run has not been restarted.
+Maximum number of steps ........................         60
+Maximum number of energy evaluations ...........     100000
+
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.04 seconds
+
+ search  0
+                                        *******************
+ point   1                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.0000000      0.0000000      0.9998719    6.00  c       
+       -0.0000000     -0.0000000     -1.2734685    8.00  o       
+        0.0000000      1.7650647      2.0942583    1.00  h       
+        0.0000000     -1.7650647      2.0942583    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  13 cycles at       0.09 seconds
+          --------------
+
+
+          electronic energy               -145.2138156893
+          nuclear energy                    31.3837200451
+          total energy                    -113.8300956442
+          convergence on density             0.0000000481
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0000000      0.0000000      0.0000000      0.0000000
+   e/y      0.0000000      0.0000000      0.0093105     -0.0093105
+   e/z     -0.0348644      0.0238208      0.0055218      0.0055218
+ Energy calculation finished, energy: -1.138300956E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups           1
+Testing convergence  in cycle    1
+  Max grad  2.6672E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  1.1562E-02 Target: 8.8889E-04 converged?   no
+ Predicted step length 2.0000E-02
+ Trust radius          1.0000E-01
+
+Converting HDLC to Cartesians
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.14 seconds
+
+ search  0
+                                        *******************
+ point   2                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.0000000     -0.0000000      1.0058161    6.00  c       
+       -0.0000000     -0.0000000     -1.2843462    8.00  o       
+        0.0000000      1.7582280      2.0967251    1.00  h       
+        0.0000000     -1.7582280      2.0967251    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  10 cycles at       0.19 seconds
+          --------------
+
+
+          electronic energy               -145.0720118272
+          nuclear energy                    31.2415042244
+          total energy                    -113.8305076028
+          convergence on density             0.0000001084
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0000000      0.0000000      0.0000000      0.0000000
+   e/y      0.0000000      0.0000000      0.0070332     -0.0070332
+   e/z     -0.0175411      0.0077189      0.0049111      0.0049111
+ Energy calculation finished, energy: -1.138305076E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups           1
+ Wolfe conditions fulfilled, increasing trust radius
+Testing convergence  in cycle    2
+    Energy  4.1196E-04 Target: 1.0000E+00 converged?  yes
+  Max step  1.8835E-02 Target: 5.3333E-03 converged?   no
+  RMS step  8.1650E-03 Target: 3.5556E-03 converged?   no
+  Max grad  1.3192E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  5.8902E-03 Target: 8.8889E-04 converged?   no
+ Predicted step length 2.5742E-02
+ Trust radius          2.0000E-01
+
+Converting HDLC to Cartesians
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.24 seconds
+
+ search  0
+                                        *******************
+ point   3                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.0000000     -0.0000000      1.0148371    6.00  c       
+       -0.0000000     -0.0000000     -1.2873716    8.00  o       
+        0.0000000      1.7469059      2.0937273    1.00  h       
+        0.0000000     -1.7469059      2.0937273    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  10 cycles at       0.29 seconds
+          --------------
+
+
+          electronic energy               -145.0151890136
+          nuclear energy                    31.1844592999
+          total energy                    -113.8307297137
+          convergence on density             0.0000002756
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0000000      0.0000000      0.0000000      0.0000000
+   e/y      0.0000000      0.0000000      0.0022961     -0.0022961
+   e/z     -0.0017728     -0.0024695      0.0021212      0.0021212
+ Energy calculation finished, energy: -1.138307297E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups           1
+ Wolfe conditions fulfilled, increasing trust radius
+Testing convergence  in cycle    3
+    Energy  2.2211E-04 Target: 1.0000E+00 converged?  yes
+  Max step  2.2912E-02 Target: 5.3333E-03 converged?   no
+  RMS step  1.0509E-02 Target: 3.5556E-03 converged?   no
+  Max grad  4.9548E-03 Target: 1.3333E-03 converged?   no
+  RMS grad  2.1580E-03 Target: 8.8889E-04 converged?   no
+ Predicted step length 1.1545E-02
+ Trust radius          4.0000E-01
+
+Converting HDLC to Cartesians
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.34 seconds
+
+ search  0
+                                        *******************
+ point   4                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+       -0.0000000     -0.0000000      1.0187193    6.00  c       
+        0.0000000     -0.0000000     -1.2824280    8.00  o       
+        0.0000000      1.7429010      2.0893144    1.00  h       
+        0.0000000     -1.7429010      2.0893144    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  10 cycles at       0.38 seconds
+          --------------
+
+
+          electronic energy               -145.0589103376
+          nuclear energy                    31.2281500499
+          total energy                    -113.8307602877
+          convergence on density             0.0000001256
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0000000      0.0000000      0.0000000      0.0000000
+   e/y      0.0000000      0.0000000      0.0000455     -0.0000455
+   e/z      0.0003913     -0.0008010      0.0002048      0.0002048
+ Energy calculation finished, energy: -1.138307603E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups           1
+ Wolfe conditions fulfilled, increasing trust radius
+Testing convergence  in cycle    4
+    Energy  3.0574E-05 Target: 1.0000E+00 converged?  yes
+  Max step  9.4340E-03 Target: 5.3333E-03 converged?   no
+  RMS step  4.7134E-03 Target: 3.5556E-03 converged?   no
+  Max grad  6.4419E-04 Target: 1.3333E-03 converged?  yes
+  RMS grad  3.8174E-04 Target: 8.8889E-04 converged?  yes
+ Predicted step length 1.2778E-03
+ Trust radius          5.0000E-01
+
+Converting HDLC to Cartesians
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.43 seconds
+
+ search  0
+                                        *******************
+ point   5                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+       -0.0000000      0.0000000      1.0191685    6.00  c       
+        0.0000000     -0.0000000     -1.2812178    8.00  o       
+       -0.0000000      1.7432450      2.0884847    1.00  h       
+       -0.0000000     -1.7432450      2.0884847    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after   9 cycles at       0.48 seconds
+          --------------
+
+
+          electronic energy               -145.0686707197
+          nuclear energy                    31.2379098667
+          total energy                    -113.8307608530
+          convergence on density             0.0000001365
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0000000     -0.0000000     -0.0000000      0.0000000
+   e/y      0.0000000      0.0000000     -0.0000027      0.0000027
+   e/z      0.0000013      0.0000005     -0.0000009     -0.0000009
+ Energy calculation finished, energy: -1.138307609E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups           1
+ Wolfe conditions fulfilled, increasing trust radius
+Testing convergence  in cycle    5
+    Energy  5.6529E-07 Target: 1.0000E+00 converged?  yes
+  Max step  9.2547E-04 Target: 5.3333E-03 converged?  yes
+  RMS step  5.2164E-04 Target: 3.5556E-03 converged?  yes
+  Max grad  3.4126E-06 Target: 1.3333E-03 converged?  yes
+  RMS grad  1.7757E-06 Target: 8.8889E-04 converged?  yes
+Converged!
+ converged
+Destroying all HDLC residues
+
+
+DL-FIND Report:
+===============
+Optimisation algorithm: L-BFGS
+Number of steps in L-BFGS memory ...............         12
+
+Trust radius based on energy
+Maximum step length ............................  5.000E-01
+
+Coordinate system: Delocalised internal coordinates (DLC)
+
+Number of atoms ................................          4
+Number of input geometries .....................          2
+Variables to be optimised ......................          6
+No restart information is written
+This run has not been restarted.
+Total number of energy evaluations .............          5
+Number of steps ................................          5
+Number of accepted steps / line searches .......          5
+
+
+Timing report
+=============
+Module                                      CPU time            Wall clock time
+Total .................................     0.550 (100.00%)     0.567 (100.00%) seconds
+Energy and Gradient ...................     0.542 ( 98.57%)     0.544 ( 95.94%) seconds
+Step direction ........................     0.000 (  0.02%)     0.000 (  0.00%) seconds
+Coordinate transformation .............     0.001 (  0.22%)     0.002 (  0.35%) seconds
+Checkpoint file I/O ...................     0.000 (  0.00%)     0.000 (  0.00%) seconds
+XYZ-file I/O ..........................     0.000 (  0.06%)     0.000 (  0.00%) seconds
+
+
+ ========================================================================================================
+
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.3003863   1--3  2.0450771   1--4  2.0450771
+       (1.2173121)       (1.0822083)       (1.0822083)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  121.525185   2--1--4  121.525185   3--1--4  116.949629
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+
+ ========================================================================================================
+
+                         h2co - dz - dl-find energy = -113.8307609                                       
+                         ================================================================================
+
+
+                     nuclear energy    =      31.237909866733
+                     electronic energy =    -145.068670719695
+                     total energy      =    -113.830760852962
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.58920845       -560.2663        2.0000
+    2     1    -11.35575973       -309.0090        2.0000
+    3     1     -1.42461740        -38.7662        2.0000
+    4     1     -0.88227102        -24.0081        2.0000
+    5     3     -0.71130433        -19.3558        2.0000
+    6     1     -0.64379170        -17.5186        2.0000
+    7     2     -0.53296421        -14.5028        2.0000
+    8     3     -0.44786418        -12.1871        2.0000
+    9     2      0.10499957          2.8572        0.0000
+   10     1      0.26239928          7.1403        0.0000
+   11     1      0.27968561          7.6107        0.0000
+   12     3      0.38550429         10.4902        0.0000
+   13     3      0.41504098         11.2939        0.0000
+   14     2      0.46281342         12.5939        0.0000
+   15     1      0.64777212         17.6269        0.0000
+   16     1      0.82870549         22.5504        0.0000
+   17     1      0.96842897         26.3526        0.0000
+   18     2      0.98147281         26.7075        0.0000
+   19     3      1.07157713         29.1594        0.0000
+   20     1      1.18082559         32.1322        0.0000
+   21     3      1.31382837         35.7514        0.0000
+   22     1      1.82303855         49.6079        0.0000
+   23     1     23.76613951        646.7159        0.0000
+   24     1     43.36529217       1180.0412        0.0000
+ ========================================================
+
+ vectors restored from section   1
+
+ ================================================================================
+
+                                        *********************
+                                        wavefunction analysis
+                                        *********************
+
+ commence analysis at      0.53 seconds
+
+                 dipole moments
+
+
+           nuclear      electronic           total
+
+ x       0.0000000      -0.0000000      -0.0000000
+ y      -0.0000000       0.0000000       0.0000000
+ z       0.0422377       1.1994836       1.2417213
+
+ total dipole moment =        1.2417213 (a.u.)
+                              3.1559348 (debye)
+
+
+ ================================================================================
+
+          ---------------------------------------
+          mulliken and lowdin population analyses               all electrons
+          ---------------------------------------
+
+          ----- total gross population in aos ------
+
+              1  1  c s         1.17474     1.09120
+              2  1  c s         0.81911     0.88411
+              3  1  c s         0.80503     0.60919
+              4  1  c s         0.48517     0.43292
+              5  1  c x         0.55578     0.49694
+              6  1  c y         0.99405     0.85838
+              7  1  c z         0.88415     0.81056
+              8  1  c x         0.15656     0.22290
+              9  1  c y         0.09051     0.26239
+             10  1  c z         0.01554     0.19778
+             11  2  o s         1.13259     1.07358
+             12  2  o s         0.86206     0.90951
+             13  2  o s         0.96341     0.88410
+             14  2  o s         0.87152     0.76397
+             15  2  o x         0.86228     0.79963
+             16  2  o y         1.40559     1.34644
+             17  2  o z         1.09495     1.04817
+             18  2  o x         0.42538     0.48053
+             19  2  o y         0.47981     0.57341
+             20  2  o z         0.22145     0.43680
+             21  3  h s         0.53675     0.53367
+             22  3  h s         0.31340     0.37509
+             23  4  h s         0.53675     0.53367
+             24  4  h s         0.31340     0.37509
+
+          ----- condensed to atoms -----
+
+
+          ----- total gross population on atoms ----
+
+              1  c            6.0     5.98064     5.86637
+              2  o            8.0     8.31904     8.31612
+              3  h            1.0     0.85016     0.90876
+              4  h            1.0     0.85016     0.90876
+
+
+ end of wavefunction analysis at     0.53 seconds.
+
+ ================================================================================
+
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      0.53          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      0.53 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               318 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     245      35
+ *    205    5     239       1
+ *    206    6     240       1
+ *    207    7     282       1
+ *    208    8     283      35
+ *    209    9     318       1
+ *    213   13     195       1
+ *    242   42     280       1
+ *    244   44     187       7
+ *    253   53     215       4
+ *    303  103     194       1
+ *    408  101       7       8
+ *    420  100     116      71
+ *    467  167     241       4
+ *    490   51     226       5
+ *    491    1      55      61
+ *    492    2     219       7
+ *    493   15       6       1
+ *    494   16     281       1
+ *    495   17     233       6
+ *    496   18      15      40
+ *    497   19     231       2
+ *    501   21       2       4
+ *    503   22     200      15
+ *    504   23     196       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      15:09:15 on Jul  4  h2co - dz - dl-find energy = -113.8307609
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       45      45
+ ed3      246     246
+ ed7       19      19
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.03      5.66            0.04      5.80
+ vector generation                     0.01      1.89            0.01      1.58
+ 1e-integral evaluation                0.01      1.89            0.01      0.77
+ 2e-integral evaluation                0.11     20.75            0.12     17.80
+ scf                                   0.03      5.66            0.05      6.83
+ 1e-integral derivatives               0.03      5.66            0.03      4.14
+ 2e-integral derivatives               0.21     39.62            0.22     32.90
+ wave-function analysis                0.00      0.00            0.00      0.30
+ other                                 0.10     18.87            0.20     29.87
+ ******************************************************************************
+ Total                                 0.53                      0.67
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ heap memory high water mark =       152060 words

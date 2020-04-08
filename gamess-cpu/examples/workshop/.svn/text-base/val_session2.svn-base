@@ -1,0 +1,53 @@
+#!/bin/csh
+#
+# validation for session2 examples
+#
+setenv GAMESS_VTAB ./session2.vtab
+set path=(../../utilities $path)
+validate prop1 prop1.out
+validate graphics1a graphics1a.out
+validate graphics1b graphics1b.out
+validate graphics2 graphics2.out
+validate graphics3a graphics3a.out
+validate graphics3b graphics3b.out
+validate dft4 dft4.out
+validate dft5 dft5.out
+validate sad1a sad1a.out
+validate sad1b sad1b.out
+validate sad2 sad2.out
+validate sad3 sad3.out
+validate sad4a sad4a.out
+validate sad4b sad4b.out
+validate ecp0 ecp0.out
+validate ecp1 ecp1.out
+validate ecp2 ecp2.out
+validate zora zora.out
+validate mp2a mp2a.out
+validate mp2b mp2b.out
+validate mp2c mp2c.out
+validate mp2d mp2d.out
+validate mp2e mp2e.out
+validate mp3a mp3a.out
+validate mp3b mp3b.out
+validate mcscf mcscf.out
+validate tran1 tran1.out
+validate dci0 dci0.out
+validate dci1 dci1.out
+validate dci2 dci2.out
+validate dci3 dci3.out
+validate dci4 dci4.out
+validate dci5 dci5.out
+validate mrdci0 mrdci0.out
+validate mrdci1 mrdci1.out
+validate mrdci2 mrdci2.out
+validate mrdci3 mrdci3.out
+validate ccsd0 ccsd0.out
+validate ccsd1 ccsd1.out
+validate solvation solvation.out
+validate runtypes0 runtypes0.out
+validate runtypes1 runtypes1.out
+validate runtypes2 runtypes2.out
+validate runtypes3 runtypes3.out
+validate nbo0 nbo0.out
+validate nbo1 nbo1.out
+validate aimpac aimpac.out

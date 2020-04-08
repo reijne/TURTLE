@@ -1,0 +1,79 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP explicit coulomb / energy = -114.434514920 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP in-core Jfit (a1-dgauss) / energy = -114.437480005 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft jfit memory
+# request DGauss A1 Coulomb fitting basis
+dft jbas a1-dgauss
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP in-core Jfit (a2-dgauss) / energy = -114.435128036 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft jfit memory
+# request DGauss A2 Coulomb fitting basis
+dft jbas a2-dgauss
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP in-core Jfit (demon) / energy = -114.435985896 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft jfit memory
+# request Demon Coulomb fitting basis
+dft jbas demon
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP in-core Jfit (Ahlrichs) / energy = -114.43464281 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft jfit memory
+# request Ahlrichs Coulommb fitting basis
+dft jbas ahlrichs
+enter
+EOF

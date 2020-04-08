@@ -1,0 +1,37 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  - SCF at CASSCF geometry
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co    1.2406313\ch    1.1136939\hco 123.1820211
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - casscf properties at optimised geom. (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co    1.2406313\ch    1.1136939\hco 123.1820211
+end
+scftype casscf
+config 
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+property atoms
+enter
+EOF

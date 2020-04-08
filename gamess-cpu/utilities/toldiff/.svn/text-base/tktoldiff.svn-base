@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Tell Toldiff to a binary diff program instead of 
+# the Python diff implementation. For performance
+# reasons you may want to substitute the value with
+# the full path of the binary diff. This saves 
+# searching for the Diff program every time this script
+# is run. Alternatively you may set up TOLDIFF_EXE
+# in your user environment to ensure Toldiff always
+# uses a binary Diff program (also when run from the
+# command line).
+#
+export TOLDIFF_EXE=`which diff`
+#
+# Tell TkDiff to use a special configuration file
+# containing the settings for using toldiff.
+#
+export TKDIFFRC="$HOME/.tktoldiffrc"
+#
+# Invoke TkDiff
+#
+tkdiff $1 $2

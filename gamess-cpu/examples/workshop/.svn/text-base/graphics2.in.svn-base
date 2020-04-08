@@ -1,0 +1,27 @@
+title
+h2o - potential derived charge calculation
+zmat angs
+o
+h 1 1.0
+h 1 1.1 2 109.0
+end
+enter
+runtype analy
+graphics
+gdef
+type 3d
+points 50
+size 6
+section 150
+calc density
+type dens
+section 151
+title
+density on 3d grid
+surface pote 170 0.02 0.04
+vectors 1
+enter
+runtype analy
+potf 172 175 char 0.0
+vectors 1
+enter

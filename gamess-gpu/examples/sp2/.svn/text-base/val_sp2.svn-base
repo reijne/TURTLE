@@ -1,0 +1,89 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../utilities;make validate)
+setenv GAMESS_VTAB ./sp2.vtab
+set path=(../../utilities $path)
+validate par_1  LOGS/par_1.out.8
+validate par_1a LOGS/par_1a.out.8
+validate par_1b LOGS/par_1b.out.8
+validate par_1c LOGS/par_1c.out.8
+validate par_2  LOGS/par_2.out.8
+validate par_2a LOGS/par_2a.out.8
+validate par_3  LOGS/par_3.out.8
+validate par_4  LOGS/par_4.out.8
+validate par_4_geom  LOGS/par_4_geom.out.8
+validate par_4a  LOGS/par_4a.out.8
+validate par_5  LOGS/par_5.out.8
+validate par_5a LOGS/par_5a.out.8
+validate par_5b LOGS/par_5b.out.8
+validate par_6  LOGS/par_6.out.8
+validate par_6a LOGS/par_6a.out.8
+validate par_7  LOGS/par_7.out.8
+validate par_8  LOGS/par_8.out.8
+#
+validate par_9  LOGS/par_9.out.8
+validate par_10  LOGS/par_10.out.8
+validate par_11  LOGS/par_11.out.8
+validate par_12  LOGS/par_12.out.32
+# validate par_13  LOGS/par_13.out
+validate par_14  LOGS/par_14.out.4
+# validate par_15  LOGS/par_15.out
+#
+validate par_16  LOGS/par_16.out.8
+validate par_17  LOGS/par_17.out.16
+validate par_18  LOGS/par_18.out.16
+validate par_19  LOGS/par_19.out.32
+validate par_19_uhf  LOGS/par_19_uhf.out.32
+validate par_20  LOGS/par_20.out.32
+#
+validate par_21  LOGS/par_21.out.32
+validate par_22  LOGS/par_22.out.32
+validate par_23  LOGS/par_23.out.32
+validate par_24  LOGS/par_24.out.32
+validate par_25  LOGS/par_25.out.32
+validate par_26  LOGS/par_26.out.32
+validate par_27  LOGS/par_27.out.32
+validate par_28  LOGS/par_28.out.32
+validate par_29  LOGS/par_29.out.4
+validate par_30  LOGS/par_30.out.32
+validate par_34  LOGS/par_34.out.32
+validate par_35  LOGS/par_35.out.32
+validate par_36  LOGS/par_36.out.32
+validate par_37  LOGS/par_37.out.32
+validate par_38  LOGS/par_38.out.32
+validate par_35.jfit  LOGS/par_35.jfit.out.32
+validate par_36.jfit  LOGS/par_36.jfit.out.32
+validate par_37.jfit  LOGS/par_37.jfit.out.32
+validate par_38.jfit  LOGS/par_38.jfit.out.32
+#
+validate par_40  LOGS/par_40.out.32
+validate par_41  LOGS/par_41.out.32
+validate par_42  LOGS/par_42.out.32
+#
+validate par_51  LOGS/par_51.out.8
+validate par_52  LOGS/par_52.out.16
+validate par_54  LOGS/par_54.out.32
+validate par_55  LOGS/par_55.out.4
+validate par_61  LOGS/par_61.out.32
+validate par_63  LOGS/par_63.out.32
+validate par_65  LOGS/par_65.out.32
+#
+validate par_70  LOGS/par_70.out.32
+validate par_71  LOGS/par_71.out.32
+#
+validate save_1 LOGS/save_1.out
+validate save_2 LOGS/save_2.out
+validate save_3 LOGS/save_3.out
+#
+validate morphine_A2 LOGS/morphine_A2.out.32
+validate morphine_jfitA2 LOGS/morphine_jfitA2.out.32
+#
+validate valino LOGS/valino.out.32
+validate valino_jfit LOGS/valino_jfit.out.32
+#
+validate siosi3 LOGS/siosi3.out.32
+validate siosi4 LOGS/siosi4.out.32
+validate siosi5 LOGS/siosi5.out.32
+validate siosi6 LOGS/siosi6.out.32

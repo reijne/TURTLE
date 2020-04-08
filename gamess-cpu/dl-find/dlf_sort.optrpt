@@ -1,0 +1,120 @@
+
+Begin optimization report for: DLF_SORT_MODULE::DLF_SORT_1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_sort_d.F90(88,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_sort_d.F90(86,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_sort_d.F90(88,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(88,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(89,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(89,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(90,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(90,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_SORT_MODULE::DLF_SORT_2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_sort_d.F90(153,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_sort_d.F90(151,6)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_sort_d.F90(153,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(153,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(154,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(154,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(155,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(155,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(157,13)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_sort_d.F90(157,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at dlf_sort_d.F90(157,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_sort_d.F90(157,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(158,13)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_sort_d.F90(158,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_sort_d.F90(158,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at dlf_sort_d.F90(159,13)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_sort_d.F90(159,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at dlf_sort_d.F90(159,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_sort_d.F90(159,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,63 @@
+#!/bin/csh
+../../bin/gamess << EOF
+file ed2 mfged2 keep
+file ed3 mfged3 keep
+title
+psih 6-31g saddle point / SCF  energy = -630.03956977 au
+zmat ang
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053 type 3
+ph  2.44  type 3
+hpsi  51.02 type 3
+end
+basis 6-31g
+enter
+EOF
+#
+../../bin/gamess << EOF
+file ed2 mfged2 keep
+file ed3 mfged3 keep
+restart new
+title
+psih <-> hpsi DFT/BLYP TS /optimised  energy =  -631.284863047606 au
+zmat angs
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053 type 3
+ph  2.44  type 3
+hpsi  51.02 type 3
+end
+basis 6-31g
+runtype saddle
+dft
+xtol 0.0005
+enter
+EOF
+../../bin/gamess << EOF
+file ed2 mfged2 keep
+file ed3 mfged3 keep
+restart 
+title
+psih <-> hpsi TS DFT/B3LYP numerical fcm/freq -613.5119 549.2796 1779.7834
+zmat angs
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053 type 3
+ph  2.44  type 3
+hpsi  51.02 type 3
+end
+basis 6-31g
+runtype force
+dft
+enter
+EOF

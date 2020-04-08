@@ -1,0 +1,65 @@
+c 
+c  $Author: wab $
+c  $Date: 2005-01-28 17:28:10 $
+c  $Locker:  $
+c  $Revision: 1.1 $
+c  $Source: /c/qcg/cvs/psh/GAMESS-UK/mopac/common/sizes_6.0,v $
+c  $State: Exp $
+c  
+*comdeck sizes
+************************************************************************
+*   this file contains all the array sizes for use in mopac.
+*
+*   there are only 5 parameters that the programmer need set:
+*   maxhev = maximum number of heavy atoms (heavy: non-hydrogen atoms)
+*   maxlit = maximum number of hydrogen atoms.
+*   maxtim = default time for a job. (seconds)
+*   maxdmp = default time for automatic restart file generation (secs)
+*   isybyl = 1 if mopac is to be used in the sybyl package, =0 otherwise
+*   see also nmeci, npulay and mesp at the end of this file
+*
+      parameter (maxhev=90,   maxlit=90)
+      parameter (maxtim=3600, maxdmp=3600)
+      parameter (isybyl=0)
+*
+************************************************************************
+*
+*   the following code does not need to be altered by the programmer
+*
+************************************************************************
+*
+*    all other parameters are derived functions of these two parameters
+*
+*      name                   definition
+*     numatm         maximum number of atoms allowed.
+*     maxorb         maximum number of orbitals allowed.
+*     maxpar         maximum number of parameters for optimisation.
+*     n2elec         maximum number of two electron integrals allowed.
+*     mpack          area of lower half triangle of density matrix.
+*     morb2          square of the maximum number of orbitals allowed.
+*     maxhes         area of hessian matrix
+************************************************************************
+      parameter (verson=6.00d0)
+      parameter (numatm=maxhev+maxlit)
+      parameter (maxorb=4*maxhev+maxlit)
+      parameter (maxpar=3*numatm)
+      parameter (maxbig=maxorb*maxorb*2)
+      parameter (n2elec=2*(50*maxhev*(maxhev-1)+10*maxhev*maxlit
+     +                     +(maxlit*(maxlit-1))/2))
+      parameter (maxhes=(maxpar*(maxpar+1))/2,morb2=maxorb**2)
+      parameter (mpack=(maxorb*(maxorb+1))/2)
+      parameter (maxpr=6*maxorb)
+************************************************************************
+*   for short version use line with nmeci=1, for long version use line  
+*   with nmeci=10
+************************************************************************
+      parameter (nmeci=10,  npulay=mpack, mmci=60)
+c      parameter (nmeci=1,   npulay=1, mmci=1)
+************************************************************************
+*   for short version use line with mesp=1, for long version use line  
+*   with mesp=1000 or greater
+************************************************************************
+c       parameter (mesp=1)
+      parameter (mesp=50000)
+************************************************************************
+*deck mopac

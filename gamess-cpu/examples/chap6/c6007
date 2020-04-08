@@ -1,0 +1,111 @@
+#!/bin/csh
+setenv ed3 ci.dump
+setenv ed2 ci.int
+setenv ftn022 ci.adapt
+setenv ftn031 ci.tran
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title 
+ethylene DZ ground state SCF energy  -78.0050343
+super off nosym
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title 
+c2h4  CI X-SCF-MOs/extrapolated energy -78.1944869
+bypass scf
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+runtype ci
+mrdci
+adapt 
+tran core 
+1 0 0 1 0 0 
+1 1
+select
+symmetry 1
+spin 1
+singles 1
+conf
+0 1 2 8 10 14 23
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title 
+c2h4 CI X 2M SCF-MOs extrapolated energy -78.1998807
+bypass scf
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+runtype ci
+mrdci
+adapt bypass
+tran core bypass
+1 0 0 1 0 0 
+1 1
+select
+symmetry 1
+spin 1
+singles 1
+conf
+0 1 2 8 10 14 23
+0 1 2   10 14 21 23
+natorb iprin
+putq sabf 200
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title 
+c2h4 CI X 2M NOs extrapolated energy -78.2021125
+bypass scf
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+runtype ci
+mrdci
+adapt bypass
+tran 200 core 
+1 0 0 1 0 0 
+1 1
+select
+symmetry 1
+spin 1
+singles 1
+conf
+0 1 2 8 10 14 23
+0 1 2   10 14 21 23
+natorb iprint
+putq sabf 210
+enter
+EOF

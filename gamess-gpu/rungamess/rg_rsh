@@ -1,0 +1,23 @@
+#
+#  Remote execution by rsh mechanism
+#
+#  All command processing is performed on the remote host,
+#  except
+#    
+#   -h   hostname (used to pass command on)
+#   -o   output redirection (done locally), we pass -s 
+#   
+#
+# --------------------------------------------------------------
+# Invoke execution on a remote host
+# --------------------------------------------------------------
+#
+case $stdout in
+    1) rsh $host rungamess -s -D `pwd` -O `hostname` $args; stat=$? ;;
+    0) rsh $host rungamess -s -D `pwd` -O `hostname` $args > $listing; stat=$? ;;
+esac
+
+case $stat in
+   0) echo ${PROG}: remote gamess completed; exit 0;;
+   *) echo ${PROG}: rsh failed - failure code is $stat;  exit $stat ;;
+esac

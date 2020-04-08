@@ -1,0 +1,53 @@
+title
+pyridine dz+bond-centred functions
+super off nosym
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+bq 1 1.39 3 90. 2 180.
+variables
+c4n 2.7845546
+ch4 1.0823078
+c2n 1.3372389
+c2nz 120.641858
+c2c3 1.3944571
+ccn 122.662269
+c2h6 1.0814291
+c3h5 1.0809550
+nch2 116.400433
+c2c3h 120.158516
+end
+basis
+dz h 1.0 1.0
+dz n
+dz c
+s bq
+1.0 0.021
+s bq
+1.0 0.008
+s bq
+1.0 0.0025
+p bq
+1.0 0.017
+p bq
+1.0 0.009
+d bq
+1.0 0.015
+d bq
+1.0 0.008
+end
+enter

@@ -1,0 +1,451 @@
+#!/bin/csh
+setenv ed3 ed3-vb
+../../bin/gamess <<EOF
+harmonic
+title
+hexatriene 6-31g scf start  Shaik resonance
+adapt off
+zmat angstroms
+ c
+ c   1 cc2     
+ c   2 cc3        1 ccc3      
+ h   2 hc4        3 hcc4         1 dih4   
+ h   3 hc5        2 hcc5         4 dih5   
+ h   3 hc6        2 hcc6         4 dih6   
+ c   1 cc7        2 ccc7         3 dih7   
+ h   1 hc8        7 hcc8         2 dih8   
+ c   7 cc9        1 ccc9         8 dih9   
+ h   7 hc10       1 hcc10        8 dih10  
+ c   9 cc11       7 ccc11        1 dih11  
+ h   9 hc12      11 hcc12        7 dih12  
+ h  11 hc13       9 hcc13       12 dih13  
+ h  11 hc14       9 hcc14       12 dih14  
+variables
+ cc2            1.4597832 hess        0.458513
+ cc3            1.3286391 hess        0.643633
+ hc4            1.0767801 hess        0.358540
+ hc5            1.0724734 hess        0.361347
+ hc6            1.0746851 hess        0.357775
+ cc7            1.3341337 hess        0.634740
+ hc8            1.0773660 hess        0.358953
+ cc9            1.4599064 hess        0.392733
+ hc10           1.0773673 hess        0.358356
+ cc11           1.3286338 hess        0.612309
+ hc12           1.0767801 hess        0.359082
+ hc13           1.0724644 hess        0.358480
+ hc14           1.0746944 hess        0.357860
+ ccc3         124.4266125 hess        0.387744
+ hcc4         119.3337451 hess        0.327258
+ hcc5         121.7484910 hess        0.273079
+ hcc6         121.8788386 hess        0.270609
+ ccc7         124.2090023 hess        0.390555
+ hcc8         119.3988608 hess        0.322975
+ ccc9         124.2033995 hess        0.336922
+ hcc10        119.3959250 hess        0.287240
+ ccc11        124.4310904 hess        0.352681
+ hcc12        119.3367312 hess        0.299774
+ hcc13        121.7424347 hess        0.241444
+ hcc14        121.8742396 hess        0.240357
+ dih4         180.0000000 hess        0.234752
+ dih5           0.0000000 hess        0.234752
+ dih6         180.0000000 hess        0.234752
+ dih7         180.0000000 hess        0.234752
+ dih8         180.0000000 hess        0.234752
+ dih9           0.0000000 hess        0.234752
+ dih10        180.0000000 hess        0.234752
+ dih11        180.0000000 hess        0.234752
+ dih12        180.0000000 hess        0.234752
+ dih13          0.0000000 hess        0.234752
+ dih14        180.0000000 hess        0.234752
+constants
+end
+basis 6-31g
+runtype scf
+vectors atorbs section 89
+enter 1
+EOF
+../../bin/gamess <<EOF
+time 10000000
+restart new
+title
+hexatriene 6-31g  vb local rumer 2 frozen sigma 
+adapt off
+zmat angstroms
+ c
+ c   1 cc2     
+ c   2 cc3        1 ccc3      
+ h   2 hc4        3 hcc4         1 dih4   
+ h   3 hc5        2 hcc5         4 dih5   
+ h   3 hc6        2 hcc6         4 dih6   
+ c   1 cc7        2 ccc7         3 dih7   
+ h   1 hc8        7 hcc8         2 dih8   
+ c   7 cc9        1 ccc9         8 dih9   
+ h   7 hc10       1 hcc10        8 dih10  
+ c   9 cc11       7 ccc11        1 dih11  
+ h   9 hc12      11 hcc12        7 dih12  
+ h  11 hc13       9 hcc13       12 dih13  
+ h  11 hc14       9 hcc14       12 dih14  
+variables
+ cc2            1.4597832 hess        0.458513
+ cc3            1.3286391 hess        0.643633
+ hc4            1.0767801 hess        0.358540
+ hc5            1.0724734 hess        0.361347
+ hc6            1.0746851 hess        0.357775
+ cc7            1.3341337 hess        0.634740
+ hc8            1.0773660 hess        0.358953
+ cc9            1.4599064 hess        0.392733
+ hc10           1.0773673 hess        0.358356
+ cc11           1.3286338 hess        0.612309
+ hc12           1.0767801 hess        0.359082
+ hc13           1.0724644 hess        0.358480
+ hc14           1.0746944 hess        0.357860
+ ccc3         124.4266125 hess        0.387744
+ hcc4         119.3337451 hess        0.327258
+ hcc5         121.7484910 hess        0.273079
+ hcc6         121.8788386 hess        0.270609
+ ccc7         124.2090023 hess        0.390555
+ hcc8         119.3988608 hess        0.322975
+ ccc9         124.2033995 hess        0.336922
+ hcc10        119.3959250 hess        0.287240
+ ccc11        124.4310904 hess        0.352681
+ hcc12        119.3367312 hess        0.299774
+ hcc13        121.7424347 hess        0.241444
+ hcc14        121.8742396 hess        0.240357
+ dih4         180.0000000 hess        0.234752
+ dih5           0.0000000 hess        0.234752
+ dih6         180.0000000 hess        0.234752
+ dih7         180.0000000 hess        0.234752
+ dih8         180.0000000 hess        0.234752
+ dih9           0.0000000 hess        0.234752
+ dih10        180.0000000 hess        0.234752
+ dih11        180.0000000 hess        0.234752
+ dih12        180.0000000 hess        0.234752
+ dih13          0.0000000 hess        0.234752
+ dih14        180.0000000 hess        0.234752
+constants
+end
+basis 6-31g
+crestr
+nelec 6
+? order atoms 3 2 1 7 9 11
+ conf
+3 2 1 4 5 6  rumer 1
+ end
+end
+vb
+vbvectors combine
+section 1   1 to 19 end
+section 89  5 10 15 23 29 35 end
+end combine
+active
+20 to 25
+end
+splice
+1 to 19
+end
+scf
+nosym
+hybrids
+c1
+1 end
+5 9 end
+c2
+2 end
+14 18 end
+c3
+3 end
+23 27 end
+c4
+4 end
+38 42 end
+c5
+5 end
+49 53 end
+c6
+6 end
+60 64 end
+end hybrids
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+diis
+end scf 92
+end vb
+scftype vb
+enter 88
+EOF
+../../bin/gamess <<EOF
+time 10000000
+restart new
+title
+hexatriene 6-31g  vb 2-center-local rumer 2 frozen sigma 
+adapt off
+zmat angstroms
+ c
+ c   1 cc2     
+ c   2 cc3        1 ccc3      
+ h   2 hc4        3 hcc4         1 dih4   
+ h   3 hc5        2 hcc5         4 dih5   
+ h   3 hc6        2 hcc6         4 dih6   
+ c   1 cc7        2 ccc7         3 dih7   
+ h   1 hc8        7 hcc8         2 dih8   
+ c   7 cc9        1 ccc9         8 dih9   
+ h   7 hc10       1 hcc10        8 dih10  
+ c   9 cc11       7 ccc11        1 dih11  
+ h   9 hc12      11 hcc12        7 dih12  
+ h  11 hc13       9 hcc13       12 dih13  
+ h  11 hc14       9 hcc14       12 dih14  
+variables
+ cc2            1.4597832 hess        0.458513
+ cc3            1.3286391 hess        0.643633
+ hc4            1.0767801 hess        0.358540
+ hc5            1.0724734 hess        0.361347
+ hc6            1.0746851 hess        0.357775
+ cc7            1.3341337 hess        0.634740
+ hc8            1.0773660 hess        0.358953
+ cc9            1.4599064 hess        0.392733
+ hc10           1.0773673 hess        0.358356
+ cc11           1.3286338 hess        0.612309
+ hc12           1.0767801 hess        0.359082
+ hc13           1.0724644 hess        0.358480
+ hc14           1.0746944 hess        0.357860
+ ccc3         124.4266125 hess        0.387744
+ hcc4         119.3337451 hess        0.327258
+ hcc5         121.7484910 hess        0.273079
+ hcc6         121.8788386 hess        0.270609
+ ccc7         124.2090023 hess        0.390555
+ hcc8         119.3988608 hess        0.322975
+ ccc9         124.2033995 hess        0.336922
+ hcc10        119.3959250 hess        0.287240
+ ccc11        124.4310904 hess        0.352681
+ hcc12        119.3367312 hess        0.299774
+ hcc13        121.7424347 hess        0.241444
+ hcc14        121.8742396 hess        0.240357
+ dih4         180.0000000 hess        0.234752
+ dih5           0.0000000 hess        0.234752
+ dih6         180.0000000 hess        0.234752
+ dih7         180.0000000 hess        0.234752
+ dih8         180.0000000 hess        0.234752
+ dih9           0.0000000 hess        0.234752
+ dih10        180.0000000 hess        0.234752
+ dih11        180.0000000 hess        0.234752
+ dih12        180.0000000 hess        0.234752
+ dih13          0.0000000 hess        0.234752
+ dih14        180.0000000 hess        0.234752
+constants
+end
+basis 6-31g
+crestr
+nelec 6
+? order atoms 3=2-1=7-9=11
+? order atoms 3=2-1=4-5=6
+ conf
+3 2 1 4 5 6  rumer 1
+ end
+end
+vb
+vbvectors 92
+active
+20 to 25
+end
+splice
+1 to 19
+end
+scf
+nosym
+hybrids
+c32
+3 2 end
+23 27  14 18 end
+c14
+1 4 end
+5 9 38 42 end
+c56
+5 6 end
+49 53 60 64 end
+end hybrids
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+diis
+end scf 93
+end vb
+scftype vb
+enter 88
+EOF
+../../bin/gamess <<EOF
+time 10000000
+restart new
+title
+hexatriene 6-31g  vb delocalised 1 rumers frozen sigma 
+adapt off
+zmat angstroms
+ c
+ c   1 cc2     
+ c   2 cc3        1 ccc3      
+ h   2 hc4        3 hcc4         1 dih4   
+ h   3 hc5        2 hcc5         4 dih5   
+ h   3 hc6        2 hcc6         4 dih6   
+ c   1 cc7        2 ccc7         3 dih7   
+ h   1 hc8        7 hcc8         2 dih8   
+ c   7 cc9        1 ccc9         8 dih9   
+ h   7 hc10       1 hcc10        8 dih10  
+ c   9 cc11       7 ccc11        1 dih11  
+ h   9 hc12      11 hcc12        7 dih12  
+ h  11 hc13       9 hcc13       12 dih13  
+ h  11 hc14       9 hcc14       12 dih14  
+variables
+ cc2            1.4597832 hess        0.458513
+ cc3            1.3286391 hess        0.643633
+ hc4            1.0767801 hess        0.358540
+ hc5            1.0724734 hess        0.361347
+ hc6            1.0746851 hess        0.357775
+ cc7            1.3341337 hess        0.634740
+ hc8            1.0773660 hess        0.358953
+ cc9            1.4599064 hess        0.392733
+ hc10           1.0773673 hess        0.358356
+ cc11           1.3286338 hess        0.612309
+ hc12           1.0767801 hess        0.359082
+ hc13           1.0724644 hess        0.358480
+ hc14           1.0746944 hess        0.357860
+ ccc3         124.4266125 hess        0.387744
+ hcc4         119.3337451 hess        0.327258
+ hcc5         121.7484910 hess        0.273079
+ hcc6         121.8788386 hess        0.270609
+ ccc7         124.2090023 hess        0.390555
+ hcc8         119.3988608 hess        0.322975
+ ccc9         124.2033995 hess        0.336922
+ hcc10        119.3959250 hess        0.287240
+ ccc11        124.4310904 hess        0.352681
+ hcc12        119.3367312 hess        0.299774
+ hcc13        121.7424347 hess        0.241444
+ hcc14        121.8742396 hess        0.240357
+ dih4         180.0000000 hess        0.234752
+ dih5           0.0000000 hess        0.234752
+ dih6         180.0000000 hess        0.234752
+ dih7         180.0000000 hess        0.234752
+ dih8         180.0000000 hess        0.234752
+ dih9           0.0000000 hess        0.234752
+ dih10        180.0000000 hess        0.234752
+ dih11        180.0000000 hess        0.234752
+ dih12        180.0000000 hess        0.234752
+ Dih13          0.0000000 hess        0.234752
+ dih14        180.0000000 hess        0.234752
+constants
+end
+basis 6-31g
+crestr
+nelec 6
+ conf
+  3 2 1 4 5 6  rumer 1
+ end
+end
+vb
+vbvectors 93
+active
+20 to 25
+end
+splice
+1 to 19
+end
+scf
+nosym
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+diis
+end scf 94
+end vb
+scftype vb
+enter 88
+EOF
+../../bin/gamess <<EOF
+time 10000000
+restart new
+title
+hexatriene 6-31g  vb delocalised all rumers frozen sigma 
+adapt off
+zmat angstroms
+ c
+ c   1 cc2     
+ c   2 cc3        1 ccc3      
+ h   2 hc4        3 hcc4         1 dih4   
+ h   3 hc5        2 hcc5         4 dih5   
+ h   3 hc6        2 hcc6         4 dih6   
+ c   1 cc7        2 ccc7         3 dih7   
+ h   1 hc8        7 hcc8         2 dih8   
+ c   7 cc9        1 ccc9         8 dih9   
+ h   7 hc10       1 hcc10        8 dih10  
+ c   9 cc11       7 ccc11        1 dih11  
+ h   9 hc12      11 hcc12        7 dih12  
+ h  11 hc13       9 hcc13       12 dih13  
+ h  11 hc14       9 hcc14       12 dih14  
+variables
+ cc2            1.4597832 hess        0.458513
+ cc3            1.3286391 hess        0.643633
+ hc4            1.0767801 hess        0.358540
+ hc5            1.0724734 hess        0.361347
+ hc6            1.0746851 hess        0.357775
+ cc7            1.3341337 hess        0.634740
+ hc8            1.0773660 hess        0.358953
+ cc9            1.4599064 hess        0.392733
+ hc10           1.0773673 hess        0.358356
+ cc11           1.3286338 hess        0.612309
+ hc12           1.0767801 hess        0.359082
+ hc13           1.0724644 hess        0.358480
+ hc14           1.0746944 hess        0.357860
+ ccc3         124.4266125 hess        0.387744
+ hcc4         119.3337451 hess        0.327258
+ hcc5         121.7484910 hess        0.273079
+ hcc6         121.8788386 hess        0.270609
+ ccc7         124.2090023 hess        0.390555
+ hcc8         119.3988608 hess        0.322975
+ ccc9         124.2033995 hess        0.336922
+ hcc10        119.3959250 hess        0.287240
+ ccc11        124.4310904 hess        0.352681
+ hcc12        119.3367312 hess        0.299774
+ hcc13        121.7424347 hess        0.241444
+ hcc14        121.8742396 hess        0.240357
+ dih4         180.0000000 hess        0.234752
+ dih5           0.0000000 hess        0.234752
+ dih6         180.0000000 hess        0.234752
+ dih7         180.0000000 hess        0.234752
+ dih8         180.0000000 hess        0.234752
+ dih9           0.0000000 hess        0.234752
+ dih10        180.0000000 hess        0.234752
+ dih11        180.0000000 hess        0.234752
+ dih12        180.0000000 hess        0.234752
+ dih13          0.0000000 hess        0.234752
+ dih14        180.0000000 hess        0.234752
+constants
+end
+basis 6-31g
+crestr
+nelec 6
+ conf
+3 2 1 4 5 6 
+ end
+end
+vb
+iprint 1
+vbvectors 94
+active
+20 to 25
+end
+splice
+1 to 19
+end
+scf
+nosym
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+diis
+optimise kind
+ auto DOC voc 1.0E-6
+ auto DOC uoc 1.0E-6
+ auto VOC VOC 1.0E-6
+ auto VOC UOC 1.0E-6
+end optimise
+end scf 95
+end vb
+scftype vb
+enter 88
+EOF
+\rm  ed3-vb

@@ -1,0 +1,49 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - cc mixed basis specification (E = -113.90853317 au)
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+cc-pvdz h
+cc-pvtz c
+cc-pvtz o
+end
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2o - cc-pvqz harmonic closed shell SCF (E = -76.06416438 au)
+harmonic
+super off
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.965
+hoh 104.5
+end
+basis cc-pvqz
+enter
+EOF
+../../bin/gamess << EOF
+title
+hf - cc-pv5z harmonic closed shell SCF (E= -100.06699437 au)
+harmonic
+super off
+zmat angstrom
+x
+f   1 1.0
+h   2 fh 1   90.0
+variables
+fh 0.956
+end
+basis cc-pv5z
+enter
+EOF

@@ -1,0 +1,148 @@
+
+Begin optimization report for: DLAEBZ2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaebz2.F(295,16)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlaebz2.F(294,13)
+   <Distributed chunk1>
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dlaebz2.F(294,13)
+      <Distributed chunk1>
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at dlaebz2.F(294,13)
+      <Remainder, Distributed chunk1>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(294,13)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlaebz2.F(295,16)
+   <Distributed chunk2>
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dlaebz2.F(303,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 306 and  line 304
+      LOOP END
+
+      LOOP BEGIN at dlaebz2.F(303,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(294,13)
+<Distributed chunk3>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 311 and  line 311
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(294,13)
+<Remainder, Distributed chunk3>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(329,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(329,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(329,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(329,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(344,16)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlaebz2.F(344,16)
+   <Distributed chunk1>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlaebz2.F(344,16)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(344,16)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlaebz2.F(355,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 356 and  line 359
+   LOOP END
+
+   LOOP BEGIN at dlaebz2.F(355,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(369,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 373 and  line 402
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(418,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(464,19)
+   remark #15319: loop was not vectorized: novector directive used
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(464,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(536,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 539 and  line 556
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(571,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(571,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(571,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlaebz2.F(571,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaebz2.F(336,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlaebz2.F(437,16)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

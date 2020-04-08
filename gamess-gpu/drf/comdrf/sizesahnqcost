@@ -1,0 +1,87 @@
+cafc
+c
+c     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+c
+c     this file contains the parameter settings for piet van duijnen's
+c     reactionfield programme together with the sizes needed for the
+c     v. duijnen - gamess interface as developed by 
+c     nederkoorn and v. lenthe
+c
+c     +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+c
+c
+c     ==================================================================
+c
+c     parameter setting for reaction field programme van duijnen:
+c
+c=======================================================================
+c
+c     
+      parameter (mxat = 10000)
+      parameter (mxpol = 10000)
+      parameter (mxpts = 10000)
+      parameter (mxspe = 50)
+      parameter (mxamb = 10)
+      parameter (mxgrp = 500)
+      parameter (mxnum = 1024)
+      parameter (mxsh = 512)
+      parameter (mxgs = 2048)
+      parameter (mxnpts = 20)
+      parameter (mxneq = 255)
+      parameter (mcwrkmx = 10)
+c
+c ==================================================================
+c
+c     parameter setting new drf routines (drf/dimpar):
+c
+c===================================================================
+c
+      parameter (mxst = 5)
+cafc      parameter (mxgran = 10)
+cmw      parameter (mxnpts = 50)
+cafc      parameter (mxgrpar = (mxgran*(mxgran+1))/2)
+      parameter (mxgrpar = (10*(10+1))/2)
+c
+c     ==================================================================
+c
+c     parameter setting for v. duijnen - gamess interface:
+c
+c=======================================================================
+c
+      parameter (ncatom=500)
+c
+c  ncatom is maximal allowed classical atoms in zmat
+c  total allowed atoms in zmat = maxnz + ncatom
+c
+c  maxrfa is maximal number of classical atoms in zmat + coordinates
+c  total maximal atoms allowed is maxrfa + maxat
+c
+      parameter (maxrfa=mxpts)
+c
+c  maxamb is maximal number of ambigous atoms. it is set equal
+c  to maximal z-cards possible in gamess input , i.e. 50
+c
+      parameter (maxamb=mxamb)
+c
+c=============================================
+c for the pes-routines
+c=============================================
+c
+      parameter (mxgr1=128, mxpes=100)
+c
+c=============================================
+c for the drfexpc routines
+c=============================================
+c
+      parameter (maxex=1000)
+c
+c=============================================
+c for the drfsurf routine
+c=============================================
+c
+      parameter (maxinv=10,maxnrc=10000)
+c
+c=============================================
+c for the analrf routine
+c=============================================
+c

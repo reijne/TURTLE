@@ -1,0 +1,27 @@
+
+Begin optimization report for: NEBLW2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at neblw2.F(156,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at neblw2.F(156,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at neblw2.F(156,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at neblw2.F(176,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 179 and  line 177
+LOOP END
+
+LOOP BEGIN at neblw2.F(176,10)
+<Remainder>
+LOOP END
+===========================================================================

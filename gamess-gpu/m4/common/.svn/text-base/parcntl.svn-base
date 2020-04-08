@@ -1,0 +1,44 @@
+c
+      integer idpdiag, ipdiagmode, ntchnk, limchnk, iparapr,
+     & idpdiis, idpmult2, idporth, ipiomode, iptest, ipinvmode,
+     & ipdiagif
+c
+c     ipdiagmode - which diag (IDIAG_PEIGS/_PDSYEV/_PDSYEVD....)
+c
+c     ipdiagif   - which interface (IDIAG_NO_GAWRAP/IDIAG_GAWRAP)
+c
+c     idpdiag = dimension for parallel diag
+c
+c     ipinvmode : what matrix inversion algorithm to use
+c                 either the old diag based approach or the more
+c                 appropriate ScaLAPACK Cholesky factorisation can 
+c                 be used (INV_CHOLESKY or INV_DIAG )
+c
+      logical odebugp
+
+      common /parcntl/ idpdiag, ipdiagmode, ntchnk, limchnk, iparapr,
+     & idpdiis, idpmult2, idporth, ipiomode, iptest, ipinvmode,
+     & ipdiagif, odebugp
+c
+      logical ga_initted
+      common/ gainit/ ga_initted
+
+      integer IO_NZ,IO_NZ_S,IO_A
+      parameter(IO_NZ=1,IO_NZ_S=2,IO_A=3)
+
+      integer INV_CHOLESKY, INV_DIAG
+      parameter(INV_CHOLESKY = 100)
+      parameter(INV_DIAG     = INV_CHOLESKY + 1)
+c
+      integer IDIAG_PEIGS,   IDIAG_PDSYEV, IDIAG_PDSYEVX
+      integer IDIAG_PDSYEVD, IDIAG_PDSYEVR
+      parameter(IDIAG_PEIGS   = 10)
+      parameter(IDIAG_PDSYEV  = IDIAG_PEIGS   + 1)
+      parameter(IDIAG_PDSYEVX = IDIAG_PDSYEV  + 1)
+      parameter(IDIAG_PDSYEVD = IDIAG_PDSYEVX + 1)
+      parameter(IDIAG_PDSYEVR = IDIAG_PDSYEVD + 1)
+
+      integer IDIAG_NO_GAWRAP, IDIAG_GAWRAP
+      parameter(IDIAG_NO_GAWRAP=200)
+      parameter(IDIAG_GAWRAP=201)
+

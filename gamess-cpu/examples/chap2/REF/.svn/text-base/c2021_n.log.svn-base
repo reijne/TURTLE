@@ -1,0 +1,3479 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co+ 2B2 3-21g - default mrdci settings -113.06510859
+ >>>>> mult 2
+ >>>>> charge 1
+ >>>>> zmat angstrom
+ >>>>> c
+ >>>>> o 1 1.203
+ >>>>> h 1 1.099 2 121.8
+ >>>>> h 1 1.099 2 121.8 3 180.0
+ >>>>> end
+ >>>>> runtype ci
+ >>>>> mrdci direct
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:18:43
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co+ 2b2 3-21g - default mrdci settings -113.06510859                              *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 1.203                                                                                                                           
+ h 1 1.099 2 121.8                                                                                                                   
+ h 1 1.099 2 121.8 3 180.0                                                                                                           
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.203000 (   1)
+   3    3   h     1   1.099000 (   2)   2  121.800 (   4)
+   4    4   h     1   1.099000 (   3)   2  121.800 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.273340
+              3  h                1.765065       0.000000      -1.094386
+              4  h               -1.765065       0.000000      -1.094386
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sv      3-21g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.0000000      0.0000000      0.9998719       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -1.2734685       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *******************************************************************************
+
+
+                                        *******************
+                                        molecular basis set
+                                        *******************
+
+
+                                        ==============================
+                                        contracted primitive functions
+                                        ==============================
+
+ atom        shell   type  prim       exponents            contraction coefficients
+ =================================================================================================================
+
+ c       
+
+
+                 1   1s       1      172.256000       2.093132  (    0.061767  )
+                 1   1s       2       25.910900       2.936751  (    0.358794  )
+                 1   1s       3        5.533350       1.801737  (    0.700713  )
+
+
+                 2   2sp      4        3.664980      -0.747384  (   -0.395897  )       1.709178  (    0.236460  )
+                 2   2sp      5        0.770545       0.712661  (    1.215840  )       0.885622  (    0.860619  )
+
+
+                 3   2sp      6        0.195857       0.209828  (    1.000000  )       0.185722  (    1.000000  )
+
+ o       
+
+
+                 4   1s       7      322.037000       3.209593  (    0.059239  )
+                 4   1s       8       48.430800       4.599140  (    0.351500  )
+                 4   1s       9       10.420600       2.925183  (    0.707658  )
+
+
+                 5   2sp     10        7.402940      -1.293695  (   -0.404453  )       4.257230  (    0.244586  )
+                 5   2sp     11        1.576200       1.224712  (    1.221560  )       2.149757  (    0.853955  )
+
+
+                 6   2sp     12        0.373684       0.340634  (    1.000000  )       0.416458  (    1.000000  )
+
+ h       
+
+
+                 9   1s      13        5.447178       0.397151  (    0.156285  )
+                 9   1s      14        0.824547       0.557920  (    0.904691  )
+
+
+                10   1s      15        0.183192       0.199567  (    1.000000  )
+ =================================================================================================================
+
+ total number of shells                  10
+ total number of basis functions         22
+ number of electrons                     15
+ charge of molecule                       1
+ state multiplicity                       2
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      7
+ total number of atoms                    4
+
+
+
+ *** MRD-CI V2.0: Pre-processor called at     0.00 seconds
+
+
+ take all single excitations into account
+
+ input specified roots for use in selection :
+            1
+
+
+ *** threshold specified ***
+
+ minimal selection threshold   10.00 microhartree
+
+ threshold increment for use in selection   10.00 microhartree
+
+
+ natural orbital analysis
+ ************************
+
+ *** analysis requested for  1 ci vectors
+
+     with following locations on the ci vector file (ft36)  1
+
+ *** mrd-ci data input complete
+
+
+          *************************
+          grhf-gvb input parameters
+          *************************
+
+          norb     =    8
+          nco      =    7
+          npair    =    0
+          nseto    =    1
+          no       =    1
+
+          -------------
+          core orbitals
+          -------------
+
+         1    2    3    4    5    6    7
+
+          -------------------
+          open shell orbitals
+          -------------------
+
+
+          set     1 =        8
+
+          ----------------------------
+          grhf-gvb coupling parameters
+          ----------------------------
+
+          f coefficients
+          --------------
+
+    1   1.0000000000
+    2   0.5000000000
+
+          a coupling coefficients
+          -----------------------
+
+
+           1        2
+    1    2.0000   1.0000
+    2    1.0000   0.5000
+
+          b coupling coefficients
+          -----------------------
+
+
+           1        2
+    1   -1.0000  -0.5000
+    2   -0.5000  -0.5000
+
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                ci       *
+ * SCF TYPE                                gvb      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   4 *
+ * Route canonicalised orbitals to section        5 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-5 *
+ * Configuration locking requested                    *
+ * Level shifting                                     *
+ * Occupied-occupied orbital mixing                   *
+ * Level shifter =    0.050 to cycle  5 then    0.010 *
+ * Occupied-virtual orbital mixing                    *
+ * Level shifter =    1.000 to cycle  5 then    0.500 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-09 *
+ ****************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in p-k supermatrix form       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.2733404   1--3  2.0768089   1--4  2.0768089
+       (1.2030000)       (1.0990000)       (1.0990000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  121.800000   2--1--4  121.800000   3--1--4  116.400000
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          12
+   2           4
+   3           6
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -112.82485034 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 204
+
+ commence 2-electron integral evaluation at     0.00 seconds
+
+ end of 2-electron integral evaluation at     0.01 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ************************
+                                        grhf-gvb scf calculation
+                                        ************************
+
+               convergence data
+               ================
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criteria         =1.0e- 5
+ punch out option             =      0
+
+ ----- nuclear energy ----- =      31.383720045129
+
+
+ =============================================================================================================
+   cycle           total      electronic         e conv.         tester    level shift  damping           diis
+                  energy          energy
+ =============================================================================================================
+   1   0   -112.75563772   -144.13935777   -144.13935777     0.09021628   0.050   1.000   0.000     0.00000000
+   2   1   -112.84742021   -144.23114025     -0.09178249     0.05060278   0.050   1.000   0.000     0.00000000
+   3   2   -112.86420873   -144.24792878     -0.01678852     0.02752551   0.050   1.000   0.000     0.00000000
+   4   0   -112.86911747   -144.25283752     -0.00490874     0.01633336   0.050   1.000   0.000     0.00087380
+   5   1   -112.87180251   -144.25552255     -0.00268503     0.00582046   0.050   1.000   0.000     0.00000000
+   6   2   -112.87200972   -144.25572976     -0.00020721     0.00391591   0.050   1.000   0.000     0.00000000
+   7   0   -112.87209807   -144.25581812     -0.00008835     0.00261526   0.010   0.500   0.000     0.00000284
+   8   1   -112.87217264   -144.25589268     -0.00007457     0.00031618   0.010   0.500   0.000     0.00000000
+   9   2   -112.87217328   -144.25589332     -0.00000064     0.00022013   0.010   0.500   0.000     0.00000000
+  10   0   -112.87217355   -144.25589359     -0.00000027     0.00015894   0.010   0.500   0.000     0.00000001
+  11   1   -112.87217377   -144.25589382     -0.00000023     0.00000974   0.010   0.500   0.000     0.00000001
+
+          ----------------
+          energy converged
+          ----------------
+
+
+          ----------------------------
+          scf statistics per iteration
+          ----------------------------
+          number of integral passes       1
+          j+k  formation time         0.001
+          geminal opt time            0.000
+          mixorb  opt time            0.000
+          ocbse   opt time            0.000
+          orbital grad. and diis      0.001
+
+          --------------
+          final energies after  11 cycles at       0.04 seconds
+          --------------
+          kinetic energy        112.5065103792
+          electronic energy    -144.2558938188
+          nuclear energy         31.3837200451     virial ratio(v/2e)
+          total energy         -112.8721737736         0.9983802
+
+
+          max lagrangian asymmetry     0.0000073327
+
+ output canonicalised m.o to section   5 of dumpfile
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.96152913       -570.3978        2.0000
+    2     1    -11.66198280       -317.3418        2.0000
+    3     1     -1.84253839        -50.1385        2.0000
+    4     1     -1.21510161        -33.0649        2.0000
+    5     1     -1.03602123        -28.1918        2.0000
+    6     3     -1.01994007        -27.7543        2.0000
+    7     2     -0.95647453        -26.0273        2.0000
+    8     3     -0.97132154        -26.4313        1.0000
+    9     2     -0.21630479         -5.8860        0.0000
+   10     1     -0.00283474         -0.0771        0.0000
+   11     3      0.07460148          2.0300        0.0000
+   12     1      0.11805497          3.2125        0.0000
+   13     2      0.60354144         16.4234        0.0000
+   14     3      0.67891449         18.4744        0.0000
+   15     1      0.69205700         18.8320        0.0000
+   16     1      0.81240020         22.1067        0.0000
+   17     3      0.94169602         25.6251        0.0000
+   18     1      1.22909058         33.4456        0.0000
+   19     2      1.45316211         39.5429        0.0000
+   20     1      1.51083319         41.1123        0.0000
+   21     3      1.58925930         43.2464        0.0000
+   22     1      2.90365228         79.0132        0.0000
+ ========================================================
+
+  NOTE: energy levels were not in order, and will be reordered
+  before the symmetry assignment. Note that the sorted orbitals
+  are used only locally in the assignment, so that this
+  operation has no influence on subsequent calculations.
+
+
+ ======================================================================================
+                               SYMMETRY ASSIGNMENT
+ ======================================================================================
+ E level    m.o.     symmetry           orbital         orbital  degeneracy  occupancy
+                                  energy (a.u.)    energy (e.v)
+ ======================================================================================
+    1      1 -  1      1 a1        -20.96152913       -570.3978       1        2.000000
+    2      2 -  2      2 a1        -11.66198280       -317.3418       1        2.000000
+    3      3 -  3      3 a1         -1.84253839        -50.1385       1        2.000000
+    4      4 -  4      4 a1         -1.21510161        -33.0649       1        2.000000
+    5      5 -  5      5 a1         -1.03602123        -28.1918       1        2.000000
+    6      6 -  6      1 b2         -1.01994007        -27.7543       1        2.000000
+    7      7 -  7      2 b2         -0.97132154        -26.4313       1        1.000000
+    8      8 -  8      1 b1         -0.95647453        -26.0273       1        2.000000
+    9      9 -  9      2 b1         -0.21630479         -5.8860       1        0.000000
+   10     10 - 10      6 a1         -0.00283474         -0.0771       1        0.000000
+   11     11 - 11      3 b2          0.07460148          2.0300       1        0.000000
+   12     12 - 12      7 a1          0.11805497          3.2125       1        0.000000
+   13     13 - 13      3 b1          0.60354144         16.4234       1        0.000000
+   14     14 - 14      4 b2          0.67891449         18.4744       1        0.000000
+   15     15 - 15      8 a1          0.69205700         18.8320       1        0.000000
+   16     16 - 16      9 a1          0.81240020         22.1067       1        0.000000
+   17     17 - 17      5 b2          0.94169602         25.6251       1        0.000000
+   18     18 - 18     10 a1          1.22909058         33.4456       1        0.000000
+   19     19 - 19      4 b1          1.45316211         39.5429       1        0.000000
+   20     20 - 20     11 a1          1.51083319         41.1123       1        0.000000
+   21     21 - 21      6 b2          1.58925930         43.2464       1        0.000000
+   22     22 - 22     12 a1          2.90365228         79.0132       1        0.000000
+ ======================================================================================
+
+ ---------------------------------------------------------------------------
+               Number of orbitals belonging to irreps of this group
+ ---------------------------------------------------------------------------
+  12 a1     0 a2     4 b1     6 b2   
+ ---------------------------------------------------------------------------
+
+ Symmetry assignment was successfull.
+ Degeneracy criterium used was .500E-05 a.u.
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ====================================
+                                        gvb natural orbitals (canonicalised)
+                                        ====================================
+
+
+
+                  -20.9615 -11.6620  -1.8425  -1.2151  -1.0360  -1.0199  -0.9565  -0.9713  -0.2163  -0.0028
+
+
+                      1        2        3        4        5        6        7        8        9       10
+
+
+    1  1  c s      -0.0002  -0.9864   0.1151  -0.1800   0.0119   0.0000   0.0000   0.0000   0.0000  -0.1400
+    2  1  c s      -0.0006  -0.0934  -0.1359   0.2264   0.0152   0.0000   0.0000   0.0000   0.0000   0.0996
+    3  1  c x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.2327   0.0000  -0.4311   0.0000
+    4  1  c y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.4384   0.0000   0.1097   0.0000   0.0000
+    5  1  c z       0.0026   0.0024   0.1608   0.1121  -0.3592   0.0000   0.0000   0.0000   0.0000   0.1795
+    6  1  c s      -0.0182   0.0443  -0.0866   0.5287  -0.1916   0.0000   0.0000   0.0000   0.0000   1.7529
+    7  1  c x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.1932   0.0000  -0.7044   0.0000
+    8  1  c y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.3538   0.0000   0.0828   0.0000   0.0000
+    9  1  c z       0.0139   0.0072  -0.0588   0.1031  -0.0993   0.0000   0.0000   0.0000   0.0000   0.7094
+   10  2  o s      -0.9836   0.0000   0.2173   0.1070   0.0747   0.0000   0.0000   0.0000   0.0000   0.0020
+   11  2  o s      -0.0979  -0.0007  -0.2204  -0.1107  -0.0762   0.0000   0.0000   0.0000   0.0000  -0.0116
+   12  2  o x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.4748   0.0000   0.2944   0.0000
+   13  2  o y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.1313   0.0000  -0.5710   0.0000   0.0000
+   14  2  o z      -0.0047   0.0006  -0.1444   0.1757   0.4228   0.0000   0.0000   0.0000   0.0000  -0.0530
+   15  2  o s       0.0480   0.0006  -0.6738  -0.4202  -0.2897   0.0000   0.0000   0.0000   0.0000   0.0582
+   16  2  o x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.4893   0.0000   0.4564   0.0000
+   17  2  o y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.0743   0.0000  -0.5670   0.0000   0.0000
+   18  2  o z       0.0134   0.0048  -0.1526   0.1284   0.3852   0.0000   0.0000   0.0000   0.0000  -0.0663
+   19  3  h s       0.0008   0.0018  -0.0243   0.1577  -0.1064  -0.2065   0.0000   0.1160   0.0000  -0.0853
+   20  3  h s      -0.0004  -0.0129   0.0189   0.0159  -0.0590  -0.0800   0.0000   0.1061   0.0000  -1.3023
+   21  4  h s       0.0008   0.0018  -0.0243   0.1577  -0.1064   0.2065   0.0000  -0.1160   0.0000  -0.0853
+   22  4  h s      -0.0004  -0.0129   0.0189   0.0159  -0.0590   0.0800   0.0000  -0.1061   0.0000  -1.3023
+
+
+                    0.0746   0.1181   0.6035
+
+
+                     11       12       13
+
+
+    1  1  c s       0.0000   0.0773   0.0000
+    2  1  c s       0.0000   0.0175   0.0000
+    3  1  c x       0.0000   0.0000   1.0726
+    4  1  c y      -0.4146   0.0000   0.0000
+    5  1  c z       0.0000   0.1185   0.0000
+    6  1  c s       0.0000  -1.1530   0.0000
+    7  1  c x       0.0000   0.0000  -1.0311
+    8  1  c y      -1.3441   0.0000   0.0000
+    9  1  c z       0.0000   1.6255   0.0000
+   10  2  o s       0.0000  -0.1202   0.0000
+   11  2  o s       0.0000   0.0420   0.0000
+   12  2  o x       0.0000   0.0000   0.0178
+   13  2  o y       0.1116   0.0000   0.0000
+   14  2  o z       0.0000   0.2063   0.0000
+   15  2  o s       0.0000   1.5492   0.0000
+   16  2  o x       0.0000   0.0000   0.1206
+   17  2  o y       0.2992   0.0000   0.0000
+   18  2  o z       0.0000   0.7163   0.0000
+   19  3  h s       0.0504   0.0121   0.0000
+   20  3  h s       1.4871  -0.1279   0.0000
+   21  4  h s      -0.0504   0.0121   0.0000
+   22  4  h s      -1.4871  -0.1279   0.0000
+
+
+ end of grhf-gvb scf at       0.05 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ pre-processing mrd-ci data
+
+ vectors restored from section    5
+
+ header block information : 
+ gvb    vectors created at 12:18:43 on Mar 26   in the job jmht    
+ with the title: h2co+ 2b2 3-21g - default mrdci settings -113.06510859                          
+
+ **** wavefunction symmetry =  3
+
+                ORBITAL SPECIFICATIONS                
+ =====================================================
+     number of irreducible representations       4
+                  COMPLETE ORBITAL space              
+ irrep.   no. of mos     frozen    active    discarded
+ =====================================================
+      1        12         0        12         0
+      2         4         0         4         0
+      3         6         0         6         0
+ =====================================================
+                   ACTIVE ORBITAL space               
+ irrep.   no. of mos     occupied              virtual
+ =====================================================
+      1        12         1 to   5            6 to  12
+      2         4        13 to  13           14 to  16
+      3         6        17 to  18           19 to  22
+ =====================================================
+
+
+ default reference functions
+ ===========================
+
+  1    18   1   2   3   4   5  13  17
+
+  1    18   1   2   3   4   6  13  17
+
+  3     5   6  18   1   2   3   4  13  17
+
+  3     5   7  18   1   2   3   4  13  17
+
+  1    18   1   2   3   4   5  14  17
+
+  3    13  14  18   1   2   3   4   5  17
+
+  3    13  15  18   1   2   3   4   5  17
+
+  1    18   1   2   3   4   5  13  19
+
+  3    17  18  19   1   2   3   4   5  13
+
+  3    17  18  20   1   2   3   4   5  13
+
+  1    19   1   2   3   4   5  13  17
+
+  1    20   1   2   3   4   5  13  17
+
+ ========================================================================================================
+
+                                        ***********************
+                                        integral transformation
+                                        ***********************
+
+
+ vectors restored from section    5
+
+ header block information : 
+ gvb    vectors created at 12:18:43 on Mar 26   in the job jmht    
+ with the title: h2co+ 2b2 3-21g - default mrdci settings -113.06510859                          
+
+ the following orbitals included in active list
+ ==============================================
+ function e/i label     function e/i label     function e/i label     function e/i label
+ ----------------------------------------------------------------------------------------
+        1         1            2         2            3         3            4         4
+        5         5            6         6            7         7            8         8
+        9         9           10        10           11        11           12        12
+       13        13           14        14           15        15           16        16
+       17        17           18        18           19        19           20        20
+       21        21           22        22
+
+ no functions specified in frozen core list
+
+ route transformed core hamiltonian to section  466
+ 4-index information dumped to section 486 of dumpfile starting at block     1 on ed3 
+
+ 2-electron integral files
+ *************************
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ secondary mainfile
+ ******************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ start of integral transformation at    0.05 seconds
+
+ no. of sort1 passes=   1
+
+ end of sort1 pass     1 at     0.05 seconds
+
+ job dumped after calc1 pass     1 at      0.06 seconds
+
+ status of secondary mainfile
+ ****************************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks   131
+
+ no. of sort2 passes=   1
+
+ end of sort2 pass     1 at     0.06 seconds
+
+ job dumped after calc2 pass     1 at      0.07 seconds
+
+ end of 4-index transformation at    0.07 seconds
+
+ status of transformed integral file
+ ***********************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    52
+
+ start of 2-index transformation at     0.07 seconds
+
+ effective nuclear repulsion term   0.313837200451E+02
+
+ end of 2-index transformation at     0.07 seconds
+
+ end of integral transformation at     0.07 seconds
+
+
+ ** symmetry taken from adapt ** 
+
+       multiplication table
+       ====================
+       1  2  3  4
+       2  1  4  3
+       3  4  1  2
+       4  3  2  1
+
+
+--------------------------------------------------------------------------------------------------------
+
+ **** sort of integrals and generation of fort.31 called at        0.070 secs
+ **** generation of fort.31 for MRDCI program
+
+   number of irreducible representations           4
+
+   irrep.    no. of mos
+   ====================
+      1          12
+      2           4
+      3           6
+      4           0
+
+
+  MO    symmetry  new label 
+ ========================== 
+   1           1          1
+   2           1          2
+   3           1          3
+   4           1          4
+   5           1          5
+   6           3         17
+   7           2         13
+   8           3         18
+   9           2         14
+  10           1          6
+  11           3         19
+  12           1          7
+  13           2         15
+  14           3         20
+  15           1          8
+  16           1          9
+  17           3         21
+  18           1         10
+  19           2         16
+  20           1         11
+  21           3         22
+  22           1         12
+
+  number of sort passes    1
+
+
+ *** Symmetry check : Largest forbidden integral : .00000E+00
+
+
+ transformed 1-electron integrals restored from section 466 of dumpfile starting at block       1 of ed3 
+
+ total number of 2e-integral records written to fort.31 =     8
+
+
+ **** end of sort of integrals and generation of fort.31 at        0.100 secs
+
+--------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        Semi-direct Table-CI Calculation
+                                        ********************************
+
+
+                                        ****************************************
+                                        *** MRD-CI V2.0: Table Generation Module
+                                        ****************************************
+
+ ***  start of table generation at       0.10 seconds
+
+
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  +       This is the generator module for the CI Table.       +
+  + The author of this program is Professor Robert J. Buenker, +
+  +                   University of Wuppertal                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    7  5  5  4  4  3  3  3
+
+ case :  1     nod =  0
+
+ case :  1     nod =  2
+
+ case :  1     nod =  4
+
+ case :  1     nod =  6
+
+ case :  1     nod =  8
+
+     end case          1        30        30
+
+
+ case :  2     nod =  1
+
+ case :  2     nod =  3
+
+ case :  2     nod =  5
+
+ case :  2     nod =  7
+
+ case :  2     nod =  9
+
+     end case          2       118       118
+
+
+ case :  3     nod =  2
+
+ case :  3     nod =  4
+
+ case :  3     nod =  6
+
+ case :  3     nod =  8
+
+     end case          3       158       158
+
+
+ case :  4     nod =  3
+
+ case :  4     nod =  5
+
+ case :  4     nod =  7
+
+ case :  4     nod =  9
+
+     end case          4       248       248
+
+
+ case :  5     nod =  4
+
+ case :  5     nod =  6
+
+ case :  5     nod =  8
+
+     end case          5       274       274
+
+
+ case :  6     nod =  5
+
+ case :  6     nod =  7
+
+ case :  6     nod =  9
+
+     end case          6       321       321
+
+
+ case :  7     nod =  6
+
+ case :  7     nod =  8
+
+ case :  7     nod = 10
+
+     end case          7       406       406
+
+
+ ***  end of table generation at       0.24 seconds
+
+
+ ========================================================================================================
+
+                              ***********************************************
+                              *** MRD-CI V2.0: Configuration Selection Module
+                              ***********************************************
+
+
+     ***  start of selection at       0.24 seconds
+
+
+--------------------------------------------------------------------------------------------------------
+ number of electrons                :              15
+ number of reference configurations :              12
+ excitation level                   :               2
+ multiplicity                       :               2
+ ncorci                             :               0
+ spatial symmetry                   :               3
+
+ *** threshold specified ***
+ minimal selection threshold   10.00 microhartree
+ threshold increment for use in selection   10.00 microhartree
+
+--------------------------------------------------------------------------------------------------------
+  *** zero-order vector as start vector:
+ number of irreducible representations :               4
+ number of orbitals                    :              22
+ nuclear energy                        :     31.38372005
+ total number of integrals             :           10099
+
+     ***  end of reading ft31 at       0.24 seconds
+
+--------------------------------------------------------------------------------------------------------
+
+ number of orbitals     22
+ no. of electrons       15
+ no. of mains           12
+ excitations             2
+ no. of irreps.          4
+ multiplicity            2
+ ispace                  3
+ nprint                  0
+ ncorci                  0
+ The set of   12 main configurations leads to   18 spin adapted functions.
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          numbers of open shells and corresponding main configurations
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+     input  number of     main
+     index  open shells   configuration
+
+       1     1           18   1   2   3   4   5  13  17
+       2     1           18   1   2   3   4   6  13  17
+       3     3            5   6  18   1   2   3   4  13  17
+       4     3            5   7  18   1   2   3   4  13  17
+       5     1           18   1   2   3   4   5  14  17
+       6     3           13  14  18   1   2   3   4   5  17
+       7     3           13  15  18   1   2   3   4   5  17
+       8     1           18   1   2   3   4   5  13  19
+       9     3           17  18  19   1   2   3   4   5  13
+      10     3           17  18  20   1   2   3   4   5  13
+      11     1           19   1   2   3   4   5  13  17
+      12     1           20   1   2   3   4   5  13  17
+
+  symmetry data
+
+     ===============
+     orbital   irrep
+     ===============
+       1 -  12     1
+      13 -  16     2
+      17 -  22     3
+
+ no. of categories in each super-category
+
+ no. of configurations in super-category  1 =      703
+ no. of configurations in super-category  2 =     3994
+ no. of configurations in super-category  3 =     5400
+ no. of configurations in super-category  4 =     1814
+          transferred       703 configurations with 1 open shell(s)
+          transferred      3994 configurations with 3 open shell(s)
+          transferred      5400 configurations with 5 open shell(s)
+          transferred      1814 configurations with 7 open shell(s)
+
+ configuration generation complete
+
+ total number of configurations
+ ==============================
+ configurations in super category 1 =      703
+ configurations in super category 2 =     3994
+ configurations in super category 3 =     5400
+ configurations in super category 4 =     1814
+ configurations in super category 5 =        0
+ configurations in super category 6 =        0
+ configurations in super category 7 =        0
+
+     ***  end of configuration generation at       0.24 seconds
+
+--------------------------------------------------------------------------------------------------------
+ ===================================================
+ Compute the discarded energy contributions (geysez)
+ ===================================================
+
+    1    1 -999    0    0    0
+
+ all single excitations are taken into account
+
+ changed ordering of reference configurations
+
+             1  11  12   2   5   8   3   4   6   7   9  10
+
+ end of label generation at       0.26 seconds
+
+ number of integrals :    10099
+
+ total number of 2e-integral records read from fort.31 =     8
+
+ ============================================
+ = Solve zero-order problem and select safs = 
+ ============================================
+
+
+ *** table data base assigned correctly
+
+
+ end of zero order ci at     0.26 seconds
+
+                                        ==================================================
+                                        =            Root Eigenvectors                   =
+                                        = (coefficients in input configuration ordering) =
+                                        ==================================================
+
+ SAF MAIN
+              1        2        3        4        5        6
+   1   1   0.9849*  0.0866  -0.0766  -0.0480  -0.0039   0.0105 
+   2   2  -0.0102  -0.0011   0.0013   0.0027  -0.0402   0.0135 
+   3   3   0.0006   0.0000   0.0014  -0.0507   0.8047* -0.2551*
+   4   3   0.0062  -0.0026  -0.0151   0.1624  -0.5691* -0.2387*
+   5   4   0.0053  -0.0218   0.1618   0.0771  -0.0443  -0.2194*
+   6   4  -0.0042   0.0004  -0.0048  -0.0470   0.0026   0.2428*
+   7   5  -0.1324   0.0612  -0.3138* -0.0387  -0.0121   0.0048 
+   8   6   0.0552  -0.1561   0.8983*  0.1000   0.0066  -0.0262 
+   9   6  -0.0700   0.9787*  0.1770   0.0102  -0.0022  -0.0070 
+  10   7  -0.0059   0.0086  -0.0450  -0.0261  -0.0430  -0.0719 
+  11   7   0.0048  -0.0714  -0.0146   0.0069   0.0001   0.0013 
+  12   8  -0.0376  -0.0037   0.0025  -0.0321  -0.0095  -0.0605 
+  13   9   0.0425  -0.0015  -0.0331   0.6488*  0.0879   0.1052 
+  14   9  -0.0174  -0.0085   0.0970  -0.1536   0.0329   0.8470*
+  15  10  -0.0209  -0.0051   0.0216   0.0536  -0.0097  -0.0419 
+  16  10   0.0127  -0.0042   0.0305  -0.0395  -0.0229   0.0363 
+  17  11   0.0083   0.0213  -0.1188   0.7052*  0.1157   0.1700 
+  18  12   0.0000  -0.0141   0.0527   0.0290   0.0061  -0.0227 
+
+
+                                        -----------------
+                                        root eigen values
+                                        -----------------
+
+            -112.8953123  -112.5670001  -112.4528809  -112.2989703  -112.1127880  -112.0867332  -112.0700695  -112.0513289
+
+            -112.0215146  -111.8642926  -111.7868568  -111.7225344  -111.6782609  -111.6271099  -111.5133201  -111.3511690
+
+            -111.1992555  -110.9658324
+
+ *** threshold specified ***
+
+ minimal selection threshold   10.00 microhartree
+ threshold increment for use in selection   10.00 microhartree
+
+
+ following threshold classes to be investigated
+    0.000010   0.000001   0.000003   0.000005   0.000010   0.000020   0.000030   0.000040   0.000050   0.000060   0.000070
+
+
+ summary of energy lowerings
+ ===========================
+
+ threshold domain (mh)    safs     energy sum        root
+     0.000500000          4452       0.96676            1
+     0.002500000          2933       2.61090            1
+     0.005000000          2580       3.87352            1
+     0.010000000          2322       5.75349            1
+     0.020000000          2113       8.65854            1
+     0.030000000          1984      11.80161            1
+     0.040000000          1942      13.28455            1
+     0.050000000          1902      15.10908            1
+     0.060000000          1882      16.20489            1
+     0.070000000          1844      18.66617            1
+
+ from a total of         61087  safs
+
+
+ total number of guessed ci-coefficients:        52711
+
+ ci-coefficients below the guess :                6807
+
+ guess of the ci - coefficients:
+ *******************************
+
+ coefficients domain
+ 0.100000D+01 - 0.100000D+00                                                              0
+ 0.100000D+00 - 0.464159D-01                                                              0
+ 0.464159D-01 - 0.215443D-01                                                              0
+ 0.215443D-01 - 0.100000D-01                                                              0
+ 0.100000D-01 - 0.464159D-02                                                             11
+ 0.464159D-02 - 0.215443D-02                                                             59
+ 0.215443D-02 - 0.100000D-02  =                                                         125
+ 0.100000D-02 - 0.464159D-03  ==                                                        231
+ 0.464159D-03 - 0.215443D-03  ===                                                       394
+ 0.215443D-03 - 0.100000D-03  =======                                                   766
+ 0.100000D-03 - 0.464159D-04  =============                                            1489
+ 0.464159D-04 - 0.215443D-04  ====================                                     2236
+ 0.215443D-04 - 0.100000D-04  =============================                            3206
+ 0.100000D-04 - 0.464159D-05  ======================================                   4178
+ 0.464159D-05 - 0.215443D-05  ==============================================           5030
+ 0.215443D-05 - 0.100000D-05  =================================================        5303
+ 0.100000D-05 - 0.464159D-06  ==================================================       5410
+ 0.464159D-06 - 0.215443D-06  ================================================         5245
+ 0.215443D-06 - 0.100000D-06  ===========================================              4744
+ 0.100000D-06 - 0.464159D-07  ===================================                      3862
+ 0.464159D-07 - 0.215443D-07  ============================                             3117
+ 0.215443D-07 - 0.100000D-07  =====================                                    2278
+ 0.100000D-07 - 0.464159D-08  ===============                                          1723
+ 0.464159D-08 - 0.215443D-08  ==========                                               1110
+ 0.215443D-08 - 0.100000D-08  =======                                                   777
+ 0.100000D-08 - 0.464159D-09  =====                                                     546
+ 0.464159D-09 - 0.215443D-09  ===                                                       337
+ 0.215443D-09 - 0.100000D-09  =                                                         181
+ 0.100000D-09 - 0.464159D-10  =                                                         150
+ 0.464159D-10 - 0.215443D-10                                                             99
+ 0.215443D-10 - 0.100000D-10                                                             51
+ 0.100000D-10 - 0.464159D-11                                                             28
+ 0.464159D-11 - 0.215443D-11                                                             16
+ 0.215443D-11 - 0.100000D-11                                                              7
+ 0.100000D-11 - 0.464159D-12                                                              1
+ 0.464159D-12 - 0.215443D-12                                                              1
+
+ ##############################################################
+
+
+     ***  end of configuration selection at       0.43 seconds
+
+ ********************************************************************************************************
+
+     ***  start of refcon at       0.43 seconds
+
+
+ number of selected configurations in each super category
+         122    430    268      0      0
+
+  number of reference configurations:            12
+  number of electrons:                           15
+
+
+     ***  end of refcon at       0.44 seconds
+
+--------------------------------------------------------------------------------------------------------
+
+     ***  start of semi-direct MRD-CI module at       0.44 seconds
+
+  ===============================
+  == Semi-direct MRD-CI Module ==
+  ===============================
+
+  multiroot - version
+  creators/annihilators for configurations
+
+
+  =========================================================
+  === input-parameters                                  ===
+  ===---------------------------------------------------===
+  === number of roots                                 1 ===
+  === first  root                                     1 ===
+  === last root                                       1 ===
+  === number of secular equations                     1 ===
+  === ci-tolerance                             5.00E-03 ===
+  === printoff (ci coefficients)               5.00E-02 ===
+  === printoff (c**2)                          2.00E-03 ===
+  === number of starting vectors                      1 ===
+  === print flag                                      0 ===
+  === ndeci                                           1 ===
+  === icode                                           0 ===
+  === konf                                            0 ===
+  === keps                                            0 ===
+  =========================================================
+  === all integrals are kept in memory                  ===
+  =========================================================
+  === ft31 format of gamess-uk is assumed               ===
+  =========================================================
+  === reference vectors are used for start              ===
+  =========================================================
+  === direct Table-CI                                   ===
+  =========================================================
+
+ ***** selected roots    1
+ memory for configurations
+  required (iotm) =         7526
+
+ *** Key parameters in determining memory
+ *** nteint, mdi, iotm =      10099      2322      7526
+
+ ***************************************************
+ * First allocate sufficient memory to enable real *
+ * memory allocations to be determined             *
+ ***************************************************
+
+ memory for 2-e integrals
+  required =               10099 R*8 words
+  available (nteint)  =    12000 R*8 words
+ memory for configurations
+  required (ny)    =         7526
+  available (iotm) =         7526
+ memory for hamiltonian matrix
+  required (mz)   =         2322
+  available (mdi) =         2323
+
+ **********************************************************
+ * now derive memory for 2e-integrals, configurations and *
+ * hamiltonian matrix, assuming all integrals in memory   *
+ * and vectors derived in single-pass mode                *
+ **********************************************************
+
+ memory for 2-e integrals
+  required =               10099 R*8 words
+  available (nteint)  =    12000 R*8 words
+ memory for configurations
+  required (ny)    =         7526
+  available (iotm) =         7526
+ memory for hamiltonian matrix
+  required (mz)   =         2322
+  available (mdi) =         2323
+
+     ++++++++++++++++++++++++++++
+     + Final memory allocations +
+     ++++++++++++++++++++++++++++
+     +    integs     12000 R*8  +
+     +      mdiT     18582 R*8  +
+     +      iotm     15052 R*8  +
+     +     nedim   2000000 R*8  +
+     +      diag    163968 R*8  +
+     ++++++++++++++++++++++++++++
+     + allocated   2319110 R*8  +
+     + required    2319110 R*8  +
+     ++++++++++++++++++++++++++++
+
+ *** commence lower threshold (T= 10.0 uh) calculation at       0.44 seconds
+
+ zero-order vectors used as start vectors
+ start vectors read
+ starting vector  1 has dimension    2322
+
+ ===========================
+ === multi-root davidson ===
+ ===========================
+
+ ***  building the start matrix
+
+   1  start vectors are treated in   1 cycles 
+  the ordered roots are   1
+  this pass treats the following roots :   1
+
+ commence pass at       0.48 seconds
+ =====================================================================
+ iter  root-no.   energy       e.-lower       tester       res. norm
+ =====================================================================
+   1     1  -112.8953122734   0.113D+03      .954D-01       .811D+00
+
+   2     1  -113.0544972506   0.159D+00      .679D-01       .160D+00
+
+   3     1  -113.0634952440   0.900D-02      .159D-01       .609D-01
+
+   4     1  -113.0648800766   0.138D-02      .104D-01       .183D-01
+
+   5     1  -113.0650621958   0.182D-03      .336D-02       .955D-02
+
+   6     1  -113.0651021923   0.400D-04      .106D-02       .400D-02
+
+   7     1  -113.0651085789   0.639D-05      .122D-03       .105D-02
+
+   8     1  -113.0651089610   0.382D-06      .299D-04       .253D-03
+ root  1 is converged
+
+          === all roots are converged
+
+ ====================================================================
+
+ **** all roots are converged
+
+ ci-eigenvalues : 
+             1 energy : -113.0651089610
+
+ *** lower threshold (T= 10.0 uh) calculation complete at       0.75 seconds
+
+
+ ><><><><><><><><><><><><><>><><><><><><><>
+ >>>>> commence CI vector analysis : <<<<<<
+ >>>>>> T= 10.0 uh threshold problem <<<<<<
+ ><><><><><><><><><><><><><>><><><><><><><>
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      122     430     268       0       0
+   safs                :      122     860    1340       0       0
+   slaterdeterminants  :      122    1290    2680       0       0
+
+ total number of safs =       2322
+
+          ***************
+          * root =    1 *
+          ***************
+
+ ci vector read     ci coefficients
+
+        =============================
+        coefficient     configuration
+        =============================
+           0.953869         1
+          -0.091687         2
+          -0.104196        65
+           0.079569       193
+          -0.058288       194
+          -0.083323       701
+
+ +++ eigenstate has largest overlap with zero-order vector  1
+ +++ overlap =         0.9660078995
+
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    + Overlap of Eigenstates with the Zero-order Vectors +
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                    *** Eigenstates *** 
+ Zero Order
+   Root                 1
+     1              0.9660079*
+
+          *************************
+          * configuration weights *
+          *************************
+          ***** Root  1 ***********
+          =============================
+                  c*c     configuration
+          =============================
+          m   0.90987  18   1   2   3   4   5  13  17
+              0.00841  17   1   2   3   4   5  13  18
+          m   0.00047  19   1   2   3   4   5  13  17
+          m   0.00003  20   1   2   3   4   5  13  17
+          m   0.00014  18   1   2   3   4   6  13  17
+          m   0.01086  18   1   2   3   4   5  14  17
+          m   0.00115  18   1   2   3   4   5  13  19
+          m   0.00010   5   6  18   1   2   3   4  13  17
+          m   0.00001   5   7  18   1   2   3   4  13  17
+          m   0.00973  13  14  18   1   2   3   4   5  17
+          m   0.00055  13  15  18   1   2   3   4   5  17
+          m   0.00185  17  18  19   1   2   3   4   5  13
+          m   0.00038  17  18  20   1   2   3   4   5  13
+              0.00696  13  14  17   1   2   3   4   5  18
+ sum of main reference c*c =     0.93513249
+
+
+ **** ci-vector file (ft36) written
+
+ ====================================================================
+
+ *** commence higher threshold (T= 20.0 uh) calculation at       0.75 seconds
+
+
+ ===================
+ = Lower threshold =
+ ===================
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      122     430     268       0       0
+   safs                :      122     860    1340       0       0
+   slaterdeterminants  :      122    1290    2680       0       0
+
+ total number of configurations    ;     820
+ total number of safs              ;    2322
+ total number of slaterdeterminants;    4092
+
+ reduction of          2322  --->         2113  safs
+
+ ====================
+ = Higher threshold =
+ ====================
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      101     376     252       0       0
+   safs                :      101     752    1260       0       0
+   slaterdeterminants  :      101    1128    2520       0       0
+
+ total number of configurations    ;     729
+ total number of safs              ;    2113
+ total number of slaterdeterminants;    3749
+
+
+ ===========================
+ === multi-root davidson ===
+ ===========================
+
+ ***  building the start matrix
+
+   1  start vectors are treated in   1 cycles 
+  the ordered roots are   1
+  this pass treats the following roots :   1
+
+ commence pass at       0.79 seconds
+ =====================================================================
+ iter  root-no.   energy       e.-lower       tester       res. norm
+ =====================================================================
+   1     1  -113.0624060455   0.113D+03      .115D-02       .806D-02
+
+   2     1  -113.0624264134   0.204D-04      .458D-03       .153D-02
+
+   3     1  -113.0624271345   0.721D-06      .311D-03       .474D-03
+
+   4     1  -113.0624272138   0.794D-07      .791D-04       .158D-03
+ root  1 is converged
+
+          === all roots are converged
+
+ ====================================================================
+
+ **** all roots are converged
+
+ ci-eigenvalue (T = 20.0 uH threshold):
+            1  energy :   -113.0624272138348     
+
+ *** higher threshold (T= 20.0 uh) calculation complete at       0.89 seconds
+
+
+ ><><><><><><><><><><><><><>><><><><><><><>
+ >>>>> commence CI vector analysis : <<<<<<
+ >>>>>> T= 20.0 uh threshold problem <<<<<<
+ ><><><><><><><><><><><><><>><><><><><><><>
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      101     376     252       0       0
+   safs                :      101     752    1260       0       0
+   slaterdeterminants  :      101    1128    2520       0       0
+
+ total number of safs =       2113
+
+          ***************
+          * root =    1 *
+          ***************
+
+ ci vector read     ci coefficients
+
+        =============================
+        coefficient     configuration
+        =============================
+           0.954289         1
+          -0.091617         2
+          -0.103173        55
+           0.079448       172
+          -0.058288       173
+          -0.083425       588
+
+ +++ eigenstate has largest overlap with zero-order vector  1
+ +++ overlap =         0.9663048517
+
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    + Overlap of Eigenstates with the Zero-order Vectors +
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                    *** Eigenstates *** 
+ Zero Order
+   Root                 1
+     1              0.9663049*
+ **** no writing of ci-vector file (ft36)
+
+ ====================================================================
+
+
+ **** commence Buenker and Peyerimhoff extrapolation at      0.89 seconds
+
+     ***********
+     root =  1 *
+     ***********
+
+
+ standard extrapolation
+ ======================
+
+ root   1 has largest overlap with zero-order vector
+ large problem (T= 10.0) :  1       0.966008
+ small problem (T= 20.0) :  1       0.966305
+
+ used for calculation of lambda :
+ (T= 10.0) E-CI( 1)     -113.065109       0.005753
+ (T= 20.0) E-CI( 1)     -113.062427       0.008659
+
+ optimal lambda =   0.92313119
+
+ ci energy           =   -113.06510896 hartree  (root  1)
+ extrapolated energy =   -113.07042018   [   root  1  c**2      =     0.9351 ]
+ davidson            =   -113.08177900   [   1-c**2             =     0.0649 ]
+ weights davidson1   =   -113.08256693   [  (1-c**2)/ c**2      =     0.0694 ]
+ weights davidson2   =   -113.08347232   [  (1-c**2)/(2*c**2-1) =     0.0745 ]
+
+ weighted extrapolation
+ ======================
+
+ used for calculation of lambda :
+ (T= 10.0) E-CI( 1)     -113.065109       0.005753
+ (T= 20.0) E-CI( 1)     -113.062427       0.008659
+ ci energy           =   -113.06510896 hartree 
+
+ optimal lambda =   0.92313119
+
+ extrapolated energy =   -113.07042018   [    c**2              =     0.9351 ]
+ davidson            =   -113.08177900   [   1-c**2             =     0.0649 ]
+ weights davidson1   =   -113.08256693   [  (1-c**2)/ c**2      =     0.0694 ]
+ weights davidson2   =   -113.08347232   [  (1-c**2)/(2*c**2-1) =     0.0745 ]
+
+
+
+ **** Buenker and Peyerimhoff extrapolation complete at      0.89 seconds
+
+
+ ***  end of semi-direct MRD-CI module at       0.89 seconds
+
+ ========================================================================================================
+
+                                        ***************************************
+                                        *** MRD-CI V2.0: Natural Orbital Module
+                                        ***************************************
+
+ dumpfile on ed3  at block     1
+
+ *** restore ci-data from unit            36
+
+ *** natural orbital analysis requested for  1 ci vectors
+
+     with following locations on the ci vector file (ft36)  1
+
+
+ no. of active orbitals  22
+ no. of active electrons 15
+
+ irreducible       no. of
+ representation    active orbitals
+ ----------------------------------------
+           1           12
+           2            4
+           3            6
+ ----------------------------------------
+
+ *** commence natural orbital analysis at     0.89 secs.
+
+ ********************************************************************************************************
+
+                                        natural orbital analysis for state no.  1
+                                        -----------------------------------------
+
+ CI energy           =   -113.06510896 hartree 
+ extrapolated energy =   -113.07042018 hartree 
+ c**2                =     0.9351
+
+
+ **** irrep. no. 1          **** sum of occupation numbers    9.99753369
+
+
+ **** irrep. no. 2          **** sum of occupation numbers    2.00340489
+
+
+ **** irrep. no. 3          **** sum of occupation numbers    2.99906142
+
+
+ **** irrep. no. 4          **** sum of occupation numbers    0.00000000
+
+
+  total active electron sum         15.00000000
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        natural orbitals for state  1  (a.o. basis)
+                                        -------------------------------------------
+
+
+                                                  occupation numbers
+                                                  ------------------
+
+               1.9999581     1.9999282     1.9924137     1.9823239     1.9759120     1.9709156     1.9445709     1.0036025
+
+               0.0536917     0.0202318     0.0170024     0.0145646     0.0061233     0.0052505     0.0038852     0.0025934
+
+               0.0021679     0.0017177     0.0012572     0.0009682     0.0005727     0.0003487
+
+ ********************************************************************************************************
+
+ *** end of natural orbital analysis at     0.92 secs.
+
+
+ end of Table-CI calculation at     0.92 seconds
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      0.92          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      0.92 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               363 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      4    3     239      34
+ *      5    3     274      34
+ *    205    5     234       1
+ *    206    6     235       1
+ *    207    7     312       1
+ *    208    8     314      34
+ *    209    9     348       1
+ *    213   13     194       1
+ *    242   42     313       1
+ *    244   44     186       7
+ *    253   53     214       4
+ *    303  103     193       1
+ *    408  101       7       7
+ *    420  100     115      71
+ *    466 1004     350      14
+ *    467  167     236       3
+ *    470 1005     195      15
+ *    486  500     349       1
+ *    490   51     225       5
+ *    491    1      54      61
+ *    492    2     218       7
+ *    493   15       6       1
+ *    494   16     311       1
+ *    496   18      14      40
+ *    497   19     230       4
+ *    499   99     308       3
+ *    500   20     273       1
+ *    501   21       2       4
+ *    504   23     210       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      4    gvb      12:18:43 on Mar 26  h2co+ 2b2 3-21g - default mrdci settings -113.06510859
+ *      5    gvb      12:18:43 on Mar 26  h2co+ 2b2 3-21g - default mrdci settings -113.06510859
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       76      76
+ ed3      275     275
+ ed7       13      13
+ table     56     406
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.00      0.00            0.01      0.76
+ vector generation                     0.00      0.00            0.00      0.22
+ 2e-integral evaluation                0.01      1.09            0.01      1.01
+ scf                                   0.04      4.35            0.05      3.54
+ integral transformation               0.05      5.43            0.12      9.30
+ table-ci                              0.82     89.13            1.13     84.58
+ other                                 0.00      0.00            0.01      0.57
+ ******************************************************************************
+ Total                                 0.92                      1.33
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =      3105994 words
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co+ 2B2 3-21g - explicit data for defaults -113.06510859
+ >>>>> mult 2
+ >>>>> charge 1
+ >>>>> super off nosym
+ >>>>> zmat angstrom
+ >>>>> c
+ >>>>> o 1 1.203
+ >>>>> h 1 1.099 2 121.8
+ >>>>> h 1 1.099 2 121.8 3 180.0
+ >>>>> end
+ >>>>> runtype ci
+ >>>>> open 1 1
+ >>>>> active
+ >>>>> 1 to 22 end
+ >>>>> mrdci direct
+ >>>>> table
+ >>>>> select
+ >>>>> cntrl 15
+ >>>>> spin 2
+ >>>>> symm 3
+ >>>>> singles all
+ >>>>> conf
+ >>>>> 1      18   1   2   3   4   5  13  17
+ >>>>> 1      18   1   2   3   4   6  13  17
+ >>>>> 3       5   6  18   1   2   3   4  13  17
+ >>>>> 3       5   7  18   1   2   3   4  13  17
+ >>>>> 1      18   1   2   3   4   5  14  17
+ >>>>> 3      13  14  18   1   2   3   4   5  17
+ >>>>> 3      13  15  18   1   2   3   4   5  17
+ >>>>> 1      18   1   2   3   4   5  13  19
+ >>>>> 3      17  18  19   1   2   3   4   5  13
+ >>>>> 3      17  18  20   1   2   3   4   5  13
+ >>>>> 1      19   1   2   3   4   5  13  17
+ >>>>> 1      20   1   2   3   4   5  13  17
+ >>>>> end
+ >>>>> thresh 10 10
+ >>>>> roots 1
+ >>>>> ci
+ >>>>> natorb
+ >>>>> civec 1
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:18:44
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co+ 2b2 3-21g - explicit data for defaults -113.06510859                          *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 1.203                                                                                                                           
+ h 1 1.099 2 121.8                                                                                                                   
+ h 1 1.099 2 121.8 3 180.0                                                                                                           
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.203000 (   1)
+   3    3   h     1   1.099000 (   2)   2  121.800 (   4)
+   4    4   h     1   1.099000 (   3)   2  121.800 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.273340
+              3  h                1.765065       0.000000      -1.094386
+              4  h               -1.765065       0.000000      -1.094386
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sv      3-21g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.0000000      0.0000000      0.9998719       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -1.2734685       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *******************************************************************************
+
+
+                                        *******************
+                                        molecular basis set
+                                        *******************
+
+
+                                        ==============================
+                                        contracted primitive functions
+                                        ==============================
+
+ atom        shell   type  prim       exponents            contraction coefficients
+ =================================================================================================================
+
+ c       
+
+
+                 1   1s       1      172.256000       2.093132  (    0.061767  )
+                 1   1s       2       25.910900       2.936751  (    0.358794  )
+                 1   1s       3        5.533350       1.801737  (    0.700713  )
+
+
+                 2   2sp      4        3.664980      -0.747384  (   -0.395897  )       1.709178  (    0.236460  )
+                 2   2sp      5        0.770545       0.712661  (    1.215840  )       0.885622  (    0.860619  )
+
+
+                 3   2sp      6        0.195857       0.209828  (    1.000000  )       0.185722  (    1.000000  )
+
+ o       
+
+
+                 4   1s       7      322.037000       3.209593  (    0.059239  )
+                 4   1s       8       48.430800       4.599140  (    0.351500  )
+                 4   1s       9       10.420600       2.925183  (    0.707658  )
+
+
+                 5   2sp     10        7.402940      -1.293695  (   -0.404453  )       4.257230  (    0.244586  )
+                 5   2sp     11        1.576200       1.224712  (    1.221560  )       2.149757  (    0.853955  )
+
+
+                 6   2sp     12        0.373684       0.340634  (    1.000000  )       0.416458  (    1.000000  )
+
+ h       
+
+
+                 9   1s      13        5.447178       0.397151  (    0.156285  )
+                 9   1s      14        0.824547       0.557920  (    0.904691  )
+
+
+                10   1s      15        0.183192       0.199567  (    1.000000  )
+ =================================================================================================================
+
+ total number of shells                  10
+ total number of basis functions         22
+ number of electrons                     15
+ charge of molecule                       1
+ state multiplicity                       2
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      7
+ total number of atoms                    4
+
+
+
+ *** MRD-CI V2.0: Pre-processor called at     0.00 seconds
+
+
+ take all single excitations into account
+
+ input specified roots for use in selection :
+            1
+
+
+ *** threshold specified ***
+
+ minimal selection threshold   10.00 microhartree
+
+ threshold increment for use in selection   10.00 microhartree
+
+
+ natural orbital analysis
+ ************************
+
+ *** analysis requested for  1 ci vectors
+
+     with following locations on the ci vector file (ft36)  1
+
+ *** mrd-ci data input complete
+
+
+          *************************
+          grhf-gvb input parameters
+          *************************
+
+          norb     =    8
+          nco      =    7
+          npair    =    0
+          nseto    =    1
+          no       =    1
+
+          -------------
+          core orbitals
+          -------------
+
+         1    2    3    4    5    6    7
+
+          -------------------
+          open shell orbitals
+          -------------------
+
+
+          set     1 =        8
+
+          ----------------------------
+          grhf-gvb coupling parameters
+          ----------------------------
+
+          f coefficients
+          --------------
+
+    1   1.0000000000
+    2   0.5000000000
+
+          a coupling coefficients
+          -----------------------
+
+
+           1        2
+    1    2.0000   1.0000
+    2    1.0000   0.5000
+
+          b coupling coefficients
+          -----------------------
+
+
+           1        2
+    1   -1.0000  -0.5000
+    2   -0.5000  -0.5000
+
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                ci       *
+ * SCF TYPE                                gvb      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   4 *
+ * Route canonicalised orbitals to section        5 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-5 *
+ * Configuration locking requested                    *
+ * Level shifting                                     *
+ * Occupied-occupied orbital mixing                   *
+ * Level shifter =    0.050 to cycle  5 then    0.010 *
+ * Occupied-virtual orbital mixing                    *
+ * Level shifter =    1.000 to cycle  5 then    0.500 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-09 *
+ ****************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.2733404   1--3  2.0768089   1--4  2.0768089
+       (1.2030000)       (1.0990000)       (1.0990000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  121.800000   2--1--4  121.800000   3--1--4  116.400000
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          12
+   2           4
+   3           6
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -112.82485034 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.01 seconds
+
+ end of 2-electron integral evaluation at     0.02 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ************************
+                                        grhf-gvb scf calculation
+                                        ************************
+
+               convergence data
+               ================
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criteria         =1.0e- 5
+ punch out option             =      0
+
+ ----- nuclear energy ----- =      31.383720045129
+
+
+ =============================================================================================================
+   cycle           total      electronic         e conv.         tester    level shift  damping           diis
+                  energy          energy
+ =============================================================================================================
+   1   0   -112.75563772   -144.13935777   -144.13935777     0.09021628   0.050   1.000   0.000     0.00000000
+   2   1   -112.84742021   -144.23114025     -0.09178249     0.05060278   0.050   1.000   0.000     0.00000000
+   3   2   -112.86420873   -144.24792878     -0.01678852     0.02752551   0.050   1.000   0.000     0.00000000
+   4   0   -112.86911747   -144.25283752     -0.00490874     0.01633336   0.050   1.000   0.000     0.00087380
+   5   1   -112.87180251   -144.25552255     -0.00268503     0.00582046   0.050   1.000   0.000     0.00000000
+   6   2   -112.87200972   -144.25572976     -0.00020721     0.00391591   0.050   1.000   0.000     0.00000000
+   7   0   -112.87209807   -144.25581812     -0.00008835     0.00261526   0.010   0.500   0.000     0.00000284
+   8   1   -112.87217264   -144.25589268     -0.00007457     0.00031618   0.010   0.500   0.000     0.00000000
+   9   2   -112.87217328   -144.25589332     -0.00000064     0.00022013   0.010   0.500   0.000     0.00000000
+  10   0   -112.87217355   -144.25589359     -0.00000027     0.00015894   0.010   0.500   0.000     0.00000001
+  11   1   -112.87217377   -144.25589382     -0.00000023     0.00000974   0.010   0.500   0.000     0.00000001
+
+          ----------------
+          energy converged
+          ----------------
+
+
+          ----------------------------
+          scf statistics per iteration
+          ----------------------------
+          number of integral passes       1
+          j+k  formation time         0.002
+          geminal opt time            0.000
+          mixorb  opt time            0.001
+          ocbse   opt time            0.000
+          orbital grad. and diis      0.001
+
+          --------------
+          final energies after  11 cycles at       0.06 seconds
+          --------------
+          kinetic energy        112.5065103792
+          electronic energy    -144.2558938188
+          nuclear energy         31.3837200451     virial ratio(v/2e)
+          total energy         -112.8721737736         0.9983802
+
+
+          max lagrangian asymmetry     0.0000073327
+
+ output canonicalised m.o to section   5 of dumpfile
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.96152913       -570.3978        2.0000
+    2     1    -11.66198280       -317.3418        2.0000
+    3     1     -1.84253839        -50.1385        2.0000
+    4     1     -1.21510161        -33.0649        2.0000
+    5     1     -1.03602123        -28.1918        2.0000
+    6     3     -1.01994007        -27.7543        2.0000
+    7     2     -0.95647453        -26.0273        2.0000
+    8     3     -0.97132154        -26.4313        1.0000
+    9     2     -0.21630479         -5.8860        0.0000
+   10     1     -0.00283474         -0.0771        0.0000
+   11     3      0.07460148          2.0300        0.0000
+   12     1      0.11805497          3.2125        0.0000
+   13     2      0.60354144         16.4234        0.0000
+   14     3      0.67891449         18.4744        0.0000
+   15     1      0.69205700         18.8320        0.0000
+   16     1      0.81240020         22.1067        0.0000
+   17     3      0.94169602         25.6251        0.0000
+   18     1      1.22909058         33.4456        0.0000
+   19     2      1.45316211         39.5429        0.0000
+   20     1      1.51083319         41.1123        0.0000
+   21     3      1.58925930         43.2464        0.0000
+   22     1      2.90365228         79.0132        0.0000
+ ========================================================
+
+  NOTE: energy levels were not in order, and will be reordered
+  before the symmetry assignment. Note that the sorted orbitals
+  are used only locally in the assignment, so that this
+  operation has no influence on subsequent calculations.
+
+
+ ======================================================================================
+                               SYMMETRY ASSIGNMENT
+ ======================================================================================
+ E level    m.o.     symmetry           orbital         orbital  degeneracy  occupancy
+                                  energy (a.u.)    energy (e.v)
+ ======================================================================================
+    1      1 -  1      1 a1        -20.96152913       -570.3978       1        2.000000
+    2      2 -  2      2 a1        -11.66198280       -317.3418       1        2.000000
+    3      3 -  3      3 a1         -1.84253839        -50.1385       1        2.000000
+    4      4 -  4      4 a1         -1.21510161        -33.0649       1        2.000000
+    5      5 -  5      5 a1         -1.03602123        -28.1918       1        2.000000
+    6      6 -  6      1 b2         -1.01994007        -27.7543       1        2.000000
+    7      7 -  7      2 b2         -0.97132154        -26.4313       1        1.000000
+    8      8 -  8      1 b1         -0.95647453        -26.0273       1        2.000000
+    9      9 -  9      2 b1         -0.21630479         -5.8860       1        0.000000
+   10     10 - 10      6 a1         -0.00283474         -0.0771       1        0.000000
+   11     11 - 11      3 b2          0.07460148          2.0300       1        0.000000
+   12     12 - 12      7 a1          0.11805497          3.2125       1        0.000000
+   13     13 - 13      3 b1          0.60354144         16.4234       1        0.000000
+   14     14 - 14      4 b2          0.67891449         18.4744       1        0.000000
+   15     15 - 15      8 a1          0.69205700         18.8320       1        0.000000
+   16     16 - 16      9 a1          0.81240020         22.1067       1        0.000000
+   17     17 - 17      5 b2          0.94169602         25.6251       1        0.000000
+   18     18 - 18     10 a1          1.22909058         33.4456       1        0.000000
+   19     19 - 19      4 b1          1.45316211         39.5429       1        0.000000
+   20     20 - 20     11 a1          1.51083319         41.1123       1        0.000000
+   21     21 - 21      6 b2          1.58925930         43.2464       1        0.000000
+   22     22 - 22     12 a1          2.90365228         79.0132       1        0.000000
+ ======================================================================================
+
+ ---------------------------------------------------------------------------
+               Number of orbitals belonging to irreps of this group
+ ---------------------------------------------------------------------------
+  12 a1     0 a2     4 b1     6 b2   
+ ---------------------------------------------------------------------------
+
+ Symmetry assignment was successfull.
+ Degeneracy criterium used was .500E-05 a.u.
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ====================================
+                                        gvb natural orbitals (canonicalised)
+                                        ====================================
+
+
+
+                  -20.9615 -11.6620  -1.8425  -1.2151  -1.0360  -1.0199  -0.9565  -0.9713  -0.2163  -0.0028
+
+
+                      1        2        3        4        5        6        7        8        9       10
+
+
+    1  1  c s      -0.0002  -0.9864   0.1151  -0.1800   0.0119   0.0000   0.0000   0.0000   0.0000  -0.1400
+    2  1  c s      -0.0006  -0.0934  -0.1359   0.2264   0.0152   0.0000   0.0000   0.0000   0.0000   0.0996
+    3  1  c x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.2327   0.0000  -0.4311   0.0000
+    4  1  c y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.4384   0.0000   0.1097   0.0000   0.0000
+    5  1  c z       0.0026   0.0024   0.1608   0.1121  -0.3592   0.0000   0.0000   0.0000   0.0000   0.1795
+    6  1  c s      -0.0182   0.0443  -0.0866   0.5287  -0.1916   0.0000   0.0000   0.0000   0.0000   1.7529
+    7  1  c x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.1932   0.0000  -0.7044   0.0000
+    8  1  c y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.3538   0.0000   0.0828   0.0000   0.0000
+    9  1  c z       0.0139   0.0072  -0.0588   0.1031  -0.0993   0.0000   0.0000   0.0000   0.0000   0.7094
+   10  2  o s      -0.9836   0.0000   0.2173   0.1070   0.0747   0.0000   0.0000   0.0000   0.0000   0.0020
+   11  2  o s      -0.0979  -0.0007  -0.2204  -0.1107  -0.0762   0.0000   0.0000   0.0000   0.0000  -0.0116
+   12  2  o x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.4748   0.0000   0.2944   0.0000
+   13  2  o y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.1313   0.0000  -0.5710   0.0000   0.0000
+   14  2  o z      -0.0047   0.0006  -0.1444   0.1757   0.4228   0.0000   0.0000   0.0000   0.0000  -0.0530
+   15  2  o s       0.0480   0.0006  -0.6738  -0.4202  -0.2897   0.0000   0.0000   0.0000   0.0000   0.0582
+   16  2  o x       0.0000   0.0000   0.0000   0.0000   0.0000   0.0000  -0.4893   0.0000   0.4564   0.0000
+   17  2  o y       0.0000   0.0000   0.0000   0.0000   0.0000  -0.0743   0.0000  -0.5670   0.0000   0.0000
+   18  2  o z       0.0134   0.0048  -0.1526   0.1284   0.3852   0.0000   0.0000   0.0000   0.0000  -0.0663
+   19  3  h s       0.0008   0.0018  -0.0243   0.1577  -0.1064  -0.2065   0.0000   0.1160   0.0000  -0.0853
+   20  3  h s      -0.0004  -0.0129   0.0189   0.0159  -0.0590  -0.0800   0.0000   0.1061   0.0000  -1.3023
+   21  4  h s       0.0008   0.0018  -0.0243   0.1577  -0.1064   0.2065   0.0000  -0.1160   0.0000  -0.0853
+   22  4  h s      -0.0004  -0.0129   0.0189   0.0159  -0.0590   0.0800   0.0000  -0.1061   0.0000  -1.3023
+
+
+                    0.0746   0.1181   0.6035
+
+
+                     11       12       13
+
+
+    1  1  c s       0.0000   0.0773   0.0000
+    2  1  c s       0.0000   0.0175   0.0000
+    3  1  c x       0.0000   0.0000   1.0726
+    4  1  c y      -0.4146   0.0000   0.0000
+    5  1  c z       0.0000   0.1185   0.0000
+    6  1  c s       0.0000  -1.1530   0.0000
+    7  1  c x       0.0000   0.0000  -1.0311
+    8  1  c y      -1.3441   0.0000   0.0000
+    9  1  c z       0.0000   1.6255   0.0000
+   10  2  o s       0.0000  -0.1202   0.0000
+   11  2  o s       0.0000   0.0420   0.0000
+   12  2  o x       0.0000   0.0000   0.0178
+   13  2  o y       0.1116   0.0000   0.0000
+   14  2  o z       0.0000   0.2063   0.0000
+   15  2  o s       0.0000   1.5492   0.0000
+   16  2  o x       0.0000   0.0000   0.1206
+   17  2  o y       0.2992   0.0000   0.0000
+   18  2  o z       0.0000   0.7163   0.0000
+   19  3  h s       0.0504   0.0121   0.0000
+   20  3  h s       1.4871  -0.1279   0.0000
+   21  4  h s      -0.0504   0.0121   0.0000
+   22  4  h s      -1.4871  -0.1279   0.0000
+
+
+ end of grhf-gvb scf at       0.06 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ pre-processing mrd-ci data
+
+ vectors restored from section    5
+
+ header block information : 
+ gvb    vectors created at 12:18:44 on Mar 26   in the job jmht    
+ with the title: h2co+ 2b2 3-21g - explicit data for defaults -113.06510859                      
+
+ **** wavefunction symmetry =  3
+
+                ORBITAL SPECIFICATIONS                
+ =====================================================
+     number of irreducible representations       4
+                  COMPLETE ORBITAL space              
+ irrep.   no. of mos     frozen    active    discarded
+ =====================================================
+      1        12         0        12         0
+      2         4         0         4         0
+      3         6         0         6         0
+ =====================================================
+                   ACTIVE ORBITAL space               
+ irrep.   no. of mos     occupied              virtual
+ =====================================================
+      1        12         1 to   5            6 to  12
+      2         4        13 to  13           14 to  16
+      3         6        17 to  18           19 to  22
+ =====================================================
+
+
+ number of orbitals      22
+ no. of electrons        15
+ no. of input mains      12
+ excitations              2
+ no. of irreps.           4
+ multiplicity             2
+ ispace                   3
+ nprint                   0
+
+ no. of processed mains  12
+
+ The set of  12 main configurations leads to  18 spin adapted functions.
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          numbers of open shells and corresponding main configurations
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+     input     number of       main
+     index     open shells     configuration
+
+       1          1           18   1   2   3   4   5  13  17
+       2          1           18   1   2   3   4   6  13  17
+       3          3            5   6  18   1   2   3   4  13  17
+       4          3            5   7  18   1   2   3   4  13  17
+       5          1           18   1   2   3   4   5  14  17
+       6          3           13  14  18   1   2   3   4   5  17
+       7          3           13  15  18   1   2   3   4   5  17
+       8          1           18   1   2   3   4   5  13  19
+       9          3           17  18  19   1   2   3   4   5  13
+      10          3           17  18  20   1   2   3   4   5  13
+      11          1           19   1   2   3   4   5  13  17
+      12          1           20   1   2   3   4   5  13  17
+
+ ========================================================================================================
+
+                                        ***********************
+                                        integral transformation
+                                        ***********************
+
+
+ vectors restored from section    5
+
+ header block information : 
+ gvb    vectors created at 12:18:44 on Mar 26   in the job jmht    
+ with the title: h2co+ 2b2 3-21g - explicit data for defaults -113.06510859                      
+
+ the following orbitals included in active list
+ ==============================================
+ function e/i label     function e/i label     function e/i label     function e/i label
+ ----------------------------------------------------------------------------------------
+        1         1            2         2            3         3            4         4
+        5         5            6         6            7         7            8         8
+        9         9           10        10           11        11           12        12
+       13        13           14        14           15        15           16        16
+       17        17           18        18           19        19           20        20
+       21        21           22        22
+
+ no functions specified in frozen core list
+
+ route transformed core hamiltonian to section  466
+ 4-index information dumped to section 486 of dumpfile starting at block     1 on ed3 
+
+ 2-electron integral files
+ *************************
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ secondary mainfile
+ ******************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ start of integral transformation at    0.07 seconds
+
+ no. of sort1 passes=   1
+
+ end of sort1 pass     1 at     0.07 seconds
+
+ job dumped after calc1 pass     1 at      0.08 seconds
+
+ status of secondary mainfile
+ ****************************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks    80
+
+ no. of sort2 passes=   1
+
+ end of sort2 pass     1 at     0.08 seconds
+
+ job dumped after calc2 pass     1 at      0.09 seconds
+
+ end of 4-index transformation at    0.09 seconds
+
+ status of transformed integral file
+ ***********************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    32
+
+ start of 2-index transformation at     0.09 seconds
+
+ effective nuclear repulsion term   0.313837200451E+02
+
+ end of 2-index transformation at     0.09 seconds
+
+ end of integral transformation at     0.09 seconds
+
+
+ ** symmetry taken from adapt ** 
+
+       multiplication table
+       ====================
+       1  2  3  4
+       2  1  4  3
+       3  4  1  2
+       4  3  2  1
+
+
+--------------------------------------------------------------------------------------------------------
+
+ **** sort of integrals and generation of fort.31 called at        0.090 secs
+ **** generation of fort.31 for MRDCI program
+
+   number of irreducible representations           4
+
+   irrep.    no. of mos
+   ====================
+      1          12
+      2           4
+      3           6
+      4           0
+
+
+  MO    symmetry  new label 
+ ========================== 
+   1           1          1
+   2           1          2
+   3           1          3
+   4           1          4
+   5           1          5
+   6           3         17
+   7           2         13
+   8           3         18
+   9           2         14
+  10           1          6
+  11           3         19
+  12           1          7
+  13           2         15
+  14           3         20
+  15           1          8
+  16           1          9
+  17           3         21
+  18           1         10
+  19           2         16
+  20           1         11
+  21           3         22
+  22           1         12
+
+  number of sort passes    1
+
+
+ *** Symmetry check : Largest forbidden integral : .00000E+00
+
+
+ transformed 1-electron integrals restored from section 466 of dumpfile starting at block       1 of ed3 
+
+ total number of 2e-integral records written to fort.31 =     8
+
+
+ **** end of sort of integrals and generation of fort.31 at        0.110 secs
+
+--------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        Semi-direct Table-CI Calculation
+                                        ********************************
+
+
+                                        ****************************************
+                                        *** MRD-CI V2.0: Table Generation Module
+                                        ****************************************
+
+ ***  start of table generation at       0.11 seconds
+
+
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  +       This is the generator module for the CI Table.       +
+  + The author of this program is Professor Robert J. Buenker, +
+  +                   University of Wuppertal                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    7  5  5  4  4  3  3  3
+
+ case :  1     nod =  0
+
+ case :  1     nod =  2
+
+ case :  1     nod =  4
+
+ case :  1     nod =  6
+
+ case :  1     nod =  8
+
+     end case          1        30        30
+
+
+ case :  2     nod =  1
+
+ case :  2     nod =  3
+
+ case :  2     nod =  5
+
+ case :  2     nod =  7
+
+ case :  2     nod =  9
+
+     end case          2       118       118
+
+
+ case :  3     nod =  2
+
+ case :  3     nod =  4
+
+ case :  3     nod =  6
+
+ case :  3     nod =  8
+
+     end case          3       158       158
+
+
+ case :  4     nod =  3
+
+ case :  4     nod =  5
+
+ case :  4     nod =  7
+
+ case :  4     nod =  9
+
+     end case          4       248       248
+
+
+ case :  5     nod =  4
+
+ case :  5     nod =  6
+
+ case :  5     nod =  8
+
+     end case          5       274       274
+
+
+ case :  6     nod =  5
+
+ case :  6     nod =  7
+
+ case :  6     nod =  9
+
+     end case          6       321       321
+
+
+ case :  7     nod =  6
+
+ case :  7     nod =  8
+
+ case :  7     nod = 10
+
+     end case          7       406       406
+
+
+ ***  end of table generation at       0.25 seconds
+
+
+ ========================================================================================================
+
+                              ***********************************************
+                              *** MRD-CI V2.0: Configuration Selection Module
+                              ***********************************************
+
+
+     ***  start of selection at       0.25 seconds
+
+
+--------------------------------------------------------------------------------------------------------
+ number of electrons                :              15
+ number of reference configurations :              12
+ excitation level                   :               2
+ multiplicity                       :               2
+ ncorci                             :               0
+ spatial symmetry                   :               3
+
+ *** threshold specified ***
+ minimal selection threshold   10.00 microhartree
+ threshold increment for use in selection   10.00 microhartree
+
+--------------------------------------------------------------------------------------------------------
+  *** zero-order vector as start vector:
+ number of irreducible representations :               4
+ number of orbitals                    :              22
+ nuclear energy                        :     31.38372005
+ total number of integrals             :           10099
+
+     ***  end of reading ft31 at       0.25 seconds
+
+--------------------------------------------------------------------------------------------------------
+
+ number of orbitals     22
+ no. of electrons       15
+ no. of mains           12
+ excitations             2
+ no. of irreps.          4
+ multiplicity            2
+ ispace                  3
+ nprint                  0
+ ncorci                  0
+ The set of   12 main configurations leads to   18 spin adapted functions.
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          numbers of open shells and corresponding main configurations
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+     input  number of     main
+     index  open shells   configuration
+
+       1     1           18   1   2   3   4   5  13  17
+       2     1           18   1   2   3   4   6  13  17
+       3     3            5   6  18   1   2   3   4  13  17
+       4     3            5   7  18   1   2   3   4  13  17
+       5     1           18   1   2   3   4   5  14  17
+       6     3           13  14  18   1   2   3   4   5  17
+       7     3           13  15  18   1   2   3   4   5  17
+       8     1           18   1   2   3   4   5  13  19
+       9     3           17  18  19   1   2   3   4   5  13
+      10     3           17  18  20   1   2   3   4   5  13
+      11     1           19   1   2   3   4   5  13  17
+      12     1           20   1   2   3   4   5  13  17
+
+  symmetry data
+
+     ===============
+     orbital   irrep
+     ===============
+       1 -  12     1
+      13 -  16     2
+      17 -  22     3
+
+ no. of categories in each super-category
+
+ no. of configurations in super-category  1 =      703
+ no. of configurations in super-category  2 =     3994
+ no. of configurations in super-category  3 =     5400
+ no. of configurations in super-category  4 =     1814
+          transferred       703 configurations with 1 open shell(s)
+          transferred      3994 configurations with 3 open shell(s)
+          transferred      5400 configurations with 5 open shell(s)
+          transferred      1814 configurations with 7 open shell(s)
+
+ configuration generation complete
+
+ total number of configurations
+ ==============================
+ configurations in super category 1 =      703
+ configurations in super category 2 =     3994
+ configurations in super category 3 =     5400
+ configurations in super category 4 =     1814
+ configurations in super category 5 =        0
+ configurations in super category 6 =        0
+ configurations in super category 7 =        0
+
+     ***  end of configuration generation at       0.26 seconds
+
+--------------------------------------------------------------------------------------------------------
+ ===================================================
+ Compute the discarded energy contributions (geysez)
+ ===================================================
+
+    1    1 -999    0    0    0
+
+ all single excitations are taken into account
+
+ changed ordering of reference configurations
+
+             1  11  12   2   5   8   3   4   6   7   9  10
+
+ end of label generation at       0.27 seconds
+
+ number of integrals :    10099
+
+ total number of 2e-integral records read from fort.31 =     8
+
+ ============================================
+ = Solve zero-order problem and select safs = 
+ ============================================
+
+
+ *** table data base assigned correctly
+
+
+ end of zero order ci at     0.27 seconds
+
+                                        ==================================================
+                                        =            Root Eigenvectors                   =
+                                        = (coefficients in input configuration ordering) =
+                                        ==================================================
+
+ SAF MAIN
+              1        2        3        4        5        6
+   1   1   0.9849*  0.0866  -0.0766  -0.0480  -0.0039   0.0105 
+   2   2  -0.0102  -0.0011   0.0013   0.0027  -0.0402   0.0135 
+   3   3   0.0006   0.0000   0.0014  -0.0507   0.8047* -0.2551*
+   4   3   0.0062  -0.0026  -0.0151   0.1624  -0.5691* -0.2387*
+   5   4   0.0053  -0.0218   0.1618   0.0771  -0.0443  -0.2194*
+   6   4  -0.0042   0.0004  -0.0048  -0.0470   0.0026   0.2428*
+   7   5  -0.1324   0.0612  -0.3138* -0.0387  -0.0121   0.0048 
+   8   6   0.0552  -0.1561   0.8983*  0.1000   0.0066  -0.0262 
+   9   6  -0.0700   0.9787*  0.1770   0.0102  -0.0022  -0.0070 
+  10   7  -0.0059   0.0086  -0.0450  -0.0261  -0.0430  -0.0719 
+  11   7   0.0048  -0.0714  -0.0146   0.0069   0.0001   0.0013 
+  12   8  -0.0376  -0.0037   0.0025  -0.0321  -0.0095  -0.0605 
+  13   9   0.0425  -0.0015  -0.0331   0.6488*  0.0879   0.1052 
+  14   9  -0.0174  -0.0085   0.0970  -0.1536   0.0329   0.8470*
+  15  10  -0.0209  -0.0051   0.0216   0.0536  -0.0097  -0.0419 
+  16  10   0.0127  -0.0042   0.0305  -0.0395  -0.0229   0.0363 
+  17  11   0.0083   0.0213  -0.1188   0.7052*  0.1157   0.1700 
+  18  12   0.0000  -0.0141   0.0527   0.0290   0.0061  -0.0227 
+
+
+                                        -----------------
+                                        root eigen values
+                                        -----------------
+
+            -112.8953123  -112.5670001  -112.4528809  -112.2989703  -112.1127880  -112.0867332  -112.0700695  -112.0513289
+
+            -112.0215146  -111.8642926  -111.7868568  -111.7225344  -111.6782609  -111.6271099  -111.5133201  -111.3511690
+
+            -111.1992555  -110.9658324
+
+ *** threshold specified ***
+
+ minimal selection threshold   10.00 microhartree
+ threshold increment for use in selection   10.00 microhartree
+
+
+ following threshold classes to be investigated
+    0.000010   0.000001   0.000003   0.000005   0.000010   0.000020   0.000030   0.000040   0.000050   0.000060   0.000070
+
+
+ summary of energy lowerings
+ ===========================
+
+ threshold domain (mh)    safs     energy sum        root
+     0.000500000          4452       0.96676            1
+     0.002500000          2933       2.61090            1
+     0.005000000          2580       3.87352            1
+     0.010000000          2322       5.75349            1
+     0.020000000          2113       8.65854            1
+     0.030000000          1984      11.80161            1
+     0.040000000          1942      13.28455            1
+     0.050000000          1902      15.10908            1
+     0.060000000          1882      16.20489            1
+     0.070000000          1844      18.66617            1
+
+ from a total of         61087  safs
+
+
+ total number of guessed ci-coefficients:        52711
+
+ ci-coefficients below the guess :                6807
+
+ guess of the ci - coefficients:
+ *******************************
+
+ coefficients domain
+ 0.100000D+01 - 0.100000D+00                                                              0
+ 0.100000D+00 - 0.464159D-01                                                              0
+ 0.464159D-01 - 0.215443D-01                                                              0
+ 0.215443D-01 - 0.100000D-01                                                              0
+ 0.100000D-01 - 0.464159D-02                                                             11
+ 0.464159D-02 - 0.215443D-02                                                             59
+ 0.215443D-02 - 0.100000D-02  =                                                         125
+ 0.100000D-02 - 0.464159D-03  ==                                                        231
+ 0.464159D-03 - 0.215443D-03  ===                                                       394
+ 0.215443D-03 - 0.100000D-03  =======                                                   766
+ 0.100000D-03 - 0.464159D-04  =============                                            1489
+ 0.464159D-04 - 0.215443D-04  ====================                                     2236
+ 0.215443D-04 - 0.100000D-04  =============================                            3206
+ 0.100000D-04 - 0.464159D-05  ======================================                   4178
+ 0.464159D-05 - 0.215443D-05  ==============================================           5030
+ 0.215443D-05 - 0.100000D-05  =================================================        5303
+ 0.100000D-05 - 0.464159D-06  ==================================================       5410
+ 0.464159D-06 - 0.215443D-06  ================================================         5245
+ 0.215443D-06 - 0.100000D-06  ===========================================              4744
+ 0.100000D-06 - 0.464159D-07  ===================================                      3862
+ 0.464159D-07 - 0.215443D-07  ============================                             3117
+ 0.215443D-07 - 0.100000D-07  =====================                                    2278
+ 0.100000D-07 - 0.464159D-08  ===============                                          1723
+ 0.464159D-08 - 0.215443D-08  ==========                                               1110
+ 0.215443D-08 - 0.100000D-08  =======                                                   777
+ 0.100000D-08 - 0.464159D-09  =====                                                     546
+ 0.464159D-09 - 0.215443D-09  ===                                                       337
+ 0.215443D-09 - 0.100000D-09  =                                                         181
+ 0.100000D-09 - 0.464159D-10  =                                                         150
+ 0.464159D-10 - 0.215443D-10                                                             99
+ 0.215443D-10 - 0.100000D-10                                                             51
+ 0.100000D-10 - 0.464159D-11                                                             28
+ 0.464159D-11 - 0.215443D-11                                                             16
+ 0.215443D-11 - 0.100000D-11                                                              7
+ 0.100000D-11 - 0.464159D-12                                                              1
+ 0.464159D-12 - 0.215443D-12                                                              1
+
+ ##############################################################
+
+
+     ***  end of configuration selection at       0.44 seconds
+
+ ********************************************************************************************************
+
+     ***  start of refcon at       0.44 seconds
+
+
+ number of selected configurations in each super category
+         122    430    268      0      0
+
+  number of reference configurations:            12
+  number of electrons:                           15
+
+
+     ***  end of refcon at       0.45 seconds
+
+--------------------------------------------------------------------------------------------------------
+
+     ***  start of semi-direct MRD-CI module at       0.45 seconds
+
+  ===============================
+  == Semi-direct MRD-CI Module ==
+  ===============================
+
+  multiroot - version
+  creators/annihilators for configurations
+
+
+  =========================================================
+  === input-parameters                                  ===
+  ===---------------------------------------------------===
+  === number of roots                                 1 ===
+  === first  root                                     1 ===
+  === last root                                       1 ===
+  === number of secular equations                     1 ===
+  === ci-tolerance                             5.00E-03 ===
+  === printoff (ci coefficients)               5.00E-02 ===
+  === printoff (c**2)                          2.00E-03 ===
+  === number of starting vectors                      1 ===
+  === print flag                                      0 ===
+  === ndeci                                           1 ===
+  === icode                                           0 ===
+  === konf                                            0 ===
+  === keps                                            0 ===
+  =========================================================
+  === all integrals are kept in memory                  ===
+  =========================================================
+  === ft31 format of gamess-uk is assumed               ===
+  =========================================================
+  === reference vectors are used for start              ===
+  =========================================================
+  === direct Table-CI                                   ===
+  =========================================================
+
+ ***** selected roots    1
+ memory for configurations
+  required (iotm) =         7526
+
+ *** Key parameters in determining memory
+ *** nteint, mdi, iotm =      10099      2322      7526
+
+ ***************************************************
+ * First allocate sufficient memory to enable real *
+ * memory allocations to be determined             *
+ ***************************************************
+
+ memory for 2-e integrals
+  required =               10099 R*8 words
+  available (nteint)  =    12000 R*8 words
+ memory for configurations
+  required (ny)    =         7526
+  available (iotm) =         7526
+ memory for hamiltonian matrix
+  required (mz)   =         2322
+  available (mdi) =         2323
+
+ **********************************************************
+ * now derive memory for 2e-integrals, configurations and *
+ * hamiltonian matrix, assuming all integrals in memory   *
+ * and vectors derived in single-pass mode                *
+ **********************************************************
+
+ memory for 2-e integrals
+  required =               10099 R*8 words
+  available (nteint)  =    12000 R*8 words
+ memory for configurations
+  required (ny)    =         7526
+  available (iotm) =         7526
+ memory for hamiltonian matrix
+  required (mz)   =         2322
+  available (mdi) =         2323
+
+     ++++++++++++++++++++++++++++
+     + Final memory allocations +
+     ++++++++++++++++++++++++++++
+     +    integs     12000 R*8  +
+     +      mdiT     18582 R*8  +
+     +      iotm     15052 R*8  +
+     +     nedim   2000000 R*8  +
+     +      diag    163968 R*8  +
+     ++++++++++++++++++++++++++++
+     + allocated   2319110 R*8  +
+     + required    2319110 R*8  +
+     ++++++++++++++++++++++++++++
+
+ *** commence lower threshold (T= 10.0 uh) calculation at       0.45 seconds
+
+ zero-order vectors used as start vectors
+ start vectors read
+ starting vector  1 has dimension    2322
+
+ ===========================
+ === multi-root davidson ===
+ ===========================
+
+ ***  building the start matrix
+
+   1  start vectors are treated in   1 cycles 
+  the ordered roots are   1
+  this pass treats the following roots :   1
+
+ commence pass at       0.49 seconds
+ =====================================================================
+ iter  root-no.   energy       e.-lower       tester       res. norm
+ =====================================================================
+   1     1  -112.8953122734   0.113D+03      .954D-01       .811D+00
+
+   2     1  -113.0544972506   0.159D+00      .679D-01       .160D+00
+
+   3     1  -113.0634952440   0.900D-02      .159D-01       .609D-01
+
+   4     1  -113.0648800766   0.138D-02      .104D-01       .183D-01
+
+   5     1  -113.0650621958   0.182D-03      .336D-02       .955D-02
+
+   6     1  -113.0651021923   0.400D-04      .106D-02       .400D-02
+
+   7     1  -113.0651085789   0.639D-05      .122D-03       .105D-02
+
+   8     1  -113.0651089610   0.382D-06      .299D-04       .253D-03
+ root  1 is converged
+
+          === all roots are converged
+
+ ====================================================================
+
+ **** all roots are converged
+
+ ci-eigenvalues : 
+             1 energy : -113.0651089610
+
+ *** lower threshold (T= 10.0 uh) calculation complete at       0.76 seconds
+
+
+ ><><><><><><><><><><><><><>><><><><><><><>
+ >>>>> commence CI vector analysis : <<<<<<
+ >>>>>> T= 10.0 uh threshold problem <<<<<<
+ ><><><><><><><><><><><><><>><><><><><><><>
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      122     430     268       0       0
+   safs                :      122     860    1340       0       0
+   slaterdeterminants  :      122    1290    2680       0       0
+
+ total number of safs =       2322
+
+          ***************
+          * root =    1 *
+          ***************
+
+ ci vector read     ci coefficients
+
+        =============================
+        coefficient     configuration
+        =============================
+           0.953869         1
+          -0.091687         2
+          -0.104196        65
+           0.079569       193
+          -0.058288       194
+          -0.083323       701
+
+ +++ eigenstate has largest overlap with zero-order vector  1
+ +++ overlap =         0.9660078995
+
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    + Overlap of Eigenstates with the Zero-order Vectors +
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                    *** Eigenstates *** 
+ Zero Order
+   Root                 1
+     1              0.9660079*
+
+          *************************
+          * configuration weights *
+          *************************
+          ***** Root  1 ***********
+          =============================
+                  c*c     configuration
+          =============================
+          m   0.90987  18   1   2   3   4   5  13  17
+              0.00841  17   1   2   3   4   5  13  18
+          m   0.00047  19   1   2   3   4   5  13  17
+          m   0.00003  20   1   2   3   4   5  13  17
+          m   0.00014  18   1   2   3   4   6  13  17
+          m   0.01086  18   1   2   3   4   5  14  17
+          m   0.00115  18   1   2   3   4   5  13  19
+          m   0.00010   5   6  18   1   2   3   4  13  17
+          m   0.00001   5   7  18   1   2   3   4  13  17
+          m   0.00973  13  14  18   1   2   3   4   5  17
+          m   0.00055  13  15  18   1   2   3   4   5  17
+          m   0.00185  17  18  19   1   2   3   4   5  13
+          m   0.00038  17  18  20   1   2   3   4   5  13
+              0.00696  13  14  17   1   2   3   4   5  18
+ sum of main reference c*c =     0.93513249
+
+
+ **** ci-vector file (ft36) written
+
+ ====================================================================
+
+ *** commence higher threshold (T= 20.0 uh) calculation at       0.76 seconds
+
+
+ ===================
+ = Lower threshold =
+ ===================
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      122     430     268       0       0
+   safs                :      122     860    1340       0       0
+   slaterdeterminants  :      122    1290    2680       0       0
+
+ total number of configurations    ;     820
+ total number of safs              ;    2322
+ total number of slaterdeterminants;    4092
+
+ reduction of          2322  --->         2113  safs
+
+ ====================
+ = Higher threshold =
+ ====================
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      101     376     252       0       0
+   safs                :      101     752    1260       0       0
+   slaterdeterminants  :      101    1128    2520       0       0
+
+ total number of configurations    ;     729
+ total number of safs              ;    2113
+ total number of slaterdeterminants;    3749
+
+
+ ===========================
+ === multi-root davidson ===
+ ===========================
+
+ ***  building the start matrix
+
+   1  start vectors are treated in   1 cycles 
+  the ordered roots are   1
+  this pass treats the following roots :   1
+
+ commence pass at       0.80 seconds
+ =====================================================================
+ iter  root-no.   energy       e.-lower       tester       res. norm
+ =====================================================================
+   1     1  -113.0624060455   0.113D+03      .115D-02       .806D-02
+
+   2     1  -113.0624264134   0.204D-04      .458D-03       .153D-02
+
+   3     1  -113.0624271345   0.721D-06      .311D-03       .474D-03
+
+   4     1  -113.0624272138   0.794D-07      .791D-04       .158D-03
+ root  1 is converged
+
+          === all roots are converged
+
+ ====================================================================
+
+ **** all roots are converged
+
+ ci-eigenvalue (T = 20.0 uH threshold):
+            1  energy :   -113.0624272138348     
+
+ *** higher threshold (T= 20.0 uh) calculation complete at       0.91 seconds
+
+
+ ><><><><><><><><><><><><><>><><><><><><><>
+ >>>>> commence CI vector analysis : <<<<<<
+ >>>>>> T= 20.0 uh threshold problem <<<<<<
+ ><><><><><><><><><><><><><>><><><><><><><>
+
+ super category                1        2       3       4      5
+ ----------------------------------------------------------------
+   configurations      :      101     376     252       0       0
+   safs                :      101     752    1260       0       0
+   slaterdeterminants  :      101    1128    2520       0       0
+
+ total number of safs =       2113
+
+          ***************
+          * root =    1 *
+          ***************
+
+ ci vector read     ci coefficients
+
+        =============================
+        coefficient     configuration
+        =============================
+           0.954289         1
+          -0.091617         2
+          -0.103173        55
+           0.079448       172
+          -0.058288       173
+          -0.083425       588
+
+ +++ eigenstate has largest overlap with zero-order vector  1
+ +++ overlap =         0.9663048517
+
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    + Overlap of Eigenstates with the Zero-order Vectors +
+                    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                    *** Eigenstates *** 
+ Zero Order
+   Root                 1
+     1              0.9663049*
+ **** no writing of ci-vector file (ft36)
+
+ ====================================================================
+
+
+ **** commence Buenker and Peyerimhoff extrapolation at      0.91 seconds
+
+     ***********
+     root =  1 *
+     ***********
+
+
+ standard extrapolation
+ ======================
+
+ root   1 has largest overlap with zero-order vector
+ large problem (T= 10.0) :  1       0.966008
+ small problem (T= 20.0) :  1       0.966305
+
+ used for calculation of lambda :
+ (T= 10.0) E-CI( 1)     -113.065109       0.005753
+ (T= 20.0) E-CI( 1)     -113.062427       0.008659
+
+ optimal lambda =   0.92313119
+
+ ci energy           =   -113.06510896 hartree  (root  1)
+ extrapolated energy =   -113.07042018   [   root  1  c**2      =     0.9351 ]
+ davidson            =   -113.08177900   [   1-c**2             =     0.0649 ]
+ weights davidson1   =   -113.08256693   [  (1-c**2)/ c**2      =     0.0694 ]
+ weights davidson2   =   -113.08347232   [  (1-c**2)/(2*c**2-1) =     0.0745 ]
+
+ weighted extrapolation
+ ======================
+
+ used for calculation of lambda :
+ (T= 10.0) E-CI( 1)     -113.065109       0.005753
+ (T= 20.0) E-CI( 1)     -113.062427       0.008659
+ ci energy           =   -113.06510896 hartree 
+
+ optimal lambda =   0.92313119
+
+ extrapolated energy =   -113.07042018   [    c**2              =     0.9351 ]
+ davidson            =   -113.08177900   [   1-c**2             =     0.0649 ]
+ weights davidson1   =   -113.08256693   [  (1-c**2)/ c**2      =     0.0694 ]
+ weights davidson2   =   -113.08347232   [  (1-c**2)/(2*c**2-1) =     0.0745 ]
+
+
+
+ **** Buenker and Peyerimhoff extrapolation complete at      0.91 seconds
+
+
+ ***  end of semi-direct MRD-CI module at       0.91 seconds
+
+ ========================================================================================================
+
+                                        ***************************************
+                                        *** MRD-CI V2.0: Natural Orbital Module
+                                        ***************************************
+
+ dumpfile on ed3  at block     1
+
+ *** restore ci-data from unit            36
+
+ *** natural orbital analysis requested for  1 ci vectors
+
+     with following locations on the ci vector file (ft36)  1
+
+
+ no. of active orbitals  22
+ no. of active electrons 15
+
+ irreducible       no. of
+ representation    active orbitals
+ ----------------------------------------
+           1           12
+           2            4
+           3            6
+ ----------------------------------------
+
+ *** commence natural orbital analysis at     0.91 secs.
+
+ ********************************************************************************************************
+
+                                        natural orbital analysis for state no.  1
+                                        -----------------------------------------
+
+ CI energy           =   -113.06510896 hartree 
+ extrapolated energy =   -113.07042018 hartree 
+ c**2                =     0.9351
+
+
+ **** irrep. no. 1          **** sum of occupation numbers    9.99753369
+
+
+ **** irrep. no. 2          **** sum of occupation numbers    2.00340489
+
+
+ **** irrep. no. 3          **** sum of occupation numbers    2.99906142
+
+
+ **** irrep. no. 4          **** sum of occupation numbers    0.00000000
+
+
+  total active electron sum         15.00000000
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        natural orbitals for state  1  (a.o. basis)
+                                        -------------------------------------------
+
+
+                                                  occupation numbers
+                                                  ------------------
+
+               1.9999581     1.9999282     1.9924137     1.9823239     1.9759120     1.9709156     1.9445709     1.0036025
+
+               0.0536917     0.0202318     0.0170024     0.0145646     0.0061233     0.0052505     0.0038852     0.0025934
+
+               0.0021679     0.0017177     0.0012572     0.0009682     0.0005727     0.0003487
+
+ ********************************************************************************************************
+
+ *** end of natural orbital analysis at     0.94 secs.
+
+
+ end of Table-CI calculation at     0.94 seconds
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      0.94          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      0.94 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               363 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      4    3     239      34
+ *      5    3     274      34
+ *    205    5     234       1
+ *    206    6     235       1
+ *    207    7     312       1
+ *    208    8     314      34
+ *    209    9     348       1
+ *    213   13     194       1
+ *    242   42     313       1
+ *    244   44     186       7
+ *    253   53     214       4
+ *    303  103     193       1
+ *    408  101       7       7
+ *    420  100     115      71
+ *    466 1004     350      14
+ *    467  167     236       3
+ *    470 1005     195      15
+ *    486  500     349       1
+ *    490   51     225       5
+ *    491    1      54      61
+ *    492    2     218       7
+ *    493   15       6       1
+ *    494   16     311       1
+ *    496   18      14      40
+ *    497   19     230       4
+ *    499   99     308       3
+ *    500   20     273       1
+ *    501   21       2       4
+ *    504   23     210       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      4    gvb      12:18:44 on Mar 26  h2co+ 2b2 3-21g - explicit data for defaults -113.06510859
+ *      5    gvb      12:18:44 on Mar 26  h2co+ 2b2 3-21g - explicit data for defaults -113.06510859
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       47      47
+ ed3      275     275
+ ed7       13      13
+ table     56     406
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.01      1.06            0.01      0.90
+ vector generation                     0.00      0.00            0.00      0.27
+ 2e-integral evaluation                0.01      1.06            0.01      0.58
+ scf                                   0.04      4.26            0.05      4.29
+ integral transformation               0.04      4.26            0.13     11.38
+ table-ci                              0.83     88.30            0.93     82.08
+ other                                 0.01      1.06            0.01      0.50
+ ******************************************************************************
+ Total                                 0.94                      1.13
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =      3105994 words
+Return Code =  0

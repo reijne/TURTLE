@@ -1,0 +1,36 @@
+
+Begin optimization report for: DAMAX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at damax.f(50,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at damax.f(50,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at damax.f(50,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at damax.f(57,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at damax.f(57,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at damax.f(57,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at damax.f(57,12)
+<Remainder>
+LOOP END
+===========================================================================

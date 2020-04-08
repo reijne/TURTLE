@@ -1,0 +1,49 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+# and has been ammended for both mopac v6
+# and V7 (mopac7.m)
+# Use the configure script in ../m4
+#
+
+#--#if mopac6#
+MOPACOBJ = mopac.o
+#--#else#
+MOPACOBJ = mopac7.o 
+#--#endif mopac6#
+
+MOPACLIB = libmopac.a
+
+mopac:	$(MOPACLIB)
+
+$(MOPACLIB):	$(MOPACOBJ)
+		$(ARCHIVE) $(MOPACLIB)  $(MOPACOBJ)
+		$(RANLIB) $(MOPACLIB)
+
+clean:
+	touch x.o x~ x.f \#x
+	rm -f *.o *.f *~ \#* $(MOPACLIB) 
+
+.DEFAULT:
+	(cd ../m4; make $@)
+#--#if mopac7#
+#--#if axpev6 axpev5#
+#
+#  ==========  Exceptions for Compaq Tru64 ====
+#
+mopac7.o:        mopac7.m
+	cat ../machines/$(MACH) ../utilities/gener.m mopac7.m | $(M4) $(M4OPTS) > mopac7.f
+	$(FC) $(FFLAGSS) mopac7.f
+#--#endif axpev6 axpev5#
+#--#else#
+#
+#--#if axpev6 axpev5#
+#
+#  ==========  Exceptions for Compaq Tru64 ====
+#
+mopac.o:	mopac.m
+	cat ../machines/$(MACH) ../utilities/gener.m mopac.m | $(M4) $(M4OPTS) > mopac.f
+	$(FC) $(FFLAGSS) mopac.f
+#--#endif axpev6 axpev5#
+#--#endif mopac7#
+

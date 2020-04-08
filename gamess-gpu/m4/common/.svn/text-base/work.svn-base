@@ -1,0 +1,15 @@
+c
+c     mxtoken - the maximum number of tokens on an input line
+c               for space separated tokens: 132/2 plus 1 to allow
+c               for look ahead (132 is the line-length defined in
+c               common/workc)
+c
+      integer mxtoken
+      parameter(mxtoken=67)
+      integer jrec, jump, istrt, inumb, iwidth, nend, nstart
+      integer nline, noline, jwidth, nerr
+      logical oswit, oterm, oflush
+      common/work/jrec,jump,istrt(mxtoken),inumb(mxtoken),iwidth,
+     + nend(mxtoken),nstart(mxtoken), nline,noline,jwidth,nerr,
+     + oswit,oterm,oflush
+c

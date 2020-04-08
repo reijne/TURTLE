@@ -1,0 +1,78 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+file ed3 mfged3
+time 120
+title
+fe(co)2(no)2  specimen z-matrix
+zmat angstrom
+fe
+x 1 1.0
+c 1 fec 2 cfex
+c 1 fec 2 cfex 3 180.0
+x 3 1.0 1 90.0 2 180.0
+o 3 co 5 90.0 1 180.0
+x 4 1.0 1 90.0 2 180.0
+o 4 co 7 90.0 1 180.0
+x 1 1.0 2 90.0 4 180.0
+x 1 1.0 9 90.0 2 180.0
+n 1 fen 10 nfex 9 90.0
+x 11 1.0 1 90.0 10 180.0
+o 11 no 12 90.0 1 180.0
+n 1 fen 10 nfex 9 -90.0
+x 14 1.0 1 90.0 10 180.0
+o 14 no 15 90.0 1 180.0
+variables
+fec 1.84
+cfex 53.829
+co 1.15
+fen 1.77
+nfex 55.922
+no 1.12
+end
+basis sto3g
+scftype direct
+level 3 10 2
+maxcyc 25
+vectors minguess
+enter 1
+EOF
+#
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+time 120
+file ed3 mfged3
+restart scf
+title
+fe(co)2(no)2  SCF / total energy     -1726.2611887
+zmat angstrom
+fe
+x 1 1.0
+c 1 fec 2 cfex
+c 1 fec 2 cfex 3 180.0
+x 3 1.0 1 90.0 2 180.0
+o 3 co 5 90.0 1 180.0
+x 4 1.0 1 90.0 2 180.0
+o 4 co 7 90.0 1 180.0
+x 1 1.0 2 90.0 4 180.0
+x 1 1.0 9 90.0 2 180.0
+n 1 fen 10 nfex 9 90.0
+x 11 1.0 1 90.0 10 180.0
+o 11 no 12 90.0 1 180.0
+n 1 fen 10 nfex 9 -90.0
+x 14 1.0 1 90.0 10 180.0
+o 14 no 15 90.0 1 180.0
+variables
+fec 1.84
+cfex 53.829
+co 1.15
+fen 1.77
+nfex 55.922
+no 1.12
+end
+basis sto3g
+scftype direct
+level 2 10 2
+maxcyc 50
+vectors 1
+swap\42 43\end
+enter 1
+EOF

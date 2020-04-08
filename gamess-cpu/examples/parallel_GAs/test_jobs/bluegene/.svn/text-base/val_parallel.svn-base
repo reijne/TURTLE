@@ -1,0 +1,23 @@
+#!/bin/bash
+
+inputdir=../../input_files
+executable=../../../../utilities/validate
+jobs_list=`cat $inputdir/jobs.list | grep -v "#"`
+me=`whoami`
+mycwd=`pwd`
+binary=$mycwd/../../../../bin/gamess-uk
+export GAMESS_VTAB=../validate.vtab
+
+(cd ../../../../utilities;make validate)
+for job in $jobs_list
+do
+  if (test -e $mycwd/${job}.output.$1)
+  then
+     #
+     $executable ${job} $mycwd/${job}.output.$1
+     #
+  else
+     echo ${job}.output not found.
+  fi
+done
+

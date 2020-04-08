@@ -1,0 +1,26 @@
+
+Begin optimization report for: ZLASWP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlaswp.f(84,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlaswp.f(86,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zlaswp.f(89,22)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlaswp.f(102,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlaswp.f(105,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+===========================================================================

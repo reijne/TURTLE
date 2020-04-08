@@ -1,0 +1,20 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE\H2O DZ OPTIMIZATION STARTUP
+ZMAT ANGSTROM\O\H 1 ROH\H 1 ROH 2 THETA                       
+VARIABLES\ROH 0.956 HESSIAN 0.7\THETA 104.5 HESSIAN 0.2 \END        
+BASIS DZ
+RUNTYPE OPTIMIZE\MINMAX 1 1
+ENTER                                     
+EOF
+../../bin/gamess << EOF
+RESTART OPTIMIZE
+TITLE\H2O DZ OPTIMIZE energy = -76.0110016 hartree
+ZMAT ANGSTROM\O\H 1 ROH\H 1 ROH 2 THETA                       
+VARIABLES\ROH 0.956 HESSIAN 0.7\THETA 104.5 HESSIAN 0.2 \END        
+BASIS DZ
+RUNTYPE OPTIMIZE
+ENTER                                     
+EOF

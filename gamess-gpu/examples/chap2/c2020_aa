@@ -1,0 +1,20 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../gamess << EOF
+title
+h2co - 3-21g  cisd direct-ci / CI total energy  -113.43599619
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+direct 16 8 14
+conf
+2 2 2 2 2 2 2 2 
+natorb 10 0 print
+enter 1
+EOF

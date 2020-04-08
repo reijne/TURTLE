@@ -1,0 +1,27 @@
+#!/bin/csh
+#
+# validation for scf_2048
+#
+setenv GAMESS_VTAB ./2048.vtab
+set path=(../../utilities $path)
+validate test_1  LOG/test_1.log
+validate test_2  LOG/test_2.log
+validate test_3  LOG/test_3.log
+validate test_4  LOG/test_4.log
+validate test_5  LOG/test_5.log
+validate test_6  LOG/test_6.log
+validate test_7  LOG/test_7.log
+validate test_8  LOG/test_8.log
+validate test_9  LOG/test_9.log
+validate test_10  LOG/test_10.log
+validate test_11  LOG/test_11.log
+validate test_13  LOG/test_13.log
+validate test_14  LOG/test_14.log
+validate test_15  LOG/test_15.log
+validate test_16  LOG/test_16.log
+validate test_18 LOG/test_18.log
+validate test_21 LOG/test_21.log
+validate test_22 LOG/test_22.log
+validate test_23 LOG/test_23.log
+validate test_24 LOG/test_24.log
+validate test_25 LOG/test_25.log

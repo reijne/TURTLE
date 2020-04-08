@@ -1,0 +1,11 @@
+c
+      REAL bp01, b00, b10, xcp00, xc00, ycp00, yc00, zcp00, zc00
+      REAL f00, dxij, dyij, dzij, dxkl, dykl, dzkl
+      integer iorg, korg, nimax, njmax, nkmax, nlmax, nmax, mmax
+      integer ij1x,ij2x,kl1x,kl2x
+      common /setdd/ bp01(ncmax),b00(ncmax),b10(ncmax),
+     + xcp00(ncmax),xc00(ncmax),ycp00(ncmax),yc00(ncmax),
+     + zcp00(ncmax),zc00(ncmax),f00(ncmax),
+     + dxij,dyij,dzij,dxkl,dykl,dzkl,
+     + iorg(12),korg(12),nimax,njmax,nkmax,nlmax,nmax,mmax,
+     + ij1x,ij2x,kl1x,kl2x

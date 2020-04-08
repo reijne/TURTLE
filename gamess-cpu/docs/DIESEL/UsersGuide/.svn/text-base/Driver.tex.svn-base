@@ -1,0 +1,190 @@
+\subsection{Driver}
+
+The diesel-driver was designed to simplify the application of an individually
+selecting MR-CI calculation.
+It handles the following tasks:
+\begin{enumerate}
+\item management of calculation of several multiplicities and irreps
+within a well defined directory structure
+\item iterative generation of the MR-CI space (selection of References)
+\item run selector and diagonalisator automatically on given thresholds
+\item calculation of density matrices and properties
+\item prepare results in a condensed form.
+\end{enumerate}
+
+
+
+\subsubsection{Invocation}
+{\tt diesel} 
+
+\subsubsection{Command Line Arguments}
+\begin{itemize}
+\item none
+\end{itemize}
+
+
+
+
+
+\subsubsection{Files}
+
+
+\begin{tabular}{r|p{3cm}|r|p{5cm}}
+status &name &type &content \cr
+\TspaceII
+\noalign{\hrule}
+\TspaceII
+in & stdin & ASCII & user input \cr
+\TspaceII
+in & "\$MOLCASRootDir\-/fort.31"%\footnote{or whatever has been 
+%specified in the "MOIntegralFilename"-assignment} 
+&binary&integrals in MO basis (AO$\to$MO transformation performed),
+point symmetry, number of orbitals in certain irreducible representation\cr
+\TspaceII
+\TspaceII
+out & stderr & ASCII &protocol output, progress indication\cr
+out& stdout & ASCII &results (wave function, energies, $\ldots$)\cr
+\end{tabular}
+
+
+
+
+\subsubsection{User Input and Keywords}
+\label{dieselInput}
+
+
+\label{DriverKeywords}
+\begin{tabular}{p{3cm}|c|p{1.5cm}|p{1.5cm}|p{5cm}}
+&sta- &de-&argument &\\
+keyword	&tus&fault&type &description\\[5pt]
+\hline&&&&\\[-9pt]
+
+%\begin{tabular}{r|p{1.5cm}|p{2cm}|p{5cm}}
+%keyword	&status &argument &description\cr
+%&&type &\cr
+%\TspaceII
+%\noalign{\hrule}
+%\TspaceII
+%{\tt Precision}	&optional &"float", "double" &
+%precision of matrix elements and vectors 
+%(float: 32 bit\footnote{6.9 significant digits with IEEE floating point arithmetic},
+%double: 64 bit\footnote{15.5 significant digits with IEEE floating point arithmetic}),
+%using 32 bit-precision will result in less memory consumption (especially
+%when using stored Hamilton Matrices), and slightly faster execution, but
+%may cause convergence problems. 
+%\cr
+%&& &if missing, defaults to "double"\cr
+%\TspaceII
+%{\tt IterationMode}	&optional &"CI", "ACPF", &
+%iteration mode\cr
+%&&"AQCC" &if missing, defaults to "CI"\cr
+%\end{tabular}
+
+
+
+
+
+
+{\tt Multiplicities}	&req. &-- &\key{numSet} &
+multiplicities to be calculated\tnl
+{\tt IrReps}	&req. &-- &\key{numSet} &
+irreducible representations to be calculated\tnl
+{\tt fullMRCI\-Extrapolation}	&req. & &\key{Extrapola\-tionSet} &
+methods to be used for extrapolation\tnl
+{\tt useNatural\-Orbitals}	&req. &no &\key{boolean} &\tnl
+{\tt NaturalOrbital\-Selection\-Threshold}	&opt. &--  &\key{floatNum} &
+selection threshold to be used in natural orbital calculation\tnl
+{\tt averagedNatural\-Orbitals}	&opt. &no  &\key{boolean} &
+use state averaged natural orbitals\tnl
+{\tt property\-Thresholds}	&opt. & \{\} &\key{floatSet} &
+thresholds to be used in property calculation\tnl
+{\tt orbitalFile}	&req. &  &\key{name} &
+use state averaged natural orbitals\\
+\end{tabular}
+\bigskip
+
+Additionally the following keywords are passed to the called subprograms.
+They are grouped by the subprograms.
+\begin{itemize}
+\item{\bf Selector:}\\
+{\tt SelectionThresholds},
+{\tt NumberOfElectrons},
+{\tt ExcitationLevel},
+{\tt selectInternal},
+{\tt selectNthExcitation},
+{\tt MORestrictions},
+{\tt MOEquivalence},
+{\tt SelectionEstimationMode}
+
+\item{\bf Diagonalisator:}\\
+{\tt ReferenceThreshold},
+{\tt PTReferenceThreshold},
+{\tt ConvergenceEnergyChange},
+{\tt ConvergenceEigenvectorChange},
+{\tt MaxIters},
+{\tt MaxHamiltonStorageMem}
+
+\item{\bf MR-PT:}\\
+{\tt MRPTInhomogenityThreshold},
+{\tt MRPTSelectionThresholds}
+\end{itemize}
+
+For further information on these keywords please see sections 
+\ref{SelectorKeywords},
+\ref{DiagonalisatorKeywords} and
+\ref{MRPTKeywords} respectively.
+
+\subsubsection{Input Example}
+
+
+\begin{footnotesize}
+\begin{verbatim}
+# MO integral file
+MOIntegralFilename               = fort.31
+MOIntegralFileFormat             = New
+MOLCASRootDir                    = /XYZ
+# MOs
+MORestrictions                   = none
+MOEquivalence                    = auto
+
+# electrons / state
+NumberOfElectrons                = 24
+Multiplicities                   = { 1 3 }
+IrReps                           = { 0 1 2 3 4 5 6 7 }
+Roots                            = { 1 2 3 4 5 6 7 8 }
+
+# selection
+SelectionThresholds              = { 1e-3 1e-4 1e-5 1e-6 1e-7 }
+SelectionEstimationMode          = EpsteinNesbet
+selectInternal                   = no
+selectNthExcitation              = { }
+ExcitationLevel                  = 2
+
+# reference generation
+ReferenceThreshold               = 0.004
+maxRefGenIters                   = 6
+
+
+# diagonalization / convergence
+MaxDavidsonIters                 = 40
+ConvergenceEnergyChange          = 1
+ConvergenceEigenvectorChange     = 1
+
+# natural orbitals
+#useNaturalOrbitals               = yes
+#NaturalOrbitalSelectionThreshold = 1e-6
+#averagedNaturalOrbitals          = no
+
+# extrapolation
+fullMRCIExtrapolation            = { EpsteinNesbet }
+#MRPTInhomogenityThreshold        = 1e-4
+MRPTSelectionThresholds          = { 1e-3 1e-4 1e-5 1e-6 }
+
+# properties
+propertyThresholds               = { 1e-3 1e-4 1e-5 1e-6 }
+orbitalFile                      = RASORB
+
+MaxHamiltonStorageMem            = 300MB
+\end{verbatim}
+\end{footnotesize}
+

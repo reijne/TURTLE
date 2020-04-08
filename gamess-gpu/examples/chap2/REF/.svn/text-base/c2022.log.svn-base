@@ -1,0 +1,1339 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2o - DZ basis - full-ci / final energy = -76.142702538
+ >>>>> super off nosym
+ >>>>> noprint
+ >>>>> zmat angstrom
+ >>>>> o
+ >>>>> h 1 oh
+ >>>>> h 1 oh 2 hoh
+ >>>>> variables
+ >>>>> oh 0.965
+ >>>>> hoh 104.5
+ >>>>> end
+ >>>>> basis dz
+ >>>>> active\2 to 14 end\core\1\end
+ >>>>> runtype ci\fullci 13 4 4
+ >>>>> maxcyc 4
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:18:49
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+ local       status  external file name
+ file name 
+ ********************************************************************************
+ ed2         old      mfged2                                                                          
+ ed3         old      mfged3                                                                          
+ ed6         old      mfged6                                                                          
+
+
+ ft08        unknown  file8                                                                           
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2o - dz basis - full-ci / final energy = -76.142702538                             *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ o                                                                                                                                   
+ h 1 oh                                                                                                                              
+ h 1 oh 2 hoh                                                                                                                        
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ oh           0.965000     0    0.000000    0.965000    0.965000
+ hoh        104.500000     0    0.000000  104.500000  104.500000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   o 
+   2    2   h     1   0.965000 (   1)
+   3    3   h     1   0.965000 (   2)   2  104.500 (   3)
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  o                0.000000       0.000000       0.000000
+              2  h                0.000000       0.000000       1.823586
+              3  h                1.765500       0.000000      -0.456589
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is dz                 *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -0.2232861       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.4418901      0.8931445       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.4418901      0.8931445       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *******************************************************************************
+
+
+ total number of shells                  10
+ total number of basis functions         14
+ number of electrons                     10
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      5
+ number of occupied orbitals (beta )      5
+ total number of atoms                    3
+
+
+
+ ========================================================================================================
+
+ **** full-ci input processor called at     0.00 secs
+
+ # orbitals       =    13
+
+ # alpha electrons=     4
+
+ # beta electrons =     4
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                ci       *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-5 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-09 *
+ ****************************************************** 
+
+ **************************************************** 
+ *            PRINT OPTIONS in EFFECT               * 
+ **************************************************** 
+ * suppress printing of distance matrix             * 
+ * suppress printing of basis functions             * 
+ * suppress printing of sabf specification          * 
+ * suppress printing of optimization history file   * 
+ * suppress printing of non-canonicalised vectors   * 
+ * suppress printing of wave function analysis      * 
+ * suppress printing of force constant matrix       * 
+ * suppress printing of bq coordinates and forces   * 
+ **************************************************** 
+
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1           8
+   2           2
+   3           4
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy      -75.77279924 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.00 seconds
+
+ end of 2-electron integral evaluation at     0.01 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        closed-shell rhf scf calculation
+                                        ********************************
+
+ ----- nuclear energy ----- =       9.120690364856
+
+ use symmetry adapted jacobi diagonalisation
+
+               convergence data
+               ================
+
+
+ minimise dump and scratchfile i/o
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criterion        =1.0e- 5
+ punch out option             =      0
+
+ =======================================================================================================
+   cycle           total      electronic         e conv.         tester   virtual damping           diis
+                  energy          energy                                   shift
+ =======================================================================================================
+   1   1    -75.97280707    -85.09349744    -85.09349744     0.11022566     1.000   1.000    0.000000000   
+   2   2    -76.00542052    -85.12611088     -0.03261344     0.02915466     1.000   1.000    0.000000000   
+   3   3    -76.00714955    -85.12783991     -0.00172903     0.02067846     1.000   0.000    0.000000000   
+   4   4    -76.00867992    -85.12937028     -0.00153037     0.00701050     1.000   0.000    0.000000000   
+   5   0    -76.00892493    -85.12961529     -0.00024501     0.00470243     0.000   0.000    0.000021723   
+   6   1    -76.00905305    -85.12974342     -0.00012812     0.00114882     0.000   0.000    0.000000166   
+   7   2    -76.00905853    -85.12974889     -0.00000548     0.00011268     0.000   0.000    0.000000004   
+   8   3    -76.00905856    -85.12974893     -0.00000003     0.00000875     0.000   0.000    0.000000000   
+
+          ----------------
+          energy converged
+          ----------------
+
+          --------------
+          final energies   after   8 cycles at       0.01 seconds
+          --------------
+
+
+          electronic energy                -85.1297489267
+          nuclear energy                     9.1206903649
+          total energy                     -76.0090585619
+          convergence on density             0.0000393735
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          CONVERGENCE / TESTER ANALYSIS            From DIIS
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Iter.   Tester   (domo/vmo)             Tester   (domo/vmo)
+
+              1  0.1102257 (   3  11) (*)        0.1102257 (   3  11)
+              2  0.0291547 (   3  12) (*)        0.0291547 (   3  12)
+              3  0.0206785 (   5   8) (*)        0.0206785 (   5   8)
+              4  0.0070105 (   3   7) (*)        0.0070105 (   3   7)
+              5  0.0056741 (   3   7)            0.0047024 (   3   7) (*)
+              6  0.0014026 (   3   7)            0.0011488 (   3   7) (*)
+              7  0.0001028 (   2  13)            0.0001127 (   2  13) (*)
+              8  0.0000118 (   3   7)            0.0000088 (   4   9) (*)
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.56080027       -559.4933        2.0000
+    2     1     -1.35814121        -36.9573        2.0000
+    3     3     -0.71324432        -19.4086        2.0000
+    4     1     -0.56595250        -15.4005        2.0000
+    5     2     -0.50619574        -13.7744        2.0000
+    6     1      0.20161892          5.4864        0.0000
+    7     3      0.28796936          7.8361        0.0000
+    8     2      0.86534176         23.5474        0.0000
+    9     1      0.89398170         24.3267        0.0000
+   10     3      0.92990431         25.3042        0.0000
+   11     3      1.17763977         32.0455        0.0000
+   12     1      1.17938691         32.0931        0.0000
+   13     1      1.67909702         45.6910        0.0000
+   14     1     43.32861617       1179.0431        0.0000
+ ========================================================
+
+
+ end of closed shell scf at       0.01 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ========================================================================================================
+
+                                        ***********************
+                                        integral transformation
+                                        ***********************
+
+
+ vectors restored from section    1
+
+ header block information : 
+ rhf    vectors created at 12:18:49 on Mar 26   in the job jmht    
+ with the title: h2o - dz basis - full-ci / final energy = -76.142702538                         
+
+ the following orbitals included in active list
+ ==============================================
+ function e/i label     function e/i label     function e/i label     function e/i label
+ ----------------------------------------------------------------------------------------
+        2         1            3         2            4         3            5         4
+        6         5            7         6            8         7            9         8
+       10         9           11        10           12        11           13        12
+       14        13
+
+ the following mos included in frozen core list
+ ----------------------------------------------
+ function e/i label     function e/i label     function e/i label     function e/i label
+        1         1
+
+ route transformed core hamiltonian to section  466
+ 4-index information dumped to section 486 of dumpfile starting at block     1 on ed3 
+
+ 2-electron integral files
+ *************************
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ secondary mainfile
+ ******************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ start of integral transformation at    0.01 seconds
+
+ no. of sort1 passes=   1
+
+ end of sort1 pass     1 at     0.01 seconds
+
+ job dumped after calc1 pass     1 at      0.01 seconds
+
+ status of secondary mainfile
+ ****************************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks    16
+
+ no. of sort2 passes=   1
+
+ end of sort2 pass     1 at     0.01 seconds
+
+ job dumped after calc2 pass     1 at      0.02 seconds
+
+ end of 4-index transformation at    0.02 seconds
+
+ status of transformed integral file
+ ***********************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     7
+
+ start of 2-index transformation at     0.02 seconds
+
+ effective nuclear repulsion term  -0.521764709486E+02
+
+ end of 2-index transformation at     0.02 seconds
+
+ end of integral transformation at     0.02 seconds
+
+
+ ========================================================================================================
+                                        **************************
+                                        determinant full-ci module
+                                        **************************
+
+
+
+ dumpfile resides on ed3  at block      1
+ core hamiltonian to be retrieved from section  466
+ header block information :
+ ==========================
+ number of active orbitals   13
+ number of core   orbitals    1
+ nuclear repulsion energy    0.912069036486E+01
+ core energy                -0.521764709486E+02
+
+ scf mo specifications restored from section    1 of dumpfile
+ header block information :
+ ==========================
+ rhf     vectors created at 12:18:49 on Mar 26   in the job jmht    
+ with the title : h2o - dz basis - full-ci / final energy = -76.142702538                         
+ no. of gtos          14
+ no. of scf vectors   14
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     7
+
+ number of orbitals        = 13
+ number of alpha electrons =  4
+ number of beta electrons  =  4
+ space symmetry            =  1
+
+ orbital symmetries         
+ 1 3 1 2 1 3 2 1 3 3 1 1 1
+ memory available =   3999991 reals
+
+
+ core statistics
+ ===============
+ core used to store strings     4979
+
+ integer core used for alpha add2      14118
+ integer core used for beta  add2      14118
+
+ alpha   string by sym:    189   154   196   176     0     0     0     0
+ beta    string by sym:    189   154   196   176     0     0     0     0
+ orbital  pairs by sym:     41    14    28     8     0     0     0     0
+ two-elec integrals   :     2725
+
+ alpha-1 string by sym:     84    54    92    56     0     0     0     0
+ beta-1  string by sym:     84    54    92    56     0     0     0     0
+ orbital square by sym:     69    28    56    16     0     0     0     0
+ two-elec squares     :     8937
+
+ no. of determinants in ci :     128829
+ size of padded ci vector  :     129355
+
+ no. of na+nb      states:     511225
+ no. of na-2  nb   states:      55770
+ no. of nb-2  na   states:      55770
+ no. of na-1, nb-1 states:      81796
+
+ ************************************
+
+ transformed 1-electron integrals restored from section 466
+ of dumpfile starting at block       1 of ed3 
+
+ full-ci: symmetry check / largest forbidden h-integral :   6   4 -0.77358E-14
+
+ convergence threshold for diagonalisation =  0.00050000
+ maximum number of iterations =  4
+ number of roots sought   1
+
+
+ core statistics
+ ===============
+ core used to store strings     4979
+
+ integer core used for alpha add2      14118
+ integer core used for beta  add2      14118
+
+ alpha   string by sym:    189   154   196   176     0     0     0     0
+ beta    string by sym:    189   154   196   176     0     0     0     0
+ orbital  pairs by sym:     41    14    28     8     0     0     0     0
+ two-elec integrals   :     2725
+
+ alpha-1 string by sym:     84    54    92    56     0     0     0     0
+ beta-1  string by sym:     84    54    92    56     0     0     0     0
+ orbital square by sym:     69    28    56    16     0     0     0     0
+ two-elec squares     :     8937
+
+ no. of determinants in ci :     128829
+ size of padded ci vector  :     129355
+
+ no. of na+nb      states:     511225
+ no. of na-2  nb   states:      55770
+ no. of nb-2  na   states:      55770
+ no. of na-1, nb-1 states:      81796
+
+ ************************************
+ hamiltonian diagonaliser entered at     0.02 seconds
+
+ reference alpha occ   1  2  3  4
+ reference beta  occ   1  2  3  4
+ initial configuration generated:
+ reference    98204      1.0000000         -76.0090586
+
+ Reduced hamiltonian matrix from startup 
+
+
+                 column   1
+ row   1    -76.00905856186
+
+ Reduced overlap matrix from startup 
+
+
+                 column   1
+ row   1      1.00000000000
+
+ iter  idvd  root      energy         conv.      cpu     elapsed 
+ ----  ----  ----  ---------------  --------  --------  --------
+    1     1     1   -76.0090585619  1.000000       0.6       0.6
+    2     2     1   -76.1301335359  0.192409       0.6       0.6
+    3     3     1   -76.1415710535  0.056751       0.6       0.6
+    4     4     1   -76.1427025134  0.018139       0.6       0.6
+
+          ++++++++++++++++++++++++++++++++++++++++++
+          convergence not achieved in max iterations
+          ++++++++++++++++++++++++++++++++++++++++++
+
+
+
+ full-ci: root  1 final energy =         -76.142702513407
+
+ (i8,f11.6,4x, 4i3,8x, 4i3)                                                      
+
+               analysis of ci vector
+               =====================
+
+    no.  coefficient     occupation
+ ------- -----------     ----------
+       1   0.976066      1  2  3  4          1  2  3  4
+       2  -0.056029      1  2  3  7          1  2  3  7
+
+ Examined  128829 coefficients. Found       2 greater than         0.0500000000
+
+ timing analysis
+ ===============
+ miscellaneous                0.02
+ diagonal elements            0.01
+ onel, alpha spin             0.02
+ onel, beta spin              0.00
+ twoel, alpha-2               0.11
+ twoel, beta-2                0.00
+ twoel, alpha-1,beta-1        2.28
+ spin adaption                0.00
+ ci vector printer            0.00
+ diagonalisation routine      0.08
+
+
+ performance analysis
+ ====================
+
+ module                     nops     mflops 
+ =====================  ==========  ======== 
+ onel, alpha spin         8.74D+06   436.73
+ onel, beta spin          0.00D+00     0.00
+ twoel, alpha-2           1.06D+08   959.03
+ twoel, beta-2            0.00D+00     0.00
+ twoel, alpha-1,beta-1    1.57D+09   689.36
+              d&s         4.95D+07
+              mxma        1.52D+09
+
+ i/o summary 
+ ===========
+
+ unit  type   count     mw      time (s)     mw/s     pack
+ ====  =====  =====  =========  =========  =========  ====
+    2  read       0     0.00       0.00       0.00    -1
+    2  write      8     0.02       0.00      20.00    -1
+    2  rewnd      3
+    3  read      28     3.62       0.03     114.96    -1
+    3  write      4     0.52       0.01      62.03    -1
+    3  rewnd     13
+    4  read       6     0.78       0.01     122.23    -1
+    4  write      4     0.52       0.01      65.04    -1
+    4  rewnd      3
+    8  read       0     0.00       0.00       0.00    -1
+    8  write      0     0.00       0.00       0.00    -1
+    8  rewnd      0
+
+ end of full-ci module at    2.54 seconds
+
+ ========================================================================================================
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      2.54          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      2.54 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               316 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     230      34
+ *    205    5     225       1
+ *    206    6     226       1
+ *    207    7     266       1
+ *    208    8     267      34
+ *    209    9     301       1
+ *    213   13     187       1
+ *    242   42     264       1
+ *    244   44     179       7
+ *    253   53     207       4
+ *    303  103     186       1
+ *    420  100     108      71
+ *    466 1004     303      14
+ *    467  167     227       3
+ *    470 1005     188      15
+ *    486  500     302       1
+ *    490   51     218       5
+ *    491    1      47      61
+ *    492    2     211       7
+ *    493   15       6       1
+ *    494   16     265       1
+ *    496   18       7      40
+ *    497   19     223       2
+ *    501   21       2       4
+ *    504   23     203       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      12:18:49 on Mar 26  h2o - dz basis - full-ci / final energy = -76.142702538
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       11      11
+ ed3      231     231
+ ed6        7       7
+ ed7        8       8
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.00      0.00            0.04      1.34
+ vector generation                     0.00      0.00            0.00      0.16
+ 2e-integral evaluation                0.01      0.39            0.01      0.24
+ scf                                   0.00      0.00            0.01      0.19
+ integral transformation               0.01      0.39            0.01      0.21
+ full-ci                               2.52     99.21            2.66     97.74
+ other                                 0.00      0.00            0.00      0.14
+ ******************************************************************************
+ Total                                 2.54                      2.73
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =      2666547 words
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> restart ci
+ >>>>> title
+ >>>>> h2o - DZ - restart full-ci / final energy = -76.142873869
+ >>>>> super off nosym
+ >>>>> noprint
+ >>>>> zmat angstrom
+ >>>>> o
+ >>>>> h 1 oh
+ >>>>> h 1 oh 2 hoh
+ >>>>> variables
+ >>>>> oh 0.965
+ >>>>> hoh 104.5
+ >>>>> end
+ >>>>> basis dz
+ >>>>> active\2 to 14 end\core\1\end
+ >>>>> runtype ci\fullci 13 4 4
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:18:52
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+ local       status  external file name
+ file name 
+ ********************************************************************************
+ ed2         old      mfged2                                                                          
+ ed3         old      mfged3                                                                          
+ ed6         old      mfged6                                                                          
+
+
+ ft08        unknown  file8                                                                           
+
+ ---------------------
+ this is a restart job
+ ---------------------
+ **** control information retrieved from dumpfile at block     1 on ed3 
+ **** restart task ---- ci      
+
+ -----------------------------------------
+ atomic coordinates restored from dumpfile
+ -----------------------------------------
+
+ **** restart mode    9
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2o - dz - restart full-ci / final energy = -76.142873869                           *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ o                                                                                                                                   
+ h 1 oh                                                                                                                              
+ h 1 oh 2 hoh                                                                                                                        
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ oh           0.965000     0    0.000000    0.965000    0.965000
+ hoh        104.500000     0    0.000000  104.500000  104.500000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   o 
+   2    2   h     1   0.965000 (   1)
+   3    3   h     1   0.965000 (   2)   2  104.500 (   3)
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  o                0.000000       0.000000       0.000000
+              2  h                0.000000       0.000000       1.823586
+              3  h                1.765500       0.000000      -0.456589
+
+ ------------------------------------------------------------------------
+
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is dz                 *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -0.2232861       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.4418901      0.8931445       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.4418901      0.8931445       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *******************************************************************************
+
+
+ total number of shells                  10
+ total number of basis functions         14
+ number of electrons                     10
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      5
+ number of occupied orbitals (beta )      5
+ total number of atoms                    3
+
+
+
+ ========================================================================================================
+
+ **** full-ci input processor called at     0.00 secs
+
+ # orbitals       =    13
+
+ # alpha electrons=     4
+
+ # beta electrons =     4
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                ci       *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        mosaved  *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-5 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-09 *
+ ****************************************************** 
+
+ **************************************************** 
+ *            PRINT OPTIONS in EFFECT               * 
+ **************************************************** 
+ * suppress printing of distance matrix             * 
+ * suppress printing of basis functions             * 
+ * suppress printing of sabf specification          * 
+ * suppress printing of optimization history file   * 
+ * suppress printing of non-canonicalised vectors   * 
+ * suppress printing of wave function analysis      * 
+ * suppress printing of force constant matrix       * 
+ * suppress printing of bq coordinates and forces   * 
+ **************************************************** 
+
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1           8
+   2           2
+   3           4
+ ==============================
+
+
+ molecular orbitals restored from dumpfile
+
+
+ -a-   vectors restored from section   1 of dumpfile starting at block     1 of ed3 
+
+ header block information :
+ vectors created under acct.    13545
+ rhf    vectors created by  gamess   program at 12:18:49 on Mar 26   in the job jmht    
+ with the title: h2o - dz basis - full-ci / final energy = -76.142702538                         
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ ========================================================================================================
+                                        **************************
+                                        determinant full-ci module
+                                        **************************
+
+
+
+ dumpfile resides on ed3  at block      1
+ core hamiltonian to be retrieved from section  466
+ header block information :
+ ==========================
+ number of active orbitals   13
+ number of core   orbitals    1
+ nuclear repulsion energy    0.912069036486E+01
+ core energy                -0.521764709486E+02
+
+ scf mo specifications restored from section    1 of dumpfile
+ header block information :
+ ==========================
+ rhf     vectors created at 12:18:52 on Mar 26   in the job jmht    
+ with the title : h2o - dz - restart full-ci / final energy = -76.142873869                       
+ no. of gtos          14
+ no. of scf vectors   14
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     7
+
+ number of orbitals        = 13
+ number of alpha electrons =  4
+ number of beta electrons  =  4
+ space symmetry            =  1
+
+ orbital symmetries         
+ 1 3 1 2 1 3 2 1 3 3 1 1 1
+ memory available =   3999991 reals
+
+
+ core statistics
+ ===============
+ core used to store strings     4979
+
+ integer core used for alpha add2      14118
+ integer core used for beta  add2      14118
+
+ alpha   string by sym:    189   154   196   176     0     0     0     0
+ beta    string by sym:    189   154   196   176     0     0     0     0
+ orbital  pairs by sym:     41    14    28     8     0     0     0     0
+ two-elec integrals   :     2725
+
+ alpha-1 string by sym:     84    54    92    56     0     0     0     0
+ beta-1  string by sym:     84    54    92    56     0     0     0     0
+ orbital square by sym:     69    28    56    16     0     0     0     0
+ two-elec squares     :     8937
+
+ no. of determinants in ci :     128829
+ size of padded ci vector  :     129355
+
+ no. of na+nb      states:     511225
+ no. of na-2  nb   states:      55770
+ no. of nb-2  na   states:      55770
+ no. of na-1, nb-1 states:      81796
+
+ ************************************
+
+ transformed 1-electron integrals restored from section 466
+ of dumpfile starting at block       1 of ed3 
+
+ full-ci: symmetry check / largest forbidden h-integral :   6   4 -0.77358E-14
+
+ convergence threshold for diagonalisation =  0.00050000
+ maximum number of iterations = 50
+ number of roots sought   1
+
+
+ core statistics
+ ===============
+ core used to store strings     4979
+
+ integer core used for alpha add2      14118
+ integer core used for beta  add2      14118
+
+ alpha   string by sym:    189   154   196   176     0     0     0     0
+ beta    string by sym:    189   154   196   176     0     0     0     0
+ orbital  pairs by sym:     41    14    28     8     0     0     0     0
+ two-elec integrals   :     2725
+
+ alpha-1 string by sym:     84    54    92    56     0     0     0     0
+ beta-1  string by sym:     84    54    92    56     0     0     0     0
+ orbital square by sym:     69    28    56    16     0     0     0     0
+ two-elec squares     :     8937
+
+ no. of determinants in ci :     128829
+ size of padded ci vector  :     129355
+
+ no. of na+nb      states:     511225
+ no. of na-2  nb   states:      55770
+ no. of nb-2  na   states:      55770
+ no. of na-1, nb-1 states:      81796
+
+ ************************************
+ hamiltonian diagonaliser entered at     0.01 seconds
+  read             1  vectors from unit             8
+
+ Reduced hamiltonian matrix from startup 
+
+
+                 column   1
+ row   1    -76.14270251341
+
+ Reduced overlap matrix from startup 
+
+
+                 column   1
+ row   1      1.00000000000
+
+ iter  idvd  root      energy         conv.      cpu     elapsed 
+ ----  ----  ----  ---------------  --------  --------  --------
+    1     1     1   -76.1427025134  1.000000       0.6       0.6
+    2     2     1   -76.1428405784  0.006712       0.6       0.7
+    3     3     1   -76.1428700076  0.003362       0.6       0.9
+    4     4     1   -76.1428736016  0.000981       0.6       0.6
+    5     5     1   -76.1428738444  0.000284       0.6       0.7
+
+                    **************************
+                    convergence at cycle     5
+                    **************************
+
+ full-ci: root  1 final energy =         -76.142873844435
+
+ (i8,f11.6,4x, 4i3,8x, 4i3)                                                      
+
+               analysis of ci vector
+               =====================
+
+    no.  coefficient     occupation
+ ------- -----------     ----------
+       1   0.975701      1  2  3  4          1  2  3  4
+       2  -0.056698      1  2  3  7          1  2  3  7
+
+ Examined  128829 coefficients. Found       2 greater than         0.0500000000
+
+ timing analysis
+ ===============
+ miscellaneous                0.03
+ diagonal elements            0.01
+ onel, alpha spin             0.04
+ onel, beta spin              0.00
+ twoel, alpha-2               0.13
+ twoel, beta-2                0.00
+ twoel, alpha-1,beta-1        2.81
+ spin adaption                0.00
+ ci vector printer            0.00
+ diagonalisation routine      0.20
+
+
+ performance analysis
+ ====================
+
+ module                     nops     mflops 
+ =====================  ==========  ======== 
+ onel, alpha spin         1.09D+07   273.02
+ onel, beta spin          0.00D+00     0.00
+ twoel, alpha-2           1.32D+08  1014.37
+ twoel, beta-2            0.00D+00     0.00
+ twoel, alpha-1,beta-1    1.96D+09   699.17
+              d&s         6.18D+07
+              mxma        1.90D+09
+
+ i/o summary 
+ ===========
+
+ unit  type   count     mw      time (s)     mw/s     pack
+ ====  =====  =====  =========  =========  =========  ====
+    2  read       0     0.00       0.00       0.00    -1
+    2  write     10     0.03       0.00      25.00    -1
+    2  rewnd      4
+    3  read      46     5.95       0.05     114.55    -1
+    3  write      5     0.65       0.01      57.43    -1
+    3  rewnd     18
+    4  read      10     1.29       0.01     121.93    -1
+    4  write      5     0.65       0.01      65.57    -1
+    4  rewnd      4
+    8  read       0     0.00       0.00       0.00    -1
+    8  write      0     0.00       0.00       0.00    -1
+    8  rewnd      0
+
+ end of full-ci module at    3.22 seconds
+
+ ========================================================================================================
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      3.22          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      3.22 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               316 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     230      34
+ *    205    5     225       1
+ *    206    6     226       1
+ *    207    7     266       1
+ *    208    8     267      34
+ *    209    9     301       1
+ *    213   13     187       1
+ *    242   42     264       1
+ *    244   44     179       7
+ *    253   53     207       4
+ *    303  103     186       1
+ *    420  100     108      71
+ *    466 1004     303      14
+ *    467  167     227       3
+ *    470 1005     188      15
+ *    486  500     302       1
+ *    490   51     218       5
+ *    491    1      47      61
+ *    492    2     211       7
+ *    493   15       6       1
+ *    494   16     265       1
+ *    496   18       7      40
+ *    497   19     223       2
+ *    501   21       2       4
+ *    504   23     203       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      12:18:52 on Mar 26  h2o - dz - restart full-ci / final energy = -76.142873869
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed3      231     231
+ ed6        7       7
+ ed7        7       7
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.00      0.00            0.01      0.19
+ full-ci                               3.22    100.00            3.84     99.68
+ other                                 0.00      0.00            0.00      0.11
+ ******************************************************************************
+ Total                                 3.22                      3.85
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =       126871 words
+Return Code =  0

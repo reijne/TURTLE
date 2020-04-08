@@ -1,0 +1,126 @@
+
+Begin optimization report for: DLASCL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlascl.f(252,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(253,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(253,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(253,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(238,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(239,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(239,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(239,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(226,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(227,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(227,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(227,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(214,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(215,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(215,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(215,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(204,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(205,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(205,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(205,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(194,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(195,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(195,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(195,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlascl.f(184,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlascl.f(185,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(185,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlascl.f(185,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlascl.f(260,11)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ dlascl.f(180,16) ]
+LOOP END
+===========================================================================

@@ -1,0 +1,47 @@
+#!/bin/csh
+setenv ed3 c2h4dump
+setenv ed2 c2h4main
+../../bin/gamess << EOF
+title 
+ethylene 6-31g**  MP2/ optimised energy  =  -78.327231 au
+zmatrix angstrom
+c
+c 1 cc
+h 1 ch 2 hcc
+h 1 ch 2 hcc 3 180.0
+h 2 ch 1 hcc 3 0.0
+h 2 ch 1 hcc 3 180.0
+variables
+cc 1.40
+ch 1.10
+hcc 118.0
+end
+basis 6-31g**
+runtype optimize
+scftype mp2
+xtol 0.0001
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title 
+ethylene MP2/6-31g** ground state vibrational frequencies
+#freq    847.7,  941.6,  994.1, 1091.6, 1267.4,  1414.5,  
+#freq   1525.2, 1729.7, 3241.3, 3259.2, 3336.6,  3359.8
+zmatrix angstrom
+c
+c 1 cc
+h 1 ch 2 hcc
+h 1 ch 2 hcc 3 180.0
+h 2 ch 1 hcc 3 0.0
+h 2 ch 1 hcc 3 180.0
+variables
+cc 1.40
+ch 1.10
+hcc 118.0
+end
+basis 6-31g**
+runtype hessian
+scftype mp2
+enter
+EOF

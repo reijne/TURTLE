@@ -1,0 +1,18 @@
+#!/bin/csh
+#
+# validation for chap7
+#
+setenv GAMESS_VTAB ./chap7.vtab
+set path=(../../utilities $path)
+validate c7000  LOG/c7000.log
+validate c7001  LOG/c7001.log
+validate c7002  LOG/c7002.log
+validate c7003  LOG/c7003.log
+validate c7004  LOG/c7004.log
+validate c7005  LOG/c7005.log
+validate c7006  LOG/c7006.log
+validate c7007  LOG/c7007.log
+validate c7008  LOG/c7008.log
+validate c7009  LOG/c7009.log
+validate c7010  LOG/c7010.log
+validate c7011  LOG/c7011.log

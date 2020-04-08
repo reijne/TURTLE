@@ -1,0 +1,16 @@
+c
+c  NB atomic masses now accessed through amass_get
+c     array retained here as a placeholder as there
+c     are explicit non-included /infoa/ commons in the code
+c
+      REAL czan, c, amasold, symz
+      integer nat, num, ich, mul, nx, ne, na, nb, imass
+      integer nuct, ipseud, lpseud
+      common/infoa/nat,ich,mul,num,nx,ne,na,nb,czan(maxat),c(3,maxat)
+     +            ,amasold(maxat),
+     +             imass(maxat),nuct(maxat),ipseud(maxat),
+     +             symz(maxat),lpseud
+c
+       integer len_infoa
+       parameter (len_infoa=8)
+c      used: restre(util1),revise(util1),utyp21(server) (first 8)

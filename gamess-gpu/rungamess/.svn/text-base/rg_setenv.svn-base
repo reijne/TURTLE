@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# --------------------------------------------------------------
+#  echo the variable definitions to stdout
+#  Used in building job scripts
+#  C-shell version
+# --------------------------------------------------------------
+#
+echo setenv jobname $jobname 
+echo setenv root $root 
+echo setenv executable $executable 
+echo setenv jobmode $jobmode 
+echo setenv flist \"$flist\" 
+echo setenv nprocs $nprocs
+echo setenv nnodes $nnodes
+echo setenv jobtime $jobtime 
+echo setenv scratchtopdir $scratchtopdir 
+echo setenv libdir $libdir 
+echo setenv tempdir $tempdir 
+echo setenv homedir $homedir 
+echo setenv stdout $stdout
+echo setenv listing $listing 
+echo setenv datain $datain
+echo setenv procspernode $procspernode
+echo setenv project $project
+echo setenv RUNGAMESS_DIR $RUNGAMESS_DIR
+echo setenv PROG $PROG
+echo setenv queueargs \"$queueargs\"
+echo setenv queue $queue
+echo setenv debug $debug
+echo setenv jobworkdir $jobworkdir
+

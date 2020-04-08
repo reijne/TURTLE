@@ -1,0 +1,22 @@
+
+This is a copy of the Global Array tools, derived
+from version 3.2.4
+
+There are some minor GAMESS-UK specific changes:
+
+tcgmsg/ipvc4.0/parallel.c
+  -n is not used on the rsh commands
+  hostname comparison in modified so that xx.yy.zz matches xx etc
+
+armci/src/signaltrap.c
+  SIGXCPU is not trapped (relevant to origin systems)
+
+Compilation:
+
+the code should be compiled as part of the GAMESS-UK compilation
+started in directory m4, without any other intervention. If you need
+to compile separately you should ensure DIAG=PAR is set to build
+the peigs interface.
+
+For more information, including a support page with details of 
+system-specific issues please see www.emsl.pnl.gov:2080/docs/global

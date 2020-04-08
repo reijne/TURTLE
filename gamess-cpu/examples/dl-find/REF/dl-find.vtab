@@ -1,0 +1,12 @@
+#REM test tuple is: lines down : # occurence of string : token to test
+h2co_dz_dlc "h2co - dz - dl-find energy = -113.8307609" "total energy" 0 6 4 -113.830761 0.000001
+h2co_dz_neb "h2co - dz - dl-find neb energy = -113.6497325" "total energy" 0 29 3 -113.721558 0.00001
+#
+# With dlc, there are degenerate sets of coordinates that can be chosen and
+# depending on which are chosen, the optimisation will converge to a different
+# point. We therefore have to check for the "Converged!" string, but don't 
+# what to do anything with it. This is done by setting the 6th field in the 
+# vtab file to 0
+#
+h2co_dimer  "h2co - dz - dl-find dimer ts search energy = -113.6497336" "Converged!" 0 1 0 0 0.0
+h2co_dimer  "h2co - dz - dl-find dimer ts search energy = -113.6497336" "total energy" 0 1 4 -113.649733646354 0.00001

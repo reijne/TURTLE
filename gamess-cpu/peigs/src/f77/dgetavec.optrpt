@@ -1,0 +1,132 @@
+
+Begin optimization report for: DDSTQDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetavec.F(92,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 101 and  line 93
+LOOP END
+
+LOOP BEGIN at dgetavec.F(114,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 128 and  line 115
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgetavec.F(142,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DDQDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetavec.F(239,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 247 and  line 247
+LOOP END
+
+LOOP BEGIN at dgetavec.F(259,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 271 and  line 275
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgetavec.F(287,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DCMPGAMMA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetavec.F(428,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 435 and  line 436
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGETAVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetavec.F(92,7) inlined into dgetavec.F(589,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 101 and  line 93
+LOOP END
+
+LOOP BEGIN at dgetavec.F(114,10) inlined into dgetavec.F(589,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 128 and  line 115
+LOOP END
+
+LOOP BEGIN at dgetavec.F(239,7) inlined into dgetavec.F(591,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 247 and  line 247
+LOOP END
+
+LOOP BEGIN at dgetavec.F(259,10) inlined into dgetavec.F(591,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 271 and  line 275
+LOOP END
+
+LOOP BEGIN at dgetavec.F(428,7) inlined into dgetavec.F(593,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 435 and  line 436
+LOOP END
+
+LOOP BEGIN at dgetavec.F(640,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 642 and  line 642
+LOOP END
+
+LOOP BEGIN at dgetavec.F(648,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 664 and  line 656
+LOOP END
+
+LOOP BEGIN at dgetavec.F(675,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 691 and  line 683
+LOOP END
+
+LOOP BEGIN at dgetavec.F(703,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 705 and  line 705
+LOOP END
+
+LOOP BEGIN at dgetavec.F(710,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 722 and  line 714
+LOOP END
+
+LOOP BEGIN at dgetavec.F(732,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 744 and  line 736
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgetavec.F(142,10) inlined into dgetavec.F(589,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dgetavec.F(287,10) inlined into dgetavec.F(591,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================

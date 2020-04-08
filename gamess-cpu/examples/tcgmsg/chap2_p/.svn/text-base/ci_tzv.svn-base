@@ -1,0 +1,26 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+node print
+file ed2 mfged2
+file ed4 mfged4
+file ed6 mfged6
+file ed5 mfged5
+file ed3 mfged3
+title
+h2co - tzv default basis - direct-ci
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis tzv
+runtype ci
+direct 16 8 26
+maxcyc 20
+enter 1
+EOF

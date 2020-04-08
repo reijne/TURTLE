@@ -1,0 +1,7 @@
+_IF1()c     parameter(lenci=170000)
+_IF1()c only if max(mta) < 65535
+_IF1()c      integer*2 istr
+c
+      integer iptstr, nstsym, nstsum, istrng
+      common /cstrng/ iptstr(8,10),nstsym(8,10),nstsum(10),istrng(lenci)
+c

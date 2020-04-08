@@ -1,0 +1,48 @@
+time 120
+title
+be(c5h5)2 sto3g optimised energy  = -394.2789851 au
+zmatrix angstrom
+x 
+x  1  fxa
+c  2  xc  1  xxc
+c  2  xc  1  xxc  3  cxc
+c  2  xc  1  xxc  4  cxc
+c  2  xc  1  xxc  3  -cxc
+c  2  xc  1  xxc  6  -cxc
+x  2  xx  3  xxc  4  -xxc
+h  2  hx  8  hxx  3  hcx
+h  2  hx  8  hxx  4  hcx
+h  2  hx  8  hxx  5  hcx
+h  2  hx  8  hxx  6  hcx
+h  2  hx  8  hxx  7  hcx
+x  2  fxt 3  xxc  4  xxc
+c 14  xc  1  xxc  3  cxxc
+c 14  xc  1  xxc 15  cxc
+c 14  xc  1  xxc 16  cxc
+c 14  xc  1  xxc 15  -cxc
+c 14  xc  1  xxc 18  -cxc
+x 14  xx  15 xxc 16  -xxc
+h 14  hx  20 hxx 15  hcx
+h 14  hx  20 hxx 16  hcx
+h 14  hx  20 hxx 17  hcx
+h 14  hx  20 hxx 18  hcx
+h 14  hx  20 hxx 19  hcx
+be 2  fxa  3 xxc  4  xxc
+variables
+fxa   1.47
+fxt   3.37
+xc    1.22
+hx    2.12 
+hxx  88.4
+constants
+cxc  72.0
+cxxc  36.0
+xxc  90.0 
+hcx   0.0
+xx    1.0
+end
+basis sto3g
+runtype optimize
+scftype direct rhf 
+level 2.0 10 1.4
+enter

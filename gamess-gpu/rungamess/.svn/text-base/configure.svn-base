@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# Configuration script for GAMESS-UK
+#
+# build the code converter program ccnvrt
+(cd ../utilities; make ccnvrt)
+#
+defaults=XXX
+if test -f configure.dat
+then
+defaults=`cat configure.dat`
+elif test -f ../m4/configure.dat
+then
+defaults=`cat ../m4/configure.dat`
+fi
+#
+x=1
+while test $x = 1
+do 
+   if test "$defaults" = "XXX";   then
+      echo  Enter required options \(\? for help\) :
+   else
+      echo  Enter required options \(\? for help, defaults: $defaults \) :
+   fi
+   read options
+   if test "$options" = "" ;  then
+      if test "$defaults" = "XXX"; then
+         x=1
+      else
+         x=0
+         options=$defaults
+      fi
+   elif test "$options" = "?" ;  then
+      cat ../m4/Makefile.in | awk '\
+      BEGIN {printit=0}\
+      /startdoc/{printit=1;next}\
+      /enddoc/{printit=0}\
+      {if(printit == 1){ print $0}}'
+   else
+      echo  $options ... ok? \(yes or no\)
+      y=1
+      while test $y = 1; do
+         read confirm
+         if test $confirm = yes ; then 
+            x=0;y=0;
+         elif test $confirm = no ; then
+            x=1;y=0;
+         else
+            echo  answer yes or no:
+         fi
+      done
+   fi
+done
+
+echo  configure: selected keywords were $options
+
+echo $options > configure.dat
+
+rm -f rg_defaults
+echo creating rungamess defaults file rg_defaults : $options
+cat rg_defaults.in  | ../utilities/ccnvrt -c $options > rg_defaults.tmp
+
+
+vstat=$?
+case $vstat in 
+              0) mv rg_defaults.tmp rg_defaults;;
+              *)
+                echo rg_defaults could not be generated
+                echo Check that options are OK and that ccnvrt is build
+                echo for this architecture - to do this try
+                echo % cd ../utilities
+                echo % make clean
+                echo % make 
+                exit -1;;
+esac
+
+chmod -w rg_defaults
+
+rm -f rungamess
+echo creating rungamess script : $options
+cat rungamess.in  | ../utilities/ccnvrt -c $options > rungamess
+chmod +x-w rungamess
+
+echo add `(cd ../rungamess;/bin/pwd)` to your path to access rungamess
+

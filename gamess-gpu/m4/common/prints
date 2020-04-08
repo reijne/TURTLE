@@ -1,0 +1,34 @@
+_IF()
+c
+c Usage of oprint flags
+c
+c    ===========  ===========  ==========
+c      -print-     -noprint-    -iprint-
+c    ===========  ===========  ==========
+c    1   cide     21   dist    41  mull
+c    2   vect     22   basi    42  lowd
+c    3   cico     23   adap    43  scf 
+c    4   diag     24   hist    44  opti
+c    5   supd     25   vect    45  gues
+c    6   ----     26   anal    46  adap
+c    7   ----     27   hess    47  diis
+c    8   all      28   ci      48  symm
+c    9   ----     29   mrdci   49  fock
+c    10  ----     30   ccsd    50  vect
+c    11  nove     31   bq      51  aopr
+c    12  grad     32           52  mopr
+c    13  ----     33           53  dump
+c    14  ----     34           54  lmo 
+c    15  conf     35           55  ----
+c    16  lagr     36           56  dist
+c    17  cicy     37           57  dscf
+c    18  hami     38           58  tran
+c    19  mo       39           59  inte
+c    20  ao       40           60  ----
+c
+_ENDIF
+c
+      REAL ciprnt
+      logical oprint,oecho
+      common/prints/oprint(60),ciprnt,oecho
+c

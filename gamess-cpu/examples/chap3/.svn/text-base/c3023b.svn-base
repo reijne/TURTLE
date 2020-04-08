@@ -1,0 +1,60 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title  
+**** c4f4  3/21g **** optimised energy  =  -545.94968766 au
+zmat angs                   
+x
+c 1  r1
+c 1  r2  2  90.
+c 1  r1  3  90.   2 180.
+c 1  r2  4  90.   3 180.
+x 2 1.   1 90.    3 0.
+f 2 r3   6 90.    3 180.
+x 4 1.   1 90.    3 0.
+f 4 r3   8 90.    3 180.
+x 3 1.   1 90.    4 0.
+f 3 r3   10 90.   4 180.
+x 5 1.   1 90.    4 0.
+f 5 r3   12 90.   4 180.
+variables
+r1 1.2 
+r2  1.3 
+r3 1.313
+end
+runtype optimize
+level 2.0 40 1.0 
+enter  
+EOF
+../../bin/gamess << EOF
+restart optimize
+title  
+**** c4f4  3/21g **** optimised energy  = -545.9496877 au
+zmat angs                   
+x
+c 1  r1
+c 1  r2  2  90.
+c 1  r1  3  90.   2 180.
+c 1  r2  4  90.   3 180.
+x 2 1.   1 90.    3 0.
+f 2 r3   6 90.    3 180.
+x 4 1.   1 90.    3 0.
+f 4 r3   8 90.    3 180.
+x 3 1.   1 90.    4 0.
+f 3 r3   10 90.   4 180.
+x 5 1.   1 90.    4 0.
+f 5 r3   12 90.   4 180.
+variables
+r1 1.2 
+r2  1.3 
+r3 1.313
+end
+runtype optimize
+level 1.0
+maxcyc 30
+minmax revise 7
+xtol 0.001
+enter  
+EOF
+/bin/rm mfged2 mfged3

@@ -1,0 +1,4617 @@
+
+Begin optimization report for: NPOINTS_BY_ACCURACY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(21604,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21610,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10)
+<Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(21605,43) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10)
+<Alternate Alignment Vectorized Loop, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Distributed chunk1>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Distributed chunk2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Remainder, Distributed chunk2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10)
+<Distributed chunk3>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Distributed chunk3>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10)
+   <Remainder, Distributed chunk3>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10)
+<Distributed chunk4>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21575,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC_MAX_ACTIVE_BFN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(11126,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(11128,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(11129,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIJCALC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(18393,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18394,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18394,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FIND_NUM_GRID_CENTRES
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(9719,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: EXQUAD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(18393,7) inlined into xc.f(3475,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(18394,9) inlined into xc.f(3475,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 18398 and  line 18399
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(15418,7) inlined into xc.f(3483,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(15418,7) inlined into xc.f(3483,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(11126,10) inlined into xc.f(3491,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(11128,13) inlined into xc.f(3491,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(3491,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(3491,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(3491,12)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(3491,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(3497,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3498 and  line 3498
+LOOP END
+
+LOOP BEGIN at xc.f(3501,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3502 and  line 3502
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(3509,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(3509,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(3509,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(3509,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(3509,12)
+<Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(21605,43) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(3509,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Distributed chunk2>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Remainder, Distributed chunk2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+<Distributed chunk3>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Distributed chunk3>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+   <Remainder, Distributed chunk3>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(3509,12)
+<Distributed chunk4>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(3509,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(3509,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(3509,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(3544,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(3544,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(3556,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3557 and  line 3557
+LOOP END
+
+LOOP BEGIN at xc.f(3556,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(3563,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(3567,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(3567,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(3567,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at xc.f(3576,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(3576,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(3576,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(3609,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3610 and  line 3611
+LOOP END
+
+LOOP BEGIN at xc.f(3609,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(10617,9) inlined into xc.f(3745,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(10617,9) inlined into xc.f(3745,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(10617,9) inlined into xc.f(3745,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(11239,10) inlined into xc.f(3756,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11239,10) inlined into xc.f(3756,24)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11239,10) inlined into xc.f(3756,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(11244,13) inlined into xc.f(3756,24)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10) inlined into xc.f(3756,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10) inlined into xc.f(3756,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10) inlined into xc.f(3756,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7) inlined into xc.f(3786,24)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(9276,10) inlined into xc.f(3786,24)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 9279 and  line 9282
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7) inlined into xc.f(3786,24)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7) inlined into xc.f(3786,24)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7) inlined into xc.f(3786,24)
+<Alternate Alignment Vectorized Loop, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7) inlined into xc.f(3786,24)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21173,7) inlined into xc.f(3829,27)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(21186,16) inlined into xc.f(3829,27)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 21188 and  line 21188
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(3844,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3845 and  line 3845
+LOOP END
+
+LOOP BEGIN at xc.f(3844,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(3903,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3903 and  line 3903
+LOOP END
+
+LOOP BEGIN at xc.f(3906,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(3908,25)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3908 and  line 3908
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13823,13) inlined into xc.f(4016,30)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13821,7) inlined into xc.f(4016,30)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13822,10) inlined into xc.f(4016,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10) inlined into xc.f(4016,30)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10) inlined into xc.f(4016,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10) inlined into xc.f(4016,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10) inlined into xc.f(4016,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10) inlined into xc.f(4016,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10) inlined into xc.f(4016,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13836,16) inlined into xc.f(4016,30)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13834,10) inlined into xc.f(4016,30)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13835,13) inlined into xc.f(4016,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13) inlined into xc.f(4016,30)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13) inlined into xc.f(4016,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13) inlined into xc.f(4016,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10) inlined into xc.f(4016,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10) inlined into xc.f(4016,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10) inlined into xc.f(4016,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13) inlined into xc.f(4016,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13) inlined into xc.f(4016,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13) inlined into xc.f(4016,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13956,10) inlined into xc.f(4027,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13956,10) inlined into xc.f(4027,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13956,10) inlined into xc.f(4027,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13) inlined into xc.f(4027,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13) inlined into xc.f(4027,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13) inlined into xc.f(4027,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13966,10) inlined into xc.f(4027,30)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13970,13) inlined into xc.f(4027,30)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13970,13) inlined into xc.f(4027,30)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13976,13) inlined into xc.f(4027,30)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13980,16) inlined into xc.f(4027,30)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13980,16) inlined into xc.f(4027,30)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10) inlined into xc.f(4027,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10) inlined into xc.f(4027,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10) inlined into xc.f(4027,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13) inlined into xc.f(4027,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13) inlined into xc.f(4027,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13) inlined into xc.f(4027,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7) inlined into xc.f(4027,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7) inlined into xc.f(4027,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7) inlined into xc.f(4027,30)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7) inlined into xc.f(4027,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(4038,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4039 and  line 4039
+
+   LOOP BEGIN at xc.f(4039,25)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10) inlined into xc.f(4095,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10) inlined into xc.f(4095,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10) inlined into xc.f(4095,30)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10) inlined into xc.f(4095,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10) inlined into xc.f(4095,30)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10) inlined into xc.f(4095,30)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10) inlined into xc.f(4095,30)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10) inlined into xc.f(4095,30)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(5995,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6000 and  line 6002
+LOOP END
+
+LOOP BEGIN at xc.f(6013,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6015,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6015,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6015,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Peeled, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Multiversioned v1>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Remainder, Multiversioned v1>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Peeled, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Multiversioned v1>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Remainder, Multiversioned v1>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Multiversioned v3>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at xc.f(6018,10)
+   <Remainder, Multiversioned v3>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6035,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6035,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(6184,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6186 and  line 6186
+LOOP END
+
+LOOP BEGIN at xc.f(6184,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6188 and  line 6188
+LOOP END
+
+LOOP BEGIN at xc.f(6197,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(6200,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 6202 and  line 6202
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(9719,7) inlined into xc.f(3471,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at xc.f(5893,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(3705,35) ]
+
+   LOOP BEGIN at xc.f(3667,39)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at xc.f(3683,57)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(10603,9) inlined into xc.f(3745,21)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(11243,13) inlined into xc.f(3756,24)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(11252,27) ]
+      LOOP END
+
+      LOOP BEGIN at xc.f(5867,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(3778,32) ]
+
+         LOOP BEGIN at xc.f(13997,7) inlined into xc.f(4027,30)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13967,18) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_ACTIVE_WGHT_ATM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(10175,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(10156,9)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(10142,24) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GLEGEND
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(15516,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(15517,9)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(15516,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(15525,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(15527,17)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(15532,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 15538 and  line 15534
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(15551,7)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(15552,15) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(15551,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(15557,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(15561,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 15562 and  line 15563
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(15575,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 15576 and  line 15576
+LOOP END
+===========================================================================
+
+Begin optimization report for: GROUP_POINTS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(6537,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6540,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6540,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(6571,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6572 and  line 6572
+LOOP END
+
+LOOP BEGIN at xc.f(6574,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6608,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(6609,11)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(6611,14)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 6613 and  line 6612
+      LOOP END
+
+      LOOP BEGIN at xc.f(6611,14)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6623,8)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at xc.f(6624,11)
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(6567,8)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(6565,19) ]
+LOOP END
+
+LOOP BEGIN at xc.f(6603,8)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(6599,19) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DEN_VAL_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13216,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13217,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13217,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13217,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13217,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13224,16)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13223,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13224,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13224,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13224,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13224,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13224,16)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13229,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13229,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13229,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13235,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13235,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13235,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13239,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13240,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13240,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13240,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13246,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13247,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13247,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13247,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13247,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13254,19)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13253,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13254,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13254,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13254,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13254,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13254,19)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13259,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(13259,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13259,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13267,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13267,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13267,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13267,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13271,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13271,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13271,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13271,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DEN_VAL_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13381,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13381,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13381,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13386,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13386,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13386,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13397,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13397,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13403,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13403,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13403,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(13403,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13417,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13417,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13423,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13423,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13423,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(13423,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13436,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13440,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13440,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13446,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13450,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13450,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13458,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13458,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13458,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13462,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13462,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13462,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13472,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13472,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13472,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(13472,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13472,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(13468,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13394,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DEN_VAL_AO_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13707,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13707,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13712,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13712,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13716,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13716,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13720,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13720,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13749,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13749,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13754,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13754,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13758,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13758,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13762,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13762,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13771,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13771,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13771,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13771,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13776,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13776,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13776,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13776,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(13725,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13693,15) ]
+
+   LOOP BEGIN at xc.f(13700,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13699,7) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(13705,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13704,7) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13767,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13735,18) ]
+
+   LOOP BEGIN at xc.f(13742,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13741,13) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(13747,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13746,13) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC_MO_VAL_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13071,7)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13071,7)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13071,7)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13071,7)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13075,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13076,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13076,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13076,13)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13076,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13089,16)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13089,16)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13089,16)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13089,16)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13085,13)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13089,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(13090,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13090,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(13090,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13090,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13113,16)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13113,16)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13113,16)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13113,16)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13109,13)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13113,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(13114,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13114,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(13114,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13114,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13124,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13124,10)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13124,10)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13124,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13128,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13129,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13129,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13129,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13129,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13142,19)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13142,19)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13142,19)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13142,19)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13138,16)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13142,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(13143,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13143,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(13143,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13143,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13158,19)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13158,19)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13158,19)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13158,19)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13154,16)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13158,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(13159,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13159,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(13159,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13159,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC_MO_VAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(12935,7)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12935,7)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(12935,7)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12935,7)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12939,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(12940,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(12940,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(12940,13)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(12940,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12947,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12947,10)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(12947,10)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12947,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12948,13)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(12952,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(12953,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12953,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(12953,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12953,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12962,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12962,10)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(12962,10)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12962,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12963,13)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(12967,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(12968,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12968,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(12968,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12968,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12977,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12977,10)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(12977,10)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12977,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12981,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(12982,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(12982,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(12982,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(12982,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12989,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12989,13)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(12989,13)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(12989,13)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(12990,16)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(12994,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(12995,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12995,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(12995,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(12995,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13004,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13004,13)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13004,13)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13004,13)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13005,16)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13009,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at xc.f(13010,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13010,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at xc.f(13010,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at xc.f(13010,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BAS_VAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(11743,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(11743,7)
+   <Multiversioned v2>
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(11743,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(11807,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11807,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(12840,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(12840,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(12840,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(12840,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(12850,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(11803,19) ]
+
+   LOOP BEGIN at xc.f(12848,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(11828,13) ]
+
+      LOOP BEGIN at xc.f(12827,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(12815,36) ]
+
+         LOOP BEGIN at xc.f(11866,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(12815,36) ]
+
+            LOOP BEGIN at xc.f(12821,25)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(12815,36) ]
+
+               LOOP BEGIN at xc.f(12812,31)
+                  remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TAU_VAL_AO_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(14223,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+
+LOOP BEGIN at xc.f(14231,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+
+LOOP BEGIN at xc.f(14238,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(14237,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(14237,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(14254,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+
+LOOP BEGIN at xc.f(14262,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+
+LOOP BEGIN at xc.f(14269,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(14268,13)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(14268,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(14277,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14277,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14277,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14281,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14281,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14281,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(14243,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14217,15) ]
+
+   LOOP BEGIN at xc.f(14227,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14224,24) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(14235,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14232,24) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(14274,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14248,18) ]
+
+   LOOP BEGIN at xc.f(14258,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14255,26) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(14266,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(14263,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: KMADDCS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(18891,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18892,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18894,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18894,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18894,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18894,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(18902,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18903,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18905,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18905,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18905,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18905,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(18918,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(18918,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(18918,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(18918,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(18924,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(18924,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(18924,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(18934,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18935,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(18935,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18935,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18935,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at xc.f(18942,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18944,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18942,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18944,16)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18942,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18944,16)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18942,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18944,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18944,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(18953,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(18953,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(18953,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(18962,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18964,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(18964,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18964,16)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18964,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at xc.f(18970,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18972,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18970,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18972,19)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18970,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18972,19)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at xc.f(18970,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at xc.f(18972,19)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+
+      LOOP BEGIN at xc.f(18972,19)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(18983,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18984,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18986,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18986,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18986,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18986,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(18996,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18997,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(18999,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18999,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(18999,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(18999,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: KMADDCS_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(19283,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19284,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(19286,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19286,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(19286,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19286,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19293,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19294,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(19296,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19296,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(19296,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19296,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19309,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19309,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19309,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(19309,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19315,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19315,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19315,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19325,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19326,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(19326,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(19326,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at xc.f(19326,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19334,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19334,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19334,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(19334,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19347,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19347,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19347,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19355,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19356,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(19356,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(19356,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at xc.f(19356,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19364,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19364,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19364,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(19364,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19382,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19383,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(19385,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19385,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(19385,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19385,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19394,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19395,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(19397,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19397,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(19397,19)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19397,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(19344,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19341,31) ]
+
+   LOOP BEGIN at xc.f(19343,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19341,31) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19378,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19375,34) ]
+
+   LOOP BEGIN at xc.f(19377,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19375,34) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: XC_FORCES_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(19650,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19653,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(19652,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(19652,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(19652,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19670,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19670,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19670,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(19670,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19676,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19676,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19676,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19685,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19685,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19685,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19708,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19708,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19708,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19726,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19726,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19726,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19726,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19729,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19729,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19729,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19729,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19755,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(19756,25)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19761,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19761,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19772,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19772,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19827,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19827,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19827,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19845,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19845,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19845,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19845,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19848,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7) inlined into xc.f(19848,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19848,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7) inlined into xc.f(19848,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19861,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(19862,25)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19868,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(19868,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(19918,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19922,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19922,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(19945,7) inlined into xc.f(19922,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(19810,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19698,23) ]
+
+   LOOP BEGIN at xc.f(19696,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19698,23) ]
+
+      LOOP BEGIN at xc.f(19794,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19791,27) ]
+
+         LOOP BEGIN at xc.f(19793,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19791,27) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(19906,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19817,23) ]
+
+   LOOP BEGIN at xc.f(19815,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19817,23) ]
+
+      LOOP BEGIN at xc.f(19890,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19887,27) ]
+
+         LOOP BEGIN at xc.f(19889,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(19887,27) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: XC_FORCES
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(20319,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(20322,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(20321,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(20321,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(20321,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(20336,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(20336,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(20336,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(20336,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20342,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(20342,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(20342,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20351,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(20351,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(20351,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20475,7) inlined into xc.f(20373,24)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20475,7) inlined into xc.f(20373,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20475,7) inlined into xc.f(20375,24)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20475,7) inlined into xc.f(20375,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20403,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(20404,22)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(20410,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(20410,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20425,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(20425,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(20465,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(20369,18) ]
+
+   LOOP BEGIN at xc.f(20363,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(20369,18) ]
+
+      LOOP BEGIN at xc.f(20448,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(20444,24) ]
+
+         LOOP BEGIN at xc.f(20447,16)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(20444,24) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC_BFN_RADII
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(14927,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14927,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14927,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14931,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14931,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14931,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(15053,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(15053,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(15053,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(15056,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(15056,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(15056,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(14937,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at xc.f(15044,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at xc.f(15040,16)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at xc.f(14992,19)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at xc.f(14991,22)
+               remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ xc.f(14980,32) ]
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at xc.f(15036,19)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ xc.f(14995,29) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BUILD_RADGRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(16173,7) inlined into xc.f(15979,18)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,31) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,47) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,16) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,27) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(16173,7) inlined into xc.f(15979,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(16173,7) inlined into xc.f(15981,18)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,31) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,47) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,16) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,27) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(16173,7) inlined into xc.f(15981,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(16373,7) inlined into xc.f(15983,18)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16374,14) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(16373,7) inlined into xc.f(15983,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(15986,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(15989,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(15989,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(15993,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(21080,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCALE_ACCUMULATORS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(6316,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(6316,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6316,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(6320,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(6320,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6320,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(6327,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(6327,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(6327,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(6336,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6337,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6337,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6337,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6342,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6343,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6343,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6343,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6350,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6351,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6351,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6351,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6356,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6357,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6357,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6357,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6367,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6368,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6369,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6369,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6369,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6375,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6376,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6377,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6377,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6377,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6385,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6386,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6387,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6387,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6387,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6393,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6394,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6395,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6395,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6395,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6406,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6407,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6408,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6408,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6408,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6414,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6415,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6416,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6416,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6416,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6424,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6425,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6426,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6426,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6426,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6432,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6433,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6434,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6434,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6434,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6445,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6446,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6447,19)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6447,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6447,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6453,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6454,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(6455,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(6455,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(6455,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6463,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6464,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6464,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6464,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6469,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6470,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6470,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6470,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(6479,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(6480,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(6480,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(6480,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: AUTO_PRUNE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(22071,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(22072,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(22072,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(22072,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(22080,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(22081,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 22082 and  line 22082
+   LOOP END
+
+   LOOP BEGIN at xc.f(22081,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(22098,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(22098,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(22098,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(22098,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(22129,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(22129,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(22137,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(22137,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(22163,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(22110,33) ]
+
+   LOOP BEGIN at xc.f(22112,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at xc.f(22137,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(22148,24) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MEMREQ_EXQUAD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(18393,7) inlined into xc.f(803,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(18394,9) inlined into xc.f(803,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(18394,9) inlined into xc.f(803,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(15418,7) inlined into xc.f(812,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(15418,7) inlined into xc.f(812,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(11126,10) inlined into xc.f(820,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(11128,13) inlined into xc.f(820,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(820,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(820,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(820,12)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(11129,16) inlined into xc.f(820,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(827,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(827,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(827,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21610,13) inlined into xc.f(827,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(827,12)
+<Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(21605,43) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(21604,10) inlined into xc.f(827,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Distributed chunk2>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Remainder, Distributed chunk2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+<Distributed chunk3>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Distributed chunk3>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+   <Remainder, Distributed chunk3>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(21570,10) inlined into xc.f(827,12)
+<Distributed chunk4>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(827,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(827,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(21575,13) inlined into xc.f(827,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(864,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 865 and  line 865
+LOOP END
+
+LOOP BEGIN at xc.f(864,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(871,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(875,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(875,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(875,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at xc.f(884,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at xc.f(884,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(884,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(9719,7) inlined into xc.f(799,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC_GAMMA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(14379,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14379,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14385,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: TAU_VAL_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13956,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13956,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13956,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13961,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13966,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13970,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13970,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13976,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13980,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at xc.f(13980,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13987,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13991,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at xc.f(14001,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(13997,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(13967,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: TAU_VAL_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(13823,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13821,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13822,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13822,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13830,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13836,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at xc.f(13834,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at xc.f(13835,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at xc.f(13835,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13845,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(13849,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCREEN_WEIGHT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(21173,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(21186,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 21188 and  line 21188
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_BATCH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(9264,7)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7)
+<Alternate Alignment Vectorized Loop, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at xc.f(9264,7)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(9276,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 9279 and  line 9282
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_ACTIVE_PRT_ATM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(11239,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11239,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11239,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(11244,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11271,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(11243,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(11252,27) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_ACTIVE_BFN_ATM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(10617,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(10617,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(10617,9)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(10603,9)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_LHS_ATMS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(6880,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at xc.f(6881,10)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SG1_PRUNE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(17773,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(17778,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: GRID_SANE_CHECK
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(9159,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(9149,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BLD_ACTIVE_PRT_ATM_OLD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(11326,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(11353,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at xc.f(11353,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(11353,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(11325,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(11334,27) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRELOG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(16373,7)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16374,14) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(16373,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PREMAC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(16173,7)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,31) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16177,47) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,16) ]
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ xc.f(16175,27) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(16173,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRINT_ANGANGPT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(16792,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRINT_ATMGRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(18208,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(18214,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 18216 and  line 18216
+LOOP END
+
+LOOP BEGIN at xc.f(18214,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(18286,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(18288,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(18288,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(18293,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(16792,7) inlined into xc.f(18295,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+
+LOOP BEGIN at xc.f(18297,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(18297,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(16792,7) inlined into xc.f(18299,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+
+LOOP BEGIN at xc.f(18304,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(16792,7) inlined into xc.f(18306,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+
+LOOP BEGIN at xc.f(18308,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(16792,7) inlined into xc.f(18310,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+
+LOOP BEGIN at xc.f(18312,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(18312,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(16792,7) inlined into xc.f(18314,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 16792 and  line 16792
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(18320,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(18211,21) ]
+
+   LOOP BEGIN at xc.f(18205,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(18211,21) ]
+
+      LOOP BEGIN at xc.f(18224,25)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GATHER_MU_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(20071,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20071,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20075,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOMBF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(19945,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 19947 and  line 19947
+LOOP END
+
+LOOP BEGIN at xc.f(19945,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: GATHER_MU
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(20475,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(20475,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOM_NUM_BY_TAG
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(20652,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL_PRUNE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(17241,14)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(17248,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at xc.f(17287,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at xc.f(17320,36)
+   remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOM_NUM_BY_GRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(21082,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: GRID_INIT_GEN2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(8250,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(8255,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(8293,22)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(17778,7) inlined into xc.f(8649,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(8651,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(17778,7) inlined into xc.f(8651,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(8657,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(8159,21) ]
+
+   LOOP BEGIN at xc.f(8284,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at xc.f(8635,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(21080,15) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(8655,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(8653,21) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GRID_INIT_GEN1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(7398,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(7403,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(7441,22)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(7711,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(7717,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(7719,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(17778,7) inlined into xc.f(7719,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at xc.f(21082,7) inlined into xc.f(7721,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at xc.f(17778,7) inlined into xc.f(7721,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at xc.f(7727,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at xc.f(7432,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at xc.f(7705,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(21080,15) ]
+   LOOP END
+
+   LOOP BEGIN at xc.f(7725,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ xc.f(7723,21) ]
+
+      LOOP BEGIN at xc.f(17248,7) inlined into xc.f(7711,21)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(17287,10) inlined into xc.f(7711,21)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(17320,36) inlined into xc.f(7711,21)
+         remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+      LOOP END
+
+      LOOP BEGIN at xc.f(17248,7) inlined into xc.f(7717,21)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(17287,10) inlined into xc.f(7717,21)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at xc.f(17320,36) inlined into xc.f(7717,21)
+         remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: OVERRIDE_ATOM_RADII
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at xc.f(15418,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at xc.f(15418,7)
+<Remainder>
+LOOP END
+===========================================================================

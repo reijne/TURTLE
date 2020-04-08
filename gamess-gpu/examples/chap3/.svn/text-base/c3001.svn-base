@@ -1,0 +1,29 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+hcn  dunning dz + bond(s,p) / optimised energy  -92.87389929
+zmat angstrom
+c
+bq 1 rcn2
+x 2 1.0 1 90.0
+n 2 rcn2 3 90.0 1 180.0
+x 1 1.0 2 90.0 3 0.0
+h 1 rch 5 90.0 4 180.0
+variables
+rcn2 0.580
+rch 1.056
+end
+basis
+dz h
+s bq
+1.0 1.0
+p bq
+1.0 0.7
+dz c
+dz n
+end
+runtype optimize
+enter
+EOF

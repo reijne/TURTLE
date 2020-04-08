@@ -1,0 +1,12 @@
+c
+c oxml - whether to use XML as an alternative to conventional
+c punchfile output - this requires that m4/common/blocks is also
+c included as several parameters required here live in there
+c
+      logical oxml
+      logical oxml_control(LENPUN)
+      common/xmlout/oxml,oxml_control
+
+      character*132 xmloutfile
+      common/xmloutf/xmloutfile(3)
+

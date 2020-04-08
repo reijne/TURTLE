@@ -1,0 +1,14 @@
+c
+c     cmaxa/b/c/d = max of s/p contraction coeffs
+c     ismlp = holds info on how to compute gamma function ?
+c     ismlq = ?
+c     isml  = ?
+c     error1 = screening for prefactors
+c     error2 = screening for prefactors
+c
+      REAL cmax ,cmaxa, cmaxb, cmaxc, cmaxd, error1, error2
+      integer ismlp, ismlq, isml
+      common /maxc/ cmax(mxprim),
+     +              cmaxa(mxprms),cmaxb(mxprms),cmaxc(mxprms),
+     +              cmaxd(mxprms),error1,error2,
+     +              ismlp(mxprms*mxprms),ismlq,isml

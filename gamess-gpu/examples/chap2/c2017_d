@@ -1,0 +1,56 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co - 3-21g default basis - closed shell scf - polarizability
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype polariza
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g basis - polarizability at imaginary freq. and c6
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype polariza
+frequency 10 0 1 10 0.25  c6
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g basis - polarizability at real frequencies
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype polariza
+# the number are squares of frequencies are in au
+frequency  6
+0.0001 0.0005 0.001 0.005 0.01 0.05
+enter
+EOF

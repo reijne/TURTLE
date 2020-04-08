@@ -1,0 +1,84 @@
+dcor
+nosym
+adapt off
+title
+water gradient, coulomb fit (dgauss fit basis)
+super off
+integ high
+cdft gauss 16
+cdft euler 80
+cdft jfit
+cdft jfitg
+cdft debug forces
+cdft jbas nwchem
+#Elements                             References                                
+#--------                             ----------                                
+#H - Xe: N. Godbout, D. R. Salahub, J. Andzelm, and E. Wimmer, Can. J. Chem. 70,
+#                                                                               
+#        560 (1992). DGauss basis sets provided courtesy of Cray Research, Inc.
+#
+#
+# BASIS SET: (4s,1p,1d)                                        
+H   S
+        45.000000000      1.00000000
+H   S
+         7.500000000      1.00000000
+H   S
+         0.300000000      1.00000000
+H   S
+         1.500000000      1.00000000    
+H   P
+         1.500000000      1.00000000    
+H   D
+         1.500000000      1.00000000
+#
+# BASIS SET: (8s,4p,4d)                                        
+#
+O    S
+      2566.000000000      1.00000000
+O    S
+       570.000000000      1.00000000
+O    S
+       163.000000000      1.00000000
+O    S
+        46.500000000      1.00000000
+O   S
+        17.000000000      1.00000000   
+O   S
+         3.800000000      1.00000000   
+O   S
+         1.080000000      1.00000000   
+O   S
+         0.310000000      1.00000000   
+O   P
+        17.000000000      1.00000000   
+O   P
+         3.800000000      1.00000000   
+O   P
+         1.080000000      1.00000000   
+O   P
+         0.310000000      1.00000000   
+O    D
+        17.000000000      1.00000000
+O    D
+         3.800000000      1.00000000
+O    D
+         1.080000000      1.00000000
+O    D
+         0.310000000      1.00000000
+end
+zmatrix angstrom
+o
+h 1 oh
+h 1 oh  2 hoh
+variables
+oh     1.0
+hoh  120.0
+end
+basis sv 3-21g
+scftype direct rhf
+runt optim
+minmax 1
+level 2.0 
+vectors atoms
+enter 1

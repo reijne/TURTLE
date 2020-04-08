@@ -1,0 +1,33 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = z001
+#@ job_name = SIOSI7.HF
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI/benchmark_jobs/hpcx/siosi7.err
+#@ wall_clock_limit = 01:00:00
+#@ tasks_per_node = 32
+#@ cpus = 512
+#@ network.MPI = csss,shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export MP_EAGER_LIMIT=65536
+export MP_SHARED_MEMORY=yes
+export MP_USE_BULK_XFER=yes
+export MEMORY_AFFINITY=MCM
+export MP_EUILIB=us
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI
+
+cp input_files_benchmarks/HF.siosi7.3975.in datain
+time /usr/bin/poe ../../bin/gamess-uk > benchmark_jobs/hpcx/HF.siosi7.3975.out.512
+

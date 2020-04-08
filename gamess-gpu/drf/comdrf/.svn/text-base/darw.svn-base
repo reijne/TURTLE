@@ -1,0 +1,16 @@
+c
+      integer isingl, nbits
+      common /machin1/ isingl,nbits
+c
+      integer ixddaf
+      integer ndar10, ndar20, ndar31, ndar41, ndar42, ndar43, ndar44
+      integer ndar45, ndar46, ndar47, ndar48, ndar49
+      common /dafindx/ ixddaf(8192),ndar10,ndar20,
+     +                 ndar31,ndar41,ndar42,ndar43,ndar44,ndar45,
+     +                 ndar46,ndar47,ndar48,ndar49
+c
+      integer lrec10, lrec20, lrec31, lrec41, lrec42, lrec43
+      integer lrec44, lrec45, lrec46, lrec47, lrec48, lrec49
+      common /dafrec/ lrec10,lrec20,lrec31,lrec41,lrec42,lrec43,
+     +                lrec44,lrec45,lrec46,lrec47,lrec48,lrec49
+c

@@ -1,0 +1,14 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o - cartesian geometry - tzvp SCF energy  -76.05539584
+geometry
+0.0 0.0 -0.2212037 8.0 o
+0.0  1.4284429 0.884815 1.0 h
+0.0 -1.4284429 0.884815 1.0 h
+end
+basis tzvp
+enter
+EOF

@@ -1,0 +1,98 @@
+
+Begin optimization report for: ZLASCL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlascl.f(252,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(253,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(253,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(238,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(239,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(239,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(226,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(227,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(227,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(214,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(215,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(215,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(204,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(205,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(205,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(194,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(195,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(195,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlascl.f(184,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlascl.f(185,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlascl.f(185,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zlascl.f(260,11)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ zlascl.f(180,16) ]
+LOOP END
+===========================================================================

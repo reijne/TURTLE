@@ -1,0 +1,22 @@
+restart scf
+title
+water 3-21G  casscf / energy -75.6385055 au
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+scftype casscf
+config bypass
+doc 1 to 5
+uoc 6 7
+end
+superci 1 to 2
+newton 3 to 20
+hessian 3 to 20
+simul 3 to 20
+vectors 6 7
+enter 6 7

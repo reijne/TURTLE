@@ -1,0 +1,65 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title\cf2 (tzvp) ; nbasis=60 1a1 
+zmat angstrom
+c
+x 1 1.0
+f 1 cf 2 90.0
+f 1 cf 2 90.0 3 180.0
+variables
+cf 1.222
+end
+basis tzvp
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\cf2+ (tzvp) ; nbasis=60 2pi
+mult 2
+charge 1
+zmat angstrom
+c
+x 1 1.0
+f 1 cf 2 90.0
+f 1 cf 2 90.0 3 180.0
+variables
+cf 1.222
+end
+basis tzvp
+runtype optimize
+open 2 1
+thresh 5
+level 0.3 1.0
+swap 
+12 14
+end
+maxcyc 100
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title\cf2+ (tzvp) ; nbasis=60 2pi CI
+mult 2
+charge 1
+zmat angstrom
+c
+x 1 1.0
+f 1 cf 2 90.0
+f 1 cf 2 90.0 3 180.0
+variables
+cf  1.2071324 hess       1.691054
+end
+basis tzvp
+runtype optimize ci
+thresh 5
+open 2 1
+maxcyc 100
+level 0.3 1.0
+direct 23 13 47
+conf
+2 2 2 2 2 2 2 2 2 2 2 1 0
+2 2 2 2 2 2 2 2 2 2 2 0 1
+enter
+EOF

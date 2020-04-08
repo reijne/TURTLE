@@ -1,0 +1,28 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 3-21g - uhf canonical (to reproduce closed shell)
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype uhf
+natorb 12 canon 13 set y end
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g - direct uks canonical (to reproduce closed shell)
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+dft
+scftype direct uhf
+natorb 12 canon 13 set y end
+enter
+EOF

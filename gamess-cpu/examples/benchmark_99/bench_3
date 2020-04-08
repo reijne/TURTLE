@@ -1,0 +1,60 @@
+#!/bin/csh -f
+../../bin/gamess << EOF
+title
+cytosine B3LYP 6-311g* high quadrature
+noprint distance vectors hessian
+zmatrix angstrom
+n
+c     1  cn1
+n     2  nc2           1  ncn1
+c     3  cn3           2  cnc2          1  cncn1
+c     4  cc4           3  ccn3          2  ccnc2
+c     5  cc5           4  ccc4          3  cccn3
+o     2  oc6           1  ocn5          6  ocnc4
+n     4  nc7           3  ncn6          2  ncnc5
+h     8  hn8           4  hnc7          3  hncn6
+h     8  hn9           4  hnc8          3  hncn7
+h     5  hc10          4  hcc9          3  hccn8
+h     6  hc11          1  hcn10         2  hcnc9
+h     1  hn12          2  hnc11         7  hnco10
+variables
+cn1        1.415
+nc2        1.369
+ncn1       115.2
+cn3        1.298
+cnc2       122.1
+cncn1      0.0000
+cc4        1.443
+ccn3       122.8
+ccnc2      0.0000
+cc5        1.337
+ccc4       116.1
+cccn3      -0.0396
+oc6        1.211
+ocn5       118.8536
+ocnc4      -179.955
+nc7        1.344
+ncn6       118.2670
+ncnc5      179.9657
+hn8        0.995
+hnc7       118.9
+hncn6      180.0000
+hn9        0.998
+hnc8       118.3
+hncn7      -0.0280
+hc10       1.0670
+hcc9       121.7
+hccn8      179.9031
+hc11       1.0700
+hcn10      116.8
+hcnc9      -179.980
+hn12       0.998
+hnc11      115.7
+hnco10     -0.0396
+end
+basis 6-311g*
+dft b3lyp
+dft quadrature high
+thresh 4
+enter
+EOF

@@ -1,0 +1,23 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE\N2 .. 4-31G* - CI(6M) energy -109.1351965350
+ZMAT ANGS\N\N 1 NN
+VARIABLES\NN 1.05 \END
+BASIS 4-31G*
+RUNTYPE CI
+CORE
+1 2 END
+ACTIVE
+3 TO 30 END
+DIRECT 10 7 21
+CONF
+2 2 2 2 2  0 0
+2 2 2 0 2  0 2
+2 2 2 0 2  2 0
+2 2 2 2 0  2 0
+2 2 2 2 0  0 2
+2 2 2 1 1  1 1
+ENTER
+EOF

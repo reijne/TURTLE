@@ -1,0 +1,29 @@
+
+# set environment variables for AgentX
+
+# set PATH
+
+if test "${PATH}" = "" ; then
+	export PATH=@prefix@/bin
+else if test "`echo ${PATH} | grep @prefix@/bin`" = "" ; then
+	export PATH=@prefix@/bin:${PATH}
+fi
+fi
+
+# set PYTHONPATH
+
+if test "${PYTHONPATH}" = "" ; then
+	export PYTHONPATH=@prefix@/lib:@prefix@/share/AgentX/python
+else if test "`echo ${PYTHONPATH} | grep @prefix@/lib:@prefix@/share/AgentX/python`" = "" ; then
+	export PYTHONPATH=@prefix@/share/AgentX/python:@prefix@/lib:${PYTHONPATH}
+fi
+fi
+
+# set LD_LIBRARY_PATH
+
+if test "${LD_LIBRARY_PATH}" = "" ; then
+	export LD_LIBRARY_PATH=@prefix@/lib
+else if test "`echo ${LD_LIBRARY_PATH} | grep @prefix@/lib`" = "" ; then
+	export LD_LIBRARY_PATH=@prefix@/lib:${LD_LIBRARY_PATH}
+fi
+fi

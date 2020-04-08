@@ -1,0 +1,8 @@
+c
+c...  frozen core definition for TURTLE
+c
+      REAL dxyz
+      integer ncore,mapcie,mapiee,ncore_i,nsplice
+      parameter (nsplice=256)
+      common/splice/dxyz(3),ncore,ncore_i,
+     1              mapcie(nsplice),mapiee(nsplice)

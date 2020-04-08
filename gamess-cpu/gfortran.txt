@@ -1,0 +1,209 @@
+
+ Found a Makefile in m4, using this to build GAMESS-UK.
+
+ The build will take place in the m4 directory.
+
+make[1]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Building full code
+(cd ../utilities; make)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+(cd ../linalg; make linalg)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+make[2]: Nothing to be done for 'linalg'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+(cd ../dft; make dftlib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+make[2]: Nothing to be done for 'dftlib'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+(cd ../mopac; make libmopac.a )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/mopac'
+make[2]: 'libmopac.a' is up to date.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/mopac'
+(cd ../drf; make drflib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+make[2]: Nothing to be done for 'drflib'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+(cd ../vb; make vb )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+rm -f vbtran.f
+cat ../utilities/gener.m vbtran.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbtran.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   vbtran.f
+vbtran.f:4702:72:
+
+ 3     call ksort1vb(g,nij,nij)
+                                                                        1
+Warning: Type mismatch in argument ‘nij’ at (1); passed REAL(8) to INTEGER(4) [-Wargument-mismatch]
+vbtran.f:1396:72:
+
+           call rdbakvb(ibli,nki1)
+                                                                        1
+Warning: Type mismatch in argument ‘gin’ at (1); passed INTEGER(8) to REAL(8) [-Wargument-mismatch]
+vbtran.f:1651:72:
+
+           call rdbakvb(ibli,nki1)
+                                                                        1
+Warning: Type mismatch in argument ‘gin’ at (1); passed INTEGER(8) to REAL(8) [-Wargument-mismatch]
+vbtran.f:2056:19:
+
+       common/blkin/potnuc,ppx,ppy,ppz,pint(508)
+                   1
+Warning: Named COMMON block ‘blkin’ at (1) shall be of the same size as elsewhere (4096 vs 4112 bytes)
+vbtran.f:2850:19:
+
+       common/blkin/gout(512)
+                   1
+Warning: Named COMMON block ‘blkin’ at (1) shall be of the same size as elsewhere (4096 vs 4112 bytes)
+vbtran.f:1593:20:
+
+       common/commun/mark(1500)
+                    1
+Warning: Named COMMON block ‘commun’ at (1) shall be of the same size as elsewhere (12000 vs 36000 bytes)
+vbtran.f:4740:19:
+
+       common /disc/ isel,iselr,iselw,irep
+                   1
+Warning: Named COMMON block ‘disc’ at (1) shall be of the same size as elsewhere (32 vs 296 bytes)
+vbtran.f:4549:18:
+
+       common/scrp/nwbuck(1500),itx(3400),ktx(3400),gtx(3400)
+                  1
+Warning: Named COMMON block ‘scrp’ at (1) shall be of the same size as elsewhere (93600 vs 5440 bytes)
+vbtran.f:4797:21:
+
+       common /bufvi1/ gout(12288)
+                     1
+Warning: Named COMMON block ‘bufvi1’ at (1) shall be of the same size as elsewhere (98304 vs 98320 bytes)
+vbtran.f:4798:19:
+
+       common /disc/ isel,iselr,iselw,irep
+                   1
+Warning: Named COMMON block ‘disc’ at (1) shall be of the same size as elsewhere (32 vs 296 bytes)
+vbtran.f:4689:18:
+
+       common/scra/ibu(3400),itxktx(3400)
+                  1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (54400 vs 10880 bytes)
+vbtran.f:3197:19:
+
+       common /scra/ ijij(340),klkl(340)
+                   1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (5440 vs 54400 bytes)
+vbtran.f:1347:20:
+
+       common/commun/mark(1500)
+                    1
+Warning: Named COMMON block ‘commun’ at (1) shall be of the same size as elsewhere (12000 vs 36000 bytes)
+vbtran.f:1323:18:
+
+       common/scrp/ijkL205(680)
+                  1
+Warning: Named COMMON block ‘scrp’ at (1) shall be of the same size as elsewhere (5440 vs 93600 bytes)
+vbtran.f:3511:18:
+
+       common/scrp/ijkl205(680)
+                  1
+Warning: Named COMMON block ‘scrp’ at (1) shall be of the same size as elsewhere (5440 vs 93600 bytes)
+vbtran.f:3304:18:
+
+       common/scra/ibuk(3400),itxktx(3400)
+                  1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (47600 vs 54400 bytes)
+vbtran.f:3241:18:
+
+       common/scra/ibuk(3400),itxktx4
+                  1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (47600 vs 54400 bytes)
+vbtran.f:3139:20:
+
+        common /scra/ ijkl4(4,340)
+                    1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (10880 vs 54400 bytes)
+vbtran.f:696:18:
+
+       common/scra/ibuk(3400),itxktx4(2,2550)
+                  1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (68000 vs 54400 bytes)
+vbtran.f:700:18:
+
+       common/scrp/ ijkl(2,8190)
+                  1
+Warning: Named COMMON block ‘scrp’ at (1) shall be of the same size as elsewhere (131040 vs 93600 bytes)
+vbtran.f:2337:19:
+
+       common /scra/ ij(2,340),kl(2,340)
+                   1
+Warning: Named COMMON block ‘scra’ at (1) shall be of the same size as elsewhere (10880 vs 68000 bytes)
+ar rcv libvb.a  vbaivb.o vbci.o vbdebug.o vbin.o vbscf.o vbqcscf.o vbutil.o vbcrestr.o vbgamess.o vbmatre.o vbtran.o vbdens.o vbprop.o vbversion.o servec.o sendrecv.o  
+r - vbaivb.o
+r - vbci.o
+r - vbdebug.o
+r - vbin.o
+r - vbscf.o
+r - vbqcscf.o
+r - vbutil.o
+r - vbcrestr.o
+r - vbgamess.o
+r - vbmatre.o
+r - vbtran.o
+r - vbdens.o
+r - vbprop.o
+r - vbversion.o
+r - servec.o
+r - sendrecv.o
+ar -s libvb.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+(cd ../m4; make zora.o )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+make[2]: 'zora.o' is up to date.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+which svnversion > ./m4_svnversion; chmod +x ./m4_svnversion
+echo "      subroutine gms_version(cdate,ctime,cname,cversion)" > gms_version.m
+echo "      character*10 cdate,cname,cversion" >> gms_version.m
+echo "      character*5 ctime" >> gms_version.m
+echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> gms_version.m
+echo "      ctime=\""`date '+%H:%M'`"\"" >> gms_version.m
+echo "      cname=\""`whoami`"\"" >> gms_version.m
+echo "      cversion=\""`./m4_svnversion ..`"\"" >> gms_version.m
+svnversion: E155036: The working copy at '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+is too old (format 10) to work with client version '1.9.7 (r1800392)' (expects format 31). You need to upgrade the working copy first.
+
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine getm4keys(m4keys)" >> gms_version.m
+echo "      implicit none" >> gms_version.m
+echo "      character*(*) m4keys" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 |awk 'BEGIN {i=0} {if (i==0) {printf "       m4keys=\"%s\"\n",$0} else {printf "     &//\"%s \"\n", $0} i++}' >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine wrtkeys(iwr)" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 | awk '{printf "      write(iwr,*)\n     &\"M4-Keys: %s \"\n", $0}'  >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+rm -f gms_version.f
+cat ../utilities/gener.m gms_version.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gms_version.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   gms_version.f
+rm -f mainci.f
+cat ../utilities/gener.m mainci.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mainci.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   mainci.f
+mainci.f:628:29:
+
+       data n32m_i/z'aaaaaaaa',z'aaaaaaaa'/
+                             1
+Error: Arithmetic overflow converting INTEGER(16) to INTEGER(4) at (1). This check can be disabled with the option ‘-fno-range-check’
+mainci.f:628:41:
+
+       data n32m_i/z'aaaaaaaa',z'aaaaaaaa'/
+                                         1
+Error: Arithmetic overflow converting INTEGER(16) to INTEGER(4) at (1). This check can be disabled with the option ‘-fno-range-check’
+mainci.f:627:41:
+
+       data nd32_i/z'00000000',z'aaaa0000'/
+                                         1
+Error: Arithmetic overflow converting INTEGER(16) to INTEGER(4) at (1). This check can be disabled with the option ‘-fno-range-check’
+Makefile:561: recipe for target 'mainci.o' failed
+make[1]: *** [mainci.o] Error 1
+make[1]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Makefile:4: recipe for target 'all' failed
+make: *** [all] Error 2

@@ -1,0 +1,22 @@
+C...
+c...  atonam for names of atoms (for mulliken population analysis,
+c...  and automatic atomic (strictly localised) scf-procedure)
+c...  atom is used her to denote fragments
+c...  nopa contains the # orbitals per atom, iopa contains them
+c...  mullik indicates if the analysis is requested, hybry indicates
+c...  wether the scf-procedure just should used atom-centered ao's
+c...  per atomic scf orbital. iacat contains the active (scf) orbital
+c...  per atom, nacat contains the number of the per atom.
+c...  atomao : fragment numbers / ao (may be more)
+c...           then stored as frag1, maxato*frag2, maxato**2*frag3 etc.
+c     ifrzat : hybrid handling
+c              0 : normal, 1 frozen, 2 super
+c...
+      character*8 atoms
+      common /atonam/ atoms(maxato)
+      integer atomao,nopa,iopa,natom,iacat,nacat,ifrzat
+      common /infato/ nopa(maxato),iopa(maxopa,maxato),natom,
+     &                iacat(maxact,maxato),nacat(maxato),
+     &                atomao(mxorbvb),ifrzat(maxato),
+     &                mullik,hybry,clean,hguess,guesao
+      logical mullik,hybry,clean,hguess,guesao

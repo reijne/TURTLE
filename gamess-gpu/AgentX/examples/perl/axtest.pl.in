@@ -1,0 +1,297 @@
+#!/usr/bin/perl
+
+# simple AgentX Perl example
+
+#************************
+
+# Copy this block into your Perl scripts
+
+use lib "@prefix@/share/AgentX/perl";
+use lib "@prefix@/lib";
+
+use libplagentx;
+
+#************************
+
+$i=0;
+$j=0;
+$k=0;
+$noBasisSetAssignment=0;
+$noMolecule=0;
+$noAtom=0;
+$noAtomicBasisSet=0;
+$noBasisGroup=0;
+$noMolecularOrbital=0;
+$noMOCoeffs=0;
+$noProp=0;
+
+$coeff="";
+$expon="";
+$assignmentID="";
+
+#initialise
+
+libplagentx::axParserStart();
+
+# specify performance options :
+    
+# the number of evaluations to cache
+    
+libplagentx::axCache(3000);
+
+#open supporting documents
+    
+#ontology (logical model)
+
+libplagentx::axGetUri("../../ontology/ontology.owl");
+
+#mappings (logical-physical mappings)
+
+libplagentx::axGetUri("../../map/map.rdf");
+
+#All concepts are identified by unique URIs. The following function
+#call sets the prefix for these URIs.
+
+libplagentx::axBaseUri("http://www.grids.ac.uk/eccp/owl-ontologies#");
+
+#Concepts used in function calls are prefixed by the base URI. For
+#example, axSelect("Molecule") is transformed to
+#axSelect("http://www.grids.ac.uk/eccp/owl-ontologies#Molecule").
+
+#open the data documents
+
+libplagentx::axDataGetUri("../xml/caffeine.xml");
+
+#This call to axSelect locates all the data sets that relate to
+#the concept
+#http://www.grids.ac.uk/eccp/owl-ontologies#BasisSetAssignment. The
+#first of these data sets is selected (document order).
+
+$noBasisSetAssignment=libplagentx::axSelect("BasisSetAssignment");
+
+for ($i=0;$i<$noBasisSetAssignment;$i++){
+
+#axSelect locates all the data items that relate to the property
+#http://www.grids.ac.uk/eccp/owl-ontologies#identifier.  Only those
+#from the previously selected data set are found. The first data
+#item (in document order) is selected.
+
+    $noprop=libplagentx::axSelect("identifier");
+
+    #axValue returns the value of the selected data item
+
+    if($noprop>0){
+	printf("\nserialisation of BasisSetAssignment :%s",libplagentx::axValue());
+	#drop data item selection
+	libplagentx::axDeselect();
+    }
+
+    #This  axSelect call  locates all  data sets  that relate  to the
+    #concept http://www.grids.ac.uk/eccp/owl-ontologies#Molecule. Only
+    #data sets that  are associated with  that previously selected  are
+    #located. Data  sets   can  be   associated  through  XML
+    #nesting,  eccp:link, eccp:associate  or eccp:complex
+    #elements. Again,  the first  of these data sets is selected.
+
+    $noMolecule=libplagentx::axSelect("Molecule");
+
+    for($j=0;$j<$noMolecule;$j++){
+      
+      $noprop=libplagentx::axSelect("identifier");
+      if($noprop>0){
+	printf("\nserialisation of Molecule :%s",libplagentx::axValue());
+	libplagentx::axDeselect();      
+      }
+
+      $noAtom=libplagentx::axSelect("atom");
+
+      for($k=0;$k<$noAtom;$k++){
+	
+	$noprop=libplagentx::axSelect("identifier");
+	if($noprop>0){
+	  printf("\nserialisation of Atom :%s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("elementType");
+	if($noprop>0){
+	  printf("element = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("xCoordinate");
+	if($noprop>0){
+	  printf("coordinate units: %s\n",libplagentx::axAbout("eccp:units"));
+	  printf("x coordinate = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("yCoordinate");
+	if($noprop>0){
+	  printf("y coordinate = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("zCoordinate");
+	if($noprop>0){
+	  printf("z coordinate = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noAtomicBasisSet=libplagentx::axSelect("AtomicBasisSet");
+	if($noAtomicBasisSet>0){
+	  $noprop=libplagentx::axSelect("identifier");
+	  if($noprop>0){
+	    printf("basis set = %s\n",libplagentx::axValue());
+	    libplagentx::axDeselect();
+	  }
+	}
+
+	libplagentx::axDeselect();
+
+	#this axSelectNext call selects the next data set located by
+	#the last axSelect call (not those data sets dropped by
+	#axDeselect).
+
+	libplagentx::axSelectNext();
+
+      }
+      libplagentx::axDeselect();
+      libplagentx::axSelectNext();
+    }
+
+    if($noBasisSetAssignment>0){libplagentx::axDeselect();}
+
+    $noAtomicBasisSet=libplagentx::axSelect("AtomicBasisSet");
+
+    for($j=0;$j<$noAtomicBasisSet;$j++){
+
+      $noprop=libplagentx::axSelect("identifier");
+      if($noprop>0){
+	printf("\nserialisation of AtomicBasisSet :%s",libplagentx::axValue());
+	libplagentx::axDeselect();
+      }
+
+      $noBasisGroup=libplagentx::axSelect("BasisGroup");
+
+      for($k=0;$k<$noBasisGroup;$k++){
+
+	$noprop=libplagentx::axSelect("identifier");
+	if($noprop>0){
+	  printf("\nserialisation of BasisGroup: %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("minL");
+	if($noprop>0){
+	  printf("minL = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("mlibplagentx::axL");
+	if($noprop>0){
+	  printf("mlibplagentx::axL = %s\n",libplagentx::axValue());
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("coefficient");
+	if($noprop>0){
+	  printf("coefficients: %s",libplagentx::axValue());
+      
+	  #axSelectNext selects  the next data  item of those  located with
+	  #the last  call to  axSelect. This  is called
+	  #when a dataset has more than one data item of a given name and
+	  #can  be used,  for example,  to return  values  from delimited
+	  #lists (where  the delimiter  is given in  one of  the bridging
+	  #documents; bridges.rdf in this example).*/
+	
+	  while (libplagentx::axSelectNext()){
+	    printf(" %s",libplagentx::axValue());
+	  }
+
+	  printf("\n");
+
+	  libplagentx::axDeselect();
+	}
+
+	$noprop=libplagentx::axSelect("exponent");
+	if($noprop>0){
+	  printf("exponents: %s",libplagentx::axValue());
+
+	  while(libplagentx::axSelectNext()){
+	    printf(" %s",libplagentx::axValue());
+	  }
+	  
+	  printf("\n");
+
+	  libplagentx::axDeselect();
+	}
+	libplagentx::axSelectNext();
+      }
+    
+      libplagentx::axDeselect();
+      libplagentx::axSelectNext();
+    }
+
+    libplagentx::axDeselect();
+    libplagentx::axSelectNext();
+  }
+    
+if($noAtomicBasisSet>0){libplagentx::axDeselect();}
+
+  #this call to axSelect locates all data sets that relate to the
+  #concept
+  #http://www.grids.ac.uk/eccp/owl-ontologies#MolecularOrbital.
+
+  $noMolecularOrbital=libplagentx::axSelect("MolecularOrbital");
+  
+  for($i=0;$i<$noMolecularOrbital;$i++){
+
+    $noprop=libplagentx::axSelect("identifier");
+    if($noprop>0){
+      printf("\nserialisation of MolecularOrbital :%s\n",libplagentx::axValue());
+      libplagentx::axDeselect();
+    }
+
+    libplagentx::axCurrent();
+    
+    #axCurrent  prints  the data set  selection  history.  Names of  the
+    #data set  resources  are  listed  in the  order  selected  (through
+    #axSelect). The  names are  followed by the order number of the resource
+    #currently  selected  (1  is   the  first)  and  the  total  number
+    #located.*/
+
+    $noBasisSetAssignment=libplagentx::axSelect("BasisSetAssignment");
+    if($noBasisSetAssignment>0){
+      $noprop=libplagentx::axSelect("identifier");
+      if($noprop>0){
+	printf("BasisSetAssignment = %s\n",libplagentx::axValue());
+	libplagentx::axDeselect();
+      }
+      libplagentx::axDeselect();    
+    }
+
+    $noprop=libplagentx::axSelect("mOCoefficient");
+    if($noprop>0){
+      printf("coefficients : %s",libplagentx::axValue());
+
+      while(libplagentx::axSelectNext()){
+	printf(" %s",libplagentx::axValue());
+      }
+
+      printf("\n");
+
+      libplagentx::axDeselect();
+    }
+    libplagentx::axSelectNext();
+  }
+
+if($noMolecularOrbital>0){libplagentx::axDeselect();}
+
+  #the call to axParserFinish cleans up the memory
+  
+  libplagentx::axParserFinish();
+
+  exit (0);
+
+    

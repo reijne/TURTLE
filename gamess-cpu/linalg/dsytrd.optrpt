@@ -1,0 +1,34 @@
+
+Begin optimization report for: DSYTRD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsytrd.f(245,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dsytrd.f(245,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dsytrd.f(277,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dsytrd.f(277,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsytrd.f(227,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsytrd.f(233,18) ]
+LOOP END
+
+LOOP BEGIN at dsytrd.f(258,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsytrd.f(264,18) ]
+LOOP END
+===========================================================================

@@ -1,0 +1,20 @@
+#!/bin/csh
+#
+# simple execution script to run on NX version of GAMESS-UK 
+# on the iPSC frontend
+#
+set job=$1
+set exec=/usr01/psh/tcsa/allan/new/bin/gamess_scf
+set nnodes=$2
+#
+setenv QSUB_USER psh
+#
+setenv ed2 simple.ed2
+setenv ed3 simple.ed3
+#
+getcube -t${nnodes}rx
+load -H $exec
+newserver  >& $job.out
+startcube
+waitcube < $job.in 
+relcube

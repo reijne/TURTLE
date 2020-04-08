@@ -1,0 +1,53 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = z001
+#@ job_name = cyclosporin
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI/test_jobs/hpcx/cyclosporin.err.2
+#@ wall_clock_limit = 01:00:00
+#@ tasks_per_node = 32
+#@ cpus = 128
+#@ network.MPI = csss,shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export MP_EAGER_LIMIT=65536
+export MP_SHARED_MEMORY=yes
+export MP_USE_BULK_XFER=yes
+export MEMORY_AFFINITY=MCM
+export MP_EUILIB=us
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI
+
+cp input_files/HF.cyclo.sto3G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.sto3G.out
+
+cp input_files/HF.cyclo.3-21G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.3-21G.out
+
+cp input_files/HF.cyclo.6-31G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.6-31G.out
+
+cp input_files/HF.cyclo.6-31G-d.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.6-31G-d.out
+
+cp input_files/HF.cyclo.6-31G-dp.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.6-31G-dp.out
+
+cp input_files/HF.cyclo.DZP.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.cyclo.DZP.out
+
+cp input_files/DFT.cyclo.6-31G.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/DFT.cyclo.6-31G.out
+
+cp input_files/DFT.cyclo.6-31G-dp.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/DFT.cyclo.6-31G-dp.out

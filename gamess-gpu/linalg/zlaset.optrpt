@@ -1,0 +1,66 @@
+
+Begin optimization report for: ZLASET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlaset.f(72,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlaset.f(73,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlaset.f(73,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlaset.f(77,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at zlaset.f(77,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zlaset.f(86,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlaset.f(87,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlaset.f(87,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlaset.f(91,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at zlaset.f(91,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zlaset.f(100,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlaset.f(101,16)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlaset.f(101,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlaset.f(105,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at zlaset.f(105,13)
+<Remainder>
+LOOP END
+===========================================================================

@@ -1,0 +1,68 @@
+c                                                                        c      
+c------------------------------------------------------------------------c      
+c  include - file fuer parkwa2.f                                         c      
+c------------------------------------------------------------------------c      
+c                                                                               
+c --- festlegung der deks                                                       
+c --- festlegung der parameterinhalte                                           
+      integer nteint
+*  laenge der table-information (meist auf /a/ abgelegt)                        
+      integer ndtab
+      parameter (ndtab = 7 829)
+*  maximale dimension der ci
+      integer maxci
+      parameter (maxci= 800 001)
+      integer nlca
+*  laenge des commons a : nlca
+      parameter (nlca =  39 218)
+      integer nt44
+      parameter (nt44 =  44 000)
+*  laenge verschiedener vektoren : noch unbekannt !!!                           
+      integer n3zt
+      parameter (n3zt   = 30 000)                                               
+*  number of mains                                                             
+      integer maxref
+      parameter (maxref = 256)                                                  
+*  number of roots
+      parameter (mxroot = 50)
+* maxshl haengt mit der anzahl der elektronen zusammen !                        
+* maxele maximum number of electrons
+      integer maxele, maxshl, ndcon
+      parameter (maxele = 90 )                                                  
+      parameter (maxshl = 50 )                                                  
+      parameter (ndcon  = maxshl*maxref )                                       
+*  anzahl der offenen schalen                                                   
+      integer nopmax
+      parameter (nopmax = 9)                                                    
+      integer n12, n36
+      parameter (n12 = 12 )                                                     
+      parameter (n36 = 36 )                                                     
+*  anzahl der superkategorien                                                   
+      integer ndk5, iswhm
+      parameter (ndk5 = 5 )                                                     
+      parameter (iswhm= ndk5)                                                   
+      integer nn3
+      parameter (nn3  = 3 )                                                     
+*  d2h - punktgruppe                                                            
+      integer maxsym
+      parameter (maxsym = 8)                                                    
+*  laenge des iot - feldes                                                      
+      integer niot
+      parameter (niot = 100 000)                                                
+*  null und andere numerische parameter                                         
+      integer nzero
+      parameter (nzero = 0 )                                                    
+*  laenge des labelfiles                                                        
+      integer nnid, nnid8
+      parameter (nnid   = 2 000)                                                
+      parameter (nnid8  =   250)                                                
+*  laenge der integralbloecke vom ft31 : stoney                                 
+      integer ndimh
+      parameter (ndimh  = 1 000)                                                
+*  laenge des nit-feldes                                                        
+      integer nitmax
+      parameter (nitmax =  666)                                                 
+c------------------------------------------------------------------------c      
+c ---- end of  include file                                              c      
+c------------------------------------------------------------------------c      
+c                                                                               

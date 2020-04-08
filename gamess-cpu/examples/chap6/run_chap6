@@ -1,0 +1,49 @@
+#!/bin/csh
+#
+# Test jobs from Chapter 6 of GAMESS Manual
+# many jobs require require 4M+words, and the following
+#     qsub -lm 16Mw -lT 1800 run_chap6
+#
+date
+RUN c6000
+RUN c6000a
+RUN c6001
+RUN c6002
+RUN c6003
+RUN c6004
+RUN c6005
+RUN c6006
+/bin/rm -rf tran adapt diag moment
+RUN c6007
+/bin/rm -rf ci.*
+RUN c6008
+RUN c6009
+RUN c6010
+RUN c6011
+RUN c6012
+RUN c6013
+RUN c6014
+/bin/rm -rf mfg* ci.* vb.* gs.*
+date
+RUN c6100
+RUN c6100a
+RUN c6100b
+RUN c6101
+RUN c6102
+RUN c6103
+RUN c6104
+RUN c6105
+RUN c6106
+RUN c6107
+RUN c6108
+RUN c6108a
+RUN c6109
+RUN c6110
+RUN c6111
+RUN c6112
+RUN c6113
+RUN c6113a
+RUN c6113b
+RUN c6114
+date
+/bin/rm -rf table mfg*

@@ -1,0 +1,59 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - dzp + f + g 
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c 
+1.0 1.0
+g o
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - casscf (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c 
+1.0 1.0
+g o
+1.0 1.0
+end
+scftype casscf
+config 
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF

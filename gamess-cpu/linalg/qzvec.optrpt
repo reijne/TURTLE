@@ -1,0 +1,145 @@
+
+Begin optimization report for: QZVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at qzvec.f(142,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzvec.f(142,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzvec.f(142,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzvec.f(86,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzvec.f(91,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(91,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(91,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at qzvec.f(204,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzvec.f(207,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at qzvec.f(210,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzvec.f(210,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzvec.f(210,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at qzvec.f(218,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzvec.f(232,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(232,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(232,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(239,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(239,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(239,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(239,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(239,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(223,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(223,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(223,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(223,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(227,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(227,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(227,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzvec.f(227,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at qzvec.f(74,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at qzvec.f(135,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at qzvec.f(191,13)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at qzvec.f(184,52)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

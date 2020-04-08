@@ -1,0 +1,38 @@
+
+Begin optimization report for: DLAMRG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlamrg.f(85,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlamrg.f(85,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlamrg.f(85,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlamrg.f(92,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlamrg.f(92,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlamrg.f(92,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlamrg.f(69,21)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

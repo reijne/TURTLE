@@ -1,0 +1,635 @@
+
+Begin optimization report for: CD_IMPORT_GEOM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(616,7)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(616,7)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at interface.f(616,7)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(616,7)
+<Remainder, Distributed chunk2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at interface.f(612,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ interface.f(609,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_UPDATE_GEOM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(1017,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1017,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_DEBUG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(13084,7) inlined into interface.f(10448,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13086 and  line 13086
+LOOP END
+
+LOOP BEGIN at interface.f(13101,7) inlined into interface.f(10448,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13104 and  line 13104
+LOOP END
+
+LOOP BEGIN at interface.f(10495,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(10495,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at interface.f(13066,7) inlined into interface.f(10448,14)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: IDSTRING
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(13084,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13086 and  line 13086
+LOOP END
+
+LOOP BEGIN at interface.f(13091,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at interface.f(13101,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13104 and  line 13104
+LOOP END
+
+LOOP BEGIN at interface.f(13112,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at interface.f(13066,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_SET_WEIGHT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(13084,7) inlined into interface.f(11219,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13086 and  line 13086
+LOOP END
+
+LOOP BEGIN at interface.f(13101,7) inlined into interface.f(11219,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 13104 and  line 13104
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at interface.f(13066,7) inlined into interface.f(11219,13)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CLONE_GRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(16505,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(16509,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at interface.f(16509,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_LEBEDEVON
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(18374,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at interface.f(18381,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(18388,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 18389 and  line 18389
+LOOP END
+
+LOOP BEGIN at interface.f(18397,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(18397,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at interface.f(18397,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at interface.f(18397,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at interface.f(18397,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(18400,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(18400,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at interface.f(18400,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at interface.f(18393,7)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_GAUSSLON
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(18776,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at interface.f(18782,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at interface.f(18782,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at interface.f(18787,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(18787,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at interface.f(18787,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IL_SHELL_ILIST
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(28834,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(28840,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at interface.f(28840,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at interface.f(28840,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: EXAD_FIND
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(28976,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at interface.f(28976,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(28976,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(28976,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_DEFAULTS_OLD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(15751,7)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(15751,7)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_JFIT_INIT2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(7924,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at interface.f(7924,16)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(2433,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_DEFAULTS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at interface.f(1637,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1637,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at interface.f(1641,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at interface.f(1655,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at interface.f(1655,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at interface.f(1655,13)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at interface.f(1655,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk3>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk3>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk3>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk4>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk4>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk4>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk5>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk5>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk5>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk6>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk6>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk6>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk7>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk7>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk7>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk8>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk8>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk8>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk9>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk9>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk9>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk10>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk10>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk10>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk11>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk11>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk11>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk12>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk12>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk12>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk13>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk13>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk13>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk14>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk14>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk14>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk15>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk15>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk15>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk16>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk16>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk16>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk17>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk17>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk17>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk18>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk18>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at interface.f(1646,10)
+   <Distributed chunk18>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk19>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk20>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk21>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1645,7)
+<Distributed chunk22>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at interface.f(1741,7)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+===========================================================================

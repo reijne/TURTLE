@@ -1,0 +1,18 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2cs - cc-pvtz from tzvp opt. energy -436.55750429
+zmatrix angstrom
+c
+s 1 cs
+h 1 ch 2 hcs
+h 1 ch 2 hcs 3 180.0
+variables
+cs             1.5990897 hessian     .640290
+ch             1.0775219 hessian     .694670
+hcs          122.0282708 hessian     .760371
+end
+basis cc-pvtz
+runtype optimize
+enter
+EOF

@@ -1,0 +1,33 @@
+#!/bin/csh
+setenv ed1 h2oed1
+setenv ed2 h2omain
+setenv ed3 h2odump
+setenv ed4 h2oed4
+setenv ed6 h2oed6
+setenv ed9 h2oed9
+setenv ed10 h2oed10
+setenv ed11 h2oed11
+../../bin/gamess << EOF
+restart new
+title
+water 3-21G CASSCF geom. opt. / optimised energy = -75.64130793
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype optimise
+scftype casscf
+config bypass
+doc 1 to 5
+uoc 6 7
+end
+superci 1 to 5
+newton 6 to 20
+hessian 6 to 20
+simul 6 to 20
+enter
+EOF

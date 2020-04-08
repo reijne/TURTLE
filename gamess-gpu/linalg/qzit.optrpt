@@ -1,0 +1,144 @@
+
+Begin optimization report for: QZIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at qzit.f(83,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzit.f(88,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzit.f(88,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzit.f(88,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at qzit.f(120,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at qzit.f(189,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at qzit.f(146,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(146,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(269,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(269,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(296,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzit.f(296,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(296,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at qzit.f(296,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(311,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzit.f(311,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(311,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at qzit.f(311,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(241,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(241,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(327,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzit.f(327,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(327,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzit.f(339,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzit.f(339,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(339,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at qzit.f(339,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzit.f(339,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at qzit.f(130,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at qzit.f(221,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at qzit.f(128,13)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at qzit.f(136,21)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at qzit.f(221,10)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

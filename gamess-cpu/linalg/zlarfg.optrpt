@@ -1,0 +1,18 @@
+
+Begin optimization report for: ZLARFG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlarfg.f(130,16)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zlarfg.f(115,28)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

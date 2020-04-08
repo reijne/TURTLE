@@ -1,0 +1,35 @@
+c
+c     The elements in this common block are used with the incore
+c     coulomb fit approach.
+c
+c     ocfit_sw     : is .true. if the incore approach is to be used.
+c
+c     icfit_pt     : is the "pointer" to the fitting coefficient store.
+c     ncfit        : is the size of the fitting coefficient store.
+c
+c     iite2c_stored: is the "pointer" to the 2-center Schwarz table
+c     nte2c_shl    : is the size of the 2-center Schwarz table on each 
+c                    node in integers.
+c     iite3c_stored: is the "pointer" to the 3-center Schwarz table
+c     nte3c_shl    : is the size of the 3-center Schwarz table on each
+c                    node in integers.
+c
+c     ite2c_store  : is the "pointer" to the 2-center integral store
+c     nte2c_int    : is the size of the 2-center integral store
+c     ite3c_store  : is the "pointer" to the 3-center integral store
+c     nte3c_int    : is the size of the 3-center integral store
+c
+c     idunlap_called: counts the number of times the dunlap fitting
+c                     routines have been called since the last geometry
+c                     change.
+c
+      integer icfit_pt, ncfit
+      integer iite2c_stored, iite3c_stored, nte2c_shl, nte3c_shl
+      integer ite2c_store, ite3c_store, nte2c_int, nte3c_int
+      integer idunlap_called
+      logical ocfit_sw
+      common/dft_dunlap/icfit_pt, ncfit,
+     +          iite2c_stored, iite3c_stored, nte2c_shl, nte3c_shl,
+     +          ite2c_store, ite3c_store, nte2c_int, nte3c_int,
+     +          idunlap_called,
+     +          ocfit_sw

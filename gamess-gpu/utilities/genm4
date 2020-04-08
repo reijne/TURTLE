@@ -1,0 +1,51 @@
+#!/bin/csh
+#
+#
+#  this script may be used to produce a machine-specific
+#  source code file from a M4 generic (.m) file
+#
+#  usage: genm4 <machine> <source>
+#
+# eg genm4 unicos machscf
+#
+# creates machscf.f from machscf.m 
+# (both files in the current directory)
+#
+#
+#  the environment variable GAMESS_ROOT must point to the
+#  root directory for the m4 GAMESS source, but ONLY as a 
+#  a way of accessing the machine.m file - not the source
+#  itself
+#
+#  
+#
+#    no good on a convex or dlsa so frig rsh to iris2
+#
+if ( `hostname` == cxa || `hostname` == dlsa ) then
+ set  m4="rsh iris2 m4"
+else
+ set m4=m4
+endif
+#
+if $?GAMESS_ROOT == 0 then
+  echo you must set the environment variable GAMESS_ROOT to the
+  echo m4 source code top directory
+  exit 1
+endif
+set m4root=$GAMESS_ROOT/utilities
+if $#argv != 2 then
+   echo usage: $0 machine source
+   exit 1
+else if ! -r $m4root/$1.m then
+   echo $0 : machine not supported
+   exit 2
+else if ! -r $2.m then
+   echo $0 : cant find $2.m
+   exit 2
+endif
+set path=(/usr/5bin /sys5.3/usr/bin $m4root $path)
+if ( $1 == unicos || $1 == c90 || $1 == fps || $1 == cyber205 ) then
+   cat $m4root/$1.m $m4root/gener.m $2.m | $m4 | $m4root/sngl.sed > $2.f
+else
+  cat $m4root/$1.m $m4root/gener.m $2.m | $m4 > $2.f
+endif

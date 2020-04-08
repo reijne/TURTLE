@@ -1,0 +1,11 @@
+*
+*     to signal which scf procedure to be used, e.g., super-ci or Newton-Raphson
+*     default is super-ci
+*
+      REAL scalhs, sci2nr, delta, crmax
+      integer nits, nitsci, nege, nneg
+      logical oqcscf, ocong, ospci, oinve, ograd, ocorr, oauto,
+     +        oiter, oqcof
+      common / quadratic / nitsci,  nits,  nege, nneg, scalhs, sci2nr,
+     +                     delta, crmax, oqcscf, ocong, ospci, oinve, 
+     +                     ograd, ocorr, oauto, oiter, oqcof

@@ -1,0 +1,17 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co+ - 6-31G - D-UKS DFT/B3LYP default quad. / energy = -114.0641081575 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct uhf
+dft b3lyp
+enter
+EOF

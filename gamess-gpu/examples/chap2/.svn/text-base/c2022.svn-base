@@ -1,0 +1,44 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ftn008 file8
+../../bin/gamess << EOF
+title
+h2o - DZ basis - full-ci / final energy = -76.142702538
+super off nosym
+noprint
+zmat angstrom
+o 
+h 1 oh 
+h 1 oh 2 hoh 
+variables
+oh 0.965
+hoh 104.5
+end
+basis dz
+active\2 to 14 end\core\1\end
+runtype ci\fullci 13 4 4
+maxcyc 4
+enter
+EOF
+../../bin/gamess << EOF
+restart ci
+title
+h2o - DZ - restart full-ci / final energy = -76.142873869
+super off nosym
+noprint
+zmat angstrom
+o 
+h 1 oh 
+h 1 oh 2 hoh 
+variables
+oh 0.965
+hoh 104.5
+end
+basis dz
+active\2 to 14 end\core\1\end
+runtype ci\fullci 13 4 4
+enter
+EOF
+/bin/rm file8

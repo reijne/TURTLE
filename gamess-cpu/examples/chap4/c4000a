@@ -1,0 +1,195 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+cr(co)6 HF sto3g at B3LYP tzvP opt. geom. E = -1699.548796719 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+basis sto3g
+scftype direct
+enter
+EOF
+../../bin/gamess << EOF
+title
+cr(co)6 HF sto3g at B3LYP tzvP opt. geom. MINGUESS  E = -1699.548796719 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+basis sto3g
+scftype direct
+vectors minguess
+enter
+EOF
+../../bin/gamess << EOF
+title
+cr(co)6 HF sto3g at B3LYP tzvP opt. geom. HCORE E = -1699.548796719 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+basis sto3g
+scftype direct
+vectors hcore
+enter
+EOF
+../../bin/gamess << EOF
+title
+cr(co)6 HF 3-21G at B3LYP tzvP opt. geom.  E = -1710.700549649 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+scftype direct
+enter
+EOF
+../../bin/gamess << EOF
+title
+cr(co)6 HF 3-21G at B3LYP tzvP opt. geom. * EXTGUESS  E = -1710.700549651 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+scftype direct
+vectors extguess
+enter
+EOF
+../../bin/gamess << EOF
+title
+cr(co)6 HF 3-21G at B3LYP tzvP opt. geom. * HCORE  E = -1710.700549651 au
+harmonic
+zmat angstrom
+cr
+c 1 crc
+c 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc            1.9259393 hessian        .998007
+co             1.1407215 hessian       6.751068
+end
+scftype direct
+level 8 10 2
+vectors hcore
+enter
+EOF

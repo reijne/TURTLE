@@ -1,0 +1,89 @@
+
+Begin optimization report for: DLASQ2A
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlasq2a.f(183,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 185 and  line 187
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(183,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(203,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(203,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(203,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(235,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(280,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(279,19)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(280,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(310,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(310,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(310,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(320,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(320,10)
+   remark #15301: REVERSED LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(320,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(320,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlasq2a.f(138,20)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlasq2a.f(215,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlasq2a.f(257,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

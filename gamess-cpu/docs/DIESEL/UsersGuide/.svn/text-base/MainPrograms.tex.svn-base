@@ -1,0 +1,40 @@
+\section{Main Programs}
+
+\subsection{Common Input Keywords}
+
+\begin{supertabular}{p{3cm}|c|p{1.5cm}|p{1.5cm}|p{5cm}}
+&sta- &de-&argument &\\
+keyword	&tus&fault&type &description\\[5pt]
+\hline&&&&\\[-9pt]
+{\tt Roots}	&opt. &selector input &\key{numSet} &
+set of roots to be used in the diagonalisation procedure\tnl
+{\tt MOIntegral\-Filename}	&opt. &"fort.31" / "ftn31" &\key{name} &
+name of MO integral file\tnl
+{\tt MOIntegral\-FileFormat}	&opt. &"auto" &\key{MOFile\-Format} &
+file format of MO integral file\tnl
+{\tt Verbosity}	&opt. &app. dependent&\key{verbosity\-Set} &\tnl
+\end{supertabular}
+
+
+
+
+
+%&&"New"& MOLCAS format (form31) \cr
+%&&"Old"& HONDO format (form31) \cr
+%&&"TRADPT"& TRADPT format \cr
+%&&"auto"& auto detection \cr
+%&&&if missing, defaults to "auto"\cr
+
+
+
+
+
+\input Driver.tex
+
+\input Selector.tex
+
+
+\input Diagonalisator.tex
+
+
+\input MRPT.tex

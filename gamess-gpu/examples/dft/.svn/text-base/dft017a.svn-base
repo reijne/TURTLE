@@ -1,0 +1,19 @@
+#!/bin/csh
+../../bin/gamess <<EOF
+title
+ch2 - 6-31G* - UKS DFT/B97 quadrature=medium (default) / energy = -39.1205311752 au
+mult 3
+zmat angstrom
+C
+H 1 r
+H 1 r 2 a
+variables
+r 1
+a 130
+end
+basis 6-31G*
+scftype uhf
+dft b97
+dft quadrature medium
+enter
+EOF

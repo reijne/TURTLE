@@ -1,0 +1,79 @@
+#!/bin/csh
+setenv ed2 namgmain
+setenv ed3 namgdump
+../../bin/gamess << EOF
+title
+na7mg+ * sto-3g * closed shell * SCF energy= -1314.828467
+super force
+charge 1
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis sto3g
+level 1.5 10 1.0 
+maxcyc 40
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+na7mg+ * sto-3g * triplet * RHF energy= -1314.900829
+super force
+bypass
+mult 3
+charge 1
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis sto3g
+maxcyc 40
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+na7mg+ * sto-3g * triplet * UHF energy= -1314.901914
+super force
+mult 3
+charge 1
+bypass
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis sto3g
+scftype uhf
+vectors 5
+enter
+EOF

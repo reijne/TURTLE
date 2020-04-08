@@ -1,0 +1,127 @@
+#!/bin/sh
+#
+# Rungamess execution script - BlueGene version
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+mode=master-slave
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# In server mode the directory may already be created
+# and in use
+# --------------------------------------------------------------
+#
+if test -d $jobworkdir
+then
+  echo re-using scratch directory
+else
+  mkdir -p $jobworkdir
+fi
+cd $jobworkdir
+
+#
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+case ${NODE0:=null} in
+null) ;;
+   *)  job_environment=LOBOSQ;;
+esac
+
+echo rungamess : BlueGene job environment is $job_environment
+
+#
+# --------------------------------------------------------------
+# Build list of hosts 
+# --------------------------------------------------------------
+#
+myargs=""
+case $job_environment in 
+
+PBS)    nodes=`cat $PBS_NODEFILE`
+        echo $nodes
+        for i in $nodes
+        do
+           echo $i $procspernode
+           myargs="$myargs $i $procspernode"
+        done;;
+
+INTER)  # Take hosts from GAMESS_HOSTS
+        echo rungamess: interactive BlueGene job dir=`pwd` procs=$nprocs hostlist=$GAMESS_HOSTS 
+        ;;
+
+*)  echo "Unsupported job environment for BlueGene : $job_environment"
+    exit -1;;
+
+esac
+
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+echo Start at `date`
+echo  $executable $myargs  $datain
+case $datain in
+  0) cat $homedir/$jobname.in | mpirun -cwd `pwd` -exe $executable $myargs -np 1 -partition UE_R001_32B -verbose 0;;
+  1) cp  $homedir/$jobname.in datain
+     mpirun -cwd `pwd` -exe $executable $myargs -np 1 -partition UE_R001_32B -verbose 0
+     rm -f datain;;
+esac
+stat=$?
+echo End at `date`
+
+case $stat in
+   0) echo ${IDENT}: BlueGene MPI gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+
+#
+# --------------------------------------------------------------
+# Delete scratch directory. The test on contents is applied in
+# case of core files,  user-added file directives, + the
+# save command
+# --------------------------------------------------------------
+#
+
+cd ..
+
+list=`/bin/ls -1 $jobworkdir`
+
+case X$list in
+  X) rmdir $jobworkdir;;
+  *) echo "rungamess: scratch directory has not been deleted as it is not empty"
+     #echo Directory $jobworkdir on `hostname` contains the following:
+     #/bin/ls -l $jobworkdir
+  ;;
+esac

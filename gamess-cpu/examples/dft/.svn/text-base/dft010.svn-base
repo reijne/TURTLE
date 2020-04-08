@@ -1,0 +1,20 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+bf3 tzvp basis S-VWN d3h  Energy -322.536194580905 au
+zmat angstrom
+b
+x 1 1.0
+f 1 bf 2 90.0
+f 1 bf 2 90.0 3 120.0
+f 1 bf 2 90.0 3 -120.0
+variables
+bf       1.3 hessian     .888291
+end
+basis tzvp
+runtype optimize
+scftype direct
+cdft s-vwn
+level 1
+enter
+EOF

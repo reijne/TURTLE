@@ -1,0 +1,58 @@
+
+Begin optimization report for: ELAU
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at elau.f(18,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at elau.f(23,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at elau.f(23,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at elau.f(23,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at elau.f(23,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at elau.f(36,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at elau.f(36,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at elau.f(36,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at elau.f(36,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at elau.f(44,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at elau.f(44,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at elau.f(44,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at elau.f(44,10)
+<Remainder>
+LOOP END
+===========================================================================

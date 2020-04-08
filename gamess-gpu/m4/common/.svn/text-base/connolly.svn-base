@@ -1,0 +1,8 @@
+cxxx  REAL co,rtype,molnum,d,rp
+      REAL co,rtype,d,rp
+      integer*2 molnum
+      integer nmaxcon,nmincon,natom
+      logical isurdens,iminpoint
+      common/coninp/co(3,maxatm+1),rtype(maxatm+1),d,rp
+      common/coninp2/molnum(maxatm+1)
+      common/coninp3/natom,nmaxcon,nmincon,isurdens,iminpoint

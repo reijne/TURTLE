@@ -1,0 +1,4063 @@
+\documentclass[11pt,fleqn]{article}
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+ 
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\newcommand{\water}{\mbox{H$_{2}$O}}
+\newcommand{\waterp}{\mbox{H$_{2}$O$^{+}$}}
+\newcommand{\namgplus}{\mbox{Na$_{7}$Mg$^{+}$}}
+\newcommand{\nitrobz}{\mbox{C$_{6}$H$_{5}$NO$_{2}$}}
+\newcommand{\tnt}{\mbox{C$_{6}$H$_{2}$(NO$_{2}$)$_{3}$CH$_{3}$}}
+\newcommand{\ammonia}{\mbox{NH$_{3}$}}
+\newcommand{\formaldehyde}{\mbox{H$_{2}$CO}}
+\newcommand{\nico}{\mbox{Ni(CO)$_{4}$}}
+\newcommand{\fcubane}{\mbox{C$_{4}$F$_{4}$}}
+\newcommand{\nimeth}{\mbox{NiCCH$_{2}$}}
+\newcommand{\ethene}{\mbox{C$_{2}$H$_{4}$}}
+\newcommand{\pyridine}{\mbox{C$_{5}$H$_{5}$N}}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+ 
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2008}\\ [.2in]
+{\large PART 12. GAMESS-UK under UNIX}\\
+\vspace{.1in}
+{\large M.F. Guest, J. Kendrick, J.H. van Lenthe and P. Sherwood}\\[0.2in]
+ 
+Copyright (c) 1993-2008 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{3mm}\\
+\end{flushleft}
+ 
+\tableofcontents
+
+\pagenumbering{arabic}
+\newpage
+
+
+\section[Introduction]{Introduction}
+
+In the present section we consider initially  execution of GAMESS--UK
+on a Linux workstation, although these notes are intended as a
+more general guide to running the code under the Unix operating
+system. Throughout this description we make the following assumptions:
+
+\begin{itemize}
+\item the user will in general submit jobs from a
+disk partition different to that where the direct access files
+used by GAMESS--UK will be cited: typically the latter will be striped. 
+For the purpose of the present notes we assume that the various files
+involved will be routed to the partition /scr1/user, where the
+directory 'user' has been created prior to job submission (using
+the command {\em mkdir}), thus
+{
+\footnotesize
+\begin{verbatim}
+          mkdir /scr1/user
+\end{verbatim}
+}
+
+\item  that all job inputs reside in the
+user's home directory (or subdirectory thereof), and that all
+job output is to be routed back to that directory.
+\item We assume the user is submitting jobs directly to the
+background. 
+\item In Part 13  we discuss execution of GAMESS--UK
+using the prepared script {\em rungamess}
+\item all of the commands in these notes belong to the C shell.
+\end{itemize}
+Note that  all data input for the Unix implementation of GAMESS--UK
+may be presented
+in either {\bf upper} or {\bf lower case}. In the examples below 
+we have used {\em lower case} input throughout. Note that it is
+a trivial matter to convert data from under control of the {\em dd}
+command. Thus if upper case data input resides in the file {\bf upper}, 
+the following command\\
+
+ dd~~if={\bf upper}~~of={\bf lower}~~conv=lcase\\
+
+will perform the necessary conversion to leave the required lower
+case input in the file {\bf lower}. Note that the executable for GAMESS--UK
+is assumed to reside in the file /scr1/wab/GAMESS-UK/gamess.
+The following examples will be considered:
+
+\begin{enumerate}
+\item Single point SCF calculation of water using the default basis.
+\item Sequence of calculations on water, including starting and
+restarting geometry optimisation of the neutral molecule,
+an RHF calculation on the $^{2}$B$_{1}$ cation, boys localisation
+and 2-pair GVB calculation of the neutral molecule. 
+\item Closed-shell SCF calculations on \fcubane, \nitrobz and \tnt.
+\item STO-3G calculation of \namgplus, together with an RHF and UHF
+calculation of the triplet state.
+\item Extended basis set calculation on \namgplus, with SCF calculation
+of the singlet state preceding an RHF calculation of the triplet state.
+\item ECP calculation on \namgplus in a double-zeta valence
+basis, with SCF calculation
+of the singlet state preceding an RHF calculation of the triplet state.
+\item 2-pair GVB calculation on 
+1-imino-2,4-pentadiene, CH$_{2}$(CH)$_{4}$NH$_{2}^{+}$
+\item Graphical analysis of the X$^{1}$A$_{1}$ state of \nico.
+\item STO-3G direct-SCF calculations on C$_{11}$O$_{10}$NPH$_{18}$
+and the geometry optimisation of Be(C$_{5}$H$_{5}$)$_{2}$.
+\item Determination of the transition state for the HCN/HNC
+isomerisation reaction. This example demonstrates usage of the 
+three saddle point algorithms available, the default trust-region
+method plus the synchronous transit and Simons-Jorgensen algorithms.
+\item Location of the transition state for the HPSi/HSiP
+isomerisation and subsequent force constant evaluation.
+\item Specification of bond-centred functions, located at the
+midpoint of the C-N bond in the HCN/HNC transition state.
+\item SCF geometry optimisation and analytic force constants
+of \ethene.
+\item MP2 geometry optimisation and analytic force constants
+of \ethene.
+\item MP2 geometry optimisation and polarisability of \ethene.
+\item Direct-MP2 calculation of \pyridine\ in a 6-31G* basis.
+\item CASSCF geometry optimisation of the X$^{1}$A$_{1}$ state of \water.
+\item CASSCF + 2nd-order CI calculations of the X$^{1}\Sigma^{+}$ 
+state of BeO.
+\item MCSCF + 2nd-order CI calculations of the X$^{1}\Sigma^{+}$ 
+state of BeO.
+\item  Table-CI calculation of the X$^{2}$A$_{1}$ and 1$^{2}$A$_{1}$ 
+states of the ammonia cation, NH$_{3}^{+}$ cation.
+\item  ECP calculation on \nimeth\, with CASSCF and Direct-CI
+calculations of the lowest triplet state wavefunction.
+\item  Table-CI calculations typical of those
+performed in the calculation of electronic spectra.
+In this case we are studying the disposition of the lowest
+$^{1}$A$_{1}$ and 1$^{1}$A$_{2}$ states of pyridine.
+The sequence of calculations involve the determination of the
+lowest 10 states of each category, performed in a DZ plus rydberg
+basis.
+\item Full-CI calculations of  the X$^{1}$A$_{1}$ state of \water.
+\end{enumerate}
+
+\section[Single Point SCF Calculation]{Single Point SCF Calculation}
+
+Let us consider a simple SCF run for \water\ in a 3-21G basis,
+and describe the various mechanisms available for running the
+job in terms of the citing of direct access files involved and
+the routing of job output. Note at the outset that GAMESS--UK reads from
+{\em stdin} and writes to {\em stdout}, so that both input and 
+output may be controlled by the standard means.
+\begin{itemize}
+\item Let us assume that the following lines reside in the
+file myjob,
+{
+\footnotesize
+\begin{verbatim}
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter
+          EOF
+\end{verbatim}
+}
+and are submitted to the background through the command
+{
+\footnotesize
+\begin{verbatim}
+          myjob >& myjob.log &
+\end{verbatim}
+}
+This will result in the files used by GAMESS--UK, in this case ED2, ED3 and
+ED7 being created in the user's own directory for the duration of the
+run, and deleted on job termination. The output from the job and any
+system diagnostics will be routed to the file myjob.log. Note that 
+the user may  assign execute attributes to the file myjob,
+using the {\em chmod} command, thus
+
+{
+\footnotesize
+\begin{verbatim}
+          chmod 700 myjob
+\end{verbatim}
+}
+\item Note that
+it is also possible to read the data from a separate file, so that
+myjob would comprise the single line
+
+{
+\footnotesize
+\begin{verbatim}
+          /scr1/wab/GAMESS-UK/bin/gamess < datain
+\end{verbatim}
+}
+where datain contains just the GAMESS--UK data, thus
+{
+\footnotesize
+\begin{verbatim}
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter
+\end{verbatim}
+}
+In this case the job might equally well be submitted directly with
+the following command,
+{
+\footnotesize
+\begin{verbatim}
+          /scr1/wab/GAMESS-UK/bin/gamess < datain >& myjob.log &
+\end{verbatim}
+}
+\item Now consider the changes to myjob required to route the
+direct access files from the user's own directory to the
+disk partition /scr1, in particular to the directory
+/scr1/user. Assuming this directory has been created by the user, thus
+
+{
+\footnotesize
+\begin{verbatim}
+          mkdir /scr1/user
+\end{verbatim}
+}
+this may be achieved either by using the {\em cd} command
+at the outset of myjob, so as execute the job in the required 
+directory, thus
+
+{
+\footnotesize
+\begin{verbatim}
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter
+          EOF
+\end{verbatim}
+}
+in which case the direct access files will be deleted on job 
+termination, or through the {\em setenv} command, thus
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/ed2
+          setenv ed3 /scr1/user/ed3
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter 
+          EOF
+\end{verbatim}
+}
+In this case the files created in /scr1/user {\em will not} be
+deleted on job termination.
+\end{itemize}
+This provides, of course, the mechanism for keeping files between
+separate runs of the program, with the file names assigned though
+the {\em setenv} values. Thus to keep the
+mainfile and dumpfile with file names h2omain and h2odump would
+require the following job input:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter 
+          EOF
+\end{verbatim}
+}
+or, if using the {\em cd} command,
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter 
+          EOF
+\end{verbatim}
+}
+with the scratchfile (ed7) omitted from the {\em setenv} commands.
+
+Alternatively, instead of setting the names of the files through the
+setenv command, it is possible to use ''file'' pre-directives within the
+body of the GAMESS-UK input. Thus the following:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\h2o 3-21g scf
+          file ed2 h2omain
+          file ed3 h2odump
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          enter 
+          EOF
+\end{verbatim}
+}
+achieves the same as using the {\em setenv} command. For all the
+following examples, either {\em setenv} commands run in the shell, or
+{\em file} directives in the GAMESS-UK input can be used interchangably.
+
+\section[Sequence of Calculations on Water]{Sequence of Calculations on Water}
+
+In this example we include a sequence of job files for
+performing various calculations based on the \water\ example given above.
+\begin{enumerate}
+\item This run utilises the vectors made above. Both bond length and
+bond angle are to be optimised.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          water optimisation at scf level 3-21g basis set
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          runtype optimise
+          enter
+          EOF
+\end{verbatim}
+}
+\item This example would be used
+to complete, if necessary, the run started in  1.
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart optimise
+          title
+          water optimisation at scf level 3-21g basis set
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          runtype optimise
+          enter
+          EOF
+\end{verbatim}
+}
+\item This example performs an open-shell RHF calculation 
+at the optimised geometry from 2. (note the RESTART usage).
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          h2o+ doublet b1 state - ground state geometry
+          charge 1
+          mult 2
+          zmat angs
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+\item The valence shell scf mos are to be localised. For the purpose
+of the example below it is assumed that orbitals 2 and 3 are the bond
+orbitals.  The CHARGE and MULT directives are required to override the
+values set in the preceding job on the doublet cation.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          lmos for h2o--  ground state geometry
+          charge 0
+          mult 1
+          zmat angs
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          runtype analyse
+          local
+          2 to 5
+          end
+          vectors 1
+          enter 5
+          EOF
+\end{verbatim}
+}
+\item The localised orbitals are restored from section 5 and the NOGEN
+facility used to generate the virtual pairs of the two bond orbitals. The
+SWAP directive has been used to move the localised bond orbitals to the
+top of the occupied orbital list. The NOGEN facility reorders the orbitals
+so that the GVB pairs occur together.  Note the ADAPT~OFF specification,
+now required when using localised orbitals as the input orbital set.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/h2omain
+          setenv ed3 /scr1/user/h2odump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          water gvb calculation using localised orbitals
+          adapt off
+          zmat ang
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          scftype gvb 2
+          vectors nogen 5
+          swap
+          2 5
+          3 4
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+\end{enumerate}
+\section[SCF Calculations on Cubane, Nitrobenzene and Trinitrotoluene]{SCF Calculations on Cubane, Nitrobenzene and Trinitrotoluene}
+We show below the job files for three straightforward closed-shell SCF
+calculations, providing more examples of z-matrix specification and
+reliance on the default options in such calculations. In each case the
+direct access files will be deleted on job completion.\\
+
+{\bf Closed shell SCF Job for \fcubane}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title  
+          **** c4f4  3/21g ****
+          zmat angs                   
+          x
+          c 1  r1
+          c 1  r2  2  90.
+          c 1  r1  3  90.   2 180.
+          c 1  r2  4  90.   3 180.
+          x 2 1.   1 90.    3 0.
+          f 2 r3   6 90.    3 180.
+          x 4 1.   1 90.    3 0.
+          f 4 r3   8 90.    3 180.
+          x 3 1.   1 90.    4 0.
+          f 3 r3   10 90.   4 180.
+          x 5 1.   1 90.    4 0.
+          f 5 r3   12 90.   4 180.
+          variables
+          r1 1.2 
+          r2  1.3 
+          r3 1.313
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Closed shell SCF Job for \nitrobz}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title        
+          c6h5.no2  3-21g
+          accuracy 20 7
+          noprint
+          zmat angstrom
+          c
+          n 1 rcn
+          x 2 1.0 1 90.0
+          c 1 rcc1 2 t1 3 p1
+          c 1 rcc1 2 t1 3 -p1
+          c 4 rcc2 1 t2 2 p2
+          c 5 rcc2 1 t2 2 p2
+          c 7 rcc3 5 t3 1 p3
+          o 2 rno1 1 t5 3 -90.0
+          o 2 rno1 1 t5 3  90.0
+          h 4 rch1 1 t6 2 p5
+          h 5 rch1 1 t6 2 p5
+          h 6 rch2 4 t7 11 p6
+          h 7 rch2 5 t7 12 p6
+          h 8 rch3 7 t8 14 p7
+          variables
+          rcn 1.49
+          rcc1 1.37
+          rcc2 1.43
+          rcc3 1.37
+          rno1 1.21
+          rch1 1.084
+          rch2 1.084
+          rch3 1.084
+          t1 120.0
+          t2 120.0
+          t3 120.0
+          t5 120.0
+          t6 120.0
+          t7 120.0
+          t8 120.0
+          p1 90.0
+          p2 180.0
+          p3 0.0
+          p5 0.0
+          p6 0.0
+          p7 0.0
+          end
+          maxcyc 20
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Closed shell SCF Job for \tnt}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          2,4,6 tri-nitro-toluene. 3-21g basis.
+          noprint distance basis vectors hessian
+          zmat angstrom
+          x
+          c    1    r1
+          c    1    r2    2    a1
+          c    1    r2    2    a1    3    180.
+          c    1    r3    2    a2    3      0.
+          c    1    r3    2    a2    3    180.
+          x    1    1.    2    90.   3    180.
+          c    1    r4    7    90.   2    180.
+          n    3    r5    2    a3    1    180.
+          o    9    r6    3    a4    2      0.
+          o    9    r7    3    a5    2    180.
+          n    4    r5    2    a3    1    180.
+          o   12    r6    4    a4    2      0.
+          o   12    r7    4    a5    2    180.
+          x    8    1.    1    90.   6      0.
+          n    8    r8   15    90.   1    180.
+          o   16    r9    8    a6    5      0.
+          o   16    r9    8    a6    5    180.
+          x    2    1.    1    90.   4      0.
+          c    2   r10   19    90.   1    180.
+          h   20   r11    2    a7   19     90.
+          h   20   r12    2    a8   21    120.
+          h   20   r12    2    a8   21   -120.
+          h    5   r13    8    a9    6    180.
+          h    6   r13    8    a9    5    180.
+          variables
+          r1 1.431\r2 1.367\r3 1.397\r4 1.395
+          a1 60.38\a2 120.67
+          r5 1.521\r8 1.505\r6 1.277\r7 1.278\r9 1.277
+          a3 123.52\a4 121.19\a5 116.17\a6 117.53
+          r10 1.529\r11 1.087\r12 1.082
+          a7 110.07\a8 109.7
+          r13 1.086\a9 121.26
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[STO-3G Calculations on \namgplus]{STO-3G Calculations on \namgplus}
+In this calculation we perform an STO-3G calculation on \namgplus,
+followed by an RHF and then
+UHF calculation on the triplet state. Note the use of the SUPER
+directive to ensure an integral file format compatible with the
+use of BYPASS in the subsequent RHF and UHF calculations.\\
+
+{\bf Closed shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          * na7mg+ * sto-3g * closed shell * scf-energy= -1314.828516
+          mult 1
+          super force
+          charge 1
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis sto3g
+          level 1.5   10 1.0 
+          maxcyc 40
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Open shell RHF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          * na7mg+ * sto-3g * triplet * scf  energy=-1314.900851
+          super force
+          bypass
+          mult 3
+          charge 1
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis sto3g
+          maxcyc 40
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf UHF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          super force
+          title
+          * na7mg+ * sto-3g * triplet * uhf  energy=-1314.901919
+          mult 3
+          charge 1
+          bypass
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis sto3g
+          scftype uhf
+          vectors 5
+          enter
+          EOF
+\end{verbatim}
+}
+Note that we are using the energy ordered open-shell RHF eigenvectors to
+initiate the UHF calculation (as written to the default section 5 by the
+Open shell RHF Job). Had this section not been specified using the VECTORS
+directive, then the closed-shell SCF MOs would been used in default.
+
+\section[Extended Basis Set Calculations of \namgplus]{Extended Basis Set Calculations of \namgplus}
+In this example we use the STO-3G calculation on \namgplus, performed
+above as a starting point for a more extensive basis set calculation.
+In particular the set of closed-shell vectors is restored under control
+of GETQ, with the STO-3G Dumpfile used as a `foreign' Dumpfile. We then
+perform an RHF calculation on the open-shell singlet state of \namgplus, using the
+integrals calculated in the closed-shell case. Note that the OPEN directive
+is now required for this low-spin state.\\
+
+{\bf Closed shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          dumpfile ed3 500
+          title
+          * na7mg+ (4s3p//4s3p1d)  scf energy=-1330.808742
+          mult 1
+          charge 1
+          super off
+          noprint vectors
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis
+          s mg
+            .005004   5609.67
+            .037083   841.969
+            .171495   191.263
+            .444597   53.2621
+            .480060   16.6003
+          s mg
+            .352170   2.97082
+            .692921   1.00728
+          s mg
+            1.00000   .113641
+          s mg
+            1.000000  .044678
+          p mg
+            .039884   50.9665
+            .223321   11.4364
+            .514536   3.21935
+          p mg
+            1.00000   0.914433
+          p mg
+            1.00000   0.16
+          d mg
+            1.00000   0.175
+          s na 
+              .003064  6902.67
+              .022198  1059.04
+              .095576  255.445
+              .280448  77.3172  
+               .452587 26.8224
+              .29313   10.0718
+          s na
+              1.000000  2.17902
+          s na
+              1.000000 .689482
+          s na 
+            1.0       .040274
+          p na
+            .042422   38.9438
+            .229433   8.71012
+            .509774   2.42053
+          p na
+            1.00000   .661896
+          p na
+          1.0        .065
+          end
+          maxcyc 40
+          vectors getq ed3 1 1
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Open shell RHF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          dumpfile ed3 500
+          restart
+          # open shell scf using closed shell vectors from above   *
+          # bypass integral evaluation                             *
+          title
+          * na7mg+ (4s3p//4s3p1d)  triplet rhf *  energy=-1330.766950
+          super off
+          bypass
+          mult 1
+          charge 1
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis
+          s mg
+            .005004   5609.67
+            .037083   841.969
+            .171495   191.263
+            .444597   53.2621
+            .480060   16.6003
+          s mg
+            .352170   2.97082
+            .692921   1.00728
+          s mg
+            1.00000   .113641
+          s mg
+            1.000000  .044678
+          p mg
+            .039884   50.9665
+            .223321   11.4364
+            .514536   3.21935
+          p mg
+            1.00000   0.914433
+          p mg
+            1.00000   0.16
+          d mg
+            1.00000   0.175
+          s na 
+              .003064  6902.67
+              .022198  1059.04
+              .095576  255.445
+              .280448  77.3172  
+               .452587 26.8224
+              .29313   10.0718
+          s na
+              1.000000  2.17902
+          s na
+              1.000000 .689482
+          s na 
+            1.0       .040274
+          p na
+            .042422   38.9438
+            .229433   8.71012
+            .509774   2.42053
+          p na
+            1.00000   .661896
+          p na
+          1.0        .065
+          end
+          open 1 1 1 1
+          maxcyc 40
+          enter 
+          EOF
+\end{verbatim}
+}
+
+\section[ECP calculations of \namgplus]{ECP calculations of \namgplus}
+
+In this example  on \namgplus, we perform a local ECP calculation, using
+the Hay-Wadt ECP's, together with the associated double zeta basis sets,
+augmented by a d-function on Mg.  Having carried out the closed-shell
+SCF calculation, we  perform an RHF calculation on the singlet state
+of \namgplus, using the integrals calculated in the closed-shell case.
+Note that we are re-using the files from the previous example.\\
+
+{\bf Closed shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          na7mg+ ecp LANL ecp /closed shell singlet
+          charge 1
+          super off
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis 
+          ecpdz na 
+          ecpdz mg
+          d mg
+          1.0 0.175
+          end
+          ecp
+          na na
+          mg mg
+          level  1.0
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Open shell RHF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/namgmain
+          setenv ed3 /scr1/user/namgdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          na7mg+ ecp /open-shell singlet rhf
+          mult 1
+          charge 1
+          super off
+          bypass
+          zmat angs
+          mg
+          na 1 r1 
+          na 1 r2 2 90.
+          na 1 r2 2 90. 3 72.
+          na 1 r2 2 90. 4 72.
+          na 1 r2 2 90. 5 72.
+          na 1 r2 2 90. 6 72.
+          na 1 r1 3 90. 2 180.
+          variables
+          r1 3.0286740
+          r2 3.194799
+          end
+          basis 
+          ecpdz na 
+          ecpdz mg
+          d mg
+          1.0 0.175
+          end
+          ecp
+          na na
+          mg mg
+          runtype scf
+          open 1 1 1 1
+          level  0.3 1.0
+          enter
+          EOF
+\end{verbatim}
+}
+\section[Graphical analysis of nickel tetracarbonyl]{Graphical analysis of nickel tetracarbonyl}
+ 
+The following  example illustrates features of the  Graphical Analysis
+module, in analysing the ground state SCF wavefunction of \nico. Let us
+assume the following job has been used in constructing this wavefunction.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/nicomain
+          setenv ed3 /scr1/user/nicodump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title\ni(co)4 .. 3-21g / SCF total energy  -1947.868687
+          zmat angstrom
+          ni
+          c 1 nic
+          c 1 nic 2 109.471
+          c 1 nic 2 109.471 3 120.0
+          c 1 nic 2 109.471 4 120.0
+          x 2 1.0 1 90.0 3 180.0
+          o 2 co 6 90.0 1 180.0
+          x 3 1.0 1 90.0 2 180.0
+          o 3 co 8 90.0 1 180.0
+          x 4 1.0 1 90.0 5 180.0
+          o 4 co 10 90.0 1 180.0
+          x 5 1.0 1 90.0 4 180.0
+          o 5 co 12 90.0 1 180.0
+          variables
+          nic 1.831
+          co 1.131
+          end
+          level 1.5
+          enter
+          EOF
+\end{verbatim}
+}
+Examination of the output reveals the following symmetry
+designation:
+{
+\footnotesize
+\begin{verbatim}
+                                  ******************
+                                  MOLECULAR SYMMETRY
+                                  ******************
+    
+     MOLECULAR POINT GROUP    TD      
+     ORDER OF PRINCIPAL AXIS   0
+    
+     SYMMETRY POINTS :
+    
+     POINT 1 :    0.0000000   0.0000000   0.0000000
+     POINT 2 :    0.0000000   0.0000000   1.0000000
+     POINT 3 :    0.0000000   1.0000000   0.0000000
+\end{verbatim}
+}
+and the following atomic coordinates:
+{
+\footnotesize
+\begin{verbatim}
+           0.0000000      0.0000000      0.0000000       NI
+          -1.9976836      1.9976836     -1.9976836       C
+           1.9976836     -1.9976836     -1.9976836       C 
+          -1.9976836     -1.9976836      1.9976836       C 
+           1.9976836      1.9976836      1.9976836       C 
+          -3.2316433      3.2316433     -3.2316433       O
+           3.2316433     -3.2316433     -3.2316433       O
+          -3.2316433     -3.2316433      3.2316433       O
+           3.2316433      3.2316433      3.2316433       O
+\end{verbatim}
+}
+The following job may be used to construct a total density plot of the SCF
+wavefunction in a plane containing the Ni atom and two carbonyl groups,
+with the Ni at the centre of the plot: a contour plot will be generated
+on line printer output.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/nicomain
+          setenv ed3 /scr1/user/nicodump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title\ni(co)4 .. 3-21g / SCF total energy  -1947.868687
+          zmat angstrom
+          ni
+          c 1 nic
+          c 1 nic 2 109.471
+          c 1 nic 2 109.471 3 120.0
+          c 1 nic 2 109.471 4 120.0
+          x 2 1.0 1 90.0 3 180.0
+          o 2 co 6 90.0 1 180.0
+          x 3 1.0 1 90.0 2 180.0
+          o 3 co 8 90.0 1 180.0
+          x 4 1.0 1 90.0 5 180.0
+          o 4 co 10 90.0 1 180.0
+          x 5 1.0 1 90.0 4 180.0
+          o 5 co 12 90.0 1 180.0
+          variables
+          nic 1.831
+          co 1.131
+          end
+          runtype analyse
+          graphics
+          gdef
+          type 2d
+          title
+          square 2d grid ni(co)4 - total density
+          calc
+          type dens 
+          title
+          ni(co)4 - total density
+          section 151
+          plot
+          type line 
+          title
+          ni(co)4 - total density
+          vectors 1
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[Two-Pair GVB Calculation on 1-imino-2,4-pentadiene]{Two-Pair GVB Calculation on 1-imino-2,4-pentadiene}
+
+{\bf Closed shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/gvbmain
+          setenv ed3 /scr1/user/gvbdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          # open shell rhf sto3g                                     *
+          # check super force                                        *
+          title
+          1-imino-2,4-pentadiene *  energy=-245.073477
+          super force nosym
+          mult 1
+          accuracy 20 7
+          charge 1
+          zmat angs
+          c
+          c 1 r1
+          c 2 r2 1 a1
+          c 3 r3 2 a2 1 cx
+          c 4 r4 3 a3 2 c2
+          n 1 r5 2 a4 3 c2
+          h 1 r6 2 a5 3 c1
+          h 2 r7 3 a6 7 c2
+          h 3 r8 4 a7 8 c2
+          h 4 r9 5 a8 9 c2
+          h 5 r10 4 a9 10 c1
+          h 5 r11 4 a10 11 c2
+          h 6 r12 1 a11 7 c1 
+          h 6 r13 1 a12 13 c2
+          variables
+          r1     1.3463261 
+          r2     1.4632685
+          r3     1.3961480 
+          r4     1.3568062 
+          r5     1.3416773 
+          r6     1.0748794
+          r7     1.0669518
+          r8     1.0811641
+          r9     1.0707072
+          r10    1.0729928
+          r11    1.0747118
+          r12    0.9971261
+          r13    0.9985437
+          a1   118.2539432
+          a2   122.8419092
+          a3   119.3229511
+          a4   125.9857684
+          a5   119.9766875
+          a6   122.1120978
+          a7   116.3317717
+          a8   120.9014063
+          a9   121.5606571
+          a10  121.8124933
+          a11  120.9303349
+          a12  121.8324395
+          constants
+          c1 0.
+          c2 180.
+          cx  90.
+          end
+          basis sto3g
+          scftype rhf
+          open 1 1 1 1
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Two-Pair GVB Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/gvbmain
+          setenv ed3 /scr1/user/gvbdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          # gvb-scf  with two pairs                                   *
+          # bypass integral evaluation                                *
+          restart
+          bypass
+          title
+          1-imino-2,4-pentadiene *   energy=-245.1146628
+          mult 1
+          accuracy 20 7
+          super force nosym
+          charge 1
+          zmat angs
+          c
+          c 1 r1
+          c 2 r2 1 a1
+          c 3 r3 2 a2 1 cx
+          c 4 r4 3 a3 2 c2
+          n 1 r5 2 a4 3 c2
+          h 1 r6 2 a5 3 c1
+          h 2 r7 3 a6 7 c2
+          h 3 r8 4 a7 8 c2
+          h 4 r9 5 a8 9 c2
+          h 5 r10 4 a9 10 c1
+          h 5 r11 4 a10 11 c2
+          h 6 r12 1 a11 7 c1 
+          h 6 r13 1 a12 13 c2
+          variables
+          r1     1.3463261 
+          r2     1.4632685
+          r3     1.3961480 
+          r4     1.3568062 
+          r5     1.3416773 
+          r6     1.0748794
+          r7     1.0669518
+          r8     1.0811641
+          r9     1.0707072
+          r10    1.0729928
+          r11    1.0747118
+          r12    0.9971261
+          r13    0.9985437
+          a1   118.2539432
+          a2   122.8419092
+          a3   119.3229511
+          a4   125.9857684
+          a5   119.9766875
+          a6   122.1120978
+          a7   116.3317717
+          a8   120.9014063
+          a9   121.5606571
+          a10  121.8124933
+          a11  120.9303349
+          a12  121.8324395
+          constants
+          c1 0.
+          c2 180.
+          cx  90.
+          end
+          basis sto3g
+          runtype scf
+          scftype gvb 2
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[Direct-SCF Calculations]{Direct-SCF Calculations}
+
+In the first example below we show a direct-SCF calculation
+in which the input geometry in cartesian coordinates
+is converted to z--matrix representation; the second calculation
+features geometry optimisation of Be(C$_{5}$H$_{5}$)$_{2}$
+using the direct-SCF module.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed3 /scr1/user/dscfdump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          # direct scf generate zmatrix sto3g-basis              *
+          title
+          * test2a * energy=-1550.28679356
+          charge -2
+          geometry  distance angles torsions       all
+          -2.9512196   -0.1547624    -2.3287565    8.0    o
+          -1.0815728   -1.9700376    -1.5385361    6.0    c
+          -1.1603816   -3.5363478    -2.8467927    1.0    h
+           1.6367703   -0.8475562    -1.5624978    6.0    c
+           2.1566895   -0.4797763    -3.4976155    1.0    h
+           3.5011251   -2.6669663    -0.4827273    7.0    n
+           2.9474874   -3.6433853     1.0782554    1.0    h
+           1.7359097    1.7242063    -0.1090391    6.0    c
+           1.3150929    1.4125382     1.8702785    1.0    h
+           4.1957289    2.9182102    -0.4054688    8.0    o
+          -0.3417469    3.5022051    -1.1895255    6.0    c
+           0.0532604    3.8272799    -3.1681491    1.0    h
+          -0.3292201    5.9011224     0.0783133    8.0    o
+          -1.4442971    7.1126500    -0.6802213    1.0    h
+          -2.9721287    2.1997957    -0.9534701    6.0    c
+          -3.3279629    1.8049798     1.0197182    1.0    h
+          -5.1750163    3.9122805    -1.8751357    6.0    c
+          -4.8159917    4.4971112    -3.8035825    1.0    h
+          -6.8815215    2.7942026    -1.8646838    1.0    h
+          -5.4889849    6.1460386    -0.3379417    8.0    o
+          -7.5612331    6.0739323     1.4363625    6.0    c
+          -7.4278090    4.3945431     2.5896385    1.0    h
+           5.7357642    3.1285958     1.6502323    6.0    c
+           5.5713092    1.7094915     3.4875662    8.0    o
+           7.8017770    5.1679189     1.7463198    6.0    c
+           7.0224823    6.8328410     2.6479587    1.0    h
+           8.3530583    5.6784964    -0.1498644    1.0    h
+           5.9321304   -2.9668945    -1.2970693    6.0    c
+           6.7897779   -1.7121829    -3.0617741    8.0    o
+           7.7021385   -4.8380024     0.0564767    6.0    c
+           7.1302965   -6.7576698    -0.3499893    1.0    h
+           7.6050313   -4.5640081     2.0812894    1.0    h
+          -1.5715523   -2.9124352     0.9658559    8.0    o
+          -3.9184431   -4.8124121     0.9101853   15.0    p
+          -3.1659952   -7.1913356    -0.3438675    8.0    o
+          -6.0342521   -3.6456571    -0.4943459    8.0    o
+          -4.4900093   -5.1460285     3.8664887    8.0    o
+           9.4719556   -4.5440252    -0.5381892    1.0    h
+           9.3293820    4.5891096     2.6957586    1.0    h
+          -9.1872029    6.0381561     0.4734880    1.0    h
+          -7.5522104    7.5798978     2.5757500    1.0    h
+          end
+          basis sto3g
+          scftype direct
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Direct-SCF Geometry Optimisation of Be(C$_{5}$H$_{5}$)$_{2}$}
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          be(c5h5)2 sto3g optimised total energy  = -394.2789851 au
+          zmatrix angstrom
+          x 
+          x  1  fxa
+          c  2  xc  1  xxc
+          c  2  xc  1  xxc  3  cxc
+          c  2  xc  1  xxc  4  cxc
+          c  2  xc  1  xxc  3  -cxc
+          c  2  xc  1  xxc  6  -cxc
+          x  2  xx  3  xxc  4  -xxc
+          h  2  hx  8  hxx  3  hcx
+          h  2  hx  8  hxx  4  hcx
+          h  2  hx  8  hxx  5  hcx
+          h  2  hx  8  hxx  6  hcx
+          h  2  hx  8  hxx  7  hcx
+          x  2  fxt 3  xxc  4  xxc
+          c 14  xc  1  xxc  3  cxxc
+          c 14  xc  1  xxc 15  cxc
+          c 14  xc  1  xxc 16  cxc
+          c 14  xc  1  xxc 15  -cxc
+          c 14  xc  1  xxc 18  -cxc
+          x 14  xx  15 xxc 16  -xxc
+          h 14  hx  20 hxx 15  hcx
+          h 14  hx  20 hxx 16  hcx
+          h 14  hx  20 hxx 17  hcx
+          h 14  hx  20 hxx 18  hcx
+          h 14  hx  20 hxx 19  hcx
+          be 2  fxa  3 xxc  4  xxc
+          variables
+          fxa   1.47
+          fxt   3.37
+          xc    1.22
+          hx    2.12 
+          hxx  88.4
+          constants
+          cxc  72.0
+          cxxc  36.0
+          xxc  90.0 
+          hcx   0.0
+          xx    1.0
+          end
+          basis sto3g
+          runtype optimize
+          scftype direct 
+          level 2.0 10 1.4
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[HCN/HNC Transition State Location]{HCN/HNC Transition State Location}
+Transition state calculation  for the HCN,HNC isomerisation process.
+The first job uses the default trust region algorithm, the second the
+synchronous transit algorithm, and the 
+third the Jorgensen-Simons algorithm.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          hcn 4-31G saddle point
+          zmat angs
+          c
+          x 1 1.0
+          n 1 cn 2 90.0
+          h 1 ch 2 90.0 3 hcn
+          variables
+          cn 1.1484 type 3
+          ch 1.5960 type 3
+          hcn 90.0 type 3
+          end
+          basis 4-31g
+          runtype saddle
+          enter
+          EOF
+\end{verbatim}
+}
+Saddle point for HCN using the synchronous transit algorithm - note the
+definition of the minima required (on the variable definition lines) and
+the LSEARCH directive. The default saddle point method does nor
+require minima definition (see above)
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          hcn saddle point - synchronous transit
+          zmat angs
+          c
+          x 1 1.0
+          n 1 cn 2 90.0
+          h 1 ch 2 90.0 3 hcn
+          variables
+          cn 1.1484 minima 1.1371 1.1597
+          ch 1.5960 minima 1.0502 2.1429
+          hcn 90.0   minima 180.0  0.0
+          end
+          basis 4-31g
+          runtype saddle
+          lsearch 0 4
+          enter
+          EOF
+\end{verbatim}
+}
+Saddle point for HCN using the Jorgensen-Simons algorithm.
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title                
+          hcn/hnc ts search . jorgensen-simons
+          zmat angs
+          c
+          x 1 1.0
+          n 1 cn 2 90.0
+          h 1 ch 2 90.0 3 hcn
+          variables
+          cn 1.1484 type 3
+          ch 1.5960 type 3
+          hcn 90.0   type 3
+          end
+          basis 4-31g
+          runtype saddle jorgensen 
+          powell
+          maxjor 55
+          recalc off
+          rfo off
+          cutoffs
+          optprint on
+          xtol 0.0018
+          enter           
+          EOF 
+\end{verbatim}
+}
+\section[HSiP/HPSi Transition State Location]{HSiP/HPSi Transition State Location}
+This example is concerned with locating the transition
+state in the HPSi, HSiP isomerisation process, and calculating
+the associated vibrational frequencies. We provide sample
+jobs using both numerical and analytical techniques
+in the transition state location and
+subsequent force constant evaluation. Note that the latter example is
+computationally the most efficient, and should certainly
+be adopted for small--medium sized molecules.
+
+\subsection[Numerical Force Constants]{Numerical Force Constants}
+
+In the first step we perform an initial SCF for subsequent use in the
+saddle point calculation.\\
+
+{\bf Closed shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/hpsimain
+          setenv ed3 /scr1/user/hpsidump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          psih saddle point
+          zmat ang
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053 type 3
+          ph  2.44  type 3
+          hpsi  51.02 type 3
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+In the subsequent location of the transition state, note
+the use of TYPE 3 which causes the program
+to calculate the complete force constant matrix numerically
+before commencing the search for the saddle point, and the
+use of XTOL to provide  more stringent optimisation criteria
+in view of the subsequent force constant evaluation.
+LOCK is used to retain the initial SCF  configuration 
+throughout the search.\\
+
+{\bf Transition State Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/hpsimain
+          setenv ed3 /scr1/user/hpsidump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          bypass
+          title
+          psih <-> hpsi saddle point
+          zmat angs
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053 type 3
+          ph  2.44  type 3
+          hpsi  51.02 type 3
+          end
+          runtype saddle
+          lock
+          xtol 0.0005
+          enter 2
+          EOF
+\end{verbatim}
+}
+Finally we present the job for numerical evaluation of the
+force constants at the optimised geometry. Note the use
+of restart in requesting usage of the geometry from the
+Dumpfile, rather than from the data file.\\
+
+{\bf Numerical Force Constant Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          setenv ed2 /scr1/user/hpsimain
+          setenv ed3 /scr1/user/hpsidump
+          setenv ed7 /scr1/user/ed7
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart 
+          title
+          psih <-> hpsi saddle point numerical fcm
+          zmat angs
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053 type 3
+          ph  2.44  type 3
+          hpsi  51.02 type 3
+          end
+          runtype force
+          vectors 2
+          lock
+          enter 3
+          EOF
+\end{verbatim}
+}
+
+\subsection[Analytic Force Constants]{Analytic Force Constants}
+
+In the first step we perform the computation of the trial
+hessian under RUNTYPE~HESSIAN control for subsequent use in the
+saddle point calculation.\\
+
+{\bf Computing the trial Hessian}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 hpsimain
+          setenv ed3 hpsidump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          psih trial hessian / SCF 
+          zmat ang
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053 
+          ph  2.44  
+          hpsi  51.02 
+          end
+          runtype hessian
+          enter
+          EOF
+\end{verbatim}
+}
+In the subsequent location of the transition state, note
+the use of the FCM keyword on the RUNTYPE data line
+to restore the trial hessian computed in the first job
+and the use of XTOL to provide  more stringent optimisation criteria
+in view of the subsequent force constant evaluation.
+LOCK is used to retain the initial SCF  configuration 
+throughout the search.\\
+
+{\bf Transition State Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 hpsimain
+          setenv ed3 hpsidump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          psih <-> hpsi saddle point location / using trial hessian
+          zmat angs
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053
+          ph  2.44  
+          hpsi  51.02 
+          end
+          runtype saddle fcm
+          xtol 0.0005
+          vectors 1
+          lock
+          enter 2
+          EOF
+\end{verbatim}
+}
+Finally we present the job for analytic computation of the
+force constants at the optimised geometry under control
+of runtype hessian. Note the use
+of restart in requesting usage of the geometry from the
+Dumpfile, rather than from the data file.\\
+
+{\bf Analytic Force Constant Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 hpsimain
+          setenv ed3 hpsidump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          psih <-> hpsi saddle point / force constants
+          zmat angs
+          p
+          x 1 1.0
+          si 1 psi 2 90.0
+          h 1 ph 2 90.0 3 hpsi
+          variables
+          psi 2.053
+          ph  2.44  
+          hpsi  51.02 
+          end
+          runtype hessian
+          vectors 2
+          lock
+          enter 2
+          EOF
+\end{verbatim}
+}
+
+\section[Use of Bond-centred Functions]{Use of Bond-centred Functions}
+In this example we demonstrate the use
+of bond-centred functions (s,p), cited at  the mid-point
+of the C-N bond in the HCN, HNC transition state.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          hcn-hnc basis - dunning (9s5p-3s2p) bond(s,p) + p(h)
+          zmat angstrom
+          c
+          bq 1 rcn2
+          x 2 1.0 1 90.0
+          n 2 rcn2 3 90.0 1 180.0
+          x 1 1.0 2 90.0 3 0.0
+          h 1 rch 5 90.0 4 phi
+          variables
+          rcn2 0.5991
+          rch 1.2128
+          phi 71.2
+          end
+          basis
+          sv h
+          p h
+          1.0 0.7
+          s bq
+          1.0 1.0
+          p bq
+          1.0 0.7
+          sv c
+          sv n
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+\section[SCF Analytic Force Constants for Ethylene]{SCF Analytic Force Constants for Ethylene}
+
+We consider below computing the analytic force constants for
+\ethene, initially optimising the molecule at the SCF level, followed
+by the force constant calculation. Note the use of the XTOL
+directive in the optimisation job to ensure a higher degree
+of optimisation than that derived using the default XTOL.\\
+
+{\bf Geometry Optimisation}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title 
+          ethylene 6-31g**  geometry optimisation
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype optimize
+          xtol 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Analytic Force Constants}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title 
+          ethylene 6-31g** ground state vibrational frequencies
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype hessian
+          enter
+          EOF
+\end{verbatim}
+}
+\section[MP2 Analytic Force Constants for Ethylene]{MP2 Analytic Force Constants for Ethylene}
+
+We consider below computing the analytic force constants for
+\ethene, initially optimising the molecule at the MP2 level, followed
+by the force constant calculation. Note again the use of the XTOL
+directive in the optimisation job to ensure a higher degree
+of optimisation than that derived using the default XTOL.\\
+
+{\bf MP2 Geometry Optimisation}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title 
+          ethylene 6-31g**  MP2/ optimised total energy  =  -78.3272309
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype optimize
+          scftype mp2
+          xtol 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf MP2 Analytic Force Constants}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title 
+          ethylene MP2/6-31g** ground state vibrational frequencies
+          #freq    847.7,  941.6,  994.1, 1091.6, 1267.4,  1414.5,  
+          #freq   1525.2, 1729.7, 3241.3, 3259.2, 3336.6,  3359.8
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype hessian
+          scftype mp2
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[MP2 Polarisability for Ethylene]{MP2 Polarisability for Ethylene}
+
+We consider below computing the molecular polarisability of
+\ethene, initially optimising the molecule at the MP2 level, followed
+by the property calculation. Note again the use of the XTOL
+directive in the optimisation job to ensure a higher degree
+of optimisation than that derived using the default XTOL.\\
+
+{\bf MP2 Geometry Optimisation}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title 
+          ethylene 6-31g**  MP2/ optimised total energy  =  -78.3272309
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype optimize
+          scftype mp2
+          xtol 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf MP2 Polarisability}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 c2h4main
+          setenv ed3 c2h4dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title 
+          ethylene MP2/6-31g** ground state polarisability
+          zmatrix angstrom
+          c
+          c 1 cc
+          h 1 ch 2 hcc
+          h 1 ch 2 hcc 3 180.0
+          h 2 ch 1 hcc 3 0.0
+          h 2 ch 1 hcc 3 180.0
+          variables
+          cc 1.40
+          ch 1.10
+          hcc 118.0
+          end
+          basis 6-31g**
+          runtype polarisability
+          scftype mp2
+          enter
+          EOF
+\end{verbatim}
+}
+\section[Direct-MP2 Calculation of Pyridine]{Direct-MP2 Calculation of Pyridine}
+
+We show below the data for performing a direct--MP2 calculation
+on the \pyridine\ molecule, conducted in a 6--31G* basis set. Note
+the use of the MEMORY pre-directive in requesting
+a memory allocation of 4 MWords.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed3 pyred3
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          pyridine 6-31g* direct-mp2
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis 6-31g*
+          scftype direct mp2
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[CASSCF Geometry Optimisations]{CASSCF Geometry Optimisations}
+We consider below a CASSCF calculation on the X$^{1}$A$_{1}$ state
+of \water, using a full valence criterion in specifying the
+active space so that the formally vacant SCF virtual MOs, 4a$_{1}$
+and 2b$_{2}$, are permitted variable occupancy. This example
+utilises the vectors from the closed shell SCF calculation of
+Example 1.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user    
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          water  at casscf level 3-21g basis set
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          scftype casscf
+          config print
+          doc 1 to 5
+          uoc 6 7
+          end
+          superci 1 to 8
+          newton 9 to 20
+          hessian 9 to 20
+          simul 9 to 20
+          enter
+          EOF
+\end{verbatim}
+}
+The following points should be noted:
+\begin{itemize}
+\item  It is not possible to use BYPASS in the above, given the data
+for the SCF job of Example 1. This would have resulted in
+generation of a P-supermatrix which is not usable in
+a CASSCF run (see Part 2, Table~1).
+\item  CASSCF calculations require two scratch FORTRAN data sets, FT01
+and FT02. 
+\end{itemize}
+In the above we have assumed that the CASSCF calculation completes in
+the time allocated, with the associated direct-access files allocated in
+default scratch status.  The following job is typical of that required
+if restarts of the CASSCF step are envisaged:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed1 h2oed1
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ed4 h2oed4
+          setenv ed6 h2oed6
+          setenv ed9 h2oed9
+          setenv ed10 h2oed10
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          water at casscf level 3-21g basis set
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          scftype casscf
+          config print
+          doc 1 to 5
+          uoc 6 7
+          end
+          superci 1 to 8
+          newton 9 to 20
+          hessian 9 to 20
+          simul 9 to 20
+          enter
+          EOF
+\end{verbatim}
+}
+Assuming the above job terminated prior to convergence, the
+calculation might be restarted as follows:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed1 h2oed1
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ed4 h2oed4
+          setenv ed6 h2oed6
+          setenv ed9 h2oed9
+          setenv ed10 h2oed10
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart scf
+          title
+          water at casscf level 3-21g basis set
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          scftype casscf
+          config bypass
+          doc 1 to 5
+          uoc 6 7
+          end
+          superci 1 to 2
+          newton 3 to 20
+          hessian 3 to 20
+          simul 3 to 20
+          vectors 6 7
+          enter 6 7
+          EOF
+\end{verbatim}
+}
+where the default sections housing the CASSCF vectors and
+ci coefficients (sections 6 and 7 respectively)  created
+in the startup job are explicitly declared above, and CONFIG
+processing is bypass'ed.
+Having completed the single point calculation, the
+following might be used to perform a geometry optimisation
+at the CASSCF level. Note that it is now necessary to SAVE
+the data set associated with ED11 if restarts are envisaged.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed1 h2oed1
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ed4 h2oed4
+          setenv ed6 h2oed6
+          setenv ed9 h2oed9
+          setenv ed10 h2oed10
+          setenv ed11 h2oed11
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          water - geometry optimisation at casscf level
+          zmat angstrom
+          o
+          h 1 oh
+          h 1 oh 2 hoh
+          variables
+          oh 0.956
+          hoh 104.5
+          end
+          runtype optimise
+          scftype casscf
+          config bypass
+          doc 1 to 5
+          uoc 6 7
+          end
+          superci 1 to 5
+          newton 6 to 20
+          hessian 6 to 20
+          simul 6 to 20
+          enter
+          EOF
+\end{verbatim}
+}
+Again the default CASSCF vector and CI coefficient sections from the
+initial energy calculation will be used by default in the optimisation
+job.
+
+\section[CASSCF + 2nd-order CI Calculations on BeO]{CASSCF + 2nd-order CI Calculations on BeO}
+
+First, we consider below a CASSCF calculation 
+on the X$^{1}\Sigma^{+}$ state
+of BeO, characterised by the configuration
+\begin{equation}
+  1\sigma^2 2\sigma^2 3\sigma^2 4\sigma^2 1\pi^4 
+\end{equation}
+The initial closed--shell SCF using a DZP basis was conducted with the
+following job:
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          super off nosym
+          title\beo .. dzp
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          enter
+          EOF
+\end{verbatim}
+}
+An examination of the closed-shell SCF output reveals the
+following symmetry adapted basis information
+
+{
+\footnotesize
+\begin{verbatim}
+          =============================
+          IRREP  NO. OF SYMMETRY ADAPTED
+                 BASIS FUNCTIONS
+          =============================
+            1          17
+            2           6
+            3           6
+            4           2
+          =============================
+\end{verbatim}
+}
+and the SCF MO ordering shown below:
+{
+\footnotesize
+\begin{verbatim}
+          ===============================================
+          M.O.  IRREP  ORBITAL ENERGY   ORBITAL OCCUPANCY
+          ===============================================
+            1     1    -20.45769692           2.0000000
+            2     1     -4.72825831           2.0000000
+            3     1     -1.15792230           2.0000000
+            4     1     -0.46629250           2.0000000
+            5     3     -0.39257378           2.0000000
+            6     2     -0.39257378           2.0000000
+            7     1     -0.05704423           0.0000000
+            8     2      0.09936415           0.0000000
+            9     3      0.09936415           0.0000000
+           10     1      0.15573442           0.0000000
+           11     1      0.25156032           0.0000000
+           12     3      0.29518660           0.0000000
+           13     2      0.29518660           0.0000000
+           14     1      0.57290305           0.0000000
+           15     4      0.66957865           0.0000000
+           16     1      0.66957865           0.0000000
+           17     2      0.84348942           0.0000000
+           18     3      0.84348942           0.0000000
+           19     1      1.01733643           0.0000000
+           20     2      1.05237116           0.0000000
+           21     3      1.05237116           0.0000000
+           22     1      1.24301610           0.0000000
+           23     1      1.45883277           0.0000000
+           24     1      1.80402496           0.0000000
+           25     4      2.36534068           0.0000000
+           26     1      2.36534068           0.0000000
+           27     2      2.62307878           0.0000000
+           28     3      2.62307878           0.0000000
+           29     1      3.16009549           0.0000000
+           30     1      4.37857805           0.0000000
+           31     1     45.42979631           0.0000000
+          ===============================================
+\end{verbatim}
+}
+We wish to perform a CASSCF calculation in which the inner shell and
+O2s orbitals (the 1$\sigma$--3$\sigma$) remain doubly occupied, with
+the active space including the formally vacant SCF virtual MOs,
+the 5$\sigma$ and 2$\pi$. This example utilises the vectors from the
+closed shell SCF calculation.  We wish to perform the CASSCF calculation
+under RUNTYPE CI specification where, having performed the 6 electrons
+in 6 orbital CASSCF, we use the natural orbitals in carrying out a
+second-order CI using the Direct-CI module. Specifically we aim to use a
+reference space in the CI consisting of all CSFs which can be generated
+by distributing 6 electrons in 6 MOs i.e. the CASSCF  space.  This may
+be achieved in a single run through the following job specification:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed1 beoed1
+          setenv ed2 beomain
+          setenv ed3 beodump
+          setenv ed4 beoed4
+          setenv ed5 beoed5
+          setenv ed6 beoed6
+          setenv ed9 beoed9
+          setenv ed10 beoed10
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title\beo .. dzp casscf+ci (6 electrons in 6 mos)
+          bypass
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          runtype ci
+          active\4 to 31\end
+          core\1 to 3\end
+          scftype casscf
+          thresh 4
+          config print
+          fzc 1 to 3
+          doc 4 to 6
+          uoc 7 to 9
+          end
+          superci 1 to 8
+          newton 9 to 20
+          hessian 9 to 20
+          simul 9 to 20
+          direct 6 6 22
+          conf 
+          2 2 2 0 0 0
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[MCSCF + 2nd-order CI Calculations on BeO]{MCSCF + 2nd-order CI Calculations on BeO}
+
+First, we consider below a MCSCF calculation 
+on the X$^{1}\Sigma^{+}$ state
+of BeO, characterised by the configuration
+\begin{equation}
+  1\sigma^2 2\sigma^2 3\sigma^2 4\sigma^2 1\pi^4 
+\end{equation}
+The initial closed--shell SCF using a DZP basis was conducted with the
+following job:
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          super off nosym
+          title\beo .. dzp
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          enter
+          EOF
+\end{verbatim}
+}
+An examination of the closed-shell SCF output reveals the
+following symmetry adapted basis information
+
+{
+\footnotesize
+\begin{verbatim}
+          =============================
+          IRREP  NO. OF SYMMETRY ADAPTED
+                 BASIS FUNCTIONS
+          =============================
+            1          17
+            2           6
+            3           6
+            4           2
+          =============================
+\end{verbatim}
+}
+and the SCF MO ordering shown below:
+{
+\footnotesize
+\begin{verbatim}
+          ===============================================
+          M.O.  IRREP  ORBITAL ENERGY   ORBITAL OCCUPANCY
+          ===============================================
+            1     1    -20.45769692           2.0000000
+            2     1     -4.72825831           2.0000000
+            3     1     -1.15792230           2.0000000
+            4     1     -0.46629250           2.0000000
+            5     3     -0.39257378           2.0000000
+            6     2     -0.39257378           2.0000000
+            7     1     -0.05704423           0.0000000
+            8     2      0.09936415           0.0000000
+            9     3      0.09936415           0.0000000
+           10     1      0.15573442           0.0000000
+           11     1      0.25156032           0.0000000
+           12     3      0.29518660           0.0000000
+           13     2      0.29518660           0.0000000
+           14     1      0.57290305           0.0000000
+           15     4      0.66957865           0.0000000
+           16     1      0.66957865           0.0000000
+           17     2      0.84348942           0.0000000
+           18     3      0.84348942           0.0000000
+           19     1      1.01733643           0.0000000
+           20     2      1.05237116           0.0000000
+           21     3      1.05237116           0.0000000
+           22     1      1.24301610           0.0000000
+           23     1      1.45883277           0.0000000
+           24     1      1.80402496           0.0000000
+           25     4      2.36534068           0.0000000
+           26     1      2.36534068           0.0000000
+           27     2      2.62307878           0.0000000
+           28     3      2.62307878           0.0000000
+           29     1      3.16009549           0.0000000
+           30     1      4.37857805           0.0000000
+           31     1     45.42979631           0.0000000
+          ===============================================
+\end{verbatim}
+}
+We wish to perform a CASSCF calculation in which the inner shell and
+O2s orbitals (the 1$\sigma$--3$\sigma$) remain doubly occupied, with
+the active space including the formally vacant SCF virtual MOs,
+the 5$\sigma$ and 2$\pi$. This example utilises the vectors from the
+closed shell SCF calculation.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          super off nosym
+          title\beo .. dzp
+          bypass
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          scftype mcscf
+          thresh 4
+          mcscf
+          orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+          enter
+          EOF
+\end{verbatim}
+}
+The following points should be noted:
+\begin{itemize}
+\item  The MCSCF Natural orbitals will be routed to section 10
+of the Dumpfile on convergence, the default section used for NO output.
+\item  Integral evaluation has been bypassed as the
+initial SCF job specified the necessary integral format
+for the subsequent SCF.
+\end{itemize}
+In the above we have assumed that the MCSCF calculation completes in
+the time allocated, with the associated direct-access files allocated in
+default scratch status.  The following job is typical of that required
+if restarts of the MCSCF step are envisaged:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          setenv ed4 beoed4
+          setenv ed6 beoed6
+          setenv ed13 beoed13
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          super off nosym
+          title\beo .. dzp
+          bypass
+          zmat angstrom\be\o 1 beo\
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          scftype mcscf
+          thresh 4
+          mcscf
+          orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+          enter
+          EOF
+\end{verbatim}
+}
+Note that the symmetry adapted list of integrals are
+sorted at the outset of processing to ED13, and this file
+should be preserved across restart jobs, given that the
+DONT SORT data line is presented to the restart job.
+Assuming the above job terminated prior to convergence, the
+calculation might be restarted as follows:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          setenv ed4 beoed4
+          setenv ed6 beoed6
+          setenv ed13 beoed13
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart scf
+          super off nosym
+          title\beo .. dzp
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          scftype mcscf
+          thresh 4
+          mcscf
+          orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+          dont sort
+          enter
+          /EOF
+\end{verbatim}
+}
+Now let us consider performing the MCSCF calculation under
+RUNTYPE CI specification where, having performed the 6 electrons in
+6 orbital CASSCF, we use the natural orbitals in carrying out
+a second-order CI using the Direct-CI module. Specifically we
+aim to use a reference space in the CI consisting of all CSFs which
+can be generated by distributing 6 electrons in 6 MOs i.e. the
+CASSCF  space.  This may be achieved in a single run through the
+following job specification:
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 beomain
+          setenv ed3 beodump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          super off nosym
+          title\beo .. dzp mcscf+2nd-order ci (6 electrons in 6 mos)
+          zmat angstrom\be\o 1 beo
+          variables\beo 1.300 hessian 0.7\end
+          basis dzp
+          runtype ci
+          active\4 to 31\end
+          core\1 to 3\end
+          scftype mcscf
+          thresh 4
+          mcscf
+          orbital\3cor1 doc1 doc3 doc2  uoc1 uoc2 uoc3 \end
+          direct 6 6 22
+          conf 
+          2 2 2 0 0 0
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          refgen
+          1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+          vectors 1\enter 20 21
+          EOF
+\end{verbatim}
+}
+Note that the vectors specification is requesting that the closed-shell
+SCF eigenvectors be used to initiate the MCSCF calculation. The MCSCF
+natural orbitals, routed to section 10 of the Dumpfile in default, will
+be used as the orbitals for the Direct-CI calculation.
+
+\section[Table-CI calculations on the Ammonia Cation]{Table-CI calculations on the Ammonia Cation}
+We consider below a Table-CI calculation of the X$^{2}$A$_{1}$ state and
+1$^{2}$A$_{1}$ state of the ammonia cation.  In the first instance we
+consider performing the calculation in two steps, initially the open-shell
+SCF calculation followed by the MRD-CI 2-reference state calculation. We
+then sub-divide the CI calculation into 5 separate steps, performing the
+symmetry adaption + integral transformation, followed by configuration
+selection, construction of the CI Hamiltonian, the diagonalisation and,
+finally, the subsequent analysis of the CI wavefunctions.\\
+
+{\bf Open-shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          nh3+ * 3-21g * scf-energy=-55.53325817 hartree
+          super off nosym
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Table-CI Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv table TABLE
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt 
+          tran 
+          table
+          select  
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci 
+          diag 
+          extrap 3
+          dthr 0.0001 0.0001
+          natorb
+          cive 1 2
+          prop
+          cive 1 2
+          1 4  1 2 3  12
+          1 3  1 2 4  12
+          moment
+          36 1 36 2 1
+          enter
+          EOF
+\end{verbatim}
+}
+The orbitals employed in the CI calculation will be taken from the
+default section associated with the open-shell RHF module, section 5,
+that containing the energy-ordered canonicalised open-shell vectors
+written on termination of the SCF process.  Note that the table keyword
+will activate generation of the Table-CI data base, to be used in the
+subsequent steps below. In this case  the data base will be written to
+the file TABLE in /scr1 for subsequent use. A copy of this data base is
+available on the DEC PW433AU, and may be accessed directly, thus:
+
+{
+\footnotesize
+\begin{verbatim}
+          setenv table /scr1/wab/GAMESS-UK/libs/TABLE
+\end{verbatim}
+}
+Now let us consider dividing the above CI calculation. The following
+points should be noted in this division:
+\begin{itemize}
+\item The SETENV lines indicate those FORTRAN
+data sets that must be retained between separate runs of the 
+program. We assume below that the TABLE data-base is available
+from the previous job, thus omitting the TABLE step.
+\item Note the use of the BYPASS keyword on the various steps
+comprising the Table-CI procedure. Such a keyword is required
+on {\em both} those steps already completed and those steps
+to be handled in a subsequent run of the program.
+\end{itemize}
+{\bf Table-CI Data I. Symmetry Adaption and Integral Transformation}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv table TABLE
+          setenv ftn031 nh3tran
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt 
+          tran 
+          select  bypass
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci bypass
+          diag bypass
+          extrap 3
+          dthr 0.0001 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Table-CI Job II. Configuration Selection}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv table TABLE
+          setenv ftn031 nh3tran
+          setenv ftn033 nh3sel01
+          setenv ftn034 nh3sel02
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart ci
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran bypass
+          select  
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci bypass
+          diag bypass
+          extrap 3
+          dthr 0.0001 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Table-CI Job III. CI Hamiltonian Construction}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv table TABLE
+          setenv ftn031 nh3tran
+          setenv ftn033 nh3sel01
+          setenv ftn034 nh3sel02
+          setenv ftn035 nh3ham
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart ci
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran bypass
+          select bypass
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci
+          diag bypass
+          extrap 3
+          dthr 0.0001 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Table-CI Job IV. Diagonalisation}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv ftn035 nh3ham
+          setenv ftn036 nh3diag
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart ci
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran  bypass
+          select bypass
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci bypass
+          diag 
+          extrap 3
+          dthr 0.0001 0.0001
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Table-CI Job V. CI Wavefunction Analysis}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 nh3main
+          setenv ed3 nh3dump
+          setenv ftn036 nh3diag
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart ci
+          title
+          * nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+          bypass scf
+          charge 1
+          mult 2
+          zmat angstrom
+          n
+          h 1 roh
+          h 1 roh 2 theta
+          h 1 roh 2 theta 3 theta  1
+          variables
+          roh 1.03   hessian 0.7
+          theta 104.2  hessian 0.2
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran bypass
+          select bypass
+          symmetry 1
+          spin 2
+          cntrl 9
+          conf
+          1 4 1 2 3  12
+          1 3 1 2 4  12
+          roots 2
+          thresh 5 5
+          ci bypass
+          diag  bypass
+          extrap 3
+          dthr 0.0001 0.0001
+          natorb
+          cive 1 2
+          prop
+          cive 1 2
+          1 4  1 2 3  12
+          1 3  1 2 4  12
+          moment
+          36 1 36 2 1
+          enter
+          EOF
+\end{verbatim}
+}
+\section[ECP, CASSCF and Direct-CI Calculations on \nimeth]{ECP, CASSCF and Direct-CI Calculations on \nimeth}
+This example illustrates the use of CASSCF and Direct-CI calculations in
+the framework of ECP studies. The molecular system under investigation
+is \nimeth, with a 5-reference direct-CI calculation performed using a
+CASSCF wavefunction for the lowest triplet state. Five data files are
+presented below:
+\begin{enumerate}
+\item Start--up closed--shell SCF calculation for
+the $^{1}$A$_{1}$ state. Note the SUPER directive
+for compatibility with the subsequent open--shell calculation.
+The ECP library file \protect \\/scr1/wab/GAMESS-UK/libs/ecplib is allocated to LFN ed0, 
+with the
+NIHAY and C non-local ECPs requested under control
+of the PSEUDO directive.
+\item Restart SCF job, with appropriate use of the
+SWAP directive to converge the closed--shell SCF.
+\item RHF calculation for the $^{3}$A$_{1}$ state.
+\item CASSCF calculation for the $^{3}$A$_{1}$ state.
+\item 5-reference Direct-CI  calculation for the $^{3}$A$_{1}$ state.
+\end{enumerate}
+{\bf Closed-shell SCF Start-up Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 mainnips
+          setenv ed3 dumpnips
+          setenv ed0 /scr1/wab/GAMESS-UK/libs/ecplib
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          ni(cch2) 1a1 rhf ,hay's ni, bar's nm ecp's
+          mult 1
+          super force
+          zmat angstrom
+          ni
+          c 1 nica
+          x 2 1.0 1 90.0
+          c 2 cacb 3 90.0 1 180.0
+          x 4 1.0 2 90.0 3 0.0
+          h 4 hcb 2 hcc 5 90.0
+          h 4 hcb 2 hcc 5 -90.0
+          variables
+          nica 2.0895
+          cacb 1.3604
+          hcb 1.1047
+          hcc 122.646
+          end
+          basis
+          s h
+          0.032828     13.3615
+          0.231208      2.0133
+          0.817238      0.4538
+          s h
+          1.000000      0.1233
+          s c
+          1.000000      0.4962
+          s c
+          1.000000      0.1533
+          p c
+          0.018534     18.1557
+          0.115442      3.9864
+          0.386206      1.1429
+          0.640089      0.3594
+          p c
+          1.000000      0.1146
+          s ni
+          -0.4372528 0.6778
+          1.1889453 0.1116
+          s ni
+          1.0000000 0.0387
+          p ni
+          1.0000000 0.0840
+          p ni
+          1.0000000 0.0240
+          d ni
+          0.0360414 42.7200
+          0.1938645 11.7600
+          0.4596238 3.8170
+          0.5599305 1.1690
+          d ni
+          1.0000000 0.2836
+          end
+          pseudo nonlocal
+          nihay  ni
+          c c
+          maxcyc 30
+          level 2.5 15 1.0
+          vectors hcore
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Closed-shell SCF Restart Data}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 mainnips
+          setenv ed3 dumpnips
+          setenv ed0 /scr1/wab/GAMESS-UK/libs/ecplib
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          ni(cch2) 1a1 rhf restart ,hay's ni, bar's nm ecp's
+          mult 1
+          bypass
+          super force
+          zmat angstrom
+          ni
+          c 1 nica
+          x 2 1.0 1 90.0
+          c 2 cacb 3 90.0 1 180.0
+          x 4 1.0 2 90.0 3 0.0
+          h 4 hcb 2 hcc 5 90.0
+          h 4 hcb 2 hcc 5 -90.0
+          variables
+          nica 2.0895
+          cacb 1.3604
+          hcb 1.1047
+          hcc 122.646
+          end
+          basis
+          s h
+          0.032828     13.3615
+          0.231208      2.0133
+          0.817238      0.4538
+          s h
+          1.000000      0.1233
+          s c
+          1.000000      0.4962
+          s c
+          1.000000      0.1533
+          p c
+          0.018534     18.1557
+          0.115442      3.9864
+          0.386206      1.1429
+          0.640089      0.3594
+          p c
+          1.000000      0.1146
+          s ni
+          -0.4372528 0.6778
+          1.1889453 0.1116
+          s ni
+          1.0000000 0.0387
+          p ni
+          1.0000000 0.0840
+          p ni
+          1.0000000 0.0240
+          d ni
+          0.0360414 42.7200
+          0.1938645 11.7600
+          0.4596238 3.8170
+          0.5599305 1.1690
+          d ni
+          1.0000000 0.2836
+          end
+          pseudo nonlocal
+          nihay  ni
+          c c
+          maxcyc 40
+          level 3.0 10 1.0
+          swap
+          4 5
+          6 8
+          8 10
+          10 11
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Open-shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 mainnips
+          setenv ed3 dumpnips
+          setenv ed0 /scr1/wab/GAMESS-UK/libs/ecplib
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          ni(cch2) 3a1 rhf ,hay's ni, bar's nm ecp's
+          mult 3
+          super force
+          bypass
+          zmat angstrom
+          ni
+          c 1 nica
+          x 2 1.0 1 90.0
+          c 2 cacb 3 90.0 1 180.0
+          x 4 1.0 2 90.0 3 0.0
+          h 4 hcb 2 hcc 5 90.0
+          h 4 hcb 2 hcc 5 -90.0
+          variables
+          nica 2.0895
+          cacb 1.3604
+          hcb 1.1047
+          hcc 122.646
+          end
+          basis
+          s h
+          0.032828     13.3615
+          0.231208      2.0133
+          0.817238      0.4538
+          s h
+          1.000000      0.1233
+          s c
+          1.000000      0.4962
+          s c
+          1.000000      0.1533
+          p c
+          0.018534     18.1557
+          0.115442      3.9864
+          0.386206      1.1429
+          0.640089      0.3594
+          p c
+          1.000000      0.1146
+          s ni
+          -0.4372528 0.6778
+          1.1889453 0.1116
+          s ni
+          1.0000000 0.0387
+          p ni
+          1.0000000 0.0840
+          p ni
+          1.0000000 0.0240
+          d ni
+          0.0360414 42.7200
+          0.1938645 11.7600
+          0.4596238 3.8170
+          0.5599305 1.1690
+          d ni
+          1.0000000 0.2836
+          end
+          pseudo nonlocal
+          nihay ni
+          c c
+          scftype gvb
+          maxcyc 50
+          level 2.0 3.0 15 1.0 1.0
+          open 2 2
+          swap
+          11 12
+          14 15
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+Eigenvector utilisation in the above job will drive off the default
+sections of the Dumpfile, with the open-shell SCF module using the
+closed-shell SCF vectors from section 1 to initiate the SCF process,
+and writing the SCF open-shell orbitals to sections 4 and 5 (the
+energy-ordered SCF MOs). These latter orbitals will be used below
+to instigate the CASSCF processing.\\
+
+{\bf CASSCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 mainnips
+          setenv ed3 dumpnips
+          setenv ed0 /scr1/wab/GAMESS-UK/libs/ecplib
+          setenv ed6 trannips
+          setenv ed4 lfornips
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          ni(cch2) 3a1 c2v cas at opt (3 2 2 0), hay's ni, bar's nm ecp's
+          mult 3
+          super off nosym
+          zmat angstrom
+          ni
+          c 1 nica
+          x 2 1.0 1 90.0
+          c 2 cacb 3 90.0 1 180.0
+          x 4 1.0 2 90.0 3 0.0
+          h 4 hcb 2 hcc 5 90.0
+          h 4 hcb 2 hcc 5 -90.0
+          variables
+          nica 2.0895
+          cacb 1.3604
+          hcb 1.1047
+          hcc 122.646
+          end
+          basis
+          s h
+          0.032828     13.3615
+          0.231208      2.0133
+          0.817238      0.4538
+          s h
+          1.000000      0.1233
+          s c
+          1.000000      0.4962
+          s c
+          1.000000      0.1533
+          p c
+          0.018534     18.1557
+          0.115442      3.9864
+          0.386206      1.1429
+          0.640089      0.3594
+          p c
+          1.000000      0.1146
+          s ni
+          -0.4372528 0.6778
+          1.1889453 0.1116
+          s ni
+          1.0000000 0.0387
+          p ni
+          1.0000000 0.0840
+          p ni
+          1.0000000 0.0240
+          d ni
+          0.0360414 42.7200
+          0.1938645 11.7600
+          0.4596238 3.8170
+          0.5599305 1.1690
+          d ni
+          1.0000000 0.2836
+          end
+          pseudo nonlocal
+          nihay  ni
+          c c
+          scftype casscf
+          config print
+          fzc 1 to 7
+          doc 8 to 9
+          alp 10 to 11
+          uoc 12 to 14
+          end
+          superci 1 to 12
+          newton 13 to 20
+          hessian 13  to 20
+          simul 15 to 20
+          vectors 5
+          swap
+          14 15
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf Direct-CI Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 mainnips
+          setenv ed3 dumpnips
+          setenv ed0 /scr1/wab/GAMESS-UK/libs/ecplib
+          setenv ed5 cinips
+          setenv ed6 trannips
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart new
+          title
+          ni(cch2) 3a1 mrsdci (3 2 2 0) ,hay's ni, bar's nm ecp's
+          mult 3
+          super off nosym
+          bypass scf
+          zmat angstrom
+          ni
+          c 1 nica
+          x 2 1.0 1 90.0
+          c 2 cacb 3 90.0 1 180.0
+          x 4 1.0 2 90.0 3 0.0
+          h 4 hcb 2 hcc 5 90.0
+          h 4 hcb 2 hcc 5 -90.0
+          variables
+          nica 2.0895
+          cacb 1.3604
+          hcb 1.1047
+          hcc 122.646
+          end
+          basis
+          s h
+          0.032828     13.3615
+          0.231208      2.0133
+          0.817238      0.4538
+          s h
+          1.000000      0.1233
+          s c
+          1.000000      0.4962
+          s c
+          1.000000      0.1533
+          p c
+          0.018534     18.1557
+          0.115442      3.9864
+          0.386206      1.1429
+          0.640089      0.3594
+          p c
+          1.000000      0.1146
+          s ni
+          -0.4372528 0.6778
+          1.1889453 0.1116
+          s ni
+          1.0000000 0.0387
+          p ni
+          1.0000000 0.0840
+          p ni
+          1.0000000 0.0240
+          d ni
+          0.0360414 42.7200
+          0.1938645 11.7600
+          0.4596238 3.8170
+          0.5599305 1.1690
+          d ni
+          1.0000000 0.2836
+          end
+          pseudo nonlocal
+          nihay  ni
+          c c
+          runtype ci
+          core
+          end
+          active
+          1 to 40
+          end
+          scftype casscf
+          config print
+          fzc 1 to 7
+          doc 8 to 9
+          alp 10 to 11
+          uoc 12 to 14
+          end
+          superci 1 to 12
+          newton 13 to 20
+          hessian 13  to 20
+          simul 15 to 20
+          direct 20 14 26
+          spin triplet
+          conf
+          2 2 2 2 2 2 2 2 2 1 1 0 0 0
+          2 2 2 2 2 2 2 2 1 2 0 0 1 0
+          2 2 2 2 2 2 2 2 1 1 1 0 1 0
+          2 2 2 2 2 2 2 2 0 1 1 0 2 0
+          2 2 2 2 2 2 2 1 2 2 0 1 0 0
+          2 2 2 2 2 2 2 1 2 1 1 1 0 0
+          vprint 100 0.01
+          maxcyc 10
+          enter
+          EOF
+\end{verbatim}
+}
+\section[Table-CI Calculations of the Electronic Spectra of Pyridine]{Table-CI Calculations of the Electronic Spectra of Pyridine}
+This example demonstrates the use of the Table-CI module in the
+calculation of the low-lying states of Pyridine.  Specifically, we are
+involved in determining the disposition of the first ten $^{1}$A$_{1}$ and
+$^{1}$A$_{2}$ states, using a common set of orbitals (the X$^{1}$A$_{1}$
+SCF-MOs) in a DZ plus Rydberg basis set of 91 functions.  Five job files
+are presented below:
+\begin{enumerate}
+\item Start--up closed--shell SCF calculation for
+the X$^{1}$A$_{1}$ state. Note the SUPER directive
+for compatibility with the subsequent CI calculation.
+Note also the particular syntax for siting the DZ basis on H: the
+third and fourth data fields are to provide an unscaled
+hydrogen basis, since the default specification will scale the
+two components by 1.2 (the more contracted) and 1.15 (the more
+diffuse component)
+\item 1M/1R Table-CI calculation of the X$^{1}$A$_{1}$ state.
+\item 6M/1R Table-CI calculation of the X$^{1}$A$_{1}$ state.
+\item 21M/10R Table-CI calculation of the ten lowest $^{1}$A$_{1}$ states.
+\item 19M/10R Table-CI calculation of the ten lowest $^{1}$A$_{2}$ states.
+\end{enumerate}
+{\bf 1.~~Closed-shell SCF Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 pyred2
+          setenv ed3 pyred3
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          pyridine dz+bond-centred functions
+          super off nosym
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          bq 1 1.39 3 90. 2 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis
+          dz h 1.0 1.0
+          dz n
+          dz c
+          s bq
+          1.0 0.021
+          s bq
+          1.0 0.008
+          s bq
+          1.0 0.0025
+          p bq
+          1.0 0.017
+          p bq
+          1.0 0.009
+          d bq
+          1.0 0.015
+          d bq
+          1.0 0.008
+          end
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf 2.~~1M/1R Table-CI Job for the X$^{1}$A$_{1}$ State}\\
+
+An examination of the SCF output reveals the following symmetry adapted
+basis functions,  
+given the C$_{2v}$ geometry and DZ plus Rydberg basis set:
+
+{
+\footnotesize
+\begin{verbatim}
+          =============================
+          IRREP  NO. OF SYMMETRY ADAPTED
+                 BASIS FUNCTIONS
+          =============================
+            1          45
+            2          12
+            3          28
+            4           6
+          =============================
+\end{verbatim}
+}
+Thus the orbital reordering performed by the Table-CI module
+will yield the sequence numbers 1--45 for the a$_{1}$ MOs,
+46--57 for the b$_{1}$ MOs, 58--85 for the b$_{2}$ MOs and 
+86--91 for the a$_{2}$ MOs. We are both freezing and discarding
+orbitals in the subsequent CI calculations. Confining this to
+both a$_{1}$ and b$_{2}$ MOs, the first six orbitals of a$_{1}$ 
+symmetry and first four orbitals of b$_{2}$ symmetry are to be frozen, 
+and the eight highest energy orbitals of a$_{1}$ symmetry 
+and six highest of b$_{2}$ are to be discarded.
+Thus the final sequence numbers for the active 
+orbitals in the CI are 1--31 for the a$_{1}$ MOs,
+32--43 for the b$_{1}$ MOs, 44--61 for the b$_{2}$ MOs and 
+62--68 for the a$_{2}$ MOs.  The CONF data line specifying
+the reference configuration is based on the associated
+sequence numbers of these active orbitals.
+
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 pyred2
+          setenv ed3 pyred3
+          setenv ftn031 pyrtran
+          setenv table /scr1/wab/GAMESS-UK/libs/TABLE
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          pyridine dz+bond-centred functions
+          super off nosym
+          bypass scf
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          bq 1 1.39 3 90. 2 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis
+          dz h 1.0 1.0
+          dz n
+          dz c
+          s bq
+          1.0 0.021
+          s bq
+          1.0 0.008
+          s bq
+          1.0 0.0025
+          p bq
+          1.0 0.017
+          p bq
+          1.0 0.009
+          d bq
+          1.0 0.015
+          d bq
+          1.0 0.008
+          end
+          runtype ci
+          mrdci
+          adapt
+          tran freeze discard
+          6 0 4 0
+          1 to 6 1 to 4
+          8 0 6 0
+          38 to 45 23 to 28
+          select
+          cntrl 22
+          spin singlet
+          symmetry 1
+          conf
+          0 1 2 3 4 5 32 33 44 45 46 62
+          roots 1 1
+          thresh 30 10
+          ci
+          diag
+          title
+          pyridine 1m1r ground state   dz + 3s2p2d rydberg basis
+          extrap 3
+          natorb
+          civec 1
+          putq aos 2
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf 3.~~6M/1R Table-CI Job for the X$^{1}$A$_{1}$ State}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 pyred2
+          setenv ed3 pyred3
+          setenv ftn031 pyrtran
+          setenv table /scr1/wab/GAMESS-UK/libs/TABLE
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          pyridine dz+bond-centred functions
+          super off nosym
+          bypass scf
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          bq 1 1.39 3 90. 2 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis
+          dz h 1.0 1.0
+          dz n
+          dz c
+          s bq
+          1.0 0.021
+          s bq
+          1.0 0.008
+          s bq
+          1.0 0.0025
+          p bq
+          1.0 0.017
+          p bq
+          1.0 0.009
+          d bq
+          1.0 0.015
+          d bq
+          1.0 0.008
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran freeze discard bypass
+          6 0 4 0
+          1 to 6 1 to 4
+          8 0 6 0
+          38 to 45 23 to 28
+          select
+          cntrl 22
+          spin singlet
+          symmetry 1
+          conf
+          0 1 2 3 4 5 32 33 44 45 46 62
+          0 1 2 3 4 5 32 38 44 45 46 62
+          0 1 2 3 4 5 32 33 44 45 46 65
+          4 32 33 38 39  1 2 3 4 5  44 45 46 62
+          4 32 39 62 65  1 2 3 4 5  33 44 45 46 
+          4 33 38 62 65  1 2 3 4 5  32 44 45 46 
+          roots 1 1
+          thresh 30 10
+          ci
+          diag
+          title
+          pyridine 6m1r ground state   dz + 3s2p2d rydberg basis
+          extrap 3
+          natorb
+          civec 1
+          putq aos 2
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf 4.~~21M/10R Table-CI Job for the $^{1}$A$_{1}$ States}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 pyred2
+          setenv ed3 pyred3
+          setenv ftn031 pyrtran
+          setenv table /scr1/wab/GAMESS-UK/libs/TABLE
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          pyridine   dz+rydberg basis
+          super off nosym
+          bypass scf
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          bq 1 1.39 3 90. 2 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis
+          dz h 1.0 1.0
+          dz n
+          dz c
+          s bq
+          1.0 0.021
+          s bq
+          1.0 0.008
+          s bq
+          1.0 0.0025
+          p bq
+          1.0 0.017
+          p bq
+          1.0 0.009
+          d bq
+          1.0 0.015
+          d bq
+          1.0 0.008
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran freeze discard bypass
+          6 0 4 0
+          1 to 6 1 to 4
+          8 0 6 0
+          38 to 45 23 to 28
+          select
+          cntrl 22
+          spin singlet
+          symmetry 1
+          conf
+          2 62 65 1 2 3 4 5 32 33 44 45 46
+          2 33 34 1 2 3 4 5 32 44 45 46 62
+          2 5 8 1 2 3 4 32 33 44 45 46 62
+          2 62 63 1 2 3 4 5 32 33 44 45 46
+          2 33 38 1 2 3 4 5 32 44 45 46 62
+          2 33 35 1 2 3 4 5 32 44 45 46 62
+          2 5 7 1 2 3 4 32 33 44 45 46 62
+          2 33 37 1 2 3 4 5 32 44 45 46 62
+          2 5 9 1 2 3 4 32 33 44 45 46 62
+          2 62 64 1 2 3 4 5 32 33 44 45 46
+          2 33 36 1 2 3 4 5 32 44 45 46 62
+          2 5 11 1 2 3 4 32 33 44 45 46 62
+          2 33 39 1 2 3 4 5 32 44 45 46 62
+          2 32 34 1 2 3 4 5 33 44 45 46 62
+          2 32 38 1 2 3 4 5 33 44 45 46 62
+          4 5 8 33 38 1 2 3 4 32 44 45 46 62
+          4 33 38 62 65 1 2 3 4 5 32 44 45 46
+          4 32 33 34 38 1 2 3 4 5 44 45 46 62
+          4 33 34 62 65 1 2 3 4 5 32 44 45 46
+          4 32 38 62 63 1 2 3 4 5 33 44 45 46
+          4 5 7 33 38 1 2 3 4 32 44 45 46 62
+          roots 10 1 2 3 4 5 6 7 8 9 10
+          thresh 30 10
+          ci
+          diag
+          title
+          pyridine 21m10r 1a1    dz + 3s2p2d rydberg basis
+          extrap 3
+          enter
+          EOF
+\end{verbatim}
+}
+{\bf 5.~~19M/10R Table-CI Job for the $^{1}$A$_{2}$ States}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 pyred2
+          setenv ed3 pyred3
+          setenv ftn031 pyrtran
+          setenv table /scr1/wab/GAMESS-UK/libs/TABLE
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart
+          title
+          pyridine  dz+rydberg basis
+          super off nosym
+          bypass scf
+          zmat angstrom
+          n
+          x 1 1.0
+          x 1 1.0 2 90.
+          x 1 1.0 2 90. 3 90.
+          c 1 c4n 3 90. 2 180.
+          x 5 1.0 1 90. 3 0.0
+          x 5 1.0 1 90. 4 0.0
+          h 5 ch4 6 90. 1 180.
+          c 1 c2n 2 c2nz 3 180.
+          c 1 c2n 2 c2nz 3 0.0
+          c 9 c2c3 1 ccn 2 180.
+          c 10 c2c3 1 ccn 2 180.
+          h 9 c2h6 1 nch2 2 0.0
+          h 10 c2h6 1 nch2 2 0.0
+          h 11 c3h5 9 c2c3h 1 180.
+          h 12 c3h5 10 c2c3h 1 180.
+          bq 1 1.39 3 90. 2 180.
+          variables
+          c4n 2.7845546
+          ch4 1.0823078
+          c2n 1.3372389
+          c2nz 120.641858
+          c2c3 1.3944571
+          ccn 122.662269
+          c2h6 1.0814291
+          c3h5 1.0809550
+          nch2 116.400433
+          c2c3h 120.158516
+          end
+          basis
+          dz h 1.0 1.0
+          dz n
+          dz c
+          s bq
+          1.0 0.021
+          s bq
+          1.0 0.008
+          s bq
+          1.0 0.0025
+          p bq
+          1.0 0.017
+          p bq
+          1.0 0.009
+          d bq
+          1.0 0.015
+          d bq
+          1.0 0.008
+          end
+          runtype ci
+          mrdci
+          adapt bypass
+          tran freeze discard bypass
+          6 0 4 0
+          1 to 6 1 to 4
+          8 0 6 0
+          38 to 45 23 to 28
+          select
+          cntrl 22
+          spin singlet
+          symmetry 4
+          conf
+          2 5 65 1 2 3 4 32 33 44 45 46 62
+          2 33 47 1 2 3 4 5 32 44 45 46 62
+          2 5 63 1 2 3 4 32 33 44 45 46 62
+          2 33 48 1 2 3 4 5 32 44 45 46 62
+          2 8 62 1 2 3 4 5 32 33 44 45 46
+          2 7 62 1 2 3 4 5 32 33 44 45 46
+          2 33 50 1 2 3 4 5 32 44 45 46 62
+          2 5 64 1 2 3 4 32 33 44 45 46 62
+          2 33 49 1 2 3 4 5 32 44 45 46 62
+          2 6 62 1 2 3 4 5 32 33 44 45 46
+          4 5 33 38 65 1 2 3 4 32 44 45 46 62
+          4 5 33 38 63 1 2 3 4 32 44 45 46 62
+          4 33 47 62 65 1 2 3 4 5 32 44 45 46
+          4 5 33 34 65 1 2 3 4 32 44 45 46 62
+          4 7 33 38 62 1 2 3 4 5 32 44 45 46
+          4 33 47 62 63 1 2 3 4 5 32 44 45 46
+          4 8 33 38 62 1 2 3 4 5 32 44 45 46
+          4 5 33 34 63 1 2 3 4 32 44 45 46 62
+          4 33 48 62 63 1 2 3 4 5 32 44 45 46
+          roots 10 1 2 3 4 5 6 7 8 9 10
+          thresh 30 10
+          ci
+          diag
+          title
+          pyridine 19m10r 1a2  dz + 3s2p2d rydberg basis
+          extrap 3
+          enter
+          EOF
+\end{verbatim}
+}
+
+\section[Full-CI calculations]{Full-CI calculations}
+
+We consider below  Full-CI calculations of the X$^{1}$A$_{1}$ state of
+the \water\ molecule.  In the first instance we consider correlating
+all electrons.  We then perform a valence-only calculation, freezing the
+O1s orbital through the ACTIVE and CORE directives, specifying a total
+of 8 electrons on the FULLCI data line.\\
+
+{\bf All-electron Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ed6 h2otran
+          setenv ftn008 file8
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          title
+          h2o - DZ basis - full-ci
+          super off nosym
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          basis dz
+          runtype ci\fullci 14 5 5
+          enter 
+          EOF
+\end{verbatim}
+}
+Assuming the above job did not complete in the time allocated,
+and dumped to disk in a controlled fashion, the following job
+would act to continue the processing, assuming that the
+FORTRAN file file8 had been saved, along with the Mainfile,
+Dumpfile and Transformed integral file.\\
+
+{\bf Restarting the Full-CI job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ed6 h2otran
+          setenv ftn008 file8
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          restart ci
+          title
+          h2o - DZ basis - restart full-ci
+          super off nosym
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          basis dz
+          runtype ci\fullci 14 5 5
+          enter
+          EOF
+\end{verbatim}
+}
+
+{\bf Valence-electron Job}
+{
+\footnotesize
+\begin{verbatim}
+          #!/bin/csh -f
+          cd /scr1/user
+          setenv ed2 h2omain
+          setenv ed3 h2odump
+          setenv ftn008 file8
+          /scr1/wab/GAMESS-UK/bin/gamess << EOF
+          core 8000000
+          restart new
+          title
+          h2o - DZ basis - valence full-ci
+          super off nosym
+          bypass
+          zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+          variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+          basis dz
+          runtype ci
+          active\2 to 14 end\core\1\end
+          fullci 13 4 4
+          enter
+          EOF
+\end{verbatim}
+}
+
+The following points should be noted:
+\begin{itemize}
+\item the use of setenv to allocate the FORTRAN stream ftn008;
+\item the use of the core pre-directive to specify
+memory requirements.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,51 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 6-31G - BLYP default quad. and A1 Jfit basis / energy = -114.437480005 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct
+dft jfit memory
+# request DGauss A1 Coulomb fitting basis
+dft jbas a1-gauss
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+ - 6-31G - BLYP default quad, explicit J / energy =  -114.047890004 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct uhf
+dft 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+ - 6-31G - UKS BLYP default quad, A1 Jfit basis / energy = -114.050668324 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+scftype direct uhf
+dft jfit memory
+# request (default) DGauss A1 Coulomb fitting basis
+dft jbas a1-dgauss
+enter
+EOF

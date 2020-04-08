@@ -1,0 +1,259 @@
+# The files this was generated from are:
+#
+# dblas.m
+# dlapack.m
+# eispack.m
+# iblas.m
+# linpack.m
+# mxm_blas3.m
+# mxm_noblas3.m
+# nag.m
+# xerbla_lsame.m
+# util3.m
+# 
+# Where possible new versions of the files have been downloaded from netlib
+# and the preprocessing removed.
+
+
+DBLAS_OBJ=\
+dasum.o \
+daxpy.o \
+dcopy.o \
+ddot.o \
+dgemm.o \
+dgemv.o \
+#if !charmm#
+dnrm2.o \
+#endif !charmm#
+drot.o \
+dscal.o \
+dswap.o \
+idamax.o \
+izamax.o \
+lsame.o \
+xerbla.o \
+zcopy.o \
+zdotc.o \
+zgemm.o \
+dsyr2.o \
+dsyr2k.o \
+ztrsm.o \
+zgeru.o
+
+IBLAS_OBJ=\
+icopy.o \
+igthr.o \
+isctr.o \
+iswap.o 
+
+DLAPACK_OBJ=\
+dsytrf.o \
+dsytri.o \
+zheev.o \
+dsytf2.o \
+dlasyf.o \
+dsymv.o \
+ilaenv.o \
+ieeeck.o \
+iparmq.o \
+dsyr.o \
+disnan.o \
+dlaisnan.o \
+dlamch.o \
+zlanhe.o \
+zlascl.o \
+zhetrd.o \
+dsterf.o \
+zungtr.o \
+zsteqr.o \
+zlassq.o \
+zher2k.o \
+zhetd2.o \
+zlatrd.o \
+dlanst.o \
+dlascl.o \
+dlapy2.o \
+dlae2.o \
+dlasrt.o \
+dlaev2.o \
+zlasr.o \
+dlartg.o \
+zswap.o \
+zaxpy.o \
+zher2.o \
+zhemv.o \
+zgemv.o \
+zlacgv.o \
+zscal.o \
+zlarfg.o \
+dlassq.o \
+zungql.o \
+zungqr.o \
+zlaset.o \
+dcabs1.o \
+dznrm2.o \
+dlapy3.o \
+zscal.o \
+zladiv.o \
+zdscal.o \
+zung2l.o\
+zlarft.o \
+zlarfb.o \
+zung2r.o \
+dladiv.o \
+zlarf.o \
+ztrmv.o \
+ztrmm.o \
+zgerc.o \
+dgetri.o \
+dgetrf.o \
+dtrtri.o \
+dgetf2.o \
+dlaswp.o  \
+dtrsm.o \
+dtrti2.o \
+dtrmm.o \
+dtrmv.o \
+dger.o \
+dlaruv.o \
+dlagtf.o \
+dlagts.o \
+dsyev.o \
+dlansy.o \
+dlarfb.o \
+dlarf.o \
+dlarfg.o \
+dlarft.o \
+dlaset.o \
+dlasr.o \
+dlatrd.o \
+dorg2l.o \
+dorg2r.o \
+dorgql.o \
+dorgqr.o \
+dorgtr.o \
+dsteqr.o \
+dsytd2.o \
+dsytrd.o \
+dsyevx.o \
+dlacpy.o \
+dlaebz.o \
+dlarnv.o \
+dorm2l.o \
+dorm2r.o \
+dormql.o \
+dormqr.o \
+dormtr.o \
+dstebz.o \
+dstein.o \
+zgetrf.o \
+zgetri.o \
+dgesv.o \
+dgetrs.o \
+zgetf2.o \
+zlaswp.o \
+ztrti2.o \
+ztrtri.o \
+dtrsv.o
+
+
+EISPACK_OBJ=\
+epslon.o \
+#if !charmm#
+pythag.o \
+#endif !charmm#
+qzhes.o \
+qzit.o \
+qzval.o \
+qzvec.o \
+rebak.o \
+reduc.o \
+rsg.o \
+tql2.o \
+tred2.o \
+tred1.o \
+tqlrat.o \
+evvrsp.o \
+freda.o \
+einvit.o \
+elau.o \
+eqlrat.o \
+etrbk3.o \
+etred3.o \
+estpi1.o
+
+LINPACK_OBJ=\
+dsifa.o \
+dsisl.o \
+dgedi.o \
+dgefa.o 
+
+NAG_OBJ=nag.o
+
+MXM_OBJ=mxm_blas3.o
+
+UTIL3_OBJ= \
+ddoti.o \
+dfill.o \
+dgthr.o \
+dsctr.o \
+idamin.o \
+idmax.o \
+idmin.o \
+dsum.o \
+cgemm.o
+
+# Files from the IMSL library
+# luelmf originally in tdaf.m
+IMSL_OBJ=\
+luelmf.o
+
+# These are required by ScaLAPACK
+SCALAPACK_OBJ=\
+dsymm.o \
+dsyrk.o \
+ztrsv.o \
+zher.o \
+zsymm.o \
+zhemm.o \
+zsyrk.o \
+zherk.o \
+zsyr2k.o \
+zdotu.o \
+dstedc.o \
+dlaeda.o \
+dlaed0.o \
+dlaed1.o \
+dlaed2.o \
+dlaed3.o \
+dlaed4.o \
+dlaed5.o \
+dlaed6.o \
+dlaed7.o \
+dlaed8.o \
+dlaed9.o \
+dlamrg.o 
+
+LINALG_OBJ=$(NAG_OBJ) $(MXM_OBJ) $(DBLAS_OBJ) $(IBLAS_OBJ) $(UTIL3_OBJ) $(EISPACK_OBJ) $(LINPACK_OBJ) $(DLAPACK_OBJ) $(IMSL_OBJ) $(SCALAPACK_OBJ)
+
+#if charmm gromacs#
+#LINALG_LIB = ../../../../lib/$(CHMHOST)/liblinalg.a
+LINALG_LIB = $(GMSLIB)
+#else#
+LINALG_LIB=liblinalg.a
+#endif#
+
+all: linalg
+
+linalg:	$(LINALG_LIB)
+
+$(LINALG_LIB):	$(LINALG_OBJ)
+		$(ARCHIVE) $(LINALG_LIB)  $(LINALG_OBJ) 
+		$(RANLIB) $(LINALG_LIB)
+
+clean:
+	touch x.o x~ \#x
+	rm -f *.o nag.f mxm_blas.f einvit.f etrbk3.f etred3.f *~ \#* $(LINALG_LIB) 
+#if coverage#
+	rm -f *.gcda *.gcno *.html
+#endif#

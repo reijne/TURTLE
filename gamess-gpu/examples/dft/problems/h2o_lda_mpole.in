@@ -1,0 +1,17 @@
+time 1000
+core 5000000
+integ high
+super off
+title
+h2o LDA - 4c2e explicit coulomb with mulitpoles (total energy = 0.000000)
+geometry
+     2.9952167617     -6.4893213625     -3.3504853744 8 O
+     2.5227850958     -5.0587982782     -4.3520405061 1 H
+     4.7186474788     -6.8086851686     -3.8021300470 1 H
+end
+basis sv 3-21g
+runt scf
+scft direct rhf
+cdft jmult
+vectors hcore
+enter 1

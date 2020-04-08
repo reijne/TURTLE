@@ -1,0 +1,80 @@
+
+Begin optimization report for: DORGTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dorgtr.f(137,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgtr.f(138,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dorgtr.f(138,16)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(138,16)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(138,16)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(138,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dorgtr.f(143,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgtr.f(143,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dorgtr.f(143,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dorgtr.f(160,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgtr.f(162,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dorgtr.f(162,16)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(162,16)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(162,16)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dorgtr.f(162,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dorgtr.f(167,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgtr.f(167,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dorgtr.f(167,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

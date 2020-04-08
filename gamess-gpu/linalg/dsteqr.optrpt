@@ -1,0 +1,75 @@
+
+Begin optimization report for: DSTEQR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsteqr.f(173,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsteqr.f(231,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsteqr.f(338,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsteqr.f(481,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dsteqr.f(481,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsteqr.f(481,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dsteqr.f(458,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dsteqr.f(458,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsteqr.f(458,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsteqr.f(458,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsteqr.f(192,15)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dsteqr.f(325,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at dsteqr.f(286,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsteqr.f(289,18) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsteqr.f(432,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at dsteqr.f(393,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsteqr.f(396,18) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsteqr.f(477,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsteqr.f(490,21) ]
+LOOP END
+===========================================================================

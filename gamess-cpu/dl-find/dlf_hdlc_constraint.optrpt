@@ -1,0 +1,843 @@
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::GET_CONS_REGIONS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(190,5)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ dlf_hdlc_constraint_d.F90(146,21) ]
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(179,8)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(170,19) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::ASSIGN_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(246,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(246,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(288,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 288 and  line 288
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(291,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 291 and  line 291
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(331,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(346,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(346,11)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(343,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(280,16) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(344,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(347,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(346,11) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::CI_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(392,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 393 and  line 393
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(416,9)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(484,7)
+<Multiversioned v1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(485,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 485 and  line 485
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(484,7)
+<Multiversioned v2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(485,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 485 and  line 485
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(488,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(488,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(488,7)
+   <Multiversioned v2>
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(488,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(488,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(480,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(479,7)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::CK_ANGLE_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(538,9)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(564,9)
+<Multiversioned v1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(564,9)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(564,9)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(564,9)
+<Multiversioned v1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(564,9)
+<Multiversioned v2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(570,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(570,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(580,9)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(603,9)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(603,9)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(603,9)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(603,9)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(603,9)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(608,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(608,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(619,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(619,9)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(626,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(599,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::ORTHO_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(846,5) inlined into dlf_hdlc_constraint_d.F90(681,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(681,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(681,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(681,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(889,5) inlined into dlf_hdlc_constraint_d.F90(682,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Distributed chunk1>
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Remainder, Distributed chunk1>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(892,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(892,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(892,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(903,7) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(904,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(904,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(904,9) inlined into dlf_hdlc_constraint_d.F90(682,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(982,5) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(988,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7) inlined into dlf_hdlc_constraint_d.F90(686,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7) inlined into dlf_hdlc_constraint_d.F90(689,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7) inlined into dlf_hdlc_constraint_d.F90(689,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7) inlined into dlf_hdlc_constraint_d.F90(689,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7) inlined into dlf_hdlc_constraint_d.F90(689,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(846,5) inlined into dlf_hdlc_constraint_d.F90(692,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(692,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(692,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7) inlined into dlf_hdlc_constraint_d.F90(692,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(676,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(677,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(942,5) inlined into dlf_hdlc_constraint_d.F90(685,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(948,5) inlined into dlf_hdlc_constraint_d.F90(685,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1056,5) inlined into dlf_hdlc_constraint_d.F90(689,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1076,5) inlined into dlf_hdlc_constraint_d.F90(689,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(1059,11) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1104,5) inlined into dlf_hdlc_constraint_d.F90(693,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(698,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(698,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::SPLIT_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(744,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(744,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(744,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(744,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(744,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(741,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::REST_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(789,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(789,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(789,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(789,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5) inlined into dlf_hdlc_constraint_d.F90(789,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(792,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::COPY_COORDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(817,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::GEN_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(846,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(847,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::PROJ_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(889,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+      <Distributed chunk1>
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+      <Remainder, Distributed chunk1>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(892,9)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(890,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(898,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(904,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(903,7)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(903,7)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(903,7)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(903,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::MERGE_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(942,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(948,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::ORTHO_MAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(982,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(983,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(988,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(990,9)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_constraint_d.F90(993,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(999,7)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1005,7)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_constraint_d.F90(1013,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::MOVE_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1061,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1056,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1076,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_constraint_d.F90(1059,11) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_CONSTRAINT::UNPROJ_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_constraint_d.F90(1104,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

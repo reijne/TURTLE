@@ -1,0 +1,11 @@
+c
+      character *8 zcom,ztitle,zaname,ztag,zsymm,zgroup
+      character *10 zbflab
+      character *8 zscftp,zruntp,zguess,zconf,zstate,zorb,zpseud
+      common /runlab/ zcom(19),ztitle(10),zaname(maxat),zbflab(maxorb),
+     +   ztag(maxat),zsymm,zgroup,zscftp,zruntp,zguess,zconf,zstate,
+     +   zorb(maxorb),zpseud(maxat)
+c
+c....  zaname : names of atoms during calculation (after reorder)
+c....  ztag   : names of atoms as read in 
+c

@@ -1,0 +1,73 @@
+
+Begin optimization report for: DSTERF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsterf.f(110,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsterf.f(146,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dsterf.f(146,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsterf.f(146,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dsterf.f(165,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsterf.f(212,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 227 and  line 214
+LOOP END
+
+LOOP BEGIN at dsterf.f(252,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dsterf.f(298,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 313 and  line 300
+LOOP END
+
+LOOP BEGIN at dsterf.f(348,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dsterf.f(348,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsterf.f(348,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsterf.f(348,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsterf.f(125,15)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dsterf.f(241,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at dsterf.f(327,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

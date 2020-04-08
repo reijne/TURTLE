@@ -1,0 +1,24 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+sio cep-31g+d / optimized energy = -19.45222701 hartree
+mult 1
+zmat angstrom\o\si 1 sio\variables\sio 1.582\end
+basis
+ecpdz si cep
+d si
+1.0 0.35
+ecpdz o cep
+d o
+1.0 0.90
+end
+pseudo ecp
+sicep si
+o o
+runtype optimize
+level  2.0
+maxcyc 30
+enter
+EOF

@@ -1,0 +1,30 @@
+*
+* for MPI code in parallel.m (IJB)
+*
+*  Maximum Number of processors we can run on
+*
+      Integer    max_processors
+      Parameter( max_processors = 1024 )
+*
+* The workers communicator - why cant this be called something
+* like shop_steward ?
+*
+* For newscf_f90 need a BLACS context, possibly two
+*
+      Integer MPI_COMM_WORKERS, blacs_context, blacs_uhf_context
+      Integer MPI_MAXABS ! handle for MPI_ALLREDUCE function
+      Logical is_farm
+      Common /mpi_hack_job/ MPI_COMM_WORKERS, blacs_context, 
+     +	blacs_uhf_context, is_farm, MPI_MAXABS
+
+*
+* The global GAMESS communicator - will be MPI_COMM_WORLD unless we
+* are running under task farming
+*
+      Integer MPI_COMM_GAMESS
+      Common /mpi_comms/ MPI_COMM_GAMESS
+
+_IFN(nec)
+      Save   /mpi_hack_job/
+      Save   /mpi_comms/
+_ENDIF

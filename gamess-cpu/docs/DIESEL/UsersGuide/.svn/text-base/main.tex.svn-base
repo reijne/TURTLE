@@ -1,0 +1,106 @@
+\documentclass[a4paper]{article}
+
+%\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{supertabular}
+\usepackage{epsfig}
+\usepackage{float}
+
+
+\def\epsfig#1{\special{ps#1}}
+
+\def\Tab#1{table \ref{#1}}
+
+
+\def\tnl{\\[20pt]}
+
+\floatname{listing}{Listing}
+\floatstyle{ruled}
+\newfloat{listing}{H}{lop}[section]
+\newenvironment{prog}{ \begin{listing}\begin{scriptsize}\baselineskip7pt}{\end{scriptsize}\end{listing}}
+
+\begin{document}
+
+
+\pagestyle{headings}
+
+\parindent=0pt
+
+%Tabellen-Tips und Trick's\def\TspaceI{&\\ \noalign{\vskip-7\baselinestretch pt}}
+\def\TspaceI{&\\ \noalign{\vskip-7\baselinestretch pt}}
+\def\TspaceII{&&\\ \noalign{\vskip-7\baselinestretch pt}}
+\def\TspaceIII{&&&\\ \noalign{\vskip-7\baselinestretch pt}}
+\def\Tspace4{&&&&\\ \noalign{\vskip-7\baselinestretch pt}}
+
+\def\no{n_{\rm o}}
+
+\def\ub{{\char 95}}
+
+\def\key#1{{\it #1\/}}
+
+
+\font\verbfont=cmtt8
+\newenvironment{exmp}{\obeyspaces \obeylines \verbfont \baselineskip=9pt}{}
+
+
+
+
+
+
+\input Title.tex
+
+\newpage
+\ 
+\thispagestyle{empty}
+\newpage
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{headings}
+
+\tableofcontents
+
+\newpage
+
+\addcontentsline{toc}{section}{List of tables}
+\listoftables
+
+\addcontentsline{toc}{section}{List of figures}
+\listoffigures
+
+\addcontentsline{toc}{section}{List of listings}
+\listof{listing}{List of Listings}
+\newpage
+
+%\input Input/Symbole.tex
+%\newpage
+\ 
+\newpage
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+%\input selMRCI.tex
+%\newpage
+\input Package.tex
+\newpage
+\input MainPrograms.tex
+\newpage
+\input Examples.tex
+\newpage
+\input Tools.tex
+\newpage
+%\input Scripts.tex
+%\newpage
+\begin{appendix}
+\input Syntax.tex
+\newpage
+\input Citation.tex
+\end{appendix}
+\newpage
+
+\end{document}

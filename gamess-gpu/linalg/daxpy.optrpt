@@ -1,0 +1,57 @@
+
+Begin optimization report for: DAXPY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at daxpy.f(50,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at daxpy.f(50,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at daxpy.f(50,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at daxpy.f(50,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at daxpy.f(55,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at daxpy.f(56,11)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at daxpy.f(55,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at daxpy.f(36,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at daxpy.f(36,10)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at daxpy.f(36,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at daxpy.f(36,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at daxpy.f(36,10)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================

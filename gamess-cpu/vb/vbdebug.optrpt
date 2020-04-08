@@ -1,0 +1,819 @@
+
+Begin optimization report for: MATRE2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(391,10) inlined into vbdebug.f(59,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(59,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(59,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(391,10) inlined into vbdebug.f(62,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(62,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(62,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(309,13) inlined into vbdebug.f(78,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(78,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(78,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(78,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10) inlined into vbdebug.f(78,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10) inlined into vbdebug.f(78,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(331,10) inlined into vbdebug.f(78,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(78,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(78,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(78,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(339,10) inlined into vbdebug.f(78,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(340,13) inlined into vbdebug.f(78,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdebug.f(341,16) inlined into vbdebug.f(78,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 342 and  line 342
+      LOOP END
+
+      LOOP BEGIN at vbdebug.f(341,16) inlined into vbdebug.f(78,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(309,13) inlined into vbdebug.f(79,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(79,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(79,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16) inlined into vbdebug.f(79,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10) inlined into vbdebug.f(79,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10) inlined into vbdebug.f(79,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(331,10) inlined into vbdebug.f(79,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(79,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(79,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13) inlined into vbdebug.f(79,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(339,10) inlined into vbdebug.f(79,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(340,13) inlined into vbdebug.f(79,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdebug.f(341,16) inlined into vbdebug.f(79,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 342 and  line 342
+      LOOP END
+
+      LOOP BEGIN at vbdebug.f(341,16) inlined into vbdebug.f(79,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(391,10) inlined into vbdebug.f(85,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(85,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(85,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(391,10) inlined into vbdebug.f(89,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(89,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(392,13) inlined into vbdebug.f(89,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(408,10) inlined into vbdebug.f(98,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+   LOOP BEGIN at vbdebug.f(409,13) inlined into vbdebug.f(98,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+      LOOP BEGIN at vbdebug.f(410,16) inlined into vbdebug.f(98,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+         LOOP BEGIN at vbdebug.f(411,19) inlined into vbdebug.f(98,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(408,10) inlined into vbdebug.f(105,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+   LOOP BEGIN at vbdebug.f(409,13) inlined into vbdebug.f(105,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+      LOOP BEGIN at vbdebug.f(410,16) inlined into vbdebug.f(105,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+         LOOP BEGIN at vbdebug.f(411,19) inlined into vbdebug.f(105,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(364,10) inlined into vbdebug.f(115,26)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+   LOOP BEGIN at vbdebug.f(365,13) inlined into vbdebug.f(115,26)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+      LOOP BEGIN at vbdebug.f(368,16) inlined into vbdebug.f(115,26)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+         LOOP BEGIN at vbdebug.f(369,19) inlined into vbdebug.f(115,26)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COFAC2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(475,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(476,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(476,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(476,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(476,16)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(476,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(482,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(482,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(482,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(482,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(496,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(497,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbdebug.f(498,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbdebug.f(499,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(499,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(499,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(499,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(516,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(516,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(519,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(520,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(520,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(525,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(526,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdebug.f(527,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 528 and  line 528
+      LOOP END
+
+      LOOP BEGIN at vbdebug.f(527,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(534,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(535,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbdebug.f(536,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbdebug.f(537,22)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(537,22)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(537,22)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(537,22)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(537,22)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(552,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(553,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbdebug.f(554,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbdebug.f(555,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(555,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(555,19)
+         <Remainder>
+            remark #15301: REMAINDER LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbdebug.f(555,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BIO2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(232,10) inlined into vbdebug.f(147,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(233,13) inlined into vbdebug.f(147,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 234 and  line 235
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(233,13) inlined into vbdebug.f(147,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13) inlined into vbdebug.f(147,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13) inlined into vbdebug.f(147,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(147,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(147,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(147,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(147,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(156,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(164,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 165 and  line 165
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(164,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(170,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(170,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(170,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(170,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(232,10) inlined into vbdebug.f(174,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(233,13) inlined into vbdebug.f(174,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 234 and  line 235
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(233,13) inlined into vbdebug.f(174,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13) inlined into vbdebug.f(174,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13) inlined into vbdebug.f(174,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(174,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(174,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(174,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13) inlined into vbdebug.f(174,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(178,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(178,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(178,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(185,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(186,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(186,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(186,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(197,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(197,19)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(197,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(200,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(202,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(202,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(202,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(154,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIXED
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(364,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+   LOOP BEGIN at vbdebug.f(365,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+      LOOP BEGIN at vbdebug.f(368,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+
+         LOOP BEGIN at vbdebug.f(369,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(371,26) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAKTWO
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(408,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+   LOOP BEGIN at vbdebug.f(409,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+      LOOP BEGIN at vbdebug.f(410,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+
+         LOOP BEGIN at vbdebug.f(411,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbdebug.f(413,26) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COFAC1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(309,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(312,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(312,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(328,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(331,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbdebug.f(332,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(332,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(339,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(340,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbdebug.f(341,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 342 and  line 342
+      LOOP END
+
+      LOOP BEGIN at vbdebug.f(341,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAKEMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(391,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(392,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(392,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIVO2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(232,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbdebug.f(233,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 234 and  line 235
+   LOOP END
+
+   LOOP BEGIN at vbdebug.f(233,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(246,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbdebug.f(261,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CHECK32
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(574,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbdebug.f(574,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITETXI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(631,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 632 and  line 632
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(623,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: READTXI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(648,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 649 and  line 649
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITETXT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(678,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 679 and  line 679
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbdebug.f(670,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: READTXT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbdebug.f(695,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 696 and  line 696
+LOOP END
+===========================================================================

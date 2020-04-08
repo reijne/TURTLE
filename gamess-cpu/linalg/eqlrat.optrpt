@@ -1,0 +1,67 @@
+
+Begin optimization report for: EQLRAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at eqlrat.f(76,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at eqlrat.f(76,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at eqlrat.f(76,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at eqlrat.f(76,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at eqlrat.f(121,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at eqlrat.f(121,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at eqlrat.f(121,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at eqlrat.f(129,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 133 and  line 132
+LOOP END
+
+LOOP BEGIN at eqlrat.f(167,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at eqlrat.f(167,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at eqlrat.f(87,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at eqlrat.f(98,20)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at eqlrat.f(111,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at eqlrat.f(162,22)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================

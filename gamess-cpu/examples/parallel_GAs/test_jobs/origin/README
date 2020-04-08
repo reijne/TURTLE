@@ -1,0 +1,94 @@
+Validating Jobs on the SGI Origin 3800
+======================================
+
+This directory is to be used for running all the jobs required to
+validate the parallel GA-based GAMESS-UK code. It is anticipated that
+LSF is in use, with all jobs submitted using "bsub". and that each job
+will require no more than 32 processors, in most cases 8 or 16 will
+suffice.
+
+A number of scripts that tackle all the validation runs are included.
+Taking one specific examples, the following script, script_validate.cyclo: 
+
+---------------------------------------------------------------------
+#!/bin/sh
+#BSUB -n 32
+#BSUB -W 60
+#BSUB -o validate.o%J
+#BSUB -e validate.e%J
+#BSUB -J validate
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/test_jobs/origin
+
+rm -rf /scratch/local/gamess/validate
+mkdir /scratch/local/gamess/validate
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/validate
+
+cp ../../input_files/DFT.cyclo.6-31G.in /scratch/local/gamess/validate
+ 
+cd /scratch/local/gamess/validate
+
+mpirun -np 32 gamess-uk < DFT.cyclo.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/test_jobs/origin/DFT.cyclo.6-31G.out
+------------------------------------------------------------------------------
+
+submitted by simply issuing "bsub < bsub.cyclo", mpirun will be used in
+running the sample input data in
+
+            examples/parallel_GAs/input_files/DFT.cyclo.6-31G.in 
+
+and routing the O/P to the present directory in the file
+DFT.cyclo.6-31G.out. Note that in the current setup all jobs are
+actually run on the scratch partition, and not in the GAMESS-UK
+directory itself.
+
+Other scripts in this directory will run a number of mpirun's to
+process the following list of data files that are required to validate
+the code. e.g.  script_validate.32.HF, script_validate.64.DFT,
+script_validate.64.MP2+SECD
+
+The successful validation can be captured by running the interrogation
+script, val_parallel, interactively to examine the O/Ps from the
+parallel jobs.
+
+The complete list of input files to be processed is as follows:
+
+     HF.crno4.in
+     HF_2e.crno4.in
+     ROHF.pyridine.in
+     ROHF_incore.pyridine.in 
+     ROHF_opt.pyridine.in 
+     UHF.morphine.6-31G-d.in 
+     UHF_incore.pyridine.in 
+     UHF_opt.pyridine.in 
+     HF.Bz_crco3.TZVP.in
+     ROHF.Bz_crco3.TZVP.in
+     ECP_opt.crno4.in
+     DFT.morphine.6-31G-dp.in 
+     DFT.morphine.6-31G-dp_harmonic
+     DFT.morphine.A2.DZVP.in
+     UKS.pyridine.in 
+     DFT.siosi4.617.in 
+     DFT.siosi5.1199.in 
+     DFT.cyclo.6-31G.in
+     DFT_jfit.morphine.A2.in 
+     DFT_jfitA.siosi5.1199.in 
+     DFT_opt.exti4a1.3-21G.in
+     MP2_opt.crno4.in
+     MP2_ECP_opt.crno4.in
+     MP2_forces.scf3.in
+     MP2_opt.mnco5h.in 
+     MP2_opt_props.brncs.in
+     RPA.pyridine.in
+     SECD_opt.pyridine.6-31G-dp.in
+     SECD.TFMtoluene.6-31G.in
+     SECD_ECP_opt.crco6.in
+     SECD_HCTH.TFMtoluene.6-31G.in 
+
+and ONLY if ci included in build:
+
+DCI.cf2.cc-pvtz.in
+DCI.pyridine.tzvp.in
+
+
+July 2005

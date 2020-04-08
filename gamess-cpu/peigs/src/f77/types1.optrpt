@@ -1,0 +1,32 @@
+
+Begin optimization report for: TYPES1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at types1.f(43,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 45 and  line 44
+LOOP END
+
+LOOP BEGIN at types1.f(53,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at types1.f(53,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at types1.f(53,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at types1.f(53,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at types1.f(53,7)
+<Remainder>
+LOOP END
+===========================================================================

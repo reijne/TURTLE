@@ -1,0 +1,15 @@
+c
+c     This common block is to be used by the routines
+c        gmem_null_blockdata
+c        gmem_null_initialise
+c        igmem_null
+c        gmem_null_finalise
+c     only. It holds the index in the main floating point array
+c     of a chunk of memory of length 1 that can be passed into dummy
+c     arguments when they are not being used. It needs to be converted
+c     for use with integer arrays.
+c
+      integer igmem_null_pt
+      integer*8 igmem_nan
+      common/gmemnull/igmem_nan,igmem_null_pt
+c

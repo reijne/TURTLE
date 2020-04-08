@@ -1,0 +1,15 @@
+#!/bin/csh
+scratch
+$wdscr/../../bin/gamess <<EOF
+Core 120000000
+super off nosym
+zora spin c 10
+zmat angstrom
+ ne
+end
+harmonic
+? runtype optimise
+? scftype UHF
+enter
+EOF
+clean

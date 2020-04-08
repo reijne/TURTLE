@@ -1,0 +1,162 @@
+c
+c The oblock array determines what is written out to the punchfile:
+c
+c Below sourced from server.m
+c oblock(1)   - coords - single point or last point
+c keyword: coor
+      integer PUN_COORD
+      parameter (PUN_COORD=1)
+c oblock(2)   - coordinates at each optimisation step
+c keyword: opti
+      integer PUN_OPT_COORD
+      parameter (PUN_OPT_COORD=2)
+c oblock(3)   - starting coordinates
+c keyword: init
+      integer PUN_START_COORD
+      parameter (PUN_START_COORD=3)
+c oblock(4)   - atom connectivity
+c keyword: conn
+      integer PUN_ATOM_CONN
+      parameter (PUN_ATOM_CONN=4)
+c oblock(5)   - molecular orbital occupations
+c keyword: occu
+      integer PUN_MO_OCC
+      parameter (PUN_MO_OCC=5)
+c oblock(6)   - eigenvectors
+c keyword: vect
+      integer PUN_EIGV
+      parameter (PUN_EIGV=6)
+c oblock(7)   - run type
+c keyword: type
+      integer PUN_RUNT
+      parameter (PUN_RUNT=7)
+c oblock(8)   - gvb pair data
+c keyword: gvb
+      integer PUN_GVBPAIR
+      parameter (PUN_GVBPAIR=8)
+c oblock(9)   - force constant matrix
+c keyword: forc
+      integer PUN_FCMAT
+      parameter (PUN_FCMAT=9)
+c oblock(10)  - vibrational frequencies
+c keyword: vibr
+      integer PUN_VIBFREQ
+      parameter (PUN_VIBFREQ=10)
+c oblock(11)  - basis set
+c keyword: basi
+      integer PUN_BASIS
+      parameter (PUN_BASIS=11)
+c oblock(12)  - orbital energies
+c keyword: eige
+      integer PUN_ORB_ENER
+      parameter (PUN_ORB_ENER=12)
+c oblock(13)  - total scf energies
+c keyword: scfe
+      integer PUN_SCF_ENER
+      parameter (PUN_SCF_ENER=13)
+c oblock(14)  - job title
+c keyword: titl
+      integer PUN_JOB_TITLE
+      parameter (PUN_JOB_TITLE=14)
+c oblock(15)  - overlap matrix
+c keyword: over
+      integer PUN_OVLP_MAT
+      parameter (PUN_OVLP_MAT=15)
+c oblock(16)  - grid data from dumpfile section(s)...
+c keyword: grid
+      integer PUN_GRID_DATA
+      parameter (PUN_GRID_DATA=16)
+c oblock(17)  - mulliken analysis
+c keyword: mull
+      integer PUN_MULLIKEN
+      parameter (PUN_MULLIKEN=17)
+c oblock(18)  - lowdin analysis
+c keyword: lowd
+      integer PUN_LOWDIN
+      parameter (PUN_LOWDIN=18)
+c oblock(19)  - spin densities
+c keyword: spin
+      integer PUN_SPIN_DENS
+      parameter (PUN_SPIN_DENS=19)
+c oblock(20)  - scf type
+c keyword: leve
+      integer PUN_SCF_TYPE
+      parameter (PUN_SCF_TYPE=20)
+c oblock(21)  - normal coordinates for vibrational modes
+c keyword: norm
+      integer PUN_VIB_MODES
+      parameter (PUN_VIB_MODES=21)
+c oblock(22)  - two electron integrals
+c keyword: twoe
+      integer PUN_2E_INT
+      parameter (PUN_2E_INT=22)
+c oblock(23)  - gradients
+c keyword: grad
+      integer PUN_GRADIENTS
+      parameter (PUN_GRADIENTS=23)
+c oblock(24)  - transformation matrix
+c keyword: tran
+      integer PUN_TRANS_MAT
+      parameter (PUN_TRANS_MAT=24)
+c oblock(25)  - potential derived charges
+c keyword: pdc
+      integer PUN_POT_DERV_CHG
+      parameter (PUN_POT_DERV_CHG=25)
+c oblock(26)  - grid symmetry array
+c keyword: gsym
+      integer PUN_GRID_SYMM
+      parameter (PUN_GRID_SYMM=26)
+c oblock(27)  - cartesian hessian matrix
+c keyword: secd
+      integer PUN_HESSIAN
+      parameter (PUN_HESSIAN=27)
+c oblock(28)  - distributed multipole analysis
+c keyword: dma
+      integer PUN_MPOLE_ANAL
+      parameter (PUN_MPOLE_ANAL=28)
+c oblock(29)  - density matrix
+c keyword: dens
+      integer PUN_DENS_MAT
+      parameter (PUN_DENS_MAT=29)
+c oblock(30)  - total energy
+c keyword: ener
+      integer PUN_TOT_ENER
+      parameter (PUN_TOT_ENER=30)
+c oblock(31)  - internal coordinate hessian matrix
+c keyword: hess
+      integer PUN_ZMAT_HESS
+      parameter (PUN_ZMAT_HESS=31)
+c oblock(32)  - dipole moment
+c keyword: dipo
+      integer PUN_DIPOLE
+      parameter (PUN_DIPOLE=32)
+c oblock(33)  - infrared intensities 
+c keyword: infr
+      integer PUN_INFRARED
+      parameter (PUN_INFRARED=33)
+c oblock(34)  - raman intensities
+c keyword: rama
+      integer PUN_RAMAN
+      parameter (PUN_RAMAN=34)
+c CURRENTLY ONLY USED FOR XML
+c oblock(35)  - metadata (user, compilation date etc)
+c keyword: meta
+      integer PUN_METADATA
+      parameter (PUN_METADATA=35)
+c CURRENTLY ONLY USED FOR XML
+c oblock(36)  - input parameters
+c keyword: inpa
+      integer PUN_INPUT_PARAM
+      parameter (PUN_INPUT_PARAM=36)
+
+
+      integer LENPUN
+      parameter(LENPUN=60)
+
+      logical oblock, opunold
+      integer nfblck, nblsec, iblsec, nblgri, iblgri
+      integer itwoe, ntwoe, iblfmt
+      common/blocks/nfblck,nblsec,iblsec(10),nblgri,iblgri(10),
+     +              itwoe,ntwoe,iblfmt(LENPUN),oblock(LENPUN),opunold
+c
+

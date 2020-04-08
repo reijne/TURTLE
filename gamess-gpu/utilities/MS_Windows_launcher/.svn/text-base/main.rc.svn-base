@@ -1,0 +1,108 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "windowsx.h"
+#include "defines.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+GAMESS DIALOGEX 43, 42, 341, 217
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "GAMESS-UK 7.0"
+CLASS "Gamess"
+FONT 8, "Helv", 0, 0, 0x1
+BEGIN
+    LTEXT           "Input file",100,12,21,31,8,NOT WS_GROUP
+    LTEXT           "Output file",102,12,43,33,8,NOT WS_GROUP
+    PUSHBUTTON      "Select file ...",ID_SEL_INPUT,241,18,45,13
+    PUSHBUTTON      "Select file ...",ID_SEL_OUTPUT,241,40,45,13
+    PUSHBUTTON      "Start job",ID_START,292,17,38,15
+    LTEXT           "Job started on",110,12,66,48,8,NOT WS_GROUP
+    LTEXT           "",ID_TEXT_DATE,64,66,100,8,NOT WS_GROUP
+    CONTROL         "",ID_STATUSBAR,"msctls_statusbar32",WS_TABSTOP,43,247,
+                    341,12
+    PUSHBUTTON      "Set",ID_SET_ENV,86,137,40,14
+    LTEXT           "Internal filename",102,13,104,53,8,NOT WS_GROUP
+    LTEXT           "External filename",104,86,104,54,8,NOT WS_GROUP
+    PUSHBUTTON      "Save as ...",ID_SAVE_EXT,147,101,40,14
+    COMBOBOX        ID_COMBO_ENV,13,116,59,66,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_HASSTRINGS | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LISTBOX         ID_LIST_ENV,147,131,163,61,LBS_MULTIPLESEL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Clear",ID_CLEAR_ENV,86,161,40,14
+    GROUPBOX        "Environment settings",105,6,84,313,110,BS_LEFT
+    EDITTEXT        IDC_EDIT1,49,18,188,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,49,41,188,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,193,100,116,14,ES_AUTOHSCROLL
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windowsx.h""\r\n"
+    "#include ""defines.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

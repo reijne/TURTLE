@@ -1,0 +1,24 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+diborane 6-31g*  nbo test of resonance, 3cbond
+nosym
+zmatrix angstrom
+B
+B  1  1.79
+H  1  1.39  2   50.0000
+H  1  1.39  2   50.0000  3  180.0000
+H  1  1.18  2  120.0000  4  180.0000
+H  1  1.18  2  120.0000  3  180.0000
+H  2  1.18  1  120.0000  4  180.0000
+H  2  1.18  1  120.0000  3  180.0000
+end
+basis 6-31g*
+vectors atoms
+enter 1
+runtype analyse
+nbo
+vectors 1
+enter 1
+\$nbo resonance 3cbond \$end
+EOF

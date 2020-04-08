@@ -1,0 +1,10 @@
+c
+      integer ioffd,nldd,ioffq,nlqq,ioffu,jadrs,kadrs,locc,nt
+      integer jadr,kadr,ntdg,ntqg,nlu,lenj,lenk,nmax,numax,nop
+      integer iorb,itri,ifc,igrd,nrotti,iorbs
+c
+      common/scra /ioffd(8,8),nldd(8),ioffq(8,8),nlqq(8),ioffu(8),
+     +  jadrs(8),kadrs(8),locc(8),nt(8),jadr(mcprim,mcprim),
+     +  kadr(mcprim,mcprim),ntdg,ntqg,nlu,lenj,lenk,nmax,numax,
+     +  nop,iorb(mcprim),itri(mcprim),ifc,igrd(mcprim*mcprim),
+     +  nrotti,iorbs(mcprim,8)

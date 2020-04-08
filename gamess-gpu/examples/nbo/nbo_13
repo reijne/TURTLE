@@ -1,0 +1,28 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+ch3  direct-uhf/sto3g nbo del test case
+nosym
+mult 3
+zmatrix angstrom
+c
+h 1 r
+h 1 r 2 alp
+variables
+r     1.07
+alp   105.0
+end 
+basis sto3g
+scftype direct uhf
+enter 1 2
+runtype analyse
+scftype direct uhf
+nbo
+vectors 1 2
+enter 1 2
+  \$nbo \$end
+  \$del
+   alpha nostar
+   beta  nostar
+  \$end
+EOF

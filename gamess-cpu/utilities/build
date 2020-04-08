@@ -1,0 +1,392 @@
+#!/bin/csh 
+#
+#   script to build GAMESS executable and source
+#
+#   arguments
+#
+#    build [-ns] [-d dir] [-l machine] [-t] [-u] machine
+#
+#   -s           make source only           [default]
+#   -ns          try and compile from m4    [default - source only]
+#   -d dir       make under directory dir   [default: make in ./Scf91 etc]
+#   -l machine   specify the local machine  [default: same as target machine]
+#   -t           we want tools stuff        [default: serial]
+#   -pvm         we want pvm calls          [default: serial]
+#   -u           only replace existing source if it has changed [default: overwrite]
+#   -m           include mopac
+#   machine      target machine to make code for  ( _mopac is appended if -m is specified, 
+#                                                   _tools if  -t ) [no default]
+#   -noman       no manual
+#   -rev rev     use code with revision rev insted of the current
+#
+set temp=/tmp/temp.$$
+set prog=$0
+set source=1
+set link=0
+set tools=0
+set mopac=0
+set pvm=0
+set rpa=0
+set update=0
+set lmach=""
+set man=1
+set rev=0
+unalias cd
+set direc=`pwd`
+#
+if $?GAMESS_ROOT == 0 then
+  echo you must set the environment variable GAMESS_ROOT to the
+  echo m4 source code top directory
+endif
+set home=$GAMESS_ROOT
+while ( $#argv > 0 )
+   switch ( $1 )
+   case -s:
+      set source=1
+      shift
+      breaksw
+   case -ns:
+      set source=0
+      shift
+      breaksw
+   case -t:
+      set tools=1
+      shift
+      breaksw
+   case -pvm:
+      set pvm=1
+      shift
+      breaksw
+   case -m:
+      set mopac=1
+      shift
+      breaksw
+   case -r:
+      set rpa=1
+      shift
+      breaksw
+   case -d:
+      set direc=$2
+      set link=1
+      shift
+      shift
+      breaksw
+   case -l:
+      set lmach=$2
+      shift
+      shift
+      breaksw
+   case -u:
+      set update=1
+      shift
+      breaksw
+   case -noman:
+      set man=0
+      shift
+      breaksw
+   case -rev:
+      set rev=$2
+      shift
+      shift
+      breaksw
+   default:
+      if ( $#argv != 1 ) goto usage
+      set machine=$1
+      shift
+      breaksw
+   endsw
+end
+if $?machine == 0 goto usage
+if ( "$machine" == "" ) goto usage
+if ( $update != 0 && $source != 1)then
+    echo $prog: -u must be used with -s
+    exit 3
+endif
+if ("$lmach" == "" ) set lmach=$machine
+echo build started at date `date`
+echo running on $lmach 
+echo making code for $machine
+if ( $source == 1 ) echo making source code only
+if ( $mopac == 1 ) then
+    echo include mopac
+    set machine=${machine}_mopac
+    echo will use machine file $home/utilities/$machine.m
+endif
+if ( $rpa == 1 ) then
+    echo include rpa
+endif
+if ( $tools == 1 ) then
+    if ( $pvm == 1 ) then
+      echo you cant have tools and pvm
+      exit
+    endif
+    echo include tcgmsg tools
+    set machine=${machine}_tools
+    echo will use machine file $home/utilities/$machine.m
+endif
+if ( $pvm == 1 ) then
+    echo include pvm calls
+    set machine=${machine}_pvm
+    echo will use machine file $home/utilities/$machine.m
+endif
+if ( $rev != 0 ) then
+    echo use code of revision $rev
+    echo \!\!\!\! experimental option \!\!\!\!
+endif
+#
+if ( $update == 1 ) echo update source only if changed 
+if ( $man == 1 ) echo copy manual examples
+echo placing resulting code in $direc/Scf91  etc..
+if ! -r $home/utilities/$machine.m then
+   echo $prog : machine not supported  - $machine
+   exit 2
+endif
+#
+set mopacdir=""
+if ( $mopac == 1 ) set mopacdir=Mopac91
+set rpadir=""
+if ( $rpa == 1) set rpadir=Rpa91
+#
+set oldfile=0
+if ( $rev != 0 )then
+   foreach subdir (Scf91 $mopacdir Ci91 New91 $rpadir)
+      cd  $home/$subdir
+      set mfiles=`cd RCS; /bin/ls *.m,v | sed -e s/,v//`
+      foreach file ( $mfiles )
+         set root=$file:r
+         if -r $file then
+            set oldfile=1
+            echo ERROR - file $home/$subdir/$file is still checked out
+         endif
+      end
+   end
+endif
+if ( $oldfile == 1 ) then
+  echo you should check in all code in before using the -rev option
+  exit 1
+endif
+#
+if ( ! -r $direc ) mkdir $direc
+if ( ! -r $direc/Scf91 ) mkdir $direc/Scf91
+if ( ! -r $direc/Mopac91 && $mopac == 1) mkdir $direc/Mopac91
+if ( ! -r $direc/Rpa91 && $rpa == 1) mkdir $direc/Rpa91
+if ( ! -r $direc/Ci91 )  mkdir $direc/Ci91
+if ( ! -r $direc/New91 ) mkdir $direc/New91
+#
+set over=0
+if (`cd $home; pwd` == `cd $direc; pwd`) set over=1
+set direc=`cd $direc; pwd`
+#
+if $lmach == convex then
+   if `hostname` != cxa then
+      echo you must provide a remote m4 and edit script $0
+      exit
+   else
+      set M4="rsh iris2 m4"
+   endif    
+else if $lmach == apollo then
+   set M4=/sys5.3/usr/bin/m4
+else if ( $lmach == sun ) then
+   set M4=/usr/5bin/m4
+else if $lmach == unicos then
+# extra for compilation
+   cc -o utilities/wrap72 utilities/wrap72.c
+   set M4=m4
+else
+   set M4=m4
+endif
+#
+#   ====== TCGMSG library ====== 
+#
+if ( $tools == 1 ) then
+   if ( $over == 0 ) then
+      if (! -r "$direc/tcgmsg") mkdir $direc/tcgmsg
+      cp -r $home/tcgmsg/* $direc/tcgmsg
+   endif
+endif
+#
+#   ======= parallel examples ======
+#
+if ( $tools == 1 || $pvm == 1) then
+   if ( $over == 0 ) then
+      if( $man == 1 ) cp -r $home/manual_tcgmsg $direc/manual_tcgmsg
+   endif
+endif
+#
+#   =====  machine file, and utilities source =======
+#
+   if ( $over == 0 ) then
+      if (! -r "$direc/utilities") mkdir $direc/utilities
+      cp $home/utilities/*.c  $direc/utilities
+   endif
+   cp $home/utilities/$machine.m  $direc/utilities/machine.m
+#
+# ======== manual examples  ============= 
+#
+   if ( ( $over == 0 ) && ( $man == 1 ) ) cp -r $home/manual $direc
+#
+# ========= source code and Makefile generation ===========
+#
+if ( $source == 1 ) then
+   cat $direc/utilities/machine.m $home/utilities/gener.m $home/utilities/make.m | $M4 > $temp
+   set code=1
+   if ( $update ) set code=`diff $temp $direc/utilities/Makefile | wc -l` 
+   if ( $code != 0 || ! -r $direc/utilities/Makefile ) then 
+       mv $temp $direc/utilities/Makefile
+       echo made utilities/Makefile 
+   else
+       rm -f $temp
+   endif 
+   set back=`pwd`
+#
+   foreach subdir (Scf91 $mopacdir Ci91 New91 $rpadir)
+      cd  $home/$subdir
+      set mfiles=`cd RCS; /bin/ls *.m,v | sed -e s/,v//`
+      foreach file ( $mfiles )
+         set root=$file:r
+         if -r $file then
+            set oldfile=1
+            echo using checked-out version of $file
+         else
+            if ( $rev != 0 ) then
+               co -r$rev $file
+            else
+               co $file
+            endif
+            set oldfile=0
+         endif
+         if ($machine == ibm ) then
+             if ( $root == makef || $root == makem || $root == c || $root == integv || $root == plot ) goto skip
+             set name=$root.fortran
+             if $root == assem set name=$root.assemble
+         else
+             set name=$root.f
+             if $root == make  set name=Makefile
+             if $root == makef  set name=Makefile
+             if $root == makem goto skip
+             if $root == c then
+               if ( $machine == ipsc ) then
+                  goto skip
+               else
+                  set name=$root.c
+               endif
+             endif 
+             if ($machine == unicos || $machine == convex ) then
+                if $root == integs goto skip
+             else
+                if $root == integv goto skip
+             endif
+             if $root == assem then
+               if ($machine == unicos || $machine == alliant || $machine == convex ) then
+                 set name=$root.s
+               else
+                 goto skip
+               endif
+             endif
+             if ( $root == sizes || $root == common ) set name=$root
+        endif
+        if ( ! $update ) echo making $subdir/$name
+        if ( $machine == ibm || ( $machine == unicos && $root == assem ) ) then
+           cat $home/utilities/$machine.m $home/utilities/gener.m $home/$subdir/$root.m | $M4 | dd conv=ucase > $temp
+        else if ( $machine == unicos || $machine == fps || $machine == cyber205 ) then
+           cat $home/utilities/$machine.m $home/utilities/gener.m $home/$subdir/$root.m | $M4 | $home/utilities/sngl.sed > $temp
+        else 
+         cat $home/utilities/$machine.m $home/utilities/gener.m $home/$subdir/$root.m | $M4 > $temp
+        endif
+        if ( ! $update) then
+           mv $temp $direc/$subdir/$name
+        else
+           set code=`diff $temp $direc/$subdir/$name | wc -l` 
+           if ( $code != 0 || ! -r $direc/$subdir/$name ) then 
+              mv $temp $direc/$subdir/$name
+              echo $subdir/$name  updated
+           else
+              echo $subdir/$name  has not changed
+              rm -f $temp
+           endif 
+        endif
+        skip:
+        if ( $oldfile == 0 ) rm -f $file
+      end
+      cd $back
+   end      
+   if ( $machine == ibm ) then
+      echo renaming modules ...
+      foreach file ( Scf91/scf Scf91/optef Scf91/server Scf91/model Scf91/master Scf91/input New91/direct )
+         echo renaming $file.fortran to  ${file}0.fortran
+         mv $direc/$file.fortran $direc/${file}0.fortran
+      end
+   endif
+# tcgmsg - now drive through rjh port proceedure
+   if ( $tools == 1 ) then
+     cd $direc/tcgmsg
+     cat $home/utilities/$machine.m $home/utilities/gener.m make.m | $M4 > Makefile
+# the next make ports the Makefile and fortran in tcgmsg/ipcv4.0
+     make 
+     cd $back
+   endif
+else
+#
+#    make executable - just make Makefiles and drive off them
+#
+   cd $direc      
+   if (`cd $home/..; pwd` == `cd $direc/..; pwd`) set link=0
+   if ( $link == 1 ) then
+     echo will create link from `cd $direc/..; pwd`/gamess_m4 to `cd $home/..; pwd`/gamess_m4
+#
+# make a link so that the makefile will find the code
+# the machine file is local, gener and source are accessed via the link
+# this is not required if $home and $direc have the same parent
+# - the usual case - (see makefiles)
+       if ( -e ../gamess_m4 ) then
+          set tail=$direc:t
+          if ( $tail == gamess_m4 ) then
+             echo bad directory name $direc - should not end with gamess_m4
+             exit
+#          else if ( ! -d ../gamess_m4 ) then
+           else
+             echo removing `cd ..;pwd`/gamess_m4
+             rm ../gamess_m4
+#          else
+#             echo unable to create link `cd ..;pwd`/gamess_m4 already exists
+#             exit
+          endif
+       endif
+       ln -s $home ../gamess_m4
+   endif
+#
+#  create makefiles
+#
+   echo making Makefiles
+   cat $direc/utilities/machine.m $home/utilities/gener.m $home/Scf91/makem.m | $M4 > Scf91/Makefile
+   if( $mopac == 1 ) cat $direc/utilities/machine.m $home/utilities/gener.m $home/Mopac91/makem.m  | $M4 > Mopac91/Makefile
+# RPA needed here
+   cat $direc/utilities/machine.m $home/utilities/gener.m $home/Ci91/makem.m  | $M4 > Ci91/Makefile
+   cat $direc/utilities/machine.m $home/utilities/gener.m $home/New91/makem.m | $M4 > New91/Makefile
+   echo making utilities
+   cat $direc/utilities/machine.m $home/utilities/gener.m $home/utilities/make.m | $M4 > utilities/Makefile
+   (cd utilities; make)
+   if ( $tools == 1 ) then
+#
+#   message passing tools
+#
+      echo making tools
+      cat $direc/utilities/machine.m $home/utilities/gener.m $home/tcgmsg/ipcv4.0/make.m | $M4 > tcgmsg/ipcv4.0/Makefile
+#      cat $direc/utilities/machine.m $home/utilities/gener.m $home/tcgmsg/ipcv4.0/makehe.m | $M4 > tcgmsg/ipcv4.0/Makefile.he
+      (cd tcgmsg/ipcv4.0; make)  
+   endif
+#
+#  make executable
+#
+   echo making GAMESS
+   cd New91
+   if ( $lmach == sgi ) then
+      gmake
+   else
+      make
+   endif
+endif
+exit
+usage:
+   echo usage: $prog \[-ns\] \[-d directory\] \[-l local-machine\] \[-t\] \[-m\] \[-r\] dest-machine
+   exit 

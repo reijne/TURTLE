@@ -1,0 +1,7 @@
+c     common for equivalences in VB
+c     eqvmo/eqvao list of equivalent MO's and AO's in that order.
+      integer eqvmo,eqvao,neqmo,neqao,meqmo,meqao
+      logical equiv,equivir
+      parameter (meqmo=10,meqao=100)
+      common/vbequiv/eqvmo(meqmo),eqvao(meqao,meqmo),neqmo,neqao,
+     1               equiv,equivir

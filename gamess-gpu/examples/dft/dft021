@@ -1,0 +1,62 @@
+#!/bin/csh
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+title
+h2co - 6-31G - DFT/B3LYP default quad.
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co    1.26 hessian  1.0
+ch    1.13 hessian  0.7
+hco 123.48 hessian  0.9
+end
+basis 6-31g
+runtype optimize
+dft b3lyp
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart 
+title
+h2co - 6-31G - DFT/B3LYP default quad. / analytic 2nd derivatives
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co    1.26 hessian  1.0
+ch    1.13 hessian  0.7
+hco 123.48 hessian  0.9
+end
+basis 6-31g
+runtype hessian
+dft b3lyp
+dft gradquad on
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+title
+h2co - 6-31G - DFT/B3LYP default quad. / analytic 2nd derivatives
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co             1.2317344 hessian       0.808001
+ch             1.1024173 hessian       0.654707
+hco          122.1338433 hessian       0.818798
+end
+basis 6-31g
+runtype hessian
+dft b3lyp
+dft gradquad on
+enter
+EOF
+/bin/rm -rf mfged3

@@ -1,0 +1,89 @@
+Validation and Benchmark Examples for IBM SP2/P2SC and IBM SP/WII-375
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+These examples are taken from the chapter 16 of the GAMESS-UK
+manual, and include the loadleveller scripts for running the jobs
+(script_i).  Note that these are specific to the 32 CPU IBM SP/WH2-375
+at Daresbury and will need modifying on other installations. 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                Calculation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+par_1.in            Conventional-SCF calculation on Chromium Tetranitrosyl
+par_1a.in           Conventional-RHF calculation on a Neon chain, Ne20
+par_1b.in           Conventional-UHF calculation on a cationic Neon chain, Ne20+
+par_1c.in           Conventional-ROHF calculation on a cationic Neon chain, Ne20+
+par_2.in            Direct-SCF calculation on Chromium Tetranitrosyl
+par_2a.in           Conventional in-core SCF calculation on Chromium Tetranitrosyl
+par_3.in            Direct-SCF DZP geometry optimisation of Chromium Tetranitrosyl
+par_4.in            Pyridine cation - Open Shell Direct-ROHF
+par_4a.in           In-core ROHF Calculations of the Pyridine cation
+par_4_geom.in       Direct ROHF geometry optimisation of the Pyridine cation
+par_5.in            Pyridine cation - Open Shell Direct-UHF
+par_5a.in           In-core UHF Calculations of the Pyridine cation
+par_5b.in           Pyridine cation - Open Shell UKS DFT B3LYP
+par_6.in            Direct-SCF ECP geometry optimisation of Chromium Tetranitrosyl
+par_7.in            Formaldehyde direct-MP2 geometry optimisation
+par_8.in            Direct-MP2 ECP geometry optimisation of Chromium Tetranitrosyl
+par_9.in            Direct-MP2 geometry optimisation of Chromium Tetranitrosyl
+par_10.in           Direct-MP2 geometry optimisation of Scandium Trifluoride
+par_11.in           Direct-MP2 force constant evaluation for Scandium Trifluoride
+par_12.in           Direct-MP2 TZVP/DZP geometry optimisation of Mn(CO)5H (217 GTOs)
+par_13.in           Solvation calculation for cytosine using Tomasi's PCM model
+par_14.in           Electrostatic Potential Calculation for pyridine
+par_15.in           Direct-RPA calculation on Pyridine
+par_16.in           Direct-SCF STO3G caculalation on Valinomycin
+par_17.in           Direct-MP2 force constants for ScF3 with restarts
+par_18.in           Direct-SCF STO3G calculation on Cyclosporin
+par_19.in           Direct-SCF 6-31G* calculation on Morphine
+par_19_uhf.in       Direct-UHF 6-31G* calculation on the Morphine cation
+par_20.in           Direct-SCF 3-21G calculation on Cyclosporin (1000 GTOs)
+par_21.in           Direct-SCF 3-21G calculation on Valinomycin
+par_22.in           Direct-SCF 6-31G** calculation on Morphine (410 GTOs)
+par_23.in           Direct-SCF 6-31G calculation on Cyclosporin
+par_24.in           Direct-SCF 6-31G* calculation on Cyclosporin (1516 GTOs)
+par_25.in           Direct-SCF 6-31G calculation on Valinomycin (882 GTOs)
+par_26.in           Direct-SCF 6-31G* calculation on Valinomycin (1350 GTOs)
+par_27.in           Direct-SCF 6-31G** calculation on Valinomycin (1620 GTOs)
+par_28.in           Direct-MP2 geometry optimisation of (c6h6)cr(co)3 
+par_29.in           Potential Derived Charges for cytosine
+par_30.in           Direct-MP2 energy calculation of (N3)PdMe(+)
+par_31.in           Conventional SCF (in core) ((C6H4(CF3))2 6-31g* basis  
+par_32.in           Direct-SCF 6-31G** calculation on Cyclosporin (1855 GTOs)
+par_33.in           Direct-SCF DZP calculation on Cyclosporin (1941 GTOs)
+par_34.in           Direct-SCF CAG rhf gradient test (1291 GTOs)
+par_35.in           DFT SVWN calculation on zeolite siosi3 (347 GTOS)
+par_35.jfit.in      DFT SVWN Ahlrics Jfit calculation on zeolite siosi3 (347 GTOS)
+par_36.in           DFT SVWN calculation on zeolite siosi4 (617 GTOS)
+par_36.jfit.in      DFT SVWN Ahlrics Jfit calculation on zeolite siosi4 (617 GTOS)
+par_37.in           DFT SVWN calculation on zeolite siosi5 (1199 GTOS)
+par_37.jfit.in      DFT SVWN Ahlrics Jfit calculation on zeolite siosi5 (1199 GTOS)
+par_38.in           DFT SVWN calculation on zeolite siosi6 (1687 GTOS)
+par_38.jfit.in      DFT SVWN Ahlrics Jfit calculation on zeolite siosi6 (1687 GTOS)
+par_40.in           DFT B3LYP calculation on morphine 6-31g** basis (410 GTOS)
+par_41.in           DFT B3LYP calculation on cyclosporin 6-31g basis (1000 GTOS)
+par_42.in           DFT B3LYP calculation on Valinomycin in water 6-31g (882 GTOs)
+par_50.in           h2co - tzvp basis - SCF 2nd derivatives 
+par_51.in           pyridine 6-31g** geom. optimisation + analytic 2nd derivs
+par_52.in           chlorotriazine transition state SCF 2nds  (185 GTOs)
+par_53.in           morphine 6-31g basis hessian SCF
+par_54.in           ((C6H4(CF3))2 6-31g basis SCF 2nds  (196 GTOs)
+par_55.in           pyridine 6-31g** analytic 2nd derivs (115 GTOs)
+par_61.in           2 fluoro furan cartesian 6-311G(2p/2d) MP2 geometry optimisation
+par_62.in           Alpha-pinene Hartree-Fock 6-311g(df,p) direct-SCF
+par_63.in           c20h42 Gaussian test example 6-31g* MP2 energy
+par_64.in           Alpha-pinene Hartree-Fock 6-311g(d,p) conv. SCF with ints in RAM
+par_66.in           Alpha-pinene Hartree-Fock 6-311++g(3df,3p) direct-SCF
+par_70.in           PcFe(4-Mepip)2 Geometry from X-ray DFT-B3LYP (814 GTOs)
+par_71.in           exti4a1 BLYP/3-21g*  optimisation (446 GTOs)
+siosi3.in           DFT SVWN PNNL Jfit calculation on zeolite siosi3 (347 GTOS)
+siosi4.in           DFT SVWN PNNL Jfit calculation on zeolite siosi4 (617 GTOS)
+siosi5.in           DFT SVWN PNNL Jfit calculation on zeolite siosi5 (1199 GTOS)
+siosi6in            DFT SVWN PNNL Jfit calculation on zeolite siosi6 (1687 GTOS)
+morphine_A2.in      morphine HCTH DFT calculation
+morphine_jfitA2.in  morphine HCTH DFT calculation with Jfit
+valino.in           valinomycin HCTH DFT calculation
+valino_jfit.in      valinomycin HCTH DFT calculation with Jfit
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+March 2002

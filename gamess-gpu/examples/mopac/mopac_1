@@ -1,0 +1,12 @@
+#!/bin/csh
+../../bin/gamess << EOF
+mopac
+mndo 1scf
+
+
+h
+o 1 1
+h 1 1 111 1
+ 
+EOF
+/bin/rm archive

@@ -1,0 +1,64 @@
+
+Begin optimization report for: ZUNGTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zungtr.f(138,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zungtr.f(139,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zungtr.f(139,16)
+      <Multiversioned v2>
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zungtr.f(139,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zungtr.f(144,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zungtr.f(144,13)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zungtr.f(144,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zungtr.f(161,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zungtr.f(163,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zungtr.f(163,16)
+      <Multiversioned v2>
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zungtr.f(163,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zungtr.f(168,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zungtr.f(168,13)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zungtr.f(168,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?AgentX-triples id="http://www.grids.ac.uk/eccp/ns#map" version="1.1.0" ?>
+<?AgentX-dependency id="http://www.grids.ac.uk/eccp/ns#ontology" version="1.1.0" ?>
+
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.grids.ac.uk/eccp/ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xml:base="http://www.grids.ac.uk/eccp/owl-ontologies">
+
+<!-- module -->
+
+    <rdf:Description rdf:about="#Module">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:module)</xlocator>
+    </rdf:Description>
+
+<!-- lattice vectors -->
+
+    <rdf:Description rdf:about="#LatticeVector">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:latticeVector)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#vectorComponent">
+        <context>	
+            <xlocator></xlocator>
+	    <delimiter> </delimiter>
+            <delimiter>
+</delimiter>
+	    <class rdf:resource="http://www.grids.ac.uk/eccp/owl-ontologies#LatticeVector"/>
+	</context>
+    </rdf:Description>
+
+<!-- module -->
+    <rdf:Description rdf:about="#Module">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:step)</xlocator>
+    </rdf:Description>
+
+<!-- property -->
+    <rdf:Description rdf:about="#Property">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:property)</xlocator>
+    </rdf:Description>
+
+<!-- parameters -->
+
+    <rdf:Description rdf:about="#Parameter">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:parameter)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#ParameterList">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:parameterList)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#PropertyList">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:propertyList)</xlocator>
+    </rdf:Description>
+
+
+    <rdf:Description rdf:about="#ScalarParameter">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:parameter/@value/parent::*|//cml:parameter/cml:scalar/parent::*)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#VectorParameter">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:parameter/cml:vector/parent::*)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#title">
+        <xlocator>xpointer(/*/@title)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#item">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:parameter)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#order">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(/*/@order)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#units">
+        <xlocator>xpointer(/*/@units)</xlocator>
+    </rdf:Description>
+
+<!-- molecular orbital -->
+
+    <rdf:Description rdf:about="#MOVector">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array[@dictRef='eccp:MOCoefficients'])</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#mOVector">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array[@dictRef='eccp:MOCoefficients'])</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#mOCoefficient">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array[@dictRef='eccp:MOCoefficients'])</xlocator>
+	<delimiter> </delimiter>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#mOOccupation">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:scalar[@dictRef='eccp:MOOccupation'])</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#mOEigenvalue">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:scalar[@dictRef='eccp:MOEigenvalue'])</xlocator>
+    </rdf:Description>
+
+<!-- metadata -->
+
+    <rdf:Description rdf:about="#MetadataList">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:metadataList)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Metadata">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:metadata)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#content">
+        <xlocator>xpointer(/*/@content)</xlocator>
+    </rdf:Description>
+
+<!-- general containers -->
+
+    <rdf:Description rdf:about="#Matrix">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:matrix)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Vector">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:vector)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Array">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Scalar">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:scalar)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#dictRef">
+        <xlocator>xpointer(/*/@dictRef)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#value">
+        <context>
+            <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(/cml:property/cml:scalar|/cml:property/@value)</xlocator>
+            <class rdf:resource="#Property"/>
+        </context>
+        <context>
+            <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(/cml:parameter/cml:scalar|/cml:parameter/@value)</xlocator>
+            <class rdf:resource="#Parameter"/>
+        </context>
+        <context>
+            <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(/cml:scalar)</xlocator>
+            <class rdf:resource="#Scalar"/>
+        </context>
+        <context>
+            <xlocator/>
+            <class rdf:resource="#LatticeVector"/>
+        </context>
+	<xlocator>xpointer(/*)</xlocator>
+    </rdf:Description>
+
+<!-- atomic basis set -->
+
+    <rdf:Description rdf:about="#AtomicBasisSet">
+        <xlocator>xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#maxL">
+        <xlocator>xpointer(/*/@maxL)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#minL">
+        <xlocator>xpointer(/*/@minL)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#angular">
+        <xlocator>xpointer(/*/@angular)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#nprim">
+        <xlocator>xpointer(/*/@nprim)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#exponent">
+        <xlocator>xpointer(//eccp:exponents)</xlocator>
+	<delimiter > </delimiter>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#coefficient">
+        <xlocator>xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:contraction)</xlocator>
+	<delimiter > </delimiter>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#normalized">
+        <xlocator>xpointer(/*/@normalised)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#type">
+        <xlocator>xpointer(/*/@type)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#BasisGroup">
+        <xlocator>xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:basisGroup)</xlocator>
+    </rdf:Description>
+
+<!-- Normal Modes -->
+
+    <rdf:Description rdf:about="#molecule">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#coordinateVector">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array[@dictRef='eccp:nCoords'])</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#normalCoordinate">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:array[@dictRef='eccp:nCoords'])</xlocator>
+	<delimiter> </delimiter>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#frequency">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:scalar[@dictRef='eccp:vFreq'])</xlocator>
+    </rdf:Description>
+
+
+<!-- Molecule -->
+
+    <rdf:Description rdf:about="#atom">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:atom)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Molecule">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#Atom">
+        <xlocator>xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:atom)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#xCoordinate">
+        <xlocator>xpointer(/*/@x3)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#yCoordinate">
+        <xlocator>xpointer(/*/@y3)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#zCoordinate">
+        <xlocator>xpointer(/*/@z3)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#elementType">
+        <xlocator>xpointer(/*/@elementType)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#name">
+        <xlocator>xpointer(/*/@name)</xlocator>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#identifier">
+        <xlocator>xpointer(/*/@id)</xlocator>
+    </rdf:Description>
+
+</rdf:RDF>

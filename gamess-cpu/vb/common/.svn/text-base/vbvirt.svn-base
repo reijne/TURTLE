@@ -1,0 +1,15 @@
+c     ci :
+c     ortvirt causes the virtuals to be mutually orthogonal in a ci
+c     calculation. if (provirt) the occupied orbitals are projected out
+c     ivirt is the first virtual
+c     scf :
+c     canonicalise (1): canonicalise doubles, (2): make virtuals diagonalise op
+c     the operator is  0: none, 1: h, 2: fock
+c     localise : pipec localise
+c     idempotent : make projection operator idempotent
+c     aos : suggests to use ao's to mix in
+c
+      common /vbvirt/ivirt,ortvirt,provirt,
+     1               canonicalise,idempotent,aos,nit_loc
+      logical ortvirt,provirt,idempotent,aos
+      integer canonicalise(2),ivirt,nit_loc

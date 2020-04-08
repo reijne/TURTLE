@@ -1,0 +1,102 @@
+#!/bin/sh
+#
+# --------------------------------------------------------------
+#  echo the variable definitions to stdout
+#  Used in building job scripts
+# --------------------------------------------------------------
+#
+echo  jobname=$jobname 
+echo  root=$root 
+echo  executable=$executable 
+echo  jobmode=$jobmode 
+echo  flist=\"$flist\" 
+echo  nprocs=$nprocs
+echo  nnodes=$nnodes
+echo  jobtime=$jobtime 
+echo  scratchtopdir=$scratchtopdir 
+echo  libdir=$libdir 
+echo  tempdir=$tempdir 
+echo  homedir=$homedir 
+echo  stdout=$stdout
+echo  listing=$listing
+echo  datain=$datain
+echo  procspernode=$procspernode
+echo  project=$project
+echo  RUNGAMESS_DIR=$RUNGAMESS_DIR 
+echo  PROG=$PROG
+echo  queueargs=\"$queueargs\"  
+echo  queue=$queue  
+echo  debug=$debug
+echo  jobworkdir=$jobworkdir
+
+echo export jobname
+echo export root
+echo export executable
+echo export jobmode
+echo export flist
+echo export nprocs
+echo export nnodes
+echo export jobtime
+echo export scratchtopdir
+echo export libdir
+echo export tempdir
+echo export homedir
+echo export stdout
+echo export listing
+echo export datain
+echo export procs_per_node
+echo export project
+echo export RUNGAMESS_DIR
+echo export PROG
+echo export queueargs
+echo export queue
+echo export debug
+echo export jobworkdir 
+
+#
+# The following might be overridden on the 
+# nodes .. however with some shells (e.g. bash)
+# it's hard to get any settings at all on the nodes
+# (.profile is not executed)
+#
+
+echo if test -f ~/.profile
+echo then
+echo  . ~/.profile
+echo fi
+
+echo  if test \${GAMESS_LIB:=unset} = unset 
+echo  then
+  echo    GAMESS_LIB=$GAMESS_LIB
+  echo    export GAMESS_LIB
+echo  fi
+
+echo  if test \${GAMESS_SCR:=unset} = unset 
+echo  then
+  echo  GAMESS_SCR=$GAMESS_SCR
+  echo  export GAMESS_SCR
+echo  fi
+
+echo  if test \${GAMESS_WORK:=unset} = unset 
+echo  then
+  echo  GAMESS_WORK=$GAMESS_WORK
+  echo  export GAMESS_WORK
+echo  fi
+
+echo  if test \${GAMESS_TMP:=unset} = unset 
+echo  then
+  echo  GAMESS_TMP=$GAMESS_TMP
+  echo  export GAMESS_TMP
+echo fi
+
+echo  if test \${GAMESS_PAREXE:=unset} = unset 
+echo  then
+  echo  GAMESS_PAREXE=$GAMESS_PAREXE
+  echo  export GAMESS_PAREXE
+echo fi
+
+echo  if test \${GAMESS_EXE:=unset} = unset 
+echo  then
+  echo  GAMESS_EXE=$GAMESS_EXE
+  echo  export GAMESS_EXE
+echo fi

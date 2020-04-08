@@ -1,0 +1,380 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title
+h2co - DZ+D(sp) scf energy  -113.83095795
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 1m - singles
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran 
+select
+symmetry 1
+spin 1
+cntrl 16
+excit 1
+singles 1
+conf
+0 1 2 3 4 5  18  23 24
+thresh 0 0
+ci
+diag 
+extrap off
+roots all cutoff 12.0
+enter
+EOF
+#*********************************
+#H2CO_1
+#*********************************
+#
+../../bin/gamess << EOF
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 4m - singles
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran 
+select
+symmetry 1
+spin 1
+cntrl 16
+excit 1
+singles 1
+conf
+0   1   2   3   4   5  18  23  24
+2  24  25   1   2   3   4   5  18  23
+2  18  20   1   2   3   4   5  23  24
+2  18  19   1   2   3   4   5  23  24
+thresh 0 0
+roots 4
+diag 
+extrap off
+roots all cutoff 12.0
+enter
+EOF
+#*********************************
+#H2CO_2
+#*********************************
+#
+../../bin/gamess << EOF
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 1m - singles
+# extrapolated energy =  -114.0619406
+# extrapolated energy =  -113.7528183
+# extrapolated energy =  -113.6541962
+# extrapolated energy =  -113.6034372
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0   1   2   3   4   5  18  23  24
+2  24  25   1   2   3   4   5  18  23
+2  18  20   1   2   3   4   5  23  24
+2  18  19   1   2   3   4   5  23  24
+thresh 30 10
+roots 4 
+diag 
+enter
+EOF
+#*********************************
+#H2CO_3
+#*********************************
+#
+../../bin/gamess << EOF
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 1m - singles
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran
+select
+symmetry 1
+spin 1
+cntrl 16
+excit 1
+singles 1
+conf
+0 1 2 3 4 5  18  23 24
+thresh 0 0
+ci
+diag 
+extrap off
+roots all 8
+enter
+EOF
+#*********************************
+#H2CO_4
+#*********************************
+#
+../../bin/gamess << EOF
+core 4000000
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 8m - singles
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran 
+select
+symmetry 1
+spin 1
+cntrl 16
+excit 1
+singles 1
+conf
+0    1   2   3   4   5  18  23  24
+2   24  25   1   2   3   4   5  18  23
+2   18  20   1   2   3   4   5  23  24
+2   18  19   1   2   3   4   5  23  24
+2    5   6   1   2   3   4  18  23  24
+2    5   7   1   2   3   4  18  23  24
+2    5   8   1   2   3   4  18  23  24
+2   24  27   1   2   3   4   5  18  23
+thresh 0 0
+roots 8
+diag 
+extrap off
+roots all 8
+enter
+EOF
+#*********************************
+#H2CO_5
+#*********************************
+#
+../../bin/gamess << EOF
+time 300
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 8m/8m - singles
+# extrapolated energy =  -114.0621902+/-0.0002628
+# extrapolated energy =  -113.7540897+/-0.0006684
+# extrapolated energy =  -113.5881683+/-0.0007385
+# extrapolated energy =  -113.6602492+/-0.0008935
+# extrapolated energy =  -113.6045414+/-0.0009773
+# extrapolated energy =  -113.5614308+/-0.0007423
+# extrapolated energy =  -113.5213139+/-0.0007485
+# extrapolated energy =  -113.5133687+/-0.0006408
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0    1   2   3   4   5  18  23  24
+2   24  25   1   2   3   4   5  18  23
+2   18  20   1   2   3   4   5  23  24
+2   18  19   1   2   3   4   5  23  24
+2    5   6   1   2   3   4  18  23  24
+2    5   7   1   2   3   4  18  23  24
+2    5   8   1   2   3   4  18  23  24
+2   24  27   1   2   3   4   5  18  23
+thresh 30 10
+roots 8 
+diag 
+enter
+EOF
+#*********************************
+#H2CO_5A
+#*********************************
+#
+../../bin/gamess << EOF
+time 300
+restart
+title
+h2co - DZ+D(sp) default basis - mrdci 8m/8m - singles
+# extrapolated energy =  -113.9074386
+# extrapolated energy =  -113.5901688
+# extrapolated energy =  -113.4588570
+# extrapolated energy =  -113.4936530
+# extrapolated energy =  -113.4428164
+# extrapolated energy =  -113.4128525
+# extrapolated energy =  -113.3736733
+# extrapolated energy =  -113.3591576
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o
+1.0 0.02
+s c
+1.0 0.02
+end
+runtype ci
+mrdci
+adapt 
+tran
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0    1   2   3   4   5  18  23  24
+2   24  25   1   2   3   4   5  18  23
+2   18  20   1   2   3   4   5  23  24
+2   18  19   1   2   3   4   5  23  24
+2    5   6   1   2   3   4  18  23  24
+2    5   7   1   2   3   4  18  23  24
+2    5   8   1   2   3   4  18  23  24
+2   24  27   1   2   3   4   5  18  23
+excit 1
+thresh 5 5
+roots 8 
+diag 
+enter
+EOF

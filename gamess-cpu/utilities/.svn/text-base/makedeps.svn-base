@@ -1,0 +1,21 @@
+#!/bin/csh
+#
+# Make the file dependencies.txt. for inclusion in Makefile.in
+# at configure time
+#
+rm -f dependencies.txt
+set files=`/bin/ls -1 *.m `
+   foreach file ( $files ) 
+   set commons=`grep ^INCLUDE $file  | sort -u | sed 's@INCLUDE(@@'  | sed 's@).*$@@'`
+   set obj=`echo $file| sed 's/\.m/\.o/' `
+   foreach common ($commons)
+      echo ${obj}:\	\	$common >> dependencies.txt
+   end
+   set modules=`grep -i "^      use " $file | sed 's@use@@' | sed 's@Use@@' | sed 's@USE@@' | sed 's@,.*@@' | sort -u `
+   foreach module ($modules)
+	  set nmod=`ls -1 ${module}.*| wc -l`
+      if ( ${nmod} > 0 ) then
+         echo ${obj}:\	\	${module}.o >> dependencies.txt
+      endif
+   end
+end

@@ -1,0 +1,187 @@
+_IF(convex)
+#                          (for convex )
+.SUFFIXES: .m .f .c .s .A .o 
+FC = fc
+FFLAGSV = -O2 -c
+FFLAGSS = -O1 -c
+FFLAGSN = -O0 -c
+CC = cc
+CFLAGS = -O -c
+AS = as
+RANLIB=ranlib
+LD = fc
+LDFLAGS =  -ML  -m 
+M4 = rsh iris2 m4
+_IF(noplot)
+LIBS=-lnag -lmathadv -lveclib 
+_ELSE
+LIBS=-lnag -lmathadv -lveclib -lghost -lgridplus -lselanar
+_ENDIF
+_ELSEIF(sgi)
+#                          (for sgi iris )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+_IF(mips2)
+FFLAGSV = -O2 -G 0 -mips2 -c
+FFLAGSS = -O1 -G 0 -mips2 -c
+_ELSE
+FFLAGSV = -O2 -G 0 -c
+FFLAGSS = -O1 -G 0 -c
+_ENDIF
+CC = cc
+_IF(mips2)
+CFLAGS = -O2 -G 0 -mips2 -c 
+_ELSE
+CFLAGS = -O2 -G 0 -c
+_ENDIF
+RANLIB=
+LD = f77
+LDFLAGS=
+M4 = m4
+LIBS=
+_ELSEIF(dec)
+_IF(osf)
+#                          (for DEC AXP station )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSV = -O -c
+FFLAGSS = -O2 -c
+FFLAGST = -O1 -c
+CC = cc
+CFLAGS = -O -c
+RANLIB=
+LD = f77
+LDFLAGS= -math_library fast -assume=noaccuracy_sensitive
+M4 = m4
+LIBS= -ldxml
+_ELSE
+#                          (for DEC station )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSV = -O2 -G 0 -c
+FFLAGSS = -O1 -G 0 -c
+CC = cc
+CFLAGS = -O2 -G 0 -c
+RANLIB=
+LD = f77
+LDFLAGS=
+M4 = m4
+LIBS=
+_ENDIF
+_ELSEIF(sun)
+#                          (for sun 4 )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSV = -O -dalign -temp=. -Nx500 -Nn2000 -c -Nl60
+FFLAGSS = -O1  -temp=. -Nx500 -Nn2000 -c -Nl60
+CC = cc
+CFLAGS = -O -c
+RANLIB=ranlib
+LD = f77
+LDFLAGS=
+LIBS=
+M4 = /usr/5bin/m4
+_ELSEIF(ksr)
+#                          (for ksr 2 )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSV = -O -para -r8 -e -c
+FFLAGSS = -g -noopt -para -r8 -e -c
+CC = cc
+CFLAGS = -O -c
+RANLIB=ranlib
+LD = f77
+LDFLAGS= -O -para -r8 -e
+LIBS= -lksrblas /usr/lib/librpc.a
+M4 = /usr/5bin/m4
+_ELSEIF(unicos)
+#                          (for cray unicos )
+.SUFFIXES:  .o .m .f .s .A .c
+FC = cft77
+FFLAGSV = 
+FFLAGSS = 
+CC = cc
+CFLAGS = -c
+AS = as
+RANLIB = 
+LD = segldr
+LDFLAGS = -f zeros
+LIBS = -l nag
+M4 = m4 | $(MISC)/sngl.sed | $(MISC)/wrap72
+_ELSEIF(hp700)
+#                          (for hp700 )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSV = +Obb650 -c +E6
+FFLAGSS=  -O -c +E6
+CC = cc
+CFLAGS = -O -c
+RANLIB = 
+LD = f77
+LDFLAGS = 
+LIBS=-lvec
+M4 = m4
+_ELSEIF(rs6000)
+#                          (for rs6000 )
+.SUFFIXES: .m .f .c .A .o
+FC = xlf
+FFLAGSV = -O -c
+FFLAGSS = -O -c
+# -g options due to compiler problems?
+FFLAGSN = -g -c
+CC = cc 
+CFLAGS = -O -c
+RANLIB=
+LD = xlf
+LDFLAGS =  
+LIBS=-lblas
+M4 = m4
+_ELSEIF(apollo)
+#                          (for apollo dn10000 )
+.SUFFIXES: .m .f .c .A .o
+FC = f77
+FFLAGSS = -O -c
+FFLAGSV = -O -c
+CFLAGS = -O -c
+CC = cc
+LD = f77
+LDFLAGS = 
+LIBS=
+RANLIB = 
+M4 = /sys5.3/usr/bin/m4
+_ELSEIF(ipsc)
+#                          (for ipsc860, assuming sun cross-compilation)
+.SUFFIXES: .m .f .c .s .A .o
+FC = if77
+FFLAGSV = -O2 -Knoieee -c -node 
+FFLAGSS = -O1 -Knoieee -c -node 
+CFLAGS = -O -c
+AFLAGS =
+CC = icc
+AS = as860
+LD = if77
+LDFLAGS = -O2 -Knoieee
+LIBS= -m -lkmath -lglob
+RANLIB = 
+# should be m4 if srm is used
+M4 = /usr/5bin/m4
+_ENDIF
+_IF(tools)
+#------------------------ tcgmsg libraries ---------------------------
+_IF(sgi)
+LDLIBS= $(LIBS) ../tcgmsg/ipcv4.0/libtcgmsg.a -lbsd -lrpcsvc -lsun	
+_ELSEIF(unicos)
+LDLIBS= $(LIBS) ../tcgmsg/ipcv4.0/libtcgmsg.a -lbsd -lnet -lrpc
+FFLAGSS=$(FFLAGSS) -Wf"-dp"
+FFLAGSV=$(FFLAGSV) -Wf"-dp"
+# implications unknown..
+FC=cf77
+#
+_ELSEIF(rs6000)
+LDLIBS=$(LIBS) ../tcgmsg/ipcv4.0/libtcgmsg.a -lc
+_ELSE
+LDLIBS=$(LIBS) ../tcgmsg/ipcv4.0/libtcgmsg.a
+_ENDIF
+_ELSE
+LDLIBS=$(LIBS)
+_ENDIF

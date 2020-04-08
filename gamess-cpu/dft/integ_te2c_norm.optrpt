@@ -1,0 +1,138 @@
+
+Begin optimization report for: TE2C_REP_NORM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at integ_te2c_norm.f(328,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(345,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(345,10)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ integ_te2c_norm.f(346,29) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(345,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(646,10) inlined into integ_te2c_norm.f(364,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(746,21) inlined into integ_te2c_norm.f(364,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(746,21) inlined into integ_te2c_norm.f(364,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at integ_te2c_norm.f(678,10) inlined into integ_te2c_norm.f(364,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ integ_te2c_norm.f(703,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: JKINT_GAMESS_NORM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at integ_te2c_norm.f(646,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(746,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(746,21)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at integ_te2c_norm.f(678,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ integ_te2c_norm.f(703,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: TE2C_REP_SCHWARZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at integ_te2c_norm.f(1089,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1106,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1106,10)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ integ_te2c_norm.f(1107,29) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1106,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1407,10) inlined into integ_te2c_norm.f(1125,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1506,21) inlined into integ_te2c_norm.f(1125,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1506,21) inlined into integ_te2c_norm.f(1125,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at integ_te2c_norm.f(1439,10) inlined into integ_te2c_norm.f(1125,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ integ_te2c_norm.f(1463,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: JKINT_GAMESS_SCHWARZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at integ_te2c_norm.f(1407,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1506,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at integ_te2c_norm.f(1506,21)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at integ_te2c_norm.f(1439,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ integ_te2c_norm.f(1463,15) ]
+LOOP END
+===========================================================================

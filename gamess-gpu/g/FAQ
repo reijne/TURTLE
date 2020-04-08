@@ -1,0 +1,55 @@
+Q: What is GA?
+A: GA (the Global Arrays library) is a programming environment for 
+   development of parallel programs in C or/and Fortran languages.
+
+Q: What is GA good for?
+A: GA is good for development of parallel codes that operate on distributed 
+   dense mutidimensional arrays and/or require shared memory programming
+   style or one-sided communication. GA encapsualtes many details of
+   array distribution and adrressing i.e., it offers global rather
+   than local (per processor) view of the distributed data structures. 
+   This helps reduce programming effort.
+
+Q: When to use message-passing rather than GA?
+A: When the application requires synchronization on every data
+   transfer, the send-receive model of MPI works better than the put/get
+   model of GA. For example, the nearest neighbour communications in
+   Jacobi iterative method on a regular grid. 
+   Since GA is compatible with MPI, one could mix an match the best
+   features of both models. For example, it is fairly simple to
+   use message-passing in context of data stored in a global array.
+
+Q: Is GA built on top of MPI or TCGMSG?
+A: Neither of them. GA is not built on top of any particular message-passing
+   library but it requires one to intialize parellel environment and 
+   create processes. GA can work with any message-passing library that
+   offers blocking send/receive operations. The one-sided communication 
+   required to support shared memory programming model of GA is supported 
+   by the ARMCI library included in this package. ARMCI must be ported
+   to every platform and communication protocol in order for GA to use it
+   effectively.  In earlier versions of GA, one-sided communication 
+   was implemented directly inside GA, and in some cases even on top of 
+   message-passing (data server model). The message-passing/data-server
+   implementation was not convenient to use for applications.
+
+Q: How many array dimensions does GA support?
+A: The Fortran-77 limit, 7. The C interface could be configured to support 
+   more.
+
+Q: What are the data types supported?
+A: GA arrays can store double precision, double complex, or integer numbers.
+
+Q: Since GA contains so many operations, which ones are the most important?
+A: The key operations are: create, destroy, put, get, accumulate,
+   scatter, and gather.
+
+Q: Can I use ARMCI without GA?
+A: Yes, ARMCI does not even know about GA and only requires (for
+   process creation and synchronization) some message-passing library
+   (MPI,PVM, or TCGMSG). You can  copy out ./armci branch of the
+   GA distribution tree and use it independently of the rest of the
+   package.
+
+Q: Is GA a supported software?
+A: Yes, it has been since 1994. README file contains contact information
+   for support requests. 

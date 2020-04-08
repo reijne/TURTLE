@@ -1,0 +1,30 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess <<EOF
+title
+C4 CCSD(T) tzv+2D+1F SCF total energy  
+zmat angstrom
+c
+c 1 cc
+c 2 cc 1 cc1
+c 3 cc 2 cc2 1 0.0
+variables
+cc 1.450940190
+cc1  63.30050021
+cc2 116.69949979
+end
+basis 
+tzv c
+d c
+1.0 0.4
+d c
+1.0 0.72
+f c
+1.0 1.0
+end
+runtype ci
+ccsd(t)
+ccit 30
+enter
+EOF
+/bin/rm mfg*

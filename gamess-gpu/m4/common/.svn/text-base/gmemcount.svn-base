@@ -1,0 +1,13 @@
+      integer numchunk
+      integer numestimate
+      integer ichunksize
+      integer itotsize
+      integer imaxsize
+      integer igamatsize
+      integer igatotsize
+      integer igamaxsize
+      common/gmemcount/
+     &     numchunk, numestimate,
+     &     ichunksize(mxheap),  igamatsize(mxheap),
+     &     itotsize(0:mxcount), igatotsize,
+     &     imaxsize(0:mxcount), igamaxsize

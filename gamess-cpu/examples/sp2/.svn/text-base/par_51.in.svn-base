@@ -1,0 +1,40 @@
+title
+pyridine 6-31g** geometry opt. plus analytic 2nd derivs
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.7731466 hessian     .494518
+ch4            1.0754801 hessian     .378198
+c2n            1.3209540 hessian    1.861688
+c2c3           1.3850592 hessian    1.373738
+c2h6           1.0761780 hessian     .734018
+c3h5           1.0743327 hessian     .761517
+c2nz         121.1462232 hessian   24.946515
+ccn          123.6075770 hessian    8.962782
+nch2         116.1368393 hessian     .638135
+c2c3h        120.3522507 hessian     .565748
+end
+basis 6-31g**
+# optimize geometry
+runtype optimize
+scftype direct
+enter
+# compute harmonic frequencies at opt. geometry
+runtype hessian
+scftype direct
+enter

@@ -1,0 +1,15 @@
+#core 3000000
+parallel diis 10
+parallel diag 10
+parallel orthog 10
+title
+this is a test
+punch coords
+zmat angs
+o
+h 1 1
+h 1 1 2 100
+end
+basis tzvp
+scft direct rhf
+enter 1

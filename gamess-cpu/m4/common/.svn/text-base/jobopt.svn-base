@@ -1,0 +1,9 @@
+c
+      REAL energy,core,potnuc,gradnt,efreez,safty,hessen
+      logical lto,mcacct,mcprin
+      integer iguess,nvar,iretrn,idump,isigma,iaugmx,isignh
+      integer iwrnr,iblsrt,ideltr
+      common /jobopt/ energy,core,potnuc,iguess,nvar,gradnt,iretrn
+     +               ,idump,isigma,iaugmx,isignh,lto(10),iwrnr,iblsrt
+     +               ,ideltr,efreez,safty(2),hessen,mcacct,mcprin
+c

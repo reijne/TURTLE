@@ -1,0 +1,110 @@
+#!/bin/csh
+#
+#  workshop session 2 examples using rungamess script
+#
+set path=(../../rungamess ../../utilities $path)
+unalias cd
+ 
+(cd ../../utilities; make validate)
+set root=`cd ../..;pwd`
+set here=`pwd`
+setenv GAMESS_EXE $root/bin/gamess
+setenv GAMESS_SCR $here
+setenv GAMESS_TMP $here
+setenv GAMESS_LIB $root/libs
+#
+# If local disk space is short you may want to
+# edit the next two lines
+#
+#setenv GAMESS_SCR /tmp/wab
+#setenv GAMESS_TMP /tmp/wab
+#
+rungamess prop1
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics1a
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics1b
+rungamess graphics2
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics3a
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics3b
+#
+rungamess dft4
+rungamess dft5
+#
+rungamess -t ed3=dumpfile -t ed2=mainfile sad1a
+rungamess -t ed3=dumpfile -t ed2=mainfile sad1b
+rungamess sad2
+rungamess sad3
+rungamess -t ed3=dumpfile -t ed2=mainfile sad4a
+rungamess -t ed3=dumpfile -t ed2=mainfile sad4b
+#
+rungamess ecp0
+rungamess ecp1
+rungamess ecp2
+#
+rungamess zora
+#
+rungamess mp2a
+rungamess mp2b
+rungamess mp2c
+rungamess mp2d
+rungamess mp2e
+rungamess mp3a
+rungamess mp3b
+#
+rungamess mcscf
+#
+rungamess tran1
+#
+rungamess dci0
+rungamess dci1
+rungamess dci2
+rungamess dci3
+rungamess dci4
+rungamess dci5
+#
+rungamess mrdci0
+rungamess mrdci1
+rungamess mrdci2
+rungamess mrdci3
+#
+rungamess ccsd0
+rungamess ccsd1
+#
+rungamess geom.opt.problem1a
+rungamess -t ed3=dumpfileg geom.opt.problem1b
+rungamess -t ed3=dumpfileg geom.opt.problem1c
+#
+rungamess solvation
+#
+rungamess runtypes0
+rungamess runtypes1
+rungamess runtypes2
+rungamess runtypes3
+#
+rungamess nbo0
+rungamess nbo1
+rungamess aimpac
+#
+# now tidy up the files left around because of rungamess
+# and the files it leaves lying around e.g. options.dft, con4
+# file.48 and the like
+/bin/rm -rf dft4 dft5 options.dft
+/bin/rm -rf sad1a mrdci0 mrdci1 mrdci2 mrdci3
+/bin/rm -rf ccsd0 ccsd1
+/bin/rm -rf geom.opt.problem1a geom.opt.problem1b
+/bin/rm -rf solvation nbo0 nbo1 runtypes0 runtypes3 aimpac
+/bin/rm -rf *.pun
+/bin/rm -rf dumpfile mainfile dumpfileg
+/bin/rm -rf con4 file.48 file1.48 ft30 ft57 ft60 ft61 ft62 ft63 ft64 ft65 ft66 ft69 ft78 ft90 sort table c4h4.gms.wfn
+#
+# validate and store output files into OUT directory
+#
+./val_session2 > val_session2.out
+#
+/bin/rm -rf OUT.session2
+mkdir OUT.session2
+mv *.out OUT.session2
+#
+echo '***********************'
+echo '***** validation ******'
+echo '***********************'
+cat OUT.session2/val_session2.out

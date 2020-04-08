@@ -1,0 +1,2454 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co - dz basis - tda valence i.e.s
+ >>>>> super off nosym
+ >>>>> noprint
+ >>>>> zmatrix angstrom
+ >>>>> c
+ >>>>> o 1 1.203
+ >>>>> h 1 1.099 2 121.8
+ >>>>> h 1 1.099 2 121.8 3 180.0
+ >>>>> end
+ >>>>> runtype tda
+ >>>>> thresh 7
+ >>>>> active\3 to 22 end\core\1 to 2\end
+ >>>>> i.p.
+ >>>>> band 3 to 8 end
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Opteron version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig7                                     
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 01-07-2008 11:35 by hvd       
+                                        job name   hvd     
+                                        date    Jul  1 2008
+                                        time       11:57:27
+                                        acct          13039
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+ local       status  external file name
+ file name 
+ ********************************************************************************
+ ed2         old      mfged2                                                                          
+ ed3         old      mfged3                                                                          
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co - dz basis - tda valence i.e.s                                                 *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 1.203                                                                                                                           
+ h 1 1.099 2 121.8                                                                                                                   
+ h 1 1.099 2 121.8 3 180.0                                                                                                           
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.203000 (   1)
+   3    3   h     1   1.099000 (   2)   2  121.800 (   4)
+   4    4   h     1   1.099000 (   3)   2  121.800 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.273340
+              3  h                1.765065       0.000000      -1.094386
+              4  h               -1.765065       0.000000      -1.094386
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sv      3-21g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.0000000      0.0000000      0.9998719       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -1.2734685       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.7650647      2.0942583       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *******************************************************************************
+
+
+ total number of shells                  10
+ total number of basis functions         22
+ number of electrons                     16
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      8
+ total number of atoms                    4
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                tda      *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+
+ **************************************************** 
+ *            PRINT OPTIONS in EFFECT               * 
+ **************************************************** 
+ * suppress printing of distance matrix             * 
+ * suppress printing of basis functions             * 
+ * suppress printing of sabf specification          * 
+ * suppress printing of optimization history file   * 
+ * suppress printing of non-canonicalised vectors   * 
+ * suppress printing of wave function analysis      * 
+ * suppress printing of force constant matrix       * 
+ * suppress printing of bq coordinates and forces   * 
+ **************************************************** 
+
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+
+ secondary mainfile              
+ ------------------
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+
+ 2-electron mo integral files    
+ ----------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ 4-index accuracy factor     0.1E-09
+ blocking factor for sort  file =  10
+
+ route transformed core hamiltonian to section 466
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          12
+   2           4
+   3           6
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -112.82485034 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.00 seconds
+
+ end of 2-electron integral evaluation at     0.01 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        closed-shell rhf scf calculation
+                                        ********************************
+
+ ----- nuclear energy ----- =      31.383720045129
+
+ use symmetry adapted jacobi diagonalisation
+
+               convergence data
+               ================
+
+
+ minimise dump and scratchfile i/o
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criterion        =1.0e- 7
+ punch out option             =      0
+
+ =======================================================================================================
+   cycle           total      electronic         e conv.         tester   virtual damping           diis
+                  energy          energy                                   shift
+ =======================================================================================================
+   1   1   -113.14766643   -144.53138648   -144.53138648     0.12448429     0.000   1.000    0.000000000   
+   2   2   -113.18352246   -144.56724250     -0.03585602     0.03820441     0.000   1.000    0.000000000   
+   3   3   -113.21978474   -144.60350479     -0.03626229     0.01015427     0.000   0.000    0.000000000   
+   4   4   -113.22088116   -144.60460120     -0.00109641     0.01018806     0.000   0.000    0.000000000   
+   5   0   -113.22119379   -144.60491383     -0.00031263     0.00438399     0.000   0.000    0.000048588   
+   6   1   -113.22130721   -144.60502725     -0.00011342     0.00411847     0.000   0.000    0.000005014   
+   7   2   -113.22138486   -144.60510491     -0.00007765     0.00040077     0.000   0.000    0.000000090   
+   8   3   -113.22138575   -144.60510579     -0.00000089     0.00013995     0.000   0.000    0.000000003   
+   9   4   -113.22138586   -144.60510590     -0.00000011     0.00001911     0.000   0.000    0.000000000   
+  10   5   -113.22138586   -144.60510590      0.00000000     0.00000403     0.000   0.000    0.000000000   
+  11   6   -113.22138586   -144.60510590      0.00000000     0.00000008     0.000   0.000    0.000000000   
+
+          ----------------
+          energy converged
+          ----------------
+
+          --------------
+          final energies   after  11 cycles at       0.02 seconds
+          --------------
+
+
+          electronic energy               -144.6051059034
+          nuclear energy                    31.3837200451
+          total energy                    -113.2213858583
+          convergence on density             0.0000011085
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          CONVERGENCE / TESTER ANALYSIS            From DIIS
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Iter.   Tester   (domo/vmo)             Tester   (domo/vmo)
+
+              1  0.1244843 (   7   9) (*)        0.1244843 (   7   9)
+              2  0.0382044 (   8  21) (*)        0.0382044 (   8  21)
+              3  0.0101543 (   4  18) (*)        0.0101543 (   4  18)
+              4  0.0101881 (   7   9) (*)        0.0101881 (   7   9)
+              5  0.0061732 (   8  21)            0.0043840 (   8  21) (*)
+              6  0.0025504 (   7   9)            0.0041185 (   7   9) (*)
+              7  0.0003083 (   6  15)            0.0004008 (   6  20) (*)
+              8  0.0000885 (   6  20)            0.0001399 (   6  20) (*)
+              9  0.0000167 (   6  20)            0.0000191 (   6  20) (*)
+             10  0.0000028 (   8  21)            0.0000040 (   7   9) (*)
+             11  0.0000001 (   6  15)            0.0000001 (   6  15) (*)
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.48360054       -557.3926        2.0000
+    2     1    -11.28388020       -307.0530        2.0000
+    3     1     -1.42107165        -38.6697        2.0000
+    4     1     -0.86257740        -23.4722        2.0000
+    5     3     -0.69835433        -19.0034        2.0000
+    6     1     -0.63657488        -17.3223        2.0000
+    7     2     -0.52867345        -14.3861        2.0000
+    8     3     -0.43116442        -11.7327        2.0000
+    9     2      0.14867179          4.0456        0.0000
+   10     1      0.27270231          7.4207        0.0000
+   11     3      0.36811401         10.0170        0.0000
+   12     1      0.45408002         12.3563        0.0000
+   13     2      0.93005469         25.3083        0.0000
+   14     3      1.01802374         27.7021        0.0000
+   15     1      1.04135675         28.3370        0.0000
+   16     1      1.15882717         31.5336        0.0000
+   17     3      1.26988913         34.5558        0.0000
+   18     1      1.56946441         42.7077        0.0000
+   19     2      1.86711687         50.8073        0.0000
+   20     1      1.90075168         51.7226        0.0000
+   21     3      1.98283551         53.9562        0.0000
+   22     1      3.32677974         90.5272        0.0000
+ ========================================================
+
+
+ end of closed shell scf at       0.02 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ========================================================================================================
+
+                                        ***********************
+                                        integral transformation
+                                        ***********************
+
+
+ vectors restored from section    1
+
+ header block information : 
+ rhf    vectors created at 11:57:27 on Jul  1   in the job hvd     
+ with the title: h2co - dz basis - tda valence i.e.s                                             
+
+ the following orbitals included in active list
+ ==============================================
+ function e/i label     function e/i label     function e/i label     function e/i label
+ ----------------------------------------------------------------------------------------
+        3         1            4         2            5         3            6         4
+        7         5            8         6            9         7           10         8
+       11         9           12        10           13        11           14        12
+       15        13           16        14           17        15           18        16
+       19        17           20        18           21        19           22        20
+
+ the following mos included in frozen core list
+ ----------------------------------------------
+ function e/i label     function e/i label     function e/i label     function e/i label
+        1         1            2         2
+
+ route transformed core hamiltonian to section  466
+ 4-index information dumped to section 486 of dumpfile starting at block     1 on ed3 
+
+ 2-electron integral files
+ *************************
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ secondary mainfile
+ ******************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks     0
+
+ transformed integral files
+ **************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks     0
+
+ start of integral transformation at    0.02 seconds
+
+ no. of sort1 passes=   1
+
+ end of sort1 pass     1 at     0.02 seconds
+
+ job dumped after calc1 pass     1 at      0.05 seconds
+
+ status of secondary mainfile
+ ****************************
+
+         ddnames   ed4 
+ starting blocks     1
+ terminal blocks    65
+
+ no. of sort2 passes=   1
+
+ end of sort2 pass     1 at     0.05 seconds
+
+ job dumped after calc2 pass     1 at      0.06 seconds
+
+ end of 4-index transformation at    0.06 seconds
+
+ status of transformed integral file
+ ***********************************
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    22
+
+ start of 2-index transformation at     0.06 seconds
+
+ effective nuclear repulsion term  -0.731582239824E+02
+
+ end of 2-index transformation at     0.06 seconds
+
+ end of integral transformation at     0.06 seconds
+
+
+ --------------------------------------------------------------------------------------------------------
+                                        ****************************
+                                        ionization spectra tda module
+                                        ****************************
+
+
+
+     dumpfile resides on ed3  at block      1
+
+     core hamiltonian to be retrieved from section  466
+
+     header block information :
+     number of active orbitals   20
+     number of core   orbitals    2
+     nuclear repulsion energy    0.313837200451E+02
+     core energy                -0.731582239824E+02
+
+
+
+
+
+     satellite bands are to be calculated for the following   6  orbitals :
+
+     1     2     3     4     5     6
+
+     scf mo specifications restored from section    1 of dumpfile
+
+     header block information :
+     rhf     vectors created at 11:57:27 on Jul  1   in the job hvd     
+     with the title :     h2co - dz basis - tda valence i.e.s                                             
+     no. of gtos          22
+     no. of scf vectors   22
+
+
+    *********************************************************************************************
+     case :     h2co - dz basis - tda valence i.e.s                                             
+
+     number of active orbitals           20
+
+     number of doubly occupied orbitals   6
+
+     number of virtual orbitals          14
+    *********************************************************************************************
+
+
+                                                  scf orbital energies (au)
+
+              -1.4210717    -0.8625774    -0.6983543    -0.6365749    -0.5286734    -0.4311644     0.1486718     0.2727023
+
+               0.3681140     0.4540800     0.9300547     1.0180237     1.0413567     1.1588272     1.2698891     1.5694644
+
+               1.8671169     1.9007517     1.9828355     3.3267797
+
+
+ the tda calculation will be done without the separate
+ calculation of the ground state correlation energy
+
+
+ the calculation is done with possible configuration selection in the a- and b-blocks
+
+
+ the calculation is done with the inclusion of the energy independent diagrams
+
+
+ the constant diagrams are only calculated with the hartree-fock greens function
+
+ the solution of the dyson equation is done with the pole search method
+
+
+ lower limit of range for pole search =          0.00ev
+ upper limit of range for pole search =         42.54ev
+
+
+ self-energy affinity poles below    -10000.00 ev will be combined into centroids
+ self energy ionization poles above     10000.00 ev will be combined into centroids
+ both quantities are used only in the case of the pole search
+
+
+
+ number of occupied orbitals =   6
+ number of virtual orbitals =  14
+
+
+ orbital energies in atomic units
+
+
+   -1.421072   -0.862577   -0.698354   -0.636575   -0.528673   -0.431164    0.148672    0.272702    0.368114    0.454080
+    0.930055    1.018024    1.041357    1.158827    1.269889    1.569464    1.867117    1.900752    1.982836    3.326780
+
+
+ orbital energies in ev
+
+
+  -38.669633  -23.472111  -19.003339  -17.322221  -14.386050  -11.732674    4.045597    7.420666   10.016971   12.356244
+   25.308276   27.702055   28.336983   31.533542   34.555715   42.707638   50.807237   51.722494   53.956127   90.527000
+
+
+
+ satellite bands are to be calculated for        6     orbitals
+
+
+ their indeces are
+
+
+     1     2     3     4     5     6
+
+ --------------------------------------------------------------------------------------------------------
+
+ number of symmetry species       8
+
+ group multiplication table 
+
+
+     1     2     3     4     5     6     7     8
+     2     1     4     3     6     5     8     7
+     3     4     1     2     7     8     5     6
+     4     3     2     1     8     7     6     5
+     5     6     7     8     1     2     3     4
+     6     5     8     7     2     1     4     3
+     7     8     5     6     3     4     1     2
+     8     7     6     5     4     3     2     1
+
+ symmetry and degeneracy information for the orbitals
+
+ orbital      1   class   1   degeneracy      1
+ orbital      2   class   1   degeneracy      1
+ orbital      3   class   3   degeneracy      1
+ orbital      4   class   1   degeneracy      1
+ orbital      5   class   2   degeneracy      1
+ orbital      6   class   3   degeneracy      1
+ orbital      7   class   2   degeneracy      1
+ orbital      8   class   1   degeneracy      1
+ orbital      9   class   3   degeneracy      1
+ orbital     10   class   1   degeneracy      1
+ orbital     11   class   2   degeneracy      1
+ orbital     12   class   3   degeneracy      1
+ orbital     13   class   1   degeneracy      1
+ orbital     14   class   1   degeneracy      1
+ orbital     15   class   3   degeneracy      1
+ orbital     16   class   1   degeneracy      1
+ orbital     17   class   2   degeneracy      1
+ orbital     18   class   1   degeneracy      1
+ orbital     19   class   3   degeneracy      1
+ orbital     20   class   1   degeneracy      1
+
+
+       6691 integrals are to be read in and processed
+
+ --------------------------------------------------------------------------------------------------------
+
+ the actual symmetry group of the molecule is assumed not
+ to contain degenerate representations
+
+ actual number of symmetry species used =   8
+ the number of subparts of symmetry species   1 equals   1
+ the number of subparts of symmetry species   2 equals   1
+ the number of subparts of symmetry species   3 equals   1
+ the number of subparts of symmetry species   4 equals   1
+ the number of subparts of symmetry species   5 equals   1
+ the number of subparts of symmetry species   6 equals   1
+ the number of subparts of symmetry species   7 equals   1
+ the number of subparts of symmetry species   8 equals   1
+ for symmetry species   1 and subpart   1 the dyson equation will be solved
+ for symmetry species   2 and subpart   1 the dyson equation will be solved
+ for symmetry species   3 and subpart   1 the dyson equation will be solved
+ for symmetry species   4 and subpart   1 the dyson equation will not be solved
+ for symmetry species   5 and subpart   1 the dyson equation will not be solved
+ for symmetry species   6 and subpart   1 the dyson equation will not be solved
+ for symmetry species   7 and subpart   1 the dyson equation will not be solved
+ for symmetry species   8 and subpart   1 the dyson equation will not be solved
+ the number of orbitals belonging to symmetry species *   1
+ and subpart   1 is    10
+ the number of orbitals belonging to symmetry species *   2
+ and subpart   1 is     4
+ the number of orbitals belonging to symmetry species *   3
+ and subpart   1 is     6
+ the number of orbitals belonging to symmetry species *   4
+ and subpart   1 is     0
+ the number of orbitals belonging to symmetry species *   5
+ and subpart   1 is     0
+ the number of orbitals belonging to symmetry species *   6
+ and subpart   1 is     0
+ the number of orbitals belonging to symmetry species *   7
+ and subpart   1 is     0
+ the number of orbitals belonging to symmetry species *   8
+ and subpart   1 is     0
+
+ the orbital indeces belonging to symmetry species   1 and subpart   1 are  : 
+
+      1   2   4   8  10  13  14  16  18  20
+
+ the orbital indeces belonging to symmetry species   2 and subpart   1 are  : 
+
+      5   7  11  17
+
+ the orbital indeces belonging to symmetry species   3 and subpart   1 are  : 
+
+      3   6   9  12  15  19
+
+ reduced orbital indeces now referring only to the numbering
+ within a given symmetry species
+
+  the reduced orbital indeces belonging to symmetry species   1 and subpart   1 are  : 
+
+      1   2   3   4   5   6   7   8   9  10
+
+  the reduced orbital indeces belonging to symmetry species   2 and subpart   1 are  : 
+
+      1   2   3   4
+
+  the reduced orbital indeces belonging to symmetry species   3 and subpart   1 are  : 
+
+      1   2   3   4   5   6
+
+
+ the maximum index of a virtual orbital for which non diagonal
+ a- and b-block matrix elements are going to be calculated is     14
+ the maximum number of orbitals for the nondiagonal
+ calculation is thus     20
+
+
+ the number of integrals in the calculation of nondiagonal
+ a- and b-block matrix elements is     6691
+
+
+
+ quartett states will not be calculated
+
+     main core not used:     3542590 words
+
+
+
+ transformed integral files
+ --------------------------
+
+         ddnames   ed6 
+ starting blocks     1
+ terminal blocks    22
+
+
+        6691 integrals are to be read in and processed
+
+
+        6691  2-electron integrals scanned
+
+
+
+ ********************************************************************************************************
+
+                    ****************
+                    symmetry type  1
+                    ****************
+
+ for symmetry type    1 the dimension of a =   376 : the dimension of b =   164
+
+
+
+                    ****************
+                    symmetry type  2
+                    ****************
+
+ for symmetry type    2 the dimension of a =   248 : the dimension of b =   100
+
+
+
+                    ****************
+                    symmetry type  3
+                    ****************
+
+ for symmetry type    3 the dimension of a =   340 : the dimension of b =   152
+
+
+
+                    ****************
+                    symmetry type  1
+                    ****************
+
+ the number of configurations taken into account in the a-block for symmetry    1   is     376
+
+
+ index identification of these configurations
+ ordered according to the selection criterion
+ s denotes singlet spin coupling, t triplet spin coupling in the configurations
+
+
+     1 = ( 5, 7,10)s     2 = ( 2, 7, 7)s     3 = ( 5, 7,14)s     4 = ( 5, 8,11)s     5 = ( 5, 7,13)s     6 = ( 6, 8, 9)s
+     7 = ( 2, 8, 8)s     8 = ( 6, 8,12)s     9 = ( 6, 9,10)s    10 = ( 3, 8, 9)s    11 = ( 5, 7, 8)s    12 = ( 4,18,18)s
+    13 = ( 1, 7, 7)s    14 = ( 4, 8, 8)s    15 = ( 1,10,10)s    16 = ( 5,10,17)s    17 = ( 4, 7, 7)s    18 = ( 4,10,10)s
+    19 = ( 3, 9,10)s    20 = ( 6,10,12)s    21 = ( 4,13,14)s    22 = ( 2, 8,16)s    23 = ( 2, 8,14)s    24 = ( 4,14,14)s
+    25 = ( 2,10,10)s    26 = ( 6,10,19)s    27 = ( 6,18,19)s    28 = ( 4,10,13)s    29 = ( 5,17,18)s    30 = ( 4,18,20)s
+    31 = ( 3, 8,15)s    32 = ( 5,17,20)s    33 = ( 4,10,18)s    34 = ( 3, 9,13)s    35 = ( 6,19,20)s    36 = ( 1,10,13)s
+    37 = ( 5, 7,16)s    38 = ( 3, 9,14)s    39 = ( 4, 8,14)s    40 = ( 2, 9, 9)s    41 = ( 4,13,13)s    42 = ( 2, 7,11)s
+    43 = ( 3,14,15)s    44 = ( 1,10,20)s    45 = ( 5, 7,18)s    46 = ( 5,11,16)s    47 = ( 4,14,16)s    48 = ( 2,16,16)s
+    49 = ( 1,13,14)s    50 = ( 3, 9,16)s    51 = ( 4,10,14)s    52 = ( 5,11,14)s    53 = ( 1,20,20)s    54 = ( 6, 8,15)s
+    55 = ( 3,15,16)s    56 = ( 6,14,15)s    57 = ( 2,14,16)s    58 = ( 2,15,15)s    59 = ( 1,18,20)s    60 = ( 2,14,14)s
+    61 = ( 2,13,13)s    62 = ( 6,13,15)s    63 = ( 3,13,15)s    64 = ( 5, 7,20)s    65 = ( 4,16,18)s    66 = ( 1,10,14)s
+    67 = ( 4,13,16)s    68 = ( 3, 8,12)s    69 = ( 1,10,18)s    70 = ( 1, 7,17)s    71 = ( 1,14,14)s    72 = ( 6,12,13)s
+    73 = ( 5,11,13)s    74 = ( 4, 7,11)s    75 = ( 3,10,19)s    76 = ( 1,14,16)s    77 = ( 5,10,11)s    78 = ( 1,13,13)s
+    79 = ( 3,18,19)s    80 = ( 2,18,18)s    81 = ( 5,13,17)s    82 = ( 3,19,20)s    83 = ( 6,12,14)s    84 = ( 4,13,18)s
+    85 = ( 1,13,16)s    86 = ( 6,10,15)s    87 = ( 2,11,11)s    88 = ( 2, 9,15)s    89 = ( 1,13,20)s    90 = ( 2, 8,13)s
+    91 = ( 1,17,17)s    92 = ( 3,10,12)s    93 = ( 6,15,16)s    94 = ( 3,12,13)s    95 = ( 6, 9,16)s    96 = ( 4, 8,13)s
+    97 = ( 6, 9,18)s    98 = ( 3,12,14)s    99 = ( 4,10,16)s   100 = ( 3,10,15)s   101 = ( 4, 8,10)s   102 = ( 6,13,19)s
+   103 = ( 6, 9,13)s   104 = ( 6, 9,14)s   105 = ( 4,14,18)s   106 = ( 2,18,20)s   107 = ( 4, 8,16)s   108 = ( 3,12,16)s
+   109 = ( 2,13,16)s   110 = ( 5,14,17)s   111 = ( 1,19,19)s   112 = ( 1,10,16)s   113 = ( 1, 8,10)s   114 = ( 6,12,18)s
+   115 = ( 1,16,16)s   116 = ( 4,16,16)s   117 = ( 6,12,20)s   118 = ( 1, 7,11)s   119 = ( 2,12,12)s   120 = ( 5,16,17)s
+   121 = ( 1, 9, 9)s   122 = ( 1,14,20)s   123 = ( 1,18,18)s   124 = ( 2,13,14)s   125 = ( 4,16,20)s   126 = ( 6,12,16)s
+   127 = ( 4,15,15)s   128 = ( 4, 7,17)s   129 = ( 6, 9,20)s   130 = ( 4, 9, 9)s   131 = ( 6,16,19)s   132 = ( 4,17,17)s
+   133 = ( 3,12,18)s   134 = ( 3,13,19)s   135 = ( 2, 7,17)s   136 = ( 2,20,20)s   137 = ( 6,14,19)s   138 = ( 2,10,16)s
+   139 = ( 4,20,20)s   140 = ( 1,13,18)s   141 = ( 1, 8,14)s   142 = ( 2, 8,10)s   143 = ( 4,13,20)s   144 = ( 2,16,18)s
+   145 = ( 4,19,19)s   146 = ( 4, 8,18)s   147 = ( 1, 8,16)s   148 = ( 1, 9,15)s   149 = ( 1,11,11)s   150 = ( 4,14,20)s
+   151 = ( 2, 8,18)s   152 = ( 3,12,20)s   153 = ( 1,16,20)s   154 = ( 2, 9,12)s   155 = ( 1, 8,13)s   156 = ( 4, 9,15)s
+   157 = ( 2,10,20)s   158 = ( 2,17,17)s   159 = ( 2,10,18)s   160 = ( 2,12,15)s   161 = ( 4,10,20)s   162 = ( 1,12,19)s
+   163 = ( 6, 8,19)s   164 = ( 5, 8,17)s   165 = ( 6,15,18)s   166 = ( 1, 8, 8)s   167 = ( 3,14,19)s   168 = ( 2,19,19)s
+   169 = ( 4,12,15)s   170 = ( 5,11,18)s   171 = ( 1, 9,19)s   172 = ( 3,16,19)s   173 = ( 1,14,18)s   174 = ( 2,10,14)s
+   175 = ( 1,15,15)s   176 = ( 4,11,11)s   177 = ( 3, 9,20)s   178 = ( 6,15,20)s   179 = ( 2,13,20)s   180 = ( 2,10,13)s
+   181 = ( 1,12,12)s   182 = ( 2,14,18)s   183 = ( 3, 9,18)s   184 = ( 4, 9,12)s   185 = ( 1,16,18)s   186 = ( 4,12,12)s
+   187 = ( 4, 8,20)s   188 = ( 3,15,18)s   189 = ( 2,16,20)s   190 = ( 1, 9,12)s   191 = ( 1, 8,20)s   192 = ( 2,12,19)s
+   193 = ( 2,15,19)s   194 = ( 2,14,20)s   195 = ( 3, 8,19)s   196 = ( 1,15,19)s   197 = ( 3,15,20)s   198 = ( 1, 8,18)s
+   199 = ( 4,12,19)s   200 = ( 4,15,19)s   201 = ( 1,12,15)s   202 = ( 2, 9,19)s   203 = ( 2,13,18)s   204 = ( 2, 8,20)s
+   205 = ( 5,11,20)s   206 = ( 4,11,17)s   207 = ( 4, 9,19)s   208 = ( 1,11,17)s   209 = ( 2,11,17)s   210 = ( 5, 7,10)t
+   211 = ( 5, 7,14)t   212 = ( 5, 8,11)t   213 = ( 5, 7,13)t   214 = ( 6, 8, 9)t   215 = ( 6, 8,12)t   216 = ( 6, 9,10)t
+   217 = ( 3, 8, 9)t   218 = ( 5, 7, 8)t   219 = ( 5,10,17)t   220 = ( 3, 9,10)t   221 = ( 6,10,12)t   222 = ( 4,13,14)t
+   223 = ( 2, 8,16)t   224 = ( 2, 8,14)t   225 = ( 6,10,19)t   226 = ( 6,18,19)t   227 = ( 4,10,13)t   228 = ( 5,17,18)t
+   229 = ( 4,18,20)t   230 = ( 3, 8,15)t   231 = ( 5,17,20)t   232 = ( 4,10,18)t   233 = ( 3, 9,13)t   234 = ( 6,19,20)t
+   235 = ( 1,10,13)t   236 = ( 5, 7,16)t   237 = ( 3, 9,14)t   238 = ( 4, 8,14)t   239 = ( 2, 7,11)t   240 = ( 3,14,15)t
+   241 = ( 1,10,20)t   242 = ( 5, 7,18)t   243 = ( 5,11,16)t   244 = ( 4,14,16)t   245 = ( 1,13,14)t   246 = ( 3, 9,16)t
+   247 = ( 4,10,14)t   248 = ( 5,11,14)t   249 = ( 6, 8,15)t   250 = ( 3,15,16)t   251 = ( 6,14,15)t   252 = ( 2,14,16)t
+   253 = ( 1,18,20)t   254 = ( 6,13,15)t   255 = ( 3,13,15)t   256 = ( 5, 7,20)t   257 = ( 4,16,18)t   258 = ( 1,10,14)t
+   259 = ( 4,13,16)t   260 = ( 3, 8,12)t   261 = ( 1,10,18)t   262 = ( 1, 7,17)t   263 = ( 6,12,13)t   264 = ( 5,11,13)t
+   265 = ( 4, 7,11)t   266 = ( 3,10,19)t   267 = ( 1,14,16)t   268 = ( 5,10,11)t   269 = ( 3,18,19)t   270 = ( 5,13,17)t
+   271 = ( 3,19,20)t   272 = ( 6,12,14)t   273 = ( 4,13,18)t   274 = ( 1,13,16)t   275 = ( 6,10,15)t   276 = ( 2, 9,15)t
+   277 = ( 1,13,20)t   278 = ( 2, 8,13)t   279 = ( 3,10,12)t   280 = ( 6,15,16)t   281 = ( 3,12,13)t   282 = ( 6, 9,16)t
+   283 = ( 4, 8,13)t   284 = ( 6, 9,18)t   285 = ( 3,12,14)t   286 = ( 4,10,16)t   287 = ( 3,10,15)t   288 = ( 4, 8,10)t
+   289 = ( 6,13,19)t   290 = ( 6, 9,13)t   291 = ( 6, 9,14)t   292 = ( 4,14,18)t   293 = ( 2,18,20)t   294 = ( 4, 8,16)t
+   295 = ( 3,12,16)t   296 = ( 2,13,16)t   297 = ( 5,14,17)t   298 = ( 1,10,16)t   299 = ( 1, 8,10)t   300 = ( 6,12,18)t
+   301 = ( 6,12,20)t   302 = ( 1, 7,11)t   303 = ( 5,16,17)t   304 = ( 1,14,20)t   305 = ( 2,13,14)t   306 = ( 4,16,20)t
+   307 = ( 6,12,16)t   308 = ( 4, 7,17)t   309 = ( 6, 9,20)t   310 = ( 6,16,19)t   311 = ( 3,12,18)t   312 = ( 3,13,19)t
+   313 = ( 2, 7,17)t   314 = ( 6,14,19)t   315 = ( 2,10,16)t   316 = ( 1,13,18)t   317 = ( 1, 8,14)t   318 = ( 2, 8,10)t
+   319 = ( 4,13,20)t   320 = ( 2,16,18)t   321 = ( 4, 8,18)t   322 = ( 1, 8,16)t   323 = ( 1, 9,15)t   324 = ( 4,14,20)t
+   325 = ( 2, 8,18)t   326 = ( 3,12,20)t   327 = ( 1,16,20)t   328 = ( 2, 9,12)t   329 = ( 1, 8,13)t   330 = ( 4, 9,15)t
+   331 = ( 2,10,20)t   332 = ( 2,10,18)t   333 = ( 2,12,15)t   334 = ( 4,10,20)t   335 = ( 1,12,19)t   336 = ( 6, 8,19)t
+   337 = ( 5, 8,17)t   338 = ( 6,15,18)t   339 = ( 3,14,19)t   340 = ( 4,12,15)t   341 = ( 5,11,18)t   342 = ( 1, 9,19)t
+   343 = ( 3,16,19)t   344 = ( 1,14,18)t   345 = ( 2,10,14)t   346 = ( 3, 9,20)t   347 = ( 6,15,20)t   348 = ( 2,13,20)t
+   349 = ( 2,10,13)t   350 = ( 2,14,18)t   351 = ( 3, 9,18)t   352 = ( 4, 9,12)t   353 = ( 1,16,18)t   354 = ( 4, 8,20)t
+   355 = ( 3,15,18)t   356 = ( 2,16,20)t   357 = ( 1, 9,12)t   358 = ( 1, 8,20)t   359 = ( 2,12,19)t   360 = ( 2,15,19)t
+   361 = ( 2,14,20)t   362 = ( 3, 8,19)t   363 = ( 1,15,19)t   364 = ( 3,15,20)t   365 = ( 1, 8,18)t   366 = ( 4,12,19)t
+   367 = ( 4,15,19)t   368 = ( 1,12,15)t   369 = ( 2, 9,19)t   370 = ( 2,13,18)t   371 = ( 2, 8,20)t   372 = ( 5,11,20)t
+   373 = ( 4,11,17)t   374 = ( 4, 9,19)t   375 = ( 1,11,17)t   376 = ( 2,11,17)t
+
+ --------------------------------------------------------------------------------------------------------
+ eigenvalues and large components of eigenvectors of matrix for a
+ only the lowest 20 solutions are listed
+ any negative energy solutions arising from linear dependencies
+ in the basis are deleted later
+ if the energies are beyond -10ev
+
+
+  nr     1  ev     12.6675  ::  17: -0.98
+  nr     2  ev     13.3070  ::  11: -0.84 218: -0.52
+  nr     3  ev     17.8565  ::   1: -0.85 210: -0.49
+  nr     4  ev     18.5558  ::  11: -0.48 214: -0.35 218:  0.74
+  nr     5  ev     20.7530  ::   6: -0.34   7: -0.29  14: -0.28 214:  0.69 217: -0.29 218:  0.24
+  nr     6  ev     22.1037  ::   1:  0.34   2:  0.63 210: -0.51 214: -0.22 216: -0.21
+  nr     7  ev     22.3930  ::   1:  0.22   2: -0.30   6:  0.50  10: -0.26 210: -0.43 214:  0.28 216: -0.38
+  nr     8  ev     22.5645  ::   2: -0.66   6: -0.38   9:  0.38 210: -0.33
+  nr     9  ev     23.7654  ::   6: -0.32   9: -0.72  10:  0.21 216: -0.42
+  nr    10  ev     24.3422  ::   6: -0.28   7:  0.39  14:  0.63  40: -0.22 130: -0.36 214:  0.36
+  nr    11  ev     25.8266  ::   9:  0.43 101: -0.24 210:  0.32 216: -0.68
+  nr    12  ev     26.7096  :: 101: -0.49 216:  0.30 217:  0.68
+  nr    13  ev     27.1273  :: 101:  0.58 217:  0.45 288: -0.51
+  nr    14  ev     28.3231  ::   7: -0.22   9:  0.21  10:  0.24  14:  0.24  19:  0.20 101: -0.34 142: -0.23 288: -0.66
+  nr    15  ev     29.4058  ::   6:  0.29  10:  0.51  19: -0.61 101: -0.23 142:  0.22 220: -0.26
+  nr    16  ev     29.8107  ::   7: -0.58  10: -0.26  14:  0.40  19: -0.22  40:  0.43 217:  0.23 288:  0.22
+  nr    17  ev     29.8931  ::   6: -0.31  14:  0.24  18: -0.25  19: -0.36  40:  0.21 130:  0.59 288: -0.28
+  nr    18  ev     30.8660  ::  18:  0.73  19: -0.37 220:  0.42
+  nr    19  ev     31.3720  ::  10:  0.49 101:  0.27 130:  0.36 142: -0.38 217:  0.24 220:  0.39 288:  0.24
+  nr    20  ev     32.0235  ::  13: -0.48  14: -0.21  18: -0.43  19: -0.25 130: -0.31 220:  0.50
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ list of poles of the self-energy
+ any negative energy solutions arising from linear dependencies in the basis are deleted later
+ if they are beyond -10ev
+
+    12.66755    13.30696    17.85647    18.55575    20.75299    22.10371    22.39296    22.56454    23.76544    24.34223
+    25.82659    26.70955    27.12727    28.32308    29.40584    29.81067    29.89309    30.86605    31.37202    32.02353
+    32.25971    32.67161    33.80643    34.07894    34.36975    35.88925    36.64568    36.96560    37.38459    37.58810
+    37.88270    37.98361    38.72628    38.99303    39.60324    40.38667    40.69626    41.00061    41.65184    41.81398
+    42.02441    42.11344    42.17833    42.74010    42.96952    43.57813    43.80779    44.22113    44.51787    44.90621
+    45.33427    45.53389    45.76745    46.00277    46.30038    46.71661    47.34400    47.49272    47.63483    47.95058
+    48.12764    48.27436    48.53220    48.82303    48.93822    49.12026    49.36385    49.49598    49.72305    49.80375
+    50.08475    50.64234    50.73150    51.20049    51.59658    51.97336    52.35796    52.74373    52.97710    53.11355
+    53.23504    53.32922    53.77971    53.99376    54.13741    54.41381    54.56897    54.64840    54.75383    55.01807
+    55.19810    55.50442    56.10382    56.22765    56.40976    56.69650    56.92843    57.02421    57.19232    57.30613
+    57.51362    57.61737    57.66156    57.84749    58.13335    58.30045    58.75473    59.13647    59.50118    59.81646
+    59.89127    59.97142    60.32591    60.79503    61.13002    61.27963    61.59596    61.69439    61.89575    62.00512
+    62.17158    62.32764    62.53203    62.73726    63.02112    63.18014    63.24733    63.39180    63.52701    63.77482
+    64.30683    64.72422    64.90518    64.98590    65.08839    65.23787    65.32254    65.60700    65.77178    65.86041
+    66.00551    66.21506    66.32532    66.71111    66.84110    67.09035    67.21884    67.39286    67.73301    67.85734
+    68.75606    68.79354    68.91706    69.24213    69.29553    69.68349    69.83231    69.90955    70.06836    70.16840
+    70.36130    70.69875    70.89228    70.92767    71.04407    71.76735    71.79958    72.13279    72.28920    72.45602
+    72.56081    72.68616    72.97510    73.35678    73.60653    73.91315    74.01182    74.25938    74.43482    74.60808
+    74.94088    75.11425    75.41753    75.54152    75.78962    75.97342    76.12911    76.26189    76.42082    76.50603
+    76.67266    76.68736    76.87244    77.11707    77.21925    77.59770    77.74515    77.90814    77.99184    78.11668
+    78.21200    78.40681    78.59392    78.74675    78.82004    79.05488    79.22626    79.49287    79.60078    79.70555
+    80.00632    80.15170    80.25098    80.55048    81.01015    81.41683    81.56437    81.72996    82.10411    82.20272
+    82.31352    82.53851    82.57987    82.76170    83.06672    83.46907    83.66013    84.00179    84.07075    84.44288
+    84.72113    85.22497    85.42351    85.69120    85.78967    86.16388    86.26037    86.67807    86.88533    86.94988
+    87.21335    87.40447    87.52875    87.58965    88.12185    88.61713    88.96531    89.17135    89.55337    89.67790
+    90.04995    90.21690    90.57144    90.62488    91.21067    91.65806    91.73430    92.00443    92.18670    92.30819
+    92.73558    93.15731    93.71033    94.12741    94.36267    94.36869    94.82426    94.87427    95.09854    95.16143
+    95.42351    95.67971    96.16636    96.32659    96.34463    96.45322    97.41579    97.52341    98.43068    98.72029
+    98.83138    98.84695    99.59127    99.89460   100.00597   100.22961   100.41122   101.27788   101.49496   101.93377
+   102.50446   102.77467   102.87424   102.95401   103.07767   103.45743   103.68869   103.98646   104.44168   104.61714
+   104.96620   105.58545   105.86068   105.95628   106.56243   107.24297   107.56948   107.63308   109.20165   109.32843
+   109.52706   110.00444   110.78829   110.99741   112.51026   113.65590   114.06318   114.58003   115.31486   115.55297
+   116.03538   117.13380   117.48248   117.93349   118.12921   120.01649   120.11911   120.75679   121.23854   121.99720
+   122.34749   122.39459   123.36315   124.29554   124.56171   125.13252   125.64669   126.34115   126.42397   127.00319
+   127.51317   128.60182   129.34811   131.03755   131.85135   132.58262   133.42691   134.02503   134.91392   135.12625
+   135.89194   137.66412   137.84486   139.31387   140.15494   141.33518   142.05627   142.81981   142.84540   143.78520
+   145.61910   146.21797   146.35874   147.55860   153.70482   157.01411   158.11081   160.27967   161.88561   164.05666
+   165.42199   168.66178   171.62981   184.19794   201.05643   208.46046
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of affinity block of self-energy for symmetry   1 and subpart   1
+ only the lowest 100 poles are listed
+
+
+   -57.30613   -57.19232   -57.02421   -56.92843   -56.69650   -56.40976   -56.22765   -56.10382   -55.50442   -55.19810
+   -55.01807   -54.75383   -54.64840   -54.56897   -54.41381   -54.13741   -53.99376   -53.77971   -53.32922   -53.23504
+   -53.11355   -52.97710   -52.74373   -52.35796   -51.97336   -51.59658   -51.20049   -50.73150   -50.64234   -50.08475
+   -49.80375   -49.72305   -49.49598   -49.36385   -49.12026   -48.93822   -48.82303   -48.53220   -48.27436   -48.12764
+   -47.95058   -47.63483   -47.49272   -47.34400   -46.71661   -46.30038   -46.00277   -45.76745   -45.53389   -45.33427
+   -44.90621   -44.51787   -44.22113   -43.80779   -43.57813   -42.96952   -42.74010   -42.17833   -42.11344   -42.02441
+   -41.81398   -41.65184   -41.00061   -40.69626   -40.38667   -39.60324   -38.99303   -38.72628   -37.98361   -37.88270
+   -37.58810   -37.38459   -36.96560   -36.64568   -35.88925   -34.36975   -34.07894   -33.80643   -32.67161   -32.25971
+   -32.02353   -31.37202   -30.86605   -29.89309   -29.81067   -29.40584   -28.32308   -27.12727   -26.70955   -25.82659
+   -24.34223   -23.76544   -22.56454   -22.39296   -22.10371   -20.75299   -18.55575   -17.85647   -13.30696   -12.66755
+
+ residues of affinity block of the self-energy for orbital   1
+
+     0.00287     0.00439     0.22672     0.00029     0.05717     0.00737     0.03921     0.00036     0.00076     0.00872
+     0.06477     0.00029     0.00002     0.11684     0.01378     0.02937     0.05006     0.04057     0.05270     0.01516
+     0.01724     0.02984     0.01462     0.28372     0.17731     0.00012     0.02912     0.14407     0.10261     0.02851
+     0.31172     0.23233     0.00638     0.00389     0.13293     0.01476     0.15817     0.00554     0.12364     0.04027
+     0.91721     0.14258     0.08740     0.10695     0.44245     0.00084     0.00095     0.03275     0.00475     0.01376
+     0.00023     0.03313     0.00213     0.09447     0.00179     0.11887     0.12518     0.13223     0.02208     0.02679
+     0.05264     0.02509     0.00001     0.04768     0.00582     0.10205     0.00688     0.21231     0.00156     0.02027
+     0.00392     0.01482     0.01036     0.11043     0.05701     0.13195     0.32576     0.02700     0.07633     0.30236
+     1.05427     0.00230     0.07630     0.39018     0.05251     0.08118     0.01981     0.09029     0.05195     0.43669
+     0.00210     0.00104     0.06360     0.41903     0.24389     0.01429     0.14798     0.80446     0.07958     0.08371
+
+ residues of affinity block of the self-energy for orbital   2
+
+     0.00596     0.05942     1.74949     0.03337     0.00143     0.00554     0.00044     0.18659     0.00104     0.49545
+     0.14968     0.06340     0.00768     0.12564     0.33436     0.01254     0.15323     0.06753     0.07264     0.00506
+     0.01320     0.08082     0.10952     0.00109     0.00003     0.68807     0.09407     0.00085     0.01376     0.00025
+     0.04826     0.38350     0.03381     0.01683     0.02828     0.13295     0.08566     0.31831     0.17816     0.05375
+     0.23396     0.00716     0.01529     0.09621     0.45341     0.03880     0.22087     0.00409     0.00050     0.84930
+     0.00000     0.07478     0.00007     0.34779     0.32649     0.10278     0.00308     0.00000     0.00049     0.00111
+     0.11871     0.00104     0.04674     0.00085     0.00122     0.26227     0.41169     0.03336     0.34253     0.38838
+     0.45110     0.07750     0.01182     0.27087     0.09137     0.14711     0.01766     0.00063     0.13867     0.01152
+     0.01565     0.07718     0.70218     0.34464     0.02186     0.00054     0.00010     0.10412     0.03978     0.49095
+     0.42990     1.49741     2.61715     0.17997     0.07072     0.54771     0.38542     0.14441     0.53134     0.20356
+
+ residues of affinity block of the self-energy for orbital   4
+
+     0.00014     0.09847     0.04797     0.00039     0.24012     0.00931     0.05454     0.03288     0.00001     0.08141
+     0.10896     0.01432     0.06673     0.03174     0.03495     0.03924     0.00001     0.00407     0.28902     0.00879
+     0.02049     0.01482     0.15321     0.23317     0.01142     0.16078     0.02842     0.02769     0.00184     0.00271
+     0.37598     0.09645     0.21522     0.08189     0.00667     0.20566     0.04324     0.42168     0.11354     0.06693
+     1.71595     0.23876     0.01073     0.03965     0.03252     0.01078     0.02174     0.00130     0.01023     0.32579
+     0.00227     0.06686     0.00008     0.00096     0.09996     0.57984     0.02858     0.00611     0.05418     0.01508
+     0.06325     0.03304     0.04988     0.02384     0.06833     0.00317     0.14145     0.88043     0.00419     0.14642
+     0.11060     0.01035     0.04854     0.12495     0.03092     0.00082     0.03580     0.15575     0.01347     0.33642
+     0.09145     0.02232     0.28929     0.00196     0.04831     0.04671     0.00185     0.00015     0.02498     0.50746
+     0.11984     0.09393     0.27862     0.13076     0.64107     0.12557     0.03017     0.00044     0.02280     0.26099
+
+ residues of affinity block of the self-energy for orbital   8
+
+     0.03548     0.04341     0.05119     0.29935     0.04157     0.08299     0.00283     0.02982     0.02061     0.00125
+     0.01181     0.00761     0.00238     0.07637     0.03138     0.00126     0.15780     0.12954     0.00748     0.00769
+     0.10738     0.02456     0.00283     0.10170     0.02171     1.95275     0.90047     0.00413     0.00377     0.08654
+     0.25380     0.51072     0.79363     0.04177     0.04569     0.16590     0.09410     0.05312     0.00055     1.74024
+     0.02678     0.01506     0.01974     0.14453     0.08297     1.57928     0.00017     0.01995     0.00635     2.05772
+     0.01021     0.03451     0.12391     0.56270     0.29797     0.00089     0.01672     0.00157     0.03892     0.00522
+     0.02515     0.03962     0.00560     0.00030     0.16124     0.48159     0.19578     0.02174     0.02997     0.06595
+     0.09708     0.00019     0.05563     0.00827     0.07476     0.03171     0.00020     0.05231     0.20609     0.06356
+     0.00084     0.50234     0.03810     0.17715     0.44753     0.07647     0.34380     0.26717     0.10356     0.04423
+     0.59690     0.10727     0.02305     0.27889     0.09238     0.71262     1.16987     0.01165     0.11293     0.00196
+
+ residues of affinity block of the self-energy for orbital  10
+
+     0.06234     0.11766     0.34921     0.35465     0.31308     0.00703     0.01796     0.01441     0.00112     0.01254
+     0.00987     0.01206     0.08478     0.00916     0.02690     0.09925     0.20654     0.03077     0.02018     0.24430
+     0.16852     0.03427     0.13744     0.24737     0.00364     0.00010     0.35465     0.18454     0.37321     0.00001
+     0.03083     0.02712     0.01769     0.53078     0.00400     0.28780     0.12499     0.00553     0.01786     0.07367
+     0.00621     0.02310     0.42852     0.09968     0.29957     0.28691     0.72059     0.05163     0.05299     0.00285
+     0.00042     0.00950     0.00782     0.00585     0.00256     0.10332     0.03213     0.02868     0.61400     0.21915
+     0.30223     0.25551     0.00470     0.02441     0.01898     0.01780     0.00606     0.06498     0.20894     0.01783
+     0.14600     0.03143     0.09734     0.02225     0.00451     0.03903     0.00009     0.61411     0.02362     0.04121
+     0.07929     0.00578     0.44807     0.00022     0.00789     0.02956     0.08676     0.33421     0.33131     0.55178
+     0.03541     0.03465     0.05810     0.02921     0.11252     0.09999     0.01101     0.05079     0.02327     0.05111
+
+ residues of affinity block of the self-energy for orbital  13
+
+     0.09253     0.01360     0.00000     0.06538     0.58117     0.00045     0.23098     0.07239     0.02577     0.00021
+     0.14598     0.00337     0.06086     0.01543     0.00168     0.25628     0.13003     0.00019     0.00697     0.00763
+     0.02624     0.06967     0.10798     0.11841     0.00200     0.14997     0.34075     0.21273     0.07250     0.01155
+     0.22434     0.01223     1.03447     0.88827     0.00080     0.05546     0.00003     0.74555     0.37042     0.05800
+     0.47155     0.00082     0.01203     0.00545     0.77607     0.56119     0.01095     0.11825     0.05597     0.04202
+     0.01245     0.22367     0.00022     0.13741     0.37902     0.60259     0.00113     0.01099     0.53153     0.39955
+     0.00371     0.03959     0.17941     0.12241     0.10079     0.10472     0.01519     0.21383     0.72331     0.00386
+     0.06526     0.12944     0.00392     0.01444     0.08082     0.01241     0.00218     0.05154     0.00011     0.10957
+     0.00006     0.00599     0.31956     0.07363     0.04718     0.04048     0.00191     0.16746     0.14046     0.41711
+     0.00144     0.09544     0.27324     0.34517     0.09732     0.04574     0.00043     0.03010     0.04126     0.00646
+
+ residues of affinity block of the self-energy for orbital  14
+
+     0.00000     0.00488     0.37303     0.43861     0.02754     0.07793     0.10479     0.00089     0.00072     0.00767
+     0.00122     0.18377     0.05021     0.03372     0.03798     0.23386     0.55893     0.27019     0.10610     0.16498
+     0.44673     0.03565     0.04359     0.03027     0.00002     0.50821     0.06333     0.00076     0.15564     0.01469
+     0.08407     0.42342     0.76999     0.22730     0.09184     0.22548     0.12598     0.08664     0.00010     0.08186
+     0.00709     0.60913     0.01042     0.12517     1.30898     0.01819     0.06757     0.08080     0.33478     0.02430
+     0.00616     0.20201     0.20577     0.26042     0.21388     0.59324     0.40018     0.07577     1.37392     0.23537
+     0.17533     0.36934     0.01818     0.11118     0.21011     0.41121     0.01894     0.01195     0.14819     0.01770
+     0.00046     0.07657     0.36065     0.01095     0.00928     0.00091     0.00001     0.00094     0.19907     0.00110
+     0.01297     0.00174     0.01113     0.17827     0.10984     0.03167     0.06516     0.30434     0.06875     0.02748
+     0.07077     0.02264     0.07625     0.03258     0.02212     0.04829     0.16500     0.01154     0.01121     0.00522
+
+ residues of affinity block of the self-energy for orbital  16
+
+     0.03033     0.30454     0.86709     0.40586     0.30015     0.13569     0.11476     0.00515     0.00125     0.01575
+     0.25070     0.01952     0.07961     0.50148     0.17326     0.11634     0.39369     0.04006     0.52993     0.33085
+     0.23684     0.00299     0.00475     0.10307     0.00134     0.31727     0.33600     0.03818     0.00162     0.00971
+     0.00246     0.26014     0.07231     0.08668     0.20368     0.33406     0.00002     0.03958     0.26253     0.25255
+     0.35997     0.07937     0.00539     0.25656     0.26897     0.47795     0.00032     0.03563     0.21115     0.10978
+     0.01799     0.22477     0.26394     3.22796     0.65917     0.05248     0.01506     0.05516     0.00620     0.00150
+     0.02670     0.55326     0.01809     0.00265     0.36335     0.11765     0.08446     0.18655     0.01761     0.00320
+     0.13564     0.01405     0.14445     0.09222     0.20930     0.00004     0.02940     0.00677     0.02132     0.00091
+     0.00328     0.05600     0.02101     0.19416     0.00135     0.01524     0.00749     0.03271     0.00499     0.00003
+     0.09333     0.46951     0.19456     0.72599     0.09456     0.14947     0.02136     0.00594     0.03034     0.00196
+
+ residues of affinity block of the self-energy for orbital  18
+
+     0.12896     0.01193     0.07909     0.26063     0.07919     0.01867     0.04234     0.92135     0.00854     0.24598
+     0.00561     0.00781     0.13000     0.16962     0.00532     0.03663     0.00221     0.01353     0.29570     0.00188
+     0.00988     0.01229     0.04783     0.05094     0.03029     0.00961     0.00022     0.03743     0.18179     0.01546
+     0.00237     0.03523     0.02838     0.10120     0.04321     0.02920     0.02637     0.03779     0.00123     0.00821
+     0.03670     0.03433     0.00780     0.00225     0.08247     0.00115     0.03330     0.00029     0.02097     0.00459
+     0.00149     0.00930     0.00710     0.10993     0.01176     0.05936     0.00220     0.00083     0.07860     0.00800
+     0.00221     0.00077     0.00288     0.00066     0.01458     0.06118     0.00156     0.00157     0.03992     0.00084
+     0.00199     0.00283     0.03218     0.01042     0.01627     0.00061     0.00142     0.00442     0.01068     0.00081
+     0.00219     0.01848     0.00323     0.01942     0.00738     0.02508     0.00346     0.00819     0.00777     0.00059
+     0.00140     0.00494     0.03230     0.00038     0.00011     0.02305     0.01944     0.01244     0.00673     0.01436
+
+ residues of affinity block of the self-energy for orbital  20
+
+     0.23109     0.00011     0.03405     0.00466     0.00384     0.00726     0.00992     0.10865     0.00004     0.01472
+     0.06205     0.00410     0.30049     0.22010     0.00267     0.01563     0.01936     0.01416     0.06831     0.02127
+     0.02871     0.00162     0.06117     0.17504     0.03498     0.01229     0.00989     0.13236     0.07415     0.00001
+     0.24329     0.00915     0.00009     0.00190     0.00185     0.07560     0.07030     0.05434     0.02774     0.06283
+     0.29826     0.01126     0.01651     0.10478     0.04204     0.01139     0.05425     0.01487     0.00516     0.04080
+     0.01586     0.00363     0.00270     0.00066     0.01155     0.04301     0.04738     0.05174     0.00594     0.01726
+     0.01432     0.07173     0.01172     0.00000     0.00278     0.02728     0.00725     0.00403     0.01090     0.09041
+     0.00135     0.00018     0.09482     0.00046     0.00365     0.01299     0.04218     0.02593     0.00867     0.00322
+     0.29945     0.00733     0.26707     0.11582     0.00910     0.01520     0.01866     0.07388     0.10561     0.48465
+     0.00079     0.03335     0.00049     0.05795     0.32936     0.00507     0.03130     0.42067     0.01204     0.00000
+ the number of configurations taken into account in the b-block for symmetry    1   is     164
+
+
+ index identification of the 2h1p configurations ordered according to the selection criterion
+ s denotes singlet coupling, t triplet coupling in the configurations
+
+
+     1 = ( 7, 4, 5)s     2 = ( 8, 6, 6)s     3 = (10, 6, 6)s     4 = ( 7, 2, 5)s     5 = (10, 5, 5)s     6 = ( 8, 5, 5)s
+     7 = ( 9, 4, 6)s     8 = ( 8, 3, 6)s     9 = (10, 3, 6)s    10 = ( 9, 2, 6)s    11 = ( 8, 3, 3)s    12 = ( 9, 3, 4)s
+    13 = (10, 3, 3)s    14 = (10, 4, 4)s    15 = ( 8, 4, 4)s    16 = (13, 6, 6)s    17 = ( 8, 2, 4)s    18 = (14, 6, 6)s
+    19 = (10, 2, 4)s    20 = ( 9, 2, 3)s    21 = ( 8, 2, 2)s    22 = (11, 4, 5)s    23 = (13, 5, 5)s    24 = ( 7, 1, 5)s
+    25 = (11, 2, 5)s    26 = (12, 4, 6)s    27 = (14, 5, 5)s    28 = (10, 2, 2)s    29 = (13, 3, 6)s    30 = (12, 2, 6)s
+    31 = (14, 3, 6)s    32 = (12, 3, 4)s    33 = (13, 3, 3)s    34 = (14, 3, 3)s    35 = (16, 6, 6)s    36 = (15, 4, 6)s
+    37 = (13, 4, 4)s    38 = ( 9, 1, 6)s    39 = (15, 2, 6)s    40 = (18, 6, 6)s    41 = (13, 2, 4)s    42 = (14, 4, 4)s
+    43 = (12, 2, 3)s    44 = (15, 3, 4)s    45 = (14, 2, 4)s    46 = (16, 5, 5)s    47 = (13, 2, 2)s    48 = ( 8, 1, 2)s
+    49 = ( 9, 1, 3)s    50 = (10, 1, 2)s    51 = (17, 4, 5)s    52 = (10, 1, 4)s    53 = (14, 2, 2)s    54 = (18, 5, 5)s
+    55 = (16, 3, 6)s    56 = ( 8, 1, 4)s    57 = (15, 2, 3)s    58 = (19, 4, 6)s    59 = (16, 3, 3)s    60 = (18, 4, 4)s
+    61 = (18, 3, 6)s    62 = (16, 4, 4)s    63 = (12, 1, 6)s    64 = (11, 1, 5)s    65 = (16, 2, 4)s    66 = (17, 2, 5)s
+    67 = (19, 3, 4)s    68 = (19, 2, 6)s    69 = (12, 1, 3)s    70 = (16, 2, 2)s    71 = (13, 1, 2)s    72 = (18, 3, 3)s
+    73 = (14, 1, 2)s    74 = (18, 2, 4)s    75 = (13, 1, 4)s    76 = (15, 1, 6)s    77 = (14, 1, 4)s    78 = (15, 1, 3)s
+    79 = (10, 1, 1)s    80 = (19, 2, 3)s    81 = ( 8, 1, 1)s    82 = (17, 1, 5)s    83 = (19, 1, 6)s    84 = (18, 2, 2)s
+    85 = (16, 1, 2)s    86 = (18, 1, 4)s    87 = (16, 1, 4)s    88 = (20, 6, 6)s    89 = (19, 1, 3)s    90 = (18, 1, 2)s
+    91 = (20, 5, 5)s    92 = (13, 1, 1)s    93 = (14, 1, 1)s    94 = (20, 3, 6)s    95 = (20, 4, 4)s    96 = (20, 3, 3)s
+    97 = (18, 1, 1)s    98 = (16, 1, 1)s    99 = (20, 2, 4)s   100 = (20, 2, 2)s   101 = (20, 1, 4)s   102 = (20, 1, 2)s
+   103 = (20, 1, 1)s   104 = ( 7, 4, 5)t   105 = ( 7, 2, 5)t   106 = ( 9, 4, 6)t   107 = ( 8, 3, 6)t   108 = (10, 3, 6)t
+   109 = ( 9, 2, 6)t   110 = ( 9, 3, 4)t   111 = ( 8, 2, 4)t   112 = (10, 2, 4)t   113 = ( 9, 2, 3)t   114 = (11, 4, 5)t
+   115 = ( 7, 1, 5)t   116 = (11, 2, 5)t   117 = (12, 4, 6)t   118 = (13, 3, 6)t   119 = (12, 2, 6)t   120 = (14, 3, 6)t
+   121 = (12, 3, 4)t   122 = (15, 4, 6)t   123 = ( 9, 1, 6)t   124 = (15, 2, 6)t   125 = (13, 2, 4)t   126 = (12, 2, 3)t
+   127 = (15, 3, 4)t   128 = (14, 2, 4)t   129 = ( 8, 1, 2)t   130 = ( 9, 1, 3)t   131 = (10, 1, 2)t   132 = (17, 4, 5)t
+   133 = (10, 1, 4)t   134 = (16, 3, 6)t   135 = ( 8, 1, 4)t   136 = (15, 2, 3)t   137 = (19, 4, 6)t   138 = (18, 3, 6)t
+   139 = (12, 1, 6)t   140 = (11, 1, 5)t   141 = (16, 2, 4)t   142 = (17, 2, 5)t   143 = (19, 3, 4)t   144 = (19, 2, 6)t
+   145 = (12, 1, 3)t   146 = (13, 1, 2)t   147 = (14, 1, 2)t   148 = (18, 2, 4)t   149 = (13, 1, 4)t   150 = (15, 1, 6)t
+   151 = (14, 1, 4)t   152 = (15, 1, 3)t   153 = (19, 2, 3)t   154 = (17, 1, 5)t   155 = (19, 1, 6)t   156 = (16, 1, 2)t
+   157 = (18, 1, 4)t   158 = (16, 1, 4)t   159 = (19, 1, 3)t   160 = (18, 1, 2)t   161 = (20, 3, 6)t   162 = (20, 2, 4)t
+   163 = (20, 1, 4)t   164 = (20, 1, 2)t
+
+ --------------------------------------------------------------------------------------------------------
+
+ eigenvalues and large components of the eigenvectors of the matrix for b
+ only the eigenvalues between 0 and min(e(i))-30 ev for valence orbital i are listed
+
+
+  nr    88  ev    -65.7891  ::  50: -0.20  51: -0.24 130: -0.22 131:  0.44 132:  0.45 133: -0.27 136: -0.28
+  nr    89  ev    -65.4244  ::  50: -0.23  51: -0.40  59: -0.21 127: -0.28 132:  0.28 136:  0.37
+  nr    90  ev    -65.1368  ::  47:  0.23  51: -0.34  52:  0.27  53:  0.23 127:  0.26 131: -0.42 132:  0.25 136: -0.28
+  nr    91  ev    -64.8477  ::  27: -0.20  46:  0.71  51:  0.23  54: -0.49
+  nr    92  ev    -64.5859  ::  43:  0.27  57:  0.24 123: -0.23 130: -0.47 131: -0.33 135:  0.20
+  nr    93  ev    -64.0172  ::  43:  0.21  47: -0.38  57:  0.38 123:  0.24 127:  0.23 130:  0.41 136: -0.22
+  nr    94  ev    -63.4456  ::  43: -0.51  44:  0.21  47: -0.34  53:  0.26  63:  0.22 126: -0.23
+  nr    95  ev    -62.6400  ::  37:  0.20  48: -0.30 129: -0.20 130: -0.24 131:  0.26 133:  0.47 135: -0.35
+  nr    96  ev    -62.4664  ::  50: -0.22 124:  0.28 125: -0.36 128:  0.48 135:  0.27
+  nr    97  ev    -62.2969  ::  48: -0.20  50:  0.22  52:  0.22 125: -0.27 126:  0.21 128:  0.49 131: -0.22 135: -0.24
+  nr    98  ev    -61.6666  ::  50: -0.22 124: -0.20 128:  0.21 134: -0.70
+  nr    99  ev    -61.3502  ::  39:  0.21  40: -0.53  44:  0.23 124:  0.27 126: -0.26 127: -0.23
+  nr   100  ev    -61.2304  ::  43: -0.29  45:  0.25  50: -0.36  52: -0.27 125:  0.26 126:  0.24 134:  0.36
+  nr   101  ev    -60.9088  ::  32:  0.21  40:  0.38  48: -0.26 126: -0.29 134:  0.24
+  nr   102  ev    -60.5918  ::  40:  0.22  45:  0.27  48:  0.26 126: -0.33 130: -0.27 133:  0.45
+  nr   103  ev    -60.2691  ::  32:  0.22  36:  0.32  40: -0.22  41: -0.30  42:  0.36  48: -0.20 129:  0.26 135:  0.26
+  nr   104  ev    -59.8478  ::  38:  0.21  40:  0.21  41:  0.23  48: -0.38  56: -0.24 129:  0.37 135:  0.41
+  nr   105  ev    -59.6928  ::  39: -0.26  40: -0.37  44: -0.20 122:  0.25 124: -0.27 126: -0.30 127:  0.30 134:  0.35
+  nr   106  ev    -59.2420  ::  26:  0.29  30: -0.27  32:  0.37 121: -0.34 126:  0.34
+  nr   107  ev    -58.8283  ::  35:  0.30  36: -0.32  39: -0.46  40: -0.23 122: -0.21 124:  0.23 127: -0.22 128: -0.25
+  nr   108  ev    -57.9049  ::  23:  0.24  27: -0.26  38:  0.21  49: -0.21 123:  0.26 125: -0.41 128: -0.25
+  nr   109  ev    -57.8086  :: 122: -0.44 123: -0.26 124: -0.54
+  nr   110  ev    -57.5080  ::  23: -0.62  27:  0.60
+  nr   111  ev    -57.1317  ::  30: -0.29 117: -0.21 119:  0.23 121:  0.60 126: -0.23
+  nr   112  ev    -56.6791  ::  32: -0.22  35:  0.20  38:  0.24 122: -0.28 123:  0.58 125:  0.27 130: -0.26
+  nr   113  ev    -56.2129  ::  31:  0.31  34: -0.41  35: -0.43  39: -0.35 118: -0.21 120:  0.21
+  nr   114  ev    -55.5849  ::  16:  0.29  29:  0.24  33:  0.22  34:  0.61  35: -0.23  55:  0.29
+  nr   115  ev    -55.1749  ::  22: -0.48  25:  0.46 114: -0.31 116:  0.24 125:  0.25 128:  0.20
+  nr   116  ev    -55.1142  ::  18:  0.28  31:  0.29  33:  0.62  35:  0.30 120:  0.22
+  nr   117  ev    -54.1975  ::  22: -0.26  25:  0.32  28:  0.58 114:  0.30 116: -0.33
+  nr   118  ev    -54.0226  ::  22: -0.23  25:  0.26  28: -0.42  36:  0.22  38:  0.26  49: -0.24 114:  0.25 116: -0.25
+                               123: -0.22
+  nr   119  ev    -53.8032  ::  28:  0.34  38:  0.27  49: -0.24 114: -0.30 116:  0.31 123: -0.30 125:  0.23
+  nr   120  ev    -53.0651  ::  36: -0.28  38:  0.21  42:  0.32  44:  0.24  45:  0.29 116: -0.29
+  nr   121  ev    -52.6656  ::  17: -0.20  36: -0.29  37: -0.35  41: -0.30  44:  0.22 116:  0.25 119: -0.20
+  nr   122  ev    -52.2312  ::  29:  0.22  31:  0.47  34: -0.20 118:  0.39 120: -0.49
+  nr   123  ev    -52.0967  ::  15:  0.55  17: -0.38  21:  0.45  56:  0.22
+  nr   124  ev    -51.6443  ::  29:  0.30  30:  0.27  31:  0.24  35:  0.23 119:  0.52 121: -0.24
+  nr   125  ev    -51.2279  ::  24:  0.56 115:  0.45
+  nr   126  ev    -51.0256  ::  24: -0.20  29: -0.44  33:  0.36 118:  0.34 119:  0.28 120: -0.39
+  nr   127  ev    -50.6421  ::  30:  0.59  32:  0.40 119: -0.40 121:  0.24
+  nr   128  ev    -50.0704  ::  10:  0.21  15:  0.22  17: -0.43  20: -0.34  21: -0.49
+  nr   129  ev    -49.5164  ::  14:  0.32  19: -0.27  20:  0.23  22:  0.22  25:  0.22  26:  0.23  41:  0.21  45:  0.22
+                               114:  0.27 116:  0.32 117:  0.21 119:  0.25
+  nr   130  ev    -49.3340  ::  22:  0.25  24: -0.21  26: -0.34 113:  0.28 114:  0.45 116:  0.22 117: -0.21
+  nr   131  ev    -48.1728  ::  22:  0.25  25:  0.25 110:  0.23 113:  0.21 114: -0.24 115: -0.20 116: -0.23 117:  0.56
+                               121:  0.22
+  nr   132  ev    -48.0849  ::  22:  0.45  24:  0.29  25:  0.44 115: -0.31 117: -0.31
+  nr   133  ev    -47.8103  ::   7:  0.21  12:  0.31  26: -0.57  32:  0.34 117:  0.29
+  nr   134  ev    -47.3584  ::  22:  0.38  24: -0.53  25:  0.25 114: -0.24 115:  0.57
+  nr   135  ev    -47.0510  ::   5:  0.32  23:  0.60  27:  0.61 115:  0.26
+  nr   136  ev    -46.5817  ::   7:  0.21  12:  0.27  14: -0.25  19:  0.47  20: -0.28  26:  0.28 113: -0.21
+  nr   137  ev    -45.9631  ::   7: -0.30  10:  0.26  12: -0.36 106:  0.22 110: -0.22 113: -0.51 117:  0.21
+  nr   138  ev    -45.3323  ::  10: -0.25  12:  0.30  20:  0.40  21: -0.37 106:  0.23 109: -0.27 110: -0.37 116: -0.21
+  nr   139  ev    -44.7959  ::   2:  0.31   8:  0.53  11:  0.50  13: -0.20  18:  0.31 120: -0.24
+  nr   140  ev    -44.5868  ::   8:  0.25  11:  0.27 118:  0.59 120:  0.57
+  nr   141  ev    -43.9866  ::  16:  0.37  18: -0.58  29: -0.25  31:  0.27 118: -0.42
+  nr   142  ev    -42.8068  ::  13:  0.25 111:  0.37 112: -0.74 113:  0.22
+  nr   143  ev    -42.2609  ::  10:  0.21  13:  0.22  20: -0.24  21:  0.25 110: -0.36 111:  0.34 112:  0.46 113:  0.31
+  nr   144  ev    -42.0188  ::  13: -0.75  16:  0.28  18:  0.23 111:  0.25 113:  0.22
+  nr   145  ev    -41.4378  ::  12: -0.20  20: -0.21 110: -0.26 111: -0.68 112: -0.21 113:  0.39
+  nr   146  ev    -40.8109  ::   3:  0.31  13:  0.28  16:  0.62  18:  0.35  29: -0.37  33: -0.23
+  nr   147  ev    -38.8859  ::  14:  0.69  19:  0.44  28: -0.22 109:  0.21 111: -0.25
+  nr   148  ev    -38.0617  ::   9: -0.31  10: -0.20  12: -0.21  15: -0.56  17: -0.48 111: -0.24
+  nr   149  ev    -37.9806  ::   9: -0.53 106:  0.21 109: -0.46 110:  0.40
+  nr   150  ev    -37.3758  ::   9: -0.59 109:  0.43 110: -0.31
+  nr   151  ev    -36.1826  ::   6: -0.91 105:  0.22
+  nr   152  ev    -35.6363  ::   2: -0.24   7:  0.24   8: -0.31  10:  0.56  11:  0.39  12:  0.22 109: -0.28
+  nr   153  ev    -35.2578  ::   6:  0.21   7: -0.37   8: -0.32  10: -0.34  11:  0.32  20: -0.21 106: -0.46
+  nr   154  ev    -34.7169  ::   7:  0.24   8: -0.30  10: -0.27  11:  0.39  12: -0.37 105: -0.26 106:  0.39 109:  0.33
+  nr   155  ev    -34.0079  ::   4: -0.22   5:  0.54 104:  0.21 105: -0.57 109: -0.29
+  nr   156  ev    -32.7898  ::   5: -0.72   6: -0.29  23:  0.23 105: -0.42
+  nr   157  ev    -31.5964  ::   7: -0.32  12:  0.23 106:  0.22 107: -0.37 108:  0.73
+  nr   158  ev    -31.3103  ::   7: -0.50  12:  0.31  17: -0.21 106:  0.38 107:  0.28 108: -0.44 110:  0.20
+  nr   159  ev    -30.5352  :: 107: -0.81 108: -0.45
+  nr   160  ev    -30.0180  ::   1: -0.37   4:  0.76 105: -0.42
+  nr   161  ev    -29.2209  ::   1: -0.32   4: -0.41 104: -0.75
+  nr   162  ev    -26.7577  ::   3:  0.88   9: -0.24  13: -0.23
+  nr   163  ev    -24.6348  ::   2:  0.81   8: -0.41
+  nr   164  ev    -23.7802  ::   1: -0.81   4: -0.24 104:  0.47
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ list of poles of the self-energy
+
+  -155.01323  -140.89296  -138.45909  -135.17933  -131.33635  -129.66829  -122.76399  -120.65550  -118.82355  -117.34509
+  -115.01997  -113.28980  -110.67094  -108.36019  -105.40162  -104.67839  -104.31389  -104.11249  -103.32893  -101.09764
+  -101.01460  -100.05680   -98.75474   -97.72706   -96.90535   -96.80174   -95.59566   -94.84361   -94.05121   -92.50030
+   -92.11370   -91.64288   -91.38489   -90.87115   -90.09239   -89.88327   -89.13986   -89.00239   -88.00933   -87.48551
+   -87.24056   -85.18148   -85.01267   -83.89819   -83.42693   -82.98143   -82.10581   -81.94021   -81.57997   -80.88955
+   -80.09830   -78.75026   -77.99106   -77.61482   -76.89603   -76.68688   -76.33220   -75.90391   -75.58661   -75.14606
+   -74.98586   -74.50206   -74.34328   -74.10035   -73.08200   -72.94950   -72.74538   -72.33353   -71.73441   -71.68723
+   -71.38514   -71.07775   -71.02949   -70.49030   -70.00497   -69.44625   -69.04319   -68.82166   -68.62743   -67.97422
+   -67.92507   -67.47642   -67.15142   -66.90079   -66.75950   -66.38081   -66.34645   -65.78906   -65.42442   -65.13684
+   -64.84775   -64.58594   -64.01716   -63.44561   -62.64002   -62.46644   -62.29694   -61.66662   -61.35022   -61.23038
+   -60.90876   -60.59180   -60.26909   -59.84780   -59.69284   -59.24196   -58.82831   -57.90486   -57.80864   -57.50799
+   -57.13172   -56.67907   -56.21295   -55.58493   -55.17494   -55.11423   -54.19746   -54.02264   -53.80319   -53.06514
+   -52.66556   -52.23120   -52.09672   -51.64428   -51.22792   -51.02556   -50.64211   -50.07043   -49.51645   -49.33403
+   -48.17278   -48.08492   -47.81034   -47.35839   -47.05105   -46.58171   -45.96306   -45.33234   -44.79592   -44.58677
+   -43.98658   -42.80677   -42.26094   -42.01877   -41.43779   -40.81091   -38.88588   -38.06169   -37.98062   -37.37578
+   -36.18259   -35.63632   -35.25779   -34.71692   -34.00786   -32.78978   -31.59636   -31.31031   -30.53520   -30.01805
+   -29.22095   -26.75770   -24.63477   -23.78024
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of ionization block of self-energy for symmetry   1 and subpart   1
+ only the lowest 100 poles are listed
+
+
+    23.78024    24.63477    26.75770    29.22095    30.01805    30.53520    31.31031    31.59636    32.78978    34.00786
+    34.71692    35.25779    35.63632    36.18259    37.37578    37.98062    38.06169    38.88588    40.81091    41.43779
+    42.01877    42.26094    42.80677    43.98658    44.58677    44.79592    45.33234    45.96306    46.58171    47.05105
+    47.35839    47.81034    48.08492    48.17278    49.33403    49.51645    50.07043    50.64211    51.02556    51.22792
+    51.64428    52.09672    52.23120    52.66556    53.06514    53.80319    54.02264    54.19746    55.11423    55.17494
+    55.58493    56.21295    56.67907    57.13172    57.50799    57.80864    57.90486    58.82831    59.24196    59.69284
+    59.84780    60.26909    60.59180    60.90876    61.23038    61.35022    61.66662    62.29694    62.46644    62.64002
+    63.44561    64.01716    64.58594    64.84775    65.13684    65.42442    65.78906    66.34645    66.38081    66.75950
+    66.90079    67.15142    67.47642    67.92507    67.97422    68.62743    68.82166    69.04319    69.44625    70.00497
+    70.49030    71.02949    71.07775    71.38514    71.68723    71.73441    72.33353    72.74538    72.94950    73.08200
+
+ residues of ionization block of the self-energy for orbital   1
+
+     0.14802     0.12398     0.28268     0.22479     4.09994     0.01980     0.03719     0.23192     0.01954     0.09151
+     0.24334     0.17774     0.01316     0.01403     0.70306     0.24425     0.11340     0.04362     0.00292     0.03664
+     0.00431     0.00618     0.00238     0.04048     0.02165     0.11933     0.00816     0.83396     0.07857     0.16847
+     0.89973     0.00113     0.39471     0.10024     0.52322     0.43974     0.00012     0.00215     1.18422     1.86294
+     0.13794     0.01495     0.43783     0.00816     0.19942     0.18536     0.01103     0.24775     0.29831     0.13165
+     0.05984     0.24008     5.47384     0.02975     0.00677     0.56615     3.22284     0.01626     0.09477     0.36975
+     0.35251     2.79670     1.39994     1.41252     2.59628     0.28840     1.07650     1.53316     0.70847     0.57384
+     0.72735     0.00489     0.07016     0.10217     0.22637     0.00778     0.00447     0.14617     0.02273     0.11952
+     0.05167     0.07233     0.24569     0.28287     0.00110     0.00212     0.18482     0.02770     0.34769     0.49471
+     0.80078     0.69560     0.00240     0.08556     0.42561     0.04685     0.22350     0.14796     0.01038     0.08339
+
+ residues of ionization block of the self-energy for orbital   2
+
+     0.71592     0.63837     0.09584     3.18494     0.00657     0.05706     0.05074     0.38876     0.38443     0.16364
+     0.85747     0.01365     0.23401     0.00517     0.47459     0.04697     0.09730     1.09508     0.22391     0.21605
+     0.82942     0.00006     0.00856     1.35251     0.34953     1.04581     2.74808     0.31719     0.14018     0.00216
+     0.82584     0.01338     0.20726     0.05754     0.03843     0.27177     0.83296     0.00001     0.67986     2.65017
+     0.31472     0.38123     0.60944     1.95929     0.00168     0.01681     0.10423     0.25720     0.55890     0.09413
+     0.66471     0.47642     0.69276     0.26980     0.00798     0.06290     1.34610     1.37782     0.44839     0.13370
+     0.28342     0.00213     0.00992     2.77013     0.06549     0.00359     0.12384     0.17899     0.17011     0.58258
+     6.39382     0.39324     0.34612     0.11443     0.28695     0.10612     0.02768     0.21875     0.36783     0.29874
+     0.03909     0.03067     0.07929     0.21458     0.10545     0.09203     0.01828     0.84760     0.37098     0.39186
+     0.00314     0.10270     0.00160     1.02613     0.07642     0.00282     0.01134     0.00317     0.00303     0.37427
+
+ residues of ionization block of the self-energy for orbital   4
+
+     0.21584     0.16910     0.00037     0.74528     1.65840     0.20087     0.06973     0.02188     0.96992     3.86594
+     0.35740     2.34733     0.18983     0.02151     0.99620     2.97138     0.15667     0.74776     0.01780     1.77654
+     0.07596     1.70675     0.60544     0.44695     0.04043     0.12550     0.39160     0.19313     0.00500     0.08768
+     0.32548     0.77810     0.51168     0.25916     3.63762     0.13901     0.15622     0.00002     0.00026     0.04862
+     0.00933     0.37806     0.15500     0.10099     0.08175     0.00387     0.04853     0.18369     0.04605     0.83197
+     0.00026     0.12609     0.29794     0.54099     0.09377     0.12795     0.08233     0.15953     3.30551     0.24897
+     0.44262     0.02395     0.58879     0.24482     0.42898     1.68129     0.02665     0.49989     0.00175     1.53350
+     0.12862     0.02550     0.68633     0.12902     0.86454     0.30779     1.76345     0.00567     0.41970     0.21829
+     0.00564     0.64392     0.08206     0.02408     0.00159     0.04541     0.08342     0.11731     0.01113     0.25033
+     0.15182     0.00265     0.43537     0.07788     0.41295     1.38521     0.01784     0.58673     0.39723     4.21047
+
+ residues of ionization block of the self-energy for orbital   8
+
+     0.06419     1.13094     0.00370     0.05408     0.64029     0.04052     0.13499     0.33092     0.20532     0.07727
+     0.29472     0.01218     0.52364     0.00341     0.01704     0.00408     0.77071     0.00309     0.04445     0.74202
+     0.04134     0.37731     0.00047     0.16519     0.03424     0.17840     2.44835     0.00238     0.37420     0.03377
+     0.18044     0.01005     0.00136     0.10720     1.05522     0.00266     1.40563     0.01782     0.00393     0.53871
+     0.12343     0.21368     0.00637     0.08991     0.03443     0.07079     0.05452     0.00002     0.12841     0.04074
+     0.01685     0.11226     0.00614     0.12515     0.12493     0.04273     0.87926     0.08933     0.38575     0.16889
+     0.05356     0.02166     0.00114     0.03423     0.13744     0.03223     0.06241     0.51913     0.01700     0.00079
+     0.27676     0.35219     0.00097     0.00019     0.09296     0.01191     0.04833     0.19444     0.50964     0.35312
+     0.00053     0.04398     0.00021     0.07777     0.00003     0.02728     0.06955     0.25563     0.11141     0.00179
+     0.00989     0.01147     0.04071     0.16898     0.00100     0.04111     0.00456     0.01594     0.00050     0.06920
+
+ residues of ionization block of the self-energy for orbital  10
+
+     0.00008     0.02939     0.02994     0.47723     0.63723     0.01526     0.05244     0.00002     0.35894     0.11984
+     0.09637     0.32867     0.02243     0.05031     0.00454     0.05352     0.03698     0.53999     0.04985     0.02638
+     0.17886     0.35241     0.14783     0.04968     0.00001     0.00082     0.01422     0.01743     0.00288     0.00365
+     0.31349     0.09810     0.00368     0.02132     0.20778     0.00001     0.36681     0.01180     0.02125     1.37707
+     0.11599     0.01184     0.28099     0.02812     0.48591     0.12860     0.42222     1.39715     0.13115     0.01449
+     0.19460     0.11409     0.31692     0.00353     0.10279     0.05455     0.00516     0.01465     0.00001     0.01540
+     0.02728     0.01642     0.00788     0.01503     0.00007     0.03121     0.01224     0.08719     0.13656     0.21835
+     0.10059     0.00410     0.02085     0.00034     0.10255     0.02400     0.02410     0.00956     0.00009     0.00026
+     0.01176     0.00032     0.00357     0.02398     0.01008     0.17818     0.16321     0.35484     0.03445     0.25614
+     0.60252     0.01428     0.02754     0.02848     0.00415     0.05563     0.01052     0.16258     0.02844     0.03926
+
+ residues of ionization block of the self-energy for orbital  13
+
+     0.00072     0.34552     0.00617     0.67988     0.76603     0.03149     0.00183     0.02120     0.25958     0.00823
+     0.02559     0.12306     0.17916     0.00300     0.00454     0.11761     0.06074     0.17681     0.03413     0.00247
+     0.00006     0.43804     0.04436     0.92531     0.09865     0.40167     0.09569     0.18353     0.07382     0.02222
+     0.38392     0.03017     0.03790     0.19151     0.06958     0.51393     0.00406     0.04063     0.00490     0.48895
+     0.00016     0.00410     1.22920     1.96106     0.55182     0.02001     0.03078     0.80529     0.16550     0.12547
+     0.34493     0.00185     0.00917     0.00059     0.13591     0.35444     0.03723     0.73332     0.07286     0.04932
+     0.12466     0.03405     0.02618     0.01971     0.27424     0.00618     0.00034     0.75070     0.80477     0.26420
+     1.83183     1.28708     0.01459     0.09507     0.01097     0.00664     0.00996     0.04327     0.02463     0.13881
+     0.00003     0.00618     0.04518     0.00049     0.17169     0.05148     0.11833     0.14701     0.00086     0.06271
+     0.83766     0.18553     0.00160     0.00000     0.00174     0.30800     0.30855     0.01362     0.19703     0.12078
+
+ residues of ionization block of the self-energy for orbital  14
+
+     0.13023     0.52338     0.03511     1.00727     0.00453     0.12266     0.08094     0.35858     0.17538     0.09523
+     0.42758     0.00137     0.11885     0.00349     0.02715     0.01242     0.23828     0.14227     0.18982     0.56657
+     0.05465     0.00008     0.08576     0.97043     0.14440     0.17627     1.81292     0.01125     0.52048     0.17262
+     0.01091     0.30509     0.00001     0.16246     0.00352     0.55018     1.86090     0.01014     0.32409     0.16544
+     0.01988     0.02846     0.00065     0.51681     2.36583     0.01931     0.06586     0.42685     0.62693     0.39925
+     0.35965     0.03577     0.00007     1.07264     0.17145     0.23722     0.27066     0.63325     0.04902     0.32757
+     0.00130     0.57855     0.03184     0.09999     0.00058     0.14606     0.03233     0.36334     0.97563     1.00582
+     0.08173     0.08854     0.21291     0.13380     0.18194     0.10968     0.02032     0.27938     0.31836     0.45660
+     0.00632     0.03912     0.55212     0.01010     0.41931     0.00038     0.49407     0.02777     0.02208     0.03888
+     0.62249     0.10777     0.00309     0.00034     0.22017     0.49847     0.28846     0.00068     0.06636     0.14285
+
+ residues of ionization block of the self-energy for orbital  16
+
+     0.00794     0.15128     0.00471     0.10091     0.21996     0.01786     0.01803     0.01178     0.20015     0.38082
+     0.03930     0.00231     0.17347     0.01813     0.05805     0.00455     0.37144     0.08359     0.01858     0.18574
+     0.06322     0.46959     0.01132     0.15425     0.00556     0.13997     1.15166     0.04852     0.24832     0.01126
+     0.08517     0.08568     0.02374     0.30533     1.35139     0.02010     0.43407     0.04414     0.00429     0.73988
+     0.04764     0.28310     0.03237     0.00007     0.09497     0.04433     0.21189     0.18770     0.09387     0.05916
+     0.05563     0.35106     0.00101     0.00026     0.15928     0.02703     0.63858     0.05395     0.32573     0.04065
+     0.00225     0.04517     0.00086     0.04991     0.52105     0.08874     0.20635     1.37796     0.52555     0.28297
+     0.29526     0.59273     0.00012     0.08359     0.22248     0.00787     0.04939     0.22458     0.59294     0.46612
+     0.00713     0.03147     0.00113     0.10651     0.03414     0.01523     0.02123     0.59738     0.07946     0.00367
+     0.03554     0.00537     0.04549     0.27533     0.09781     0.01586     0.02003     0.00062     0.00337     0.37345
+
+ residues of ionization block of the self-energy for orbital  18
+
+     0.15909     0.01041     0.00888     0.27976     0.38012     0.05924     0.00005     0.01711     0.04394     0.08921
+     0.03195     0.16058     0.00974     0.00874     0.04278     0.07748     0.00122     0.17571     0.00075     0.00874
+     0.00164     0.05463     0.01161     0.00472     0.00457     0.00004     0.46737     0.25399     0.00005     0.00283
+     0.07172     0.05186     0.09034     0.00000     0.19378     0.02590     0.12539     0.00056     0.00005     0.02491
+     0.00001     0.01762     0.07108     0.14003     0.19878     0.00001     0.00154     0.10274     0.01187     0.02899
+     0.01392     0.02071     0.04564     0.01749     0.10427     0.03061     0.25955     0.00025     0.60550     0.01587
+     0.00281     0.00561     0.40494     0.11927     0.00566     0.13410     0.00186     0.29939     0.20831     0.54306
+     0.04739     0.00144     0.14489     0.18306     0.14135     0.25443     0.24835     0.05976     0.00776     0.01891
+     0.00211     0.23935     0.00050     0.32603     0.03943     0.02452     0.07829     0.03457     0.12301     0.00335
+     0.01751     0.07749     0.01252     0.11700     0.27161     0.03061     0.00210     0.07803     0.00260     3.21583
+
+ residues of ionization block of the self-energy for orbital  20
+
+     0.01019     0.00341     0.01794     0.00117     0.10715     0.00078     0.02128     0.04085     0.00347     0.28135
+     0.00000     0.00091     0.02540     0.00162     0.06755     0.30590     0.04885     0.01449     0.05515     0.01490
+     0.00717     0.01551     0.01567     0.00925     0.01816     0.01795     0.00740     0.01360     0.04093     0.00001
+     0.01709     0.00228     0.01232     0.00756     0.10950     0.00031     0.02199     0.00378     0.08015     0.52733
+     0.11053     0.01030     0.00090     0.05088     0.00112     0.05846     0.01586     0.00006     0.07485     0.00780
+     0.00768     0.00219     0.03573     0.02815     0.00280     0.03139     0.00115     0.00029     0.01738     0.01947
+     0.00252     0.09012     0.00867     0.16966     0.22789     0.03822     0.13321     0.00004     0.00126     0.00729
+     0.00868     0.02576     0.03552     0.10771     0.00250     0.20621     0.19814     0.11546     0.00051     0.01751
+     0.00461     0.07006     0.00026     0.01711     0.00214     0.16827     0.27705     0.29013     0.08615     0.34675
+     0.29275     0.07360     0.03208     0.00120     0.00014     0.02821     0.03517     0.15045     0.03058     0.40025
+
+                    ****************
+                    symmetry type  2
+                    ****************
+
+ the number of configurations taken into account in the a-block for symmetry    2   is     248
+
+
+ index identification of these configurations
+ ordered according to the selection criterion
+ s denotes singlet spin coupling, t triplet spin coupling in the configurations
+
+
+     1 = ( 5, 7, 7)s     2 = ( 6, 7, 9)s     3 = ( 4, 7,10)s     4 = ( 5, 7,17)s     5 = ( 4, 7,13)s     6 = ( 2, 7, 8)s
+     7 = ( 5, 7,11)s     8 = ( 3, 7, 9)s     9 = ( 4, 7,14)s    10 = ( 5,17,17)s    11 = ( 6, 7,12)s    12 = ( 1, 7,10)s
+    13 = ( 4, 7,18)s    14 = ( 6, 7,19)s    15 = ( 5,11,11)s    16 = ( 4,17,18)s    17 = ( 6,17,19)s    18 = ( 2, 7,10)s
+    19 = ( 5,10,10)s    20 = ( 1, 7,13)s    21 = ( 1,17,20)s    22 = ( 3, 9,11)s    23 = ( 1,10,17)s    24 = ( 2, 8,11)s
+    25 = ( 4, 7,16)s    26 = ( 1, 7,14)s    27 = ( 1, 7,20)s    28 = ( 2,11,16)s    29 = ( 4,11,14)s    30 = ( 3, 7,19)s
+    31 = ( 2, 7,16)s    32 = ( 6, 7,15)s    33 = ( 3,17,19)s    34 = ( 3,11,12)s    35 = ( 3,11,15)s    36 = ( 4,11,13)s
+    37 = ( 6, 9,17)s    38 = ( 3, 7,15)s    39 = ( 5,10,13)s    40 = ( 5, 8,10)s    41 = ( 6, 9,11)s    42 = ( 6,12,17)s
+    43 = ( 1, 7,16)s    44 = ( 1, 7, 8)s    45 = ( 1,13,17)s    46 = ( 4,16,17)s    47 = ( 2, 7,20)s    48 = ( 4, 7, 8)s
+    49 = ( 1,11,16)s    50 = ( 5, 8, 8)s    51 = ( 1,11,14)s    52 = ( 5,20,20)s    53 = ( 4, 8,11)s    54 = ( 2, 7,13)s
+    55 = ( 3,12,17)s    56 = ( 2,17,18)s    57 = ( 2,17,20)s    58 = ( 4,13,17)s    59 = ( 4,14,17)s    60 = ( 2, 7,14)s
+    61 = ( 6,11,12)s    62 = ( 4,10,17)s    63 = ( 5,13,13)s    64 = ( 1,11,13)s    65 = ( 5,16,16)s    66 = ( 5,10,20)s
+    67 = ( 5,14,14)s    68 = ( 4,17,20)s    69 = ( 5, 8,13)s    70 = ( 4, 7,20)s    71 = ( 5,14,16)s    72 = ( 5,18,18)s
+    73 = ( 2,10,11)s    74 = ( 3, 7,12)s    75 = ( 2,11,13)s    76 = ( 2, 7,18)s    77 = ( 6,15,17)s    78 = ( 1,14,17)s
+    79 = ( 1, 8,11)s    80 = ( 4,10,11)s    81 = ( 3, 9,17)s    82 = ( 5, 9, 9)s    83 = ( 4, 8,17)s    84 = ( 6,11,15)s
+    85 = ( 5,13,14)s    86 = ( 2,10,17)s    87 = ( 5,19,19)s    88 = ( 2,11,18)s    89 = ( 5,12,12)s    90 = ( 6,11,19)s
+    91 = ( 1, 7,18)s    92 = ( 5, 8,16)s    93 = ( 5,11,17)s    94 = ( 4,11,18)s    95 = ( 5, 9,15)s    96 = ( 1,10,11)s
+    97 = ( 2,11,14)s    98 = ( 3,15,17)s    99 = ( 1,17,18)s   100 = ( 2,13,17)s   101 = ( 1,16,17)s   102 = ( 5,12,19)s
+   103 = ( 2,16,17)s   104 = ( 1, 8,17)s   105 = ( 5,16,20)s   106 = ( 5,10,18)s   107 = ( 5,13,16)s   108 = ( 5,15,15)s
+   109 = ( 5, 9,12)s   110 = ( 4,11,16)s   111 = ( 5,14,18)s   112 = ( 5, 8,14)s   113 = ( 5, 9,19)s   114 = ( 1,11,18)s
+   115 = ( 1,11,20)s   116 = ( 5,10,16)s   117 = ( 2,14,17)s   118 = ( 5,14,20)s   119 = ( 2, 8,17)s   120 = ( 4,11,20)s
+   121 = ( 5,16,18)s   122 = ( 5,13,20)s   123 = ( 5, 8,18)s   124 = ( 5,15,19)s   125 = ( 5,13,18)s   126 = ( 3,11,19)s
+   127 = ( 5,10,14)s   128 = ( 5,18,20)s   129 = ( 2,11,20)s   130 = ( 5,12,15)s   131 = ( 5, 8,20)s   132 = ( 6, 7, 9)t
+   133 = ( 4, 7,10)t   134 = ( 5, 7,17)t   135 = ( 4, 7,13)t   136 = ( 2, 7, 8)t   137 = ( 5, 7,11)t   138 = ( 3, 7, 9)t
+   139 = ( 4, 7,14)t   140 = ( 6, 7,12)t   141 = ( 1, 7,10)t   142 = ( 4, 7,18)t   143 = ( 6, 7,19)t   144 = ( 4,17,18)t
+   145 = ( 6,17,19)t   146 = ( 2, 7,10)t   147 = ( 1, 7,13)t   148 = ( 1,17,20)t   149 = ( 3, 9,11)t   150 = ( 1,10,17)t
+   151 = ( 2, 8,11)t   152 = ( 4, 7,16)t   153 = ( 1, 7,14)t   154 = ( 1, 7,20)t   155 = ( 2,11,16)t   156 = ( 4,11,14)t
+   157 = ( 3, 7,19)t   158 = ( 2, 7,16)t   159 = ( 6, 7,15)t   160 = ( 3,17,19)t   161 = ( 3,11,12)t   162 = ( 3,11,15)t
+   163 = ( 4,11,13)t   164 = ( 6, 9,17)t   165 = ( 3, 7,15)t   166 = ( 5,10,13)t   167 = ( 5, 8,10)t   168 = ( 6, 9,11)t
+   169 = ( 6,12,17)t   170 = ( 1, 7,16)t   171 = ( 1, 7, 8)t   172 = ( 1,13,17)t   173 = ( 4,16,17)t   174 = ( 2, 7,20)t
+   175 = ( 4, 7, 8)t   176 = ( 1,11,16)t   177 = ( 1,11,14)t   178 = ( 4, 8,11)t   179 = ( 2, 7,13)t   180 = ( 3,12,17)t
+   181 = ( 2,17,18)t   182 = ( 2,17,20)t   183 = ( 4,13,17)t   184 = ( 4,14,17)t   185 = ( 2, 7,14)t   186 = ( 6,11,12)t
+   187 = ( 4,10,17)t   188 = ( 1,11,13)t   189 = ( 5,10,20)t   190 = ( 4,17,20)t   191 = ( 5, 8,13)t   192 = ( 4, 7,20)t
+   193 = ( 5,14,16)t   194 = ( 2,10,11)t   195 = ( 3, 7,12)t   196 = ( 2,11,13)t   197 = ( 2, 7,18)t   198 = ( 6,15,17)t
+   199 = ( 1,14,17)t   200 = ( 1, 8,11)t   201 = ( 4,10,11)t   202 = ( 3, 9,17)t   203 = ( 4, 8,17)t   204 = ( 6,11,15)t
+   205 = ( 5,13,14)t   206 = ( 2,10,17)t   207 = ( 2,11,18)t   208 = ( 6,11,19)t   209 = ( 1, 7,18)t   210 = ( 5, 8,16)t
+   211 = ( 5,11,17)t   212 = ( 4,11,18)t   213 = ( 5, 9,15)t   214 = ( 1,10,11)t   215 = ( 2,11,14)t   216 = ( 3,15,17)t
+   217 = ( 1,17,18)t   218 = ( 2,13,17)t   219 = ( 1,16,17)t   220 = ( 5,12,19)t   221 = ( 2,16,17)t   222 = ( 1, 8,17)t
+   223 = ( 5,16,20)t   224 = ( 5,10,18)t   225 = ( 5,13,16)t   226 = ( 5, 9,12)t   227 = ( 4,11,16)t   228 = ( 5,14,18)t
+   229 = ( 5, 8,14)t   230 = ( 5, 9,19)t   231 = ( 1,11,18)t   232 = ( 1,11,20)t   233 = ( 5,10,16)t   234 = ( 2,14,17)t
+   235 = ( 5,14,20)t   236 = ( 2, 8,17)t   237 = ( 4,11,20)t   238 = ( 5,16,18)t   239 = ( 5,13,20)t   240 = ( 5, 8,18)t
+   241 = ( 5,15,19)t   242 = ( 5,13,18)t   243 = ( 3,11,19)t   244 = ( 5,10,14)t   245 = ( 5,18,20)t   246 = ( 2,11,20)t
+   247 = ( 5,12,15)t   248 = ( 5, 8,20)t
+
+ --------------------------------------------------------------------------------------------------------
+ eigenvalues and large components of eigenvectors of matrix for a
+ only the lowest 20 solutions are listed
+ any negative energy solutions arising from linear dependencies
+ in the basis are deleted later
+ if the energies are beyond -10ev
+
+
+  nr     1  ev     10.9766  ::   1: -0.95
+  nr     2  ev     14.0667  ::   2:  0.88 132: -0.39
+  nr     3  ev     16.0094  ::   2: -0.38  48:  0.20 132: -0.83
+  nr     4  ev     17.1993  ::  48:  0.86 132:  0.28 175:  0.37
+  nr     5  ev     17.5008  ::  48:  0.34 175: -0.87
+  nr     6  ev     20.2597  ::   6:  0.31   8: -0.81  48: -0.21 138:  0.37
+  nr     7  ev     21.5214  ::   3: -0.93
+  nr     8  ev     21.6097  ::   3: -0.27 133:  0.87 138: -0.23
+  nr     9  ev     21.9649  ::  40:  0.33  50:  0.72  82: -0.41 138:  0.21
+  nr    10  ev     22.8578  ::   8: -0.42  50:  0.20 133: -0.28 138: -0.76
+  nr    11  ev     23.6145  ::   6: -0.83 138:  0.27
+  nr    12  ev     24.0458  ::  40: -0.69  50:  0.37 167:  0.57
+  nr    13  ev     24.5364  ::  40:  0.52  50: -0.24 136:  0.44 167:  0.65
+  nr    14  ev     25.6042  ::   6: -0.24 136:  0.79 167: -0.40
+  nr    15  ev     27.3522  ::  19:  0.82  50: -0.21  82: -0.43
+  nr    16  ev     28.4127  ::  19:  0.51  50:  0.38  82:  0.74
+  nr    17  ev     29.3777  ::  18: -0.91 146: -0.27
+  nr    18  ev     30.9269  ::  11: -0.39 140:  0.25 146:  0.84
+  nr    19  ev     31.9178  ::  11: -0.81  18:  0.27 146: -0.37
+  nr    20  ev     32.6547  ::   7: -0.29  11:  0.27 137: -0.23 140:  0.85
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ list of poles of the self-energy
+ any negative energy solutions arising from linear dependencies in the basis are deleted later
+ if they are beyond -10ev
+
+    10.97656    14.06669    16.00944    17.19932    17.50079    20.25968    21.52142    21.60975    21.96490    22.85776
+    23.61453    24.04576    24.53645    25.60418    27.35216    28.41265    29.37768    30.92695    31.91783    32.65467
+    33.08449    35.45564    35.69803    36.54366    36.78734    37.31973    38.70840    38.84777    38.96488    39.39940
+    39.82752    39.93436    40.07450    40.24136    40.78523    41.07453    41.24715    41.31440    41.73844    42.07291
+    42.44498    42.52236    43.26179    43.48750    44.00914    44.15559    44.57602    44.82061    44.99108    45.22475
+    45.39990    45.90111    46.36072    46.60306    46.98081    47.29221    47.61829    47.98374    48.82377    49.58715
+    49.74856    50.10022    50.87774    51.39214    52.79106    52.89209    53.04071    54.28668    54.49580    55.00940
+    55.29226    56.02365    56.05597    56.18464    56.44436    56.67189    56.72779    57.71536    57.90325    58.10827
+    58.30474    58.66275    58.84509    58.93738    59.08587    59.55808    59.66920    59.74547    60.35613    60.49927
+    60.77520    61.44075    61.71903    61.77220    61.88639    62.16793    62.48483    62.60878    63.03266    63.09235
+    63.43159    63.65076    63.89182    63.97636    64.27667    64.42323    64.77763    64.87934    65.38438    65.64463
+    65.82666    66.58515    66.86092    67.12869    67.53317    67.81206    68.05849    68.26841    68.86458    69.70540
+    69.72038    69.89436    70.12020    70.31278    70.36070    70.64747    70.92048    71.74733    71.80028    72.32327
+    72.62084    73.01896    73.40013    73.85294    74.42488    74.55790    74.68978    75.15492    75.36127    75.63840
+    76.07754    77.04391    77.12496    77.66669    78.19309    78.25557    78.47943    78.78924    79.16066    79.27869
+    79.59091    79.64152    79.72842    79.86396    80.20759    80.30177    80.81142    80.97466    81.54883    81.64042
+    82.04529    82.31869    82.61651    82.81135    83.42527    84.05025    84.21084    84.62495    84.77757    84.82594
+    85.22924    85.37012    85.56794    86.04664    86.78413    87.28144    87.55379    87.71817    88.21792    88.65432
+    89.36178    90.46268    91.19106    91.54579    91.83344    92.32493    93.15609    93.38135    94.32048    94.82376
+    95.30677    95.74571    96.04994    96.55801    96.75254    96.86815    97.70500    97.83382    98.96221    99.22583
+    99.28867   100.09954   101.74739   102.23722   102.29716   102.41149   102.73289   102.99632   103.22222   105.33987
+   105.71918   106.97186   109.81799   110.55812   111.67955   113.25967   113.28921   114.42143   116.19854   116.48658
+   117.04177   117.65641   118.25807   118.72266   119.87662   121.42224   122.02153   123.07872   123.45889   123.76642
+   125.18186   127.02359   127.89372   130.97833   131.78907   132.75501   132.80278   135.46982   139.64208   142.02165
+   143.88501   145.52055   146.86842   160.73636   163.51559   167.44163   171.99613   184.23594
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of affinity block of self-energy for symmetry   2 and subpart   1
+ only the lowest 100 poles are listed
+
+
+   -63.09235   -63.03266   -62.60878   -62.48483   -62.16793   -61.88639   -61.77220   -61.71903   -61.44075   -60.77520
+   -60.49927   -60.35613   -59.74547   -59.66920   -59.55808   -59.08587   -58.93738   -58.84509   -58.66275   -58.30474
+   -58.10827   -57.90325   -57.71536   -56.72779   -56.67189   -56.44436   -56.18464   -56.05597   -56.02365   -55.29226
+   -55.00940   -54.49580   -54.28668   -53.04071   -52.89209   -52.79106   -51.39214   -50.87774   -50.10022   -49.74856
+   -49.58715   -48.82377   -47.98374   -47.61829   -47.29221   -46.98081   -46.60306   -46.36072   -45.90111   -45.39990
+   -45.22475   -44.99108   -44.82061   -44.57602   -44.15559   -44.00914   -43.48750   -43.26179   -42.52236   -42.44498
+   -42.07291   -41.73844   -41.31440   -41.24715   -41.07453   -40.78523   -40.24136   -40.07450   -39.93436   -39.82752
+   -39.39940   -38.96488   -38.84777   -38.70840   -37.31973   -36.78734   -36.54366   -35.69803   -35.45564   -33.08449
+   -32.65467   -31.91783   -30.92695   -29.37768   -28.41265   -27.35216   -25.60418   -24.53645   -24.04576   -23.61453
+   -22.85776   -21.96490   -21.60975   -21.52142   -20.25968   -17.50079   -17.19932   -16.00944   -14.06669   -10.97656
+
+ residues of affinity block of the self-energy for orbital   5
+
+     0.58580     0.85654     0.02767     0.08484     0.20938     0.63547     0.03713     0.15990     0.13919     0.15063
+     0.48495     0.18720     0.09320     0.90607     0.50387     0.01509     0.04198     0.06782     0.00759     0.23354
+     0.00348     0.20253     0.88013     0.07048     0.19198     0.48768     0.02812     0.00096     0.19866     0.00104
+     0.00057     0.03010     0.06880     0.00703     0.05245     0.67354     0.29651     0.00590     0.00447     0.00405
+     0.11726     2.72782     0.01782     0.02490     0.00740     0.00876     0.00453     0.10021     0.02072     0.00226
+     0.00717     0.01734     0.17734     0.24737     0.04713     0.48183     5.01849     0.00196     0.18348     0.04436
+     0.05154     0.01282     0.01299     0.00299     0.64863     0.27423     0.01913     0.00994     0.00112     0.00012
+     0.67326     0.04969     1.25370     0.12461     0.18203     0.43083     0.06292     0.32591     0.00000     0.64974
+     0.19629     0.34068     0.87121     0.15962     0.29208     0.30479     0.00522     0.24526     0.00004     0.87072
+     1.06775     0.25229     0.33846     0.65000     0.16050     0.27125     0.15591     1.93133     0.00250     9.54149
+
+ residues of affinity block of the self-energy for orbital   7
+
+     1.28501     2.49992     0.10417     0.06883     0.65046     0.44553     0.03070     0.05954     0.08441     0.16260
+     0.39359     0.07251     1.34539     0.94715     0.24038     0.04128     0.04878     0.09399     0.01682     0.47821
+     0.11681     0.07110     0.34697     0.02431     0.00001     0.00044     0.01265     0.00612     0.12604     0.06739
+     0.00012     0.00124     0.03597     0.00081     0.00762     0.00094     0.10974     0.01357     0.01480     0.04828
+     0.13006     4.30945     0.00009     0.07900     0.01212     0.04399     0.17506     0.08960     0.00073     0.00082
+     0.02264     0.14795     0.06638     0.13235     0.01087     0.39889     0.47836     0.06100     0.00811     0.01458
+     0.29084     0.00911     0.00084     0.79300     0.17857     0.09061     0.05402     0.00392     0.54395     0.38523
+     0.06359     0.08116     0.01322     0.10663     0.01058     0.22799     0.00678     0.00795     0.05923     1.70703
+     0.84600     0.07866     0.07670     0.80463     0.05206     0.01140     0.02587     0.42366     0.00459     1.34045
+     1.09432     0.01743     0.83807     0.14106     0.47424     0.18490     1.00038     1.09952     0.23862     0.00203
+
+ residues of affinity block of the self-energy for orbital  11
+
+     0.54096     1.22713     0.10257     0.12249     0.07033     0.50104     0.07988     0.26134     0.04572     0.07356
+     5.31262     0.18070     0.04550     0.00146     1.58991     0.00249     0.07913     0.01688     0.27913     1.49669
+     0.07756     0.06695     0.96656     0.00025     0.04702     0.01668     0.01786     0.00613     0.00010     0.15350
+     0.00363     0.01874     0.00422     0.02434     0.00166     0.09715     0.00005     0.01306     0.15160     0.75762
+     0.17166     2.52399     0.16686     0.25310     0.42923     1.77856     1.02314     0.00194     0.01408     0.00557
+     0.35401     0.15754     0.00627     0.01485     0.00325     0.22788     1.32613     0.00152     0.07727     0.00430
+     0.79687     0.00123     0.85151     1.94498     0.02798     0.40008     0.05765     0.03305     0.16071     0.11224
+     0.75919     0.01036     0.08829     0.01703     0.01800     0.17119     0.03992     2.07225     0.01027     1.53336
+     0.52258     0.00479     0.04593     0.10355     0.01134     0.02231     0.03110     0.13017     0.00704     0.71821
+     0.43656     0.02439     0.06791     0.03013     0.44259     0.00001     0.18085     0.04950     0.10085     0.18335
+
+ residues of affinity block of the self-energy for orbital  17
+
+     0.03341     0.00569     0.00238     0.00110     0.07381     0.00016     0.00406     0.01138     0.00440     0.00224
+     0.01663     0.04177     6.03911     8.85244     0.39105     0.17461     0.01138     0.64206     0.01562     0.00000
+     0.09736     0.19472     0.03859     0.01609     0.04309     0.12259     0.00591     0.07813     0.34511     0.41586
+     0.08251     0.06861     0.10824     0.00303     0.00860     0.05131     2.04822     0.00050     0.00041     0.04976
+     0.02531     0.00344     0.00934     0.01715     0.05297     0.13855     0.03647     0.00150     0.01786     0.00303
+     0.00562     0.00571     0.00225     0.00070     0.11169     0.01821     0.17176     0.04386     0.01348     0.00540
+     0.03047     0.01080     0.04509     0.04365     0.61066     0.48566     0.00344     0.03057     0.04141     0.01332
+     0.10808     0.06968     0.25208     0.00699     0.34323     0.00000     0.00287     0.04695     0.00129     0.01473
+     0.30023     0.04134     0.15166     0.41681     0.00871     0.00987     0.00082     0.00546     0.00388     0.02976
+     0.05667     0.03214     0.33834     0.02004     0.00000     0.06220     0.09258     0.38179     0.05123     0.83636
+ the number of configurations taken into account in the b-block for symmetry    2   is     100
+
+
+ index identification of the 2h1p configurations ordered according to the selection criterion
+ s denotes singlet coupling, t triplet coupling in the configurations
+
+
+     1 = ( 7, 6, 6)s     2 = ( 7, 5, 5)s     3 = ( 7, 3, 6)s     4 = ( 7, 4, 4)s     5 = ( 7, 3, 3)s     6 = ( 9, 5, 6)s
+     7 = ( 7, 2, 4)s     8 = ( 9, 3, 5)s     9 = (10, 4, 5)s    10 = ( 8, 4, 5)s    11 = ( 8, 2, 5)s    12 = (10, 2, 5)s
+    13 = ( 7, 2, 2)s    14 = (11, 6, 6)s    15 = (12, 5, 6)s    16 = (11, 5, 5)s    17 = (11, 3, 6)s    18 = (12, 3, 5)s
+    19 = (11, 3, 3)s    20 = ( 7, 1, 4)s    21 = ( 7, 1, 2)s    22 = (13, 4, 5)s    23 = (15, 5, 6)s    24 = (13, 2, 5)s
+    25 = (14, 4, 5)s    26 = (11, 4, 4)s    27 = (14, 2, 5)s    28 = (11, 2, 4)s    29 = (17, 6, 6)s    30 = (15, 3, 5)s
+    31 = (11, 2, 2)s    32 = (10, 1, 5)s    33 = ( 8, 1, 5)s    34 = (17, 5, 5)s    35 = (19, 5, 6)s    36 = (16, 4, 5)s
+    37 = (18, 4, 5)s    38 = (16, 2, 5)s    39 = (17, 4, 4)s    40 = (17, 3, 6)s    41 = (19, 3, 5)s    42 = ( 7, 1, 1)s
+    43 = (11, 1, 2)s    44 = (18, 2, 5)s    45 = (11, 1, 4)s    46 = (17, 3, 3)s    47 = (13, 1, 5)s    48 = (17, 2, 4)s
+    49 = (14, 1, 5)s    50 = (17, 2, 2)s    51 = (17, 1, 4)s    52 = (16, 1, 5)s    53 = (18, 1, 5)s    54 = (17, 1, 2)s
+    55 = (11, 1, 1)s    56 = (20, 4, 5)s    57 = (17, 1, 1)s    58 = (20, 2, 5)s    59 = (20, 1, 5)s    60 = ( 7, 3, 6)t
+    61 = ( 9, 5, 6)t    62 = ( 7, 2, 4)t    63 = ( 9, 3, 5)t    64 = (10, 4, 5)t    65 = ( 8, 4, 5)t    66 = ( 8, 2, 5)t
+    67 = (10, 2, 5)t    68 = (12, 5, 6)t    69 = (11, 3, 6)t    70 = (12, 3, 5)t    71 = ( 7, 1, 4)t    72 = ( 7, 1, 2)t
+    73 = (13, 4, 5)t    74 = (15, 5, 6)t    75 = (13, 2, 5)t    76 = (14, 4, 5)t    77 = (14, 2, 5)t    78 = (11, 2, 4)t
+    79 = (15, 3, 5)t    80 = (10, 1, 5)t    81 = ( 8, 1, 5)t    82 = (19, 5, 6)t    83 = (16, 4, 5)t    84 = (18, 4, 5)t
+    85 = (16, 2, 5)t    86 = (17, 3, 6)t    87 = (19, 3, 5)t    88 = (11, 1, 2)t    89 = (18, 2, 5)t    90 = (11, 1, 4)t
+    91 = (13, 1, 5)t    92 = (17, 2, 4)t    93 = (14, 1, 5)t    94 = (17, 1, 4)t    95 = (16, 1, 5)t    96 = (18, 1, 5)t
+    97 = (17, 1, 2)t    98 = (20, 4, 5)t    99 = (20, 2, 5)t   100 = (20, 1, 5)t
+
+ --------------------------------------------------------------------------------------------------------
+
+ eigenvalues and large components of the eigenvectors of the matrix for b
+ only the eigenvalues between 0 and min(e(i))-30 ev for valence orbital i are listed
+
+
+  nr    43  ev    -65.4406  ::  25: -0.33  27:  0.26  33:  0.31  34: -0.37  36:  0.32  37: -0.32  38:  0.30  83:  0.22
+                                85:  0.20
+  nr    44  ev    -65.2333  ::  22:  0.44  24: -0.43  25: -0.31  27:  0.38  34:  0.31  36: -0.32
+  nr    45  ev    -64.8042  ::  32:  0.24  33: -0.87  36:  0.20
+  nr    46  ev    -64.5294  ::  86:  0.99
+  nr    47  ev    -64.2089  ::  30:  0.27  74:  0.27  76: -0.30  77:  0.27  79: -0.61  84: -0.27
+  nr    48  ev    -63.7817  ::  26:  0.42  28: -0.24  30: -0.21  31:  0.62  34:  0.21  45:  0.24
+  nr    49  ev    -63.6245  ::  22: -0.22  23: -0.31  30: -0.45  31: -0.26  34:  0.52  35: -0.20
+  nr    50  ev    -63.1720  ::  30:  0.22  34:  0.24  73: -0.43  75:  0.42  76:  0.35  77: -0.42
+  nr    51  ev    -62.5370  ::  30:  0.25  32:  0.30  34:  0.31  35:  0.28  74: -0.25  79:  0.44  82: -0.25
+  nr    52  ev    -62.1527  ::  26:  0.39  28: -0.62  31: -0.50
+  nr    53  ev    -60.4280  ::  32:  0.70  47: -0.24  79: -0.23  80: -0.37  82:  0.22
+  nr    54  ev    -59.5823  ::  81:  0.96
+  nr    55  ev    -59.1820  ::  17:  0.22  29: -0.90
+  nr    56  ev    -57.9962  ::  22:  0.30  27: -0.25  32:  0.31  34: -0.20  80:  0.64
+  nr    57  ev    -57.7191  ::  22:  0.36  23: -0.25  24:  0.28  25: -0.41  27: -0.44  73: -0.24  76:  0.28  77:  0.25
+  nr    58  ev    -57.3588  ::  23:  0.25  27:  0.21  73: -0.40  74: -0.26  75: -0.27  76:  0.41  77:  0.47
+  nr    59  ev    -57.0291  ::  14:  0.37  17:  0.54  19:  0.60  29:  0.32
+  nr    60  ev    -56.1706  ::  20: -0.52  21:  0.59  80: -0.30
+  nr    61  ev    -55.4904  ::  23: -0.38  30:  0.21  74: -0.69  79: -0.32
+  nr    62  ev    -55.1908  ::  20:  0.20  21: -0.26  22:  0.21  24: -0.34  25:  0.26  27: -0.28  73: -0.30  75:  0.27
+                                76: -0.27  77:  0.25  80: -0.23
+  nr    63  ev    -54.4670  ::  72:  0.77  78: -0.38
+  nr    64  ev    -54.2832  ::  18:  0.52  70: -0.69
+  nr    65  ev    -53.7508  ::  24: -0.44  27: -0.37  72: -0.24  73:  0.22  75: -0.35  76:  0.22  77: -0.32  78:  0.29
+  nr    66  ev    -52.7904  ::  71:  0.21  72: -0.44  78: -0.83
+  nr    67  ev    -52.0675  ::  15:  0.27  18:  0.42  20:  0.28  21:  0.21  73:  0.26  75:  0.41  77:  0.29
+  nr    68  ev    -51.8941  ::  18: -0.51  20:  0.27  21:  0.24  68:  0.24  70: -0.45
+  nr    69  ev    -51.5149  ::  20:  0.23  21:  0.22  26:  0.50  28:  0.42  75: -0.23
+  nr    70  ev    -50.2432  ::  17: -0.21  19:  0.20  20: -0.30  21: -0.26  23: -0.42  25:  0.25  30:  0.30  74:  0.25
+  nr    71  ev    -50.1714  ::  20:  0.32  21:  0.31  23: -0.36  25:  0.21  26: -0.29  27:  0.20  30:  0.25  31:  0.20
+                                71: -0.20  74:  0.24  75: -0.20
+  nr    72  ev    -49.8964  ::  17:  0.54  19: -0.61  26:  0.29  28:  0.35
+  nr    73  ev    -48.9513  ::  22:  0.42  24:  0.33  25:  0.32  71: -0.52  73:  0.27
+  nr    74  ev    -48.2729  ::   9:  0.20  22:  0.29  24:  0.23  25:  0.23  71:  0.74  72:  0.20
+  nr    75  ev    -47.2264  ::  16: -0.91
+  nr    76  ev    -45.9565  ::  15:  0.47  18: -0.20  68:  0.69  70:  0.27
+  nr    77  ev    -44.9775  ::  15:  0.69  18: -0.32  68: -0.47  70: -0.20
+  nr    78  ev    -43.5882  ::  69:  0.99
+  nr    79  ev    -43.5415  ::  10:  0.49  11: -0.54  13:  0.47  66:  0.20
+  nr    80  ev    -43.1397  ::   7: -0.24  10:  0.42  11: -0.39  13: -0.64  21: -0.21
+  nr    81  ev    -41.9087  ::   8:  0.21  65: -0.54  66:  0.69
+  nr    82  ev    -41.3130  ::   9:  0.23  12: -0.62  63: -0.32  64: -0.22  67:  0.48
+  nr    83  ev    -41.0101  ::   8:  0.22  12:  0.55  64: -0.21  67:  0.63
+  nr    84  ev    -40.2572  ::   6: -0.22   8: -0.37  61: -0.23  63:  0.50  65: -0.26  66:  0.21  67:  0.48
+  nr    85  ev    -40.0519  ::  14: -0.85  17:  0.41
+  nr    86  ev    -38.6409  ::   6:  0.39   8:  0.65  10:  0.24  61: -0.22  63:  0.43
+  nr    87  ev    -37.7270  ::   9:  0.24  10: -0.28  11: -0.25  63:  0.34  64: -0.42  65:  0.55  66:  0.35
+  nr    88  ev    -36.6628  ::   7: -0.30  63:  0.20  64: -0.67  65: -0.33  66: -0.26
+  nr    89  ev    -35.9657  ::   7:  0.26   9: -0.77  12: -0.31  22:  0.21  64: -0.22
+  nr    90  ev    -35.5556  ::   4: -0.41   7:  0.63   9:  0.25  10:  0.26  20: -0.21  64: -0.23
+  nr    91  ev    -35.0934  ::   6:  0.31  10: -0.47  11: -0.51  65: -0.39  66: -0.37
+  nr    92  ev    -32.5918  ::   6:  0.45   8: -0.21  61:  0.76  63:  0.30
+  nr    93  ev    -31.5705  ::   5:  0.89  13: -0.24
+  nr    94  ev    -31.1272  ::  62:  0.95
+  nr    95  ev    -28.3916  ::   6: -0.66   8:  0.41  11: -0.22  61:  0.41  63:  0.24
+  nr    96  ev    -26.9857  ::   3: -0.27   4: -0.77   7: -0.49  13:  0.22
+  nr    97  ev    -26.9201  ::   1:  0.23   3:  0.89   4: -0.29
+  nr    98  ev    -23.0643  ::   2:  0.95
+  nr    99  ev    -20.1288  ::  60:  0.99
+  nr   100  ev    -15.9933  ::   1: -0.93   3:  0.22   5:  0.25
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ list of poles of the self-energy
+
+  -131.30087  -127.53431  -115.88820  -115.06210  -114.46964  -106.87368  -106.56973  -102.62839  -101.80635   -97.78246
+   -96.39786   -94.77094   -92.79374   -91.82191   -91.44528   -89.06181   -88.23885   -86.45897   -84.77868   -82.89647
+   -81.31687   -80.09964   -78.59730   -77.91091   -77.50657   -76.96499   -75.34303   -74.85906   -74.67014   -74.45377
+   -74.28260   -73.66594   -73.20447   -72.94965   -72.02649   -70.67482   -70.44829   -68.50064   -67.75813   -66.97367
+   -66.73381   -66.39405   -65.44060   -65.23328   -64.80421   -64.52942   -64.20889   -63.78170   -63.62454   -63.17198
+   -62.53704   -62.15272   -60.42795   -59.58230   -59.18205   -57.99618   -57.71914   -57.35879   -57.02911   -56.17059
+   -55.49041   -55.19076   -54.46701   -54.28319   -53.75075   -52.79041   -52.06752   -51.89411   -51.51493   -50.24319
+   -50.17137   -49.89640   -48.95130   -48.27294   -47.22643   -45.95649   -44.97751   -43.58824   -43.54152   -43.13968
+   -41.90874   -41.31301   -41.01009   -40.25719   -40.05190   -38.64088   -37.72701   -36.66283   -35.96572   -35.55564
+   -35.09336   -32.59175   -31.57048   -31.12724   -28.39162   -26.98570   -26.92012   -23.06428   -20.12875   -15.99328
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of ionization block of self-energy for symmetry   2 and subpart   1
+ only the lowest 100 poles are listed
+
+
+    15.99328    20.12875    23.06428    26.92012    26.98570    28.39162    31.12724    31.57048    32.59175    35.09336
+    35.55564    35.96572    36.66283    37.72701    38.64088    40.05190    40.25719    41.01009    41.31301    41.90874
+    43.13968    43.54152    43.58824    44.97751    45.95649    47.22643    48.27294    48.95130    49.89640    50.17137
+    50.24319    51.51493    51.89411    52.06752    52.79041    53.75075    54.28319    54.46701    55.19076    55.49041
+    56.17059    57.02911    57.35879    57.71914    57.99618    59.18205    59.58230    60.42795    62.15272    62.53704
+    63.17198    63.62454    63.78170    64.20889    64.52942    64.80421    65.23328    65.44060    66.39405    66.73381
+    66.97367    67.75813    68.50064    70.44829    70.67482    72.02649    72.94965    73.20447    73.66594    74.28260
+    74.45377    74.67014    74.85906    75.34303    76.96499    77.50657    77.91091    78.59730    80.09964    81.31687
+    82.89647    84.77868    86.45897    88.23885    89.06181    91.44528    91.82191    92.79374    94.77094    96.39786
+    97.78246   101.80635   102.62839   106.56973   106.87368   114.46964   115.06210   115.88820   127.53431   131.30087
+
+ residues of ionization block of the self-energy for orbital   5
+
+     0.04125     0.00537     2.08272     0.14486     0.14800     0.17638     0.02405     0.07394     6.79786     0.02338
+     2.34867     0.28875     2.18878     0.75266     0.00865     0.00069     0.64600     0.14520     0.92862     0.05681
+     0.26321     0.00072     0.00157     0.01193     0.14526     0.78039     0.00085     0.14070     0.00855     0.00026
+     0.00884     0.00763     0.02979     0.11807     0.04241     0.00967     2.27405     0.37046     0.25747     2.41687
+     2.53992     0.05629     0.00337     0.14036     1.24873     0.00876     0.09767     1.92115     0.02227     0.04468
+     0.05679     0.00015     0.00291     0.00664     0.00001     0.07986     0.00241     0.00984     0.21345     0.07709
+     0.29396     0.32668     0.01060     2.04329     0.15808     0.26704     0.06105     0.03270     2.76850     1.04361
+     0.00007     0.00325     0.01173     2.12275     0.00270     0.31774     0.06864     0.71757    16.40279     3.13571
+     0.01134     0.11466     0.00670     0.00879     0.00040     0.00216     0.64911     0.10140     0.11461     0.02199
+     0.01560     0.14960     0.04695     0.65304     0.47315     0.77722     0.00022     0.33666     2.70345     2.64877
+
+ residues of ionization block of the self-energy for orbital   7
+
+     0.00951     0.00001    11.34776     0.24330     0.06136     0.05851     0.01835     0.00029     0.42404     0.43208
+     1.75393     0.00869     0.09065     0.60290     0.03974     0.18363     2.55966     0.00000     0.74881     1.88847
+     1.88545     0.01589     0.00874     0.06777     1.11719     0.02323     0.07556     0.01154     0.05924     0.07550
+     0.33602     0.32439     0.72622     2.84558     0.11488     0.29779     0.00000     0.62603     1.69993     0.00345
+     0.66516     0.00236     0.39979     0.16295     2.04707     0.02816     0.12448     6.47770     0.06457     0.35236
+     0.11610     0.00216     0.00279     2.01937     0.00161     0.02226     0.00013     0.06048     0.07594     0.00064
+     0.00221     0.01451     0.00093     0.00761     0.06238     0.00116     2.96809     0.00008     0.58698     3.63184
+     0.21257     0.14249     0.00134     0.11810     0.29668     0.65926     1.17001     0.71594    10.76819     0.60378
+     0.00176     0.00102     0.00151     0.14062     0.00132     0.03693     0.00086     0.00573     0.04121     0.09413
+     0.08762     0.09908     0.01457     0.67147     0.30594     0.80995     0.01809     0.55331     1.64134     2.22195
+
+ residues of ionization block of the self-energy for orbital  11
+
+     0.00428     0.00000     0.54512     0.00754     0.00362     0.09072     0.01871     0.01431     0.58727     0.04351
+     0.00080     0.01070     0.44710     0.43297     0.00810     0.01801     0.14854     0.00425     0.33736     0.25550
+     0.27271     0.08280     0.00067     0.01876     0.12919     0.41664     0.00001     0.00568     0.00791     0.01762
+     0.00001     0.18743     0.23220     0.61910     0.00324     0.05347     0.85763     0.24768     0.44355     1.19371
+     0.08318     0.00091     0.00000     0.00102     0.20557     0.00031     0.00297     0.35851     0.08323     0.12353
+     0.07114     0.00091     0.26280     0.54087     0.00445     0.00060     0.00014     0.13359     0.12025     0.14663
+     0.04462     0.39287     0.00357     0.61578     0.09683     0.04548     0.53400     0.04853     0.09557     0.51983
+     0.11879     0.10002     0.00688     1.41705     0.13690     0.02221     0.22173     0.02747     0.00074     0.11522
+     0.00025     0.05556     0.02112     0.00804     0.00187     0.00003     0.19866     0.00202     0.00024     0.16026
+     0.00240     0.01487     0.00982     0.00501     0.00029     0.00004     0.00001     0.00049     0.00091     0.01096
+
+ residues of ionization block of the self-energy for orbital  17
+
+     0.00830     0.00236     1.25260     0.08598     0.02590     0.02926     0.00681     0.00215     0.25460     0.01333
+     0.44561     0.00452     0.00502     0.01316     0.05191     0.00939     0.31983     0.17090     0.08265     0.09345
+     0.00014     0.04247     0.00079     0.00354     0.18537     0.17719     0.01022     0.15064     0.00008     0.01994
+     0.00121     0.03244     0.00668     0.38875     0.01447     0.00274     0.67893     0.01731     0.18213     0.07739
+     0.47021     0.03260     0.00720     0.00283     0.01467     0.00294     0.02153     2.72228     0.00046     0.00027
+     0.20028     0.13658     0.00844     0.68741     0.00461     0.00853     0.00017     0.05095     0.01275     0.00165
+     0.07943     0.04459     0.01234     0.70056     0.05337     0.05278     1.70160     0.01170     1.48209     0.73514
+     0.10703     0.01053     0.00249     0.45197     0.02391     0.67388     0.63112     1.14398    16.56562     1.36263
+     0.00302     0.00056     0.04352     0.14053     0.00051     0.10336     0.05690     0.09328     0.74919     0.02248
+     0.00017     0.18401     0.02880     0.22294     0.38398     0.78222     0.10049     2.10333     1.39417     5.87596
+
+                    ****************
+                    symmetry type  3
+                    ****************
+
+ the number of configurations taken into account in the a-block for symmetry    3   is     340
+
+
+ index identification of these configurations
+ ordered according to the selection criterion
+ s denotes singlet spin coupling, t triplet spin coupling in the configurations
+
+
+     1 = ( 5, 7, 9)s     2 = ( 6, 8, 8)s     3 = ( 6, 9, 9)s     4 = ( 3, 9, 9)s     5 = ( 6,19,19)s     6 = ( 3, 8, 8)s
+     7 = ( 2, 8, 9)s     8 = ( 3, 9,15)s     9 = ( 3,15,15)s    10 = ( 4,18,19)s    11 = ( 5,17,19)s    12 = ( 5, 7,12)s
+    13 = ( 5, 9,11)s    14 = ( 5, 7,19)s    15 = ( 6,15,15)s    16 = ( 6, 7, 7)s    17 = ( 2, 8,15)s    18 = ( 3,19,19)s
+    19 = ( 1,19,20)s    20 = ( 6,12,19)s    21 = ( 3,12,12)s    22 = ( 6, 9,15)s    23 = ( 3, 7, 7)s    24 = ( 4, 9,13)s
+    25 = ( 2,14,15)s    26 = ( 4, 8, 9)s    27 = ( 6, 8,14)s    28 = ( 6, 9,19)s    29 = ( 2,15,16)s    30 = ( 3,10,10)s
+    31 = ( 6,13,14)s    32 = ( 2, 9,10)s    33 = ( 2,13,15)s    34 = ( 4,14,15)s    35 = ( 6, 9,12)s    36 = ( 1,10,19)s
+    37 = ( 2, 9,16)s    38 = ( 4, 9,14)s    39 = ( 3, 9,12)s    40 = ( 6,14,14)s    41 = ( 3,13,14)s    42 = ( 3,14,14)s
+    43 = ( 6, 8,13)s    44 = ( 5,11,12)s    45 = ( 3,12,19)s    46 = ( 6,13,13)s    47 = ( 3,13,13)s    48 = ( 3, 8,14)s
+    49 = ( 5, 9,17)s    50 = ( 2, 8,12)s    51 = ( 5, 7,15)s    52 = ( 6,12,12)s    53 = ( 5,12,17)s    54 = ( 4,12,14)s
+    55 = ( 3, 8,13)s    56 = ( 5,11,15)s    57 = ( 4, 9,10)s    58 = ( 4,12,18)s    59 = ( 2,12,13)s    60 = ( 4, 9,18)s
+    61 = ( 4,12,13)s    62 = ( 1, 9,10)s    63 = ( 3, 8,16)s    64 = ( 4,13,15)s    65 = ( 4, 8,15)s    66 = ( 6,12,15)s
+    67 = ( 6,10,10)s    68 = ( 6,20,20)s    69 = ( 4,16,19)s    70 = ( 2,19,20)s    71 = ( 2,12,16)s    72 = ( 1,12,20)s
+    73 = ( 1,10,12)s    74 = ( 3, 9,19)s    75 = ( 1,13,19)s    76 = ( 2,18,19)s    77 = ( 4, 8,12)s    78 = ( 6,15,19)s
+    79 = ( 4,10,12)s    80 = ( 2,10,15)s    81 = ( 1, 9,14)s    82 = ( 6, 8,10)s    83 = ( 4, 9,16)s    84 = ( 3,16,16)s
+    85 = ( 6, 8,16)s    86 = ( 1, 9,13)s    87 = ( 1, 9,16)s    88 = ( 2,12,14)s    89 = ( 4,10,19)s    90 = ( 1, 9,20)s
+    91 = ( 6,10,20)s    92 = ( 1,15,16)s    93 = ( 6,14,16)s    94 = ( 4,10,15)s    95 = ( 4,13,19)s    96 = ( 6,10,13)s
+    97 = ( 6,13,16)s    98 = ( 4,19,20)s    99 = ( 1,12,14)s   100 = ( 3,13,16)s   101 = ( 6,10,14)s   102 = ( 3,20,20)s
+   103 = ( 2, 9,14)s   104 = ( 1,13,15)s   105 = ( 3, 8,10)s   106 = ( 4,14,19)s   107 = ( 3,14,16)s   108 = ( 3,10,20)s
+   109 = ( 6,18,18)s   110 = ( 6,17,17)s   111 = ( 1,12,13)s   112 = ( 3,15,19)s   113 = ( 5,15,17)s   114 = ( 2,10,19)s
+   115 = ( 6, 7,17)s   116 = ( 1,12,16)s   117 = ( 4,12,16)s   118 = ( 3,10,14)s   119 = ( 4,15,18)s   120 = ( 6,16,16)s
+   121 = ( 1,10,15)s   122 = ( 4, 8,19)s   123 = ( 1,14,19)s   124 = ( 1,14,15)s   125 = ( 3,12,15)s   126 = ( 2,12,18)s
+   127 = ( 4,15,16)s   128 = ( 2, 9,20)s   129 = ( 2, 9,18)s   130 = ( 2,12,20)s   131 = ( 2,10,12)s   132 = ( 3,11,11)s
+   133 = ( 1, 8, 9)s   134 = ( 2,15,18)s   135 = ( 1,15,20)s   136 = ( 3,18,18)s   137 = ( 1, 8,15)s   138 = ( 3,17,17)s
+   139 = ( 4, 9,20)s   140 = ( 5,11,19)s   141 = ( 3, 7,11)s   142 = ( 1, 8,12)s   143 = ( 2, 9,13)s   144 = ( 3, 7,17)s
+   145 = ( 6,10,16)s   146 = ( 3, 8,18)s   147 = ( 2,14,19)s   148 = ( 2,13,19)s   149 = ( 6,18,20)s   150 = ( 3,10,13)s
+   151 = ( 1,18,19)s   152 = ( 3,10,16)s   153 = ( 4,12,20)s   154 = ( 3,16,18)s   155 = ( 2, 8,19)s   156 = ( 6,11,11)s
+   157 = ( 6,16,18)s   158 = ( 6, 8,18)s   159 = ( 4,15,20)s   160 = ( 6,10,18)s   161 = ( 6,14,18)s   162 = ( 6,13,20)s
+   163 = ( 3,10,18)s   164 = ( 2,15,20)s   165 = ( 3,14,18)s   166 = ( 1,12,18)s   167 = ( 1,16,19)s   168 = ( 1, 8,19)s
+   169 = ( 2,16,19)s   170 = ( 3,13,18)s   171 = ( 6,16,20)s   172 = ( 6,13,18)s   173 = ( 6, 8,20)s   174 = ( 3, 8,20)s
+   175 = ( 3,18,20)s   176 = ( 3,16,20)s   177 = ( 3,13,20)s   178 = ( 6,14,20)s   179 = ( 1,15,18)s   180 = ( 6,11,17)s
+   181 = ( 3,14,20)s   182 = ( 3,11,17)s   183 = ( 1, 9,18)s   184 = ( 6, 7,11)s   185 = ( 5, 7, 9)t   186 = ( 2, 8, 9)t
+   187 = ( 3, 9,15)t   188 = ( 4,18,19)t   189 = ( 5,17,19)t   190 = ( 5, 7,12)t   191 = ( 5, 9,11)t   192 = ( 5, 7,19)t
+   193 = ( 2, 8,15)t   194 = ( 1,19,20)t   195 = ( 6,12,19)t   196 = ( 6, 9,15)t   197 = ( 4, 9,13)t   198 = ( 2,14,15)t
+   199 = ( 4, 8, 9)t   200 = ( 6, 8,14)t   201 = ( 6, 9,19)t   202 = ( 2,15,16)t   203 = ( 6,13,14)t   204 = ( 2, 9,10)t
+   205 = ( 2,13,15)t   206 = ( 4,14,15)t   207 = ( 6, 9,12)t   208 = ( 1,10,19)t   209 = ( 2, 9,16)t   210 = ( 4, 9,14)t
+   211 = ( 3, 9,12)t   212 = ( 3,13,14)t   213 = ( 6, 8,13)t   214 = ( 5,11,12)t   215 = ( 3,12,19)t   216 = ( 3, 8,14)t
+   217 = ( 5, 9,17)t   218 = ( 2, 8,12)t   219 = ( 5, 7,15)t   220 = ( 5,12,17)t   221 = ( 4,12,14)t   222 = ( 3, 8,13)t
+   223 = ( 5,11,15)t   224 = ( 4, 9,10)t   225 = ( 4,12,18)t   226 = ( 2,12,13)t   227 = ( 4, 9,18)t   228 = ( 4,12,13)t
+   229 = ( 1, 9,10)t   230 = ( 3, 8,16)t   231 = ( 4,13,15)t   232 = ( 4, 8,15)t   233 = ( 6,12,15)t   234 = ( 4,16,19)t
+   235 = ( 2,19,20)t   236 = ( 2,12,16)t   237 = ( 1,12,20)t   238 = ( 1,10,12)t   239 = ( 3, 9,19)t   240 = ( 1,13,19)t
+   241 = ( 2,18,19)t   242 = ( 4, 8,12)t   243 = ( 6,15,19)t   244 = ( 4,10,12)t   245 = ( 2,10,15)t   246 = ( 1, 9,14)t
+   247 = ( 6, 8,10)t   248 = ( 4, 9,16)t   249 = ( 6, 8,16)t   250 = ( 1, 9,13)t   251 = ( 1, 9,16)t   252 = ( 2,12,14)t
+   253 = ( 4,10,19)t   254 = ( 1, 9,20)t   255 = ( 6,10,20)t   256 = ( 1,15,16)t   257 = ( 6,14,16)t   258 = ( 4,10,15)t
+   259 = ( 4,13,19)t   260 = ( 6,10,13)t   261 = ( 6,13,16)t   262 = ( 4,19,20)t   263 = ( 1,12,14)t   264 = ( 3,13,16)t
+   265 = ( 6,10,14)t   266 = ( 2, 9,14)t   267 = ( 1,13,15)t   268 = ( 3, 8,10)t   269 = ( 4,14,19)t   270 = ( 3,14,16)t
+   271 = ( 3,10,20)t   272 = ( 1,12,13)t   273 = ( 3,15,19)t   274 = ( 5,15,17)t   275 = ( 2,10,19)t   276 = ( 6, 7,17)t
+   277 = ( 1,12,16)t   278 = ( 4,12,16)t   279 = ( 3,10,14)t   280 = ( 4,15,18)t   281 = ( 1,10,15)t   282 = ( 4, 8,19)t
+   283 = ( 1,14,19)t   284 = ( 1,14,15)t   285 = ( 3,12,15)t   286 = ( 2,12,18)t   287 = ( 4,15,16)t   288 = ( 2, 9,20)t
+   289 = ( 2, 9,18)t   290 = ( 2,12,20)t   291 = ( 2,10,12)t   292 = ( 1, 8, 9)t   293 = ( 2,15,18)t   294 = ( 1,15,20)t
+   295 = ( 1, 8,15)t   296 = ( 4, 9,20)t   297 = ( 5,11,19)t   298 = ( 3, 7,11)t   299 = ( 1, 8,12)t   300 = ( 2, 9,13)t
+   301 = ( 3, 7,17)t   302 = ( 6,10,16)t   303 = ( 3, 8,18)t   304 = ( 2,14,19)t   305 = ( 2,13,19)t   306 = ( 6,18,20)t
+   307 = ( 3,10,13)t   308 = ( 1,18,19)t   309 = ( 3,10,16)t   310 = ( 4,12,20)t   311 = ( 3,16,18)t   312 = ( 2, 8,19)t
+   313 = ( 6,16,18)t   314 = ( 6, 8,18)t   315 = ( 4,15,20)t   316 = ( 6,10,18)t   317 = ( 6,14,18)t   318 = ( 6,13,20)t
+   319 = ( 3,10,18)t   320 = ( 2,15,20)t   321 = ( 3,14,18)t   322 = ( 1,12,18)t   323 = ( 1,16,19)t   324 = ( 1, 8,19)t
+   325 = ( 2,16,19)t   326 = ( 3,13,18)t   327 = ( 6,16,20)t   328 = ( 6,13,18)t   329 = ( 6, 8,20)t   330 = ( 3, 8,20)t
+   331 = ( 3,18,20)t   332 = ( 3,16,20)t   333 = ( 3,13,20)t   334 = ( 6,14,20)t   335 = ( 1,15,18)t   336 = ( 6,11,17)t
+   337 = ( 3,14,20)t   338 = ( 3,11,17)t   339 = ( 1, 9,18)t   340 = ( 6, 7,11)t
+
+ --------------------------------------------------------------------------------------------------------
+ eigenvalues and large components of eigenvectors of matrix for a
+ only the lowest 20 solutions are listed
+ any negative energy solutions arising from linear dependencies
+ in the basis are deleted later
+ if the energies are beyond -10ev
+
+
+  nr     1  ev      8.3842  ::  16:  0.95  23:  0.28
+  nr     2  ev     15.3439  ::   1: -0.86 185: -0.50
+  nr     3  ev     17.2213  ::   2: -0.27  16:  0.26  23: -0.90
+  nr     4  ev     17.9788  ::   2:  0.77   3: -0.32   6: -0.36  23: -0.32
+  nr     5  ev     21.1081  ::   3: -0.21  82:  0.82 185:  0.27 247:  0.28
+  nr     6  ev     21.2372  ::   1: -0.44  82: -0.31 185:  0.75
+  nr     7  ev     22.2162  ::  82: -0.32 247:  0.92
+  nr     8  ev     23.4586  ::   3:  0.67   4: -0.30   7:  0.31  26:  0.21  82:  0.21 199:  0.30
+  nr     9  ev     25.3633  ::   2:  0.37   3: -0.21   4: -0.34   6:  0.65 105:  0.26 186:  0.23 199:  0.34
+  nr    10  ev     25.5639  ::  67:  0.94
+  nr    11  ev     26.2840  ::   3:  0.28   4: -0.30   6:  0.24 199: -0.77
+  nr    12  ev     27.5966  ::   6: -0.30 105:  0.87
+  nr    13  ev     28.3393  ::  57: -0.25 268:  0.88
+  nr    14  ev     28.6106  ::   3: -0.23   7:  0.23  26:  0.46  57: -0.43 224:  0.42 268: -0.39
+  nr    15  ev     29.7349  ::   3: -0.31   4: -0.31   7:  0.22  26:  0.30  57:  0.70
+  nr    16  ev     30.1406  ::   4:  0.27  26:  0.41  57: -0.24 224: -0.75
+  nr    17  ev     30.3106  :: 340: -0.99
+  nr    18  ev     31.1028  ::  26:  0.45 186: -0.73 199:  0.27
+  nr    19  ev     31.9804  ::   4: -0.53  30:  0.32  57: -0.26 186: -0.43 224: -0.36
+  nr    20  ev     32.7066  ::  12:  0.84 190:  0.48
+
+ --------------------------------------------------------------------------------------------------------
+
+
+ list of poles of the self-energy
+ any negative energy solutions arising from linear dependencies in the basis are deleted later
+ if they are beyond -10ev
+
+     8.38415    15.34389    17.22129    17.97883    21.10814    21.23720    22.21623    23.45858    25.36329    25.56388
+    26.28397    27.59655    28.33927    28.61061    29.73491    30.14062    30.31061    31.10282    31.98044    32.70660
+    32.72265    33.36054    34.14309    35.68912    35.88041    36.07899    37.19346    37.98051    38.24676    38.59054
+    38.92816    39.25213    39.86290    40.98008    41.11302    41.18808    41.71076    42.18574    42.71230    42.82711
+    43.46460    43.57631    43.71054    44.00596    44.15029    44.82412    45.75283    45.86527    46.14102    46.24493
+    46.42630    46.72959    47.49129    47.78015    48.00414    48.09345    48.45249    48.78649    48.88384    49.01687
+    49.22396    49.42973    49.61922    50.04540    50.24754    50.48762    50.66488    51.02324    51.49292    51.80672
+    51.87445    52.26409    52.45687    52.63904    52.83328    53.17849    53.34752    53.44539    53.84849    54.22016
+    54.50610    54.78281    55.00052    55.34212    55.78133    56.06836    56.43703    56.51669    56.70479    56.98597
+    57.17736    57.48019    57.53143    57.87905    58.11217    58.24137    58.66675    58.94873    59.21027    59.36381
+    59.78935    59.84531    59.96452    60.06155    60.30226    60.55335    61.20387    61.35637    61.51733    61.67610
+    62.05928    62.17987    62.57284    62.68825    63.13276    63.28374    63.34317    63.54667    63.66464    63.83120
+    63.88906    63.99343    64.43248    64.55370    64.75045    64.93798    65.16034    65.37659    65.58428    66.10994
+    66.32259    66.51883    66.78466    66.86191    67.41724    67.51216    67.56774    67.80060    67.84108    68.13068
+    68.45302    68.58499    68.66726    68.91817    68.94471    69.19263    69.79278    70.05516    70.33523    70.65822
+    71.05062    71.18707    71.28288    71.71928    72.00765    72.02714    72.22985    72.48127    72.76191    72.79546
+    73.05591    73.28395    73.73568    73.81482    73.89913    73.94908    74.30636    74.39835    74.55833    74.79928
+    74.95421    75.02994    75.33674    75.55550    75.79111    75.98412    76.39807    76.48167    76.52923    77.06909
+    77.16633    77.41826    77.58263    77.72170    77.79769    78.22609    78.50400    78.90994    79.23634    79.37946
+    79.70840    80.11678    80.26451    80.42512    80.61486    81.02532    81.23030    81.41320    81.49379    81.78771
+    81.89095    82.34398    82.45021    82.68085    82.75679    82.79211    83.02371    83.05672    83.24749    83.41092
+    83.88724    84.10751    84.24146    84.51664    84.67654    84.80164    84.93351    85.13164    85.39909    85.59039
+    86.55420    86.89685    87.22091    87.55687    87.70538    87.97018    88.34893    88.42698    88.85185    88.94843
+    89.26197    89.47018    89.86991    90.58517    90.99388    91.39348    91.54154    91.57924    92.13019    92.23862
+    92.62296    92.68012    93.16510    93.63737    93.95734    94.59842    94.88126    95.04673    95.11253    95.54685
+    96.47349    97.01994    97.12678    97.45876    97.81229    97.95643    98.16894    98.36241    98.52787    99.07829
+    99.25040   100.23560   100.48198   100.59966   100.90538   101.27440   101.61296   101.69126   101.83466   102.07692
+   102.48820   102.61962   103.18193   103.57079   103.63364   104.23345   105.04202   105.46559   105.88852   106.58715
+   106.77073   107.28391   107.73296   108.19231   108.70273   109.02904   110.53764   111.32148   112.40106   113.11503
+   113.50759   113.70605   115.28945   115.92300   117.25908   118.02846   118.61126   119.23925   119.44305   119.69459
+   120.48324   120.99852   123.14145   123.91832   124.70302   125.88756   125.95720   126.14251   126.56225   126.63007
+   127.26986   128.53016   129.16088   129.57390   131.08053   131.48235   131.72931   132.32581   133.39522   135.10063
+   135.29056   136.61122   137.83031   138.60929   139.65510   140.59770   141.07266   142.60695   144.85677   145.12271
+   148.58558   149.19947   159.00380   162.83563   163.41075   165.87315   169.83310   173.93431   178.72793   199.69790
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of affinity block of self-energy for symmetry   3 and subpart   1
+ only the lowest 100 poles are listed
+
+
+   -59.36381   -59.21027   -58.94873   -58.66675   -58.24137   -58.11217   -57.87905   -57.53143   -57.48019   -57.17736
+   -56.98597   -56.70479   -56.51669   -56.43703   -56.06836   -55.78133   -55.34212   -55.00052   -54.78281   -54.50610
+   -54.22016   -53.84849   -53.44539   -53.34752   -53.17849   -52.83328   -52.63904   -52.45687   -52.26409   -51.87445
+   -51.80672   -51.49292   -51.02324   -50.66488   -50.48762   -50.24754   -50.04540   -49.61922   -49.42973   -49.22396
+   -49.01687   -48.88384   -48.78649   -48.45249   -48.09345   -48.00414   -47.78015   -47.49129   -46.72959   -46.42630
+   -46.24493   -46.14102   -45.86527   -45.75283   -44.82412   -44.15029   -44.00596   -43.71054   -43.57631   -43.46460
+   -42.82711   -42.71230   -42.18574   -41.71076   -41.18808   -41.11302   -40.98008   -39.86290   -39.25213   -38.92816
+   -38.59054   -38.24676   -37.98051   -37.19346   -36.07899   -35.88041   -35.68912   -34.14309   -33.36054   -32.72265
+   -32.70660   -31.98044   -31.10282   -30.31061   -30.14062   -29.73491   -28.61061   -28.33927   -27.59655   -26.28397
+   -25.56388   -25.36329   -23.45858   -22.21623   -21.23720   -21.10814   -17.97883   -17.22129   -15.34389    -8.38415
+
+ residues of affinity block of the self-energy for orbital   3
+
+     0.10138     0.00560     0.00734     0.30898     0.00905     0.24455     0.16660     0.14836     0.00250     0.02046
+     0.08082     0.05861     0.00476     0.00245     0.30055     1.10510     0.06472     0.02515     0.01082     0.20047
+     0.04211     0.00553     0.04889     0.14805     0.03876     0.69900     0.43674     0.04006     0.46041     0.08075
+     0.00640     0.00249     0.15021     0.08550     0.00949     0.10677     0.00123     0.00009     0.13235     0.01927
+     0.11260     0.44059     0.00015     0.12752     0.36484     0.09582     0.37097     0.76863     0.00000     0.00297
+     0.04723     0.17366     0.31253     0.03981     0.02288     0.00111     0.01285     0.00021     0.22669     0.00948
+     0.10312     0.00002     0.00327     0.17110     0.10803     0.19636     0.10559     0.09310     0.20399     0.00869
+     0.01402     0.08585     0.01466     0.09812     0.04123     0.00000     0.00066     0.02931     0.02185     1.28152
+     0.00044     0.47194     0.06494     0.00001     0.04863     0.09965     0.12322     0.01341     0.00025     0.37554
+     0.00755     0.00029     1.65389     0.03738     0.53760     0.32677     0.34730     0.00070     0.17455     0.01982
+
+ residues of affinity block of the self-energy for orbital   6
+
+     0.01229     0.00022     0.02994     0.12993     0.35550     0.03565     0.15869     0.04557     0.01229     0.23303
+     0.05778     0.01262     0.00228     0.00568     0.01304     0.19482     0.20404     0.03803     0.13426     0.04105
+     0.03110     0.02286     0.00671     0.02940     0.08613     0.00112     0.04249     0.00967     0.00832     0.72433
+     0.08947     0.00254     0.08526     0.00702     0.00068     0.10123     0.05564     0.00020     0.05624     0.00437
+     0.01199     0.14985     0.26364     0.31354     0.28771     0.02611     0.00233     0.32200     0.00866     0.01145
+     0.08533     0.04417     0.44637     0.05462     0.04230     0.00003     0.05161     0.06826     0.00886     0.02221
+     0.00009     0.06070     0.13968     0.62207     0.07710     0.00056     0.01032     0.23037     0.09911     0.00018
+     0.00484     0.00115     0.31788     0.19539     0.15194     0.00175     0.04304     0.01097     0.00046     0.02246
+     0.00669     0.03550     0.12627     0.00013     0.36757     0.01828     0.03732     0.00098     0.01760     0.77173
+     0.27158     0.22007     2.46835     0.03160     0.23796     0.00058     0.34086     0.07527     0.00041     0.06258
+
+ residues of affinity block of the self-energy for orbital   9
+
+     0.25598     0.02209     0.01020     0.01541     0.11698     0.41015     0.04561     0.00030     0.02261     0.00352
+     0.02117     0.01025     0.00206     0.02947     0.00719     0.13423     0.00915     0.19638     0.00767     0.02281
+     0.05952     0.00392     0.00003     0.04389     0.01287     0.57140     0.24228     0.01097     1.28048     0.06072
+     1.14830     0.58024     1.61956     0.00773     0.00068     1.09455     0.05184     0.00031     0.03412     0.86611
+     0.77247     0.04290     0.51468     0.21486     0.00082     0.01185     0.85581     0.71775     0.01856     0.04500
+     0.00230     0.05151     0.80161     0.35273     0.00093     0.00864     0.00749     0.00213     0.01834     0.00000
+     1.01279     0.14990     0.19917     0.02103     0.00481     0.47423     0.29089     0.01098     0.01320     0.02418
+     0.02139     0.00068     0.07734     0.01584     0.02426     0.02149     0.07641     0.05822     0.00039     0.25461
+     0.01662     0.66601     0.01902     0.00118     0.03535     0.04037     0.08129     0.16762     0.01521     0.40865
+     0.02624     0.01107     0.32985     0.00075     0.14332     0.00107     1.01298     0.28780     0.01693     0.01184
+
+ residues of affinity block of the self-energy for orbital  12
+
+     0.08012     0.00306     0.03090     1.06772     0.00149     0.31608     0.01368     0.05268     0.00059     0.02137
+     0.15414     0.00029     0.03028     0.01483     0.01905     0.22551     0.15990     0.00115     0.01641     0.00368
+     0.04935     0.11325     0.40021     0.51030     0.00003     0.00245     0.13516     0.00526     0.01767     0.01264
+     0.18444     0.25841     0.31919     0.09798     0.05397     0.01467     0.13987     0.02649     0.11895     0.27384
+     0.28253     0.55352     0.00710     0.26536     0.13064     0.02686     0.01651     0.19559     0.04111     0.63753
+     0.20553     0.25542     0.18566     1.05089     0.00156     0.04114     0.03569     0.07149     0.45942     0.00388
+     0.01033     0.00262     0.35921     0.09111     0.02074     0.42606     0.07127     0.28930     0.16953     0.03668
+     0.08753     0.04296     0.25283     0.08895     0.01415     0.00552     0.07012     0.27178     0.02922     0.10811
+     0.00938     0.65382     0.00723     0.01230     0.06065     0.09751     0.01252     0.02395     0.28614     0.07070
+     0.00729     0.01081     0.13292     0.11710     0.20564     0.00332     0.01212     0.00421     0.00505     0.01596
+
+ residues of affinity block of the self-energy for orbital  15
+
+     0.00341     0.04755     0.10843     0.03772     0.68957     0.29717     0.00553     0.08499     0.01725     0.61774
+     0.04088     0.00002     0.00827     0.00029     0.00602     0.43855     0.13053     0.33160     0.04037     0.00126
+     0.18511     0.00018     0.00085     0.00934     0.00133     0.13979     0.66297     0.00207     0.08870     0.01397
+     0.32848     0.36191     0.44950     0.00210     0.05654     0.18770     0.00430     0.00008     0.26864     0.06412
+     0.02120     0.15122     0.00263     0.03240     0.03245     0.00013     0.26329     0.09119     0.01564     0.07543
+     0.00401     0.06731     0.06356     0.52577     0.49569     0.28467     0.08042     0.00833     0.00323     0.00985
+     0.05054     0.00008     0.11060     0.26641     0.00156     1.38824     0.65571     0.70182     0.01443     0.02548
+     0.05075     0.36938     0.00819     0.71798     0.38645     0.00023     0.00351     0.01331     0.00188     0.22209
+     0.03580     0.24207     0.04264     0.00105     0.07653     0.03597     0.10160     0.01735     0.07765     0.72611
+     0.01564     0.00841     0.82098     0.01076     0.03047     0.01770     0.00612     0.04224     0.02416     0.00536
+
+ residues of affinity block of the self-energy for orbital  19
+
+     0.00438     0.06737     0.03632     0.00231     0.06973     0.00139     0.01013     0.27425     0.18365     0.32520
+     0.09655     0.12982     0.08603     0.09504     0.00057     0.00228     0.02269     0.00063     0.02633     0.00285
+     0.05989     0.03435     0.01883     0.03770     0.42140     0.00221     0.00315     0.00360     0.00275     0.11913
+     0.01681     0.00932     0.00221     0.00917     0.00409     0.17434     0.03250     0.05758     0.02395     0.05050
+     0.09524     0.01925     0.12737     0.00704     0.01710     0.00446     0.00724     0.08685     0.02205     0.11111
+     0.22842     0.03210     0.08380     0.00399     0.10903     0.00006     0.01679     0.00173     0.11654     0.00822
+     0.18172     0.09560     0.12095     0.40828     0.04619     0.11651     0.02326     0.01582     0.16859     0.00460
+     0.01850     0.01100     0.25327     0.02625     0.04062     0.00331     0.00163     0.03201     0.00069     0.03781
+     0.03096     0.04043     0.01399     0.00023     0.03541     0.03543     0.00793     0.00231     0.00372     0.06724
+     0.04034     0.02574     0.09770     0.00188     0.03050     0.01738     0.00220     0.02330     0.01295     0.00577
+ the number of configurations taken into account in the b-block for symmetry    3   is     152
+
+
+ index identification of the 2h1p configurations ordered according to the selection criterion
+ s denotes singlet coupling, t triplet coupling in the configurations
+
+
+     1 = ( 7, 5, 6)s     2 = ( 7, 3, 5)s     3 = ( 9, 6, 6)s     4 = (10, 4, 6)s     5 = ( 8, 4, 6)s     6 = ( 9, 5, 5)s
+     7 = ( 8, 2, 6)s     8 = ( 9, 3, 6)s     9 = (10, 2, 6)s    10 = ( 8, 3, 4)s    11 = (10, 3, 4)s    12 = ( 9, 3, 3)s
+    13 = (11, 5, 6)s    14 = (12, 6, 6)s    15 = ( 9, 4, 4)s    16 = ( 8, 2, 3)s    17 = ( 9, 2, 4)s    18 = (11, 3, 5)s
+    19 = (10, 2, 3)s    20 = (12, 5, 5)s    21 = ( 9, 2, 2)s    22 = (13, 4, 6)s    23 = (15, 6, 6)s    24 = (14, 4, 6)s
+    25 = (12, 3, 6)s    26 = (13, 2, 6)s    27 = (14, 2, 6)s    28 = (13, 3, 4)s    29 = (12, 3, 3)s    30 = (14, 3, 4)s
+    31 = (10, 1, 6)s    32 = (15, 5, 5)s    33 = ( 8, 1, 6)s    34 = (12, 4, 4)s    35 = (17, 5, 6)s    36 = (15, 3, 6)s
+    37 = (13, 2, 3)s    38 = (12, 2, 4)s    39 = (15, 3, 3)s    40 = (14, 2, 3)s    41 = (19, 6, 6)s    42 = ( 8, 1, 3)s
+    43 = (10, 1, 3)s    44 = (18, 4, 6)s    45 = ( 9, 1, 2)s    46 = (16, 4, 6)s    47 = (12, 2, 2)s    48 = (16, 2, 6)s
+    49 = ( 9, 1, 4)s    50 = (15, 2, 4)s    51 = (15, 4, 4)s    52 = (19, 5, 5)s    53 = (16, 3, 4)s    54 = (17, 3, 5)s
+    55 = (15, 2, 2)s    56 = (18, 3, 4)s    57 = (13, 1, 6)s    58 = (19, 4, 4)s    59 = (16, 2, 3)s    60 = (14, 1, 6)s
+    61 = (19, 3, 6)s    62 = (18, 2, 6)s    63 = (13, 1, 3)s    64 = (14, 1, 3)s    65 = (12, 1, 2)s    66 = (12, 1, 4)s
+    67 = (19, 3, 3)s    68 = (19, 2, 4)s    69 = (15, 1, 2)s    70 = (18, 2, 3)s    71 = (16, 1, 6)s    72 = (18, 1, 6)s
+    73 = ( 9, 1, 1)s    74 = (15, 1, 4)s    75 = (16, 1, 3)s    76 = (19, 2, 2)s    77 = (19, 1, 4)s    78 = (18, 1, 3)s
+    79 = (19, 1, 2)s    80 = (12, 1, 1)s    81 = (20, 4, 6)s    82 = (20, 3, 4)s    83 = (15, 1, 1)s    84 = (20, 2, 6)s
+    85 = (19, 1, 1)s    86 = (20, 2, 3)s    87 = (20, 1, 6)s    88 = (20, 1, 3)s    89 = ( 7, 5, 6)t    90 = ( 7, 3, 5)t
+    91 = (10, 4, 6)t    92 = ( 8, 4, 6)t    93 = ( 8, 2, 6)t    94 = ( 9, 3, 6)t    95 = (10, 2, 6)t    96 = ( 8, 3, 4)t
+    97 = (10, 3, 4)t    98 = (11, 5, 6)t    99 = ( 8, 2, 3)t   100 = ( 9, 2, 4)t   101 = (11, 3, 5)t   102 = (10, 2, 3)t
+   103 = (13, 4, 6)t   104 = (14, 4, 6)t   105 = (12, 3, 6)t   106 = (13, 2, 6)t   107 = (14, 2, 6)t   108 = (13, 3, 4)t
+   109 = (14, 3, 4)t   110 = (10, 1, 6)t   111 = ( 8, 1, 6)t   112 = (17, 5, 6)t   113 = (15, 3, 6)t   114 = (13, 2, 3)t
+   115 = (12, 2, 4)t   116 = (14, 2, 3)t   117 = ( 8, 1, 3)t   118 = (10, 1, 3)t   119 = (18, 4, 6)t   120 = ( 9, 1, 2)t
+   121 = (16, 4, 6)t   122 = (16, 2, 6)t   123 = ( 9, 1, 4)t   124 = (15, 2, 4)t   125 = (16, 3, 4)t   126 = (17, 3, 5)t
+   127 = (18, 3, 4)t   128 = (13, 1, 6)t   129 = (16, 2, 3)t   130 = (14, 1, 6)t   131 = (19, 3, 6)t   132 = (18, 2, 6)t
+   133 = (13, 1, 3)t   134 = (14, 1, 3)t   135 = (12, 1, 2)t   136 = (12, 1, 4)t   137 = (19, 2, 4)t   138 = (15, 1, 2)t
+   139 = (18, 2, 3)t   140 = (16, 1, 6)t   141 = (18, 1, 6)t   142 = (15, 1, 4)t   143 = (16, 1, 3)t   144 = (19, 1, 4)t
+   145 = (18, 1, 3)t   146 = (19, 1, 2)t   147 = (20, 4, 6)t   148 = (20, 3, 4)t   149 = (20, 2, 6)t   150 = (20, 2, 3)t
+   151 = (20, 1, 6)t   152 = (20, 1, 3)t
+
+ --------------------------------------------------------------------------------------------------------
+
+ eigenvalues and large components of the eigenvectors of the matrix for b
+ only the eigenvalues between 0 and min(e(i))-30 ev for valence orbital i are listed
+
+
+  nr    76  ev    -65.7655  ::  47:  0.26  48:  0.42  51:  0.20  53:  0.35 124: -0.43
+  nr    77  ev    -65.4929  ::  44:  0.36  46:  0.32  53: -0.40 122: -0.21 124: -0.47
+  nr    78  ev    -64.9052  ::  31: -0.24  38:  0.24  43: -0.52  48:  0.32 118:  0.21 119: -0.24
+  nr    79  ev    -64.7074  ::  41: -0.22  43: -0.26  44: -0.21  46: -0.23  48: -0.35  51:  0.27 122: -0.30 124: -0.27
+                               125:  0.25
+  nr    80  ev    -64.4167  ::  34:  0.32  38: -0.40  40: -0.23  47:  0.22 122:  0.20 124:  0.36
+  nr    81  ev    -64.2320  ::  34: -0.29  38:  0.39  41:  0.29  44:  0.28  46: -0.27
+  nr    82  ev    -63.8173  ::  27: -0.24  38: -0.30  40:  0.35  41:  0.23  44:  0.36  50:  0.25  51:  0.24
+  nr    83  ev    -63.4669  :: 111:  0.45 117:  0.77 118: -0.28
+  nr    84  ev    -63.3517  ::  41: -0.23  48:  0.25 112:  0.36 119:  0.38 121:  0.42 122:  0.38
+  nr    85  ev    -62.5627  ::  25:  0.21  35: -0.42  41:  0.46 112:  0.34 118: -0.27
+  nr    86  ev    -62.3936  ::  26: -0.21  37:  0.35  40:  0.35  50: -0.24  51: -0.24 109:  0.23 116: -0.34
+  nr    87  ev    -61.8747  ::  45: -0.50  46: -0.23  49: -0.38 118:  0.35
+  nr    88  ev    -61.8467  ::  41:  0.25  44: -0.26 112: -0.28 119: -0.31 121:  0.47 125:  0.27
+  nr    89  ev    -61.3943  ::  35: -0.29  45:  0.26 108:  0.23 112:  0.23 116:  0.34 118:  0.36
+  nr    90  ev    -60.9630  ::  32: -0.33  37:  0.51  45: -0.24 114: -0.22 116:  0.21
+  nr    91  ev    -60.8562  ::  32:  0.43  40:  0.23  46:  0.34  50:  0.30  51:  0.25  53: -0.23
+  nr    92  ev    -60.6507  ::  32:  0.70 120: -0.32 123: -0.40
+  nr    93  ev    -60.4871  ::  32:  0.33 118: -0.25 120:  0.44 123:  0.52
+  nr    94  ev    -60.0710  ::  35: -0.68  44:  0.22 112: -0.42
+  nr    95  ev    -59.2901  ::  39:  0.21 108:  0.25 109:  0.24 113: -0.24 114:  0.28 116:  0.21 118: -0.33
+  nr    96  ev    -58.4378  ::  23: -0.25  26:  0.25  36: -0.33  37: -0.24  39:  0.50 104:  0.27 107: -0.21 113: -0.20
+                               114: -0.29
+  nr    97  ev    -57.9188  ::  29:  0.37 107:  0.27 108:  0.21 113: -0.39 114: -0.40 116: -0.34
+  nr    98  ev    -57.7408  ::  28: -0.27  29: -0.35  31: -0.25 106: -0.27 107:  0.20 109: -0.37 113: -0.39 114:  0.23
+  nr    99  ev    -57.1574  ::  27: -0.26  29: -0.44 110:  0.25 114: -0.38 116: -0.30
+  nr   100  ev    -56.6475  ::  31:  0.26 115: -0.74
+  nr   101  ev    -56.3720  ::  19:  0.23  25: -0.26  29: -0.20  31:  0.33  43: -0.25 107:  0.25 108:  0.23 115:  0.51
+  nr   102  ev    -55.9158  ::  27: -0.27  33: -0.29  42:  0.26 109: -0.33 111: -0.27
+  nr   103  ev    -55.5674  ::  27: -0.27  33:  0.28  42: -0.24 110: -0.32 111:  0.41 113:  0.26 117: -0.24
+  nr   104  ev    -55.1774  ::  25:  0.21  28:  0.22  31:  0.21  34: -0.29 110: -0.39 113: -0.39
+  nr   105  ev    -55.0134  ::  26: -0.36  29: -0.20  30:  0.34  34:  0.40  38:  0.28 107: -0.31
+  nr   106  ev    -54.5104  ::  23:  0.20  26: -0.29  27:  0.31  30:  0.23  34: -0.33  38: -0.22  47:  0.21 110: -0.29
+                               113:  0.24
+  nr   107  ev    -54.3441  ::  19:  0.24  34: -0.30  38: -0.25 110:  0.47 111:  0.36
+  nr   108  ev    -54.1005  ::  23: -0.26  24: -0.22 103:  0.33 104: -0.41 107: -0.47
+  nr   109  ev    -53.0947  ::  16:  0.23  33:  0.37  42: -0.35 111: -0.47 117:  0.30
+  nr   110  ev    -52.6404  ::  18:  0.29  25: -0.53  29:  0.34  98: -0.22 101:  0.27 113: -0.28
+  nr   111  ev    -52.3927  ::  15: -0.26  18: -0.21  21: -0.65 101: -0.21
+  nr   112  ev    -52.2888  ::  13: -0.22  18: -0.37  21:  0.28  25: -0.37  31: -0.21 101: -0.32 106: -0.21
+  nr   113  ev    -51.0324  ::  15: -0.22  17:  0.21  24:  0.38  30: -0.27 104: -0.38 106:  0.24 109: -0.28 110: -0.21
+  nr   114  ev    -50.4984  ::  15:  0.44  17: -0.58  20:  0.20 104: -0.20
+  nr   115  ev    -50.4163  ::  13: -0.32  18: -0.57  20: -0.22  98: -0.24 101:  0.45 106:  0.20
+  nr   116  ev    -50.1092  ::  18: -0.23  20:  0.61 101:  0.36 106: -0.24
+  nr   117  ev    -50.0137  ::  20:  0.66  22:  0.20  28: -0.21 101: -0.21 103: -0.21 106:  0.22 107:  0.20 108: -0.26
+  nr   118  ev    -49.4407  ::  11:  0.20  19:  0.52  26:  0.28  27:  0.26  31: -0.23 103: -0.24
+  nr   119  ev    -49.1025  ::  19:  0.30  22: -0.26  28:  0.29 103:  0.44 105:  0.32 106:  0.29
+  nr   120  ev    -48.6786  ::   9: -0.24  19:  0.27  23:  0.27  26: -0.35  27: -0.39  28: -0.22  30: -0.26 106: -0.21
+                               107: -0.26
+  nr   121  ev    -47.3973  ::   5:  0.29   7: -0.24  10:  0.36  16: -0.22  23: -0.38  33:  0.21  36:  0.21 105:  0.36
+                               106: -0.26
+  nr   122  ev    -47.0171  ::   5: -0.32  10: -0.34  16:  0.31  33: -0.21 105:  0.59
+  nr   123  ev    -46.7946  ::   5: -0.22  10: -0.23  23: -0.54  26: -0.36  36:  0.28 105: -0.27
+  nr   124  ev    -46.3180  ::  92: -0.27  96:  0.33  99:  0.44 102: -0.65
+  nr   125  ev    -45.9466  ::  12:  0.29  92: -0.25  96:  0.29  99:  0.43 102:  0.59
+  nr   126  ev    -45.5506  ::   4: -0.29  22: -0.48  24: -0.39  28:  0.30  30:  0.23 103: -0.28 104: -0.23
+  nr   127  ev    -44.5931  ::   3:  0.31   8:  0.44  12:  0.48  96: -0.31  97:  0.29
+  nr   128  ev    -43.7059  ::   7:  0.20  10: -0.25  13: -0.22  16: -0.47  21:  0.23  98:  0.49
+  nr   129  ev    -43.3211  ::  11: -0.23  13: -0.29  16:  0.38  97: -0.20  98:  0.40 101:  0.24
+  nr   130  ev    -42.6657  ::   8:  0.23   9:  0.23  11: -0.27  13:  0.21  14: -0.43  16: -0.26  25:  0.20  97: -0.26
+  nr   131  ev    -41.8732  ::   9:  0.25  11: -0.38  96: -0.28  97:  0.23  99:  0.40 100: -0.38
+  nr   132  ev    -41.7928  ::  11:  0.20  13: -0.28  14: -0.63  98: -0.23  99:  0.25
+  nr   133  ev    -41.5736  ::  13: -0.63  18:  0.38  98: -0.39 101: -0.20
+  nr   134  ev    -41.5214  ::  11:  0.21  97: -0.29 100: -0.83
+  nr   135  ev    -41.1352  ::  12: -0.26  92: -0.23  95:  0.28  96:  0.34  97:  0.44  99: -0.36 100: -0.27
+  nr   136  ev    -39.2251  ::  15: -0.69  17: -0.55  21:  0.21
+  nr   137  ev    -36.9982  ::   7:  0.25   8: -0.29   9: -0.20  12:  0.39  93: -0.27  95:  0.58
+  nr   138  ev    -36.6695  ::   8: -0.39  12:  0.36  95: -0.52  97:  0.32  99: -0.25
+  nr   139  ev    -36.0500  ::   6: -0.84  93:  0.26
+  nr   140  ev    -35.9615  ::   6: -0.45   7:  0.24  93: -0.51  94:  0.34  96:  0.22
+  nr   141  ev    -35.5789  ::   9:  0.67  11:  0.51  95:  0.28
+  nr   142  ev    -35.2958  ::   7: -0.39  10: -0.37  91: -0.22  92:  0.21  93: -0.44  94: -0.40  96:  0.41
+  nr   143  ev    -33.8069  ::   4:  0.37   7:  0.44  10:  0.35  91: -0.50  93: -0.24  94: -0.22
+  nr   144  ev    -32.9637  ::   4:  0.23  11: -0.22  91: -0.36  92:  0.42  94:  0.57  96:  0.20
+  nr   145  ev    -32.5169  ::   4:  0.66   5: -0.25   7: -0.24  11: -0.20  91:  0.39
+  nr   146  ev    -32.2998  ::   3: -0.28   4:  0.24   5:  0.28   7:  0.26  91:  0.33  92:  0.51  93:  0.25  94: -0.32
+  nr   147  ev    -30.7620  ::   5:  0.65  10: -0.42  92: -0.37  96: -0.26
+  nr   148  ev    -30.0460  ::   2:  0.45  90:  0.74  94:  0.23
+  nr   149  ev    -26.3651  ::   3: -0.75   7: -0.21   8:  0.37  89: -0.21
+  nr   150  ev    -24.4894  ::   1:  0.21   2:  0.80  90: -0.51
+  nr   151  ev    -23.2088  ::   1: -0.41   3: -0.24  89:  0.78
+  nr   152  ev    -17.5265  ::   1: -0.83   2:  0.20  89: -0.48
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ list of poles of the self-energy
+
+  -136.59791  -133.46733  -131.12767  -126.41450  -124.68231  -123.16141  -121.77071  -115.55550  -112.25570  -111.91716
+  -109.43062  -108.81151  -106.13618  -104.43672  -103.87977  -103.45171  -101.95731  -101.77477  -100.96472   -99.74433
+   -97.01430   -96.78010   -95.72991   -94.99968   -94.28392   -93.88313   -91.93652   -90.38221   -90.24656   -88.81977
+   -87.69447   -87.29566   -86.98542   -86.42148   -85.74301   -85.48895   -84.91038   -84.43654   -84.29237   -83.26781
+   -82.22111   -79.91589   -79.67861   -79.27735   -78.83099   -78.26003   -77.97249   -77.70914   -77.09100   -76.85984
+   -76.45235   -75.39823   -74.98115   -74.66973   -73.49679   -73.35443   -72.85895   -72.55539   -72.03103   -71.93308
+   -71.64040   -71.39136   -70.52144   -70.22588   -70.14829   -69.62082   -69.23273   -69.09786   -68.62298   -68.46396
+   -67.83227   -67.62895   -67.49436   -66.55533   -66.20684   -65.76549   -65.49290   -64.90523   -64.70737   -64.41667
+   -64.23195   -63.81727   -63.46690   -63.35169   -62.56273   -62.39363   -61.87474   -61.84672   -61.39431   -60.96303
+   -60.85623   -60.65070   -60.48710   -60.07099   -59.29009   -58.43776   -57.91882   -57.74080   -57.15739   -56.64755
+   -56.37204   -55.91579   -55.56739   -55.17738   -55.01344   -54.51041   -54.34406   -54.10053   -53.09467   -52.64043
+   -52.39272   -52.28877   -51.03239   -50.49842   -50.41633   -50.10916   -50.01370   -49.44073   -49.10253   -48.67860
+   -47.39735   -47.01714   -46.79458   -46.31798   -45.94664   -45.55055   -44.59309   -43.70588   -43.32113   -42.66569
+   -41.87319   -41.79285   -41.57363   -41.52137   -41.13523   -39.22509   -36.99822   -36.66950   -36.04999   -35.96152
+   -35.57894   -35.29576   -33.80687   -32.96373   -32.51692   -32.29976   -30.76199   -30.04599   -26.36513   -24.48943
+   -23.20884   -17.52650
+
+ --------------------------------------------------------------------------------------------------------
+
+ poles of ionization block of self-energy for symmetry   3 and subpart   1
+ only the lowest 100 poles are listed
+
+
+    17.52650    23.20884    24.48943    26.36513    30.04599    30.76199    32.29976    32.51692    32.96373    33.80687
+    35.29576    35.57894    35.96152    36.04999    36.66950    36.99822    39.22509    41.13523    41.52137    41.57363
+    41.79285    41.87319    42.66569    43.32113    43.70588    44.59309    45.55055    45.94664    46.31798    46.79458
+    47.01714    47.39735    48.67860    49.10253    49.44073    50.01370    50.10916    50.41633    50.49842    51.03239
+    52.28877    52.39272    52.64043    53.09467    54.10053    54.34406    54.51041    55.01344    55.17738    55.56739
+    55.91579    56.37204    56.64755    57.15739    57.74080    57.91882    58.43776    59.29009    60.07099    60.48710
+    60.65070    60.85623    60.96303    61.39431    61.84672    61.87474    62.39363    62.56273    63.35169    63.46690
+    63.81727    64.23195    64.41667    64.70737    64.90523    65.49290    65.76549    66.20684    66.55533    67.49436
+    67.62895    67.83227    68.46396    68.62298    69.09786    69.23273    69.62082    70.14829    70.22588    70.52144
+    71.39136    71.64040    71.93308    72.03103    72.55539    72.85895    73.35443    73.49679    74.66973    74.98115
+
+ residues of ionization block of the self-energy for orbital   3
+
+     0.28505     2.29585     0.00032     1.71601     0.00196     0.46911     0.06731     0.07179     1.82925     0.92182
+     0.06988     0.19266     0.33762     0.00678     0.17117     2.14580     0.00557     1.61726     0.05293     0.30905
+     1.60760     0.90950     0.06296     1.08202     0.42808     0.00001     0.11195     0.11770     0.05789     1.26480
+     0.00010     0.39360     0.08445     3.26432     0.58983     0.11682     0.00427     0.04426     0.04356     0.84086
+     0.71195     1.20621     0.01316     0.82389     0.22010     0.08619     0.03106     0.01390     0.17709     0.27389
+     0.66586     0.24185     0.17604     1.68474     3.41628     1.14708     0.13488     0.17998     0.08590     0.37709
+     0.44069     0.92364     0.73860     0.14000     0.03573     0.03598     0.62653     0.00012     0.04782     0.01890
+     0.30969     0.34091     0.57296     0.28873     0.36499     0.00976     0.25680     0.03456     0.00682     0.37868
+     0.23642     0.00091     0.30947     0.05006     0.13682     0.26272     0.23638     0.00974     0.08720     0.08566
+     2.22277     0.01714     1.30918     0.00061     0.12711     0.67688     0.12757     0.48628     4.53274     0.77753
+
+ residues of ionization block of the self-energy for orbital   6
+
+     0.21018     1.05659     0.27517     1.06473     2.57293     0.02724     3.42781     0.52609     0.47663     0.29331
+     0.00183     0.31619     2.83673     0.81569     0.11687     1.23981     0.12396     0.52890     0.01019     0.05794
+     0.03771     0.17317     0.91767     0.31422     0.00011     4.03553     0.01726     0.81736     0.90252     0.72035
+     0.12886     0.01388     0.26567     0.24942     0.00291     0.30285     0.37428     0.15852     0.15013     0.01890
+     0.11155     0.08020     2.65946     0.00545     0.25273     0.00697     0.82186     0.07988     0.49026     0.13945
+     0.18206     0.12865     0.00053     0.55040     0.98610     0.22445     2.81741     0.02643     0.04891     0.01720
+     0.43912     0.22753     0.00190     0.75196     0.03390     0.00517     0.46914     1.32802     0.10683     0.21492
+     0.24140     0.10003     0.00099     0.48497     2.90003     0.55937     0.00001     0.29860     0.40938     0.12521
+     1.35276     0.18351     0.06492     1.13379     2.41886     0.61124     0.28178     0.01184     0.07558     0.32171
+     0.49789     1.95105     0.36767     0.48770     0.05102     0.63002     0.00075     1.13479     1.44363     0.15325
+
+ residues of ionization block of the self-energy for orbital   9
+
+     0.01014     0.10274     0.10102     2.15107     0.41567     0.30824     0.32944     0.04872     0.31386     0.28579
+     0.19550     0.18661     0.01138     0.01458     1.00298     0.27118     0.09390     0.15744     0.00301     0.11471
+     0.17367     0.05881     0.00854     0.11921     2.56146     0.65868     0.02622     1.49798     0.02392     0.00005
+     0.03579     0.22356     0.11609     0.34332     0.05267     0.00910     0.00710     0.06333     0.11093     0.04272
+     0.01726     0.86271     0.00106     0.26907     0.00478     0.03025     0.35145     0.01089     0.62241     0.06678
+     0.24389     0.35221     0.13041     0.08350     0.81830     0.07063     0.03782     0.71114     0.05019     0.04041
+     0.03480     0.01921     0.00784     0.19577     0.04145     0.00691     0.47752     0.37547     0.03407     0.00565
+     0.13364     0.01941     0.00001     0.19586     0.71716     0.02793     0.00010     0.00657     0.13489     0.02405
+     0.23307     0.01538     0.21988     0.02030     0.47525     0.17252     0.03061     0.01043     0.00237     0.06952
+     0.01824     0.58870     0.02317     0.17160     0.12115     0.04006     0.09415     0.29454     0.04545     0.18354
+
+ residues of ionization block of the self-energy for orbital  12
+
+     0.00338     0.55921     0.03653     0.20513     0.00928     0.01206     0.00009     0.00379     0.09533     0.15844
+     0.00634     0.00928     0.00178     0.00054     0.13637     0.30583     0.01653     0.20815     0.00000     0.00037
+     0.38547     0.08681     0.03403     0.15416     0.37721     0.00756     0.01358     0.00399     0.01832     0.20052
+     0.00658     0.14005     0.05369     0.55871     0.69564     0.02488     0.05099     0.01902     0.00515     0.20808
+     0.30800     0.21017     0.16836     0.18137     0.05000     0.01811     0.05466     0.00518     0.00546     0.00602
+     0.21779     0.10186     0.01199     0.76100     1.40017     0.67941     0.00150     0.18649     0.00241     0.12055
+     0.01986     0.09292     0.19186     0.06083     0.00672     0.02194     0.33049     0.00233     0.02401     0.00866
+     0.05549     0.06099     0.10722     0.05286     0.10454     0.01719     0.10607     0.00228     0.05660     0.06817
+     0.03570     0.07951     0.32750     0.07941     0.03338     0.17847     0.12961     0.00172     0.07602     0.05033
+     0.88490     0.02938     0.24673     0.02673     0.00001     0.26788     0.14451     0.04039     1.36380     0.27154
+
+ residues of ionization block of the self-energy for orbital  15
+
+     0.03621     0.00669     0.06072     1.16360     0.07245     0.22862     0.00178     0.16701     0.17429     0.13051
+     0.06342     0.16675     0.07493     0.01152     0.77577     0.45968     0.14662     0.24471     0.01364     0.31964
+     0.64252     0.08176     0.01323     0.58818     2.93722     0.02910     0.11604     0.64754     0.00140     0.98774
+     0.09670     0.77282     0.36370     0.00001     0.06648     0.02739     0.00373     0.00959     0.17131     0.21216
+     0.11597     0.53443     0.55838     0.33194     0.00201     0.01454     0.19666     0.11035     0.85716     0.83069
+     0.03297     0.20759     0.10577     0.04206     0.07792     0.06989     1.09388     1.49145     0.14761     0.23874
+     0.15456     0.22253     0.22378     0.00700     0.17001     0.01109     0.29996     0.03884     0.00284     0.00239
+     1.01205     0.02360     0.06150     0.00000     0.26833     0.06151     0.04002     0.00063     0.08420     0.03348
+     0.11917     0.00970     0.32561     0.05764     0.22776     0.06195     0.00792     0.02978     0.00298     0.02517
+     0.06518     0.25897     0.04545     0.10874     0.35003     0.12556     0.17590     0.25005     0.08759     0.42700
+
+ residues of ionization block of the self-energy for orbital  19
+
+     0.07680     0.35567     0.04318     0.29590     0.30301     0.01241     0.13535     0.04732     0.01092     0.07244
+     0.00061     0.04522     0.10328     0.01395     0.02592     0.20234     0.02627     0.09591     0.00047     0.05130
+     0.16864     0.14618     0.11298     0.00517     0.02248     1.06475     0.01791     0.32379     0.04587     0.00173
+     0.00535     0.03520     0.02215     0.05789     0.06881     0.03330     0.02828     0.19608     0.01478     0.07833
+     0.22975     0.02776     0.99583     0.00025     0.04315     0.04207     0.18724     0.27992     0.19977     0.01682
+     0.01311     0.14353     0.01191     1.86504     0.02031     0.40635     0.27328     0.06770     0.12896     0.00143
+     0.03610     0.00458     0.00144     0.02700     0.00998     0.01461     0.00397     0.11959     0.43138     0.00914
+     0.01232     0.01247     0.01236     0.00210     1.11950     0.02436     0.00046     0.02258     0.48004     0.08142
+     0.34943     0.02219     0.00000     0.41549     1.89881     0.01692     0.19534     0.02665     0.09782     0.32651
+     1.10583     0.98927     0.03725     0.07868     0.00036     0.02983     0.02352     0.77651     2.89413     0.07694
+
+ diagonal of matrix of constant diagrams
+
+   -0.022859    0.397428    0.264246   -0.077033    0.175452    0.048168   -0.285907    0.160604    0.119785   -0.039696
+    0.215429    0.114330    0.178870    0.182551    0.286236    0.175673   -0.516894   -0.492073   -0.430698   -0.373919
+
+ for symmetry    1  in the interval from   -12.66755 to   23.78024 with solution of the dyson equation   -11.75242
+ the sum of the squared 1h and 2h1p components of this solution is     0.00513
+
+ for symmetry    1  in the interval from   -12.66755 to   23.78024 with solution of the dyson equation    -7.01080
+ the sum of the squared 1h and 2h1p components of this solution is     0.00749
+
+ for symmetry    1  in the interval from   -12.66755 to   23.78024 with solution of the dyson equation    15.76737
+ the sum of the squared 1h and 2h1p components of this solution is     0.98942
+
+ for symmetry    2  in the interval from   -10.97656 to   15.99328 with solution of the dyson equation    -3.46960
+ the sum of the squared 1h and 2h1p components of this solution is     0.03098
+
+ for symmetry    2  in the interval from   -10.97656 to   15.99328 with solution of the dyson equation    14.19307
+ the sum of the squared 1h and 2h1p components of this solution is     0.96604
+
+ for symmetry    3  in the interval from    -8.38415 to   17.52650 with solution of the dyson equation    -8.37658
+ the sum of the squared 1h and 2h1p components of this solution is     0.00027
+
+ for symmetry    3  in the interval from    -8.38415 to   17.52650 with solution of the dyson equation    10.42081
+ the sum of the squared 1h and 2h1p components of this solution is     0.98715
+
+
+ results of first step with constant diagrams calculated with the hartree-fock greens function
+
+ --------------------------------------------------------------------------------------------------------
+
+ energies and pole strengths in nondiagonal approximation for symmetry   1 and subpart     1
+
+
+ energies of states with a pole strength larger than 0.005 for any occupied orbital are only listed
+
+
+ solution     1     -11.752  0.000006  0.000115  0.000001 -0.000925  0.907913 -0.000676 -0.000107 -0.000010  0.000011 -0.000031
+
+ solution     2      -7.011  0.000000 -0.000007  0.000016 -0.956450 -0.000287  0.000000 -0.000016  0.000046  0.000000  0.000000
+
+ solution     3      15.767 -0.000417 -0.001427  0.905861  0.000069
+ solution     4      21.188 -0.000007 -0.779648 -0.003460 -0.000015
+ solution     5      23.987  0.001091 -0.044708  0.002265  0.000160
+ solution     6      24.894 -0.000558 -0.053916 -0.002116 -0.001026
+ solution     8      29.422 -0.055622 -0.020778 -0.000772  0.000316
+ solution     9      29.823  0.018542 -0.018494  0.006939 -0.000094
+ solution    14      34.139 -0.020835  0.000284 -0.005506  0.000009
+ solution    15      34.753 -0.024623 -0.004602  0.002731 -0.000230
+ solution    16      35.324 -0.031680  0.000149  0.006772  0.000000
+ solution    17      35.677  0.006261 -0.001606 -0.000607 -0.000293
+ solution    18      36.162 -0.035971  0.000037  0.000022  0.000000
+ solution    19      36.445 -0.375854 -0.000019 -0.000008 -0.000030
+ solution    20      37.850 -0.094151  0.001829 -0.002923 -0.000122
+ solution    22      38.378 -0.185848  0.000001  0.000746  0.000019
+ solution    23      39.044  0.020203 -0.004048  0.002116 -0.000004
+
+ sum of pole strengths of occupied orbital number    1   in the given symmetry :   0.8852
+
+ sum of pole strengths of occupied orbital number    2   in the given symmetry :   0.9470
+
+ sum of pole strengths of occupied orbital number    3   in the given symmetry :   0.9558
+
+ --------------------------------------------------------------------------------------------------------
+
+ large components of eigenvectors in nondiagonal approximation
+ following notation is used : m : orbital index i : 2h1p index, a : 2p1h index and c : centroid
+
+
+ eigenvector   1:: m 10:  0.95 a  1: -0.23
+ eigenvector   2:: m  8: -0.98
+ eigenvector   3:: m  4:  0.95
+ eigenvector   4:: m  2: -0.88 i164:  0.28 i163:  0.21 i161:  0.19
+ eigenvector   5:: m  2: -0.21 i164: -0.95 i163:  0.21
+ eigenvector   6:: m  2: -0.23 i164: -0.15 i163: -0.95
+ eigenvector   8:: m  1: -0.24 i161: -0.65 i160:  0.69
+ eigenvector   9:: i161: -0.71 i160: -0.65
+ eigenvector  14:: i155: -1.03 i154: -0.22
+ eigenvector  15:: m  1: -0.16 i155:  0.24 i154: -0.94
+ eigenvector  16:: m  1: -0.18 i155:  0.16 i153:  0.95
+ eigenvector  18:: m  1: -0.19 i151:  0.96
+ eigenvector  19:: m  1: -0.61 i160: -0.19 i154:  0.17 i153: -0.22 i151: -0.28 i150:  0.55 i149:  0.19
+ eigenvector  20:: m  1: -0.31 i150: -0.72 i149:  0.35 i148:  0.44
+ eigenvector  22:: m  1: -0.43 i150: -0.33 i149: -0.66 i148: -0.44
+ eigenvector  23:: i147: -0.97
+
+ --------------------------------------------------------------------------------------------------------
+
+ energies and pole strengths in nondiagonal approximation for symmetry   2 and subpart     1
+
+
+ energies of states with a pole strength larger than 0.005 for any occupied orbital are only listed
+
+
+ solution     1      -3.470 -0.000277 -0.921182  0.000800 -0.000166
+ solution     2      14.193  0.890230 -0.002193
+ solution     3      16.014 -0.009637  0.000000
+ solution     4      20.130 -0.000115  0.000001
+ solution     5      23.670 -0.016348 -0.012848
+ solution    11      32.946 -0.015697 -0.000212
+ solution    15      36.786 -0.005552 -0.000148
+
+ sum of pole strengths of occupied orbital number    1   in the given symmetry :   0.9498
+
+ --------------------------------------------------------------------------------------------------------
+
+ large components of eigenvectors in nondiagonal approximation
+ following notation is used : m : orbital index i : 2h1p index, a : 2p1h index and c : centroid
+
+
+ eigenvector   1:: m  7: -0.96
+ eigenvector   2:: m  5:  0.94
+ eigenvector   5:: i 98: -0.98
+ eigenvector  11:: i 92:  0.98
+ eigenvector  15:: i 88:  0.99
+
+ --------------------------------------------------------------------------------------------------------
+
+ energies and pole strengths in nondiagonal approximation for symmetry   3 and subpart     1
+
+
+ energies of states with a pole strength larger than 0.005 for any occupied orbital are only listed
+
+
+ solution     1      -8.377 -0.000021 -0.000111 -0.007930 -0.000032  0.001736  0.000351
+ solution     2      10.421  0.003699  0.918394  0.000988
+ solution     3      16.961  0.550894 -0.012425  0.000010
+ solution     4      17.904  0.319340 -0.000077  0.000097
+ solution     5      23.592 -0.040923 -0.002692  0.000003
+ solution     7      26.680  0.018697  0.002650 -0.001332
+ solution    12      33.103 -0.005623 -0.001150  0.000173
+ solution    19      37.191 -0.006073 -0.002582 -0.000105
+
+ sum of pole strengths of occupied orbital number    1   in the given symmetry :   0.9602
+
+ sum of pole strengths of occupied orbital number    2   in the given symmetry :   0.9596
+
+ --------------------------------------------------------------------------------------------------------
+
+ large components of eigenvectors in nondiagonal approximation
+ following notation is used : m : orbital index i : 2h1p index, a : 2p1h index and c : centroid
+
+
+ eigenvector   2:: m  6:  0.96
+ eigenvector   3:: m  3:  0.74 i152:  0.61 i151:  0.16
+ eigenvector   4:: m  3:  0.57 i152: -0.79 i151:  0.16
+ eigenvector   5:: m  3: -0.20 i151:  0.97
+ eigenvector   7:: i149:  0.98
+ eigenvector  12:: i144:  0.97
+ eigenvector  19:: i137: -0.98
+
+
+ ********************************************************************************************************
+
+       0.0 seconds in input routine
+       0.0 seconds in dimen routine
+       0.0 seconds in diaga routine for symmetry     1
+       0.0 seconds in diagb routine for symmetry     1
+       0.0 seconds in gammaa routine for matrix construction for symmetry     1
+       0.0 seconds in gammaa routine for calculation of strengths for symmetry     1
+       0.0 seconds in datgaa routine for symmetry     1
+       0.0 seconds in gammab routine for matrix construction for symmetry     1
+       0.0 seconds in gammab routine for calculation of strengths for symmetry     1
+       0.0 seconds in datgab routine for symmetry     1
+       0.0 seconds in diaga routine for symmetry     2
+       0.0 seconds in diagb routine for symmetry     2
+       0.0 seconds in gammaa routine for matrix construction for symmetry     2
+       0.0 seconds in gammaa routine for calculation of strengths for symmetry     2
+       0.0 seconds in datgaa routine for symmetry     2
+       0.0 seconds in gammab routine for matrix construction for symmetry     2
+       0.0 seconds in gammab routine for calculation of strengths for symmetry     2
+       0.0 seconds in datgab routine for symmetry     2
+       0.0 seconds in diaga routine for symmetry     3
+       0.0 seconds in diagb routine for symmetry     3
+       0.0 seconds in gammaa routine for matrix construction for symmetry     3
+       0.0 seconds in gammaa routine for calculation of strengths for symmetry     3
+       0.0 seconds in datgaa routine for symmetry     3
+       0.0 seconds in gammab routine for matrix construction for symmetry     3
+       0.0 seconds in gammab routine for calculation of strengths for symmetry     3
+       0.0 seconds in datgab routine for symmetry     3
+       0.4 seconds in obtaining solutions via the pole search procedure
+       0.0 seconds in calculation of constant diagrams with hartree-fock GF, this is included above 
+       1.6 seconds in diagonalization of a matrix of dimension      376
+       0.1 seconds in diagonalization of a matrix of dimension      164
+       0.4 seconds in diagonalization of a matrix of dimension      248
+       0.0 seconds in diagonalization of a matrix of dimension      100
+       1.1 seconds in diagonalization of a matrix of dimension      340
+       0.1 seconds in diagonalization of a matrix of dimension      152
+
+
+ total computation time (seconds)  =         4.1
+
+
+     end of tda module at    4.19 secs
+
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      4.19          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      4.19 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               316 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     230      34
+ *    205    5     225       1
+ *    206    6     226       1
+ *    207    7     266       1
+ *    208    8     267      34
+ *    209    9     301       1
+ *    213   13     187       1
+ *    242   42     264       1
+ *    244   44     179       7
+ *    253   53     207       4
+ *    303  103     186       1
+ *    420  100     108      71
+ *    466 1004     303      14
+ *    467  167     227       3
+ *    470 1005     188      15
+ *    486  500     302       1
+ *    490   51     218       5
+ *    491    1      47      61
+ *    492    2     211       7
+ *    493   15       6       1
+ *    494   16     265       1
+ *    496   18       7      40
+ *    497   19     223       2
+ *    501   21       2       4
+ *    504   23     203       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      11:57:27 on Jul  1  h2co - dz basis - tda valence i.e.s
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       47      47
+ ed3      231     231
+ ed6       22      22
+ ed7        8       8
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.00      0.00            0.01      0.29
+ vector generation                     0.00      0.00            0.00      0.08
+ 2e-integral evaluation                0.01      0.24            0.01      0.15
+ scf                                   0.01      0.24            0.03      0.61
+ integral transformation               0.04      0.95            0.04      1.01
+ t.d.a. i.p.                           4.13     98.57            4.27     98.83
+ ******************************************************************************
+ Total                                 4.19                      4.32
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ *** accurate heap memory high water mark not available
+ *** allocation of ALL memory occurred at some point
+ *** the high water mark below excludes such allocations
+
+ heap memory high water mark =      2666385 words
+Return Code =  0

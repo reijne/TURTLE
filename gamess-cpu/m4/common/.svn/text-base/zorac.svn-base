@@ -1,0 +1,66 @@
+c
+c     ZORA common
+c
+      logical ozora,oscalz,onlyp,onlyd,onlyf,onlyg,opzora,
+     1        op2zora,onlys,ocontr,oint_zora,o1e_zora,osmall_zora,
+     2        opre_zora,oso,onoext_z,oioraz,oatint_z,oatscf_z,
+     3        oscalatz
+      REAL cspeed,critat_z
+      integer nbas_zora,ibls_z,iblv_z,nwv_z,ibiso_z,nwiso_z,ibcor_z,
+     1        ibsx_z,icoul_z,ibsy_z,ibsz_z,ibsmin_z,ibsplus_z,nwmat_z,
+     2        ibtrin_z,ibtrout_z,ibscalf_z,nwtrat_z,ibscale_z,ibcoul_z,
+     3        niter_z,int_zora,num_ext,igauge_z,nwcor_z,isexch_z,
+     4        nat_z,ibdens_z,nwdens_z,ibscalao_z,ibshat_z,is_z,
+     5        irest_z,numdu_z,ibldu_z,iblock_z,lshift_z,ibl7ew_z
+      common/zorac/ cspeed,critat_z,ozora,oscalz,
+     1              onlyp,onlyd,onlyf,onlyg,opzora,
+     1              op2zora,onlys,ocontr,nbas_zora,
+     2              oint_zora,o1e_zora,icoul_z,
+     3              ibls_z,iblv_z,nwv_z,
+     3              ibiso_z,nwiso_z,ibcor_z,nwcor_z,
+     4              ibsx_z,ibsy_z,ibsz_z,ibsmin_z,ibsplus_z,nwmat_z,
+     5              ibtrin_z,ibtrout_z,ibscalf_z,nwtrat_z,
+     6              ibscale_z,ibcoul_z,ibdens_z,nwdens_z,osmall_zora,
+     7              niter_z,opre_zora,int_zora,num_ext,isexch_z,
+     8              oso,onoext_z,is_z,igauge_z,oioraz,
+     9              nat_z,ibscalao_z,oatint_z,oatscf_z,ibshat_z,
+     1              oscalatz,irest_z,numdu_z,ibldu_z,iblock_z,lshift_z,
+     2              ibl7ew_z
+c....    icoul_z : 1 : Full coulomb
+c...               2 : atomic coulomb (default)
+c...               3 : no coulomb (just 1-electron ints)
+c...               4 : small basis coulomb
+c...     isexch_z  0 : no exchange in zora correction (default)
+c...               1 : exchange in zora correction (like in dft)
+c...     niter_z : # iterations between coulomb matrix update
+c...     int_zora :internal basis gen. : 0 none, 1, automatic, 2 by hand
+c
+c...     oscalz  : scaling on or off (true or false)
+c...     oioraz  : change metric to perform inf. order scaling 
+c...               (Dyall/EvLenthe (not quite))
+c...     oscalatz: atoms only scaled zora (together with get atom)
+c...     only'x' : internal basis only op to 'x'-type functions
+c...     op(2)zora: print flags (op2zora+opzora: prints *everything*)
+c...     ocontr  : adds l+1 block to internal basis in contracted way 
+c...     nbas_zora: size of internal basis
+c...     oint_zora: in internal or external mode???
+c...     o1e_zora: one electron integrals have been calculated in *this*
+c...               internal basis
+c...     osmall_zora: small swap for projected coulomb
+c...     opre_zora: pre_zora has been called
+c...     oso     : spin orbit calculation 
+c...     onoext_z: no external functions copied to internal basis
+c...     is_z : section for orbitals used for  coulomb matrix
+c...     igauge_z : add so many s-marices to h-matrix
+c...                the energy should change by igauge
+c...     nat_z  : indicates (if ne 0) that starting density is used
+c...              to calc. coulomb; gives # it. to get atomic density
+c...     critat_z : accuracy of atomic energy for atomic zora
+c...     oatint_z : indicates that integrals to be calculated are atomic
+c...     oatscf_z : indicates we are doing a set of atomic SCFs
+c...     ibshat_z : block on num8 to store blocked s/h
+c...     for disk-adress and lengths (ib.., nw.. ) see subroutine atoms2
+c...     irest_z  : .ne.0 indicates atomic zora corrections from dumpfile; 1 not on restart
+c...     numdu_z,ibldu_z : if ne 0 other dumpfile to read zora corrections from
+c...     iblock_z is the block number on ed3, where the zora corrections (section 425) reside
+c...     ibl7ew is where the energy weighted density matrix resides

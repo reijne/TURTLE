@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<eccp xmlns='http://www.grids.ac.uk/eccp/ns#' xmlns:eccp='http://www.grids.ac.uk/eccp/ns#' xmlns:cml='http://www.xml-cml.org/schema' xmlns:vtk='http://www.grids.ac.uk/eccp/vtk#' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xml:base='http://www.grids.ac.uk/eccp/owl-ontologies'>
+
+<!-- molecular structures -->
+
+<molecule xmlns='http://www.xml-cml.org/schema' id='mol1'>
+<atom id='o1' elementType='o' xyz3='0.000000 0.000000 -0.240263'/>
+<atom id='h1' elementType='h' xyz3='0.000000 1.432674 0.961053'/>
+<atom id='h2' elementType='h' xyz3='0.000000 -1.432674 0.961053'/>
+</molecule>
+
+<!-- atomic basis sets -->
+
+<atomicBasisSet id='basis1'>
+<basisGroup minL='0' maxL='0' id='bGroup1'>
+<exponents>130.709320 23.808867 6.443608</exponents>
+<contraction>0.154329 0.535328 0.444635</contraction>
+</basisGroup>
+<basisGroup minL='0' maxL='0' id='bGroup2'>
+<exponents>5.033151 1.169596 0.380389</exponents>
+<contraction>-0.099967 0.399513 0.700115</contraction>
+</basisGroup>
+<basisGroup minL='1' maxL='1' id='bGroup3'>
+<exponents>5.033151 1.169596 0.380389</exponents>
+<contraction>0.155916 0.607684 0.391957</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<atomicBasisSet id='basis2'>
+<basisGroup minL='0' maxL='0' id='bGroup4'>
+<exponents>3.425251 0.623914 0.168855</exponents>
+<contraction>0.154329 0.535328 0.444635</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<!-- molecular orbital vectors -->
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC1'>-0.994216 -0.025848 0.000000 0.000000 -0.004164 0.005584 0.005584</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC2'>0.233766 -0.844446 0.000000 0.000000 -0.122832 -0.155597 -0.155597</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC3'>0.000000 0.000000 0.000000 -0.612675 0.000000 -0.449215 0.449215</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC4'>0.104030 -0.538139 0.000000 0.000000 0.755919 0.295084 0.295084</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC5'>0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC6'>0.125828 -0.820199 0.000000 0.000000 -0.763490 0.769191 0.769191</cml:array>
+
+<cml:array dictRef='eccp:MOCoefficients' id='MOC7'>0.000000 0.000000 0.000000 -0.959848 0.000000 0.814646 -0.814646</cml:array>
+
+<!-- molecular orbital occupations -->
+
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO1'>2.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO2'>2.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO3'>2.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO4'>2.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO5'>2.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO6'>0.000000</cml:scalar>
+<cml:scalar dictRef='eccp:MOOccupation' id='MOO7'>0.000000</cml:scalar>
+
+<!-- molecular orbital eigenvalues -->
+
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE1'>-20.251560</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE2'>-1.257543</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE3'>-0.593885</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE4'>-0.459703</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE5'>-0.392609</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE6'>0.581790</cml:scalar>
+<cml:scalar dictRef='eccp:MOEigenvalue' id='MOE7'>0.692725</cml:scalar>
+
+<!-- normal coordinates -->
+
+<cml:array id='NC1' dictRef='eccp:nCoords'>0.0000000 0.0000011 -0.0686933 0.0000000 -0.4477808 0.5450989 0.0000000 0.4477637 0.5451133</cml:array>
+
+<cml:array id='NC2' dictRef='eccp:nCoords'>0.0000000 -0.0000204 0.0524440 0.0000000 -0.5703065 -0.4160261 0.0000000 0.5706302 -0.4162975</cml:array>
+
+<cml:array id='NC3' dictRef='eccp:nCoords'>0.0000000 0.0681220 0.0000172 0.0000000 -0.5407414 -0.4534140 0.0000000 -0.5404047 0.4531409</cml:array>
+
+<!-- vibrational frequencies -->
+
+<cml:scalar id='VF1' dictRef='eccp:vFreq'>2169.946045</cml:scalar>
+
+<cml:scalar id='VF2' dictRef='eccp:vFreq'>4141.154297</cml:scalar>
+
+<cml:scalar id='VF3' dictRef='eccp:vFreq'>4391.901855</cml:scalar>
+
+<!-- metadata -->
+
+<cml:metadata id="meta1" name='eccp:units' content='Angstroms'/>
+
+<!-- links and associations follow -->
+
+<!-- basis set - atom links -->
+
+<link id='link1'>
+<locator xlink:type='locator' xlink:label='Hatoms' xlink:href="xpointer(/*/*/*[@elementType='h'])"/>
+<locator xlink:type='locator' xlink:label='Hbasis' xlink:href="element(/1/3)"/>
+<locator xlink:type='locator' xlink:label='Oatom' xlink:href="element(/1/1/1)"/>
+<locator xlink:type='locator' xlink:label='Obasis' xlink:href="element(/1/2)"/>
+<arc xlink:type='arc' xlink:from='Oatom' xlink:to='Obasis'/>
+<arc xlink:type='arc' xlink:from='Hatoms' xlink:to='Hbasis'/>
+</link>
+
+<!-- basis set assignment association -->
+
+<complex id="BSA1" xlink:role='http://www.grids.ac.uk/eccp/owl-ontologies#BasisSetAssignment'>
+<locator xlink:type='locator' xlink:href="element(/1/1)"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[local-name()='atomicBasisSet'])"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[local-name()='link'])"/>
+</complex>
+
+<!-- molecular orbital associations -->
+
+<complex id='MO||$1||' xlink:role='http://www.grids.ac.uk/eccp/owl-ontologies#MolecularOrbital' instances='7'>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='MOC||$1||'])"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='MOE||$1||'])"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='MOO||$1||'])"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='BSA1'])"/>
+</complex>
+
+<!-- molecular vibration associations -->
+
+<complex id='NormalMode||$1||' xlink:role='http://www.grids.ac.uk/eccp/owl-ontologies#NormalMode' instances='3'>
+<locator xlink:type='locator' xlink:href="element(/1/1)"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='NC||$1||'])"/>
+<locator xlink:type='locator' xlink:href="xpointer(/*/*[@id='VF||$1||'])"/>
+</complex>
+
+<!-- associating metadata to coordinates (units) -->
+
+<link scope='2'>
+<locator xlink:type='locator' xlink:label='loc1' xlink:href='xpointer(//*[@id="meta1"])'/>
+<locator xlink:type='locator' xlink:label='loc2' xlink:href='xpointer(//@xyz3)'/>
+<arc xlink:type='arc' xlink:from='loc2' xlink:to='loc1'/>
+</link>
+
+<semantics uri="file:///home/pac83/AgentX/ontology/ontology.owl"/>
+<semantics uri="file:///home/pac83/AgentX/map/map.rdf"/>
+
+</eccp>

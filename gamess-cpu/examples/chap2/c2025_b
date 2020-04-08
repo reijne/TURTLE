@@ -1,0 +1,83 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g scf + analysis / SCF 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+runtype analyse
+property
+4 c
+4 o
+end
+enter
+runtype analyse
+local
+3 to 8 end
+vectors 1
+enter 2
+runtype analyse
+dma
+vectors 1
+enter
+runtype analyse
+graphics
+gdef
+type 2d
+points 99
+title
+square 2d grid (99*99) 
+calc
+type atom
+title
+h2co -atom difference
+section 150
+plot
+type line
+title
+atom difference density lineprinter plot
+calc
+type dens
+section 151
+title
+h2co - total density
+plot
+type line
+title
+density lineprinter plot
+calc
+type mo 2
+title
+h2co mo 2 amplitude
+section 152
+plot
+type line
+title
+mo 2 lineprinter plot
+gdef
+type 2d
+points 25
+title 
+square 2d grid (25*25)
+calc
+type pote
+title
+h2co - potential
+section 153
+plot
+type line
+title
+potential lineprinter plot (with wrong contours)
+vectors 1
+enter
+runtype analyse
+mulliken atom orbital 3 to 8 end
+vectors 1
+enter
+EOF

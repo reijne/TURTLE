@@ -1,0 +1,38 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../utilities;make validate)
+setenv GAMESS_VTAB ./par.vtab
+set path=(../../utilities $path)
+validate par_1  par_1.out
+validate par_2  par_2.out
+validate par_3  par_3.out
+validate par_4  par_4.out
+validate par_5  par_5.out
+validate par_6  par_6.out
+validate par_7  par_7.out
+validate par_8  par_8.out
+#
+validate par_9  par_9.out
+validate par_10  par_10.out
+validate par_11  par_11.out
+validate par_12  par_12.out
+validate par_13  par_13.out
+validate par_14  par_14.out
+validate par_15  par_15.out
+#
+validate par_16  par_16.out
+validate par_17  par_17.out
+validate par_18  par_18.out
+validate par_19  par_19.out
+validate par_20  par_20.out
+validate par_21  par_21.out
+validate par_22  par_22.out
+validate par_23  par_23.out
+validate par_24  par_24.out
+validate par_25  par_25.out
+validate par_26  par_26.out
+validate par_27  par_27.out
+validate par_28  par_28.out
+validate par_29  par_29.out

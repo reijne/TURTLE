@@ -1,0 +1,57 @@
+Running the Parallel MPI/ScaLAPACK-based Examples and Benchmark  tests
+----------------------------------------------------------------------
+
+This directory, parallel_MPI/benchmark_jobs, is designed to be part of the
+mechanism for running the validation and benchmark jobs associated with
+the MPI/ScaLAPACK/BLACS-based parallel GAMESS-UK code.  The overall
+directory structure for GAMESS-UK depicting the various components is
+shown below:
+
+
+            |            |-- chap2            *
+            |            |-- chap3            *
+            |            |-- chap4            *
+            |            |-- chap5            *
+            |            |-- chap6            *
+            |            |-- chap7            *
+            |            |-- chap10           *
+            |            |-- chap11, chap12   * SERIAL test cases
+            |            |-- nbo              *
+            |            |-- workshop         *
+            |            |-- zora             *
+            |            |-  dft              *
+            |            |-- drf              *
+            |            |-- benchmark        *
+            |--examples/-|-- 
+            |            |--                |-- input_files
+            |            |--                |                      |
+GAMESS-UK/--|            |-- parallel_MPI --|-- test_jobs ---------|- hpcx
+            |            |--                |                      |- origin
+            |            |--                |                      |- altix
+            |            |--                |                      |- xeon-linux-intel.15.0.IB
+            |            |--                |                      |- etc etc
+            |            |--                |   
+            |            |--                |-- input_files_benchmarks
+            |            |--                |   
+            |            |--                |   
+            |            |--                |-- benchmark_jobs ----|- hpcx
+            |            |--                |                      |- xeon-linux-intel.15.0.IB
+            |            |--                                       |- etc etc
+            |            |-- parallel_GAs   [As above]
+
+
+/benchmark_jobs contains the vtab file for the runs on all machines.
+        The sub-directories under test_jobs characterise the
+        machine under test. These will only hold scripts to run
+        the benchmark jobs, and eventually O/P files from the
+	completed tests.
+
+Thus to benchmark and validate the code on a given machine, simply head for
+the appropriate /machine directory [where machine = hpcx, xeon-linux-intel.15.0.IB
+etc] and run the example scripts and validation tests provided, as
+described in the README. it is assumed that if the machine in question
+is not provided as part of the distribution version of the code, then
+creating such a directory and its contents should be straightforward
+based on the examples that are provided.
+
+March 2015

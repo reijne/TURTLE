@@ -1,0 +1,48 @@
+#!/bin/csh
+../../bin/gamess << EOF
+file mt3  neqinf
+file mt4  neqsta
+file mt5  neqcst
+file mt6  neqind
+file mt7  neqino
+file mt8  neqpol
+file mt9  neqdis
+file mt10 neqrep
+file mt11 neqrqm
+title
+acetone surrounded by dielectric - connolly VanderWaals surface2
+nosymm
+super on 
+integral high
+geom au
+  0.46479   0.95640  -0.00905  6.0 C           
+  1.68667   2.89733   0.00450  8.0 O
+ -2.37519   0.98510  -0.00004  6.0 C
+ -3.09296   0.00491   1.64946  1.0 H
+ -3.10363   0.01723  -1.65125  1.0 H
+ -3.05158   2.90761   0.01028  1.0 H
+  1.71788  -1.59275  -0.02687  6.0 C
+  1.20654  -2.64285   1.65643  1.0 H
+  1.09693  -2.68784  -1.64194  1.0 H
+  3.74285  -1.37428  -0.09414  1.0 H
+end
+basis sv 4-31g*
+adapt off
+thresh 8
+react
+ field reac scf
+ drftwoel disk
+ gamdrf 0.565
+ qmradi conepol
+ expandcc on
+ assign midpts  
+ dielectr
+  dieltyp stat opt
+  solvent water
+  connolly rprobe 3.64
+  dielout some
+ end
+ fldsave
+end
+enter 1
+EOF

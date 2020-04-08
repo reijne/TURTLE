@@ -1,0 +1,83 @@
+#!/bin/sh
+#
+# Rungamess execution script - POE version for MPI-based program
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# --------------------------------------------------------------
+#
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to environment variables
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Additional environment variables for GAMESS-UK
+# --------------------------------------------------------------
+# See rg_sub.ll, these are included in the main body of the
+# script
+#
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+#
+# --------------------------------------------------------------
+# Environment settings for poe, only if not under loadleveller
+# --------------------------------------------------------------
+#
+
+case ${LOADL_PROCESSOR_LIST:=empty} in
+ empty) export MP_RMPOOL=1
+        export MP_PROCS=$nprocs
+        export MP_EUILIB=us
+        export MP_MSG_API=MPI
+        echo ${PROG}: job is running interactively;;
+ *)     echo ${PROG}: job is running under loadleveler;;
+esac
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+#
+# This doesnt seem to work on the DL SP2, so just run in the top 
+# dir
+#
+
+#export MP_NEWJOB=yes
+#poe rm -rf  $scratchtopdir/$jobname
+#poe mkdir -p $scratchtopdir/$jobname
+#hostname
+#poe hostname
+#cd $scratchtopdir/$jobname
+
+cd $scratchtopdir
+
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK under control of POE
+# --------------------------------------------------------------
+#
+args=${poeargs:=" "}
+
+poe $executable $args < $homedir/$jobname.in 
+
+stat=$?
+case $stat in
+   0) echo ${PROG}: poe gamess completed;;
+   *) echo ${PROG}: failure code is $stat;  exit $stat ;;
+esac

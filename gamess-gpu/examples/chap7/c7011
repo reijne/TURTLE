@@ -1,0 +1,61 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - tzvp + f +g basis - density and potential plots
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c 
+1.0 1.0
+g o
+1.0 1.0
+end
+scftype direct
+properties atoms
+enter
+runtype analyse
+graphics
+gdef
+type 2d
+orig 0.00000  0.00000  0.9998719
+x  0 0 1
+y  0 1 0
+points 99
+title
+square 2d grid (99*99) 
+calc
+type dens
+section 151
+title
+h2co - total density - origin at C
+plot
+type line
+title
+density lineprinter plot
+calc
+type potential
+section 152
+title
+h2co - total potential - origin at C
+plot
+type line
+title
+potential lineprinter plot
+vectors 1
+enter
+EOF

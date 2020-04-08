@@ -1,0 +1,850 @@
+
+Begin optimization report for: MXMAA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(27,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(29,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(29,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(59,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(59,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(72,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(72,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(79,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(82,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(82,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(99,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(99,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(114,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(114,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(227,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(227,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(252,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 253 and  line 253
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(269,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 270 and  line 270
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(275,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 276 and  line 276
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(264,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 265 and  line 265
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(225,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(234,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(321,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 322 and  line 322
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(335,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(338,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(338,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(355,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 356 and  line 356
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 504 and  line 504
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 521 and  line 521
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 527 and  line 527
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 516 and  line 516
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(481,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(485,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMBN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(568,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 569 and  line 569
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(582,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(585,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(585,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(602,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 603 and  line 603
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(616,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(616,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(750,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 751 and  line 751
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(767,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 768 and  line 768
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(773,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 774 and  line 774
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(762,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 763 and  line 763
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(728,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(732,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(815,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(815,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(828,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(828,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(835,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(838,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(838,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(855,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(855,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(870,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(870,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(980,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(980,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(980,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1007,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1008 and  line 1008
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1024,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1025 and  line 1025
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1030,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1031 and  line 1031
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1019,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1020 and  line 1020
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(985,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(989,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(1072,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1072,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1085,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1085,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1092,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(1095,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(1095,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1112,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1112,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1127,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1127,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1241,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1241,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1266,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1267 and  line 1267
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1283,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1284 and  line 1284
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1289,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1290 and  line 1290
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1278,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1279 and  line 1279
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(1239,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(1248,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMM
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(1309,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMTT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1327,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(338,19) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(338,19) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1327,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1327,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1327,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1327,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1327,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1327,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(1326,10)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ mxm_blas3.f(315,25) ]
+
+   LOOP BEGIN at mxm_blas3.f(485,10) inlined into mxm_blas3.f(1327,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(321,16) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(338,19) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(338,19) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(338,19) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(369,16) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(503,10) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(520,11) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(526,11) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1340,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1340,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(515,12) inlined into mxm_blas3.f(1340,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(1339,10)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ mxm_blas3.f(315,25) ]
+
+   LOOP BEGIN at mxm_blas3.f(485,10) inlined into mxm_blas3.f(1340,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(27,13) inlined into mxm_blas3.f(1349,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(29,16) inlined into mxm_blas3.f(1349,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(29,16) inlined into mxm_blas3.f(1349,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(59,16) inlined into mxm_blas3.f(1349,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(59,16) inlined into mxm_blas3.f(1349,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(72,16) inlined into mxm_blas3.f(1349,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(72,16) inlined into mxm_blas3.f(1349,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(79,16) inlined into mxm_blas3.f(1349,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(82,19) inlined into mxm_blas3.f(1349,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(82,19) inlined into mxm_blas3.f(1349,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(99,16) inlined into mxm_blas3.f(1349,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(99,16) inlined into mxm_blas3.f(1349,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(114,16) inlined into mxm_blas3.f(1349,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(114,16) inlined into mxm_blas3.f(1349,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(227,10) inlined into mxm_blas3.f(1349,12)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(227,10) inlined into mxm_blas3.f(1349,12)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(252,10) inlined into mxm_blas3.f(1349,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 253 and  line 253
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(269,11) inlined into mxm_blas3.f(1349,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 270 and  line 270
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(275,11) inlined into mxm_blas3.f(1349,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 276 and  line 276
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(264,12) inlined into mxm_blas3.f(1349,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 265 and  line 265
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(225,10) inlined into mxm_blas3.f(1349,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(234,10) inlined into mxm_blas3.f(1349,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at mxm_blas3.f(1386,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1386,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1399,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1399,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1406,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at mxm_blas3.f(1409,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at mxm_blas3.f(1409,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1426,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1426,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1441,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1441,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1547,13)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1547,13)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1583,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1584 and  line 1584
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1604,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1605 and  line 1605
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1611,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1612 and  line 1612
+LOOP END
+
+LOOP BEGIN at mxm_blas3.f(1598,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1599 and  line 1599
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at mxm_blas3.f(1545,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at mxm_blas3.f(1554,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

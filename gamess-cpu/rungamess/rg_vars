@@ -1,0 +1,18 @@
+#!/bin/sh
+#!/bin/sh
+#
+rg_vars()
+{
+#
+# Provide a listing of effective variable settings
+# 
+echo GAMESS_EXE $executable
+# not clear how to handle this
+###echo GAMESS_PAREXE $executable
+echo GAMESS_LIB $libdir
+echo GAMESS_TMP $tempdir
+echo GAMESS_SCR $scratchtopdir
+echo GAMESS_JOBMODE $jobmode
+echo GAMESS_SUBMODE $submode
+}
+

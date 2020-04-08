@@ -1,0 +1,35 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title
+h2co - 3-21g - mrdci CISD FP optimization : CI energy  -113.43777426
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype optimize ci
+mrdci
+adapt 
+tran
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  13  17 18
+roots 1
+thresh 0 0
+ci
+diag
+extrap off
+enter
+EOF

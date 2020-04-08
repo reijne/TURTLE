@@ -1,0 +1,38 @@
+
+Begin optimization report for: DLAED6
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed6.f(197,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed6.f(206,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed6.f(216,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed6.f(216,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed6.f(303,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed6.f(303,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaed6.f(242,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================

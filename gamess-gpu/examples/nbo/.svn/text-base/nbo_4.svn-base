@@ -1,0 +1,24 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title 
+Methyl radical...UHF/6-31G* C-H = 1.0736
+mult 2
+nosym
+zmatrix angstrom 
+C
+H   1   CH   
+H   1   CH   2   120.0
+H   1   CH   2   120.0 3 180.0
+variables
+CH        1.0736
+end
+basis 6-31g*
+scftype uhf
+enter 2 3 
+runtype analysis
+scftype uhf
+nbo
+vectors 2 3
+enter 2 3
+\$nbo  \$end
+EOF

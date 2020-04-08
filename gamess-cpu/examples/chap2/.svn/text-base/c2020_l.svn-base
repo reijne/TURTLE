@@ -1,0 +1,62 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - DZ - closed shell startup
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis DZ
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co+ - DZ - geometry optimisation SCF
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis DZ
+runtype optimize 
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co+ - DZ - CI/1M at rhf geometry
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co        1.2465095 hess     .712847
+ch        1.0812430 hess     .774404
+hco     118.4103041 hess     .688564
+end
+basis DZ
+runtype optimize ci
+direct 15 8 16
+conf
+2 2 2 2 2 2 2 1 
+enter
+EOF

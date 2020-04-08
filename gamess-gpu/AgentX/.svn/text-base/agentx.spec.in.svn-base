@@ -1,0 +1,57 @@
+
+# build RPM using rpmbuild -tb AgentX-@PACKAGE_VERSION@.tar.gz
+
+%define packagename  @PACKAGE_NAME@
+%define packagerel   @PACKAGE_RELEASE@
+%define packageopts  @PACKAGE_OPTS@
+%define packagedeps  @PACKAGE_DEPS@
+
+%define rel          1
+%define home_page    http://www.grids.ac.uk/eccp
+%define destdir      %{_tmppath}/%{name}-root
+
+# should not need to change below
+
+Summary: AgentX library for information exchange
+Name: %{packagename}
+Version: %{packagerel}
+Release: %{rel}
+URL: %{home_page}
+Source0: AgentX-%{version}.tar.gz
+License: QPL
+Group: Development/Libraries
+BuildRoot: %{_tmppath}/%{name}-root
+Requires: %{packagedeps}
+
+%description
+Library for information exchange
+
+%prep
+%setup -q -n AgentX-%{version}
+
+%build
+rm -rf ${RPM_BUILD_ROOT}
+if ! test -r ./configure; then
+./autogen.sh
+fi
+DESTDIR=%{destdir} ./configure --prefix=/usr --with-python --with-perl --with-axtransform %{packageopts}
+DESTDIR=%{destdir} make
+
+
+%install
+DESTDIR=%{destdir} make install
+
+%clean
+rm -rf ${RPM_BUILD_ROOT}
+
+%files
+%defattr(-,root,root)
+/usr/lib/*.so*
+/usr/lib/*.a
+/usr/lib/*.la
+/usr/lib/*.bundle
+/usr/include/*
+/usr/share/AgentX/*
+/usr/bin/*
+
+%changelog

@@ -1,0 +1,29 @@
+#!/bin/csh 
+#
+# Test jobs for valence bond
+#
+date
+./RUN ./h2co-servec
+./RUN ./h2
+./RUN ./benzyn
+./RUN ./h2o-dimer-mi
+./RUN ./c2h2
+./RUN ./hexatriene
+./RUN ./mo-sto3g
+./RUN ./mo-dzp
+./RUN ./c12h8
+./RUN ./c2030_b
+./RUN ./c2030_c
+./RUN ./c2030_d
+./RUN ./h2o-grad
+./RUN ./mo-blw
+# Needs Remco to fix
+#./RUN ./c6h6-propm
+./RUN ./benzene
+./RUN ./H6-resblw
+./RUN ./cpsih-1ionic
+./RUN ./h2o-fullvb
+./RUN ./brian-cc6z
+./RUN ./benzene-locals
+date
+./val_vb

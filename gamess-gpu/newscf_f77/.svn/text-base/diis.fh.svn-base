@@ -1,0 +1,10 @@
+      integer maxdiis
+      parameter (maxdiis=8)
+      integer ihandle, ih_vec, ih_scr, ih_ov, ih_ovt, ih_scr2
+      integer ih_vecb
+      logical declared
+      logical supressed
+      common/cmn_newdiis/ihandle(maxdiis,4),
+     &     ih_vec, ih_scr, ih_ov, ih_ovt, ih_scr2, ih_vecb,
+     &     declared,  supressed
+

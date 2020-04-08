@@ -1,0 +1,28 @@
+title
+h2co - tzvp +f +g basis - direct-MP2 Energy = -114.345831956108 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c 
+1.0 1.0
+g o
+1.0 1.0
+end
+runtype optimize
+scftype direct mp2
+enter

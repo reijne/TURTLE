@@ -1,0 +1,78 @@
+title; h2o
+
+start h2o
+
+geometry units au
+O                 .000000        .000000        .000000
+H                 .000000        .000000       1.889726
+H                1.636551        .000000       -.944863
+end
+
+task dftgrad
+
+dft
+  diis
+  damp 0
+  itrscf 40
+  scfcon 7
+  gcon 5  
+  mulliken
+#  lebedev  2
+  grid fine
+  noio
+end
+
+basis "ao basis" segment
+O library 3-21g
+H library 3-21g
+end
+
+
+basis "cd basis" cartesian  segment 
+#
+#H - Xe: N. Godbout, D. R. Salahub, J. Andzelm, and E. Wimmer, Can. J. Chem. 70,
+#
+#        560 (1992). DGauss basis sets provided courtesy of Cray Research, Inc.
+#
+# BASIS SET: (4s,1p,1d)
+H    S
+        45.000000000      1.00000000
+H    S
+         7.500000000      1.00000000
+H    S
+         0.300000000      1.00000000
+H   SP
+         1.500000000      1.00000000      1.00000000
+H    D
+         1.500000000      1.00000000
+#
+# BASIS SET: (8s,4p,4d)
+O    S
+      2566.000000000      1.00000000
+O    S
+       570.000000000      1.00000000
+O    S
+       163.000000000      1.00000000
+O    S
+        46.500000000      1.00000000
+O   SP
+        17.000000000      1.00000000      1.00000000
+O   SP
+         3.800000000      1.00000000      1.00000000
+O   SP
+         1.080000000      1.00000000      1.00000000
+O   SP
+         0.310000000      1.00000000      1.00000000
+O    D
+        17.000000000      1.00000000
+O    D
+         3.800000000      1.00000000
+O    D
+         1.080000000      1.00000000
+O    D
+         0.310000000      1.00000000
+end
+
+enter
+
+eof  # this should stop the nwchem parser from reading further

@@ -1,0 +1,24 @@
+#!/bin/csh
+../../bin/gamess << EOF
+memory 100000000
+title
+h2co - TZVP - closed shell FullCI - aimpac - FAILS
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+core
+  1 2
+end
+active
+  3 to 12
+end
+fullci 10 6 6
+natorb 10 print
+savefile aimpac section 10 file aim012_a.wfn
+enter
+EOF

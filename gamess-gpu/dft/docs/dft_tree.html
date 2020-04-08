@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>
+      The CCP1 density functional theory module call trees
+   </TITLE>
+</HEAD>
+<BODY bgcolor="#fffff0">
+
+<H1>The CCP1 density functional theory module call trees</H1>
+<H2>Contents</H2>
+<UL>
+<LI><A HREF="#CD_energy">integer function CD_energy</A>
+<LI><A HREF="#CD_forces">integer function CD_forces</A>
+<LI><A HREF="#CD_init">integer function CD_init</A>
+<LI><A HREF="#IL_test4">integer function IL_test4</A>
+<LI><A HREF="#exquad">integer function exquad</A>
+</UL>
+
+<H2>Call trees</H2>
+
+<A NAME="CD_energy">
+<H3><CODE>integer function CD_energy [global.f]</CODE></H3>
+</A>
+<UL>
+<LI><CODE>integer function CD_update_geom</CODE>
+<LI><CODE>subroutine prtri</CODE>
+<LI><CODE>subroutine aclear_dp</CODE>
+<LI><CODE>subroutine find_regions</CODE>
+<LI><CODE>subroutine Jfit_dunlap</CODE>
+<LI><CODE>subroutine JDriver</CODE>
+<LI><CODE>subroutine expand_tobasisfns</CODE>
+<LI><A HREF="#exquad">
+    <CODE>subroutine exquad [xc.f]</CODE></A>
+<LI><CODE>subroutine exfit</CODE>
+<LI><CODE>subroutine list_time_periods</CODE>
+<LI><CODE>subroutine CD_print_dftresults</CODE>
+</UL>
+
+<A NAME="CD_forces">
+<H3><CODE>integer function CD_forces [global.f]</CODE></H3>
+</A>
+<UL>
+<LI><CODE>integer function CD_update_geom</CODE>
+<LI><CODE>subroutine Jfitg</CODE>
+<LI><A HREF="#exquad">
+    <CODE>subroutine exquad [xc.f]</CODE></A>
+</UL>
+
+<A NAME="CD_init">
+<H3><CODE>integer function CD_init [interface.f]</CODE></H3>
+</A>
+<UL>
+<LI><CODE>subroutine numbers_setup</CODE>
+<LI><CODE>subroutine order_fill</CODE>
+<LI><CODE>subroutine basis_setup</CODE>
+<LI><CODE>subroutine interface_gamess [gamess.f]</CODE>
+    <UL>
+    <LI><CODE>integer function BL_clear_basis_set</CODE>
+    <LI><CODE>integer function CD_import_geom</CODE>
+    <LI><CODE>integer function BL_atomtyp_exist</CODE>
+    <LI><CODE>integer function BL_create_atomtag</CODE>
+    <LI><CODE>integer function BL_import_shell</CODE>
+    <LI><CODE>integer function BL_centre_sort</CODE>
+    <LI><CODE>integer function checkin_basis</CODE>
+    </UL>
+<LI><CODE>subroutine basis_library</CODE>
+<LI><CODE>subroutine nshelx_fill</CODE>
+<LI><CODE>subroutine basis_norm</CODE>
+<LI><CODE>integer function BL_write_basis</CODE>
+<LI><CODE>subroutine CD_print_joboptions</CODE>
+<LI><CODE>subroutine basato_fill</CODE>
+</UL>
+
+<A NAME="IL_test4">
+<H3><CODE>logical function IL_test4 [interface.f]</CODE></H3>
+</A>
+<UL>
+<LI><CODE>logical function IL_Bielectronic</CODE>
+</UL>
+
+<A NAME="exquad">
+<A HREF="dft_src.html#exquad">
+<H3><CODE>subroutine exquad [xc.f]</CODE></H3></A>
+</A>
+<UL>
+<LI><A HREF="dft_src.html#calc_bfn_radii">
+    <CODE>subroutine calc_bfn_radii [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#npoints_by_accuracy">
+    <CODE>subroutine npoints_by_accuracy [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#premac">
+    <CODE>subroutine premac [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#prelog">
+    <CODE>subroutine prelog [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#atom_num_by_tag">
+    <CODE>integer function atom_num_by_tag [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#SG1rad">
+    <CODE>REAL function SG1rad [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#srad">
+    <CODE>REAL function srad [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#lograd">
+    <CODE>REAL function lograd [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#screen_radial">
+    <CODE>subroutine screen_radial [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#dijcalc">
+    <CODE>subroutine dijcalc [xc.f]</CODE></A>
+<LI><CODE>subroutine pg_dlbchunk</CODE>
+<LI><CODE>subroutine pg_dlbreset</CODE>
+<LI><A HREF="dft_src.html#SG1_select">
+    <CODE>subroutine SG1_select [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#ang_select">
+    <CODE>subroutine ang_select [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#BL_maxang_ontype">
+    <CODE>integer function BL_maxang_ontype [interface.f]</CODE></A>
+<LI><A HREF="dft_src.html#mhl_select">
+    <CODE>subroutine mhl_select [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#glegend">
+    <CODE>subroutine glegend [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#lebedev">
+    <CODE>subroutine lebedev [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#bld_near_atm">
+    <CODE>subroutine bld_near_atm [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#beckewt">
+    <CODE>subroutine beckewt [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#beckewt_scr">
+    <CODE>subroutine beckewt_scr [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#mhlwt">
+    <CODE>subroutine mhlwt [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#ssfwt">
+    <CODE>subroutine ssfwt [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#ssfwt_scr">
+    <CODE>subroutine ssfwt_scr [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#mhl4ssfwt_scr">
+    <CODE>subroutine mhl4ssfwt_scr [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#mhl8ssfwt_scr">
+    <CODE>subroutine mhl8ssfwt_scr [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#bas_val">
+    <CODE>subroutine bas_val [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#den_val_screened">
+    <CODE>subroutine den_val_screened [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#den_val">
+    <CODE>subroutine den_val [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#ecfunc">
+    <CODE>subroutine ecfunc [xc.f]</CODE></A>
+    <UL>
+    <LI><A HREF="dft_src.html#ueg">
+        <CODE>subroutine ueg [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#xc_vwn">
+        <CODE>subroutine xc_vwn [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#xc_vwnrpa">
+        <CODE>subroutine xc_vwnrpa [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#xc_pz81">
+        <CODE>subroutine xc_pz81 [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#becke88">
+        <CODE>subroutine becke88 [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#xc_lyp">
+        <CODE>subroutine xc_lyp [xc.f]</CODE></A>
+    <LI><A HREF="dft_src.html#xc_p86">
+        <CODE>subroutine xc_p86 [xc.f]</CODE></A>
+    </UL>
+<LI><A HREF="dft_src.html#kmaddcs_screen">
+    <CODE>subroutine kmaddcs_screen [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#kmaddcs">
+    <CODE>subroutine kmaddcs [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#xc_forces_scr">
+    <CODE>subroutine xc_forces_scr [xc.f]</CODE></A>
+<LI><A HREF="dft_src.html#xc_forces">
+    <CODE>subroutine xc_forces [xc.f]</CODE></A>
+<LI><CODE>subroutine pg_dlbpush</CODE>
+<LI><CODE>subroutine pg_dgop</CODE>
+</UL>
+
+
+<HR>
+<ADDRESS>
+Huub van Dam,
+$Date: 1999-01-25 13:42:59 $
+(Created 1998-08-11)
+</ADDRESS>
+
+</BODY>
+</HTML>

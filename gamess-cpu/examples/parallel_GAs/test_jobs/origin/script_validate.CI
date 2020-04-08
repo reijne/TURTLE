@@ -1,0 +1,35 @@
+#!/bin/csh
+#
+#BSUB -n 16
+#BSUB -W 240
+#BSUB -o validate-CI.o%J
+#BSUB -e validate-CI.o%J
+#BSUB -J validate-CI
+#
+
+set origin=$cwd/LOGS
+set scratch=$TMPDIR/tmp$$
+
+rm -rf $scratch
+mkdir $scratch
+mkdir $origin 
+ 
+cp ../../../../bin/gamess-uk $scratch
+
+cp ../../input_files/DCI.cf2.cc-pvtz.in $scratch
+cp ../../input_files/DCI.mnco5h.DZP.in  $scratch
+cp ../../input_files/DCI.pyridine.tzvp.in $scratch
+cp ../../input_files/DCI.pyridine.cc-pvtz.in $scratch
+ 
+cd $scratch
+
+mpirun -np 16 gamess-uk < DCI.cf2.cc-pvtz.in > $origin/DCI.cf2.cc-pvtz.out
+
+mpirun -np 16 gamess-uk < DCI.mnco5h.DZP.in > $origin/DCI.mnco5h.DZP.out
+
+mpirun -np 16 gamess-uk < DCI.pyridine.tzvp.in > $origin/DCI.pyridine.tzvp.out
+
+mpirun -np 16 gamess-uk < DCI.pyridine.cc-pvtz.in > $origin/DCI.pyridine.cc-pvtz.out
+
+cd $origin
+rm -rf $scratch

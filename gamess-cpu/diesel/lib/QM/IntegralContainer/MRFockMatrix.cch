@@ -1,0 +1,275 @@
+//***********************************************************************
+//
+//	Name:			MRFockMatrix.cc
+//
+//	Description:	generalized fock matrix to multi reference case
+//					
+//
+//	Author:			Michael Hanrath
+//
+//	Version:		0.0
+//
+//	Date:			15.09.1998
+//
+//	Literature:		-	Robert B. Murphy, Richard P. Messmer:
+//						"Generalized Moller-Plesset perturbation theory
+//						applied to general MCSCF reference wave functions",
+//						Chem. Phys. Lett., 183/5, (1991), p. 443
+//					-	Krzysztof Wolinski, Peter Pulay:
+//						"Generalized Moller-Plesset perturbation theory:
+//						Second order results for two-configuration, open-shell
+//						excited singlet, and doublet wave functions",
+//						J. Chem. Phys. 90 (7), 1989, 3647
+//					-	Krzysztof Wolinski, Harrell L. Sellers, Peter Pulay:
+//						"Consistent generalization of the Moller-Plesset
+//						partitioning to open-shell and multiconfigurational SCF
+//						reference states in many-body perturbation theory",
+//						Chem. Phys. Lett. 140/3, 1987, 225
+//
+//
+//
+//
+//***********************************************************************
+
+#include "MRFockMatrix.h"
+
+#include "FourIndexIntegralContainer.h"
+#include "TwoIndexIntegralContainer.h"
+#include "../MO/MRMOs.h"
+
+#include "../MRCIMatrix/MRCIMatrix.h"
+#include "../MRTree/Diag/NExternalsDiag.h"
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+
+using namespace std;
+
+template <class DensMatType>
+template <class MatrixType>
+inline
+MRFockMatrix<DensMatType>::MRFockMatrix(
+	const CICalculation<MatrixType, DensMatType> *ciCalculation,
+	const NExternalsDiag	*mrcc,
+	const DensMatType *alpha,
+	FourIndexIntegralContainer * int4Container,
+	TwoIndexIntegralContainer * int2Container)
+{
+//-------------------------------------------------------------------
+//  calculate reference density
+
+INT	dim = mrcc->getNumberOfTotalSpinAdaptedFunctions();
+
+MRCIMatrix<MatrixType, DensMatType>	mrciMatrix(
+		*ciCalculation, (NExternalsDiag	*)mrcc);
+
+	maxMO = int4Container->getMRMOs()->getMaxMO();
+HMatElements<DensMatType, DensMatType>::maxMO = maxMO;
+
+DensMatType *densMats = new DensMatType[maxMO*maxMO];
+
+	{
+	CIVectors<DensMatType> x(dim, 1, (DensMatType *) alpha);
+		memset(densMats, 0, maxMO*maxMO*sizeof(DensMatType));
+
+		mrciMatrix.getDensity(x, densMats);
+	}
+
+
+/*	cout << "-----------------------------------------" << endl;
+	cout.precision(6);
+	for ( INT j=0 ; j<maxMO ; j++ )
+	{
+		for ( INT k=0 ; k<maxMO ; k++ )
+			cout << setw(14) << densMats[j*maxMO+k];
+		cout << endl;
+	}
+	cout << "-----------------------------------------" << endl;
+*/
+
+
+
+	
+//-------------------------------------------------------------------
+// build up compressed reference density matrices
+
+	// check wich MOs are used
+INT	isUsed[maxMO];
+const double	eps = 1e-10;
+
+	memset(isUsed, 0, maxMO*sizeof(INT));
+	for ( MOType a=0 ; a<maxMO ; a++ )
+		for ( MOType b=a ; b<maxMO ; b++ )
+		{
+		INT	h = fabs(densMats[a*maxMO + b])>eps;
+			isUsed[a] |= h;
+			isUsed[b] |= h;
+		}
+
+	// count used MOs
+INT	maxInternalMO = 0;
+	for ( MOType a=0 ; a<maxMO ; a++ )
+		if ( isUsed[a] )
+			maxInternalMO++;
+
+	// build up mapping table
+MOType	map[maxInternalMO];
+	{
+	INT	i = 0;
+		for ( MOType a=0 ; a<maxMO ; a++ )
+		{
+			if ( isUsed[a] )
+				map[i++] = a+1;
+		}
+	}
+	
+	
+	// allocate and store used entries
+DensMatType	*compDens;
+	compDens = new DensMatType[maxInternalMO*maxInternalMO];
+
+	for ( MOType a=0 ; a<maxInternalMO ; a++ )
+		for ( MOType b=0 ; b<maxInternalMO ; b++ )
+			compDens[a*maxInternalMO + b] =
+				densMats[(map[a]-1)*maxMO + (map[b]-1)];
+
+
+/*	cout.precision(6);
+	for ( MOType a=0 ; a<maxInternalMO ; a++ )
+	{
+		for ( MOType b=0 ; b<maxInternalMO ; b++ )
+			cout << setw(14) << compDens[a*maxInternalMO + b];
+		cout << endl;
+	}
+*/
+
+
+	// deallocate reference density matrix
+	delete densMats;
+
+//-------------------------------------------------------------------
+// allocate space and initialize fields of generalized Cb and Ex integrals
+IntegralType	*Gp;
+	Gp = mrFockMatrix = new IntegralType[maxMO*maxMO];
+	memset(mrFockMatrix, 0, maxMO*maxMO*sizeof(IntegralType));
+
+
+
+//-------------------------------------------------------------------
+// sum up Cb and Ex integrals
+const MRMOs	*mrmos = int4Container->getMRMOs();
+
+	// loop over interacting MOs
+	for ( INT p=1 ; p<=maxMO ; p++ )
+		for ( INT q=1 ; q<=maxMO ; q++ )
+		{
+		DensMatType	*Dp;
+			Dp = compDens;
+				
+		IrRep	pqIrrep = mrmos->getProd(
+			mrmos->getIrRep(p), mrmos->getIrRep(q));
+	
+//			cout << "p=" << p << ", q=" << q << endl;
+				
+			// sum up over internal MOs
+			for ( INT r=0 ; r<maxInternalMO ; r++ )
+			{
+			IrRep	remain = mrmos->getProd(
+						pqIrrep, mrmos->getIrRep(map[r]));
+						
+				for ( INT s=0 ; s<maxInternalMO ; s++ )
+				{
+//					cout << "r=" << r << ", s=" << s  << " " << map[r] << " " << map[s] << endl;
+					if ( !mrmos->getProd(mrmos->getIrRep(map[s]), remain) )
+					{
+					IntegralType	h =	(*int4Container)[TwoElectronIntegralIndex<MOType>
+										(p, q, map[r], map[s])] -
+										(*int4Container)[TwoElectronIntegralIndex<MOType>
+										(p, map[r], q, map[s])] / 2;
+
+							*Gp += h * *Dp;
+					}
+					Dp++;
+				}
+			}
+			if ( !pqIrrep )
+				*Gp += (*int2Container)[OneElectronIntegralIndex(p, q)];
+			Gp++;
+		}
+		
+
+	// deallocate compressed reference density matrices
+	delete compDens;
+
+
+/*	for ( INT i=1 ; i<=maxMO ; i++ )
+	{
+		for ( INT j=1 ; j<=maxMO ; j++ )
+		{
+			cout << setw(12) << this->operator() (i, j) << "\t";
+		}
+		cout << endl;
+	}
+*/
+}
+
+
+
+
+
+template <class DensMatType>
+inline
+MRFockMatrix<DensMatType>::~MRFockMatrix()
+{
+	delete mrFockMatrix;
+}
+
+/*
+template class MRFockMatrix<float>;
+template class MRFockMatrix<double>;
+
+static void	t()
+{
+	{
+	const CICalculation<float, float> *a = NULL;
+	const NExternalsDiag *b = NULL;
+	const float *c = NULL;
+	FourIndexIntegralContainer *d = NULL;
+	TwoIndexIntegralContainer *e = NULL;
+
+	MRFockMatrix<float>	z(a, b, c, d, e);
+	}
+
+	{
+	const CICalculation<float, double> *a = NULL;
+	const NExternalsDiag *b = NULL;
+	const double *c = NULL;
+	FourIndexIntegralContainer *d = NULL;
+	TwoIndexIntegralContainer *e = NULL;
+
+	MRFockMatrix<double>	z(a, b, c, d, e);
+	}
+
+	{
+	const CICalculation<double, float> *a = NULL;
+	const NExternalsDiag *b = NULL;
+	const float *c = NULL;
+	FourIndexIntegralContainer *d = NULL;
+	TwoIndexIntegralContainer *e = NULL;
+
+	MRFockMatrix<float>	z(a, b, c, d, e);
+	}
+
+	{
+	const CICalculation<double, double> *a = NULL;
+	const NExternalsDiag *b = NULL;
+	const double *c = NULL;
+	FourIndexIntegralContainer *d = NULL;
+	TwoIndexIntegralContainer *e = NULL;
+
+	MRFockMatrix<double>	z(a, b, c, d, e);
+	}
+
+}		
+*/

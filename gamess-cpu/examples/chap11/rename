@@ -1,0 +1,5 @@
+#
+foreach file (*)
+  set name=`echo $file | sed -e "s/c12/c11/"`
+  mv $file $name
+end

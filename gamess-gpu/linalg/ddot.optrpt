@@ -1,0 +1,34 @@
+
+Begin optimization report for: DDOT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at ddot.f(52,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at ddot.f(52,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at ddot.f(57,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at ddot.f(58,11)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at ddot.f(58,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at ddot.f(37,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at ddot.f(37,10)
+<Remainder>
+LOOP END
+===========================================================================

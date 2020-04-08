@@ -1,0 +1,63 @@
+c
+c     The parameters defined here label the 1st and 2nd derivative
+c     components of the density functional. Because a functional
+c     may be purely local or of a GGA type the components are grouped
+c     into derivative with respect to the density only and others.
+c
+c     1st derivatives:
+c
+      integer ira, irb
+      integer igaa, igab, igbb
+      integer ita, itb
+c
+c     2nd derivatives:
+c
+      integer irara, irarb, irbrb
+      integer iragaa, iragab, iragbb, irbgaa, irbgab, irbgbb
+      integer igaagaa, igaagab, igaagbb, igabgab, igabgbb, igbbgbb
+      integer irata, iratb, irbta, irbtb
+      integer igaata, igaatb, igabta, igabtb, igbbta, igbbtb
+      integer itata, itatb, itbtb
+c
+      parameter (ira     = 1)
+      parameter (irb     = 2)
+c
+      parameter (igaa    = 1)
+      parameter (igab    = 2)
+      parameter (igbb    = 3)
+c
+      parameter (ita     = 1)
+      parameter (itb     = 2)
+c
+c
+      parameter (irara   = 1)
+      parameter (irarb   = 2)
+      parameter (irbrb   = 3)
+c
+      parameter (iragaa  = 1)
+      parameter (iragab  = 3)
+      parameter (iragbb  = 4)
+      parameter (irbgaa  = 5)
+      parameter (irbgab  = 6)
+      parameter (irbgbb  = 7)
+      parameter (igaagaa = 2)
+      parameter (igaagab = 8)
+      parameter (igaagbb = 9)
+      parameter (igabgab = 10)
+      parameter (igabgbb = 11)
+      parameter (igbbgbb = 12)
+c
+      parameter (irata   = 1)
+      parameter (iratb   = 3)
+      parameter (irbta   = 4)
+      parameter (irbtb   = 5)
+      parameter (itata   = 2)
+      parameter (itatb   = 6)
+      parameter (itbtb   = 7)
+c
+      parameter (igaata  = 1)
+      parameter (igaatb  = 2)
+      parameter (igabta  = 3)
+      parameter (igabtb  = 4)
+      parameter (igbbta  = 5)
+      parameter (igbbtb  = 6)

@@ -1,0 +1,80 @@
+
+Begin optimization report for: TQLRAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at tqlrat.f(55,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tqlrat.f(55,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at tqlrat.f(55,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tqlrat.f(55,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at tqlrat.f(71,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at tqlrat.f(71,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tqlrat.f(71,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at tqlrat.f(71,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tqlrat.f(71,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at tqlrat.f(78,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at tqlrat.f(96,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at tqlrat.f(96,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tqlrat.f(96,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at tqlrat.f(131,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at tqlrat.f(62,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at tqlrat.f(126,20)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at tqlrat.f(107,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ tqlrat.f(116,35) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

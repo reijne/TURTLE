@@ -1,0 +1,194 @@
+		Computational Chemistry Codes Workshop
+		++++++++++++++++++++++++++++++++++++++
+
+Examples for GAMESS-UK Hands-on Sessions
+++++++++++++++++++++++++++++++++++++++++
+
+The following examples are taken from the GAMESS-UK presentations, and
+are specified below as running under "rungamess". We provide the
+appropriate headings corresponding to the material in the lectures.
+Note that the complete set of examples for each session may be executed
+using the scripts:
+
+	run_em_all.session1  and run_em_all.session2
+
+Executing the examples separately will require appropriate modifications
+to the file set_environment, and subsequently:
+
+        source set_environment
+
+It is assumed that these examples are run by the user while working
+through the session lectures, with the presentation material available
+at URL
+
+	http://www.dl.ac.uk/CFS/tutorials
+
++++++++++++++++++++++
++++++ Session 1 +++++
++++++++++++++++++++++
+
+1. General Input
+
+rungamess input0
+rungamess input1
+
+2. Geometry and Z-matrix Specification
+
+rungamess geom0
+rungamess zmat1
+rungamess zmat2
+rungamess zmat3
+rungamess zmat4a
+rungamess zmat4b
+rungamess zmat5
+rungamess zmat6
+
+3. Symmetry Specifications.
+
+rungamess symmetry1a
+rungamess symmetry1b
+
+4. Basis Set Specification
+
+rungamess basis0
+rungamess basis1a
+rungamess basis1b
+rungamess basis2a
+rungamess basis2b
+
+5. Input for SCF Calculations
+
+rungamess scf1
+rungamess scf2a
+rungamess scf2b
+rungamess scf2c
+rungamess -t ed3 scf3a
+rungamess -t ed4=scf3a.ed3 scf3b
+rungamess scf4a
+rungamess scf4b
+rungamess scf4c
+rungamess scf4d
+
+6. Input for DFT  Calculations
+
+rungamess dft1a
+rungamess dft1b
+rungamess dft2
+rungamess dft3
+
+7. Geometry Optimisation
+
+rungamess geom.opt.1
+rungamess geom.opt.2
+rungamess geom.opt.3
+
+8. File specifications
+
+rungamess files1
+rungamess files2
+
+9. Restarting Calculations
+
+rungamess -t ed3=dumpfile -t ed2=mainfile restart1a 
+rungamess -t ed3=dumpfile -t ed2=mainfile restart1b
+
++++++++++++++++++++++
++++++ Session 2 +++++
++++++++++++++++++++++
+
+1. Analysis Options
+
+rungamess prop1
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics1a
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics1b
+rungamess graphics2
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics3a
+rungamess -t ed3=dumpfile -t ed2=mainfile graphics3b
+
+2. DFT (other options)
+
+rungamess dft4
+rungamess dft5
+
+3. Transition states
+
+rungamess -t ed3=dumpfile -t ed2=mainfile sad1a
+rungamess -t ed3=dumpfile -t ed2=mainfile sad1b
+rungamess sad2
+rungamess sad3
+rungamess -t ed3=dumpfile -t ed2=mainfile sad4a
+rungamess -t ed3=dumpfile -t ed2=mainfile sad4b
+
+4. ECP calculations
+
+rungamess ecp0
+rungamess ecp1
+rungamess ecp2
+
+5. ZORA relativistic calculations
+
+rungamess zora
+
+6. Moller Plesset - MP2 and MP3
+
+rungamess mp2a
+rungamess mp2b
+rungamess mp2c
+rungamess mp2d
+rungamess mp2e
+rungamess mp3a
+rungamess mp3b
+
+7. MCSCF and CASSCF
+
+rungamess mcscf
+
+8. Integral Transormation
+
+rungamess tran1
+
+9. Direct-CI Calculations
+
+rungamess dci0
+rungamess dci1
+rungamess dci2
+rungamess dci3
+rungamess dci4
+rungamess dci5
+
+10. MRDCI Calculations
+
+rungamess mrdci0
+rungamess mrdci1
+rungamess mrdci2
+rungamess mrdci3
+
+11. CCSD and CCSD(T)
+
+rungamess ccsd0
+rungamess ccsd1
+
+12. Solvation and DRF
+
+rungamess solvation
+
+13. Multiple RUNTYPEs and Other RUNTYPEs
+
+rungamess runtypes0
+rungamess runtypes1
+rungamess runtypes2
+rungamess runtypes3
+
+14. Interface to other Analysis codes  - NBO and AIMPAC
+
+rungamess nbo0
+rungamess nbo1
+rungamess aimpac
+
+15. Trouble Shooting
+
+15.1 Geometry Optimisations
+
+rungamess geom.opt.problem1a
+rungamess -t ed3=dumpfileg geom.opt.problem1b
+rungamess -t ed3=dumpfileg geom.opt.problem1c

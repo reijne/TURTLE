@@ -1,0 +1,171 @@
+
+Begin optimization report for: MAT_LUDCMP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at matpack.f(938,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at matpack.f(938,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at matpack.f(938,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at matpack.f(944,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at matpack.f(946,14)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at matpack.f(949,18)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at matpack.f(949,18)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at matpack.f(949,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at matpack.f(957,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at matpack.f(960,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at matpack.f(960,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at matpack.f(960,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at matpack.f(972,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at matpack.f(972,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at matpack.f(984,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at matpack.f(984,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at matpack.f(984,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at matpack.f(936,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ matpack.f(941,28) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAT_LUBKSB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at matpack.f(1013,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at matpack.f(1019,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1019,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1019,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at matpack.f(1027,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at matpack.f(1030,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1030,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1030,14)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAT_TRI2SQ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at matpack.f(1057,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at matpack.f(1058,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1060 and  line 1060
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1058,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at matpack.f(1063,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at matpack.f(1064,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1064,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at matpack.f(1064,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITE_SQUMATRIX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at matpack.f(1088,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at matpack.f(1089,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1091 and  line 1091
+   LOOP END
+LOOP END
+===========================================================================

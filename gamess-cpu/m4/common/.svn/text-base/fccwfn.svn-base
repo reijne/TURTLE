@@ -1,0 +1,16 @@
+c
+c     MASSCF common fccwfn 
+c
+      integer nspace
+      integer msta,mnum,mini,maxi
+      integer iami,iama,ibmi,ibma,idim
+      integer lbst,nref0
+      logical omas,omasd
+      logical fdirct,qcorr
+      real *8 c0sq
+c
+      common /fccwfn/ nspace,msta(51),mnum(51),mini(51),maxi(51),
+     *                iami(51),iama(51),ibmi(51),ibma(51),idim(51),
+     *                lbst(51),nref0,fdirct,qcorr,c0sq,
+     *                omas, omasd
+c

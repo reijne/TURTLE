@@ -1,0 +1,10 @@
+c
+c... ic2e, ic3e and ic4e have room for 70 orbitals. Previously 15
+c... orbitals could be accommodated for casscf. Now more are needed
+c... for vb.
+c
+      integer ic1e, ic2e, ic3e, ic4e,maxcas
+      parameter (maxcas=70)
+      common /qice / ic1e(maxorb,2),ic2e(maxcas*(maxcas+1)/2+1),
+     #               ic3e(maxcas*(maxcas+1)/2),ic4e(maxcas*(maxcas+1)/2)
+c

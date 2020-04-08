@@ -1,0 +1,119 @@
+#!/bin/csh
+setenv ed3 cied3
+../../bin/gamess <<EOF
+time 2000
+title
+h2o note definition of cc-pvdz basis  , CEPA TESTS
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype scf
+vectors atdens
+thresh 7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 5 19
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 5 19
+cepa 0
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 5 19
+cepa 1
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 5 19
+cepa 2
+thresh 1.0  7
+enter 1 
+EOF
+\rm cied3

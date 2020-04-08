@@ -1,0 +1,303 @@
+<html>
+<head>
+  <title>GAMESS-UK User Manual</title>
+
+<style type="text/css" >
+
+/* Address id */
+div#address {margin-left: 5em;}
+
+
+/* footnote class */
+div#footnote p {text-indent: -2em;
+	        margin-left: 2em;
+	        font-size: 80%;}
+div#footnote p:first-letter { font-size: 80%;  color: #3e5b8e;}
+
+
+/* class for centering stuff */
+.center { text-align: center;}
+
+
+body {
+/* layout stuff */
+
+/* 
+position: relative; 
+padding-left: 15em; /* Make room for the navbar */
+margin: 0;
+*/
+
+/* Fonts etc. */
+font-family: Georgia, "Times New Roman", Times, serif;
+color: #3e5b8e;
+background-color: #ffffff;
+}
+
+
+/* Main Style */
+div.main { padding-left: 1em; padding-right: 1em;}
+
+
+div.main a:link {color:  #0000ff;
+        font-weight: bold; 
+	text-decoration: none;
+}
+
+div.main a:visited { font-weight: bold;
+	    color:  #662387;
+	    text-decoration: none; 
+}
+
+div.main a:hover, a:active { text-decoration: underline; 
+}
+
+div.main p { text-align: justify;
+	 font-size: 1em;
+}
+
+div.main p:first-letter { font-size: 125%; color: #b14a27;}
+
+
+div.main h1 { text-align: center;
+     color: #3e5b8e;
+}
+
+div.main h2 { text-align: center;
+     color: #662387;
+}
+
+div.main h3 { text-align: left;}
+
+div.main b { color: #b14a27;}
+
+div.main li { margin-bottom: 1em; }
+
+div.main li { margin-top: 1em; }
+
+div.main ol { list-style: decimal;}
+
+/* Stop the first letter being highlighted if we're in a list */
+div.main ol > p:first-letter { font-size: 100%; color: #3e5b8e;}
+div.main ul > p:first-letter { font-size: 100%; color: #3e5b8e;}
+
+/* Make code look _cool_ */
+div.main tt { color: #000000;}
+div.main kbd { color: #000000;}
+
+
+/* Header Stuff */
+div#header {
+padding-left: 3em;
+background-color: #ffffff;
+
+}
+
+div#header h1 { text-align: center;
+      color: #3e5b8e; 
+/*      color: #ffffff; */
+}
+
+div#header h2 { text-align: center;
+     color: #662387;
+/*      color: #000000; */
+}
+
+
+
+/* Footer Stuff */
+div#footer { 
+
+position: relative;
+clear: both;
+width: 100%;
+
+/* background-color: transparent;*/
+
+margin-top: 0em;
+padding-top: 1em;
+padding-bottom: 1em;
+padding-left: 1em;
+padding-right: 1em;
+font-size: "80%"; 
+}
+
+div#footer p {text-align: center;}
+
+</style>
+
+</head>
+
+<body bgcolor="#ffffff">
+
+<div id="header">
+<table align="center">
+<tr>
+<td>
+</td>
+<td>
+<hr/>
+<h1><a href="http:/www.cfs.dl.ac.uk">GAMESS-UK</a></h1>
+<h2>Version 8.0: User Manual and Reference Guide</h2>
+<hr/>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</div>
+<!-- End of CFS header -->
+
+<div class="main">
+
+
+<br/>
+<p>A searchable version of this manual can be found on the web at:
+<a href="http://www.cfs.dl.ac.uk/docs">http://www.cfs.dl.ac.uk/docs</a>
+<br/> 
+
+<p>Information on the features, capabilities, performance and
+application areas of the code may be found in the following:</p>
+
+<ul>
+
+<li>
+<a href="html/part1/index.html" title="Part 1" target="_new">HTML</a>
+<a href="pdf/chap1.pdf" title="Part 1" target="_new">PDF</a> 
+<b>Part 1.</b> INTRODUCTION and GENERAL FEATURES</a>
+</li> 
+
+<li>
+<a href="html/part2/index.html" title="Part 2"
+target="_new">HTML</a>
+<a HREF="pdf/chap2.pdf" title="Part 2" target="_new">PDF</a> 
+<b>Part 2.</b> PROGRAM USAGE and SAMPLE DATA</a>
+</li>
+
+<li>
+<a href="html/part3/index.html" title="Part 3"
+target="_new">HTML</a>
+<a href="pdf/index.pdf" title="Part 3" target="_new">PDF</a> 
+<b>Part 3.</b> DATA INPUT - CLASS 1 Directives</a>
+</li>
+
+<li>
+<a href="html/part4/index.html" title="Part 4"
+target="_new">HTML</a>
+<a href="pdf/chap4.pdf" title="Part 4" target="_new">PDF</a> 
+<b>Part 4.</b> DATA INPUT - CLASS 2 Directives</a>
+</li>
+
+<li>
+<a href="html/part5/index.html" title="Part 5"
+target="_new">HTML</a>
+<a href="pdf/chap5.pdf" title="Part 5" target="_new">PDF</a> 
+<b>Part 5.</b> INTEGRAL TRANSFORMATION and DIRECT-CI</a>
+</li>
+
+<li>
+<a href="html/part6/index.html" title="Part 6"
+target="_new">HTML</a>
+<a href="pdf/chap6.pdf" title="Part 6" target="_new">PDF</a> 
+<b>Part 6.</b> TABLE-CI CALCULATIONS</a>
+</li>
+
+<li>
+<a href="html/part7/index.html" title="Part 7"
+target="_new">HTML</a>
+<a href="pdf/chap7.pdf" title="Part 7" target="_new">PDF</a> 
+<b>Part 7.</b> RPA and MCLR CALCULATIONS</a>
+</li>
+
+<li>
+<a href="html/part8/index.html" title="Part 8"
+target="_new">HTML</a>
+<a href="pdf/chap8.pdf" title="Part 8" target="_new">PDF</a> 
+<b>Part 8.</b> WAVEFUNCTION ANALYSIS</a>
+</li>
+
+<li>
+<a href="html/part9/index.html" title="Part 9"
+target="_new">HTML</a>
+<a href="pdf/chap9.pdf" title="Part 9" target="_new">PDF</a> 
+<b>Part 9.</b> TROUBLE SHOOTING</a>
+</li>
+
+<li>
+<a href="html/part10/index.html" title="Part 10"
+target="_new">HTML</a>
+<a href="pdf/chap10.pdf" title="Part 10" target="_new">PDF</a> 
+<b>Part 10.</b> THE UTILITY FUNCTIONS</a>
+</li>
+
+<li>
+<a href="html/part11/index.html" title="Part 11"
+target="_new">HTML</a>
+<a href="pdf/chap11.pdf" title="Part 11" target="_new">PDF </a> 
+<b>Part 11.</b> FORMATTED OUTPUT from GAMESS-UK</a>
+</li>
+
+<li>
+<a href="html/part12/index.html" title="Part 12"
+target="_new">HTML</a>
+<a href="pdf/chap12.pdf" title="Part 12" target="_new">PDF</a> 
+<b>Part 12.</b> GAMESS-UK under UNIX</a>
+</li>
+
+<li>
+<a href="html/part13/index.html" title="Part 13"
+target="_new">HTML</a>
+<a href="pdf/chap13.pdf" title="Part 13" target="_new">PDF</a> 
+<b>Part 13.</b> GAMESS-UK under UNIX - Rungamess</a>
+</li>
+
+<li>
+<a href="html/part14/index.html" title="Part 14"
+target="_new">HTML</a>
+<a href="pdf/chap14.pdf" title="Part 14" target="_new">PDF</a> 
+<b>Part 14.</b> GAMESS-UK Parallel Implementations</a>
+</li>
+
+<li>
+<a href="html/turtle/index.html" title="the Valence
+Bond Module"
+target="_new">HTML </a>
+<a href="pdf/turtle.pdf" title="Part 16" target="_new">PDF</a> 
+<b>Turtle</b> GAMESS-UK Valence Bond Module
+</li>
+
+<li>
+<a href="html/mopac/index.html" title="GAMESS-UK/MOPAC interface"
+target="_new">HTML </a>
+<a href="pdf/mopac.pdf" title="GAMESS-UK/MOPAC interface" target="_new">PDF</a> 
+
+<b>MOPAC</b> - GAMESS-UK/MOPAC interface
+</li>
+
+</ul>
+
+</div> <!-- end of main div -->
+
+<!-- CFS footer -->
+<div id="footer">
+
+<hr/>
+<p>Copyright 1998-2008, Computing for Science Ltd. All rights reserved.</p>
+<p><b>Email</b> CFS or GAMESS-UK at:&nbsp;<a
+href="mailto:gamess_uk_contact@dl.ac.uk">gamess_uk_contact@dl.ac.uk</a>&nbsp;||
+&nbsp;<b>Tel:</b> +44 (0) 1925 603849></p>
+
+<p>Go to the <a href="http://www.cfs.dl.ac.uk">CFS</a> home page.</p>
+
+<hr/>
+</div>
+
+<!-- End of CFS footer -->
+
+
+</td>
+<tr>
+</table>
+
+</body>
+</html>

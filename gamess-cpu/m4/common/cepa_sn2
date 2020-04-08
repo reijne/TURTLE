@@ -1,0 +1,11 @@
+c
+c modoc is a doubly occupied orbital in the ref. space
+c docnum is the number doc. MO in the references
+c doccnt is counter for doubly occ. MOs in the ref. space
+c doctest is current doc. MO in the first ref.
+c jjopen is the numer of open shells due to the state multiplicity
+c
+      integer doccnt,modoc(maxshl),docnum,doctest,jjopen 
+      integer movac(256*maxshl),nvacuum
+      common/cepa_sn2/doccnt,modoc,docnum,doctest,movac,nvacuum,jjopen
+c

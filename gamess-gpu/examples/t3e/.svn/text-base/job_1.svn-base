@@ -1,0 +1,10 @@
+#!/bin/csh
+#QSUB -l mpp_p=4
+#QSUB -l mpp_t=2:0:0
+#QSUB -lT 2:0:0
+#QSUB -eo
+#QSUB -r par_1
+cd  ~/GAMESS-UK/examples/t3e
+setenv SCACHE_I_STREAMS 1
+setenv SCACHE_D_STREAMS 1
+time mpprun -n 4 ../../bin/gamess-uk < par_1.in  > par_1.out_4

@@ -1,0 +1,27 @@
+#!/bin/csh
+#
+#BSUB -n 64
+#BSUB -W 60
+#BSUB -o validate-cyclo.o%J
+#BSUB -e validate-cyclo.o%J
+#BSUB -J validate-cyclo
+#
+
+ set origin=$cwd/LOGS
+set scratch=$TMPDIR/tmp$$
+
+rm -rf $scratch
+mkdir $scratch
+mkdir $origin 
+ 
+cp ../../../../bin/gamess-uk $scratch
+
+cp ../../input_files/DFT.cyclo.6-31G.in $scratch
+ 
+cd $scratch
+
+mpirun -np 64 gamess-uk < DFT.cyclo.6-31G.in > $origin/DFT.cyclo.6-31G.out
+
+cd $origin 
+rm -rf $scratch
+

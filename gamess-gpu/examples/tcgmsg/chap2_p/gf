@@ -1,0 +1,21 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+core 2000000
+title
+h2co - tzvp basis - ovgf valence i.e.s
+super off nosym
+noprint
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype gf
+active\3 to 52 end\core\1 to 2\end
+i.p.
+second 3 to 8 end
+third 3 to 8  end
+enter  1 
+EOF

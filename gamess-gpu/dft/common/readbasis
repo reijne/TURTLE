@@ -1,0 +1,18 @@
+c
+c use in basis set processor
+c   
+c   maximum number of atom types
+c
+      integer maxtyp
+      parameter(maxtyp=10)
+c
+c number of specific library requests
+c
+      integer mxbasreq
+      parameter(mxbasreq=100)
+c
+c symbolic names for shell types
+c  (spd converted internally to sp+d)
+c
+      integer S,P,D,F,G,SP,SPD
+      parameter(S=1,P=2,D=3,F=4,G=5,SP=6,SPD=7)

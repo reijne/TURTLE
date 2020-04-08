@@ -1,0 +1,95 @@
+#!/bin/bash
+#BSUB -P chm156
+#BSUB -J testvb3
+#BSUB -o testvb3.inp.o%J
+#BSUB -W 00:45
+#BSUB -nnodes 1
+#BSUB -alloc_flags "gpumps"
+
+cd /gpfs/alpine/chm156/proj-shared/gamess-ornl/bin
+
+export ed3=ed3.benz2
+
+#export PGI_ACC_NOTIFY=2
+#export PGI_ACC_DEBUG=1
+
+#jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-ornl/bin/gamess-uk<<EOF
+cat<<EOF>/dev/null
+harmon
+adapt off
+title
+benzene
+zmat angstroms
+xx
+ c   1 cxx2
+ c   1 cxx2       2   60.000
+ c   1 cxx2       3   60.000     2 180.000
+ c   1 cxx2       4   60.000     3 180.000
+ c   1 cxx2       5   60.000     4 180.000
+ c   1 cxx2       6   60.000     5 180.000
+ h   1 hxx8       3   60.000     2 180.000
+ h   1 hxx8       8   60.000     3 180.000
+ h   1 hxx8       9   60.000     8 180.000
+ h   1 hxx8      10   60.000     9 180.000
+ h   1 hxx8      11   60.000    10 180.000
+ h   1 hxx8      12   60.000    11 180.000
+variables
+ cxx2           1.3859516 hessian       5.596310
+ hxx8           2.4618655 hessian       2.259176
+end
+basis 6-311g**
+vectors atorbs section 99
+enter 1
+EOF
+
+jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-ornl/bin/gamess-uk<<EOF
+time 100000
+core 92000000
+restart new
+title
+benzene
+zmat angstroms
+xx
+ c   1 cxx2
+ c   1 cxx2       2   60.000
+ c   1 cxx2       3   60.000     2 180.000
+ c   1 cxx2       4   60.000     3 180.000
+ c   1 cxx2       5   60.000     4 180.000
+ c   1 cxx2       6   60.000     5 180.000
+ h   1 hxx8       3   60.000     2 180.000
+ h   1 hxx8       8   60.000     3 180.000
+ h   1 hxx8       9   60.000     8 180.000
+ h   1 hxx8      10   60.000     9 180.000
+ h   1 hxx8      11   60.000    10 180.000
+ h   1 hxx8      12   60.000    11 180.000
+variables
+ cxx2           1.3859516 hessian       5.596310
+ hxx8           2.4618655 hessian       2.259176
+end
+basis 6-311g**
+crestr
+#core 18
+conf
+core 18 19 20 21 22 23 24 rumer
+end conf
+#print all
+end crestr
+vb
+vbvectors combine print
+section 1  1 to 16 18 19 end
+section 99 5 10 15 20 25 30 end
+end
+active
+1 to 24 end
+scf
+optimise kind
+pert doc uoc
+end
+diis
+nosymm
+max 1 scf
+end scf
+end 9
+scftype vb
+enter 5
+EOF

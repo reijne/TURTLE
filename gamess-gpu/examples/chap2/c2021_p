@@ -1,0 +1,167 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ftn031 tran
+setenv ftn033 ham0
+setenv ftn034 ham1
+setenv ftn042 mfg42
+setenv ftn012 mfg12
+setenv ftn036 civec
+../../bin/gamess << EOF
+title
+h2co - 3-21g  scf prior to table-ci/ SCF 
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  integral transformation
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci direct
+table bypass
+select bypass
+cntrl 16
+spin 1
+symm 1
+singles all
+conf
+  0     1   2   3   4   5  13  17  18
+  0     1   2   3   4   6  13  17  18
+  2     5   6   1   2   3   4  13  17  18
+  0     1   2   3   4   5  14  17  18
+  2    13  14   1   2   3   4   5  17  18
+  0     1   2   3   4   5  13  17  19
+  2    18  19   1   2   3   4   5  13  17
+end
+thresh 10 10
+roots 1
+ci bypass
+natorb bypass
+civec 1
+civec 1
+enter
+EOF
+../../bin/gamess << EOF
+restart ci
+title
+h2co - 3-21g  table-ci 7m/1r - selection
+super off nosym
+bypass scf tran
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci direct
+select 
+cntrl 16
+spin 1
+symm 1
+singles all
+conf
+  0     1   2   3   4   5  13  17  18
+  0     1   2   3   4   6  13  17  18
+  2     5   6   1   2   3   4  13  17  18
+  0     1   2   3   4   5  14  17  18
+  2    13  14   1   2   3   4   5  17  18
+  0     1   2   3   4   5  13  17  19
+  2    18  19   1   2   3   4   5  13  17
+end
+thresh 10 10
+roots 1
+ci bypass
+natorb bypass
+enter 
+EOF
+../../bin/gamess << EOF
+restart ci
+title
+h2co - 3-21g 7m/1r - CI 
+super off nosym
+bypass scf tran
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci direct
+table bypass
+select bypass
+cntrl 16
+spin 1
+symm 1
+singles all
+conf
+  0     1   2   3   4   5  13  17  18
+  0     1   2   3   4   6  13  17  18
+  2     5   6   1   2   3   4  13  17  18
+  0     1   2   3   4   5  14  17  18
+  2    13  14   1   2   3   4   5  17  18
+  0     1   2   3   4   5  13  17  19
+  2    18  19   1   2   3   4   5  13  17
+end
+thresh 10 10
+roots 1
+ci 
+natorb bypass
+civec 1
+enter 
+EOF
+../../bin/gamess << EOF
+restart ci
+title
+h2co - 3-21g 7m/1r - natural orbitals
+super off nosym
+bypass scf tran
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci direct
+table bypass
+select bypass
+cntrl 16
+spin 1
+symm 1
+singles all
+conf
+  0     1   2   3   4   5  13  17  18
+  0     1   2   3   4   6  13  17  18
+  2     5   6   1   2   3   4  13  17  18
+  0     1   2   3   4   5  14  17  18
+  2    13  14   1   2   3   4   5  17  18
+  0     1   2   3   4   5  13  17  19
+  2    18  19   1   2   3   4   5  13  17
+end
+thresh 10 10
+roots 1
+ci bypass
+natorb 
+civec 1
+enter
+EOF
+/bin/rm mfged2 mfged3
+/bin/rm tran ham0 ham1
+/bin/rm mfg12 mfg42 civec

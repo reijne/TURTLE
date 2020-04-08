@@ -1,0 +1,16 @@
+      integer mxbas,maxiprm,maxishl
+      parameter(mxbas=3,maxiprm=MXPRIM,maxishl=3*MXSHEL)
+c
+      real*8 ex_m, cs, cp, cd, cf, cg
+      integer kstart, katom, ktype, kng, kloc, kmin, kmax
+      integer nshell, non, numorb, ndumm, nbasfn
+      common /mbasis/ex_m(mxbas,maxiprm),cs(mxbas,maxiprm),
+     +               cp(mxbas,maxiprm),cd(mxbas,maxiprm),
+     +               cf(mxbas,maxiprm),cg(mxbas,maxiprm),
+     +               kstart(mxbas,maxishl),katom(mxbas,maxishl),
+     +               ktype(mxbas,maxishl),kng(mxbas,maxishl),
+     +               kloc(mxbas,maxishl),kmin(mxbas,maxishl),
+     +               kmax(mxbas,maxishl),
+     +               nshell(mxbas),non(mxbas),numorb(mxbas),
+     +               ndumm(mxbas),nbasfn(mxbas)
+c

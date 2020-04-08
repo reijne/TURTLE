@@ -1,0 +1,343 @@
+#!/bin/sh
+
+#########################################################
+#
+# charmm_configure 
+#
+# peforms the equivalent of a manual ./configure
+# when GAMESS-UK is being build as part of CHARMM
+#
+# 
+# you will get a base build (serial or MPI) unless
+# one or more of the following are set
+#
+# CHMGUK_USE_GA        set to 1 to ask for GA build
+#
+# CHMGUK_OPTIONS       set to a string to over-ride 
+#                      guess of options
+#
+# CHMGUK_EXTRA_OPTIONS set to addition options to add 
+#                      to those already generated
+#
+# CHMGUK_USE_CHARMMPAR set to 1 to get GAMESS-UK to
+#                      call CHARMM parallel comms
+#                      routines
+# CHMGUK_BUILD_LEVEL   level of gamess build
+#
+# CHMGUK_MACHINE       which GAMESS-UK host to pick
+# 
+# CHMGUK_IFV           interface version (4 or 5)
+#
+# also passed from install.com
+# MPIVERSION       
+# F77
+#
+# Also you may choose to set 
+#  CHMGUK_LIBS
+#
+# This is not used here but will over-ride the guessed
+# libraries for the final load
+#
+#########################################################
+#
+#  $Author: jmht $
+#  $Date: 2008-01-16 12:59:11 $
+#  $Locker:  $
+#  $Revision: 1.14 $
+#  $Source: /c/qcg/cvs/psh/GAMESS-UK/utilities/charmm_configure,v $
+#  $State: Exp $
+#
+#########################################################
+
+# Establish directory name and host type
+case $0 in
+  charmm_configure)util=.;;
+  *) util=`echo $0 | sed 's@/charmm_configure$@@'` ;;
+esac
+root=`(cd $util/../../../..;pwd)`
+chmhost=$1
+chmbuild=$root/build/$chmhost
+
+# Establish the version number
+
+case ${CHMGUK_IFV:=0} in
+  0) 
+   chv=`grep 'PARAMETER (VERNUM' $root/source/fcm/version.fcm | awk -F= '{print $2}' | sed s/\)//`
+   case $chv in
+   30)ifv=4;;
+   31)ifv=4;;
+   32)ifv=4;;
+   33)ifv=4;;
+   34)ifv=5;;
+   35)ifv=5;;
+   3*)ifv=9;; 
+    *)ifv=0;; 
+   esac
+   ;;
+  *) ifv=${CHMGUK_IFV};;
+esac
+
+if [ $ifv -eq 0 ]
+then
+
+  echo It seems the CHARMM release you have uses an interface to GAMESS-UK
+  echo which is not supported by this version of GAMESS-UK
+  echo We recommend you upgrade CHARMM
+  exit -1
+
+elif [ $ifv -eq 9 ]
+then
+
+  echo Your GAMESS-UK release does not support such a recent version of CHARMM
+  echo We recommend you upgrade GAMESS-UK or contact gamess_uk_support@dl.ac.uk
+  echo for advice on how to modify GAMESS-UK
+  exit -1
+
+elif [ $ifv -eq 4 ]
+then
+
+   chmgukver=charmm_if4
+
+else
+   # build defaults to version 5
+   chmgukver=""
+
+fi
+
+echo =====================================================
+echo "Configuring GAMESS-UK for CHARMM library build"
+
+if test -f $chmbuild/pref.dat
+then
+   echo "Charmm host              :" $chmhost
+   echo "Build Directory          :" $root/build/$chmhost
+   echo "Interface version #      :" $ifv
+else
+  echo charmm_configure: cant find  $chmbuild/pref.dat - you must run install.com first
+  exit -1
+fi
+#
+# First try and establish the main GAMESS-UK architecture 
+# key and exit if we don't support it
+# Note have to guess the alpha processor type using a test
+# compilation
+#
+
+#
+# user customisation is supported by the CHMGUK_CONFIG variable
+#
+
+extras=""
+case ${CHMGUK_CONFIG:=0} in
+
+  0) 
+
+   # Work out parallel processing options
+   chmpar="xxx"
+
+   if test 0 = `grep PARALLEL $chmbuild/pref.dat | wc -l` ; then   chmpar="serial"; fi
+   if test 1 -le `grep -v CMPI $chmbuild/pref.dat | grep MPI | wc -l` ; then    chmpar="mpi"; fi
+
+   if test $chmpar != "serial"
+   then
+
+      # Default is to use the GAs. Old CHARMM versions set this to 0 by default so we 
+      # need to check if it is set to NO, as otherwise we will always have this turned
+      # off when using older versions
+
+      CHMGUK_USE_GA=${CHMGUK_USE_GA:="YES"}
+
+      if test $CHMGUK_USE_GA != "NO"
+      then
+         chmpar="ga"
+      fi
+
+      CHMGUK_USE_CHARMMPAR=${CHMGUK_USE_CHARMMPAR:=0}
+      if test  1 -eq $CHMGUK_USE_CHARMMPAR
+      then
+         # this is a hack...GAMESS-UK functionality follows the MPI code so
+         # uses the .mk files created for it, but with an extra option charmmpar added
+         parextras=$extras" charmmpar"
+         chmpar="mpi"
+         echo "Parallel Option          :  charmmpar (GAMESS-UK will call CHARMM parallel routines)"
+      else
+         echo "Parallel Option          :" $chmpar
+         parextras=""
+      fi
+
+      echo check Makefile to be sure these are being used
+      echo "MPI Version              :" $MPIVERSION
+      echo "MPI Include files        :" $MPI_INCLUDE
+
+   fi
+
+   bldlev=${CHMGUK_BUILD_LEVEL:=base}
+   echo "GAMESS_UK Build Level    :" $bldlev
+
+   case $chmpar in 
+      serial) 
+         case $bldlev in 
+              base) bldopts="base -vb -mrdci -drf -nbo -zora -sysmo -dl-find qmmm large";;
+         esac
+         ;;
+      mpi)
+         case $bldlev in 
+              base) bldopts="base -newscf -ga -i8 -sysmo -dl-find qmmm large";;
+         esac
+         ;;         
+      ga)
+         case $bldlev in 
+              base) bldopts="base -mp2 -vb -sysmo -dl-find qmmm large";;
+              mp2) bldopts="qmmm large -ci -vb -sysmo -dl-find mp2";;
+         esac
+         ;;         
+   esac
+
+   if test 1 = `grep FLUCQ $chmbuild/pref.dat | wc -l` 
+   then
+      flucq="flucq"
+      echo "Flucq Option             : On"
+   else
+      flucq=""
+      echo "Flucq Option             : Off"
+   fi
+
+   # This needs some tweaking as there are cases in which
+   # GAMESS-UK might need to be switched to i4 mode depending
+   # on the CHARMM options
+
+   if test 1 = `grep INTEGER8 $chmbuild/pref.dat | wc -l` 
+   then
+      i8="i8"
+      echo "i8 Option                : On"
+   else
+      echo "i8 Option                : Off"
+      i8=""
+   fi
+
+   # We can pick up the DEBUG env var set by CHARMM
+   if test x"$DEBUG" = x"YES"
+       then
+       echo "Debug Option             : On"
+       debug="debug"
+   else
+       debug=""
+   fi
+
+
+   # Finally combine options and add any additional flags
+   # Typically compilers, OS flags etc
+
+   userextras=${CHMGUK_EXTRA_OPTIONS:="None"}
+
+   if test  "None" != $userextras
+   then
+      echo "Extra GAMESS-UK flags    :" $userextras
+   fi
+
+  ;;
+
+  *) echo charmm_configure: Taking configure options from variable CHMGUK_CONFIG
+     options=${CHMGUK_CONFIG}   
+  ;;
+esac
+
+
+# Try and establish the compiler
+
+arch=`../config/config.wrap`
+
+echo arch is $arch
+
+#
+# There is no easy way to tell which compiler is being used
+#
+compiler=${CHMGUK_COMPILER:="None"}
+
+# jmht - hack to see if we are using GFORTRAN (as F77 will be set to g77 by default)
+if [ $compiler = "None" -a x$GFORTRAN = x"YES" ]
+then
+  echo "Using gfortran as GFORTRAN was set to YES"
+  compiler=gfortran
+fi
+
+
+if [ $compiler = "None" ]
+then
+  case $arch in
+
+     powerpc-ibm-aix)
+        compiler=xlf;;
+
+     i686-pc-linux-gnu)
+        echo F77 is $F77
+        case $F77 in
+           ifc) compiler=intel;;
+           g95) compiler=g95;;
+           pgf) compiler=pgi;;
+           gfortran) compiler=gfortran;;
+        esac;;
+
+     i686-pc-cygwin)
+        echo F77 is $F77
+        case $F77 in
+           ifc) compiler=intel;;
+           g95) compiler=g95;;
+           pgf) compiler=pgi;;
+           gfortran) compiler=gfortran;;
+        esac;;
+
+     x86_64-unknown-linux-gnu)
+        echo F77 is $F77
+        case $F77 in
+           ifc) compiler=intel;;
+           g95) compiler=g95;;
+           pgf) compiler=pgi;;
+           gfortran) compiler=gfortran;;
+        esac;;
+
+     em64t-unknown-linux-gnu)
+        echo F77 is $F77
+        case $F77 in
+           ifc) compiler=intel;;
+           g95) compiler=g95;;
+           pgf) compiler=pgi;;
+           gfortran) compiler=gfortran;;
+        esac;;
+  esac
+fi
+
+if [ "$compiler" = "None" ]
+then
+
+  echo It seems the GAMESS-UK/CHARMM interface has not yet been ported to
+  echo your platform.
+  echo The required changes should be made to GAMESS-UK/utilities/charmm_configure
+  exit -1
+  
+else
+  echo Compiler option for GAMESS-UK is $compiler. If this is not correct 
+  echo the required changes should be made to GAMESS-UK/utilities/charmm_configure
+fi
+
+# Store the host for use in placing the library in the correct place
+
+echo CHMHOST=$chmhost > chmhost.mk
+
+echo =====================================================
+#
+#  Pass control to the main configure script
+#
+cd ..
+if test $chmpar != "serial"
+then
+    echo Running ./configure -c parallel $compiler "$flucq $i8 $bldopts $extras $parextras $userextras $debug $chmgukver"
+    ./configure -c parallel $compiler "$flucq $i8 $bldopts $extras $parextras $userextras $debug $chmgukver"
+
+else
+    echo Running ./configure -c $chmpar $compiler "$flucq $i8 $bldopts $extras $parextras $userextras $debug $chmgukver"
+    ./configure -c $chmpar $compiler "$flucq $i8 $bldopts $extras $parextras $userextras $debug $chmgukver"
+fi
+
+#echo Status is $?
+

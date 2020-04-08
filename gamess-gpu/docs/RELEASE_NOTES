@@ -1,0 +1,273 @@
+=======================================================================
+=                                                                     =
+=            RELEASE NOTES FOR GAMESS-UK version 7.0                  =
+=                       - February 2006 -                             =
+=                                                                     =
+=======================================================================
+
+
+NB: For a complete list of the changes in introduced in different
+versions of the code, please visit the url:
+
+http://www.cfs.dl.ac.uk/gamess-uk/features_by_version.shtml
+
+
+Changes introduced in GAMESS-UK Version 7.0 (February 2006)
+===========================================================
+
+Changes to the functionality of the code
+
+   1. Fermi-dirac smearing implemented
+
+      Normally orbitals are filled according to a step function, but
+      this can cause convergence problems if it is uncertain which
+      state to converge on. Fermi smearing allows orbitals to be
+      partially filled, which can improve convergence in some
+      problematic cases.
+
+   2. Atomic Guess extended
+
+      It is now possible to specify the per-atom electron
+      configuration or charge for the atomic guess. It is also
+      possible to specify alpha and beta populations for atoms in UHF
+      calculations.
+
+   3. Update of the Graphics Module
+
+      The graphics modules have been revised to enable both density
+      and potential codes to drive through full (s,p,d,f,g) basis
+      sets.
+
+   4. User-defined convergence schemes:
+
+      It is now possible for a user to specify a particular
+      convergence scheme, rather than the default one within
+      GAMESS-UK. This is activated by placing the convergence criteria
+      within a block in the input file delimited by the keywords
+      newscf and end, following the specification of the runtype.
+
+      This functionality is available in serial and within the
+      parallel MPI ScaLAPACK driver.
+
+   5. Changes to the DFT Module
+
+          * New DFT Functionals
+
+            Several new functionals have been added:
+                o PBE exchange-correlation functional
+                o HCTH120, HCTH147, HCTH407, KT1 and KT2 functionals.
+                o PW92 local correlation functional
+                o PW91 exchange, correlation and exchange-correlation functionals.
+                o B95 meta-GGA correlation functional.
+                o BB95, B1B95 and BB1K meta-GGA functionals.
+
+                  NB - for the meta-GGA functionals, only the energies
+                  and gradients can be calculated - the second
+                  derivatives of the energy are not available.
+
+          * More flexible DFT grid specifications
+
+            The atom size is used in a number of tests within in the
+            DFT code. Previously the same size was used for all tests,
+            however it is now possible to specify the atomic size for
+            each test separately, as shown in the examples below:
+
+               1. The atomic radii for the angular grid pruning schemes: pradii 3.0
+               2. The atomic size adjustment radii for the weighting scheme: wradii 3.0
+               3. The screening radius: sradii 3.0
+               4. The radial grid scale factor: radii 3.0 
+
+            It is also now possible to specify the grid size for a row
+            of the periodic table - previously this had to be done on
+            a per-element basis. For example, to specify the grid size
+            for the Lebedev-Laikov angular grid for the first row of
+            the periodic table:
+
+            lebedev row 1 194 
+
+   6. Changes to the Post-HF Modules
+
+          * The 255 basis function limit in the MRDCI code has been removed, 
+            so that the code is effecively open-ended in the number of basis
+            basis functions permitted.
+
+          * Configuration Interaction Transformation between AO and MO
+            basis' has been extended to g functions.
+
+          * A facility to allow the punching of both transformed
+            integrals and CI coefficients from the full CI code has
+            been introduced. This uses (i) the cards directive, and
+            (ii) an extension of the current print facility within the
+            Full CI module. Thus the data file:
+
+    core 10000000
+    title
+    h2co - 3-21g basis - valence full-ci
+    super off nosym
+    cards trans fullci
+    zmatrix angstrom
+    c
+    o 1 1.203
+    h 1 1.099 2 121.8
+    h 1 1.099 2 121.8 3 180.0
+    end
+    active\5 to 22 end\core\1 to 4\end
+    runtype ci\fullci 18 4 4
+    punch 1 -8
+    enter
+
+            Would result in a complete list of transformed 1e- and
+            2e-integrals to the file moints.ascii and all ci
+            coefficients (greater than 1 x 10-8) to the file
+            civecs.ascii.
+
+          * The filenames for the files use in CI calculations can now
+            be set through file directives in the input file as well
+            as environment variables.
+
+          * MR-ACPF (Multireference Averaged Coupled-Pair-Functional),
+            MR-AQCC (Multi-Reference Average Quadratic
+            Coupled-Cluster) and the CEPA0 coupled electron-pair
+            approximation methods have been added to the MRDCI
+            module. 
+
+   7. The use of the HARMONIC directive has been extended to the
+      Valence Bond code, allowing spherical harmonic basis sets to be
+      used for d, f and g functions.
+
+   8. A simple solvation model has been implemented in the Valence
+      Bond code.
+
+   9. Arbitrary (not spinadapted) wavefunctions are now possible in
+      the Valence Bond code.
+
+  10. The Valence Bond module can be compiled with 8-byte integers.
+
+  11. The RESTORE option has been added to the ZORA module to allow
+      zora relativistic (atomic) corrections to be stored and restored
+      on the current and foreign dumpfile. This permits easy restart
+      calculations, when the ZORA corrections do not need to be
+      recalculated.
+
+  12. New distributed data MPI HF/DFT driver
+
+      A distributed-data HF and DFT module has been developed using
+      MPI-based tools such as ScaLAPACK. All data structures, except
+      those required for the Fock build are fully distributed. The
+      functionality of this code is currently limited to closed shell
+      and unrestricted open shell. To build this code BLACS and
+      ScaLAPACK ( available from www.netlib.org ), must be installed
+      on the target machine and the mpi build option selected when
+      configuring the code.
+
+  13. Taskfarming Harness
+
+      A taskfarming harness has been developed. This is an MPI program
+      designed to be run on a large number of processors on a parallel
+      machine and 'batch processes' numerous small GAMESS-UK jobs. The
+      taskfarming harness is currently only available as a separate
+      binary of the mpi build of the code and is selected by choosing
+      the taskfarm keyword when configuring the mpi code.
+
+
+Changes to the structure of the code
+
+   1. New Ports The code has been ported to several new platforms:
+
+          * Macintosh OSX (G3, G4, and G5 processors)
+          * Windows XP
+          * AMD Opteron and Athlon processors running Linux.
+          * Intel Xeon, EM64T and Itanium processors running Linux.
+          * HP-UX running on Itanium processors.
+          * Sunfire v880 server
+          * SGI Altix
+          * Cray XD1 
+
+   2. Global Arrays
+
+      The version of the Global Arrays supplied with GAMESS-UK has
+      been updated from 3.3 to GA 3.4b.
+
+   3. MOPAC
+
+      The MOPAC code within GAMESS-UK has been updated to version 7.0
+
+   4. Configuring GAMESS-UK
+
+      A new configure process has been developed to ease porting the
+      code to new platforms and making it easier for users to
+      configure the build on their own machine. All platform-specific
+      variables for the make process are stored in a file with an .mk
+      suffix in the GAMESS-UK-7.0/config directory and the
+      configuration process is run by the configure script in the main
+      GAMESS-UK-7.0 directory. There are further notes in the file:
+      GAMESS-UK-7.0/INSTALL.
+
+   5. Testing the parallel code
+
+      A new testing regieme has been developed for the parallel
+      code. The testing regime is designed for users of the code who
+      build from source and want to ensure that the code is
+      functioning correctly. The test cases and README's explaining
+      how to run the cases can be found in the directories:
+
+      GAMESS-UK-7.0/examples/parallel\_GAs
+
+      for the Global Array-based code and:
+
+      GAMESS-UK-7.0/examples/parallel\_MPI
+
+      for the new MPI HF/DFT module.
+
+
+Peripheral Changes
+
+   1. Demo Binaries
+
+      Free Windows, Macintosh and Linux demo versions are available
+      for users who wish to try out the code.
+
+   2. GAMESS-UK Forum
+
+      A GAMESS-UK Forum has been added to the Distributed Computing
+      forums run at Daresbury. You can find the Forum at:
+
+      www.cse.clrc.ac.uk/disco/index.shtml
+
+      Please use the forum to ask any general questions you may have
+      about GAMESS-UK or to solicit tips from the developers and other
+      users on the best way to run GAMESS-UK.
+
+   3. Changes to the website
+
+      The website has been updated and moved to a new url and a
+      Bugzilla facility for logging and querying bugs with the code
+      has also been added.
+
+      The new URL for the main GAMESS-UK website is:
+
+      www.cfs.dl.ac.uk
+
+      And the URL for the database of known bugs in the code is:
+
+      www.cfs.dl.ac.uk/cgi-bin/bugzilla/index.cgi
+
+   4. CCP1GUI
+
+      The CCP1GUI is a free, extensible Graphical User Interface to
+      various computational chemistry codes. Although it has
+      interfaces to other codes such as Dalton and Mopac, the CCP1GUI
+      has been developed around GAMESS-UK and provides a powerful tool
+      for setting up and viewing the results of calculations with
+      GAMESS-UK.
+
+      The CCP1GUI is hosted on sourceforge at:
+
+      http://sourceforge.net/projects/ccp1gui/
+
+      The Python source code can be downloaded directly from
+      Sourceforge, or there are packaged distributions of the CCP1GUI
+      for different operating systems and architectures available via
+      ftp from:
+
+      ftp://ftp.dl.ac.uk/qcg/ccp1gui

@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# script to check modified .m files for a range of different machines
+# the script should be run in the directory containing the modified .m
+# files
+#
+
+if test $1:X = :X 
+then
+   # default is all files
+   mfiles=`/bin/ls *.m`
+else
+   mfiles=$1
+fi
+
+if test $2:X = :X 
+then
+   # list of machine files to check, default is all machines
+   machines=`cd ../machines; /bin/ls *.m`
+else
+   machines=$2
+fi
+
+# .m files to check
+#
+# Reference directory:
+#
+ref=~/orig/m4
+#
+for file in $mfiles
+do
+  echo =========== checking $file =============================
+ 
+  if test -f $ref/$file 
+  then
+
+  rm -f $file.chk
+
+  for machine in $machines
+  do
+
+     echo XXXXXXXX      checking $machine      XXXXXXXXXXX
+     echo XXXXXXXX      checking $machine      XXXXXXXXXXX>> $file.chk
+
+     cat ../machines/$machine ../utilities/gener.m $file | m4 > new
+     cat ../machines/$machine ../utilities/gener.m $ref/$file | m4 > old
+
+     diff -w new old >> $file.chk
+
+  done
+
+  else
+     echo skipping $file - only local copy available
+  fi
+
+done
+

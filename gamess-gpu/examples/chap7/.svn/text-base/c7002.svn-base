@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o - tzvp
+zmatrix angstrom
+o
+h 1 0.956
+h 1 0.956 2 104.5
+end
+basis tzvp
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2o - tzvp - graphical analysis
+zmatrix angstrom
+o
+h 1 0.956
+h 1 0.956 2 104.5
+end
+basis tzvp
+runtype analyse
+graphics
+gdef
+type 2d
+title 
+square 2d grid 
+calc
+type pote
+title
+h2o - electrostatic potential
+section 200
+plot
+type line
+title
+potential lineprinter plot (with wrong contours)
+vectors 1
+enter
+EOF

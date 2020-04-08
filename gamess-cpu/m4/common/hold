@@ -1,0 +1,14 @@
+c
+_IF(cray,ksr,i8)
+      integer mestri
+_ELSEIF(convex,i8drct)
+      integer *8 mestri
+_ELSE
+      REAL mestri
+_ENDIF
+      integer minstr, maxstr, nesvac, nesuno, nesdue
+      integer nesref, mxstri
+      logical screan
+      common /hold/ mestri(2,10,4),minstr(10,4),maxstr(10,4),
+     +              nesvac,nesuno,nesdue,nesref,mxstri,screan
+c

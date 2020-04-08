@@ -1,0 +1,90 @@
+Validation Examples for Origin 2000
++++++++++++++++++++++++++++++++++++
+
+These examples are taken from the chapter 16 of the GAMESS-UK manual,
+and are assumed to be run interactively, and not under qsub control.
+Two run scripts are provided, run_examples_init and run_examples_final,
+both invoking the "run1" script for processing a number of separate
+examples. Note that run1 will, as configured, check whether the
+associated output data set is resident in the LOGS directory, and will
+validate the output against known data. Each example will only be run
+if the validation process is not successful.
+
+Note that these examples are from an 8-processor Origin 2000 at the
+University of Durham (U.K). Running on a different system will require
+changes to the gamess.p configuration file, as described in Part 16
+of the User Manual.
+
+1. run_examples_init; this should be run first, and will conduct an
+   =================  initial somewhat primitive validation of the code 
+based on the following example data sets. The gamess.p configuration file 
+should specify two processors i.e.
+
+gamess hamilton  2 /usr/local/GAMESS/GAMESS-UK/bin/gamess-uk /xlv1/GAMESS
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                Calculation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+h2co_direct_rhf         h2co direct RHF
+h2co_conv_rhf           h2co conventional RHF
+h2co_direct_uhf_opt     h2co+ uhf geom opt
+h2co_mp2_opt            h2co MP2 opt"     
+h2co_direct_gvb         h2co tzvp gvb-1/pp
+h2co_dft                h2co 6-31G DFT/BLYP direct RHF
+h2co_secd               h2co tzvp basis direct SCF 2nd derivatives 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+2. run_examples_final; this provides more extensive validation of the
+   ==================  code, based on the following examples. The gamess.p 
+configuration file should specify 4 or more processors e.g.
+
+gamess hamilton  6 /usr/local/GAMESS/GAMESS-UK/bin/gamess-uk /xlv1/GAMESS
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                Calculation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+par_1.in       Conventional-SCF calculation on Chromium Tetranitrosyl
+par_1a.in      Conventional-RHF calculation on a Neon chain, Ne20
+par_1b.in      Conventional-UHF calculation on a cationic Neon chain, Ne20+
+par_1c.in      Conventional-ROHF calculation on a cationic Neon chain, Ne20+
+par_2.in       Direct-SCF calculation on Chromium Tetranitrosyl
+par_2_ga.in    Direct-SCF calculation on Chromium Tetranitrosyl using GAs
+par_3.in       Direct-SCF DZP geometry optimisation of Chromium Tetranitrosyl
+par_3_ga.in    Direct-SCF DZP geometry optimisation of Chromium Tetranitrosyl (GAs)
+par_4.in       Pyridine cation - Open Shell Direct-ROHF
+par_5.in       Pyridine cation - Open Shell Direct-UHF
+par_6.in       Direct-SCF ECP geometry optimisation of Chromium Tetranitrosyl
+par_7.in       Formaldehyde direct-MP2 geometry optimisation
+par_8.in       Direct-MP2 ECP geometry optimisation of Chromium Tetranitrosyl
+par_9.in       Direct-MP2 geometry optimisation of Chromium Tetranitrosyl
+par_10.in      Direct-MP2 geometry optimisation of Scandium Trifluoride
+par_11.in      Direct-MP2 force constant evaluation for Scandium Trifluoride
+par_14.in      Electrostatic Potential Calculation for pyridine
+par_15.in      Direct-RPA calculation on Pyridine
+par_16.in      Direct-SCF STO3G caculalation on Valinomycin
+par_17.in      Direct-MP2 force constants for ScF3 with restarts
+par_18.in      Direct-SCF STO3G calculation on Cyclosporin
+par_18_ga.in   Direct-SCF STO3G calculation on Cyclosporin using GAs
+par_19.in      Direct-SCF 6-31G* calculation on Morphine
+par_19_uhf.in  Direct-UHF 6-31G* calculation on the Morphine cation
+par_20.in      Direct-SCF 3-21G calculation on Cyclosporin
+par_21_ga.in   Direct-SCF 3-21G calculation on Valinomycin using GAs
+par_22.in      Direct-SCF 6-31G** calculation on Morphine
+par_22.in      Direct-SCF 6-31G** calculation on Morphine using GAs
+par_23.in      Potential Derived Charges for cytosine
+par_24.in      Direct-MP2 energy calculation of (N3)PdMe(+)
+par_25.in      Direct-SCF 6-31G calculation on Valinomycin
+par_26.in      Direct-SCF 6-31G calculation on Cyclosporin
+par_27_ga.in   Direct-SCF 6-31G* calculation on Valinomycin using GAs 
+par_30.in      B3LYP DFT calclation on cytosine 
+par_32.in      Direct-SCF calculation on Chromium Tetranitrosyl (spherical harmonics)
+par_40.in      B3LYP DFT direct-SCF calculation on morphine (6-31G** basis)
+par_43.in      Direct B-LYP calculation on PdP2ClC27OH49 (446 GTOs)
+par_50.in      SCF frequencies for H2CO (TZVP basis)
+par_51.in      SCF frequencies for pyridine (6-31G** basis)
+par_52.in      SCF Frequencies for chlorotriazine transition state (TZVP basis)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+14/10/98

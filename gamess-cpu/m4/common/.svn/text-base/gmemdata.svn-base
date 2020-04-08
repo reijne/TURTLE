@@ -1,0 +1,40 @@
+      integer mxheap
+      parameter(mxheap=100)
+      integer mxcount
+      parameter(mxcount=100)
+
+_IF(64bitpointers)
+      integer*8 iqoff, iq_heap, itag_heap
+_ELSE
+      integer iqoff, iq_heap, itag_heap
+_ENDIF
+      integer igmem_count
+      integer igmem_print
+      integer igmem_priority
+      integer igamem_priority
+      integer igmem_size
+      integer igamem_size
+      integer igmem_totsize
+      integer igamem_totsize
+      integer igmem_maxsize
+      integer igamem_maxsize
+      logical ogmem_debug, ogmem_alloced_all, ogmem_nanify
+      integer numheap
+      integer numcount
+      common/gmemdata/iqoff,iq_heap(mxheap),
+     &     itag_heap(mxheap), igmem_count, numheap, 
+     &     igmem_priority(mxheap),   igamem_priority(mxheap),
+     &     igmem_size(mxheap),       igamem_size(mxheap),
+     &     igmem_totsize(0:mxcount), igamem_totsize,
+     &     igmem_maxsize(0:mxcount), igamem_maxsize, 
+     &     igmem_print, numcount,
+     &     ogmem_debug, ogmem_alloced_all, ogmem_nanify
+
+      character*16 zgmem_varid,zgamem_arrnam
+      common/gmemtext/zgmem_varid(mxheap),zgamem_arrnam(mxheap)
+ 
+      integer mxresreg, mxressect, iadr, nres, nresreg,isize
+      parameter(mxresreg=1)
+      parameter(mxressect=40)
+      common/gmemresv/iadr(0:mxressect,mxresreg),
+     &     nres(mxresreg),isize(mxresreg),nresreg

@@ -1,0 +1,33 @@
+restart ci
+title
+* nh3+ * 3-21g * mrdci-energies 1r -55.6393336 2r -55.4116210
+bypass scf
+charge 1
+mult 2
+zmat angstrom
+n
+h 1 roh
+h 1 roh 2 theta
+h 1 roh 2 theta 3 theta  1
+variables
+roh 1.03   hessian 0.7
+theta 104.2  hessian 0.2
+end
+runtype ci
+mrdci
+adapt  bypass
+tran bypass
+select
+symmetry 1
+spin 2
+cntrl 9
+conf
+1 4 1 2 3  12
+1 3 1 2 4  12
+roots 2
+thresh 5 5
+ci bypass
+diag bypass
+extrap 3
+dthr 0.0001 0.0001
+enter

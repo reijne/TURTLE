@@ -1,0 +1,38 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+core 1000000 memory
+file ed4 mfged4
+file ed6 mfged6
+file ed5 mfged5
+file ed3 mfged3
+node print
+title
+h2co+ - tzvp + f(o) basis - direct-ci
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis
+tzvp c
+tzvp o
+f o
+1.0 0.7
+tzvp h
+end
+runtype ci
+open 1 1
+direct 15 9 53
+conf
+2 2 2 2 2 2 2 1 0
+2 2 2 2 2 2 0 1 2
+natorb 10
+enter 1 2
+EOF

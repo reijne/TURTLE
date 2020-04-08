@@ -1,0 +1,21 @@
+c
+      integer nsamp, nblock, nmoves, ncheck
+      common /mcrunp1/ nsamp,nblock,nmoves,ncheck
+c
+      REAL darot, dtrans, temp, onekt, excld, delmax, enmin
+      common /mcrunp2/ darot,dtrans,temp,onekt,excld,delmax,enmin
+c
+      logical mcupdt,secstat,excess
+      integer notrans, norot, imcout, iseed, imcst, iactst
+      common /mcrunp3/ notrans,norot,imcout,iseed,imcst,iactst,
+     +               mcupdt,secstat,excess
+c
+      character*16 outfor
+      common /mcrunp4/ outfor
+c
+      REAL ratmin, ratmax, amxrot, amxtrn, amnrot, amntrn
+      common /mcrunp5/ ratmin,ratmax,amxrot,amxtrn,amnrot,amntrn
+c
+      REAL gammc
+      common /mcrunp6/ gammc(5)
+c

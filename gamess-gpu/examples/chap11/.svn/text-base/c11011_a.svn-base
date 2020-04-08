@@ -1,0 +1,58 @@
+#!/bin/csh
+setenv ed2 hpsimain
+setenv ed3 hpsidump
+../../bin/gamess << EOF
+title
+psih trial hessian / SCF energy -626.865539
+zmat ang
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053 
+ph  2.44  
+hpsi  51.02 
+end
+runtype hessian
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+psih <-> hpsi saddle point/optimised energy = -626.8880726
+zmat angs
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053
+ph  2.44  
+hpsi  51.02 
+end
+runtype saddle fcm
+xtol 0.0005
+vectors 1
+lock
+enter 2
+EOF
+../../bin/gamess << EOF
+restart
+title
+psih <-> hpsi saddle point / freq   -378.8, 470.7, 2002.4
+zmat angs
+p
+x 1 1.0
+si 1 psi 2 90.0
+h 1 ph 2 90.0 3 hpsi
+variables
+psi 2.053
+ph  2.44  
+hpsi  51.02 
+end
+runtype hessian
+vectors 2
+lock
+enter 2
+EOF

@@ -1,0 +1,34 @@
+
+Begin optimization report for: DLARTG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlartg.f(112,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlartg.f(112,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlartg.f(127,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlartg.f(127,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlartg.f(107,22)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlartg.f(122,22)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

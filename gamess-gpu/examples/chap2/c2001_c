@@ -1,0 +1,27 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - tzvp - closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31++g**  - closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31++g**
+enter
+EOF

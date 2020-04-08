@@ -1,0 +1,827 @@
+
+Begin optimization report for: DLF_READ_IN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dl-find_d.F90(1869,3) inlined into dl-find_d.F90(180,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1869,3) inlined into dl-find_d.F90(180,8)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1869,3) inlined into dl-find_d.F90(180,8)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_ALLOCATE_GLOB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dl-find_d.F90(1104,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1104,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1104,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1104,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1104,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1104,7)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dl-find_d.F90(1104,7)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1104,7)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1104,7)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1104,7)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1112,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1112,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1112,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1112,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1112,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1114,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1114,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1114,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1117,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1117,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1117,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1117,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1117,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1117,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1118,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1118,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1118,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1118,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1118,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1123,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1123,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1123,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1123,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1123,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1123,7)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1123,7)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1123,7)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1123,7)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1126,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1126,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dl-find_d.F90(1126,7)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1126,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1133,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1133,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1133,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1133,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1133,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1133,7)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1133,7)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1133,7)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1133,7)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1136,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1136,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dl-find_d.F90(1136,7)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1136,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1143,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1143,8)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1143,8)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1143,8)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1143,8)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1153,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1153,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1153,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1159,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1159,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1159,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dl-find_d.F90(1159,5)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1159,5)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1160,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1160,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1160,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dl-find_d.F90(1160,5)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1160,5)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1161,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1161,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1161,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1165,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1165,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1165,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1165,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1165,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1167,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1167,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1167,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1171,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1171,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1171,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1177,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1177,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1177,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1177,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1177,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1184,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1184,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1184,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1188,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1188,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1188,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1196,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1196,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1196,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1199,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1199,11)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1199,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1199,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1199,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1230,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1230,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1230,7)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dl-find_d.F90(1230,7)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1230,7)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1230,7)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dl-find_d.F90(1230,7)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1236,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1236,5)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dl-find_d.F90(1236,5)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1236,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1239,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1239,5)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dl-find_d.F90(1239,5)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1239,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1243,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(1243,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(1243,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1243,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1243,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(1243,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dl-find_d.F90(1149,8)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dl-find_d.F90(1330,11) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_RUN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dl-find_d.F90(584,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(584,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(584,19)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(584,19)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(584,19)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(584,19)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(587,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(587,24)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(587,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(587,24)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(587,24)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(597,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(597,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(597,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(597,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(597,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(602,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(602,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(602,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(602,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(602,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(608,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(608,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(608,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(608,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(608,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(622,39)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(622,39)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(622,39)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(622,39)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(673,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(673,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dl-find_d.F90(673,8)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dl-find_d.F90(673,8)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(801,48)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dl-find_d.F90(801,48)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(801,48)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(801,48)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(801,48)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(916,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(916,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(916,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(916,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1024,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1025 and  line 1025
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1024,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1025 and  line 1028
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dl-find_d.F90(711,8)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_REPORT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dl-find_d.F90(1532,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1533 and  line 1533
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1694,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1694,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1696,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dl-find_d.F90(1696,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_DEFAULT_INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dl-find_d.F90(1869,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dl-find_d.F90(1869,3)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dl-find_d.F90(1869,3)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

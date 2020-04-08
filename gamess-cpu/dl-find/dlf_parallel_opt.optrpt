@@ -1,0 +1,1449 @@
+
+Begin optimization report for: DLF_PARALLEL_OPT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(182,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(182,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(182,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(185,8)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(185,8)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(185,8)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(185,8)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(185,8)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(190,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(190,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(190,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(196,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 197 and  line 197
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(225,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(225,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(225,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(226,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(226,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(226,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(228,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(228,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(228,8)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(228,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(229,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(229,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(229,8)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(229,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(277,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(285,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(285,11)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(285,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(285,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(285,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(286,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(286,11)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(286,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(286,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(286,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(300,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(300,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(300,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(301,11)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(301,11)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(301,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(302,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(302,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(302,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(302,11)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(302,11)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(318,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(318,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(318,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(318,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(326,19)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(965,3) inlined into dlf_parallel_opt_d.F90(326,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(326,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(326,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(326,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(335,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(335,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(335,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(341,17)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(341,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(341,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(355,44)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(388,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(388,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(388,25)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(388,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(389,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(389,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(389,25)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(389,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(400,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(401,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(401,11)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(401,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(401,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(401,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(408,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(408,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(408,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(707,5) inlined into dlf_parallel_opt_d.F90(437,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(707,5) inlined into dlf_parallel_opt_d.F90(437,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(707,5) inlined into dlf_parallel_opt_d.F90(437,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(707,5) inlined into dlf_parallel_opt_d.F90(437,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(778,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(778,5) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(778,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(778,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(782,13) inlined into dlf_parallel_opt_d.F90(439,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(782,13) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(782,13) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(782,13) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(811,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(811,5) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(811,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(811,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(813,5) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 814 and  line 814
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(813,5) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(829,8) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(836,15) inlined into dlf_parallel_opt_d.F90(439,19)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(869,11) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(890,11) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(890,11) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(890,11) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(890,11) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(892,11) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(892,11) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(892,11) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(892,11) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(896,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(896,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(896,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(896,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(898,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(898,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(898,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(898,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(901,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(901,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(901,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(901,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(903,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(903,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(903,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(903,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(906,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(906,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(906,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(906,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(908,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(908,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(908,15) inlined into dlf_parallel_opt_d.F90(439,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(908,15) inlined into dlf_parallel_opt_d.F90(439,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(455,22)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(455,22)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(455,22)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(455,22)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(455,22)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(965,3) inlined into dlf_parallel_opt_d.F90(455,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(455,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(455,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(455,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1009,3) inlined into dlf_parallel_opt_d.F90(463,36)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1010 and  line 1025
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(509,19)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(509,19)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(509,19)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(509,19)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(963,3) inlined into dlf_parallel_opt_d.F90(509,19)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(965,3) inlined into dlf_parallel_opt_d.F90(509,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(509,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(509,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(966,6) inlined into dlf_parallel_opt_d.F90(509,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(547,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(547,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(547,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(547,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(548,61)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(377,11)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_parallel_opt_d.F90(346,22) ]
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(528,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(730,5) inlined into dlf_parallel_opt_d.F90(437,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_parallel_opt_d.F90(725,19) ]
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(729,8) inlined into dlf_parallel_opt_d.F90(437,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_parallel_opt_d.F90(725,19) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(912,5) inlined into dlf_parallel_opt_d.F90(439,19)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(550,8)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_PARALLEL_OPT:DLF_INIT_ENGARRAYS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(579,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(579,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(579,8)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(579,8)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(579,8)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(580,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(580,8)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(580,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(585,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(585,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(585,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(585,11)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(585,11)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(586,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(586,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(586,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(588,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(588,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(588,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(588,11)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_parallel_opt_d.F90(588,11)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(589,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(589,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(589,11)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_PARALLEL_OPT:DLF_STOCH_ENDCYCLE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1074,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1074,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1074,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1075,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1075,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1075,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1076,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1076,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1076,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1077,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1077,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1077,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1080,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1080,8)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1080,8)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1080,8)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1080,8)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1084,8)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1088,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1088,8)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1088,8)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1088,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1092,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1092,8)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1092,8)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1092,8)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1092,8)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1099,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1099,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1099,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1099,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1108,41)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1108,41)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1108,41)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1108,41)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1129,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1129,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1129,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1137,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1138 and  line 1138
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1146,44)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1146,44)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1146,44)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1146,44)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1171,34)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1171,34)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1171,34)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1171,34)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1154,5)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_PARALLEL_OPT:DLF_GENETIC_ENDCYCLE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1226,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1226,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1226,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1229,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1229,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1229,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1229,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1229,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1233,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1237,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1237,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1237,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1237,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1241,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1241,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1241,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1241,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1241,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1243,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1243,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1243,14)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1243,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1244,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1244,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1244,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1244,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1256,35)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1256,35)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1256,35)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1256,35)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1263,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1263,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1263,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1263,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1275,41)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1275,41)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1275,41)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1275,41)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1301,23)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1301,23)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+<Distributed chunk3>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1299,20)
+<Remainder, Distributed chunk3>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1305,20)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1305,20)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1305,20)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(1305,20)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(1310,14)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_PARALLEL_OPT:DLF_GET_ENGARRAYS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(633,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(633,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(633,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(644,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(662,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(662,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_parallel_opt_d.F90(662,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_parallel_opt_d.F90(666,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_parallel_opt_d.F90(638,16) ]
+LOOP END
+===========================================================================

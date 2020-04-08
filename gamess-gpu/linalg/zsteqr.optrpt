@@ -1,0 +1,75 @@
+
+Begin optimization report for: ZSTEQR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zsteqr.f(177,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at zsteqr.f(235,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at zsteqr.f(342,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at zsteqr.f(486,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at zsteqr.f(486,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at zsteqr.f(486,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zsteqr.f(461,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at zsteqr.f(461,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at zsteqr.f(461,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at zsteqr.f(461,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zsteqr.f(196,15)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at zsteqr.f(329,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at zsteqr.f(290,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zsteqr.f(293,18) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zsteqr.f(436,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at zsteqr.f(397,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zsteqr.f(400,18) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zsteqr.f(482,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zsteqr.f(495,21) ]
+LOOP END
+===========================================================================

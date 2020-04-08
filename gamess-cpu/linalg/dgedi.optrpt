@@ -1,0 +1,54 @@
+
+Begin optimization report for: DGEDI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgedi.f(107,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dgedi.f(107,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgedi.f(107,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dgedi.f(107,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgedi.f(64,13)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dgedi.f(69,22)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at dgedi.f(74,22)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgedi.f(86,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgedi.f(89,18) ]
+
+   LOOP BEGIN at dgedi.f(92,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgedi.f(95,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgedi.f(104,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgedi.f(113,21) ]
+
+   LOOP BEGIN at dgedi.f(111,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgedi.f(113,21) ]
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,36 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co - tzvp basis - valence ccsd / energy = -114.2583651643
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis  tzvp
+active\3 to 50 end\core\1 2\end
+runtype ci
+ccsd 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - tzvp basis - valence ccsd(t) / energy = -114.2708241939
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis  tzvp
+active\3 to 50 end\core\1 2\end
+runtype ci
+ccsd(t) 
+enter 
+EOF

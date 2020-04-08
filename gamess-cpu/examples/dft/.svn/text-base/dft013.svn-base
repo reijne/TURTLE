@@ -1,0 +1,23 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+vf5 - LDA tzvp basis - d3h Energy -1438.425951616224 au
+zmat angstrom
+v
+f  1  vfeq
+x  2  1.0    1  90
+f 1  vfeq   2  120  3 180
+f 1  vfeq   2  120  3   0
+f  1  vfax   2   90  3  90
+f  1  vfax   2   90  3 -90
+variables
+vfeq           1.6990502 hessian    1.269986
+vfax           1.7341766 hessian     .662731
+end
+basis tzvp
+runtype optimize
+scftype direct
+dft s-vwn
+level 2
+enter
+EOF

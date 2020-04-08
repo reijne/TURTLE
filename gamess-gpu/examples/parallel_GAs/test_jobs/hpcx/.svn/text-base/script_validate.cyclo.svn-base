@@ -1,0 +1,40 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = c01-chem
+#@ job_name = VALIDATE
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK/examples/parallel_GAs/test_jobs/hpcx/VALIDATE.err
+#@ wall_clock_limit = 01:00:00
+#@ tasks_per_node = 32
+#@ cpus = 64
+#@ network.LAPI = csss,not_shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export LAPI_USE_SHM=yes
+export MP_SHARED_MEMORY=yes
+export MP_EUILIB=us
+export MP_EUIDEVICE=csss
+export MP_MSG_API=lapi
+export MP_CSS_INTERRUPT=yes
+export AIXTHREAD_SCOPE=S
+export MP_POLLING_INTERVAL=25000
+export RT_GRQ=ON
+#
+export MP_PULSE=0
+export MP_INTRDELAY=100
+export MP_SINGLE_THREAD=yes
+#
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK/examples/parallel_GAs
+
+time /usr/bin/poe ../../bin/gamess-uk < input_files/DFT.cyclo.6-31G.in > test_jobs/hpcx/DFT.cyclo.6-31G.out

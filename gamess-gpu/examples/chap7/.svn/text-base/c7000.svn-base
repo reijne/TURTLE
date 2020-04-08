@@ -1,0 +1,43 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+hco - 3-21g - rhf open shell
+mult 2
+zmatrix angstrom
+c
+o 1 1.25295
+h 1 1.10142 2 126.28964
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+hco - 3-21g - rhf open shell
+mult 2
+zmatrix angstrom
+c
+o 1 1.25295
+h 1 1.10142 2 126.28964
+end
+runtype analyse
+graphics
+gdef
+type 2d
+points 99
+title
+square 2d grid (99*99) 
+calc
+type dens
+section 151
+title
+hco - total density
+plot
+type line
+title
+hco density lineprinter plot
+vectors 5
+enter
+EOF

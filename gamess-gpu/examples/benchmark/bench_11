@@ -1,0 +1,30 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed4 mfged4
+setenv ed6 mfged6
+../../bin/gamess << EOF
+core 3000000
+time 180
+title
+c4 631g*   energy (mp2)  -151.63472868 au
+#
+# harmonic frequencies
+#  373.54, 712.68, 949.87, 1102.96, 1284.57, 1428.33
+#
+zmat angstrom
+c
+c 1 cc
+c 2 cc 1 cc1
+c 3 cc 2 cc2 1 0.0
+variables
+cc 1.450940190
+cc1  63.30050021
+cc2 116.69949979
+end
+basis 6-31g*
+runtype hessian
+scftype mp2 
+enter
+EOF
+/bin/rm mfg*

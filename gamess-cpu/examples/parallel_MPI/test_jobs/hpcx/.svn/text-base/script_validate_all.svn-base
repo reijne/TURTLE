@@ -1,0 +1,38 @@
+#!/bin/sh
+#@ shell            = /bin/ksh
+#@ job_type         = parallel
+#@ account_no       = c01-chem
+#@ job_name         = VALIDATE
+#@ output           = VALIDATE.out
+#@ error            = VALIDATE.err
+#@ wall_clock_limit = 02:00:00
+#@ tasks_per_node   = 16
+#@ cpus             = 128
+#@ network.MPI_LAPI = csss,not_shared,US
+#@ node_usage       = not_shared
+#@ queue
+
+export MP_CSS_INTERRUPT=yes
+export AIXTHREAD_SCOPE=S
+export RT_GRQ=ON
+export MP_SINGLE_THREAD=yes
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+
+binary=../../../../bin/gamess-uk
+inputdir=../../input_files
+jobs_list=$inputdir/jobs.list
+mycwd=`pwd`
+for job in `cat $jobs_list|grep -v "#"`
+do
+  cp $inputdir/${job}.in datain
+  time /usr/bin/poe $binary > $mycwd/${job}.out
+done

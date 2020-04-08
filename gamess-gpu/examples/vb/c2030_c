@@ -1,0 +1,99 @@
+#!/bin/csh
+#
+#  calculated polarisation dispersion energy
+#  interestingly the vector-set pruced in this run could 
+#  be used toi calculate e-coul (see c2020_b)
+#
+setenv ed10 he-ed3_nzo
+../../bin/gamess <<EOF
+dumpfile ed10
+harmonic
+title 
+he monomer c1d2
+geometry
+0 0   0 2 he
+end
+basis
+? c1d2 6s3p2d
+s he
+1.           0.11815655
+s he
+1.           0.27475074
+s he
+1.           0.63888097
+s he
+1.           1.485597
+s he
+1.           3.4544753
+s he
+0.0560997    8.0327301
+0.0215745    18.678597
+0.0077873    43.43355
+0.0027779    100.99652
+0.0009573    234.84833
+0.0003500    546.09545
+0.0001066    1269.8418
+0.0000523    2952.7773
+0.0000045    6866.1261
+0.0000115    15965.879
+p he
+1.   0.7591162
+p he
+1.   3.0471916
+d he
+1.  1.959099
+p he
+1.   0.194274
+d he
+1.   0.228955
+end
+enter
+EOF
+../../bin/gamess <<EOF
+harmonic
+nosym
+title 
+he dimer disp c1d2
+geometry
+0 0   0 2 he
+0 0 5.6 2 he
+end
+basis
+? c1d2 6s3p2d
+s he
+1.           0.11815655
+s he
+1.           0.27475074
+s he
+1.           0.63888097
+s he
+1.           1.485597
+s he
+1.           3.4544753
+s he
+0.0560997    8.0327301
+0.0215745    18.678597
+0.0077873    43.43355
+0.0027779    100.99652
+0.0009573    234.84833
+0.0003500    546.09545
+0.0001066    1269.8418
+0.0000523    2952.7773
+0.0000045    6866.1261
+0.0000115    15965.879
+p he
+1.   0.7591162
+p he
+1.   3.0471916
+d he
+1.  1.959099
+p he
+1.   0.194274
+d he
+1.   0.228955
+end
+disp ed10 1 1 ed10 1 1
+scftype mp2
+enter 1
+EOF
+\rm he-ed3_nzo

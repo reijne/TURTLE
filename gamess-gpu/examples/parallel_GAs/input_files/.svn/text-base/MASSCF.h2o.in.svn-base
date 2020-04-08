@@ -1,0 +1,21 @@
+title
+water 3-21G
+integral high
+accuracy  20 10   
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype gradient
+scftype direct masscf
+masscf
+  ncore 1
+  nact 8
+  nels 8
+  nspace 1
+end
+enter 1

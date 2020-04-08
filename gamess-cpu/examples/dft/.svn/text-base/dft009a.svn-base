@@ -1,0 +1,40 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+hooh  - local ECP / BLYP optimised  energy = -32.964411823502 au
+zmat angstrom
+h 
+o 1 oh 
+o 2 oo 1 ooh
+h 3 oh 2 ooh 1 90.0 
+variables
+oh 1.1
+oo 1.4
+ooh 109.0
+end
+basis ecpdz
+pseudo 
+o o
+runtype optimize
+dft blyp
+enter
+EOF
+../../bin/gamess << EOF
+title
+hooh  - local ECP / HF optimised  energy = -32.388047625954 au
+zmat angstrom
+h 
+o 1 oh 
+o 2 oo 1 ooh
+h 3 oh 2 ooh 1 90.0 
+variables
+oh 1.1
+oo 1.4
+ooh 109.0
+end
+basis ecpdz
+pseudo 
+o o
+runtype optimize
+enter
+EOF

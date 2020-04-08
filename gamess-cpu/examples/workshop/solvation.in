@@ -1,0 +1,23 @@
+title
+h2o surrounded by dielectric
+# connolly vanderWaals surface
+integral high
+nosymm
+adapt off
+geom au
+  0.0              0.0           0.0  8.0  O
+  1.1031           1.4325        0.0  1.0  H
+  1.1031          -1.4325        0.0  1.0  H
+end
+basis sv 4-31g**
+react
+ field reac scf
+ drftwoel disk
+ dielectric
+  dieltyp stat
+  solvent water
+  solvrad 0.0
+  connolly rprobe 3.64
+ end
+end
+enter

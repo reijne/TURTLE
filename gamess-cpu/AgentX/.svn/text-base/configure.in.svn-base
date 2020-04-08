@@ -1,0 +1,426 @@
+AC_INIT([AgentX Library], [0.3.8],
+        [Author Of The Program <p.a.couch@dl.ac.uk>],
+        [AgentX])
+
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_LIBTOOL_WIN32_DLL
+AC_LIBTOOL_DLOPEN
+AC_PROG_LIBTOOL
+AM_INIT_AUTOMAKE
+AM_CONFIG_HEADER(include/config.h:include/config.h.in)
+LT_LANG(Fortran)
+
+
+echo -n "${PACKAGE_VERSION}" > RELEASE
+AXCORE=src
+
+if test "$with_all" == "yes"; then
+with_python=yes
+with_perl=yes
+with_fortran=yes
+with_java=yes
+with_f_examples=yes
+with_c_examples=yes
+with_libxml2=yes
+with_axtransform=yes
+with_axgraph=yes
+fi
+
+if test "$with_axgraph" == "yes"; then
+AXGRAPH=axgraph
+fi
+
+if test "$with_axtransform" == "yes"; then
+AXAXT=axtransform
+fi
+
+if test "$with_c_examples" == "yes"; then
+AXCEXA=examples/c
+fi
+
+if test "$with_f_examples" == "yes"; then
+AXFEXA=examples/fortran
+fi
+
+if test "$with_python" == "yes"; then
+AXPYTHON=python
+
+#look for Python.h
+
+if test -z "$PYBIN"; then
+   AC_CHECK_PROGS(PYTHON, python python2.4 python2.3 python2.2 python2.1 python2.0 python1.6 python1.5 python1.4 python)
+else
+	PYTHON="$PYBIN"
+fi
+
+if test -n "$PYTHON"; then
+    AC_MSG_CHECKING(for Python prefix)
+    PYPREFIX=`($PYTHON -c "import sys; print sys.prefix") 2>/dev/null`
+    AC_MSG_RESULT($PYPREFIX)
+    AC_MSG_CHECKING(for Python exec-prefix)
+    PYEPREFIX=`($PYTHON -c "import sys; print sys.exec_prefix") 2>/dev/null`
+    AC_MSG_RESULT($PYEPREFIX)
+
+    AC_MSG_CHECKING(for Python version)
+
+    # autoconf replaces __file__ with the name of the configure file
+    filehack="file__"
+    PYVERSION=`($PYTHON -c "import string,operator,os.path; print operator.getitem(os.path.split(operator.getitem(os.path.split(string.__$filehack),0)),1)")`
+    AC_MSG_RESULT($PYVERSION)
+
+    # Set the include directory
+
+    AC_MSG_CHECKING(for Python header files)
+    if test -r $PYPREFIX/include/$PYVERSION/Python.h; then
+        PYINCLUDE="-I$PYPREFIX/include/$PYVERSION -I$PYEPREFIX/$PYLIBDIR/$PYVERSION/config"
+    fi
+    if test -z "$PYINCLUDE"; then
+        if test -r $PYPREFIX/include/Py/Python.h; then
+            PYINCLUDE="-I$PYPREFIX/include/Py -I$PYEPREFIX/$PYLIBDIR/python/lib"
+        fi
+    fi
+    AC_MSG_RESULT($PYINCLUDE)
+fi
+
+if test -z "$PYINCLUDE"; then
+   AC_MSG_ERROR([Python headers not found: you probably need to install python-devel])
+fi
+
+fi
+
+if test "$with_perl" == "yes"; then
+AXPERL=perl
+
+#look for perl.h
+
+if test -z "$PERLBIN"; then
+AC_CHECK_PROGS(PERL, perl perl5.6.1 perl5.6.0 perl5.004 perl5.003 perl5.002 perl5.001 perl5 perl)
+else
+PERL="$PERLBIN"
+fi
+
+AC_MSG_CHECKING(for Perl5 header files)
+if test -n "$PERL"; then
+	PERL5DIR=`($PERL -e 'use Config; print $Config{archlib}, "\n";') 2>/dev/null`
+	if test "$PERL5DIR" != ""; then
+		dirs="$PERL5DIR $PERL5DIR/CORE"
+		PERL5EXT=none
+		for i in $dirs; do
+			if test -r $i/perl.h; then
+				AC_MSG_RESULT($i)
+				PERL5EXT="$i"
+				break;
+			fi
+		done
+		if test "$PERL5EXT" = none; then
+			PERL5EXT="$PERL5DIR/CORE"
+			AC_MSG_RESULT(could not locate perl.h...using $PERL5EXT)
+		fi
+	fi
+fi
+
+if test -z "$PERL5EXT"; then
+   AC_MSG_ERROR([Perl headers not found: cannot compile Perl wrapper])
+fi
+
+fi
+
+if test "$with_fortran" == "yes"; then
+
+   AXFORTRAN=fortran
+
+   if test -z "$FC"; then
+      AC_PROG_FC([f90 xlf90 pgf90 epcf90 gfortran fort ifort ifc efc xlf95 pgf95 lf95 g95 f95],[])
+   fi
+
+   AC_LANG_PUSH(Fortran)
+
+   AC_FC_WRAPPERS
+   TW_FC_ID
+   TW_FC_ID_FLAGS
+   AC_FC_CHECK_SIZEOF(INTEGER)
+   AC_FC_MOD_SUFFIX
+   AC_FC_MOD_PATH_FLAG
+   AC_FC_FREEFORM
+
+   FMOD_NAME="fagentxi.mod"	
+
+   if test -n "${FC_MODEXT}" ; then
+   if test "${FC_MODUPPERCASE}" = "yes" ; then
+      FMOD_NAME=FAGENTXI.${FC_MODEXT}
+   else
+      FMOD_NAME=fagentxi.${FC_MODEXT}
+   fi
+   fi
+
+   AC_LANG_POP(Fortran)
+
+   AC_CHECK_SIZEOF(short int)
+   AC_CHECK_SIZEOF(int)
+   AC_CHECK_SIZEOF(long int)
+   AC_CHECK_SIZEOF(long long int)	
+
+   axfortint="int"
+   axfortintc="int"
+
+   case "$FC_SIZEOF_INTEGER" in
+
+	"$SIZEOF_INT")
+	axfortint="int"
+	;;
+
+	"$SIZEOF_SHORT_INT")
+	axfortint="short int"
+	;;
+
+	"$SIZEOF_LONG_INT")
+	axfortint="long int"
+	;;
+
+	"$SIZEOF_LONG_LONG_INT")
+	axfortint="long long int"
+	;;
+
+
+   esac
+
+   case "$FC_SIZEOF_LEN" in
+
+	"$SIZEOF_INT")
+	axfortintc="int"
+	;;
+
+	"$SIZEOF_SHORT_INT")
+	axfortintc="short int"
+	;;
+
+	"$SIZEOF_LONG_INT")
+	axfortintc="long int"
+	;;
+
+	"$SIZEOF_LONG_LONG_INT")
+	axfortintc="long long int"
+	;;
+
+   esac
+
+   AC_MSG_NOTICE(Fortran INTEGER C type = $axfortint)
+   AC_MSG_NOTICE(Fortran len C type = $axfortintc)
+
+fi
+
+if test "$with_java" == "yes"; then
+
+   AXJAVA=java 
+   AC_JNI_INCLUDE_DIR
+
+   for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
+       do
+	CFLAGS="$CFLAGS -I$JNI_INCLUDE_DIR"
+       done
+fi
+
+#find libxml2
+
+if test -z "$with_libxml2" -o "$with_libxml2" = "no" ; then
+
+#use xml2-config
+
+if test -z "$XML2_CONFIG" ; then
+   AC_CHECK_PROGS(XML2_CONFIG,xml2-config)
+fi
+
+if test -n "$XML2_CONFIG"; then
+
+   if test -z "$libxml2_libs" ; then
+      libxml2_libs=`$XML2_CONFIG --libs`
+   fi
+
+   if test -z "$libxml2_cflags" ; then
+      libxml2_cflags=`$XML2_CONFIG --cflags`
+   fi
+
+else
+
+#use pkg-config
+
+AC_CHECK_PROGS(XML2_CONFIG,pkg-config)
+   
+if test -n "$XML2_CONFIG"; then
+
+   if test -z "$libxml2_libs" ; then
+      libxml2_libs=`$XML2_CONFIG libxml-2.0 --libs`
+   fi
+
+   if test -z "$libxml2_cflags" ; then
+      libxml2_cflags=`$XML2_CONFIG libxml-2.0 --cflags`
+   fi
+
+fi
+
+fi
+
+#look in standard places (dependencies are a guess!)
+
+if test -z "$libxml2_libs"; then
+
+if test -r /lib/libxml2.so -o -r /lib/libxml2.a ; then
+libxml2_libs="-L/lib -lxml2 -lz -lpthread -lm"
+fi
+
+if test -r /usr/lib/libxml2.so -o -r /usr/lib/libxml2.a ; then
+libxml2_libs="-L/usr/lib -lxml2 -lz -lpthread -lm"
+fi
+
+if test -r /usr/local/lib/libxml2.so -o -r /usr/local/lib/libxml2.a ; then
+libxml2_libs="-L/usr/local/lib -lxml2 -lz -lpthread -lm"
+fi
+
+fi
+
+if test -z "$libxml2_cflags"; then
+
+if test -r /usr/local/include/libxml2 ; then
+libxml2_cflags="-I/usr/local/include/libxml2"
+fi
+
+if test -r /usr/include/libxml2 ; then
+libxml2_cflags="-I/usr/include/libxml2"
+fi
+
+fi
+
+_cflags=${CFLAGS}
+_libs=${LIBS}
+
+CFLAGS=${libxml2_cflags}
+LIBS=${libxml2_libs}
+
+checkNext=1
+
+for checkfunc in xmlCleanupParser xmlCopyNode xmlCtxtReadFile xmlDocGetRootElement xmlFreeDoc xmlInitParser xmlNanoHTTPClose xmlNewParserCtxt xmlNodeGetBase xmlStrchr xmlStrcmp xmlStrdup xmlStrlen xmlStrncmp xmlStrndup xmlStrPrintf xmlStrstr xmlXPathFreeContext xmlXPathFreeNodeSet xmlXPathFreeObject xmlXPathRegisterFunc xmlXPathRegisterNs xmlXPathWrapString xmlXPtrEval xmlXPtrNewContext ; do
+
+AC_TRY_LINK_FUNC( ${checkfunc}, [], [checkNext=0
+libxml2_libs=""
+libxml2_cflags=""] )
+
+if ! test checkNext ; then 
+break 
+fi
+
+done
+ 
+CFLAGS=${_cflags}
+LIBS=${_libs}
+
+fi
+
+#build internal libxml2 if requested, or system library not found
+
+if test -z "$with_libxml2" -o "$with_libxml2" = "yes" ; then
+
+if test -z "$libxml2_libs" -o -z "$libxml2_cflags" ; then
+
+   echo	
+   echo "****** Configuring libxml2 ******"
+   echo
+
+   cd libxml2
+   ./configure --prefix=${prefix} --with-minimum --with-http --with-xptr
+   AXLIBXML2=libxml2
+   libxml2_libs="`pwd`/libaxxml2.la"
+   libxml2_cflags=-I`pwd`/include
+   cd ..
+fi
+
+fi
+
+CFLAGS="$CFLAGS $libxml2_cflags"
+
+#for agentx-config
+
+AGENTX_INCLUDEDIR="-I${includedir}"
+AGENTX_CFLAGS=""
+AGENTX_LIBTOOLLIBS="libagentx.la"
+AGENTX_LIBS="-lagentx"
+
+if test -n "$with_fortran"; then
+AGENTX_LIBS="-lfagentx $AGENTX_LIBS"
+AGENTX_MODULE_DIR=${FC_MOD_FLAG}${prefix}/share/AgentX/fortran
+fi
+
+AGENTX_LIBS="-L${libdir} $AGENTX_LIBS"
+
+AGENTX_LIBDIR="-L${libdir}"
+
+#enable link to Python or Perl to sort out 
+#undefined symbol problem under Cygwin
+
+case "$host" in
+
+ *-*-cygwin*)
+ CYGWIN_EXTRA_LDFLAGS="--out-implib -no-undefined"
+ if test "${PYTHON}" != ""
+ then
+   CYGWIN_EXTRA_PYTHON_LDFLAGS="-L${PYPREFIX}/lib/${PYVERSION}/config"
+   CYGWIN_EXTRA_PYTHON_LIBADD="-l${PYVERSION}"
+ fi
+ if test "${PERL}" != ""
+ then
+   CYGWIN_EXTRA_PERL_LDFLAGS="-L${PERL5EXT}"
+   CYGWIN_EXTRA_PERL_LIBADD="-lperl"
+ fi 
+ ;;
+esac
+
+AC_SUBST(CYGWIN_EXTRA_PYTHON_LIBADD)
+AC_SUBST(CYGWIN_EXTRA_PYTHON_LDFLAGS)
+AC_SUBST(CYGWIN_EXTRA_PERL_LIBADD)
+AC_SUBST(CYGWIN_EXTRA_PERL_LDFLAGS)
+AC_SUBST(CYGWIN_EXTRA_JAVA_LIBADD)
+AC_SUBST(CYGWIN_EXTRA_JAVA_LDFLAGS)
+AC_SUBST(CYGWIN_EXTRA_LDFLAGS)
+AC_SUBST(AXCORE)
+AC_SUBST(AXPYTHON)
+AC_SUBST(AXPERL)
+AC_SUBST(AXFORTRAN)
+AC_SUBST(AXCEXA)
+AC_SUBST(AXFEXA)
+AC_SUBST(AXAXT)
+AC_SUBST(AXLIBXML2)
+AC_SUBST(AXJAVA)
+AC_SUBST(libxml2_libs)
+AC_SUBST(libxml2_cflags)
+AC_SUBST(AGENTX_INCLUDEDIR)
+AC_SUBST(AGENTX_CFLAGS)
+AC_SUBST(AGENTX_LIBTOOLLIBS)
+AC_SUBST(AGENTX_LIBS)
+AC_SUBST(AGENTX_LIBDIR)
+AC_SUBST(AGENTX_MODULE_DIR)
+AC_SUBST(PERL5EXT)
+AC_SUBST(PYINCLUDE)
+AC_SUBST(FC)
+AC_SUBST(FCFLAGS)
+AC_SUBST(FCFLAGS_free_f90)
+AC_SUBST(FMOD_NAME)
+AC_SUBST(FC_MOD_FLAG)
+AC_SUBST(AXGRAPH)
+AC_SUBST(JINCLUDE)
+
+AC_DEFINE_UNQUOTED(AXFORTINT,$axfortint)
+AC_DEFINE_UNQUOTED(AXFORTINTC,$axfortintc)
+AC_DEFINE_UNQUOTED(SWIG_init,$swig_init)
+
+# alter time stamps to prevent regeneration
+
+touch configure.in
+touch aclocal.m4
+touch include/config.h.in
+touch Makefile.am
+touch Makefile.in
+touch configure
+
+AC_OUTPUT(Makefile agentx-config src/Makefile fortran/Makefile python/Makefile perl/Makefile java/Makefile axtransform/Makefile examples/c/Makefile examples/fortran/Makefile axcshenv axbashenv examples/perl/axtest.pl)
+
+chmod +x agentx-config

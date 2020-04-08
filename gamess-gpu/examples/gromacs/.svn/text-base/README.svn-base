@@ -1,0 +1,29 @@
+README GROMACS/GAMESS-UK
+========================
+
+This example demonstrates the use of GAMESS-UK through GROMACS. The example is
+the Linear Transit Tutorial example by Gerrit Groenhof entitled "QM/MM 
+calculations on a Diels-Alder antibody catalyst" (see 
+http://www.dddc.ac.cn/embo04/practicals/qmmm/qmmmvacuum.html [13 Aug 2009]).
+
+The tutorial has been adapted in that it now uses GAMESS-UK instead of MOPAC
+as the quantum engine, and a script run_gromacs.sh has been provided to run
+the calculations. Also everything has been set up to run the calculations and
+all the input generation steps have been removed. See the original tutorial
+to learn about setting GROMACS calculations up.
+
+Please note that this example is purely for the purpose of demonstrating 
+the GROMACS/GAMESS-UK capability. Due to the changes made to the example no
+guarantees can be given for the scientific content of this example.
+
+To run this example make sure you set the environment variable GROMACS_DIR
+so that the script can find the GROMACS programs grompp and mdrun, then
+simply enter:
+
+        ./run_gromacs.sh
+
+As the example performs several geometry optimisations it may take a while
+to run.
+
+Huub van Dam, August 2009.
+

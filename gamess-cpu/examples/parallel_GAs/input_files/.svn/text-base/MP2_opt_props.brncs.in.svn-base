@@ -1,0 +1,21 @@
+title
+br-n=c=s cc-pVTZ MP2 geom opt + properties -3063.144795183415 au
+harmonic
+zmat angstrom
+S
+C 1 A
+N 2 B 1 AB
+Br 3 C 2 BC 1 180.
+Variables
+a              1.5702830 hessian       0.232786
+b              1.2213428 hessian       0.942306
+c              1.8253957 hessian       0.583471
+ab           172.8384128 hessian        .140808
+bc           126.0836695 hessian        .07625
+end
+basis cc-pVTZ
+runtype optimize
+scftype direct mp2
+natorb 2 print
+properties atoms
+enter

@@ -1,0 +1,28 @@
+
+Begin optimization report for: EVVRSP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at evvrsp.f(140,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 145 and  line 147
+LOOP END
+
+LOOP BEGIN at evvrsp.f(153,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at evvrsp.f(157,16)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at evvrsp.f(169,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 170 and  line 172
+   LOOP END
+
+   LOOP BEGIN at evvrsp.f(169,16)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

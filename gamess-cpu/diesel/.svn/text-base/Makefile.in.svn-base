@@ -1,0 +1,109 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+#
+# Use the configure script in ../m4
+#
+INSTALLDIR = ../bin/diesel
+
+diesel: config.h Makefile.conf Configured.h SUBDIRS install
+
+config.h: ../m4/machine.mk
+	echo "#ifndef __CONFIG_H_" > config.h
+	echo "#define __CONFIG_H_" >> config.h
+	echo "/* config.h.  Generated automatically by the Makefile  */" >> config.h
+	echo "" >> config.h
+	echo "#define __UNDERBAR $(__UNDERBAR)" >> config.h
+	echo "" >> config.h
+	echo "/* The number of bytes in a void *.  */" >> config.h
+	echo "#define SIZEOF_VOID_P $(SIZEOF_VOID_P)" >> config.h
+	echo "" >> config.h
+	echo "/* Define the sizes of the default integers */" >> config.h
+	echo "#define LONG_LONG_INT $(LONG_LONG_INT)" >> config.h
+	echo "#define LONG_INT $(LONG_INT)" >> config.h
+	echo "#define INT $(INT)" >> config.h
+	echo "#define SHORT_INT $(SHORT_INT)" >> config.h
+	echo "" >> config.h
+	echo "#if !defined (ABS) && defined (CPPCOMP)" >> config.h
+	echo "" >> config.h
+	echo "#define ABS" >> config.h
+	echo "" >> config.h
+	echo "inline INT abs(INT i)" >> config.h
+	echo "{" >> config.h
+	echo "   return ( i < 0 ? -i : i );" >> config.h
+	echo "}" >> config.h
+	echo "" >> config.h
+	echo "#endif" >> config.h
+	echo "#endif" >> config.h
+
+
+Makefile.conf: ../m4/machine.mk
+	echo "SHELL = $(SHELL)" > Makefile.conf
+	echo "" >> Makefile.conf
+	echo "############################################################" >> Makefile.conf
+	echo "CXX = $(CXX)" >> Makefile.conf
+	echo "CC = $(CC)" >> Makefile.conf
+	echo "LD = $(LD_DIESEL)" >> Makefile.conf
+	echo "FCOMPILER = $(FC)" >> Makefile.conf
+	echo "STDLIBS +=  $(DIESEL_LIBS)" >> Makefile.conf
+	echo "FFLAGS = $(FFLAGSV)" >> Makefile.conf
+	echo "FLEX = $(FLEX)" >> Makefile.conf
+	echo "NUMERIC_OBJ = $(NUMERIC_OBJ)" >> Makefile.conf
+	echo "RANLIB = $(RANLIB)" >> Makefile.conf
+	echo "############################################################" >> Makefile.conf
+	echo "" >> Makefile.conf
+	echo "CXXFLAGS = $(CXXFLAGS)" >> Makefile.conf
+	echo "CFLAGS = $(CFLAGS)" >> Makefile.conf
+
+Configured.h: ../m4/machine.mk
+	@echo "#define CONFIGURED_BANNER \\" >Configured.h
+	@echo "configuring for system \""`uname -s`\"
+	@echo "Compile/Run Time System:" >Configured
+	@uname -a >>Configured
+	@echo >>Configured
+	@echo "configured on "`date`" by "`whoami` >>Configured
+	@awk '{print "center(\"" '\$$0' "\", w);\\"}' Configured >>Configured.h
+	@echo >>Configured.h
+	@rm -f Configured
+
+
+SUBDIRS = lib app
+
+SUBDIRS:
+	@set -e; for i in $(SUBDIRS); do echo $ii; $(MAKE) -C $$i; done
+
+dieselclean:
+	@set -e; for i in $(SUBDIRS); do $(MAKE) -C $$i clean; done
+	rm -f Makefile.conf
+	rm -f config.h Configured.h
+	rm -f *.bck *~
+	rm -rf $(INSTALLDIR)
+
+
+install:
+	-mkdir $(INSTALLDIR)
+	cp -f app/CI/Density/dens $(INSTALLDIR)
+	cp -f app/CI/Diagonalisator/diag $(INSTALLDIR)
+	cp -f app/CI/Drivers/diesel/diesel $(INSTALLDIR)
+	cp -f app/CI/Drivers/prettyProp/prettyProp $(INSTALLDIR)
+	cp -f app/CI/Drivers/results/dr $(INSTALLDIR)
+	cp -f app/CI/MRPT/mrpt $(INSTALLDIR)
+	cp -f app/CI/NatOrb/natorb $(INSTALLDIR)
+	cp -f app/CI/RefSel/refsel $(INSTALLDIR)
+	cp -f app/CI/Selector/sel $(INSTALLDIR)
+	cp -f app/CI/Tools/ConfMap/confMap $(INSTALLDIR)
+	cp -f app/CI/Tools/PrintDens/printDens $(INSTALLDIR)
+	cp -f app/CI/Tools/RefSym/refsym $(INSTALLDIR)
+	cp -f app/CI/Tools/SelSym/selsym $(INSTALLDIR)
+	cp -f app/CI/Tools/SetOps/setops $(INSTALLDIR)
+	cp -f app/CI/Tools/confStat/confStat $(INSTALLDIR)
+	cp -f app/CI/Tools/excited/excited $(INSTALLDIR)
+	cp -f app/CI/Tools/lstConfs/lstconfs $(INSTALLDIR)
+	cp -f app/CI/Tools/lstInts/lstints $(INSTALLDIR)
+	cp -f app/CI/Tools/orb2xfig/orb2xfig $(INSTALLDIR)
+	cp -f app/CI/Tools/symTree/symTree $(INSTALLDIR)
+	cp -f app/Interfaces/molcas/PropInts/prop $(INSTALLDIR)
+#   for Geometry-Optimization
+	cp -f app/CI/Tools/efTools/prepareDir/prepareDir $(INSTALLDIR)
+	cp -f app/CI/Tools/efTools/IntGrad/intgrad $(INSTALLDIR)
+	cp -f app/CI/Tools/efTools/ef/ef.x $(INSTALLDIR)

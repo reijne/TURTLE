@@ -1,0 +1,1250 @@
+\documentclass[11pt,fleqn]{article}
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+ 
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+ 
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2008}\\ [.2in]
+{\large PART 10. THE UTILITY FUNCTIONS}\\
+\vspace{.1in}
+{\large M.F. Guest, J. Kendrick, J.H. van Lenthe and P. Sherwood}\\[0.2in]
+ 
+Copyright (c) 1993-2008 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{3mm}\\
+\end{flushleft}
+
+\tableofcontents
+\newpage
+% 
+
+\pagenumbering{arabic}
+
+\section[Introduction]{Introduction}
+
+The Utility functions associated with the program provide facilities for
+\begin{enumerate}
+\item data handling commonly required
+when manipulating GAMESS--UK generated datasets, and is oriented towards
+manipulation of the 2-electron integral files in particular. 
+The program will copy, list, check, summarise, edit etc such files. 
+\item  generation of the Library file required 
+when performing non-local pseudopotential calculations.
+\item generation of plotting output using the grids of 
+densities, potentials etc generated under previous control
+of the GRAPHICS directive and assumed resident on a Dumpfile.
+\item manipulation of orbitals (vectors) with extended flexibility
+(SERVEC) e.g., if orthogonalisation of the 1-electron integrals
+is needed. This module may be invoked as part of the Utilities module,
+when an existing dumpfile is provided (or the 1-electron integrals are
+not needed) and later in the input after the basis-set and geometry
+information is read.  SERVEC may prove useful for Valence Bond
+calculations (although not exclusively) and is only included when VB is
+specified when GAMESS is configured.
+\end{enumerate}
+Note that these
+functions are performed independently of the computation 
+associated with  a specific molecular calculation, 
+with the data input requirements quite separate from that described
+in sections 3-6 above. The following points should be noted:
+
+\begin{itemize}
+
+\item  Certain of the File Manipulation  Utilities  
+require input and output areas
+to be simultaneously operational. When using a GAMESS--UK dataset it is
+possible for input and output to be taken from the same dataset.
+When an  block is written to a dataset, all blocks except that
+explicitly written remain unaltered.
+\item  The restrictions applicable to use the same dataset for input and
+output within certain of the Utilities (specifically
+COPY, EDIT and COPYDUMP) concern the possibility of overlapping
+fields. The following rules are applicable:
+\begin{itemize}
+\item Operations involving non-overlapping data areas 
+on the same dataset are always legal.
+\item Operations involving overlapping fields are valid if the starting
+block number of the output area is less than or equal to the
+starting block number of the input area.
+\item Operations involving overlapping fields are not valid when the
+starting block number of the input area is less than that of the
+output area, and yet the output area commences within the input area.
+\end{itemize}
+\item The module is a collection of routines, which may be called in any
+order, as dictated by the user. Each routine will require some input
+data, and will perform a task. When the work of a given routine is
+complete, control is handed to the next routine nominated by the user.
+On successful completion, all routines reply with the printed message:
+
+{
+\footnotesize
+\begin{verbatim}
+          `NAME' COMPLETED
+\end{verbatim}
+}
+where NAME represents the task. The following paragraphs describe the
+tasks and their purpose.
+\end{itemize}
+
+\section{Utility Directives}
+
+The Utilities module is requested by a single data line
+containing the data string UTILITY in the first data field, and
+should immediately follow any pre-directives. Subsequent utility
+functions are user-driven through the sequence of directives
+outlined below.
+
+\section{File Manipulations}
+
+\subsection{The LIST Utility}
+
+Data for the LIST utility consists of one dataline, read to variables
+TEXT, DDLIST, IBLK, NBLK, TYPE using format (2A,2I,A).
+\begin{itemize}
+\item TEXT should be set to the character string LIST.
+\item DDLIST should be set to the LFN of the input dataset.
+\item IBLK is an integer used to specify the starting block number of
+the input dataset. Instead of using an integer to specify
+the IBLK parameter, the character * may be used, and in
+this case listing commences from the `current position' of
+the input file. The syntax * + m or * - m, where m is an
+integer may be used to specify IBLK, and will be taken to
+mean the current block number + or - m respectively.
+\item  NBLK is an integer used to specify the number of blocks to be
+listed. If NBLK is set to zero (or omitted), listing
+continues until an ENDFILE block is reached.
+\item TYPE should be set to the appropriate character string 
+characterising the format of the 2-electron file to be LISTed - 
+valid strings include 2E (for conventional integral format),
+P (for P-supermatrix files) and JK (for JK-supermatrix files).
+\end{itemize}
+ 
+ A list of the 2-electron integrals, with associated indices (labelled
+I, J, K and L) stored in the dataset assigned by the file DDLIST
+will be printed. Listing commences from the block specified by IBLK,
+and continues for NBLK blocks (or to the first ENDFILE if NBLK=0).\\
+
+{\bf Example 1}\\
+
+All datasets are positioned at block 1 when the service program is
+first entered. If the following dataline is presented:
+
+{
+\footnotesize
+\begin{verbatim}
+          LIST ED6 * + 1 0 2E
+\end{verbatim}
+}
+the file assigned to ED6 will be listed from block 2 (* + 1=2)
+until the first ENDFILE block is encountered.
+
+{\bf Example 2}
+{
+\footnotesize
+\begin{verbatim}
+          LIST MT5 98 5 P
+\end{verbatim}
+}
+This example list the P-Supermatrix  file assigned to MT5 
+from block 98 for 5
+blocks. The file will be positioned at block 103 on completion of the
+list.
+
+
+\subsection{The PUNCH Utility}
+
+Data for the PUNCH directive consists of one dataline read to variables
+TEXT, DDPUNC, IBLK, NBLK using the format (2A,2I).
+\begin{itemize}
+\item  TEXT should be set to the character string PUNCH.
+\item  DDPUNC specifies the LFN of the input dataset. This file
+must be associated to the FILE specified in the JCL by
+the pre-directives.
+\item  IBLK is an integer used to specify the starting block number
+of the input file. Alternatively the `*' or `* + m' or
+`* - m' formats may be used, as described in the LIST
+directive.
+\item  NBLK is an integer used to specify the number of blocks to be
+`punched'. Alternatively, if NBLK is zero (or omitted),
+the file will be punched until an ENDFILE block is reached
+\end{itemize}
+ The 2-electron integrals, with associated indices, as stored on the
+file specified by the DDPUNC starting at block IBLK for NBLK
+blocks (or until an ENDFILE block is detected if NBLK=0) are punched.
+Each `punched' line is produced by the Fortran code of the form:
+
+{
+\footnotesize
+\begin{verbatim}
+          WRITE(7,1)ISEQ,N,(I(M),J(M),K(M),L(M),G(M),M=1,N)
+     1    FORMAT(I4,I2,2(4I4,F17.10)
+\end{verbatim}
+}
+where
+\begin{itemize}
+\item  ISEQ is a card sequence number.
+\item  N is an integer whose value may be 1 or 2.
+\item  I,J,K,L,G are arrays to hold the indices and values respectively
+of a maximum of two integrals.
+\end{itemize}
+ The PUNCH directive should be used sparingly, since the output
+generated by this directive is considerable even for small NBLK numbers.\\
+
+{\bf Example 1}
+{
+\footnotesize
+\begin{verbatim}
+          PUNCH MT1 75 5
+\end{verbatim}
+}
+ The  file assigned to MT1 will be `punched' starting at block 75
+for 5 blocks. The dataset will be positioned at block 80 on termination
+of the PUNCH task.\\
+
+{\bf Example 2}
+{
+\footnotesize
+\begin{verbatim}
+          PUNCH ED2 * 0
+\end{verbatim}
+}
+The file assigned to ED2 will be `punched' commencing from the
+current position (usually block 1 if first access) until the ENDFILE
+block has been encountered.
+
+
+\subsection{The SUMMARY Utility}
+
+Data for the SUMMARY utility consists of one dataline read to variables
+TEXT, DDSUM, IBLK, NBLK using format (2A,2I).
+\begin{itemize}
+\item TEXT should be set to the character string SUMMARY.
+\item DDSUM should be set to the file of the dataset to be summarised.
+\item IBLK is an integer used to specify the starting block of the
+input file. Alternatively the `*' or `* + m' or `* - m'
+formats may be used, see LIST routine.
+\item NBLK is an integer used to specify the number of blocks to be
+summarised. Alternatively, if NBLK is set to zero (or
+omitted), the file will be summarised until an ENDFILE
+block is reached.
+\end{itemize}
+ The SUMMARY routine causes one printed line per block, and each
+block is assumed to be in MAINFILE format. The printing consists of the
+first and last 2-electron integral in the block (with associated
+indices) plus the number of integrals stored in the block.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          SUMMARY MT4 1 0
+\end{verbatim}
+}
+The file assigned to MT4 is summarised from block 1 until the
+first ENDFILE block is encountered.
+
+\subsection{The CHECKSUM Utility}
+
+Data for the CHECKSUM routine consists of one dataline read to variable
+TEXT, DDCHEK, IBLK, NBLK using the format (2A,2I).
+\begin{itemize}
+\item TEXT should be set to the character string CHECKSUM.
+\item DDCHEK should be set to the LFN used to assign the dataset
+to be `checksummed'.
+\item IBLK is an integer used to specify the starting block number of
+he input file. Alternatively the `*' or `* + m' or `* - m'
+formats may be used, as described by the LIST directive.
+\item NBLK is an integer used to specify the number of blocks to be
+`checksummed', or if set to zero (or omitted), the dataset
+will be `checksummed' until an ENDFILE block is detected.
+\end{itemize}
+ The CHECKSUM routine scans the nominated blocks of the stated dataset.
+Blocks with an invalid Checksum words cause the message:
+
+{
+\footnotesize
+\begin{verbatim}
+          BLOCK x CHECKSUM ERROR
+\end{verbatim}
+}
+to be printed, where x is the block number. ENDFILE blocks give rise to
+the message:
+{
+\footnotesize
+\begin{verbatim}
+          BLOCK x ENDFILE
+\end{verbatim}
+}
+The CHECKSUM routine may be used on any GAMESS--UK generated dataset.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          CHECKSUM ED2 1 999
+\end{verbatim}
+}
+The file assigned to ED2 will be `checksummed' from block 1 for
+999 blocks. The dataset will be positioned at block 1000 on completion
+of the operation.
+
+\subsection{The CHECK Utility}
+
+The CHECK routine provides a more complete check facility for the
+MAINFILE than is available when using the CHECKSUM directive. Data
+consists of one line read to variables TEXT, DDCHEK, IBLK, NBLK, FP, FN
+using format (2A,2I,2F).
+\begin{itemize}
+\item  TEXT should be set to the character string CHECK.
+\item  DDCHEK specifies the file name of the input dataset.
+\item  IBLK is an integer used to specify the starting block of the
+input dataset. Alternatively the `*' or `* + m' or
+`* - m' formats may be used, as described in LIST routine.
+\item  NBLK is an integer used to specify the number of blocks to be
+`checked'. If NBLK zero, checking continues until the
+first ENDFILE block is detected.
+\item  FP is a +ve real variable whose value is used to monitor +ve
+valued 2-electron integrals. If such an integral is found
+to be greater than FP, its value plus associated indices
+is printed.
+\item  FN is a +ve real variable. If the absolute value of a -ve
+value 2-electron integral is found to be greater than FN,
+its value plus its associated indices is printed. If FN is
+omitted, then FP may also be omitted, the default value
+5.0 being chosen for the latter.
+\end{itemize}
+ The CHECK routine reads the nominated blocks of a given dataset,
+printing messages if unusual conditions are met. The printing is of the
+general form:
+
+{
+\footnotesize
+\begin{verbatim}
+          BLOCK x message
+\end{verbatim}
+}
+where x is the block number, and `message' denotes explanatory text.
+The text messages may be one of the following:
+\vspace{0.15in}
+
+\begin{centering}
+\begin {tabular}{ll}
+Message    &    Explanation \\  \hline\hline
+CHECKSUM ERROR &   A block containing an invalid checksum word\\
+             &        has been detected. \\
+
+NOT MAINFILE &     Indicates that whilst the block is in standard \\
+             &         format, it is not in MAINFILE format. \\
+ENDFILE      &     An ENDFILE block has been detected. \\
+
+INVALID NUMBER OF & The 2-electron integral counter word has been \\
+INTEGRALS    &   set -ve, or to a value greater than 340. \\
+
+INVALID FP   &     A 2-electron integral has been detected which \\
+             &        is not in a normalised floating point \\
+             &        representation. \\
+
+G,I,J,K,L=   &     The characters f,i,j,k,l correspond to the \\
+f,i,j,k,l    &     value and associated indices respectively of a \\
+             &     2-electron integral. A +ve integral whose value \\
+             &     is greater than FP, or a -ve integral whose \\
+             &     absolute value is greater than FN has been \\
+             &     detected. \\  \hline\hline
+\end{tabular}
+ 
+\end{centering}
+\vspace{0.15in}
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          CHECK MT5 * 0 8 .3
+\end{verbatim}
+}
+The file associated with MT5 will be checked from the current
+position to the first ENDFILE block. Positive integrals greater than 8
+or -ve integrals whose absolute values are greater than .3 will be
+flagged.
+
+
+\subsection{The SCAN Utility}
+
+Data for the SCAN directive consists of one line, read to variables
+TEXT, DDSCAN, IBLK using format (2A,2I).
+\begin{itemize}
+\item TEXT should be set to the character string SCAN.
+\item DDSCAN specifies the file name of the dataset to be
+`scanned'.
+\item IBLK is an integer used to specify the starting block for the
+scan operation. The formats `*' or `* + m' or
+`* - m' may also be used, as described in the LIST directive.
+\end{itemize}
+The SCAN routine will read the nominated dataset from the block
+specified by the IBLK parameter, until the first ENDFILE block is
+detected. The dataset will be positioned immediately after the ENDFILE
+block on termination of the operation. The SCAN routine will read
+blocks containing invalid checksum words without diagnosing an error.\\
+
+{\bf Example}\\
+
+A dataset has been assigned to a file MT4, and is to be
+positioned immediately after the third ENDFILE block. The following
+data should be presented:
+
+{
+\footnotesize
+\begin{verbatim}
+          SCAN MT4 1
+          SCAN MT4 *
+          SCAN MT4 *
+\end{verbatim}
+}
+
+\subsection{The COPY Utility}
+
+Data for the COPY routine consists of one line, read to variables
+TEXT, DDIN, IBLK, DDOUT, JBLK, NBLK using format (2A,I,A,2I).
+\begin{itemize}
+\item TEXT should be set to the character string COPY.
+\item DDIN specifies the file name of the input dataset.
+\item IBLK is an integer used to specify the starting block of the
+input dataset. The `*' or `* + m' or
+`* - m' formats also may be used, as described in the LIST
+directive.
+\item DDOUT specifies the file name of the output dataset.
+\item JBLK is an integer used to specify the starting block of the
+output dataset. The `*' or `* + m' or
+`* - m' formats may also be used, as described in the LIST
+directive.
+\item NBLK is an integer specifying the number of blocks to be copied.
+If the value zero is entered, the copy is terminated
+when an ENDFILE block is detected on the input file. In
+this case the ENDFILE block is copied to the output file.
+\end{itemize}
+{\bf Example 1}
+{
+\footnotesize
+\begin{verbatim}
+          COPY ED2 11 MT2 * 0
+\end{verbatim}
+}
+The dataset assigned to the file ED2 will be copied from block 11
+until the first ENDFILE block is detected, the copied blocks being
+routed to a dataset assigned to the file MT2 starting at the
+current position.\\
+
+{\bf Example 2}
+{
+\footnotesize
+\begin{verbatim}
+          COPY ED4 500 ED4 499 10
+\end{verbatim}
+}
+The above example illustrates a valid `intra' dataset copy with
+overlapping input and output areas. The net effect is to move the
+information one block down the dataset.\\
+
+{\bf Example 3}
+{
+\footnotesize
+\begin{verbatim}
+          COPY ED4 500 ED4 501 10
+\end{verbatim}
+}
+The above example illustrates an invalid `intra' dataset copy. An error
+will be diagnosed when block 501 is read, since it will have been
+overwritten by the copied block 500.
+
+
+\subsection{The EDIT Utility}
+
+The EDIT utility is used to copy, in a selective manner, MAINFILE
+datasets. The selectivity arises because integrals whose absolute value
+are less than an input threshold are not copied to the output dataset.
+The first line of data is read to variables TEXT, DDOUT, JBLK, IACC using
+format (2A,2I).
+\begin{itemize}
+\item  TEXT should be set to the character string EDIT.
+\item  DDOUT specifies the file name of the output dataset.
+\item  JBLK is an integer specifying the starting block of the output
+dataset. Alternatively the formats `*' or `* + m' or
+`* - m' may be used, as described in the LIST directive.
+\item  IACC the quantity 10**(-IACC) is calculated, and used as the
+threshold.
+\end{itemize}
+ Subsequent datalines define the input files, each line being read to
+variables DDIN, IBLK, LBLK using format (A,2I). An `edited' copy of the
+dataset specified by DDIN starting at block IBLK and continuing up to
+but not including LBLK will be routed for output. The number of blocks
+scanned will be equal to LBLK-IBLK. Note that `*' or `* + m' or `* - m'
+formats may be used to specify IBLK, and that if LBLK is set to zero,
+editing will continue until the first ENDFILE block is detected on the
+input dataset. Note that if an ENDFILE block is detected before LBLK is
+reached, input processing will cease, so that block LBLK should be
+regarded as the highest block number reachable. Further `input file
+definition lines' may be presented, the output generated by each line
+being appended to the already generated EDIT output. The data sequence
+is terminated by a line whose first data field contains the character
+string END. The routine will then append an ENDFILE block to the output
+dataset.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          EDIT MT4 * 60
+          ED2 1 0
+          ED3 1 0
+          END
+\end{verbatim}
+}
+The MAINFILE held in two sections starting at block 1 of ED2 and ED3 is
+edited to an file assigned to MT4, where it will be held in the
+form of one section terminated by an ENDFILE block. The editing
+threshold of 10**(-60) ensures that all integrals are transcribed.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          EDIT ED2 1 7
+          ED3 1 0
+          END
+\end{verbatim}
+}
+The dataset assigned to ED3 will be edited to the dataset assigned as
+ED2, both files commencing at block 1, the threshold being 10$^{-7}$.
+Editing will terminate when an ENDFILE block is detected on ED3.
+The EDIT routine is here being used to reduce the size of the MAINFILE,
+at the cost of the loss of some accuracy, thereby reducing subsequent
+SCF iteration times. It is suggested that an editing threshold of
+10$^{-7}$ is used, SCF convergence to tolerance of 10$^{-4}$ is all
+that is reasonable.
+
+\subsection{The ENDFILE Utility}
+
+Data for the ENDFILE directive consists of a single line read to
+variables TEXT, DDOUT, JBLK using format (2A,I).
+\begin{itemize}
+\item TEXT should be set to the character string ENDFILE.
+\item DDOUT specifies the LFN assigned to the output
+dataset.
+\item JBLK is an integer used to specify the block number where an
+ENDFILE block is to be written. Alternatively, the `*' or
+`* + m' or `* - m' formats may be used, as described in
+LIST directive.
+\end{itemize}
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          ENDFILE MT0 *
+\end{verbatim}
+}
+
+An ENDFILE block is written to a dataset assigned to MT0, at the
+current position.
+
+
+\subsection{The COPYDUMP Utility}
+
+Data for the COPYDUMP directive consists of a single dataline read to
+variables TEXT, DDIN, IBLK, DDOUT, JBLK using format (2A,I,A,I).
+\begin{itemize}
+\item  TEXT should be set to the character string COPYDUMP.
+\item  DDIN specifies the file name of the input dataset.
+\item  IBLK is an integer used to specify the starting block of the
+Dumpfile resident on the input dataset. Alternatively,
+the formats `*' or `* + m' or `* - m' may be used, as
+outlined in the LIST directive.
+\item  DDOUT specifies the LFN of the output dataset.
+\item  JBLK is an integer used to specify the starting block for the
+output dataset. As before formats `*' or `* + m' or
+`* - m' may be employed.
+\end{itemize}
+The Dumpfile resident on the dataset nominated by the DDIN parameter,
+and starting at block IBLK is copied to the dataset nominated by DDOUT
+starting at block JBLK.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          COPYDUMP ED2 1 MT2 *
+\end{verbatim}
+}
+The Dumpfile starting at block 1 of ED2 is copied to MT2 starting at
+the current position.
+
+
+\subsection{The FINDDUMP Utility}
+
+Data for  FINDDUMP  consists of one line, read to variables
+TEXT, DDIN, IBLK, NBLK, TEST using format (2A,2I,A).
+\begin{itemize}
+\item TEXT should be set to the character string FINDDUMP.
+\item DDIN specifies the file name for the input dataset.
+\item IBLK is an integer used to specify the starting block number of
+the input file. Alternatively, `*' or `* + m' or `* - m'
+may be used, as described in the LIST directive.
+\item NBLK is an integer used to specify the number of blocks to be
+read. NBLK may not be set to zero.
+\item TEST should be set to one of the character strings HIGH or LOW,
+if omitted the default is LOW.
+\end{itemize}
+The routine scans over the nominated blocks, seeking out evidence of
+valid Dumpfiles. Upon detection of a valid Dumpfile
+the program will
+print a summary of the Dumpfile, the scale of the printing being
+controlled by the setting of variable TEST. If TEST=HIGH, a fairly
+complete listing of the Dumpfile will be issued, if TEST=LOW, only a
+low level of information will be printed. The FINDDUMP facility will
+skip blocks containing invalid checksum words.\\
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          FINDDUMP ED3 1 600 HIGH
+\end{verbatim}
+}
+will cause the first 600 blocks of the dataset assigned to ED3 to be
+scanned for Dumpfiles. If Dumpfiles are detected, a complete listing
+will be printed.
+
+\subsection{The STOP Directive}
+
+Data for the STOP directive consists of one dataline with either the
+character string STOP or EXIT in the first datafield. All  data
+sets will be closed, and execution ended. A `STOP' dataline must be
+presented last in the datastream.
+
+
+\section{SERVEC - Vector Service module}
+
+This module was originally written  to provide vector (orbital) 
+manipulation capabilities to the ATMOL package. Sometimes also in GAMESS
+more flexible user-controlled orbital manipulations are required,
+e.g. for the VB package. Since SERVEC shares many routines with VB, 
+it is included in that set of programs. 
+The package works exclusively in a non-symmetry adapted basis
+and can write vector-sections of arbitrary dimensions. These are
+not recognised by the normal GAMESS routines. If however the keyword
+'gamess' is used on the write directive or the number of vectors equals 
+their dimension a normal gamess vector-section
+is written, which may be back symmetry adapted using a 
+vectors getq in GAMESS.
+The order of directives is very important for the result and 
+an auxiliary dumpfile to store intermediate vectors may be required.
+
+It is invoked by specifying the keyword SERVEC (all 6 characters to distinguish
+it from SERV), either at the beginning of the input (like SERV), when no 1-electron
+integrals are available, or after the basis and geometry specification, in which case
+the one-electron integrals are available. The restart-like situation is created, allowing
+one to startup from the vectors section generated by servec, without a preceding gamess-job
+This package has always been a ad-hoc toolchest and can be adapted easily to suit ones needs.
+
+If one for example would like a gamess calculation to start on a (Lowdin) orthogonalised
+set of unit vectors, one would have to use (a default basis will not do)
+ 
+{
+\footnotesize
+\begin{verbatim}
+          title
+          h2co - 3-21g - closed shell SCF
+          adapt off
+          zmatrix angstrom
+          c
+          o 1 1.203
+          h 1 1.099 2 121.8
+          h 1 1.099 2 121.8 3 180.0
+          end
+          basis 3-21g
+          servec
+          extra 
+          1 to 22 end
+          s
+          lowdin
+          1 to 22 end
+          write ed3 1 9
+          finish servec
+          vectors getq ed3 1 9
+          enter
+\end{verbatim}
+}
+
+\subsection{Notation Conventions}
+
+{
+\footnotesize
+\begin{verbatim}
+     .. istring   =  string of integer numbers finished by 'end'
+                     'to' convention is allowed i.e. 2 to 5 = 2 3 4 5
+     .. tapnam    =  atmol file 
+                     next parameters are iblock (start-block
+                     for dumpfile) and isect (section-number)
+     .. 'a'/'b'   =  choice between textstrings 'a' and 'b'
+     .. 'flop'    =  text-string  (directive is always text)
+     .. ('aa')    =  optional text-string
+     ..  **       =  after ** comment is given
+     ..  ex.      =  ex. denotes an example (starting in column 1)
+ ** note  tapnam etc. must be on same card                          **
+ **       istring may extend over many lines                        **
+\end{verbatim}
+}
+
+\subsection{The TITLE Directive}
+
+The next line is a title that will be used in all the following writes
+
+{
+\footnotesize
+\begin{verbatim} 
+       ex.  title
+       ex.  this is the title that will appear on vector-files
+\end{verbatim}
+}
+
+\subsection{The READ Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+ read   tapnam  ('notran')   ** read vectors
+\end{verbatim} 
+}
+If 'notran' is specified the vectors are not transformed to the
+original basis. All ctrans (symmetry adaption) information is lost
+however (**not retained**)
+
+{
+\footnotesize
+\begin{verbatim} 
+       ex.   read ed3  1 1
+
+ read  'input' ndim nmdim    ** read vectors from input free format
+       ex    read input 3 2
+ read  'free' ndim nmdim     ** read vectors from input using read *
+
+ read  'format'    ** read vectors and occupations etc. formatted
+\end{verbatim}
+}
+For the exact form of input *see* the print vectors 'format' directive.
+this option is used to transport vectors as a text-file.
+
+{
+\footnotesize
+\begin{verbatim} 
+       ex.   read format
+       ex.   .....................
+       ex.   ............................
+\end{verbatim}
+}
+
+\subsection{The WRITE Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+ write tapnam  ('gamess') ** write vectors (see read)
+                          ** if 'gamess' is given vectors are gamess-compatible
+\end{verbatim}
+}
+
+\subsection{The INIT Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+ init   tapnam         ** produce new (empty) dumpfile
+       ex.   init  ed3 1
+\end{verbatim}
+}
+
+\subsection{The S Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+ s  'print'             ** read overlap integrals 
+   or
+ s tapnam (without section) ndims 'print' ** read s from foreign dumpfile
+                        **  if print specified the s-matrix is printed
+       ex.   s  
+       ex.   s ed5 1 122
+\end{verbatim}
+}
+
+\subsection{The overlap Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  overlap 'format'      ** print the overlap matrix (multiplied by 100) between the orbitals
+
+       ex.  overlap
+       ex.  overlap  (i5,(t8,20f7.2),1x)
+
+\end{verbatim}
+}
+
+
+\subsection{The SCREEN Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  screen 'crit'   ** make all s-matrix elements < crit exactly zero
+                  ** if crit is omitted the current criterion is used
+\end{verbatim}
+}
+
+\subsection{The PRINT Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  print  'on'/'off'    ** switches print flag
+  print  'vectors'  nv  ('occ'/'eig')  ** print first nv vectors
+                               **  default nv = nmdim
+                               **  if 'occ' => give occupations
+                               **  if 'eig' => give orbital energies
+       ex.   print off
+      2ex.   print vectors 7
+
+  print  'vectors'  nv  'format' format  ** print vectors formatted
+           ** according to format(format). nv=0 means nv = nmdim
+           **  default format =  5f16.9
+           ** this option is used to transport vectors as text-file
+           ** see also *read format* / the output looks as follows
+           *** 'vectors' ndim  nv     format
+           *** ((vc(i,j),i=1,ndim),j=1,nv)  (format(format))
+           *** 'occ'  nn         ** nn = 0 for no occupations
+           *** (occ(i),i=1,nn)   (format(format))
+           *** 'eig'  nn         ** nn = 0 for no eigen-values
+           *** (eig(i),i=1,nn)   (format(format))
+           *** 'end of format-print'
+           ** the input for read format should look the same
+
+      ex.   print vectors 0 format   5e16.10
+\end{verbatim}
+}
+
+\subsection{The SCHMIDT Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  schmidt  istring     ** schmidt orthogonalize the orbitals specified
+       ex.   schmidt   1 5 7 3 end
+
+  schmidt  'set' ('norm'/'nonorm') istring istring 
+                     ** schmidt first istring onto second
+                     ** (no internal orthogonalisations)
+                     ** if 'norm' is specified the set is normalised
+                     == The default is nonorm (the string may be omitted)
+       ex.   schmidt  set  1 4 end 2 3 end
+       ** as accuracy of schmidt crit is used
+\end{verbatim}
+}
+
+\subsection{The LOWDIN Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  lowdin   istring     ** lowdin orthogonalise the orbitals specified
+       ex.   lowdin    2 3 4 5  end
+       ** as accuracy of lowdin crit*10 is used
+\end{verbatim}
+}
+
+\subsection{The NORMALISE Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  normalise istring   ** normalise the orbitals specified
+\end{verbatim}
+}
+
+\subsection{The CHECK Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  check  ('print')    **  check vectors on orthonormality  within crit.
+                      **  if in the overlap-matrix of the vectors an
+                      **  element > crit is found the matrix is printed
+                      **  if 'print' is selected it is printed anyway
+\end{verbatim}
+}
+
+\subsection{The SDIAG Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  sdiag ('set') ('istring') **  diagonalise s-matrix and leave its eigen-
+                            **  vectors as current vector-set, ordered by
+                            **  decreasing eigen-value / needs s-matrix
+                            **  see  's' and 'crit' directives
+                            **  ** if set is specified the s-matrix
+                            **  for that set of unit vectors is diago-
+                            **  nalised and the eigenvectors are of
+                            **  the original dimension
+\end{verbatim}
+}
+
+\subsection{The LOCMP Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  locmp iset nset     ** localise within the set of nset orbitals
+                      ** starting at orbital iset.
+                      ** v. magnasco, a. perico jcp 47,971 (1967)
+  istring             ** a string of numbers indicating
+                      ** the ao' to localise an mo on. when all mo's
+                      ** to be localised are specified, give 'end'
+  'end'               ** # mo's to be localised  .le. nset
+                      ** an moperm may be useful before applying locmp
+                      **   *** locmp needs s-integrals and vectors so
+                      **   *** the 's' and a 'read' directive must
+       ex.   locmp 3  7
+       ex.   1 4 5  0
+       ex.   1 2 3  0
+       ex.   end
+\end{verbatim}
+}
+
+\subsection{The MOPERM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  moperm   istring     ** permute mo's
+       ex.   moperm   1 to 10 13 12  end
+\end{verbatim}
+}
+
+\subsection{The AOPERM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  aoperm   istring     ** permute ao's
+       ex.   aoperm  17 18 end
+\end{verbatim}
+}
+
+\subsection{The COMBINE Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  combine  tapnam  tapnam ** identical to atmolscf combine option
+                          ** except that no orthogonalisation is done
+                          ** combine first and second vector - set
+        ** next cards define the origin of the ao's **
+           ifr ito 'a'/'b' ii ** ao's ifr to ito (inclusive) in new set
+           ... ...   ...   .. ** are ao's ii onwards of vectorset a/b
+           ... ...   ...   .. ** go on until all ao's are assigned
+           'end'
+        ** next cards define the origin of the mo's **
+           ifr ito 'a'/'b' ii ** same as for ao's / finish with 'end'
+           'end'
+       ex.   combine ed6 1 1 ed4 200 3
+       ex.   1 5 a 1
+       ex.   6 10 b 1
+       ex.   11 20 a 6
+       ex.   21 26 b 6
+       ex.   end
+       ex.   1  4  a 1
+       ex.   5  7  b 1
+       ex.   8 18  a 5
+       ex.   19 26  b 4
+       ex.   end
+        **  Alternatively a simplified form may be used just specifying quantities
+        **  and on the same line
+       ex.  combine  ed6 1 1 ed4 200 3
+       ex.  a 5 b 5  a 10  b 6  end
+       ex.  a 4 b 3  a 11  b 8  end
+\end{verbatim}
+}
+
+\subsection{The EXTRA Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  extra    istring     ** add ao's and corresponding unit-vectors
+                       ** (in existing vectors zeros are inserted)
+                       ** warning  : ndim **must** equal nmdim
+           ** e.g. one performed a dz-calculation on h2 using ao's
+           ** 1,2 and 3,4 . now one adds polarisation functions (p)
+           ** on each h-atom (p's will be 3,4,5 and 8,9,10). the start-
+           ** orbitals for this new calculation are produced (starting
+           ** from the old 4*4 set) by putting :
+       ex.   extra 3 4 5 8 9 10 end
+\end{verbatim}
+}
+
+\subsection{The SUMMARY Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  summary              ** print summary of files and parameters
+\end{verbatim}
+}
+
+\subsection{The TRANSFORM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  transform tapnam ('notran')   ** transform nmdim*ndim vectors in core
+                                ** with a nmdim*nmdim set on tapnam
+                                ** notran as in read
+\end{verbatim}
+}
+
+\subsection{The OCCUP or OCC Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  occup   nval (occ(i),i=1,nval) ** read occupation numbers (free form)
+      ex.    occup 3  2.0 2.0 1.5
+      ex2.   occ 2  2 1 
+           ** the occupation-numbers will appear on any tape4 or dump-
+           ** file written , following this directive
+\end{verbatim}
+}
+
+\subsection{The EIGEN Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  eigen   nval              ** read nval orbital-energies on following
+          (eig(i),i=1,nval) ** according to format(5e15.5)
+      ex.    eigen 2
+      ex.     -20.5673456     -11.43456
+\end{verbatim}
+}
+
+\subsection{The CRIT Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  crit    acr  npower ** set criterion to acr.10**(-npower)
+                      ** (default  1.0e-14)
+      ex.    crit    1.0   20
+\end{verbatim}
+}
+
+\subsection{The NDIM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  ndim    nd   ** reduce ao-dimension to nd (loose last ao's)
+      ex.    ndim    22
+\end{verbatim}
+}
+
+\subsection{The NMDIM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  nmdim   nmd  ** reduce mo-dimension to nmd (loose last mo's)
+\end{verbatim}
+}
+
+\subsection{The LOG Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  log  'on'/'of' ** switch printflag for printing of directive-cards
+                 ** in interactive sessions log on is more forgiving
+\end{verbatim}
+}
+
+\subsection{The ADDVEC Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  addvec  tapnam ** add vectors (same dimension as current vectors)
+                 ** from specified file ,as last orbitals
+      ex.    addvec ed3 1 2
+  addvec  'unit'  istring .. .. ** add specified unit vectors
+                             ** (i.e. with 1.0 in positions specified by istring
+                             **  respectively )
+      ex.    addvec unit 11 7 1
+\end{verbatim}
+}
+
+\subsection{The SYMMETRY Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  symmetry  nao nirr n1 n2 n3 .. ** 'symmetry' selection of mo's
+           ** nao = number of ao's in each mo to look at (max 8)
+           ** nirr= number of representations to select  (max 12)
+           ** n1,n2,n3 etc : dimensions of subsets within mo's
+            ** next cards define selection (nirr cards) **
+               (iao(i),ich(i),i=1,nao) ** iao = number of ao
+               .. .. .. .. .. .. .. .. ** ich = 1,0 or -1 = sign of ao
+               .. .. .. .. .. .. .. .. **       in mo  (parity is ok)
+       ex.   symmetry 3 2  3 5
+       ex.   1 1    3 0    12  -1
+       ex.   1 0    4 0    10   1
+
+  symmetry 'h'            ** the symmetry is determined from the
+                          ** (1-electron) h-matrix 
+          ** following directives may be issued / finish with 'end'
+      'sets'  is1 is2 ... ** dimensions of subsets in orbital-space
+     'rename' ir1 ir2 ... ** new numbers of the representations
+      'end'               **
+       ex.   symmetry h tape3
+       ex.   order 1 4 2 3
+       ex.   sets  1 4 8 1
+       ex.   end
+      ** this sorts the orbitals for water in a dz basis , keeping
+      ** the 1s and the 1s* , the occupied and the virtual spaces
+      ** apart / the a2 symmetry does not occur in the occupied
+      ** space ,is therefore originally assigned # 4 and is reordered
+      ** to position 2
+
+ *******************************************************************
+ **** a directive : crit 5 5 : is recommended before symmetry   ****
+ **** selection, since orbitals are usually only accurate to    ****
+ **** 5 figures                                                 ****
+ *******************************************************************
+\end{verbatim}
+}
+
+\subsection{The MAXDIM Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  maxdim 'low'/'medium'/'high' / set maximum dimension  (default low)
+                              ** low : all actions possible
+                              ** medium : no orthogonalisation possible
+                              ** high  : and no combine possible
+       ex.   maxdim   high
+\end{verbatim}
+}
+
+\subsection{The ATOMMO Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  atommo 'atom' istring 'mo' istring / sorts the mo's listed in the order of the atoms
+      ex. atommo atom 1 2 3 end mo 1 2 3 4 5  end  
+\end{verbatim}
+}
+
+\subsection{The DUMPFILE Directive}
+
+{
+\footnotesize
+\begin{verbatim} 
+  dumpfile tapnam (without section)  / set the standard dumpfile to tapnam
+               ** the dumpfile must exist
+               ** default the GAMESS dumpfile is used
+               ** if not available the first dumpfile vectors were read from
+
+      ex. dumpfile ed4 1
+\end{verbatim}
+}
+
+
+\subsection{The STOP / FINISH Directive}
+
+{
+\begin{verbatim} 
+  stop/finish     **  ends calculation
+       ex.   stop
+\end{verbatim}
+}
+
+\section{OPTBS - Single variable Basis Set  optimisation}
+
+The program optimises a set of even tempered outer exponents, taking the
+existing basis as a start. Currently only a single parameter optimisation  of
+the exponent ratio is available. Optimisation is possible for mSCF,MP2 and CASSCF
+and DFT; Dft can give problematic convergence though.
+
+Data for  OPTBS  consists of one line, read to variables
+TEXT, OUTEXP,NEXP using format (A,2I).
+In addition to these required parameters, STEP and TOL may be  optionally  specified, using
+The TEXT,VARIABLE format (A,F). Also a PRINT (format(A)) may be specified.
+\begin{itemize}
+\item TEXT should be set to the character string OPTBS.
+\item OUTEXP specifies the index of the outer core exponent, i.e. the last one not changed.
+\item NEXP  is the number of exponents to be optimised.
+\item STEP specified the stepsize taken in changing the exponent ratio (default 0.1)
+\item TOL is the termination criterion (default 0.01)
+\item PRINT gives output of all SCF-type calculations
+\end{itemize}
+
+
+{\bf Example}
+{
+\footnotesize
+\begin{verbatim}
+          SERVER
+          OPTBS 15 2 STEP 0.1 TOL 0.01
+          ....... GAMESS - INPUT .........
+          ENTER
+\end{verbatim}
+}
+
+Starting from the GAMESS input it will optimise exponents 16 and 17.
+
+\end{document}

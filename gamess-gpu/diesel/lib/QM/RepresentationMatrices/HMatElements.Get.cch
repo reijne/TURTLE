@@ -1,0 +1,235 @@
+#include "HMatElements.h"
+
+#include <stdlib.h>
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getMatrix(
+	MatrixType *p,
+	const DiffConf<MOType> & diffConf,
+	const TableCase<MOType> & tc) const
+{
+IntegralType	Cb, Ex;
+
+	memset(p, 0, this->matDim.rows*this->matDim.cols*sizeof(MatrixType));
+
+	switch ( this->P ) {
+	case 1:
+		int4Container->get(tc.getCbExIndex(), Cb, Ex);
+		getCbExMatrix(p, Cb, Ex);
+		break;
+		
+	case 3:
+		getCaseP3Matrix(p, diffConf, tc.getdK(), tc.getR());
+		break;
+		
+	case 2:
+	case 4:
+		getCbMatrix(p, (*int4Container)[tc.getCbExIndex()]);
+		break;
+		
+	case 5:
+		getCase14Matrix(p, diffConf.getSame());
+		break;
+	}
+}
+	
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getPart(
+		MatrixType *p,
+		RepresentationMatrix<MatrixType> *Mat,
+		IntegralType CbEx) const
+{
+const MatrixType *pMat = Mat->getP();
+typename RepresentationMatrix<MatrixType>::MatrixDense dense = Mat->getDense();
+	switch ( dense )
+	{
+	case RepresentationMatrix<MatrixType>::unity:
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+			p[i*(this->matDim.rows+1)] += CbEx;
+		break;
+		
+	case RepresentationMatrix<MatrixType>::diagonal:
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+			p[i*(this->matDim.rows+1)] += CbEx * *pMat++;
+		break;
+		
+	case RepresentationMatrix<MatrixType>::tridiagonal:
+		p[0] += CbEx * *pMat++;
+		p[1] += CbEx * *pMat++;
+		for ( INT i=1 ; i<this->matDim.rows-1 ; i++ )
+		{
+			p[i*(this->matDim.rows+1)-1] += CbEx * *pMat++;
+			p[i*(this->matDim.rows+1)] += CbEx * *pMat++;
+			p[i*(this->matDim.rows+1)+1] += CbEx * *pMat++;
+		}
+		p[this->matDim.rows*this->matDim.rows - 2] += CbEx * *pMat++;
+		p[this->matDim.rows*this->matDim.rows - 1] += CbEx * *pMat++;
+		break;
+		
+		
+	case RepresentationMatrix<MatrixType>::sameSparse:
+	case RepresentationMatrix<MatrixType>::sparse:
+		{
+		const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = Mat->getMPosP();
+			for ( INT i=0 ; i<Mat->getNSparse() ; i++ )
+			{
+				INT	r = pmpos->r;
+				INT	c = pmpos++->c;
+				p[r*this->matDim.cols + c] += CbEx * *pMat++;
+			}
+		}
+		break;
+
+	case RepresentationMatrix<MatrixType>::full:
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+				*p++ += CbEx * *pMat++;
+		break;
+
+	case RepresentationMatrix<MatrixType>::lowerTriangle:
+		break;
+	}
+	
+}
+
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase11Matrix(
+		MatrixType *p,
+		const Configuration<MOType> & same,
+		MOType a, MOType b) const
+{
+MatrixType	h = P3Ints(same, a, b);	
+
+	P3Matrix(p, h, a, b, same.getOpenShellP());
+}
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase12Matrix(
+		MatrixType *p,
+		const Configuration<MOType> & same,
+		MOType a, MOType b) const
+{
+MatrixType	h = P3Ints(same, a, b);
+TwoElectronIntegralIndex<MOType>	ind(a, b, a, a);
+TwoElectronIntegralTriadeIndex triadeIndex;
+
+	triadeIndex.set(ind);
+	h += (*int4Container)[triadeIndex];
+
+	ind.setK(b);
+	ind.setL(b);
+	triadeIndex.set(ind);
+	h += (*int4Container)[triadeIndex];
+
+	P3Matrix(p, h, a, b, same.getOpenShellP());
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase13Matrix(
+		MatrixType *p,
+		const Configuration<MOType> & same,
+		MOType a, MOType b) const
+{
+MatrixType	h = P3Ints(same, a, b);	
+TwoElectronIntegralIndex<MOType>	ind(a, b, a, a);
+TwoElectronIntegralTriadeIndex triadeIndex;
+
+	triadeIndex.set(ind);
+	h += (*int4Container)[triadeIndex];
+
+	P3Matrix(p, h, a, b, same.getOpenShellP());
+}
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCaseP3Matrix(
+		MatrixType *p,
+		const DiffConf<MOType> & diffConf,
+		INT	dK, INT R) const
+{
+	if ( dK>0 )
+	{	if ( R==1 )
+			getCase13Matrix(p,
+				diffConf.getSame(),
+					diffConf.getTo().getOpenShell(0),
+					diffConf.getTo().getOpenShell(1));
+		else
+			getCase13Matrix(p,
+				diffConf.getSame(),
+					diffConf.getTo().getOpenShell(1),
+					diffConf.getTo().getOpenShell(0));
+	}
+	else
+	if ( dK<0 )
+	{	if ( R==1 )
+			getCase13Matrix(p,
+				diffConf.getSame(),
+					diffConf.getFrom().getOpenShell(0),
+					diffConf.getFrom().getOpenShell(1));
+		else
+			getCase13Matrix(p,
+				diffConf.getSame(),
+					diffConf.getFrom().getOpenShell(1),
+					diffConf.getFrom().getOpenShell(0));
+	}
+	else
+	{	if ( R==1 )
+			getCase11Matrix(p,
+				diffConf.getSame(),
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+		else
+			getCase12Matrix(p,
+				diffConf.getSame(),
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+	}
+}
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::P3Matrix(
+	MatrixType *p,
+	MatrixType U, MOType a, MOType b, const MOType *mos) const
+{
+const MatrixType	*pMatCb = NULL, *pMatP3 = NULL;
+TwoElectronIntegralIndex<MOType>	ind;
+TwoElectronIntegralTriadeIndex triadeIndex;
+IntegralType	intBuf[MAXOPENSHELLS];
+
+//	Perform y = A*x
+
+
+	ind.setI(a);
+	ind.setL(b);
+	for ( INT i=0 ; i<this->P3Mats ; i++ )
+	{	ind.setJ(mos[i]);
+		ind.setK(mos[i]);
+		triadeIndex.set(ind);
+		intBuf[i] = (*int4Container)[triadeIndex];
+	}
+
+	pMatCb = this->CbMat->getP();
+	pMatP3 = this->ExP3Mat->getP();
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+	{
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = 0;
+			for ( INT l=0 ; l<this->P3Mats ; l++ )
+				h += intBuf[l] * *pMatP3++;
+
+			*p++ = h + U * *pMatCb++;
+		}
+	}
+}
+
+

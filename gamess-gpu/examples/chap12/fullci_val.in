@@ -1,0 +1,12 @@
+restart new
+title
+h2o - DZ basis - valence full-ci
+super off nosym
+bypass
+zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+basis dz
+runtype ci
+active\2 to 14 end\core\1\end
+fullci 13 4 4
+enter

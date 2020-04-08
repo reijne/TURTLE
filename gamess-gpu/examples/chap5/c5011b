@@ -1,0 +1,392 @@
+#!/bin/csh
+setenv ed3 cied3
+../../bin/gamess <<EOF
+time 2000
+title
+h2o note definition of cc-pvdz basis  , MRCEPA TESTS
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype scf
+scftype mcscf
+mcscf
+orbital
+2cor1 1cor2 1doc1 1doc3 1uoc1 1uoc3 end
+convergence 1.0d-13 energy
+print civec
+vectors atdens
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa mrd
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa mr(1)
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa mr(1) doc
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa acpf
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa aqcc
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa acpf proj
+thresh 1.0  7
+enter 1 
+EOF
+../../bin/gamess <<EOF
+time 2000
+restart
+title
+h2o
+bypass hf
+noprint basis adapt vectors
+geometry
+         0.0000000      0.0000000     -0.0090000          8.0     o
+         0.0000000      1.5152630     -1.0588980          1.0     h
+         0.0000000     -1.5152630     -1.0588980          1.0     h
+end                                                         
+harmonic
+basis cc-pvdz
+runtype ci
+scftype rhf
+vectors 1
+active 
+1 to 24
+end
+direct 10 7 17
+conf
+2 2 2 2 2 0 0
+2 2 2 2 0 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 2 0
+2 2 2 0 2 0 2
+2 2 2 0 0 2 2
+2 2 2 1 2 1 0
+2 2 2 1 0 1 2
+2 2 2 2 1 0 1
+2 2 2 0 1 2 1
+2 2 2 1 1 1 1
+2 2 2 1 1 2 0
+2 2 2 1 1 0 2
+2 2 2 2 0 1 1
+2 2 2 0 2 1 1
+2 2 2 1 2 0 1
+2 2 2 1 0 2 1
+2 2 2 2 1 1 0
+2 2 2 0 1 1 2
+end
+cepa aqcc proj
+thresh 1.0  7
+enter 1 
+EOF
+\rm cied3

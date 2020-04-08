@@ -1,0 +1,11 @@
+c
+      REAL ex, cs, cp, cd, cf, cg
+      integer kstart, katom, ktype, kng, kloc, kmin, kmax
+      integer nshell, non, numorb, ndumm
+      integer isptype
+      common /nshel/ ex(mxprim),cs(mxprim),cp(mxprim),cd(mxprim),
+     +               cf(mxprim),cg(mxprim),
+     +               kstart(mxshel),katom(mxshel),ktype(mxshel),
+     +               kng(mxshel),kloc(mxshel),kmin(mxshel),kmax(mxshel),
+     +               nshell,non,numorb,ndumm,isptype
+c

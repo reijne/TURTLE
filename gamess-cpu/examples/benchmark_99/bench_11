@@ -1,0 +1,33 @@
+#!/bin/csh -f
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed4 mfged4
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+c4 tzvp(2D) MP2 frequencies total energy (mp2)  =
+#
+# harmonic frequencies
+#
+zmat angstrom
+c
+c 1 cc
+c 2 cc 1 cc1
+c 3 cc 2 cc2 1 0.0
+variables
+cc 1.450940190
+cc1  63.30050021
+cc2 116.69949979
+end
+basis 
+tzv c
+d c
+1.0 0.8
+d c
+1.0 2.0
+end
+runtype hessian
+scftype mp2 
+enter
+EOF
+/bin/rm mfg*

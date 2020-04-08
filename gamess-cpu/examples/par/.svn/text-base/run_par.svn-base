@@ -1,0 +1,119 @@
+#!/bin/csh
+#
+# set this to 1 if the parallel MP2 code is included
+set do_mp2=0
+#
+# ====  uncomment for TCGMSG ======
+###
+### number of processors is irrelevant (edit gamess.p)
+set script=tcgmsg_inter
+set nodes=""
+###
+# === uncomment for DL SP2 ========
+###
+#set script=sp2_inter
+#set nodes="-n 4"
+###
+# === uncomment for DL IPSC, and run on i860a ========
+###
+#set script=nx_inter
+#set nodes=8
+###
+#
+#
+# h2co tzvp geom SCF
+$script $nodes  par_1  
+#
+# h2co tzvp geom opt
+$script $nodes  par_2  
+#
+# h2co+ ROHF tzvp geom opt
+$script $nodes  par_3  
+#
+# h2co+ uhf tzvp geom opt
+$script $nodes  par_4  
+#
+# h2co tzvp gvb-1/pp
+$script $nodes  par_5  
+#
+# h2co ecp
+$script $nodes  par_6  
+#
+# na4 ecp
+$script $nodes  par_7  
+#
+if ( $do_mp2 == 1  ) then
+  # h2co tzvp geom direct-MP2
+  $script $nodes  par_8  
+else
+  echo skipping mp2 job par_8
+endif
+#
+# morphine sto3g scf
+$script $nodes  par_9  
+#
+# 2,4,6-TNT 6-31G SCF
+$script $nodes  par_10 
+#
+# cytosine direct-SCF 6-31G
+$script $nodes  par_11 
+#
+# cytosine solvation energy
+$script $nodes  par_12 
+#
+# pyridine potentials
+$script $nodes  par_13 
+#
+# cis-naphol conventional-SCF
+$script $nodes  par_14 
+#
+# cis-naphol direct-SCF
+$script $nodes  par_15 
+#
+# cr(no)4 direct-SCF dzp
+$script $nodes  par_16 
+#
+# cr(no)4 ECP geom
+$script $nodes  par_17 
+#
+# mof6 direct-SCF 3-21g
+$script $nodes  par_18 
+#
+# nbcl5 direct-SCF 3-21g
+$script $nodes  par_19 
+#
+# ni(ph3)2 direct-SCF 3-21g
+$script $nodes  par_20 
+#
+# pyrimidine direct-SCF DZ
+$script $nodes  par_21 
+#
+# fe(co)5 direct-SCF 3-21g
+$script $nodes  par_22 
+#
+# be(c5h5)2 geom sto3g
+$script $nodes  par_23 
+#
+# axothiophene sto3 DSCF
+$script $nodes  par_24 
+#
+# silasequioxane 2 cycles 6-31g
+$script $nodes  par_25 
+#
+# valinomycin
+$script $nodes  par_26 
+#
+# cyclosporin sto-3g
+$script $nodes  par_27 
+#
+if ($do_mp2 == 1) then
+  #
+  # scf3 tzvp geom direct-MP2
+  $script $nodes  par_28 
+  #
+  # cytosine 6-31g geom direct-MP2
+  $script $nodes  par_29 
+else
+  echo skipping mp2 job par_28
+  echo skipping mp2 job par_29
+endif

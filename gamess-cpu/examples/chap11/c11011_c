@@ -1,0 +1,18 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2cs - cc-pvtz HESSIAN energy = -436.5575042872 au
+zmatrix angstrom
+c
+s 1 cs
+h 1 ch 2 hcs
+h 1 ch 2 hcs 3 180.0
+variables
+cs             1.5931665 hessian      0.522217
+ch             1.0772307 hessian      0.699868
+hcs          122.0835722 hessian      0.748928
+end
+basis cc-pvtz
+runtype hessian
+enter
+EOF

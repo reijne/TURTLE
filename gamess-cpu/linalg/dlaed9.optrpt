@@ -1,0 +1,151 @@
+
+Begin optimization report for: DLAED9
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed9.f(161,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlaed9.f(162,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(162,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(162,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(162,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed9.f(176,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlaed9.f(177,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(177,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(177,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(177,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(177,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(180,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(180,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(180,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(180,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaed9.f(180,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed9.f(184,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(184,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(184,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(184,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(184,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(191,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(191,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(191,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(191,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(191,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(195,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(195,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(195,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlaed9.f(195,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed9.f(195,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaed9.f(147,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed9.f(148,24) ]
+LOOP END
+
+LOOP BEGIN at dlaed9.f(151,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlaed9.f(190,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed9.f(194,17) ]
+LOOP END
+===========================================================================

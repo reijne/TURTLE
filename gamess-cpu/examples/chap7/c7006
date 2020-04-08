@@ -1,0 +1,120 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - dz basis - 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+enter
+EOF
+../../bin/gamess  << EOF
+dumpfile ed3 900
+title
+h2co - dzp basis - 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dzp
+vectors getq ed3 1 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - dz basis - graphical analysis
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+runtype analyse
+graphics
+gdef
+type 2d
+x  0 0 1
+y  0 1 0
+points 40
+size 15
+calc
+type dens
+title
+dz -total density
+section 6
+vectors  1
+enter
+EOF
+../../bin/gamess << EOF
+dumpfile ed3 900
+restart
+title
+h2co - dzp basis - graphical analysis
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dzp
+runtype analyse
+graphics
+gdef
+type 2d
+x  0 0 1
+y  0 1 0
+points 40
+size 15
+calc
+type dens
+title
+dzp -total density
+section 5
+calc
+type comb ed3 1  6 -1.0
+title 
+difference dzp - dz density
+plot 
+type line
+cont
+64.7837   16.1959    4.0490    1.0122     .5061     .2531     .1265
+.0633     .0316     .0158     .0079     .0040     .0020     .0010
+0.0005 0.0002 0.0001 0.00005
+end
+vectors 1
+enter
+EOF
+#                             dzp plot
+../../bin/gamess << EOF
+dumpfile ed3 900
+restart
+title
+h2co - dzp basis - graphical analysis
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dzp
+runtype analyse
+graphics
+restore calc ed3 900 5
+plot
+type line
+cont
+64.7837   16.1959    4.0490    1.0122     .5061     .2531     .1265
+.0633     .0316     .0158     .0079     .0040     .0020     .0010
+end
+vectors 1
+enter
+EOF

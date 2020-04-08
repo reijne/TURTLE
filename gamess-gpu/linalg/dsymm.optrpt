@@ -1,0 +1,246 @@
+
+Begin optimization report for: DSYMM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsymm.f(196,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsymm.f(197,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsymm.f(197,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(197,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsymm.f(202,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsymm.f(203,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(203,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(203,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsymm.f(218,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsymm.f(219,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsymm.f(222,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(219,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(222,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(219,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(222,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(219,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(222,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(222,26)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsymm.f(235,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsymm.f(236,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsymm.f(239,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(236,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(239,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(236,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(239,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(236,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at dsymm.f(239,26)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(239,26)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsymm.f(256,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsymm.f(259,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(259,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(259,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(259,22)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(263,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(263,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(263,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(263,22)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(267,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsymm.f(273,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(273,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(273,22)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(273,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dsymm.f(277,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsymm.f(283,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(283,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(283,22)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsymm.f(283,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

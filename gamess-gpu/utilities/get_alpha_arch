@@ -1,0 +1,37 @@
+#!/bin/csh
+
+#
+# Attempt to establish what kind of alpha we are
+# Running on
+#
+
+cat > /tmp/test_alpha.f << EOF
+      program test
+      end
+EOF
+
+if $1 == "gnu" then
+  setenv FC fort
+else
+  setenv FC f77
+endif
+
+set test=`(cd /tmp; $FC -V -c -arch host test_alpha.f; cat test_alpha.l | grep arch)`
+rm -f /tmp/test_alpha.f
+rm -f /tmp/test_alpha.o
+
+echo $test | grep ev56 > /dev/null
+if $status == 0 then
+  echo ev56
+  exit 0
+endif
+echo $test | grep ev67 > /dev/null
+if $status == 0 then
+  echo ev67
+  exit 0
+endif
+echo $test | grep ev6 > /dev/null
+if $status == 0 then
+  echo ev6
+  exit 0
+endif

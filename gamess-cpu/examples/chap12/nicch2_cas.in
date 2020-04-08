@@ -1,0 +1,74 @@
+restart new
+title
+ni(cch2) 3a1 c2v cas at opt (3 2 2 0), hay's ni, bar's nm ecp's
+mult 3
+super off nosym
+zmat angstrom
+ni
+c 1 nica
+x 2 1.0 1 90.0
+c 2 cacb 3 90.0 1 180.0
+x 4 1.0 2 90.0 3 0.0
+h 4 hcb 2 hcc 5 90.0
+h 4 hcb 2 hcc 5 -90.0
+variables
+nica 2.0895
+cacb 1.3604
+hcb 1.1047
+hcc 122.646
+end
+basis
+s h
+0.032828     13.3615
+0.231208      2.0133
+0.817238      0.4538
+s h
+1.000000      0.1233
+s c
+1.000000      0.4962
+s c
+1.000000      0.1533
+p c
+0.018534     18.1557
+0.115442      3.9864
+0.386206      1.1429
+0.640089      0.3594
+p c
+1.000000      0.1146
+s ni
+-0.4372528 0.6778
+1.1889453 0.1116
+s ni
+1.0000000 0.0387
+p ni
+1.0000000 0.0840
+p ni
+1.0000000 0.0240
+d ni
+0.0360414 42.7200
+0.1938645 11.7600
+0.4596238 3.8170
+0.5599305 1.1690
+d ni
+1.0000000 0.2836
+end
+pseudo nonlocal
+nihay  ni
+c c
+runtype scf
+scftype casscf
+config print
+fzc 1 to 7
+doc 8 to 9
+alp 10 to 11
+uoc 12 to 14
+end
+superci 1 to 12
+newton 13 to 20
+hessian 13  to 20
+simul 15 to 20
+vectors 5
+swap
+14 15
+end
+enter

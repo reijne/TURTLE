@@ -1,0 +1,53 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ftn002 file2
+setenv ftn003 file3
+setenv ftn004 file4
+../../bin/gamess << EOF
+title
+h2co - 3-21g  scf prior to full-ci calculation
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  integral transformation
+super off nosym
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype transform
+active\5 to 22 end\core\1 to 4\end
+enter
+EOF
+../../bin/gamess << EOF
+core 8000000
+restart
+title
+h2co - 3-21g  valence full-ci calculation
+super off nosym
+bypass transform
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+active\5 to 22 end\core\1 to 4\end
+runtype ci\fullci 18 4 4
+enter
+EOF

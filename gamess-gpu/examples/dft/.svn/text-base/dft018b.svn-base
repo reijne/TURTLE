@@ -1,0 +1,23 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co+bq/6-31G - DFT/BLYP default quad. / energy = -115.0794907271 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+coordinate
+bq1 0.0 0.0  3.0 +1.5
+bq2 0.0 0.0 -3.0 -1.5
+end
+basis 
+sv c   6-31g
+sv o   6-31g
+sv h   6-31g
+sv bq1 6-31g
+end
+level 1.5 10 0.5 diis
+dft
+enter
+EOF

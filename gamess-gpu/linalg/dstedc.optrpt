@@ -1,0 +1,34 @@
+
+Begin optimization report for: DSTEDC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dstedc.f(287,23)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dstedc.f(383,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dstedc.f(383,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dstedc.f(383,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dstedc.f(277,19)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dstedc.f(379,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dstedc.f(392,27) ]
+LOOP END
+===========================================================================

@@ -1,0 +1,5 @@
+#!/bin/csh
+setenv ftn058 punch
+echo $1
+time $1 > LOG/$1.log
+mv punch $1.pun

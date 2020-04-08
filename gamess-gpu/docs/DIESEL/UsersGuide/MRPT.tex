@@ -1,0 +1,90 @@
+\subsection{MR Perturbation Theory}
+
+\subsubsection{Invocation}
+{\tt mrpt} 
+
+
+
+\subsubsection{Files}
+
+
+\begin{tabular}{r|r|r|p{7cm}}
+status &name &type &content \cr
+\TspaceII
+\noalign{\hrule}
+\TspaceII
+in & stdin & ASCII & user input 
+(selection thresholds, roots, etc.), see \ref{MRPTInput}\cr
+\TspaceII
+in & "fort.31"%\footnote{or whatever has been 
+%specified in the "MOIntegralFilename"-assignment} 
+&binary&integrals in MO basis (AO$\to$MO transformation performed),
+point symmetry,
+number of orbitals in certain irreducible representation\cr
+\TspaceII
+in& "ConfTree.dat.{\it thresh}" & ASCII &tree of selected configurations\cr
+\TspaceII
+in& "Eigenvectors.dat.{\it thresh}" & binary &state eigenvectors\cr
+\TspaceII
+\TspaceII
+out & stdout & ASCII &program output\cr
+&&& (containing protocol, perturbation energies, etc.,\cr
+&&& depending on verbosity level)\cr
+\end{tabular}
+
+
+
+
+\subsubsection{User Input and Keywords}
+\label{MRPTInput}
+\label{MRPTKeywords}
+\begin{tabular}{p{3cm}|c|p{1.5cm}|p{1.5cm}|p{5cm}}
+&sta- &de-&argument &\\
+keyword	&tus&fault&type &description\\[5pt]
+\hline&&&&\\[-9pt]
+{\tt Selection\-Thresholds}	&req. &-- &\key{floatSet} &
+a set of thresholds in Hartree for selection procedure\tnl
+{\tt Roots}	&opt. &\{ 1 \} &\key{numSet} &
+set of roots to be used in the selection\tnl
+{\tt ProjectionMode}	&opt. &"no0" &"no0", "0Complement" &
+\tnl
+{\tt Inhomogenity}	&opt. & "Psi0" ($|0\rangle$) &\key{floatnum}, "Psi0" &
+inhomogenity in system of linear equations\tnl
+{\tt calcMP3}	&opt. &no &\key{boolean} &
+flag if MP3 energies should be calculated\tnl
+\end{tabular}
+
+
+
+\subsubsection{Input Example}
+
+
+\begin{footnotesize}
+\begin{verbatim}
+Roots                = { 1 2 3 4 }
+SelectionThresholds  = { 0.001 0.0001 1e-05 1e-06 }
+ProjectionMode       = no0
+Inhomogenity         = Psi0
+calcMP3              = no
+\end{verbatim}
+\end{footnotesize}
+
+This input may result in the following output:
+
+\begin{scriptsize}
+\begin{verbatim}
+.
+.
+.
+
+MR-MP2 Results:
+
+      threshold/mH      sel. conf.       sel. CSFs     energy sum/mH     energy sum/mH     energy sum/mH     energy sum/mH
+                                                            root # 1          root # 2          root # 3          root # 4  
+============================================================================================================================
+      1.000000e+00             108             145      6.704442e+01      1.689585e+02      1.971939e+02      2.060199e+02
+      1.000000e-01             671            1130      1.981235e+01      8.135658e+01      6.852698e+01      7.491947e+01
+      1.000000e-02            2772            5563      4.856928e+00      2.998879e+01      2.144414e+01      2.325910e+01
+      1.000000e-03            7913           18094      1.303418e+00      8.178762e+00      5.088133e+00      6.088736e+00
+\end{verbatim}
+\end{scriptsize}

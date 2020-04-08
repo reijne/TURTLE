@@ -1,0 +1,22 @@
+
+Begin optimization report for: DLAED7
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed7.f(228,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed7.f(277,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed7.f(277,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed7.f(277,13)
+<Remainder>
+LOOP END
+===========================================================================

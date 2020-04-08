@@ -1,0 +1,30 @@
+
+      integer hp,stackbottom,heaptop,maxhandle
+      logical heapclean
+      integer heap_tag
+c     maxhandle controls the mamimum number of handle allocated 
+c     memory areas.
+
+      parameter(maxhandle=500)
+
+      common/fheap/heapclean,
+     &hp(maxhandle),stackbottom,heaptop,
+     &heap_tag(maxhandle)
+
+
+C     DEBUG
+c     Set debug to true, touch all FORTRAN files and recompile 
+c     to get debug mode.
+      logical MEM_DEBUG
+      data MEM_DEBUG/.FALSE./
+
+      integer MATRIX_REAL,MATRIX_INTEGER
+
+C     MATRIX TYPES
+      parameter (MATRIX_REAL=1)
+      parameter (MATRIX_INTEGER=2)
+
+C     SIZE OF A DBLE PRECISION WORD
+      integer SIZE_DOUBLE
+      parameter(SIZE_DOUBLE=8)
+

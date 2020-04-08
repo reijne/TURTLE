@@ -1,0 +1,44 @@
+title
+Cr(NO)4 Td / SBKJC ECP geom. opt  -186.521195968728 au
+zmat angstrom
+cr
+n 1 crn
+n 1 crn 2 109.471
+n 1 crn 2 109.471 3 120.0
+n 1 crn 2 109.471 4 120.0
+x 2 1.0 1 90.0 3 180.0
+o 2 no 6 90.0 1 180.0
+x 3 1.0 1 90.0 2 180.0
+o 3 no 8 90.0 1 180.0
+x 4 1.0 1 90.0 5 180.0
+o 4 no 10 90.0 1 180.0
+x 5 1.0 1 90.0 4 180.0
+o 5 no 12 90.0 1 180.0
+variables
+crn 1.79
+no 1.16
+end
+basis ecp sbkjc
+pseudo
+cr sbkjc cr
+o  sbkjc o
+n  sbkjc n
+runtype optimize
+scftype direct
+newscf
+print full
+Phase  1
+Level  2.000000000000000000
+DIIS
+#  Switch to phase  2
+next  2
+Tester below  0.05
+Phase  2
+Level  0.500000000000000000E+00
+DIIS
+#  Converge calculation
+next  0
+Tester below  1.0e-7
+maxcyc 50
+end
+enter

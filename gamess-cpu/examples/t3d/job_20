@@ -1,0 +1,12 @@
+#!/bin/csh
+#QSUB -q mpp
+#QSUB -l mpp_p=128
+#QSUB -l mpp_t=2:00:0
+#QSUB -lM 8Mw
+#QSUB -lm 8Mw
+#QSUB -lT 0:30:0
+#
+cd /home/bzpgamuk/GAMESS-UK/examples/t3d
+setenv ed3 cyclo.ed3
+#
+/home/bzpgamuk/GAMESS-UK/bin/gamess_mp2.128 < par_20.in > LOGS/par_20.out128

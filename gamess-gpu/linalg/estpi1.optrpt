@@ -1,0 +1,43 @@
+
+Begin optimization report for: ESTPI1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at estpi1.f(72,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at estpi1.f(72,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at estpi1.f(72,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at estpi1.f(72,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at estpi1.f(72,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at estpi1.f(83,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at estpi1.f(83,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at estpi1.f(83,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at estpi1.f(83,10)
+<Remainder>
+LOOP END
+===========================================================================

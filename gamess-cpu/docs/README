@@ -1,0 +1,65 @@
+         The GAMESS-UK Distribution Version 8.0 - Documentation
+         ======================================================
+
+
+NB:  Up-to-date documentation can always be obtained from the GAMESS-UK
+     website at:
+
+     http://www.cfs.dl.ac.uk/docs/index.shtml
+
+
+This is the documentation directory of the GAMESS-UK distribution.
+
+The documentation is maintained and distributed as latex files, with a
+separate file for each directory. The latex files are the files in
+this directory with the .tex suffix. To process the latex files you
+will need the basic latex programs. Details on how to obtain these can
+be found at:
+
+http://www.latex-project.org/
+
+Once you have installed latex, there are three scripts to convert the
+latex files into more friendly formats for reading and printing. These
+are:
+
+gener_html_all
+--------------
+This script converts the latex to html. The html files will be created
+in a subdirectory of this directory which will be named: gamess8.0_html
+
+The html documentation can then be accessed by pointing your browser at the
+file "index.html" that resides in this directory.
+
+To convert the latex to html, you will need to have the latex2html
+perl script installed on your system. This is available from:
+
+http://www.latex2html.org/
+
+Once you have installed this, please edit the gener_html_all script to
+set the variables: LATEX2HTML and LATEX2HTML_DIR
+
+By default, the gener_html_all script will create html for all the
+chapters in the manual. However, if given a list of arguments (numbers
+for the numbered chapters (e.g 3 for part 3) and the name for the named
+chapters (e.g. mopac for the mopac chapter), it will only process
+those chapters.
+
+gener_pdf_all
+-------------
+This script converts the latex to pdf format. The pdf files will be created
+in a subdirectory of this directory which will be named: gamess8.0_pdf
+
+To convert the latex to pdf you will need the pdflatex program
+installed on your system. This is available from:
+
+http://www.pdftex.org 
+
+Please ensure the pdflatex program is in your path or set the PDFLATEX
+variable in the script accordingly.
+
+gener_ps_all
+------------
+This script converts the latex to postscript format suitable for
+printing. The postscript files will be created in a subdirectory of
+this directory which will be named: gamess8.0_ps
+

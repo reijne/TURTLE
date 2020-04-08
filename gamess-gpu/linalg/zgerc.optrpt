@@ -1,0 +1,26 @@
+
+Begin optimization report for: ZGERC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zgerc.f(127,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgerc.f(130,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgerc.f(130,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgerc.f(142,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgerc.f(146,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+===========================================================================

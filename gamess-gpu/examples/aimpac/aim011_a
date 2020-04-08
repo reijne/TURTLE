@@ -1,0 +1,17 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP - closed shell CCSD - aimpac - FAILS
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+ccsd
+natorb 10 print
+savefile aimpac section 10 file aim011_a.wfn
+enter
+EOF

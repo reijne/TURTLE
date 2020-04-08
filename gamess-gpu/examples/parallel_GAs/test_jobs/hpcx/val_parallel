@@ -1,0 +1,44 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../../../utilities;make validate)
+setenv GAMESS_VTAB ../validate.vtab
+set path=(../../../../utilities $path)
+#
+date
+#
+validate HF.crno4              HF.crno4.out
+validate HF_2e.crno4           HF_2e.crno4.out
+validate ROHF.pyridine         ROHF.pyridine.out
+validate ROHF_incore.pyridine  ROHF_incore.pyridine.out 
+validate ROHF_opt.pyridine     ROHF_opt.pyridine.out 
+validate UHF.morphine.6-31G-d  UHF.morphine.6-31G-d.out 
+validate UHF_incore.pyridine   UHF_incore.pyridine.out 
+validate UHF_opt.pyridine      UHF_opt.pyridine.out 
+validate HF.Bz_crco3.TZVP      HF.Bz_crco3.TZVP.out
+validate ROHF.Bz_crco3.TZVP    ROHF.Bz_crco3.TZVP.out
+validate ECP_opt.crno4         ECP_opt.crno4.out
+validate DFT.morphine.6-31G-dp DFT.morphine.6-31G-dp.out 
+validate DFT.morphine.6-31G-dp_harmonic DFT.morphine.6-31G-dp_harmonic.out
+validate DFT.morphine.A2.DZVP  DFT.morphine.A2.DZVP.out
+validate UKS.pyridine          UKS.pyridine.out 
+validate DFT.siosi4.617        DFT.siosi4.617.out 
+validate DFT.siosi5.1199       DFT.siosi5.1199.out 
+validate DFT.cyclo.6-31G       DFT.cyclo.6-31G.out
+validate DFT_jfit.morphine.A2  DFT_jfit.morphine.A2.out 
+validate DFT_jfitA.siosi5.1199 DFT_jfitA.siosi5.1199.out 
+validate DFT_opt.exti4a1.3-21G DFT_opt.exti4a1.3-21G.out
+#
+validate MP2_opt.crno4  MP2_opt.crno4.out
+validate MP2_ECP_opt.crno4     MP2_ECP_opt.crno4.out
+validate MP2_forces.scf3       MP2_forces.scf3.out
+validate MP2_opt.mnco5h        MP2_opt.mnco5h.out 
+validate MP2_opt_props.brncs   MP2_opt_props.brncs.out
+validate RPA.pyridine          RPA.pyridine.out
+#
+validate SECD_opt.pyridine.6-31G-dp  SECD_opt.pyridine.6-31G-dp.out
+validate SECD.TFMtoluene.6-31G   SECD.TFMtoluene.6-31G.out
+validate SECD_ECP_opt.crco6      SECD_ECP_opt.crco6.out
+validate SECD_HCTH.TFMtoluene.6-31G   SECD_HCTH.TFMtoluene.6-31G.out 
+#

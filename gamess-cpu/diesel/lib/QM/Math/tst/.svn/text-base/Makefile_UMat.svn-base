@@ -1,0 +1,32 @@
+-include ../../Makefile.conf
+
+LDLIBS =  -lm
+
+
+sourcesCC =	Spin.cc Permutator.cc UMat.cc
+
+sourcesC = Jakobi.c
+
+OBJECTS =	${sourcesCC:.cc=.o} ${sourcesC:.c=.o}
+
+CXXFLAGS = -I../../../..
+
+
+main: 	$(OBJECTS)
+	g++ $(LDFLAGS) -o main $(OBJECTS) $(LDLIBS)
+
+
+include ${sourcesCC:.cc=.d}
+include ${sourcesC:.c=.d}
+
+
+
+%.d: %.c
+	sh -ec '$(CC) -M $(CFLAGS) $< | sed '\''s/$*.o/& $@/g'\'' > $@'
+
+%.d: %.cc
+	sh -ec '$(CXX) -M $(CXXFLAGS) $< | sed '\''s/$*.o/& $@/g'\'' > $@'
+
+
+clean:
+	rm -f *.o *.d *.bak *~ main

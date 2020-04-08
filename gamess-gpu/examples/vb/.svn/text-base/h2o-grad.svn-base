@@ -1,0 +1,80 @@
+#!/bin/csh
+../../bin/gamess <<EOF
+?/local/bin/gamess <<EOF
+?core 9000000 debug
+core 9000000
+time 100000
+title
+  h2o
+nosym
+harmonic
+zmat angstrom
+o
+h 1 r 
+h 1 r 2 t
+varia
+r 1.04
+t 104
+end
+basis sto3g
+runtype gradient
+savef aimpac
+enter 1
+crestr
+conf
+1 1 2 2 3 3 4 4 5 5
+end
+print medium
+end crestr
+vb
+?iprint 1000000
+vbvectors  manual 5 4
+    1  1  o s       1.0   0.0   0.0   0.0   0.0 
+    2  1  o s       0.0   1.0   0.0   0.0   0.0 
+    3  1  o x       0.0   0.0   1.0   0.0   0.0 
+    4  1  o y       0.0   0.0   0.0   0.0   1.0 
+    5  1  o z       0.0   0.0   0.0   1.0   0.0 
+    6  2  h s       0.0   0.0   0.0   0.0   0.0  
+    7  3  h s       0.0   0.0   0.0   0.0   0.0   
+active print
+1 to 5 end
+scf
+? ortho off
+crit 1.0 -7
+? shift 1.0
+nosym
+p0core on
+end 91
+end vb
+scftype  vb 
+runtype gradient
+enter 90 
+crestr
+conf
+1 1 2 2 3 3 4 4 5 5
+end
+print medium
+end crestr
+vb
+?iprint 1000000
+vbvectors  manual 5 4
+    1  1  o s       1.0   0.0   0.0   0.0   0.0 
+    2  1  o s       0.0   1.0   0.0   0.0   0.0 
+    3  1  o x       0.0   0.0   1.0   0.0   0.0 
+    4  1  o y       0.0   0.0   0.0   0.0   1.0 
+    5  1  o z       0.0   0.0   0.0   1.0   0.0 
+    6  2  h s       0.0   0.0   0.0   0.0   0.0  
+    7  3  h s       0.0   0.0   0.0   0.0   0.0   
+active print
+1 to 5 end
+scf
+ortho off
+crit 1.0 -7
+? shift 1.0
+nosym
+end 81
+end vb
+scftype  vb 
+runtype gradient
+enter 80 
+EOF

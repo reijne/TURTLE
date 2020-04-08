@@ -1,0 +1,18 @@
+c
+c     dlnmxd: the maximum value of the logarithm of the reduced
+c             density matrix.
+c     dlnmxs: the maximum value of the logarithm of the Schwarz 
+c             integrals.
+c     dlntol: minus the logarithm of the direct SCF integral cutoff.
+c
+      REAL dlnmxd, dlnmxs, dlntol, tolitr, deltol, delfac
+      integer intcut, intmag
+      integer ibl171, lentri, itrtol, iexch, iof171, m171t
+      integer nhamd, nsheld
+      logical odscf, oimag, odnew, opref, odelta
+      common/cslosc/dlnmxd,dlnmxs,dlntol,tolitr(3),deltol,delfac,
+     + odscf,
+     + intcut(10),oimag,intmag(1060),
+     + ibl171,lentri,itrtol(3),iexch,odnew,opref,iof171(6),m171t,
+     + nhamd, nsheld,odelta
+c

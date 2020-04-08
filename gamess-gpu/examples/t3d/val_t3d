@@ -1,0 +1,31 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../utilities;make validate)
+setenv GAMESS_VTAB ./t3d.vtab
+set path=(../../utilities $path)
+validate par_2  LOGS/par_2.out
+validate par_3  LOGS/par_3.out
+validate par_4  LOGS/par_4.out
+validate par_5  LOGS/par_5.out
+validate par_6  LOGS/par_6.out
+validate par_7  LOGS/par_7.out
+validate par_8  LOGS/par_8.out
+#
+validate par_9  LOGS/par_9.out
+validate par_10  LOGS/par_10.out
+validate par_11  LOGS/par_11.out
+validate par_12  LOGS/par_12.out
+validate par_13  LOGS/par_13.out
+validate par_14  LOGS/par_14.out
+validate par_15  LOGS/par_15.out
+#
+validate par_16  LOGS/par_16.out
+validate par_17  LOGS/par_17.out
+validate par_18  LOGS/par_18.out
+validate par_19  LOGS/par_19.out
+validate par_21  LOGS/par_21.out
+validate par_22  LOGS/par_22.out
+validate par_23  LOGS/par_23.out
+validate par_24  LOGS/par_24.out

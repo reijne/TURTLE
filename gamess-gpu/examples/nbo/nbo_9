@@ -1,0 +1,24 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+methylene nbo test of choose option
+mult 3
+zmatrix angstrom
+c
+h,1,R2
+h,1,R2,2,A3
+variables:
+R2 1.08
+A3 120.
+end
+basis 6-31g*
+scftype uhf
+vectors atoms
+enter 1 2
+runtype analyse
+scftype uhf
+nbo
+vectors 1 2
+enter 1 2
+\$nbo reson \$end
+EOF

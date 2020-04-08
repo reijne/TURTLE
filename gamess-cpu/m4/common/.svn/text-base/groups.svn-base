@@ -1,0 +1,9 @@
+c
+      REAL sco,pco,dco,fco,gco
+      integer ilopri,ngroup,iatom
+      integer mng,mpergr
+      parameter (mng=10,mpergr=30)
+      common /groups/ ilopri,ngroup,iatom(mpergr,mng),
+     +                sco(mng), pco(mng), dco(mng), fco(mng),
+     +                gco(mng)
+c

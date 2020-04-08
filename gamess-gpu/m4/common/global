@@ -1,0 +1,22 @@
+c  global array pointers
+      integer g_oooo, g_vooo, g_vvoo, g_vovo, g_vvvo, g_ovaa, g_u
+     &,  il_oooo, ih_oooo, jl_oooo, jh_oooo
+     &,  il_vooo, ih_vooo, jl_vooo, jh_vooo
+     &,  il_vvoo, ih_vvoo, jl_vvoo, jh_vvoo
+     &,  il_vovo, ih_vovo, jl_vovo, jh_vovo
+     &,  il_vvvo, ih_vvvo, jl_vvvo, jh_vvvo
+     &,  il_ovaa, ih_ovaa, jl_ovaa, jh_ovaa
+     &,  il_u, ih_u, jl_u, jh_u
+      common/gms_global/g_oooo, g_vooo, g_vvoo
+     &,  g_vovo, g_vvvo, g_ovaa, g_u
+     &,  il_oooo, ih_oooo, jl_oooo, jh_oooo
+     &,  il_vooo, ih_vooo, jl_vooo, jh_vooo
+     &,  il_vvoo, ih_vvoo, jl_vvoo, jh_vvoo
+     &,  il_vovo, ih_vovo, jl_vovo, jh_vovo
+     &,  il_vvvo, ih_vvvo, jl_vvvo, jh_vvvo
+     &,  il_ovaa, ih_ovaa, jl_ovaa, jh_ovaa
+     &,  il_u, ih_u, jl_u, jh_u
+      integer g_hess, il_hess,ih_hess,
+     &  jl_hess,jh_hess
+      common/extraglobal/g_hess,il_hess,ih_hess,
+     &  jl_hess,jh_hess

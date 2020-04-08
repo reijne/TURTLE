@@ -1,0 +1,35 @@
+title
+pyridine cc-pvtz DCI
+harmonic
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.7835472 hessian     .494114
+ch4            1.0709085 hessian     .377949
+c2n            1.3377198 hessian    1.845545
+c2c3           1.3947169 hessian    1.407010
+c2h6           1.0697217 hessian     .761609
+c3h5           1.0698540 hessian     .759027
+c2nz         120.5869635 hessian   24.114133
+ccn          122.6055083 hessian    9.000496
+nch2         116.2815569 hessian     .558884
+c2c3h        120.1790881 hessian     .538933
+end
+basis cc-pvtz
+runtype CI
+enter

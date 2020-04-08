@@ -1,0 +1,60 @@
+c 
+c  $Author: wab $
+c  $Date: 1999-01-03 20:15:54 $
+c  $Locker:  $
+c  $Revision: 1.1 $
+c  $Source: /c/qcg/cvs/psh/GAMESS-UK/drf/comdrf/common,v $
+c  $State: Exp $
+c  
+c
+      character *8 title,scftyp,runtyp,guess,conf,fkder
+      character *8 scder,dpder,plder,guesc,rstop,charsp
+      logical ognore
+      common/restrz/title(10),scftyp,runtyp,guess,conf,fkder,
+     + scder,dpder,plder,guesc,rstop,charsp(30)
+c
+      common/restrr/
+     + gx,gy,gz,rspace(21),tiny,tit(2),scale,ropt,vibsiz
+c
+      logical omaxb
+      common/restar/nprint,itol,icut,normf,normp,nopk,
+     + irest,nrec,omaxb,ist,jst,kst,lst,
+     + nintmx,nindmx,intg76,mfile(25),jints(589),local,
+     + mtask,itask(50),
+     + irest2,irest3,irest4,irest5,intloc,
+     + iblkl,ifill,iblkd,ifild,iblks,ifils,iblkf,ifockf,
+     + nopkr,iofsym,iofrst,idurie(2),ognore
+c
+      logical lset,ladapt,lsym,latmol,berny,oss,ldiag,ciopt,mp2,ciforc,
+     + fpres,ldens,llibry,limpt,lskip,ldenom,ignore,lcontr,lvcd,
+     +lfdtrn,unit7,extern,lgten,hfgr,bfgs,ump2,lmeth2,lcart,lmcdat,
+     +lopti,lmcscf,lci,lforce,lcpf,ladp,loptor,mp2w,ordmo,ump3,rmp3
+c
+      common/restrl/ciopt,ciforc,mp2,hfgr,bfgs,ump2,lmeth2,ump3,rmp3,
+     +ordmo,mp2w,loptor,ladp,lcpf,lopti,lmcscf,lforce,lci,lcart,
+     +lmcdat,lfdtrn,unit7,extern,lcontr,lvcd,lgten,ldenom,ignore,ldens,
+     +lset,ladapt,lsym,latmol,berny,llibry,limpt,fpres,oss,ldiag,lskip
+c
+      equivalence (ifilm,notape(1)),(iblkm,iblk(1)),(mblkm,lblk(1))
+      dimension itwo(6),ltwo(6)
+      equivalence (ione(7),itwo(1)),(lone(7),ltwo(1))
+      common/restri/nfile,notape(4),iblk(4),lblk(4),
+     +             nnfile,nofile(4),jblk(4),mblk(4),
+     +             mmfile,nufile(4),kblk(4),nblk(4),
+     +             ione(12),lone(12),
+     +             lda(508),isex(508),ldx(508),iacsct(508)
+c
+      logical unit5,lspac2,mp3,pump2,lcanon
+      common/jokex/ mster,iix,jjx,jfile,
+     + junit,mbl,jblock,kfile,kunit,kbll,kkblok,mfg0(2),kkkk,
+     + lword,mum,ilow,mfg1,nsa,mfg2(25),
+     + ncoorb,nocc,nocca,noccb,nvirt,nvirta,ipol,iprint,iconv,np,
+     + mn,imolp,iorder,iprop,nruns,nmol,natre(2),nch(2),
+     + nmul(2),nbas(2),nsh(2),nelect(2),iopp(15),norder,nsys,itoli,icuti
+     +,n1st,nrec0,intlo0,iresti,iposf1,iposf2,iposm,iochf(100),
+     + npstar,npfin,minvec,icflag,mpflag,mpstrm(20),
+     + mpblk(20),mp3,pump2,unit5,lcanon,lspac2(16),ispare(52),irest6,
+     + irest1,irestp,mppas,mcicfl,nps1,nps2,nrefs,ionsv,irblok,irunit,
+     + irfile,irbl,mcrest,ngpts,ifcm,iblfcm,nvirtb,nsb,mpfill,mprest
+c
+      common/iofile/ir,iw,ip

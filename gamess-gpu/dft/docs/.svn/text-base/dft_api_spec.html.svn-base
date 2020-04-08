@@ -1,0 +1,602 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>
+      API specification: CCP1 DFT module
+   </TITLE>
+</HEAD>
+<BODY bgcolor="#fffff0">
+
+<HR>
+<A NAME="API_specification">
+<H1>Specification of the application interface (API)</H1>
+</A>
+<HR>
+<HR>
+
+
+<A NAME="main_functions">
+<H2>Main functions</H2>
+</A>
+<HR>
+
+
+<A NAME="CD_defaults">
+<H3><CODE>integer function CD_defaults(iout) [interface.f]</CODE></H3>
+</A>
+<P>
+Sets the internal flags in the DFT code to their default
+values. Should be called before any other DFT function.
+</P>
+<P>
+<DL>
+<DT>Input</DT>
+<DD><DL>
+    <DT><CODE>iout</CODE></DT>
+    <DD> The fortran file unit number for text output.</DD>
+    </DL>
+<DT>Error codes</DT>
+<DD> None. This routine always completes succesfully.</DD>
+</DL>
+</P>
+
+
+<A NAME="CD_init">
+<H3><CODE>integer function CD_init(REAL memory_fp(*), integer iout) 
+[interface.f]</CODE></H3>
+</A>
+<P>
+Initialises the central DFT data structures according to the input of 
+the host code. Therefore this routine must be called after the 
+molecular geometry and AO basis set have been established, and after 
+the control data has been provided.
+</P>
+<P>
+<DL>
+<DT>Input</DT>
+<DD><DL>
+    <DT><CODE>iout<CODE></DT>
+    <DD> The file unit number for text output.</DD>
+    </DL>
+<DT>Error codes</DT>
+<DD> None.</DD>
+<DT>Workspace</DT>
+<DD><DL>
+    <DT><CODE>memory_fp</CODE></DT>
+    <DD> The main floating point memory array.</DD>
+    </DL>
+</DL>
+</P>
+
+
+<A NAME="CD_energy">
+<H3><CODE>integer function CD_energy(REAL coords(3,*),
+          REAL kma(*), REAL kmb(*), REAL adenm(*), REAL bdenm(*),
+          REAL energy, integer memory_int(*), REAL memory_fp(*),
+          logical extwr_sw, REAL accuracy, integer iout) [global.f]</CODE></H3>
+</A>
+<P>
+Evaluates the DFT energy and forms the Kohn-Sham matrix using one of a
+variety of methods. The various options can be selected through calling
+other API functions.
+</P>
+<P>
+<DL>
+<DT>Input</DT>
+<DD><DL>
+    <DT><CODE>adenm</CODE>, <CODE>bdenm</CODE><DT>
+    <DD> The 1-electron reduced density matrices stored in triangular form.
+         In closed shell calculations <CODE>adenm</CODE> is the total 
+         1-electron reduced density matrix and <CODE>bdenm</CODE> is not used.
+         In open shell calculation <CODE>adenm</CODE> is the alpha-electron
+         reduced density matrix and <CODE>bdenm</CODE> is the beta-electron
+         counter part.</DD>
+    <DT><CODE>accuracy</CODE><DT>
+    <DD> The tolerance on the integration accuracy. Used only if SCF convergence
+         dependent integration accuracies have been requested.</DD>
+    <DT><CODE>iout</CODE></DT>
+    <DD> The fortran file unit number for text output.</DD>
+    <DT><CODE>extwr_sw</CODE>
+    <DD> A switch that specifies whether extra detailed output is required.</DD>
+    </DL>
+</DD>
+<DT>Input/Output</DT>
+<DD><DL>
+    <DT><CODE>kma</CODE>, <CODE>kmb</CODE></DT>
+    <DD> On return the exchange-correlation and fitted Coulomb contributions
+         will have been added to the Kohn-Sham matrices <CODE>kma</CODE> and
+         <CODE>kmb</CODE>. 
+         The fitted Coulomb contributions are added only if they have been 
+         requested for.
+         The Kohn-Sham matrices are stored in triangular form.
+         In the closed shell case <CODE>kma</CODE> is the total Kohn-Sham matrix
+         and <CODE>kmb</CODE> is not used.
+         In the open shell case <CODE>kma</CODE> is the alpha Kohn-Sham matrix
+         and <CODE>kmb</CODE> is its beta counter part.</DD>
+    </DL>
+</DD>
+<DT>Output</DT>
+<DD><DL>
+    <DT><CODE>energy</CODE></DT>
+    <DD> On return <CODE>energy</CODE> contains the exchange-correlation plus
+         fitted Coulomb contributions to the total energy.</DD>
+    </DL>
+<DT>Error codes</DT>
+<DD> None.</DD>
+<DT>Workspace</DT>
+<DD><DL> 
+    <DT><CODE>memory_int</CODE></DT>
+    <DD> The main integer memory array.</DD>
+    <DT><CODE>memory_fp</CODE></DT>
+    <DD> The main floating point memory array.</DD>
+    </DL>
+<DT>Obsolete</DT>
+<DD><DL>
+    <DT><CODE>coords</CODE></DT>
+    </DL>
+</DL>
+</P>
+
+
+<A NAME="CD_forces">
+<H3><CODE>integer function CD_forces(REAL coords(3,*), 
+          REAL adenm(*), REAL bdenm(*), 
+          integer memory_int(*), REAL memory_fp(*), REAL grad(3,*),
+          logical extwr_sw) [global.f]</CODE></H3>
+</A>
+<P>
+Computes the forces on the nuclei. This routine can compute forces corresponding
+to any the energy expressions that <CODE>CD_energy</CODE> can evaluate.
+</P>
+<P>
+<DL>
+<DT>Input</DT>
+<DD><DL>
+    <DT><CODE>adenm</CODE>, <CODE>bdenm</CODE><DT>
+    <DD> The 1-electron reduced density matrices stored in triangular form.
+         In closed shell calculations <CODE>adenm</CODE> is the total
+         1-electron reduced density matrix and <CODE>bdenm</CODE> is not used.
+         In open shell calculation <CODE>adenm</CODE> is the alpha-electron
+         reduced density matrix and <CODE>bdenm</CODE> is the beta-electron
+         counter part.</DD>
+    <DT><CODE>extwr_sw</CODE>
+    <DD> A switch that specifies whether extra detailed output is required.</DD>
+    </DL>
+<DT>Input/Output</DT>
+<DD><DL>
+    <DT><CODE>grad</CODE>
+    <DD> On return the contributions of the DFT and Coulomb fit expressions
+         to the forces have been added to the original value of 
+         <CODE>grad</CODE>.</DD>
+    </DL>
+</DD>
+<DT>Error codes</DT>
+<DD> None.</DD>
+<DT>Workspace</DT>
+<DD><DL>
+    <DT><CODE>memory_int</CODE></DT>
+    <DD> The main integer memory array.</DD>
+    <DT><CODE>memory_fp</CODE></DT>
+    <DD> The main floating point memory array.</DD>
+    </DL>
+<DT>Obsolete</DT>
+<DD><DL>
+    <DT><CODE>coords</CODE></DT>
+    </DL>
+</DL>
+</P>
+
+<HR>
+<A NAME="global_switches">
+<H2>Global switches</H2>
+</A>
+<HR>
+
+<A NAME="CD_set_2e">
+<H3><CODE>integer function CD_set_2e() [interface.f]</CODE></H3>
+</A>
+<P>
+Switches the modifications to the two-electron integral routines on. 
+See also <A HREF="#CD_2e">CD_2e</A>.
+<DL>
+<DT>Error codes</DT>
+<DD> None. This routine always completes succesfully.</DD>
+</DL>
+</P>
+
+<A NAME="CD_reset_2e">
+<H3><CODE>integer function CD_reset_2e() [interface.f]</CODE></H3>
+</A>
+<P>
+Switches the modifications to the two-electron integral routines off. 
+See also <A HREF="#CD_2e">CD_2e</A>.
+<DL>
+<DT>Error codes</DT>
+<DD> None. This routine always completes succesfully.</DD>
+</DL>
+</P>
+
+<A NAME="CD_request">
+<H3><CODE>integer function CD_request() [interface.f]</CODE></H3>
+</A>
+<P>
+Activates the DFT module.
+</P>
+
+<A NAME="CD_debug">
+<H3><CODE>integer function CD_debug(character*(*) options) 
+          [interface.f]</CODE></H3>
+</A>
+<P>
+Raises the debug flags for all computation phases specified in
+         <CODE>options</CODE>. 
+         Valid phases are <CODE>all</CODE>, <CODE>ksmatrix</CODE>, 
+         <CODE>timing</CODE>, <CODE>density</CODE>, <CODE>forces</CODE>, 
+         <CODE>memory</CODE>, <CODE>tr</CODE>, <CODE>nr</CODE>, 
+         <CODE>jfit</CODE>, <CODE>norm</CODE>, <CODE>aobasis</CODE>, 
+         <CODE>jbasis</CODE>, <CODE>kbasis</CODE>, and <CODE>control</CODE>.
+
+<A NAME="CD_set_print_level">
+<H3><CODE>integer function CD_set_print_level(integer level) 
+      [interface.f]</CODE></H3>
+</A>
+<P>
+Sets the current printing level to <CODE>level</CODE>. 
+</P>
+
+<HR>
+<A NAME="density_functional_specific_switches">
+<H2>Density functional specific switches</H2>
+</A>
+<HR>
+
+<A NAME="CD_becke88on">
+<A HREF="dft_src.html#CD_becke88on">
+<H3><CODE>integer function CD_becke88on()</CODE></H3></A>
+</A>
+<P>
+Switches to using the Becke88 functional.
+</P>
+
+<A NAME="CD_hfexon">
+<A HREF="dft_src.html#CD_hfexon">
+<H3><CODE>integer function CD_hfexon()</CODE></H3></A>
+</A>
+<P>
+Switches to using the Hartree-Fock exchange terms.
+</P>
+
+<A NAME="CD_corroff">
+<A HREF="dft_src.html#CD_corroff">
+<H3><CODE>integer function CD_corroff()</CODE></H3></A>
+</A>
+<P>
+Switches all correlation functionals off.
+</P>
+
+<A NAME="CD_ldaon">
+<A HREF="dft_src.html#CD_ldaon">
+<H3><CODE>integer function CD_ldaon()</CODE></H3></A>
+</A>
+<P>
+Switches to using the LDA functional.
+</P>
+
+<A NAME="CD_vwnon">
+<A HREF="dft_src.html#CD_vwnon">
+<H3><CODE>integer function CD_vwnon()</CODE></H3></A>
+</A>
+<P>
+Switches to using the VWN functional.
+</P>
+
+<A NAME="CD_b3lypon">
+<A HREF="dft_src.html#CD_b3lypon">
+<H3><CODE>integer function CD_b3lypon()</CODE></H3></A>
+</A>
+<P>
+Switches to using the B3LYP functional.
+</P>
+
+<A NAME="CD_mix">
+<A HREF="dft_src.html#CD_mix">
+<H3><CODE>integer function CD_mix(REAL p1, p2, p3, p4, p5, p6)</CODE></H3></A>
+</A>
+<P>
+Switches the Hartree-Fock exchange, LDA, VWN, VWNRPA, LYP, and
+         Becke88 functionals on assigning each a weight from the values 
+         <CODE>p1</CODE>, ..., <CODE>p6</CODE>. 
+         This function is meant for debugging purposes and advanced 
+         experiments.
+</P>
+
+<HR>
+<A NAME="quadrature_grid_specific_switches">
+<H2>Quadrature grid specific switches</H2>
+</A>
+<HR>
+
+<A NAME="CD_accuracy">
+<A HREF="#CD_accuracy">
+<H3><CODE>integer function CD_accuracy(character*4 level)
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects a predefined integration grid.
+</P>
+
+<A NAME="CD_conv_prune_on">
+<A HREF="#CD_conv_prune_on">
+<H3><CODE>integer function CD_conv_prune_on() [interface.f]</CODE></H3></A>
+</A>
+<P>
+Turns on the convergence dependent grid pruning scheme. 
+</P>
+
+<A NAME="CD_set_weight">
+<A HREF="#CD_set_weight">
+<H3><CODE>integer function CD_set_weight(character*(*) weight_scheme) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects and activates a weigthing scheme for the quadrature grid.
+</P>
+
+<A NAME="CD_screen">
+<A HREF="#CD_screen">
+<H3><CODE>integer function CD_screen(logical oscr, REAL p1, p2, p3, 
+          p4) [interface.f]</CODE></H3></A>
+</A>
+<P>
+Enables or disables screening of grid points in the exchange-correlation 
+quadrature.
+</P>
+
+<A NAME="CD_radial_zones">
+<A HREF="#CD_radial_zones">
+<H3><CODE>integer function CD_radial_zones(integer Nzones, 
+          Nangular_pt(*), REAL boundaries(*)) [interface.f]</CODE></H3></A>
+</A>
+<P>
+Defines the radial zones and the corresponding number of angular grid
+points for radius dependent pruning of the angular grid. 
+</P>
+
+<A NAME="CD_lebedevon">
+<A HREF="#CD_lebedevon">
+<H3><CODE>integer function CD_lebedevon(integer nang) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects the Lebedev angular grid and sets the number of angular 
+points to <CODE>nang</CODE>.
+</P>
+
+<A NAME="CD_gausslon">
+<A HREF="#CD_gausslon">
+<H3><CODE>integer function CD_gausslon(integer ntheta) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects the Gauss-Legendre angular grid and sets the total number of 
+angular points to <CODE>2*ntheta**2</CODE>.
+</P>
+
+<A NAME="CD_euleron">
+<A HREF="#CD_euleron">
+<H3><CODE>integer function CD_euleron(integer nradial(7)) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects the Euler-MacLaurin radial grid 
+and sets the number of radial points for each row in the periodic
+table to the corresponding value from <CODE>nradial</CODE>.
+</P>
+
+<A NAME="CD_logon">
+<A HREF="#CD_logon">
+<H3><CODE>integer function CD_logon(integer nradial(7)) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Selects the logarithmic radial grid 
+and sets the number of radial points for each row in the periodic
+table to the corresponding value from <CODE>nradial</CODE>.
+</P>
+
+<A NAME="CD_gridscale">
+<A HREF="#CD_gridscale">
+<H3><CODE>integer function CD_gridscale(REAL factor) 
+          [interface.f]</CODE></H3></A>
+</A>
+<P>
+Sets the grid scaling factor to <CODE>factor</CODE>.
+</P>
+
+</DD>
+<HR>
+<A NAME="coulomb_specific_switches">
+<H2>Coulomb specific switches</H2>
+</A>
+<HR>
+
+<A NAME="CD_jmulton">
+<H3><CODE>integer function CD_jmulton() [interface.f]</CODE></H3>
+</A>
+<P>
+Switches the use of the multipole expansion for the Coulomb 
+integrals on.
+</P>
+
+<A NAME="CD_pener">
+<H3><CODE>integer function CD_pener(integer itol) [interface.f]</CODE></H3>
+</A>
+<P>
+Sets the penetration tolerance for the multipole expansion of the 
+Coulomb integrals. If the 2 overlap distribution penetrate each 
+other to much the multipole expansion can not be used.
+</P>
+
+<A NAME="CD_over">
+<H3><CODE>integer function CD_over(integer itol) [interface.f]</CODE></H3>
+</A>
+<P>
+Sets the overlap tolerance. If the overlap of a pair of Gaussian is
+too small they do not form a charge center.
+</P>
+
+<A NAME="CD_pole">
+<H3><CODE>integer function CD_pole(integer ipol) [interface.f]</CODE></H3>
+</A>
+<P>
+Sets the maximum angular momentum in the multipole expansion. 
+The highest value supported is 6.
+</P>
+
+<HR>
+<A NAME="global_enquiry_functions">
+<H2>Global enquiry functions</H2>
+</A>
+<HR>
+
+<A NAME="CD_active">
+<H3><CODE>logical function CD_active() [interface.f]</CODE></H3>
+</A>
+<P>
+Tests whether the DFT module is activated. It returns 
+<CODE>.true.</CODE> if it is activated and <CODE>.false.</CODE> 
+otherwise.
+</P>
+
+<A NAME="CD_print_joboptions">
+<H3><CODE>subroutine CD_print_joboptions() [interface.f]</CODE></H3>
+</A>
+<P>
+Writes the current settings of the DFT options to standard output.
+</P>
+
+<A NAME="CD_check_print">
+<H3><CODE>logical function CD_check_print(integer level) 
+          [interface.f]</CODE></H3>
+</A>
+<P>
+Test whether output at the specified verbosity level has been 
+activated.
+It returns <CODE>.true.</CODE> if the verbosity level is equal to or 
+larger than <CODE>level</CODE> and returns <CODE>.false.</CODE> 
+otherwise.
+</P>
+
+<A NAME="CD_2e">
+<H3><CODE>logical function CD_2e() [interface.f]</CODE></H3>
+</A>
+<P>
+Tests whether a modified Fock builder is in operation. 
+This function is to be used in the host code to decide whether some 
+2-electron integrals can be avoid (e.g. exchange integrals with non-hybrid
+functionals, or Coulomb integrals if Coulomb fitting is used).
+</P><P>
+<DL>
+<DT>Output</DT>
+<DD><DL>
+    <DT><CODE>CD_2e</CODE></DT>
+    <DD><CODE>.TRUE.</CODE> if an modified Fock builder should be used.</DD>
+    <DD><CODE>.FALSE.</CODE> otherwise.</DD>
+    </DL>
+</DD>
+</DL>
+
+
+<HR>
+<A NAME="density_functional_specific_enquiry_functions">
+<H2>Density functional specific enquiry functions</H2>
+</A>
+<HR>
+
+<H3><CODE>logical function CD_HF_exchange() [interface.f]</CODE><H3>
+<P>
+Tests whether the Hartree-Fock exchange is switched on. It returns 
+<CODE>.true.</CODE> if the Hartree-Fock exchange is switched on and
+<CODE>.false.</CODE> otherwise.
+</P>
+
+<H3><CODE>real*8  function CD_HF_exchange_weight() [interface.f]</CODE></H3>
+<P>
+Returns the weight of the Hartree-Fock exchange terms.
+</P>
+
+<H3><CODE>logical function IL_test4(integer p1, p2, q1, q2, 
+          ip12_list(*)) [interface.f]</CODE></H3>
+<P>
+Tests whether the integral generation for the shell quartet 
+specified by <CODE>p1</CODE>, <CODE>p2</CODE>, <CODE>q1</CODE>, and
+<CODE>q2</CODE> can be skipped. It returns <CODE>.true.</CODE> if 
+these integrals can be skipped and <CODE>.false.</CODE> otherwise.
+</P>
+
+<H3><CODE>logical function IL_test4c(integer q2x,
+          REAL fac1, fac2, integer ic(3)) [interface.f]</CODE></H3>
+<P>
+<B>???</B> Should be used only when the multipole code is active 
+because of efficiency reasons.
+</P>
+
+<H3><CODE>logical function IL_list4(integer p1, p2, q1, q2,
+          logical bi_on(4)) [interface.f]</CODE></H3>
+<P>
+<B>???</B>
+</P>
+
+<H3><CODE>logical function IL_Bielectronic(integer p1, p2, q1) 
+          [interface.f]</CODE></H3>
+<P>
+<B>???</B>
+</P>
+
+<H3><CODE>logical function IL_Bielec2(integer p1, p2, q1, q2) 
+          [interface.f]</CODE></H3>
+<P>
+<B>???</B>
+</P>
+
+<H3><CODE>REAL function exad_find(integer shell) [interface.f]</CODE></H3>
+<P>
+Finds and returns the lowest exponent in the contraction for the 
+shell specified by <CODE>shell</CODE>.
+</P>
+
+<H3><CODE>REAL function IL_shlove_tol() [interface.f]</CODE></H3>
+<P>
+Returns the shell over tolerance <B>???</B>.
+</P>
+
+<HR>
+<A NAME="coulomb_specific_enquiry_functions">
+<H2>Coulomb specific enquiry functions</H2>
+</A>
+<HR>
+
+<H3><CODE>logical function CD_HF_coulomb() [interface.f]</CODE></H3>
+<P>
+Tests whether the host code should compute the full Coulomb energy
+and Fock matrix using 2-electron integrals. It returns 
+<CODE>.true.</CODE> if the Coulomb terms should be computed and 
+<CODE>.false.</CODE> otherwise.
+</P>
+
+<H3><CODE>logical function CD_HF_coulomb_deriv() [interface.f]</CODE></H3>
+<P>
+Tests whether the host code should compute the full Coulomb 
+integral derivatives using 2-electron integrals. It returns 
+<CODE>.true.</CODE> if the Coulomb integral derivative terms should
+be computed and <CODE>.false.</CODE> otherwise.
+</P>
+
+<H3><CODE>logical function CD_request_multstate() [interface.f]</CODE></H3>
+<P>
+Tests whether the DFT module will use the multipole expansion to 
+compute the Coulomb integrals.
+</P>
+
+</BODY>
+</HTML>

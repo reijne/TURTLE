@@ -1,0 +1,102 @@
+\subsection{Diagonalisator}
+
+\subsubsection{Invocation}
+{\tt diag} {\it arguments}
+
+
+\subsubsection{Command Line Arguments}
+\begin{itemize}
+\item {\tt -p procs}: number of parallel processes to be used in 
+Davidson diagonalisation
+\item {\tt -i}: read input from standard input (otherwise no user input
+is read)
+\item {\tt -s} {\it thresh}: 
+read start vectors from a previous smaller calculation at threshold {\it thresh}.
+This depends on the existence of the files "ConfTree.dat.{\it thresh}" and
+"Eigenvectors.dat.{\it thresh}"
+\item {\tt -r}: restart a previously aborted calculation.
+This depends on the existence of the files "Davidson\_b.dat" and
+"Davidson\_Ab.dat".
+\item {\tt -w}: write Hamiltonmatrix to file "MatrixStorageWrite.dat".
+No Davidson iteration is performed.
+\end{itemize}
+ 
+
+\subsubsection{Files}
+
+
+
+\begin{tabular}{r|r|r|p{7cm}}
+status &name &type &content \cr
+\TspaceII
+\noalign{\hrule}
+\TspaceII
+in & stdin & ASCII & user input 
+(roots, reference selection threshold, etc.), see \ref{DiagInput}\cr
+\TspaceII
+in & "ConfTree.dat" & ASCII &tree of selected configurations\cr
+\TspaceII
+in & "fort.31"%\footnote{or whatever has been 
+%specified in the "MOIntegralFilename"-assignment} 
+&binary&integrals in MO basis (AO$\to$MO transformation performed),
+point symmetry,
+number of orbitals in certain irreducible representation\cr
+\TspaceII
+\TspaceII
+out & stdout & ASCII &program output\cr
+&&& (containing protocol, eigenvalues, etc.,\cr
+&&& depending on verbosity level)\cr
+\TspaceII
+out & "Eigenvectors.dat" & binary &eigenvectors of ci-matrix\cr
+\TspaceII
+\TspaceII
+temporary & "Davidson\underbar{ }b.dat" & binary &basis vectors in Davidson diagonalisation\cr
+temporary & "Davidson\underbar{ }Ab.dat" & binary &mapped basis vectors\cr
+
+\end{tabular}
+
+\subsubsection{User Input and Keywords}
+\label{DiagInput}
+
+\label{DiagonalisatorKeywords}
+\begin{supertabular}{p{3cm}|c|p{1.5cm}|p{1.5cm}|p{5cm}}
+&sta- &de-&argument &\\
+keyword	&tus&fault&type &description\\[5pt]
+\hline&&&&\\[-9pt]
+{\tt Reference\-Threshold}	&opt. & 0.004 &\key{floatnum} &
+threshold for automatic reference space generation\tnl
+{\tt PTReference\-Threshold}	&opt. & 0.004 &\key{floatnum} &
+threshold for automatic generation 
+of 0th-order wave function used in perturbation theory\tnl
+{\tt Convergence\-EnergyChange}	&opt. &1e-5 &\key{floatnum} &
+energy change that is sufficient for convergence of a certain root\tnl
+{\tt Convergence\-EigenvectorChange}	&opt. &1 &\key{floatnum} &
+eigenvector change that is sufficient for convergence of a certain root\tnl
+{\tt MaxIters}	&opt. &20 &\key{intnum} &
+maximum number of iterations\tnl
+{\tt Roots}	&opt. & selector output &\key{numSet} &
+set of roots to be used in the diagonalisation procedure\tnl
+{\tt RootHoming}	&opt. & no &\key{boolean} &
+freeze roots to characters given by the reference space\tnl
+{\tt StorePTEnergy}	&opt. &no &\key{bool} &
+flag if perturbational energies are stored in configuration tree\tnl
+{\tt StorePTCoef}	&opt. &no &\key{bool} &
+flag if perturbational CI coefficients are stored in configuration tree\tnl
+{\tt MaxHamilton\-StorageMem}	&opt. &0 &\key{intnum} \{GB, MB, KB\} &
+maximum amount of memory available to store Hamilton Matrix;
+if there is not enough memory calculation falls back to direct mode\tnl
+{\tt Precision}	&opt. &double &"float", "double" &
+precision of matrix elements and vectors 
+(float: 32 bit\footnote{6.9 significant digits with IEEE floating point arithmetic},
+double: 64 bit\footnote{15.5 significant digits with IEEE floating point arithmetic}),
+using 32 bit-precision will result in less memory consumption (especially
+when using stored Hamilton Matrices), and slightly faster execution, but
+may cause convergence problems. \tnl
+{\tt IterationMode}	&opt. &"CI" &"CI", "ACPF", "AQCC" &
+iteration mode\tnl
+\end{supertabular}
+\bigskip
+
+Since all input keywords are optional, the input may be missing completely.
+Therefore by default no input is read. To make the program
+read any user input from stdin an explicit flag ({\tt -i}) must be specified.

@@ -1,0 +1,22 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+vof3 - LDA tzvp basis c3v symmetry Energy = -1314.639356332149 au.
+zmat angstrom
+v
+o 1 vo
+f 1 vf 2 fvo
+f 1 vf 2 fvo 3 120.0
+f 1 vf 2 fvo 3 -120.0
+variables
+vo             1.5601287 hessian     .578330
+vf             1.7056386 hessian    1.120662
+fvo          108.2940753 hessian     .875780
+end
+basis tzvp
+runtype optimize
+scftype direct
+dft s-vwn
+level 2
+enter
+EOF

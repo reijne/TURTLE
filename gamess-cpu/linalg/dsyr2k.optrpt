@@ -1,0 +1,226 @@
+
+Begin optimization report for: DSYR2K
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsyr2k.f(200,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(201,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(201,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(201,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(206,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(207,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(207,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(207,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(214,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(215,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(215,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(215,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(220,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(221,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(221,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(221,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(237,18)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(239,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(239,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(239,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(243,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(243,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(243,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(237,18)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(247,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsyr2k.f(251,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(251,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(251,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(251,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(259,18)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(261,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(261,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(261,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(265,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(265,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr2k.f(265,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(259,18)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(269,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsyr2k.f(273,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(273,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(273,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(273,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(286,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(287,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsyr2k.f(290,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(290,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(290,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(290,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr2k.f(303,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr2k.f(304,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dsyr2k.f(307,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(307,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(307,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dsyr2k.f(307,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

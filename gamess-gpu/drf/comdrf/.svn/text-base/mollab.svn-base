@@ -1,0 +1,12 @@
+c
+      character*8 bflab
+      common/mollab/mwanam(128),mwbnam(128),bflab(1024)
+c
+      character*8 zruntp, zguess, zconf, zstate
+      character*8 zcom,title,ztagg,zsymm
+      character*8 zorb,zpseud
+      character*8 anam
+      character*10 bnam
+      common/runlab/zcom(19),title(10),anam(maxat),bnam(maxorb),
+     +           ztagg(maxat),zsymm(7),zorb(maxorb),zpseud(maxat)
+c

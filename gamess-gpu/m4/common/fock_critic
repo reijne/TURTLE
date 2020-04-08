@@ -1,0 +1,11 @@
+c
+c...   storage for fock contributions
+c
+      REAL fockc
+      integer*4 iposc,maxfock,nwfc,nwfcc
+      logical ofipc,centurion,oshmem_inuse,ofipc_debug
+      logical ofipc_shmp,ofipc_nofock,ofipc_root
+      parameter (maxfock=2)
+      common/fock_cratic/ fockc(maxfock),iposc(maxfock),nwfc,nwfcc,
+     +                    ofipc,oshmem_inuse,ofipc_debug,ofipc_shmp,
+     +                    ofipc_nofock,ofipc_root

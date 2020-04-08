@@ -1,0 +1,78 @@
+
+Begin optimization report for: DSYR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsyr.f(144,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr.f(147,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(147,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(147,26)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(147,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr.f(154,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr.f(158,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(158,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(158,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr.f(171,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr.f(174,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(174,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(174,26)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(174,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsyr.f(181,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsyr.f(185,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(185,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsyr.f(185,26)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

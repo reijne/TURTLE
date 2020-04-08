@@ -1,0 +1,38 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co+ - 2b2 - cisd direct-ci  defaults
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+ - 2b2 - cisd direct-ci  explicit data
+super off nosym
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+open 1 1
+direct 15 8 14
+spin doublet
+conf
+2 2 2 2 2 2 2 1 
+natorb 11 12 print
+enter
+EOF

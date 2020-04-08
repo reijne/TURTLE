@@ -1,0 +1,13 @@
+#!/bin/csh
+setenv EXE ../../bin/gamess
+#
+./RUN c10000
+./RUN c10001
+./RUN c10002
+./RUN c10003
+/bin/rm -rf ed3
+echo c10004
+time c10004 > LOG/c10004.log
+echo c10005
+time c10005 > LOG/c10005.log
+/bin/rm -rf mfged2 mfged3 mfged6 aoints 

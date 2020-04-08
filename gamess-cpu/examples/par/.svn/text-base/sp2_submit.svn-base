@@ -1,0 +1,87 @@
+#!/bin/ksh
+#
+# default argument settings
+#
+nodes=8
+class=dev
+adaptor=hps_ip
+arg="-euilib ip"
+pool=2
+root=`(cd ../..;pwd)`
+here=`pwd`
+# only valid for example subdirectory
+exe=$root/bin/gamess-uk
+dir=/scratch/$USER
+#
+use="[ -n nodes ] [-q|c class ] [-a adaptor] [-p pool] [-e executable] [-d directory] job "
+#
+# process command line options
+#
+while getopts :q:c:p:n:a:e:d: opt ; do
+  case $opt in 
+      q) class=$OPTARG;;
+      c) class=$OPTARG;;
+      n) nodes=$OPTARG;;
+      p) pool=$OPTARG;;
+      a) adaptor=$OPTARG;;
+      e) exe=$OPTARG;;
+      d) dir=$OPTARG;;
+      ?) echo usage: $0 $use;;
+  esac
+done
+#
+# remaining arg should be the job name
+#
+let nshift=OPTIND-1
+shift $nshift
+if test $# -ne 1 ; then
+  echo usage: $0 $use
+  exit
+fi
+jobname=$1
+
+#
+# make pool and euilib consistent with adaptor
+#
+case $adaptor in
+  hps_user)
+     arg="-euilib us"
+     if [[ $pool = 2 ]]
+     then
+        pool=1
+     fi;;
+  hps_ip)
+     ;;
+  *) echo invalid adaptor $adaptor - must hps_user or hps_ip
+esac
+#
+# list settings
+#
+echo 'job     = ' $jobname
+echo 'adaptor = ' $adaptor
+echo 'exe     = ' $exe $arg
+echo 'class   = ' $class
+echo 'pool    = ' $pool
+echo 'nodes   = ' $nodes
+echo 'direc   = ' $here
+echo 'scratch = ' $dir
+#
+# produce loadleveller script
+#
+echo '#@ executable = /usr/bin/poe' > ${jobname}.script
+echo '#@ min_processors = ' $nodes       >> ${jobname}.script
+echo '#@ max_processors = ' $nodes     >> ${jobname}.script
+echo '#@ output = ' $here/${jobname}.out >> ${jobname}.script
+echo '#@ error = ' $here/${jobname}.err >> ${jobname}.script
+echo '#@ job_type = parallel' >> ${jobname}.script
+echo '#@ requirements = (Adapter == "'$adaptor'") && (Pool == '$pool')' >> ${jobname}.script
+echo '#@ arguments = '$exe $arg >> ${jobname}.script
+echo '#@ input = ' $here/$jobname.in >> ${jobname}.script
+echo '#@ initialdir = '$dir >> ${jobname}.script
+echo '#@ class = ' $class >> ${jobname}.script
+echo '#@ environment = MP_CSS_INTERRUPT=yes' >> ${jobname}.script
+echo '#@ queue' >> ${jobname}.script
+#
+# submit to the queue
+#
+llsubmit ${jobname}.script

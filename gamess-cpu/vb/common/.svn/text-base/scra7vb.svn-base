@@ -1,0 +1,26 @@
+c...   ed7 addressing for vb are all maintained in function kscra7vb
+c     kbl7vb                  : current start of free space (must be updated)
+c     k7struc                 : beginning of structures file (set in vbcrestr)
+c     k7strucold              : beginning of old structures file (set in vbcrestr), in case of AIMOL reduce
+c     k7doub                  : start of block containing always doubly occupied orbital indices
+c     kvb7_bco,kvb7_vo,kvb7_vn: det-coef,old/new vectors
+c     kvb7_bcn                  set when first used in brigen and orbopt
+c     kvb7_fcao,kvb7_fcmo     : fock-matrix on ao and mo bases
+c     kvb7_do,kvb7_dn         : ao density matrix (old and new)
+c     kvb1,kvb2,kvb3          : set when firsts used in diis
+c     kvb7_vv                 : vectors (including virtuals) for orthopt
+c     kvb7_transvb            : vectors used to transform integrals from ao to mo-basis
+c     k7conf                  : start of configurations (nelec+1 * nconf)
+c     k7bond                  : start of bonding arragements (nelec*nstru)
+c     k7igr_brill             : Brillouin state group info including per/var status
+c     k7bas                   : internal basis
+c     k7sbas                  : s-matrix in internal basis
+c     k7hbas                  : h-matrix in internal basis
+c     k7tbas                  : t-matrix in internal basis
+c     k7vbas                  : current vectors in internal basis (stored on a lchbas external/off)
+c     n7vbas                  : # blocks used for this (as the size may vary) 
+c     nmo7bas,nbas7bas        : dimensions, to allow easy retrieval
+c
+      integer nvb12,nvb3,maxdis
+      integer n7vbas,nmo7bas,nbas7bas
+      common/scra7vb/nvb12,nvb3,maxdis,n7vbas,nmo7bas,nbas7bas

@@ -1,0 +1,10 @@
+C *Contains pointers and information about issued memory.
+c  Used for general book keeping of memory.
+      integer iblock_info,start_ifreemem,inum_issued,iblock_amt
+      integer dblock_info,start_dfreemem,dnum_issued,dblock_amt
+      integer last_block
+      common/memory_info/iblock_info(max_block),start_ifreemem,
+     &                   inum_issued,iblock_amt(max_block),
+     &                   dblock_info(max_block),start_dfreemem,
+     &                   dnum_issued,dblock_amt(max_block),
+     &                   last_block

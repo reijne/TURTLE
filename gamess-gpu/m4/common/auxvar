@@ -1,0 +1,13 @@
+c
+      REAL auxvar, var
+      integer ifasti, ifastd
+c
+c     ifasti = 0 default settings in filmax
+c            = 1 use GAMESS-US settings
+c            = 2 tighten accuracy
+c     ifastd = 0 loosen default settings (old values)
+c            = 1 use revised default settings
+c            = 2 tighten accuracy in g-80 routines
+c
+      common /auxvar/ auxvar,var(2),ifasti,ifastd
+c

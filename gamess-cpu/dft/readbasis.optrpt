@@ -1,0 +1,759 @@
+
+Begin optimization report for: STORE_JBASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(888,7) inlined into readbasis.f(238,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at readbasis.f(891,10) inlined into readbasis.f(238,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at readbasis.f(897,13) inlined into readbasis.f(238,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 899 and  line 899
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13) inlined into readbasis.f(238,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 901 and  line 901
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13) inlined into readbasis.f(238,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 903 and  line 903
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13) inlined into readbasis.f(238,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 904 and  line 904
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13) inlined into readbasis.f(242,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 412 and  line 415
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13) inlined into readbasis.f(242,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13) inlined into readbasis.f(242,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 412 and  line 412
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13) inlined into readbasis.f(242,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(1012,10) inlined into readbasis.f(246,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at readbasis.f(1023,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1024 and  line 1024
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1031,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1032 and  line 1032
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1040,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1041 and  line 1041
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1048,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1049 and  line 1049
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1056,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1057 and  line 1057
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1064,16) inlined into readbasis.f(246,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1065 and  line 1065
+   LOOP END
+LOOP END
+
+LOOP BEGIN at readbasis.f(567,29) inlined into readbasis.f(250,12)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(421,7) inlined into readbasis.f(242,12)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at readbasis.f(420,10) inlined into readbasis.f(242,12)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at readbasis.f(360,13) inlined into readbasis.f(242,12)
+         remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(345,30) ]
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(405,13) inlined into readbasis.f(242,12)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at readbasis.f(404,16) inlined into readbasis.f(242,12)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(383,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at readbasis.f(1095,7) inlined into readbasis.f(246,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(985,14) ]
+
+   LOOP BEGIN at readbasis.f(1000,10) inlined into readbasis.f(246,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at readbasis.f(581,7) inlined into readbasis.f(250,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(560,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: READ_BASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(738,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 747 and  line 748
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(796,17)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(683,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: READ_BASIS_INTERN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2060,8) inlined into readbasis.f(1401,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2060,8) inlined into readbasis.f(1401,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2365,8) inlined into readbasis.f(1406,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2365,8) inlined into readbasis.f(1406,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2770,8) inlined into readbasis.f(1411,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2770,8) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(1792,8) inlined into readbasis.f(1396,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(1792,8) inlined into readbasis.f(1396,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(1382,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at readbasis.f(1988,7) inlined into readbasis.f(1401,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2050,15) ]
+
+      LOOP BEGIN at readbasis.f(2003,8) inlined into readbasis.f(1401,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2001,16) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(2281,7) inlined into readbasis.f(1406,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2355,15) ]
+
+      LOOP BEGIN at readbasis.f(2296,7) inlined into readbasis.f(1406,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2294,16) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(2661,7) inlined into readbasis.f(1411,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2760,15) ]
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1710,7) inlined into readbasis.f(1396,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(1782,15) ]
+
+      LOOP BEGIN at readbasis.f(1725,7) inlined into readbasis.f(1396,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(1723,16) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1512,7)
+      remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(1431,15) ]
+
+      LOOP BEGIN at readbasis.f(1510,10)
+         remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(1475,23) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CHKFITBAS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(567,29)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(581,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(560,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITE_DFTBASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(1012,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at readbasis.f(1023,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1024 and  line 1024
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1031,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1032 and  line 1032
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1040,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1041 and  line 1041
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1048,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1049 and  line 1049
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1056,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1057 and  line 1057
+   LOOP END
+
+   LOOP BEGIN at readbasis.f(1064,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1065 and  line 1065
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(1095,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(985,14) ]
+
+   LOOP BEGIN at readbasis.f(1000,10)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: NORM_BASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(410,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 412 and  line 415
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 412 and  line 412
+LOOP END
+
+LOOP BEGIN at readbasis.f(410,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(421,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at readbasis.f(420,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at readbasis.f(360,13)
+         remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(345,30) ]
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(405,13)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at readbasis.f(404,16)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ readbasis.f(383,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRINTBASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(888,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at readbasis.f(891,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at readbasis.f(897,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 899 and  line 899
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 901 and  line 901
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 903 and  line 903
+      LOOP END
+
+      LOOP BEGIN at readbasis.f(897,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 904 and  line 904
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: AHLRICHS_FITL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2770,8) inlined into readbasis.f(2649,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2770,8) inlined into readbasis.f(2649,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at readbasis.f(2661,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(2661,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2760,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DEMON_FITL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2365,8) inlined into readbasis.f(2270,14)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2365,8) inlined into readbasis.f(2270,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(2281,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2355,15) ]
+
+   LOOP BEGIN at readbasis.f(2296,7)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2294,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGAUSS_A2_FITL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2060,8) inlined into readbasis.f(1977,14)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(2060,8) inlined into readbasis.f(1977,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(1988,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2050,15) ]
+
+   LOOP BEGIN at readbasis.f(2003,8)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(2001,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGAUSS_A1_FITL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(1792,8) inlined into readbasis.f(1699,14)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at readbasis.f(1792,8) inlined into readbasis.f(1699,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at readbasis.f(1710,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(1782,15) ]
+
+   LOOP BEGIN at readbasis.f(1725,7)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ readbasis.f(1723,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGAUSS_A1_FITSH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(1792,8)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGAUSS_A2_FITSH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2060,8)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: DEMON_FITSH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2365,8)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: AHLRICHS_FITSH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at readbasis.f(2770,8)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================

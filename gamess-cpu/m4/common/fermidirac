@@ -1,0 +1,19 @@
+c
+c     Variables controlling the Fermi-Dirac smearing
+c     Search for the subroutine fermi_smear...
+c
+c     osmear: should Fermi-Dirac smearing be used?
+c     esmear: smearing parameter controlling the width of the Fermi 
+c             cut-off function (Hartree)
+c
+c     esmear_start: the initial smearing parameter
+c     esmear_final: the final smearing parameter
+c     esmear_scale: the smear parameter follows the "tester" scaled
+c                   with this factor from the start to the final value.
+c
+      logical osmear
+      REAL    esmear_start, esmear_final, esmear_scale
+c
+      common/fermidirac/esmear_start,esmear_final,esmear_scale,
+     &                  osmear
+c

@@ -1,0 +1,13 @@
+c
+      REAL acc, stol, stepmx, tolmax, tolstp, tanstp
+      REAL accin, eigmin, eigmax, grms
+      integer jm, mnls, nls, isadle, ifcm, iblfcm, isecfcm
+      integer nentry, iterch, nftotl, ismax, lintyp, lqstyp
+      logical ofcm
+
+      common /cntl1/ acc,stol,stepmx,tolmax,tolstp,tanstp,
+     +               jm,mnls,nls,isadle,imnter,idumcntl1,
+     +               accin(6),nftotl,ismax,lintyp,lqstyp,
+     +               eigmin,eigmax,grms(2),nentry,iterch,
+     +               ifcm,iblfcm,isecfcm,ofcm
+c

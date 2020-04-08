@@ -1,0 +1,18 @@
+#!/bin/sh
+#BSUB -n 32
+#BSUB -W 60
+#BSUB -o c8h18.o%J
+#BSUB -e c8h18.e%J
+#BSUB -J c8h18
+
+cd /home/u3/gamess/GAMESS-UK/examples/origin
+
+rm -rf /scratch/local/gamess/c8h18
+mkdir /scratch/local/gamess/c8h18
+ 
+cp /home/u3/gamess/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/c8h18
+cp c8h18.in /scratch/local/gamess/c8h18
+ 
+cd /scratch/local/gamess/c8h18
+
+mpirun -np 32 gamess-uk < c8h18.in > /home/u3/gamess/GAMESS-UK/examples/origin/c8h18.out.32

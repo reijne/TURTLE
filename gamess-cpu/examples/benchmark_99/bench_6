@@ -1,0 +1,47 @@
+#!/bin/csh -f
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed1 mfged1
+setenv ed4 mfged4
+setenv ed6 mfged6
+setenv ed12 mfged12
+setenv ed13 mfged13
+../../bin/gamess << EOF
+title
+h2co - cc-pvtz SCF total energy  
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis cc-pvtz
+enter
+EOF
+../../bin/gamess << EOF
+time 180
+restart
+title
+h2co cc-pvtz MCSCF total energy 
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis cc-pvtz
+scftype mcscf
+thresh 4
+mcscf
+orbital
+doc1 doc1 doc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1 uoc3 
+end
+print orbitals virtuals natorb
+canonical 10 fock density fock
+enter
+EOF
+/bin/rm mfg*

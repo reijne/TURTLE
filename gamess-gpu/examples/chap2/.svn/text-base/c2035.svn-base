@@ -1,0 +1,32 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g - closed shell SCF
+zmatrix angstrom
+x
+He1  1     r1    
+He1  1     r2        2   a2      
+He   1     r3        2   a3          3   120.0000
+He   1     r4        2   a4          3  -120.0000
+variables
+r1 3.00
+r2 3.00
+r3 3.00
+r4 3.00
+a2 109.4719103
+a3 109.4719103
+a4 109.4719103
+end
+vdwaals
+c6 he 10000.0
+rad he 5.0
+end
+runtype opti
+enter 
+runtype hessian
+enter
+runtype force 2
+enter 
+EOF

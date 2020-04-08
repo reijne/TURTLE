@@ -1,0 +1,15 @@
+
+Begin optimization report for: ZSWAP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zswap.f(41,10)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+LOOP BEGIN at zswap.f(31,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 32 and  line 33
+LOOP END
+===========================================================================

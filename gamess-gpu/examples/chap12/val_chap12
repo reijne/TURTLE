@@ -1,0 +1,56 @@
+#!/bin/csh
+#
+# validation for chap12
+#
+setenv GAMESS_VTAB ./chap12.vtab
+set path=(../../utilities $path)
+validate water_restopt  water_restopt.out
+validate water_gvb  water_gvb.out
+validate hclplus  hclplus.out
+validate cubane  cubane.out
+validate mg10  mg10.out
+validate nitrobenzene  nitrobenzene.out
+validate tnt  tnt.out
+validate na7mg_rhf na7mg_rhf.out
+validate na7mg_orhf  na7mg_orhf.out
+validate na7mg_uhf na7mg_uhf.out
+validate na7mg_ext  na7mg_ext.out
+validate na7mg_ext_orhf  na7mg_ext_orhf.out
+validate na7mg_ecp  na7mg_ecp.out
+validate na7mg_ecp_orhf  na7mg_ecp_orhf.out
+validate nico4_scf  nico4_scf.out
+validate hcn_tr hcn_tr.out
+validate hcn_st hcn_st.out
+validate hcn_js hcn_js.out
+validate hsip_ts hsip_ts.out
+validate hsip_fc hsip_fc.out
+validate hsip_fcm2 hsip_fcm2.out
+validate imino_rhf  imino_rhf.out
+validate imino_gvb  imino_gvb.out
+validate hcn_bf  hcn_bf.out
+validate direct_scf  direct_scf.out
+validate ethene_opt  ethene_opt.out
+validate ethene_mp2opt  ethene_mp2opt.out
+validate ethene_mp2pol  ethene_mp2pol.out
+validate pyridine  pyridine.out
+validate water_cas water_cas.out
+validate water_cas_rest water_cas_rest.out
+validate water_cas_opt water_cas_opt.out
+validate beo_rhf  beo_rhf.out
+validate beo_casscf_ci  beo_casscf_ci.out
+validate beo_mcscf  beo_mcscf.out
+validate beo_mcscf_ci  beo_mcscf_ci.out
+validate nh3_rohf nh3_rohf.out
+validate nh3_mrdci nh3_mrdci.out
+validate nh3_diag nh3_diag.out
+validate nicch2_swap nicch2_swap.out
+validate nicch2_orhf nicch2_orhf.out
+validate nicch2_cas nicch2_cas.out
+validate nicch2_ci nicch2_ci.out
+validate pyridine2_rhf  pyridine2_rhf.out
+validate pyridine2_1m1r  pyridine2_1m1r.out
+validate pyridine2_6m1r  pyridine2_6m1r.out
+validate pyridine2_19m10r  pyridine2_19m10r.out
+validate pyridine2_21m10r  pyridine2_21m10r.out
+validate fullci_all  fullci_all.out
+validate fullci_val  fullci_val.out

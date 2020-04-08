@@ -1,0 +1,22 @@
+
+Begin optimization report for: DTRTRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dtrtri.f(109,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dtrtri.f(132,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dtrtri.f(137,21) ]
+LOOP END
+
+LOOP BEGIN at dtrtri.f(151,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dtrtri.f(157,24) ]
+LOOP END
+===========================================================================

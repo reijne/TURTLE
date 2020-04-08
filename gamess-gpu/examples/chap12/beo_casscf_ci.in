@@ -1,0 +1,39 @@
+restart new
+title
+beo .. dzp casscf+ci (6e in 6 mos)
+# CASSCF energy -89.5455666 au
+# CI energy -0.89603686E+02 au
+bypass
+zmat angstrom\be\o 1 beo\
+variables\beo 1.300 hessian 0.7\end
+basis dzp
+runtype ci
+active\4 to 31\end
+core\1 to 3\end
+scftype casscf
+thresh 4
+config print
+fzc 1 to 3
+doc 4 to 6
+uoc 7 to 9
+end
+superci 1 to 8
+newton 9 to 20
+hessian 9 to 20
+simul 9 to 20
+direct 6 6 22
+conf 
+2 2 2 0 0 0
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+refgen
+1 4 1 5 1 6  2 4 2 5 2 6  3 4 3 5 3 6
+enter

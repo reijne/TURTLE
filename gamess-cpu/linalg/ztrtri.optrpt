@@ -1,0 +1,22 @@
+
+Begin optimization report for: ZTRTRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at ztrtri.f(110,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at ztrtri.f(133,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ ztrtri.f(138,21) ]
+LOOP END
+
+LOOP BEGIN at ztrtri.f(152,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ ztrtri.f(158,24) ]
+LOOP END
+===========================================================================

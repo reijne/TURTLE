@@ -1,0 +1,11 @@
+c
+      REAL scalel, vbond1, vbond2
+      logical opoint1,ochkdst,ofatal
+      integer mxbnd, nbond1, nbond2, mbond1, mbond2
+      parameter (mxbnd = 1000)
+c
+      common/structchk/ vbond1(mxbnd),mbond1(2,mxbnd),
+     +                  vbond2(mxbnd),mbond2(2,mxbnd),
+     +                  scalel, nbond1, nbond2, opoint1,
+     +                  ochkdst, ofatal
+c

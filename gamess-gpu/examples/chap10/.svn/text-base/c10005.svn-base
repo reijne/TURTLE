@@ -1,0 +1,34 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed6 mfged6
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g - direct-CI - save ed2, ed3 and ed6 for output
+# can use to list transformed 1e-integrals
+# print 3
+super off
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+enter
+EOF
+../../bin/gamess << EOF
+util
+punch ed2 1 0
+exit
+EOF
+mv fort.58 aoints
+../../bin/gamess << EOF
+util
+# punch transformed 2e-integrals (from ed6)
+# and 1-electron integrals from dumpfile
+punch ed6 1 0
+punch 2-index ed3 1
+exit
+EOF
+mv fort.58 c10005.pun

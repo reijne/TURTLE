@@ -1,0 +1,22 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 6-31g -  DFT/S-VWN geometry optimisation -  energy =  -113.546024069713 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+runtype optimize
+scftype direct
+dft s-vwn
+enter
+EOF

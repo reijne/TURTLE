@@ -1,0 +1,28 @@
+#!/bin/csh
+#
+# set the environment variable NO_RERUN to skip
+# jobs which already validate OK
+#
+if ($?NO_RERUN == 1) then
+
+  setenv GAMESS_VTAB ./mopac7.vtab
+  set path=(../../utilities $path)
+
+  validate $1  LOG/$1.log
+  set vstat=$status
+  if ($vstat == 0) then
+    echo skipping $1 - validated OK
+  else
+    echo validate for $1 returned $vstat, running job
+   time ../../bin/gamess < $1.in > LOG/$1.log
+    echo 'Return Code = ' $status   >> LOG/$1.log
+  endif
+
+else
+
+  echo $1
+  time ../../bin/gamess < $1.in > LOG/$1.log
+  echo 'Return Code = ' $status   >> LOG/$1.log
+endif  
+#
+rm -f DENSITY archive logfile 

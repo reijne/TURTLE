@@ -1,0 +1,32 @@
+dcor
+file ed3 testh2.ed3
+nosym
+adapt off
+title
+h2co svp dft optimisation
+super off
+integ high
+cdft becke88 lyp
+cdft weight ssfscr
+cdft screen psi 1.0e-10
+cdft jfit
+cdft debug jbas jfit tr nr
+zmatrix angstrom
+h 
+h 1 hh
+variables
+hh 1.0
+end
+basis 
+s h 
+1. 2.
+s h
+1. 1.
+end
+scftype direct rhf
+runt grad
+#maxcyc 2
+level 2.0 
+vectors atoms
+#vectors 1
+enter 1

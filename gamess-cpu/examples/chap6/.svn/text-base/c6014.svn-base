@@ -1,0 +1,103 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title
+h2co - dzp + f
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - casscf (10e in 9 m.o.)
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - MRDCI from CASSCF MOs freeze 1s MOs
+super off nosym
+bypass scf
+zmat angstrom
+C
+O 1 1.203
+H 1 1.099 2 121.8
+H 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+runtype ci
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+mrdci 
+adapt
+tran core
+2 0 0 0 
+1 2 
+select
+symmetry 1
+spin 1
+cntrl 12
+singles 1
+conf
+0 1 2 3  27  40 41
+0 1 2 3  28  40 41
+0 1 2 3  27  40 42
+roots 1
+thresh 2 2
+ci
+diag
+enter
+EOF

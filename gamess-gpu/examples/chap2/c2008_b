@@ -1,0 +1,36 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g SCF - no skeleton.
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co mcscf (10e in 9 m.o.) guga tape
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype mcscf
+mcscf
+excitation 32767
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter 
+EOF

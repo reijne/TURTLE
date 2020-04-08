@@ -1,0 +1,38 @@
+#!/bin/csh
+setenv ed2 mfged2
+../../bin/gamess << EOF
+title
+h2co - 3-21g - closed shell SCF/total energy =  -113.2213858 punch test
+super off
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+util
+list ed2 1 0
+punch ed2 1 0
+summary ed2 1 0
+checksum ed2 1 0
+check ed2 1 0
+scan ed2 1 0
+copy ed2 1 ed4 1 0
+edit ed4 1 60
+ed2 1 0
+end
+list ed4 1 0
+merge ed5 1
+1 10 1
+11 22 12
+end
+ed4 1 0
+end
+list ed5 1 10
+exit
+EOF
+mv fort.58 c10004.pun
+/bin/rm -rf mfged2

@@ -1,0 +1,743 @@
+
+Begin optimization report for: ABMAX
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(406,11)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(412,19) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ABMAXSEL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(438,11)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(430,11)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(436,19) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ABMIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(455,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 456 and  line 457
+LOOP END
+
+LOOP BEGIN at vbutil.f(455,11)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: STRIPBLANKS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(490,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbutil.f(500,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: BUBBLE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(526,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(525,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 528 and  line 529
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BUBBLEVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(585,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(585,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(585,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(586,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(586,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbutil.f(646,7) inlined into vbutil.f(586,18)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(608,11)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbutil.f(573,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAXVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(646,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 647 and  line 648
+LOOP END
+===========================================================================
+
+Begin optimization report for: IBUBDET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(625,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(624,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 627 and  line 628
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(702,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbutil.f(702,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbutil.f(706,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(707,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbutil.f(710,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 711 and  line 715
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(710,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(807,10) inlined into vbutil.f(725,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 808 and  line 808
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(768,12) inlined into vbutil.f(725,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRTSBH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(807,10) inlined into vbutil.f(745,23)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 808 and  line 808
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(768,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: HSPR_LONG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(807,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 808 and  line 808
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETD
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(898,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(894,12) ]
+
+   LOOP BEGIN at vbutil.f(898,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(900,36) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IBUBBL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(925,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(924,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 927 and  line 928
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(924,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LOCATI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(938,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAKES
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(959,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(960,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAKET
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(995,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(996,15) ]
+
+   LOOP BEGIN at vbutil.f(997,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(999,21) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MATMPL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1016,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbutil.f(1018,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbutil.f(1020,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(1020,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(1020,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1025,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1025,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1025,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MULT11
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1044,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1045 and  line 1045
+LOOP END
+
+LOOP BEGIN at vbutil.f(1044,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(1120,10) inlined into vbutil.f(1059,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1126,21) ]
+
+   LOOP BEGIN at vbutil.f(1121,13) inlined into vbutil.f(1059,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1126,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1084,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1087,21) ]
+
+   LOOP BEGIN at vbutil.f(1086,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1098,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1101,23) ]
+
+   LOOP BEGIN at vbutil.f(1100,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MXMTTURTLE
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(1120,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1126,21) ]
+
+   LOOP BEGIN at vbutil.f(1121,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1126,21) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCALEV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1135,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbutil.f(1135,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbutil.f(1135,11)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRIPRIACC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1164,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1166,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbutil.f(1173,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 1173 and  line 1173
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRIPRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1213,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1215,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbutil.f(1222,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 1222 and  line 1222
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRIPR2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1255,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1256,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1256 and  line 1256
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRENRES
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1287,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1291 and  line 1288
+LOOP END
+
+LOOP BEGIN at vbutil.f(1287,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRDIAG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1324,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1326 and  line 1326
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRIPR3
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1355,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1356,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1356 and  line 1356
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRISQU
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1371,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbutil.f(1372,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1372,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1372,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1372,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRTRTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1392,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbutil.f(1393,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbutil.f(1391,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(1391,10)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(1391,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1399,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1400,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbutil.f(1401,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 1402 and  line 1402
+      LOOP END
+
+      LOOP BEGIN at vbutil.f(1401,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1406,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1407,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1408 and  line 1408
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1407,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PG_DGOP_LARGE
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbutil.f(1503,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbutil.f(1502,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRWEIG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1677,10) inlined into vbutil.f(1568,17)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbutil.f(1678,13) inlined into vbutil.f(1568,17)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1678,13) inlined into vbutil.f(1568,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10) inlined into vbutil.f(1568,17)
+<Distributed chunk2>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10) inlined into vbutil.f(1568,17)
+<Distributed chunk3>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10) inlined into vbutil.f(1568,17)
+<Distributed chunk4>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1703,7) inlined into vbutil.f(1568,17)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbutil.f(1737,10) inlined into vbutil.f(1568,17)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbutil.f(1737,10) inlined into vbutil.f(1568,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbutil.f(1580,11)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1582,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1582 and  line 1582
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1582,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1582 and  line 1582
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1597,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbutil.f(1599,14)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1599 and  line 1599
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at <compiler generated>
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: KSCRA7VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbutil.f(1677,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbutil.f(1678,13)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbutil.f(1678,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10)
+<Distributed chunk2>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10)
+<Distributed chunk3>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1677,10)
+<Distributed chunk4>
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbutil.f(1703,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbutil.f(1737,10)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbutil.f(1737,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbutil.f(1793,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbutil.f(1797,1)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at <compiler generated>
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================

@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# --------------- Add Local Settings Here ----------------
+#
+# the := form allows the user to over-ride defaults by setting
+# the appropriate variable
+#
+# GAMESS_TMP=${GAMESS_TMP:=/scratch/$user}
+# export GAMESS_TMP
+#
+# GAMESS_SCR=${GAMESS_SCR:=/scratch/local/gamess}
+# export GAMESS_SCR
+#
+# Edit here for dual and quad installations (needed for PBS,Gridengine)
+# GAMESS_PROCSPERNODE=${GAMESS_PROCSPERNODE:=2}
+# export GAMESS_PROCSPERNODE
+#
+# Edit in the queue (for gridengine)
+# GAMESS_QUEUE=${GAMESS_QUEUE:=ccp1.q}
+# export GAMESS_QUEUE
+
+# Uncomment if you wish to use LSF for job submission 
+# GAMESS_SUBMODE=${GAMESS_SUBMODE:=lsf}
+# export GAMESS_SUBMODE

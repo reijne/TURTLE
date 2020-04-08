@@ -1,0 +1,78 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 6-31G* - DFT/HCTH default quadrature / energy = -114.4688358973 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g*
+dft hcth
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G* - DFT/HCTH default quadrature / energy = -114.4688358969 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g*
+scftype direct
+dft hcth
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 6-31G** - DFT/HCTH default quadrature / energy = -114.4715657819 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g**
+scftype direct
+dft hcth
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP - DFT/HCTH default quadrature / energy -114.5145430059 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype direct
+dft hcth
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP+f - DFT/HCTH default quadrature / energy -114.5176253777 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype direct
+dft hcth
+enter
+EOF

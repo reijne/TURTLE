@@ -1,0 +1,4882 @@
+
+Begin optimization report for: VBSTART
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1477,15)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1477,15)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1477,15)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1477,15)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(12064,10) inlined into vbin.f(1477,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 12065 and  line 12065
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(2622,10) inlined into vbin.f(3306,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(2674,10) inlined into vbin.f(3306,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(2677,10) inlined into vbin.f(3306,12)
+      remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(2687,7) inlined into vbin.f(3306,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10) inlined into vbin.f(3306,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10) inlined into vbin.f(3306,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10) inlined into vbin.f(3306,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(2749,10) inlined into vbin.f(3306,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2749,10) inlined into vbin.f(3306,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(2752,7) inlined into vbin.f(3306,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(3334,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(3334,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(4004,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(4004,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(4004,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(4004,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(4006,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4010 and  line 4012
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3976,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3976,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3976,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3958,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3958,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(3958,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3907,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3907 and  line 3908
+LOOP END
+
+LOOP BEGIN at vbin.f(3923,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3923 and  line 3924
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(3834,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3834,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3834,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3834,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3840,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(3840,16)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3840,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3840,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(3847,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(3847,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3853,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(3853,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(3857,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3857,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3857,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3857,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3802,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(3802,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3806,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3806 and  line 3806
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(3698,15)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(3698,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 9667 and  line 9668
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(3698,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(3698,15)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(3698,15)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(3409,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3409,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3409,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3409,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3417,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3417 and  line 3417
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(3383,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3383,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3383,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(3383,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(3398,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3398 and  line 3398
+LOOP END
+
+LOOP BEGIN at vbin.f(4294,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(4294,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(4298,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4298 and  line 4298
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(4305,15)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(4305,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 9667 and  line 9668
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(4305,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(4305,15)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(4305,15)
+<Remainder, Distributed chunk2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(4212,25)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbin.f(4060,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(4006,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3989,12) ]
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(4004,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(3976,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(3958,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3916,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(3910,10)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+
+      LOOP BEGIN at vbin.f(3916,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3917,15) ]
+
+         LOOP BEGIN at vbin.f(3919,13)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3920,18) ]
+
+            LOOP BEGIN at vbin.f(3926,16)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3878,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3875,12) ]
+
+      LOOP BEGIN at vbin.f(3885,18)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3864,7)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3820,12) ]
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(3834,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbin.f(3840,16)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(3845,10)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(3857,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3738,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3706,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(3707,15) ]
+
+      LOOP BEGIN at vbin.f(3714,13)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3681,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3605,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3544,10)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3539,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(3409,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(3383,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(3393,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCFIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4946,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4946,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4946,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(4951,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4952 and  line 4952
+LOOP END
+
+LOOP BEGIN at vbin.f(4951,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(4966,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(4966,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4977,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4977,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(4977,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(6031,15)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(6031,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(6031,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(6031,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5999,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6000 and  line 6002
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(5679,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5679,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5679,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5679,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5682,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(5682,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5477,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5492,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5492,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5492,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5511,1)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5521,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5521,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5536,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5536,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13) inlined into vbin.f(5536,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5553,1)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5553,1)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5561,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5580,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5581 and  line 5583
+LOOP END
+
+LOOP BEGIN at vbin.f(5459,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5459 and  line 5459
+LOOP END
+
+LOOP BEGIN at vbin.f(5368,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(5368,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5935,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5935,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5956,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5956,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5960,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(5960,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(5960,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5969,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(5974,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbin.f(5975,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 5975 and  line 5975
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(5276,12)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5276,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5276,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5276,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5282,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(5282,16)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5282,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5282,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(5289,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(5289,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5294,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(5294,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(5317,15)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5317,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5317,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5317,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5216,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(5222,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(5238,17)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(5254,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 5255 and  line 5258
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(5135,15)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5135,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5135,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(5135,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(5121,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5122 and  line 5122
+LOOP END
+
+LOOP BEGIN at vbin.f(5124,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5125 and  line 5125
+LOOP END
+
+LOOP BEGIN at vbin.f(5127,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5128 and  line 5128
+LOOP END
+
+LOOP BEGIN at vbin.f(6201,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6202 and  line 6203
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(6166,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbin.f(4921,12)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(4929,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(4917,12) ]
+
+         LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(4946,15)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+         LOOP END
+
+         LOOP BEGIN at vbin.f(4947,13)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+
+         LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(4977,15)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6164,19)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6097,19)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6035,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5992,12) ]
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(6031,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5884,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5865,32)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5787,11)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5693,9)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(5679,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5504,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(5492,15)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+
+      LOOP BEGIN at vbin.f(5502,10)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5546,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(11196,10) inlined into vbin.f(5536,15)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+
+      LOOP BEGIN at vbin.f(5544,10)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5639,27)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5456,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5408,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5360,12) ]
+
+      LOOP BEGIN at vbin.f(5382,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5374,15) ]
+
+         LOOP BEGIN at vbin.f(5379,13)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5931,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5923,12) ]
+
+      LOOP BEGIN at vbin.f(5941,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5942,18) ]
+
+         LOOP BEGIN at vbin.f(5948,13)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5176,10)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5321,22)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5202,12) ]
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(5276,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbin.f(5282,16)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(5287,10)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(5317,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5231,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(5227,13)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5236,16)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(5241,15)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5136,30)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(5116,12) ]
+
+      LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(5135,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5090,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5069,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5039,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(5015,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6220,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6217,19) ]
+
+   LOOP BEGIN at vbin.f(6219,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6217,19) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: RDISTR..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11237,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOM_HYBRIDN..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13469,35)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13490,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13490,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13497,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13497,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13497,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(13497,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(13458,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13471,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13466,18) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13516,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13512,36) ]
+
+   LOOP BEGIN at vbin.f(13515,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13512,36) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOM_HYBRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13170,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13170,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13170,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13170,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13170,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13170,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13180,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13180,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13180,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13180,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13189,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13189,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13189,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13212,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13212,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13219,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13221,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13221,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13221,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13221,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(13170,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13183,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13178,18) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13203,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13193,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13236,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13233,40) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: TOETOE_HYBRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(6449,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(6449,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(6467,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(6468,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6468,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6480,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(6481,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(6483,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6510,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(6515,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 6517 and  line 6518
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6515,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(6545,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6547 and  line 6548
+LOOP END
+
+LOOP BEGIN at vbin.f(6545,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(6499,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6498,21) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(6529,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6506,28) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VECCOMB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11963,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11963,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11963,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11963,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11963,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11963,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11995,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(11996,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11996,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11996,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11939,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11939,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11939,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11939,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11939,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11939,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10) inlined into vbin.f(11888,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10) inlined into vbin.f(11888,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10) inlined into vbin.f(11888,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11895,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11895,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(11895,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11895,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11895,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(11895,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(12025,7) inlined into vbin.f(11896,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(12027,10) inlined into vbin.f(11896,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 12028 and  line 12029
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12027,10) inlined into vbin.f(11896,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11922,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11874,12) ]
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(11963,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11980,16)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(11984,10)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(11983,12)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbin.f(11978,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11977,23) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(11939,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11960,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11946,21) ]
+
+      LOOP BEGIN at vbin.f(11952,26)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11285,15) inlined into vbin.f(11888,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11328,16) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(11895,18)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11908,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11903,18) ]
+
+      LOOP BEGIN at vbin.f(11907,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11905,23) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VECMAN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11627,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 11635 and  line 11629
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11644,14)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbin.f(11624,28)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbin.f(11641,10)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRVC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11110,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11115,21)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11115 and  line 11115
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11118,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11118 and  line 11118
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11122,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11123 and  line 11123
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1896,12)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1896,12)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1896,12)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10) inlined into vbin.f(1896,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(12064,10) inlined into vbin.f(1896,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 12065 and  line 12065
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHOWSTAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(12059,10)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12059,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(12064,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 12065 and  line 12065
+LOOP END
+===========================================================================
+
+Begin optimization report for: INIVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(2622,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(2674,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(2677,10)
+      remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(2687,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2737,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(2749,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(2749,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(2752,7)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+===========================================================================
+
+Begin optimization report for: RDIST1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11192,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11192,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11196,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: EXTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9659,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(9660,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(9660,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9660,13)
+      <Multiversioned v2>
+         remark #15301: REVERSED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9660,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9660,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(9666,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9666,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9666,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10)
+<Remainder, Distributed chunk2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: RDISTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11237,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: LCHBAS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(4456,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(4456,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: TOETOEC_HYBRID
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(6449,7) inlined into vbin.f(6308,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(6449,7) inlined into vbin.f(6308,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(6467,7) inlined into vbin.f(6308,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(6468,10) inlined into vbin.f(6308,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6468,10) inlined into vbin.f(6308,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6480,7) inlined into vbin.f(6308,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(6481,10) inlined into vbin.f(6308,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(6483,13) inlined into vbin.f(6308,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13) inlined into vbin.f(6308,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13) inlined into vbin.f(6308,12)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6483,13) inlined into vbin.f(6308,12)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16) inlined into vbin.f(6308,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16) inlined into vbin.f(6308,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16) inlined into vbin.f(6308,12)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(6487,16) inlined into vbin.f(6308,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6510,7) inlined into vbin.f(6308,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(6515,13) inlined into vbin.f(6308,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 6517 and  line 6518
+   LOOP END
+
+   LOOP BEGIN at vbin.f(6515,13) inlined into vbin.f(6308,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7) inlined into vbin.f(6308,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7) inlined into vbin.f(6308,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(6535,7) inlined into vbin.f(6308,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(6545,10) inlined into vbin.f(6308,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6547 and  line 6548
+LOOP END
+
+LOOP BEGIN at vbin.f(6545,10) inlined into vbin.f(6308,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(6499,7) inlined into vbin.f(6308,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6498,21) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(6529,14) inlined into vbin.f(6308,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(6506,28) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOM_HYBRIDN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11229,8) inlined into vbin.f(13458,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11249,10) inlined into vbin.f(13458,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13469,35)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(13468,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13477,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13490,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(13490,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13497,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13499,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13499,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13499,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13499,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11237,7) inlined into vbin.f(13458,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11233,12) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13471,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13466,18) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13481,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13480,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(13516,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13512,36) ]
+
+   LOOP BEGIN at vbin.f(13515,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(13512,36) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCFINA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7055,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7055,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7055,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7079,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7082 and  line 7080
+LOOP END
+
+LOOP BEGIN at vbin.f(7079,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7086,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7087 and  line 7088
+LOOP END
+
+LOOP BEGIN at vbin.f(7086,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7093,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7096,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 7097 and  line 7097
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7096,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7107,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7107 and  line 7107
+LOOP END
+
+LOOP BEGIN at vbin.f(7123,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7125 and  line 7130
+LOOP END
+
+LOOP BEGIN at vbin.f(11036,9) inlined into vbin.f(7154,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11037,9) inlined into vbin.f(7154,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11037 and  line 11037
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11039,9) inlined into vbin.f(7154,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11039 and  line 11039
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11041,12) inlined into vbin.f(7154,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11042 and  line 11042
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11036,9) inlined into vbin.f(7174,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11037,9) inlined into vbin.f(7174,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11037 and  line 11037
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11039,9) inlined into vbin.f(7174,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11039 and  line 11039
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11041,12) inlined into vbin.f(7174,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11042 and  line 11042
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(4456,13) inlined into vbin.f(7188,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(4456,13) inlined into vbin.f(7188,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10) inlined into vbin.f(7202,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10) inlined into vbin.f(7202,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10) inlined into vbin.f(7202,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10) inlined into vbin.f(7202,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7635,13) inlined into vbin.f(7202,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7638,16) inlined into vbin.f(7202,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7639 and  line 7639
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7212,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7212 and  line 7212
+LOOP END
+
+LOOP BEGIN at vbin.f(7566,7) inlined into vbin.f(7216,12)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(11110,10) inlined into vbin.f(7216,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11115,21) inlined into vbin.f(7216,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11115 and  line 11115
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11118,7) inlined into vbin.f(7216,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11118 and  line 11118
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11122,10) inlined into vbin.f(7216,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11123 and  line 11123
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(7626,10) inlined into vbin.f(7202,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbin.f(7591,25) inlined into vbin.f(7216,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRHSMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7284,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7284,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7284,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7293,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7294 and  line 7294
+LOOP END
+
+LOOP BEGIN at vbin.f(7293,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7295,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7296,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 7297 and  line 7300
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7296,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7305,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(7308,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7308,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7308,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7308,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7314,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(7314,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(7314,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(7314,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(7314,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7350,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7351,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7353 and  line 7353
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7351,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(7359,12)
+<Distributed chunk1>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(7359,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 9667 and  line 9668
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9666,13) inlined into vbin.f(7359,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(7359,12)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9665,10) inlined into vbin.f(7359,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(9685,10) inlined into vbin.f(7377,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9685,10) inlined into vbin.f(7377,12)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRNATORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(7566,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(11110,10) inlined into vbin.f(7573,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11115,21) inlined into vbin.f(7573,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11115 and  line 11115
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11118,7) inlined into vbin.f(7573,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11118 and  line 11118
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11122,10) inlined into vbin.f(7573,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11123 and  line 11123
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(7591,25)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DETTRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(7622,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(7622,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7635,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7638,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7639 and  line 7639
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(7626,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: FILNAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9677,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: FILIKY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9685,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9685,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRHEIGVAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7445,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7445,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9677,10) inlined into vbin.f(7445,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7452,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7453 and  line 7453
+LOOP END
+
+LOOP BEGIN at vbin.f(7452,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(7454,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(7455,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 7456 and  line 7459
+   LOOP END
+
+   LOOP BEGIN at vbin.f(7455,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BOND1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(7953,11) inlined into vbin.f(7700,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7953 and  line 7953
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(7680,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7681,15) ]
+
+   LOOP BEGIN at vbin.f(7685,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7903,10) inlined into vbin.f(7700,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+   LOOP BEGIN at vbin.f(7908,13) inlined into vbin.f(7700,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+      LOOP BEGIN at vbin.f(7914,16) inlined into vbin.f(7700,12)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(7921,19) inlined into vbin.f(7700,12)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at vbin.f(7924,22) inlined into vbin.f(7700,12)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7926,31) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BOND2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(7953,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7953 and  line 7953
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(7903,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+   LOOP BEGIN at vbin.f(7908,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+      LOOP BEGIN at vbin.f(7914,16)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(7921,19)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at vbin.f(7924,22)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7926,31) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLVECVB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(8184,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8186,15) ]
+
+   LOOP BEGIN at vbin.f(8203,10)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: OCHATAO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(8457,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 8457 and  line 8457
+LOOP END
+
+LOOP BEGIN at vbin.f(8495,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(8496,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(8496,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8495,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(8496,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(8496,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(8438,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbin.f(8437,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(8431,25)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8459,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8453,27) ]
+
+   LOOP BEGIN at vbin.f(8456,22)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8467,19)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbin.f(8471,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8470,27) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(8484,22)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbin.f(8492,19)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLMETR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(8457,13) inlined into vbin.f(8687,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 8457 and  line 8457
+LOOP END
+
+LOOP BEGIN at vbin.f(8495,10) inlined into vbin.f(8687,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(8496,13) inlined into vbin.f(8687,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(8496,13) inlined into vbin.f(8687,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(8695,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8481,30) ]
+
+   LOOP BEGIN at vbin.f(8694,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8481,30) ]
+
+      LOOP BEGIN at vbin.f(8438,10) inlined into vbin.f(8687,22)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(8437,13) inlined into vbin.f(8687,22)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at vbin.f(8431,25) inlined into vbin.f(8687,22)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbin.f(8459,10) inlined into vbin.f(8687,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8453,27) ]
+
+         LOOP BEGIN at vbin.f(8456,22) inlined into vbin.f(8687,22)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbin.f(8467,19) inlined into vbin.f(8687,22)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at vbin.f(8471,10) inlined into vbin.f(8687,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8470,27) ]
+      LOOP END
+
+      LOOP BEGIN at vbin.f(8484,22) inlined into vbin.f(8687,22)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+
+      LOOP BEGIN at vbin.f(8492,19) inlined into vbin.f(8687,22)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DOUBLY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(8897,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(8897,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(8914,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(8916,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 8918 and  line 8919
+   LOOP END
+
+   LOOP BEGIN at vbin.f(8916,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8946,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(8946,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(8906,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8908,15) ]
+
+   LOOP BEGIN at vbin.f(8922,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8925,25) ]
+
+      LOOP BEGIN at vbin.f(8924,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8925,25) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DOUBL2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9148,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9151,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 9154 and  line 9155
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9151,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9177,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9176,13)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9177,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9187,16)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9199,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9198,22)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9199,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9239,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 9241 and  line 9241
+LOOP END
+
+LOOP BEGIN at vbin.f(9256,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 9257 and  line 9257
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(9146,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9183,21) ]
+
+   LOOP BEGIN at vbin.f(9185,16)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(9195,19)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9216,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+
+   LOOP BEGIN at vbin.f(9221,21)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+
+      LOOP BEGIN at vbin.f(9219,15)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9221,21)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ELIMIN
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(9305,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9285,12) ]
+
+   LOOP BEGIN at vbin.f(9290,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(9292,34)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SVD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(10251,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10251,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13)
+   <Multiversioned v2>
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10276,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10278,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10305,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10307,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10307,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10312,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10312,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10317,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10321,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10323,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10325,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10325,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10325,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10346,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10346,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10361,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10361,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10361,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10350,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10352,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10369,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10408,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10423,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(10257,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbin.f(10341,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbin.f(10365,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbin.f(10446,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(10378,13)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INFORM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(10679,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10679,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10679,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10693,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10693,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10693,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10701,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10701,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10701,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10707,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10709,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10709,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10709,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10719,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10719,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10726,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(10726,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(13527,7) inlined into vbin.f(10746,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13530,13) inlined into vbin.f(10746,18)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13529,10) inlined into vbin.f(10746,18)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10) inlined into vbin.f(10746,18)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10) inlined into vbin.f(10746,18)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10) inlined into vbin.f(10746,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13529,10) inlined into vbin.f(10746,18)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13535,16) inlined into vbin.f(10746,18)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16) inlined into vbin.f(10746,18)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16) inlined into vbin.f(10746,18)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16) inlined into vbin.f(10746,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(13543,7) inlined into vbin.f(10746,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13546,13) inlined into vbin.f(10746,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13546,13) inlined into vbin.f(10746,18)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13546,13) inlined into vbin.f(10746,18)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13546,13) inlined into vbin.f(10746,18)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10781,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 10782 and  line 10782
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(10751,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10739,18) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(10768,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10769,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DELDOUB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(13527,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13530,13)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13529,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13529,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(13529,10)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13535,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13535,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(13543,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(13546,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(13546,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13546,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(13546,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRVCACC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11153,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11158,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11159 and  line 11159
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: RDISTR_PLUS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11293,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10)
+<Peeled, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(11293,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11285,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11328,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: RESTROR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(10833,10) inlined into vbin.f(11572,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 10834 and  line 10834
+LOOP END
+
+LOOP BEGIN at vbin.f(10846,10) inlined into vbin.f(11572,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10848,10) inlined into vbin.f(11572,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10) inlined into vbin.f(11572,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10) inlined into vbin.f(11572,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10) inlined into vbin.f(11572,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10851,10) inlined into vbin.f(11572,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10854,10) inlined into vbin.f(11572,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10854,10) inlined into vbin.f(11572,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10854,10) inlined into vbin.f(11572,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10865,10) inlined into vbin.f(11572,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(11572,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(11572,15)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(11572,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(11572,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(11572,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10) inlined into vbin.f(11572,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 10875 and  line 10874
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10) inlined into vbin.f(11572,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(11572,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(11572,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(11572,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(11572,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(11538,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11541,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(11547,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11549,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(11558,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11560,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBEXTR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(12025,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(12027,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 12028 and  line 12029
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12027,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBFIRST
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(12726,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(12727,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 12728 and  line 12728
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12727,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(12732,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 12732 and  line 12732
+LOOP END
+
+LOOP BEGIN at vbin.f(7953,11) inlined into vbin.f(12743,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7953 and  line 7953
+LOOP END
+
+LOOP BEGIN at vbin.f(12773,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(12775,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12775,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10833,10) inlined into vbin.f(12799,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 10834 and  line 10834
+LOOP END
+
+LOOP BEGIN at vbin.f(10846,10) inlined into vbin.f(12799,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(10848,10) inlined into vbin.f(12799,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10851,10) inlined into vbin.f(12799,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbin.f(10854,10) inlined into vbin.f(12799,15)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10865,10) inlined into vbin.f(12799,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(12799,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(12799,15)
+      <Multiversioned v2>
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10) inlined into vbin.f(12799,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10) inlined into vbin.f(12799,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 10875 and  line 10874
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10) inlined into vbin.f(12799,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(12799,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10) inlined into vbin.f(12799,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(8897,10) inlined into vbin.f(12818,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(8897,10) inlined into vbin.f(12818,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(8914,13) inlined into vbin.f(12818,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(8916,16) inlined into vbin.f(12818,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 8918 and  line 8919
+   LOOP END
+
+   LOOP BEGIN at vbin.f(8916,16) inlined into vbin.f(12818,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8946,22) inlined into vbin.f(12818,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(8946,22) inlined into vbin.f(12818,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(12850,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(12850,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(12850,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(12892,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(12892,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(12892,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(12910,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12910,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(12913,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(12913,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(12628,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12631,24) ]
+
+   LOOP BEGIN at vbin.f(12630,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12631,24) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12636,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12637,24) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(12643,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12646,24) ]
+
+   LOOP BEGIN at vbin.f(12645,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12646,24) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(12657,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12658,24) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(12684,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12687,21) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(12702,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12706,17) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(12723,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12725,18) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(7680,10) inlined into vbin.f(12743,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7681,15) ]
+
+   LOOP BEGIN at vbin.f(7685,13) inlined into vbin.f(12743,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(7903,10) inlined into vbin.f(12743,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+   LOOP BEGIN at vbin.f(7908,13) inlined into vbin.f(12743,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7916,27) ]
+
+      LOOP BEGIN at vbin.f(7914,16) inlined into vbin.f(12743,12)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(7921,19) inlined into vbin.f(12743,12)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at vbin.f(7924,22) inlined into vbin.f(12743,12)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(7926,31) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(11538,10) inlined into vbin.f(12799,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11541,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(11547,10) inlined into vbin.f(12799,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11549,15) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(11558,10) inlined into vbin.f(12799,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(11560,16) ]
+LOOP END
+
+LOOP BEGIN at vbin.f(8184,10) inlined into vbin.f(12804,17)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8186,15) ]
+
+   LOOP BEGIN at vbin.f(8203,10) inlined into vbin.f(12804,17)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(8906,10) inlined into vbin.f(12818,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8908,15) ]
+
+   LOOP BEGIN at vbin.f(8922,13) inlined into vbin.f(12818,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8925,25) ]
+
+      LOOP BEGIN at vbin.f(8924,16) inlined into vbin.f(12818,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(8925,25) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(12863,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12870,21) ]
+
+   LOOP BEGIN at vbin.f(12869,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12870,21) ]
+
+      LOOP BEGIN at vbin.f(12874,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(12875,45) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LOWDINS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(10833,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 10834 and  line 10834
+LOOP END
+
+LOOP BEGIN at vbin.f(10846,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10848,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10848,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10851,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10854,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10854,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10854,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10865,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10866,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10866,10)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10866,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 10875 and  line 10874
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10872,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(10876,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: HYBMAK
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9956,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9956,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9963,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9963,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9963,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9988,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9989,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 9991 and  line 9992
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9989,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10010,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(10010,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10037,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10038,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10038,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10038,19)
+   <Peeled>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10251,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10251,13) inlined into vbin.f(10127,15)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13) inlined into vbin.f(10127,15)
+   <Multiversioned v2>
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10251,13) inlined into vbin.f(10127,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10264,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10267,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10276,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10278,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10278,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10281,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10284,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10291,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10294,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10302,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10305,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10307,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10307,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10309,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10312,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10312,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10317,10) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10321,13) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13) inlined into vbin.f(10127,15)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10321,13) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10323,13) inlined into vbin.f(10127,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(10325,16) inlined into vbin.f(10127,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10325,16) inlined into vbin.f(10127,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10325,16) inlined into vbin.f(10127,15)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16) inlined into vbin.f(10127,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16) inlined into vbin.f(10127,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16) inlined into vbin.f(10127,15)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(10327,16) inlined into vbin.f(10127,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10330,13) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10346,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10346,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10361,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10361,13) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10361,13) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10350,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10352,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10352,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10355,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13) inlined into vbin.f(10127,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10358,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10369,13) inlined into vbin.f(10127,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16) inlined into vbin.f(10127,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbin.f(10388,16) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10408,13) inlined into vbin.f(10127,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(10423,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10423,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16) inlined into vbin.f(10127,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16) inlined into vbin.f(10127,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16) inlined into vbin.f(10127,15)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10437,16) inlined into vbin.f(10127,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13) inlined into vbin.f(10127,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13) inlined into vbin.f(10127,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10451,13) inlined into vbin.f(10127,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10131,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(10131,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10131,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(10216,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 10216 and  line 10216
+LOOP END
+
+LOOP BEGIN at vbin.f(10228,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(10228,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(10003,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9967,18) ]
+
+   LOOP BEGIN at vbin.f(9976,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9975,19) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9980,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9979,19) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10018,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10026,22) ]
+
+   LOOP BEGIN at vbin.f(10053,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10055,25) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10062,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10064,25) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10107,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10109,18) ]
+
+      LOOP BEGIN at vbin.f(10110,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10112,22) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10257,10) inlined into vbin.f(10127,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10341,10) inlined into vbin.f(10127,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10365,10) inlined into vbin.f(10127,15)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(10446,10) inlined into vbin.f(10127,15)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbin.f(10378,13) inlined into vbin.f(10127,15)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10167,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10165,22) ]
+   LOOP END
+
+   LOOP BEGIN at vbin.f(10182,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10180,22) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(10202,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(10206,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: EQUIVT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(9528,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9529,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 9530 and  line 9530
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9529,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9537,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9537,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9542,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9543,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbin.f(9551,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbin.f(9553,19)
+            remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9579,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 9580 and  line 9580
+LOOP END
+
+LOOP BEGIN at vbin.f(9586,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9586,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9608,28)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9608,28)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9608,28)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9611,28)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 9613 and  line 9613
+LOOP END
+
+LOOP BEGIN at vbin.f(9611,28)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9611,28)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 9613 and  line 9613
+LOOP END
+
+LOOP BEGIN at vbin.f(9611,28)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9623,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(9624,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbin.f(9626,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9626,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9626,16)
+      <Peeled>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9633,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbin.f(9633,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9638,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbin.f(9638,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9638,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9148,13) inlined into vbin.f(9644,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(9151,16) inlined into vbin.f(9644,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 9154 and  line 9155
+   LOOP END
+
+   LOOP BEGIN at vbin.f(9151,16) inlined into vbin.f(9644,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13) inlined into vbin.f(9644,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13) inlined into vbin.f(9644,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9166,13) inlined into vbin.f(9644,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9177,16) inlined into vbin.f(9644,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9176,13) inlined into vbin.f(9644,12)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9177,16) inlined into vbin.f(9644,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19) inlined into vbin.f(9644,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19) inlined into vbin.f(9644,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9187,16) inlined into vbin.f(9644,12)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9188,19) inlined into vbin.f(9644,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9199,25) inlined into vbin.f(9644,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbin.f(9198,22) inlined into vbin.f(9644,12)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbin.f(9199,25) inlined into vbin.f(9644,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbin.f(9239,13) inlined into vbin.f(9644,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 9241 and  line 9241
+LOOP END
+
+LOOP BEGIN at vbin.f(9256,13) inlined into vbin.f(9644,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 9257 and  line 9257
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbin.f(9591,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9604,30) ]
+
+   LOOP BEGIN at vbin.f(9592,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9604,30) ]
+
+      LOOP BEGIN at vbin.f(9593,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9604,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9146,10) inlined into vbin.f(9644,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9183,21) ]
+
+   LOOP BEGIN at vbin.f(9185,16) inlined into vbin.f(9644,12)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbin.f(9195,19) inlined into vbin.f(9644,12)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbin.f(9216,10) inlined into vbin.f(9644,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+
+   LOOP BEGIN at vbin.f(9221,21) inlined into vbin.f(9644,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+
+      LOOP BEGIN at vbin.f(9219,15) inlined into vbin.f(9644,12)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+
+      LOOP BEGIN at vbin.f(9221,21) inlined into vbin.f(9644,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbin.f(9223,23) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DUMPORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbin.f(11041,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbin.f(11037,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11037 and  line 11037
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11039,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11039 and  line 11039
+   LOOP END
+
+   LOOP BEGIN at vbin.f(11041,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 11042 and  line 11042
+   LOOP END
+LOOP END
+===========================================================================

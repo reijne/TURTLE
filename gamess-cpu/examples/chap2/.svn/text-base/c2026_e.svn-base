@@ -1,0 +1,58 @@
+#!/bin/csh
+setenv ftn003 c2026_e.parm
+setenv ftn002 restart
+setenv ftn001 c2026_e.coord
+../../bin/gamess << EOF
+title
+qm optn of formate in formate-imidazole 
+noprint basis vectors
+adapt off
+super off nosym
+nosym
+charge -1
+zmat angs
+c1
+o2 1 r2
+o3 1 r3 2 a3
+h4 1 r4 2 a4 3 d4
+variables
+r2  1.2
+r3 1.2
+a3  120.0
+r4 1.1
+a4 120.0
+d4 180.0
+end
+basis  sto3g
+mapping
+1  11  0.0
+2  12 0.0
+3  13 0.0
+4  10 0.0
+end
+comb onee
+freeze all
+model
+substitute
+cycles 1000
+mechanics 10
+topology formatted
+nonbonded atoms atoms
+diel const 1
+force all
+pairlist 100
+vscale 2.0
+escale 2.0
+cuttol 99.0 angs
+initial formatted
+final formatted
+change on
+thresh 5
+stepmax 0.1
+xtol 0.003
+runtype  optimise hybrid
+scftype  rhf
+vectors minguess
+enter
+EOF
+/bin/rm restart

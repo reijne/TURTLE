@@ -1,0 +1,35 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  - SCF at MCSCF opt. geom. 
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co     1.2406315\ch     1.1136940\hco  123.1819948
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co -  MCSCF properties at optimised geom. (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co     1.2406315\ch     1.1136940\hco  123.1819948
+end
+scftype mcscf
+property atoms
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter
+EOF

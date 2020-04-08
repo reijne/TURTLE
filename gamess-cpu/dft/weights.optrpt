@@ -1,0 +1,4517 @@
+
+Begin optimization report for: CALC_WEIGHTS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(2073,13) inlined into weights.f(1209,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(2088,13) inlined into weights.f(1209,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(2088,13) inlined into weights.f(1209,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2088,13) inlined into weights.f(1209,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7) inlined into weights.f(1209,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7) inlined into weights.f(1209,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7) inlined into weights.f(1209,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7) inlined into weights.f(1209,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7) inlined into weights.f(1209,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4095,13) inlined into weights.f(1252,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(4110,13) inlined into weights.f(1252,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4122,10) inlined into weights.f(1252,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(4122,10) inlined into weights.f(1252,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7) inlined into weights.f(1252,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7) inlined into weights.f(1252,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7) inlined into weights.f(1252,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7) inlined into weights.f(1252,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7) inlined into weights.f(1252,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(6268,13) inlined into weights.f(1306,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(6283,13) inlined into weights.f(1306,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(6283,13) inlined into weights.f(1306,16)
+      remark #15300: LOOP WAS VECTORIZED
+
+      LOOP BEGIN at weights.f(6289,16) inlined into weights.f(1306,16)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(6283,13) inlined into weights.f(1306,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7) inlined into weights.f(1306,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7) inlined into weights.f(1306,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7) inlined into weights.f(1306,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7) inlined into weights.f(1306,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7) inlined into weights.f(1306,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(8394,13) inlined into weights.f(1349,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(8409,13) inlined into weights.f(1349,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(8417,19) inlined into weights.f(1349,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 8418 and  line 8418
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(8426,10) inlined into weights.f(1349,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(8426,10) inlined into weights.f(1349,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7) inlined into weights.f(1349,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7) inlined into weights.f(1349,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7) inlined into weights.f(1349,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7) inlined into weights.f(1349,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7) inlined into weights.f(1349,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(10583,13) inlined into weights.f(1403,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(10591,16) inlined into weights.f(1403,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7) inlined into weights.f(1403,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7) inlined into weights.f(1403,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7) inlined into weights.f(1403,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7) inlined into weights.f(1403,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7) inlined into weights.f(1403,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(12670,10) inlined into weights.f(1446,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12678,10) inlined into weights.f(1446,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10) inlined into weights.f(1446,16)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10) inlined into weights.f(1446,16)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10) inlined into weights.f(1446,16)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10) inlined into weights.f(1446,16)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12737,13) inlined into weights.f(1446,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12744,16) inlined into weights.f(1446,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12771,10) inlined into weights.f(1446,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12771,10) inlined into weights.f(1446,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7) inlined into weights.f(1446,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7) inlined into weights.f(1446,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7) inlined into weights.f(1446,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7) inlined into weights.f(1446,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7) inlined into weights.f(1446,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(15165,10) inlined into weights.f(1503,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15179,19) inlined into weights.f(1503,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 15180 and  line 15180
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10) inlined into weights.f(1503,16)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10) inlined into weights.f(1503,16)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10) inlined into weights.f(1503,16)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10) inlined into weights.f(1503,16)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15226,19) inlined into weights.f(1503,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 15227 and  line 15227
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15248,16) inlined into weights.f(1503,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15263,28) inlined into weights.f(1503,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 15264 and  line 15264
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15275,10) inlined into weights.f(1503,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(15275,10) inlined into weights.f(1503,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7) inlined into weights.f(1503,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7) inlined into weights.f(1503,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7) inlined into weights.f(1503,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7) inlined into weights.f(1503,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7) inlined into weights.f(1503,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(2067,10) inlined into weights.f(1209,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(2072,15) ]
+LOOP END
+
+LOOP BEGIN at weights.f(4089,10) inlined into weights.f(1252,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(4094,15) ]
+LOOP END
+
+LOOP BEGIN at weights.f(6262,10) inlined into weights.f(1306,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(6266,15) ]
+LOOP END
+
+LOOP BEGIN at weights.f(8389,10) inlined into weights.f(1349,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(8393,15) ]
+LOOP END
+
+LOOP BEGIN at weights.f(10577,10) inlined into weights.f(1403,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(10582,15) ]
+LOOP END
+
+LOOP BEGIN at weights.f(12706,10) inlined into weights.f(1446,16)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at weights.f(15151,10) inlined into weights.f(1503,16)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at weights.f(15194,10) inlined into weights.f(1503,16)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(15235,13) inlined into weights.f(1503,16)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEGWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(2516,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(2521,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2521,16)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2521,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at weights.f(2541,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(2541,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2541,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2593,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(2595,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(2596,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2606,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(2608,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2620,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(2620,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2620,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2620,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(2629,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(2631,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(2631,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2631,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2648,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(2648,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2648,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(2648,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(2510,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(2515,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEG2WT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(3279,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3282,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(3282,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3318,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(3320,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(3323,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(3333,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(3341,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(3350,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(3354,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(3354,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(3354,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(3333,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(3341,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(3320,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3402,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3404,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(3427,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at weights.f(3443,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(3442,16)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(3442,16)
+         LOOP END
+
+         LOOP BEGIN at weights.f(3442,16)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3471,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(3471,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(3478,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3480,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(3483,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3502,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3506,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(3507,22)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 3508 and  line 3529
+      LOOP END
+
+      LOOP BEGIN at weights.f(3507,22)
+      LOOP END
+
+      LOOP BEGIN at weights.f(3507,22)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3539,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3540,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 3541 and  line 3557
+   LOOP END
+
+   LOOP BEGIN at weights.f(3540,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(3540,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3569,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(3569,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(3569,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(3574,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(3575,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(3575,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(3575,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3586,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3588,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3594,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(3597,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3598,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3611,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3615,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(3616,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 3617 and  line 3632
+      LOOP END
+
+      LOOP BEGIN at weights.f(3616,19)
+      LOOP END
+
+      LOOP BEGIN at weights.f(3616,19)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3640,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3641,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 3642 and  line 3664
+   LOOP END
+
+   LOOP BEGIN at weights.f(3641,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(3641,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3675,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(3674,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(3674,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(3674,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(3681,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(3682,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(3682,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(3682,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at weights.f(3682,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(3682,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(3686,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(3310,15) ]
+
+   LOOP BEGIN at weights.f(3495,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(3498,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(3607,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEGWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(4556,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(4571,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4623,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(4623,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4637,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(4639,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(4640,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4650,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(4652,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4666,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(4666,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4666,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4666,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4676,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(4676,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4550,10)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at weights.f(4676,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4679,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(4681,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(4681,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(4681,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4698,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(4698,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4698,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(4698,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(4550,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(4555,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEG2WT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(5351,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5355,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(5355,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5388,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 5395 and  line 5395
+LOOP END
+
+LOOP BEGIN at weights.f(5388,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5419,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(5421,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5419,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5426,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5428,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(5431,16)
+      LOOP END
+
+      LOOP BEGIN at weights.f(5434,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5442,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(5446,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(5455,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(5463,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(5472,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(5476,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(5476,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(5476,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(5455,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(5463,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(5443,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5524,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5525,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(5547,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at weights.f(5563,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(5562,16)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(5562,16)
+         LOOP END
+
+         LOOP BEGIN at weights.f(5562,16)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5591,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(5591,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(5591,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(5591,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5598,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5599,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(5601,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5613,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5615,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(5618,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(5621,19)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at weights.f(5622,22)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 5623 and  line 5638
+            LOOP END
+
+            LOOP BEGIN at weights.f(5622,22)
+            LOOP END
+
+            LOOP BEGIN at weights.f(5622,22)
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(5654,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(5655,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 5656 and  line 5672
+         LOOP END
+
+         LOOP BEGIN at weights.f(5655,19)
+         LOOP END
+
+         LOOP BEGIN at weights.f(5655,19)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5684,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(5684,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(5684,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5689,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(5690,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(5690,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(5690,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5701,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5702,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5708,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(5711,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(5711,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(5711,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5720,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(5722,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(5726,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at weights.f(5725,16)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at weights.f(5725,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(5751,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(5750,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(5750,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5787,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5786,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(5786,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(5786,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5793,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(5794,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(5794,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(5794,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5801,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(5803,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(5801,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(5807,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(5810,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(5811,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 5815 and  line 5815
+
+         LOOP BEGIN at weights.f(5816,41)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(5382,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(5409,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLGWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(6765,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(6770,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(6770,16)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(6770,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at weights.f(6790,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(6790,13)
+      remark #15300: LOOP WAS VECTORIZED
+
+      LOOP BEGIN at weights.f(6813,16)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(6790,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6848,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(6850,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(6851,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6861,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(6863,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6875,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(6875,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6875,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6875,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(6884,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(6886,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(6886,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(6886,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6903,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(6903,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6903,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(6903,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(6759,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(6764,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLG2WT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(7538,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7541,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(7541,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7578,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(7580,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(7583,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(7593,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(7601,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(7610,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(7614,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(7614,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(7614,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(7593,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(7601,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(7580,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7662,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7664,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(7672,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 7673 and  line 7673
+      LOOP END
+
+      LOOP BEGIN at weights.f(7687,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at weights.f(7699,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(7698,16)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(7698,16)
+         LOOP END
+
+         LOOP BEGIN at weights.f(7698,16)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7727,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(7727,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(7734,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7736,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(7739,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7758,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7762,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(7763,22)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 7764 and  line 7785
+      LOOP END
+
+      LOOP BEGIN at weights.f(7763,22)
+      LOOP END
+
+      LOOP BEGIN at weights.f(7763,22)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7795,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7796,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7797 and  line 7813
+   LOOP END
+
+   LOOP BEGIN at weights.f(7796,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(7796,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7825,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(7825,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(7825,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(7830,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(7831,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(7831,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(7831,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7842,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7844,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7850,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(7853,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7855,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7868,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7872,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(7873,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 7874 and  line 7889
+      LOOP END
+
+      LOOP BEGIN at weights.f(7873,19)
+      LOOP END
+
+      LOOP BEGIN at weights.f(7873,19)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7897,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7898,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7899 and  line 7921
+   LOOP END
+
+   LOOP BEGIN at weights.f(7898,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(7898,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7932,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(7931,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(7931,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(7931,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(7938,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(7939,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(7939,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(7939,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at weights.f(7939,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(7939,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(7943,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(7570,15) ]
+
+   LOOP BEGIN at weights.f(7751,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(7754,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(7864,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLGWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(8907,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(8922,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(8947,19)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(8977,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(8977,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(8991,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(8993,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(8994,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9004,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(9006,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9020,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(9020,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(9020,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(9020,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(9030,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(9030,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(8901,10)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at weights.f(9030,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(9033,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(9035,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9035,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(9035,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9052,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(9052,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(9052,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(9052,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(8901,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(8906,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLG2WT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(9707,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(9711,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9744,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 9751 and  line 9751
+LOOP END
+
+LOOP BEGIN at weights.f(9744,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(9775,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(9777,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9775,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(9782,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(9784,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(9787,16)
+      LOOP END
+
+      LOOP BEGIN at weights.f(9790,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9798,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(9802,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(9811,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(9819,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(9828,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(9832,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(9832,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(9832,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(9811,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(9819,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(9799,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9880,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(9881,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(9888,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 9889 and  line 9889
+      LOOP END
+
+      LOOP BEGIN at weights.f(9902,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at weights.f(9914,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(9913,16)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(9913,16)
+         LOOP END
+
+         LOOP BEGIN at weights.f(9913,16)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9942,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(9942,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(9942,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(9942,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(9949,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(9950,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(9952,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(9964,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(9966,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(9969,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(9972,19)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at weights.f(9973,22)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 9974 and  line 9989
+            LOOP END
+
+            LOOP BEGIN at weights.f(9973,22)
+            LOOP END
+
+            LOOP BEGIN at weights.f(9973,22)
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(10005,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(10006,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 10007 and  line 10023
+         LOOP END
+
+         LOOP BEGIN at weights.f(10006,19)
+         LOOP END
+
+         LOOP BEGIN at weights.f(10006,19)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10035,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(10035,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10035,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(10040,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(10041,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(10041,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(10041,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10052,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(10053,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10059,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(10062,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(10062,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10062,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(10071,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(10073,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(10077,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at weights.f(10076,16)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at weights.f(10076,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(10102,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(10101,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(10101,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10138,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(10137,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(10137,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(10137,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10144,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(10145,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(10145,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(10145,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10152,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(10154,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10152,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(10158,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(10161,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(10162,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 10166 and  line 10166
+
+         LOOP BEGIN at weights.f(10167,41)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(9738,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(9765,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFGWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(11065,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11065,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11065,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(11080,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(11168,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(11170,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(11171,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(11181,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(11183,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(11195,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(11195,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11195,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11195,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(11204,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(11206,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(11206,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(11206,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(11223,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(11223,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11223,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(11223,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(11056,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(11061,15) ]
+
+   LOOP BEGIN at weights.f(11062,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFG2WT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(11845,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(11847,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(11847,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(11877,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11877,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(11890,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11890,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(11900,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(11900,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(11909,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(11913,22)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(11913,22)
+   LOOP END
+
+   LOOP BEGIN at weights.f(11913,22)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(11988,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12000,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(11999,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(11999,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(11999,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12023,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12029,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12028,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(12028,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(12028,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12046,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12046,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(12053,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12055,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(12058,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12077,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12081,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(12082,22)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 12083 and  line 12104
+      LOOP END
+
+      LOOP BEGIN at weights.f(12082,22)
+      LOOP END
+
+      LOOP BEGIN at weights.f(12082,22)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12114,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12115,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 12116 and  line 12132
+   LOOP END
+
+   LOOP BEGIN at weights.f(12115,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(12115,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12144,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(12144,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12144,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(12149,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(12150,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(12150,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(12150,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12161,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12163,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12169,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12172,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12173,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12185,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12188,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(12189,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 12190 and  line 12205
+      LOOP END
+
+      LOOP BEGIN at weights.f(12189,19)
+      LOOP END
+
+      LOOP BEGIN at weights.f(12189,19)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12213,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12214,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 12215 and  line 12237
+   LOOP END
+
+   LOOP BEGIN at weights.f(12214,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(12214,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12248,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12247,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(12247,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(12247,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12254,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(12255,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(12255,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(12255,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at weights.f(12255,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(12255,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(12259,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(11867,15) ]
+
+   LOOP BEGIN at weights.f(11875,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(11880,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(11962,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(11964,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(12070,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(12073,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(12182,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL8SSFWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(17726,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17741,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(17755,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 17756 and  line 17756
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17785,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(17785,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17785,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(17785,10)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17800,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 17801 and  line 17801
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17822,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17837,28)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 17838 and  line 17838
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17849,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(17849,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(17856,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(17856,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17856,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(17856,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17856,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(17770,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(17809,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL8SSFGWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(18336,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(18336,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(18339,34)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at weights.f(18336,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(18410,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 18411 and  line 18411
+LOOP END
+
+LOOP BEGIN at weights.f(18443,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(18445,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(18529,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 18530 and  line 18530
+LOOP END
+
+LOOP BEGIN at weights.f(18638,28)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 18639 and  line 18639
+LOOP END
+
+LOOP BEGIN at weights.f(18671,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(18671,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(18677,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(18679,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(18694,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(18694,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(18694,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(18694,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(18704,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(18706,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(18706,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(18706,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(18719,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(18719,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(18719,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(18719,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(18344,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(18438,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(18460,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(18557,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at weights.f(18559,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(18667,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL8SSFG2WT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(19375,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19379,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(19379,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19413,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 19420 and  line 19420
+LOOP END
+
+LOOP BEGIN at weights.f(19413,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19444,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(19446,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19444,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19451,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19453,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(19456,16)
+      LOOP END
+
+      LOOP BEGIN at weights.f(19459,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19467,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(19471,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(19480,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(19491,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(19500,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(19504,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(19504,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(19504,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(19480,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(19491,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(19468,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19564,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 19565 and  line 19565
+LOOP END
+
+LOOP BEGIN at weights.f(19579,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(19591,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19590,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(19590,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(19590,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19614,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(19620,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19619,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(19619,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(19619,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19637,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(19637,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(19637,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(19637,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19644,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19645,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(19647,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19659,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19661,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(19664,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(19667,19)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at weights.f(19668,22)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 19669 and  line 19684
+            LOOP END
+
+            LOOP BEGIN at weights.f(19668,22)
+            LOOP END
+
+            LOOP BEGIN at weights.f(19668,22)
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(19700,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(19701,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 19702 and  line 19718
+         LOOP END
+
+         LOOP BEGIN at weights.f(19701,19)
+         LOOP END
+
+         LOOP BEGIN at weights.f(19701,19)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19730,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(19730,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(19730,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19735,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(19736,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(19736,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(19736,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19747,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19748,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19754,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(19757,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(19757,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(19757,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19766,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(19768,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(19772,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at weights.f(19771,16)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at weights.f(19771,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(19797,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(19796,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(19796,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19833,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19832,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(19832,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(19832,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19839,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(19840,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(19840,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(19840,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19847,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(19849,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(19847,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(19853,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(19856,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(19857,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 19861 and  line 19861
+
+         LOOP BEGIN at weights.f(19862,41)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(19407,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(19434,15) ]
+
+   LOOP BEGIN at weights.f(19632,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at weights.f(19554,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL4SSFGWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(15756,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(15756,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15759,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at weights.f(15756,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(15832,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 15833 and  line 15833
+LOOP END
+
+LOOP BEGIN at weights.f(15865,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15867,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15952,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 15953 and  line 15953
+LOOP END
+
+LOOP BEGIN at weights.f(16061,28)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 16062 and  line 16062
+LOOP END
+
+LOOP BEGIN at weights.f(16094,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(16094,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(16100,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(16102,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16116,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(16116,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(16116,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(16116,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(16126,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(16128,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(16128,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(16128,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16141,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(16141,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(16141,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(16141,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(15765,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(15860,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15882,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(15980,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at weights.f(15982,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(16090,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL4SSFG2WT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(16793,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(16797,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(16797,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16831,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 16838 and  line 16838
+LOOP END
+
+LOOP BEGIN at weights.f(16831,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(16862,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(16864,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16862,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(16869,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(16871,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(16874,16)
+      LOOP END
+
+      LOOP BEGIN at weights.f(16877,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16885,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(16889,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(16898,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(16909,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(16918,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(16922,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(16922,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(16922,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(16898,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(16909,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(16886,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(16982,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 16983 and  line 16983
+LOOP END
+
+LOOP BEGIN at weights.f(16997,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(17009,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17008,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(17008,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(17008,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17032,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(17038,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17037,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(17037,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(17037,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17055,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(17055,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17055,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17055,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(17062,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17063,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(17065,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17077,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17079,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(17082,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(17085,19)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at weights.f(17086,22)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 17087 and  line 17102
+            LOOP END
+
+            LOOP BEGIN at weights.f(17086,22)
+            LOOP END
+
+            LOOP BEGIN at weights.f(17086,22)
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(17118,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(17119,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 17120 and  line 17136
+         LOOP END
+
+         LOOP BEGIN at weights.f(17119,19)
+         LOOP END
+
+         LOOP BEGIN at weights.f(17119,19)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17148,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(17148,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17148,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(17153,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(17154,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(17154,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(17154,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17165,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17166,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17172,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(17175,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(17175,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(17175,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(17184,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(17186,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(17190,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at weights.f(17189,16)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at weights.f(17189,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(17215,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(17214,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(17214,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17251,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17250,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(17250,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(17250,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17257,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(17258,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(17258,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(17258,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17265,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(17267,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(17265,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(17271,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(17274,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(17275,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 17279 and  line 17279
+
+         LOOP BEGIN at weights.f(17280,41)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(16825,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(16852,15) ]
+
+   LOOP BEGIN at weights.f(17050,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at weights.f(16972,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFGWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(13227,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(13227,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(13230,34)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at weights.f(13227,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(13329,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(13331,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(13547,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(13547,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(13553,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(13555,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(13570,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(13570,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(13570,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(13570,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(13580,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(13582,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(13582,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(13582,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(13595,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(13595,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(13595,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(13595,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(13235,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(13324,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(13346,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(13439,10)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at weights.f(13441,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at weights.f(13543,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFG2WT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(14236,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14239,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(14239,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14264,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 14271 and  line 14271
+LOOP END
+
+LOOP BEGIN at weights.f(14264,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14295,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(14297,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14295,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14302,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14304,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+      LOOP BEGIN at weights.f(14306,16)
+      LOOP END
+
+      LOOP BEGIN at weights.f(14309,16)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14317,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(14321,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(14330,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(14340,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(14349,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(14353,22)
+            remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         LOOP END
+
+         LOOP BEGIN at weights.f(14353,22)
+         LOOP END
+
+         LOOP BEGIN at weights.f(14353,22)
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(14330,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at weights.f(14340,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(14318,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14426,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(14438,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14437,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(14437,16)
+   LOOP END
+
+   LOOP BEGIN at weights.f(14437,16)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14461,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(14467,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14466,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(14466,19)
+   LOOP END
+
+   LOOP BEGIN at weights.f(14466,19)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14484,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(14484,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(14484,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(14484,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14491,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14492,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(14494,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14506,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14508,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(14511,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(14514,19)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at weights.f(14515,22)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 14516 and  line 14531
+            LOOP END
+
+            LOOP BEGIN at weights.f(14515,22)
+            LOOP END
+
+            LOOP BEGIN at weights.f(14515,22)
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at weights.f(14547,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at weights.f(14548,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 14549 and  line 14565
+         LOOP END
+
+         LOOP BEGIN at weights.f(14548,19)
+         LOOP END
+
+         LOOP BEGIN at weights.f(14548,19)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14577,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(14577,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(14577,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14582,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(14583,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(14583,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(14583,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14594,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14595,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14601,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(14604,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(14604,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(14604,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14613,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(14615,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(14619,19)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at weights.f(14618,16)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at weights.f(14618,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(14644,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at weights.f(14643,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at weights.f(14643,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14680,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14679,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at weights.f(14679,10)
+   LOOP END
+
+   LOOP BEGIN at weights.f(14679,10)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14686,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(14687,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(14687,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(14687,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14694,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at weights.f(14696,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(14694,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(14700,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(14703,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(14704,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 14708 and  line 14708
+
+         LOOP BEGIN at weights.f(14709,41)
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(14258,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(14285,15) ]
+
+   LOOP BEGIN at weights.f(14479,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at weights.f(14403,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHL4SSFWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(15151,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15165,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(15179,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 15180 and  line 15180
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(15211,10)
+<Distributed chunk2>
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15226,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 15227 and  line 15227
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15248,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(15263,28)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 15264 and  line 15264
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(15275,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(15275,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(15282,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(15194,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at weights.f(15235,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(12670,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12678,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at weights.f(12714,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12737,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(12744,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(12771,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(12771,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(12779,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(12706,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: SSFWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(10583,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(10591,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(10616,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(10577,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(10582,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(8394,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(8409,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at weights.f(8417,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 8418 and  line 8418
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(8426,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(8426,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(8434,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(8389,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(8393,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MHLWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(6268,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(6283,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(6283,13)
+      remark #15300: LOOP WAS VECTORIZED
+
+      LOOP BEGIN at weights.f(6289,16)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at weights.f(6283,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(6301,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(6262,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(6266,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEWT_SCR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(4095,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at weights.f(4110,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(4122,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at weights.f(4122,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(4131,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(4089,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(4094,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BECKEWT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at weights.f(2073,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at weights.f(2088,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at weights.f(2088,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at weights.f(2088,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at weights.f(2101,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at weights.f(2067,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ weights.f(2072,15) ]
+LOOP END
+===========================================================================

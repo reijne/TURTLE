@@ -1,0 +1,63 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - dz basis - 3A2 grhf  
+mult 3
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - dz basis - 3A2 CISD direct-CI
+mult 3
+super off nosym
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+runtype ci
+property atoms
+direct 16 9 15
+spin 3
+conf
+2 2 2 2 2 2 2 1 1
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - dz - 3A2 CI spin densities
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+runtype analysis
+property
+19 c
+19 o
+19 h
+20 c
+20 o
+20 h
+end
+vectors 12
+enter 
+EOF

@@ -1,0 +1,56 @@
+#!/bin/csh
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+title
+scf3 - b3lyp/3-21G
+zmat angstrom
+sc
+x  1 1.0
+f  1 scf 2 90.0
+f1 1 scf 2 90.0 3 120.0
+f1 1 scf 2 90.0 3 -120.0
+variables
+scf 1.8852929 hess 1.004766
+end
+runtype optimize
+dft b3lyp
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart
+title
+scf3 - b3lyp/3-21G
+zmat angstrom
+sc
+x  1 1.0
+f  1 scf 2 90.0
+f1 1 scf 2 90.0 3 120.0
+f1 1 scf 2 90.0 3 -120.0
+variables
+scf 1.8852929 hess 1.004766
+end
+runtype hessian
+dft b3lyp
+dft gradquad on
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+title
+scf3 - b3lyp/3-21G
+zmat angstrom
+sc
+x  1 1.0
+f  1 scf 2 90.0
+f1 1 scf 2 90.0 3 120.0
+f1 1 scf 2 90.0 3 -120.0
+variables
+scf  1.8061649 hessian  1.085957
+end
+runtype hessian
+dft b3lyp
+dft gradquad on
+enter
+EOF
+/bin/rm -rf mfged3

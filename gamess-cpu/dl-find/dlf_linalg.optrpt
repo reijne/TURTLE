@@ -1,0 +1,20 @@
+
+Begin optimization report for: DLF_MATRIX_PRINT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_linalg_d.F90(135,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_linalg_d.F90(143,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 143 and  line 143
+   LOOP END
+
+   LOOP BEGIN at dlf_linalg_d.F90(146,6)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 150 and  line 150
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,16 @@
+c     8note* tractlt noo included in vbdens.m mkd1vb
+      integer iprint,nbasis,ncol,nsa,ncurt,lenact,lenbas,nactiv
+      integer num3,iblkq,ionsec,nbsort,isecdu,n2int,setintpos
+      logical incsort,oprs
+      integer nnsort,isort,ksort,maxsort
+      REAL scri
+c
+      common /tractlt/ scri,iprint,nbasis,ncol,nsa,ncurt,lenact,lenbas,
+     &                 num3,iblkq,ionsec,nbsort,isecdu,n2int,nactiv,
+     &                 incsort,nnsort,isort,ksort,maxsort,oprs
+c
+c...  incsort : indicates if incore sorting is on
+c...  nnsort : # sortbuffers
+c...  isort : sortbuffer done
+c...  ksort : adres of sortbuffers in qq (igmem_alloc)
+c...  maxsort : maximum sort buffer used

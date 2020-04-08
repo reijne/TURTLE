@@ -1,0 +1,402 @@
+#include "HMatElements.h"
+
+
+
+INT icount = 0;
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::PTcalc(
+	const DiffConf<GeneralizedMO> & diffConf,
+	const TableCase<GeneralizedMO> & tc,
+	MOListIterator & moiter,
+	TwoElectronIntegralIndexTemplate &CbT,
+	TwoElectronIntegralIndexTemplate &ExT,
+	EnergyMap & energyMap,
+	Histogram<EnergyType> & diagHist,
+	const Configuration<MOType> & extNotRunning,
+	const PTReferenceSpace<MatrixType, VectorType> & PTReference,
+	INT PTRefNr,
+	RepDiag<MatrixType, VectorType> *repDiag) const
+{
+//
+//                                     this routine calculates
+//                              +----- this part of the sums at (!#######!)
+//                              |
+//                              |
+//                             \|/
+//
+//                            Main  SAF_Main(k)                          2
+//                          | -----    -----                            |
+//                          | \        \                                |
+//                          |  >        >    c_klr <phi_kl | H | phi_ij>|
+//           Gen  SAF_Gen(i)| /        /                                |
+//          -----   -----   | -----    -----                            |  
+//          \       \          k        l
+// eps_ges = >       >    ------------------------------------------------
+//          /       /
+//          -----   -----            E_0r - <phi_ij | H | phi_ij>
+//            i       j
+//
+//	r: root number
+//
+
+
+//	cout << "P=" << this->P << endl;
+	switch ( this->P ) {
+	case 1:
+		{
+		MatrixType* CbRow = new MatrixType[PTReference.getNumberOfRoots()*this->matDim.cols];
+		MatrixType* ExRow = new MatrixType[PTReference.getNumberOfRoots()*this->matDim.cols];
+		TwoElectronIntegralCbExIndex CbExIndex;
+		IntegralType	Cb, Ex;
+		EnergyType *nominator, *denominator;
+		Configuration<MOType>	keyConf;
+
+			getRow(this->CbMat, CbRow, PTReference, PTRefNr);
+			getRow(this->ExP3Mat, ExRow, PTReference, PTRefNr);
+			if ( moiter.getN()>0 )
+			do
+			{
+//				cout << moiter << endl;	
+				icount++;
+				CbT.setFromTemplate(moiter);
+				ExT.setFromTemplate(moiter);
+				CbExIndex.set(CbT, ExT);
+//				cout << CbExIndex << " " << Cb << " " << Ex << endl;
+				int4Container->get(CbExIndex, Cb, Ex);
+				
+				if ( moiter.isNewBlock() )
+					repDiag->addExtFirst(moiter);
+				repDiag->addExtLast(moiter);
+/*				cout << "P=1: " << endl;
+				for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					cout << repDiag->getDiag(i) << " ";
+				cout << endl;
+*/
+
+				keyConf = extNotRunning;
+//				cout << "P=1: keyconf1=" << keyConf << endl;
+				keyConf.create(moiter);
+//				cout << "P=1: keyconf2=" << keyConf << endl;
+			INT	newEntry = !energyMap.getEntries(keyConf, this->matDim.cols,
+					nominator, denominator);
+
+				if ( newEntry )
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+						diagHist.count(repDiag->getDiag(i));
+				
+/*				cout << moiter << endl;
+				for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					cout << repDiag->getDiag(i) << " ";
+				cout << endl << endl;
+*/
+
+
+			MatrixType	*pCbRow = CbRow;
+			MatrixType	*pExRow = ExRow;
+				for ( INT root=0 ; root<PTReference.getNumberOfRoots() ; root++ )
+				{
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					{
+//                                     this loop calculates
+//                              +----- this part of the sums               
+//                              |
+//                              |
+//                             \|/
+//
+//                            Main  SAF_Main(k)                          2
+//                          | -----    -----                            |
+//                          | \        \                                |
+//                          |  >        >    c_klr <phi_kl | H | phi_ij>|
+//           Gen  SAF_Gen(i)| /        /                                |
+//          -----   -----   | -----    -----                            |  
+//          \       \          k        l
+// eps_ges = >       >    ------------------------------------------------
+//          /       /
+//          -----   -----            E_0r - <phi_ij | H | phi_ij>
+//            i       j
+//
+//	r: root number
+//
+					MatrixType	h = (Cb * *pCbRow++  +  Ex * *pExRow++);
+//							cout << PTRefNr << " " << h << endl;
+						*nominator++ += h;
+						*denominator++ =
+							(PTReference.getRoot(root) - repDiag->getDiag(i));
+/*						cout << "root: " << root << endl;
+						// " " << PTReference.getRoot(root) << endl;
+						cout << Cb << " " << Ex << " " <<
+						 *(pCbRow-1) << " " << *(pExRow-1) << endl;						cout <<
+						 (Cb * *(pCbRow-1)  +  Ex * *(pExRow-1)) << " "
+							<< *(nominator-1) << " "
+							<< *(denominator-1) << endl << endl;
+*/					}
+				}
+			} while ( moiter.next() );
+			delete[] ExRow;
+			delete[] CbRow;
+			break;
+		}	
+	case 3:
+		{	
+//	error: found 15.02.1998
+//		MatrixType	p[P3Mats*this->matDim.cols*this->matDim.rows];
+//
+		MatrixType* p = new MatrixType[this->matDim.cols*this->matDim.rows];
+		EnergyType *nominator, *denominator;
+		Configuration<MOType>	keyConf;
+				
+			if ( moiter.getN()>0 )
+			do
+			{
+//				cout << moiter << endl;	
+
+//				cout << diffConf << endl;
+			DiffConf<MOType>	dc = DiffConf<MOType>(diffConf, moiter);
+//				cout << dc << endl;
+				getCaseP3Matrix(p, dc, tc.getdK(), tc.getR());
+//				cout << "A:" << CbT << endl;
+				if ( moiter.isNewBlock() )
+					repDiag->addExtFirst(moiter);
+//				cout << "A:" << CbT << endl;
+				repDiag->addExtLast(moiter);
+//				cout << "D:" << endl;
+/*				cout << "P=3: " << endl;
+				for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					cout << repDiag->getDiag(i) << " ";
+				cout << endl;
+*/				
+				keyConf = extNotRunning;
+//				cout << "P=3: keyconf1=" << keyConf << endl;
+				keyConf.create(moiter);
+//				cout << "P=3: keyconf2=" << keyConf << endl;
+			INT	newEntry = !energyMap.getEntries(keyConf, this->matDim.cols,
+					nominator, denominator);
+
+				if ( newEntry )
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+						diagHist.count(repDiag->getDiag(i));
+
+
+				for ( INT root=0 ; root<PTReference.getNumberOfRoots() ; root++ )
+				{
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					{
+						for ( INT j=0 ; j<this->matDim.rows ; j++ )
+						{
+//                                               these loops calculate
+//                              +---------+----- this part of the sums
+//                              |         |
+//                              |         |
+//                             \|/       \|/
+//
+//                            Main  SAF_Main(k)                          2
+//                          | -----    -----                            |
+//                          | \        \                                |
+//                          |  >        >    c_klr <phi_kl | H | phi_ij>|
+//           Gen  SAF_Gen(i)| /        /                                |
+//          -----   -----   | -----    -----                            |  
+//          \       \          k        l
+// eps_ges = >       >    ------------------------------------------------
+//          /       /
+//          -----   -----            E_0r - <phi_ij | H | phi_ij>
+//            i       j
+//
+//	r: root number
+//
+						MatrixType	h = PTReference.getCoef(PTRefNr, root, j) * 
+								p[j*this->matDim.cols + i];
+//							cout << PTRefNr << " " << h << endl;
+							*nominator += h;
+						}		
+						*denominator++ =
+							(PTReference.getRoot(root) - repDiag->getDiag(i));
+						nominator++;
+					}
+				}
+				icount++;
+			} while ( moiter.next() );
+			delete[] p;
+			break;
+		}
+		
+	case 2:
+	case 4:
+		{
+		MatrixType* CbRow = new MatrixType[PTReference.getNumberOfRoots()*this->matDim.cols];
+		TwoElectronIntegralTriadeIndex triadeIndex;
+		IntegralType	Cb;
+		EnergyType *nominator, *denominator;
+		Configuration<MOType>	keyConf;
+
+			getRow(this->CbMat, CbRow, PTReference, PTRefNr);
+			if ( moiter.getN()>0 )
+			do
+			{
+//				cout << moiter << endl;	
+				icount++;
+//				cout << "A:" << CbT << endl;
+				CbT.setFromTemplate(moiter);
+//				cout << "B:" << CbT << endl;
+				triadeIndex.set(CbT);
+				int4Container->get(triadeIndex, Cb);	
+
+//				cout << "C:" << endl;
+				if ( moiter.isNewBlock() )
+					repDiag->addExtFirst(moiter);
+//				cout << "D:" << endl;
+				repDiag->addExtLast(moiter);
+//				cout << "E:" << endl;
+
+/*				cout << "P=2, 4: " << endl;
+				for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					cout << repDiag->getDiag(i) << " ";
+				cout << endl;
+*/
+				keyConf = extNotRunning;
+//				cout << "P=2,4: keyconf1=" << keyConf << endl;
+				keyConf.create(moiter);
+//				cout << "P=2,4: keyconf2=" << keyConf << endl;
+			INT	newEntry = !energyMap.getEntries(keyConf, this->matDim.cols,
+					nominator, denominator);
+					
+				if ( newEntry )
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+						diagHist.count(repDiag->getDiag(i));
+				
+
+			MatrixType	*pCbRow = CbRow;
+				for ( INT root=0 ; root<PTReference.getNumberOfRoots() ; root++ )
+				{
+					for ( INT i=0 ; i<this->matDim.cols ; i++ )
+					{
+//                                     this loop calculates
+//                              +----- this part of the sums               
+//                              |
+//                              |
+//                             \|/
+//
+//                            Main  SAF_Main(k)                          2
+//                          | -----    -----                            |
+//                          | \        \                                |
+//                          |  >        >    c_klr <phi_kl | H | phi_ij>|
+//           Gen  SAF_Gen(i)| /        /                                |
+//          -----   -----   | -----    -----                            |  
+//          \       \          k        l
+// eps_ges = >       >    ------------------------------------------------
+//          /       /
+//          -----   -----            E_0r - <phi_ij | H | phi_ij>
+//            i       j
+//
+//	r: root number
+//
+					MatrixType	h = Cb * *pCbRow++;
+//							cout << PTRefNr << " " << h << endl;
+						*nominator++ += h;
+						*denominator++ =
+							(PTReference.getRoot(root) - repDiag->getDiag(i));
+					}
+				}
+			} while ( moiter.next() );
+			delete[] CbRow;
+			break;
+		}
+	}
+//	cout << icount << endl;
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getRow(
+		RepresentationMatrix<MatrixType> *Mat,
+		MatrixType *row,
+		const PTReferenceSpace<MatrixType, VectorType> & PTReference,
+		INT PTRefNr) const
+{
+//
+//                                             this routine calculates
+//                                      +----- this part of the sums
+//                                      |
+//                                      |
+//                                     \|/
+//
+//                            Main  SAF_Main(k)                          2
+//                          | -----    -----                            |
+//                          | \        \                                |
+//                          |  >        >    c_klr <phi_kl | H | phi_ij>|
+//           Gen  SAF_Gen(i)| /        /                                |
+//          -----   -----   | -----    -----                            |  
+//          \       \          k        l
+// eps_ges = >       >    ------------------------------------------------
+//          /       /
+//          -----   -----           E_0r - <phi_ij | H | phi_ij>
+//            i       j
+//
+//	r: root number
+
+typename RepresentationMatrix<MatrixType>::MatrixDense dense = Mat->getDense();
+
+	for ( INT root=0 ; root<PTReference.getNumberOfRoots() ; root++ )
+	{
+	const MatrixType *pMat = Mat->getP();
+	const CoefType *coefs = PTReference.getCoefP(PTRefNr, root);
+	
+/*		cout << "root=" << root << endl;
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+			cout << coefs[i] << " ";
+		cout << endl;
+*/		switch ( dense )
+		{
+		case RepresentationMatrix<MatrixType>::unity:
+			for ( INT i=0 ; i<this->matDim.rows ; i++ )
+				row[i] = coefs[i];
+			break;
+
+		case RepresentationMatrix<MatrixType>::diagonal:
+			for ( INT i=0 ; i<this->matDim.rows ; i++ )
+				row[i] = coefs[i] * *pMat++;
+			break;
+
+		case RepresentationMatrix<MatrixType>::tridiagonal:
+			memset(row, 0, this->matDim.cols*sizeof(MatrixType));
+			row[0] += coefs[0] * *pMat++;
+			row[1] += coefs[0] * *pMat++;
+			for ( INT i=1 ; i<this->matDim.rows-1 ; i++ )
+			{
+				row[i-1] += coefs[i] * *pMat++;
+				row[i]   += coefs[i] * *pMat++;
+				row[i+1] += coefs[i] * *pMat++;
+			}
+			row[this->matDim.rows-2] += coefs[this->matDim.rows-1] * *pMat++;
+			row[this->matDim.rows-1] += coefs[this->matDim.rows-1] * *pMat++;
+			break;
+
+
+		case RepresentationMatrix<MatrixType>::sameSparse:
+		case RepresentationMatrix<MatrixType>::sparse:
+			memset(row, 0, this->matDim.cols*sizeof(MatrixType));
+			{
+			const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = Mat->getMPosP();
+				for ( INT i=0 ; i<Mat->getNSparse() ; i++ ) {
+					row[pmpos->c] += coefs[pmpos->r] * *pMat;
+                                        pmpos++;
+                                        pMat++;
+                                        }
+			}
+			break;
+
+		case RepresentationMatrix<MatrixType>::full:
+			memset(row, 0, this->matDim.cols*sizeof(MatrixType));
+			for ( INT i=0 ; i<this->matDim.rows ; i++ )
+				for ( INT j=0 ; j<this->matDim.cols ; j++ )
+					row[j] += coefs[i] * *pMat++;
+			break;
+
+		case RepresentationMatrix<MatrixType>::lowerTriangle:
+			break;
+		}
+		row += this->matDim.cols;
+	}
+}
+
+
+

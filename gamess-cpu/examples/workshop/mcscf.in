@@ -1,0 +1,17 @@
+title
+h2co  TZVP CASSCF (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype mcscf
+mcscf
+orbital
+3cor1 2doc1 doc2 2doc3 uoc2 2uoc1 uoc3
+end
+print orbitals virtuals natorb
+canonical 10 fock density fock
+enter 

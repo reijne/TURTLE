@@ -1,0 +1,33 @@
+#!/bin/csh
+#
+# run a single example job using the GA tools
+# (interactive run) Assumes parallel has been moved
+# to GAMESS-UK/bin, and gamess.p has been set up correctly
+#
+# set the environment variable NO_RERUN to skip
+# jobs which already validate OK
+#
+if ($?NO_RERUN == 1) then
+
+  setenv GAMESS_VTAB ./origin.vtab
+  set path=(../../utilities $path)
+
+  validate $1 LOGS/$1.out >& /dev/null
+  set vstat=$status
+  if ($vstat == 0) then
+    echo $1 validated OK, skipping job
+    set runit=0
+  else
+    echo validate for $1 returned $vstat, running job
+    set runit=1
+  endif
+else
+  set runit=1
+endif
+#
+#
+if ($runit == 1) then
+  echo $1
+  time ../../bin/parallel gamess < $1.in > LOGS/$1.out
+  echo 'Return Code = ' $status   >> LOGS/$1.out  
+endif

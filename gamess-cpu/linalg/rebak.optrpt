@@ -1,0 +1,30 @@
+
+Begin optimization report for: REBAK
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at rebak.f(48,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at rebak.f(50,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at rebak.f(56,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at rebak.f(56,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at rebak.f(56,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at rebak.f(56,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

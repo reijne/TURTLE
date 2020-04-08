@@ -1,0 +1,51 @@
+c
+c  Alexander J Turner
+c  January 19987
+c
+c  Header file of dynamic memory allocation
+c
+c  See file memory.f for the details of how the allocation system
+c  works
+c
+
+      integer SIZE_DOUBLE,SIZE_INTEGER,SIZE_LOGICAL,SIZE_CHARACTER,
+     &SIZE_REAL,MAXSIZE,MATRIX_REAL,MATRIX_INTEGER
+
+C     BIGEST PARAMETER
+c     This sets to total ammount of memory (in double precision words)
+      PARAMETER(MAXSIZE=10000000)
+        
+C     SIZE OF A DBLE PRECISION WORD
+      parameter(SIZE_DOUBLE=8)
+
+C     SIZE OF A INT WORD
+      parameter(SIZE_INTEGER=4)
+
+C     SIZE OF A LOGICAL WORD
+      parameter(SIZE_LOGICAL=4)
+
+C     SIZE OF A CHARACTER WORD
+      parameter(SIZE_CHARACTER=4)
+
+C     SIZE OF A REAL WORD
+      parameter(SIZE_REAL=4)
+
+C     MATRIX TYPES
+      parameter (MATRIX_REAL=1)
+      parameter (MATRIX_INTEGER=2)
+
+C     MEMORY and HANDLES
+      double precision qm
+      integer hp,stackbottom,heaptop,maxhandle
+      logical heapclean
+c     maxhandle controls the mamimum number of handle allocated 
+c     memory areas.
+      parameter(maxhandle=maxsize/100)
+      common/fheap/qm(maxsize),heapclean,
+     &hp(maxhandle),stackbottom,heaptop
+
+C     DEBUG
+c     Set debug to true, touch all FORTRAN files and recompile 
+c     to get debug mode.
+      logical MEM_DEBUG
+      data MEM_DEBUG/.FALSE./

@@ -1,0 +1,64 @@
+#!/bin/csh
+setenv ed3 ed3ben
+../../bin/gamess <<  EOF
+harmonic
+adapt off
+title
+h2  atomic
+zmatrix
+h
+h 1 r
+varia
+r 1.4
+end
+basis 6-31g
+vectors atorbs sect 99 
+enter 1
+EOF
+../../bin/gamess <<  EOF
+time 10000000
+?core 1000000 debug
+restart new
+adapt off
+title
+h2  atomic
+zmatrix 
+h
+h 1 r
+varia
+r 1.4
+end
+basis 6-31g
+crestr
+    >255
+ conf
+1 2 
+ end
+end
+vb
+?iprint 1000000
+vbvectors combine
+section 99  1 2  end
+end combine
+? active
+? 1 2
+? end
+scf
+nosym
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+diis 
+hybrids
+ h1
+ 1 end
+  1 2 end
+ h2
+ 2 end
+ 3 4  end
+end hybrids
+end  91
+end 
+scftype vb
+enter 90
+EOF
+rm -rf ed3ben

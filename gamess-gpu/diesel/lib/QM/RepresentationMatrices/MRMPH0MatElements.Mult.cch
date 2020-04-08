@@ -1,0 +1,103 @@
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::multMatrix(
+	VectorType *y, const VectorType *x,
+	INT SAFStartA, INT SAFStartB,
+	const DiffConf<MOType> & diffConf,
+	const TableCase<MOType> & tc) const
+{
+	switch ( this->P ) {
+	case 3:
+		multCaseP3Matrix(y, x, SAFStartA, SAFStartB, diffConf, tc.getdK(), tc.getR());
+		break;
+		
+		
+	case 5:
+		multCase14Matrix(y, x, SAFStartA, diffConf.getSame());
+		break;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::multCaseP3Matrix(
+	VectorType *y, const VectorType *x,
+	INT SAFStartA, INT SAFStartB,
+	const DiffConf<MOType> & diffConf,
+	INT	dK, INT R) const
+{
+	if ( dK>0 )
+	{	if ( R==1 )
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+					diffConf.getTo().getOpenShell(0),
+					diffConf.getTo().getOpenShell(1));
+		else
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+					diffConf.getTo().getOpenShell(1),
+					diffConf.getTo().getOpenShell(0));
+	}
+	else
+	if ( dK<0 )
+	{	if ( R==1 )
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+					diffConf.getFrom().getOpenShell(0),
+					diffConf.getFrom().getOpenShell(1));
+		else
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+					diffConf.getFrom().getOpenShell(1),
+					diffConf.getFrom().getOpenShell(0));
+	}
+	else
+	{	if ( R==1 )
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+		else
+			multCaseP3Matrix(y, x, SAFStartA, SAFStartB,
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+	}
+}
+
+
+
+
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::multCaseP3Matrix(
+	VectorType *y, const VectorType *x,
+	INT SAFStartA, INT SAFStartB,
+	MOType a, MOType b) const
+{
+MatrixType	h = (*mrFockMatrix)(a, b);
+const MatrixType	*pMatCb = NULL;
+
+
+	pMatCb = this->CbMat->getP();
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+//			*p++ = h * *pMatCb++;
+		MatrixType	hh = h * *pMatCb++;
+//			cout << "hh=" << hh << endl;
+			y[SAFStartA + i] += hh * x[SAFStartB + j];
+			y[SAFStartB + j] += hh * x[SAFStartA + i];
+		}
+	}
+
+
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::multCase14Matrix(
+	VectorType *y, const VectorType *x,
+	INT SAFStart,
+	const Configuration<MOType> & same) const
+{
+MatrixType	diag = getDiag(same) - E0;
+
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		y[SAFStart + i] += diag * x[SAFStart + i];
+}
+

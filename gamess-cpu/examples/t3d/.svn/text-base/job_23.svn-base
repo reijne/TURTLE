@@ -1,0 +1,11 @@
+#!/bin/csh
+#QSUB -q mpp
+#QSUB -l mpp_p=32
+#QSUB -l mpp_t=2:00:0
+#QSUB -lM 8Mw
+#QSUB -lm 8Mw
+#QSUB -lT 0:30:0
+#
+cd /home/bzpgamuk/GAMESS-UK/examples/t3d
+#
+/home/bzpgamuk/GAMESS-UK/bin/gamess_mp2.32 < par_23.in > LOGS/par_23.out32

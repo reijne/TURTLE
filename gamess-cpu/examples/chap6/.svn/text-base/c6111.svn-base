@@ -1,0 +1,109 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed1 mfged1
+../../bin/gamess << EOF
+title
+h2co - dzp + f
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - mcscf (10e in 9 m.o.)
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+print orbitals virtuals natorb
+canonical 10 fock density fock
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - direct-MRDCI from mcscf nos (sec.10) - freeze 1s
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+runtype ci
+active
+3 to 62
+end
+core 
+1 to 2
+end
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+print orbitals virtuals natorb
+canonical 10 fock density fock
+mrdci direct
+table
+select
+symmetry 1
+spin 1
+cntrl 12
+singles 1
+conf
+0 1 2 3  27  40 41
+0 1 2 3  28  40 41
+0 1 2 3  27  40 42
+end
+roots 1
+thresh 2 2
+ci
+natorb
+enter
+EOF

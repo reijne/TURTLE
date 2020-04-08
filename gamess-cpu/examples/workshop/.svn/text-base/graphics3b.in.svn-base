@@ -1,0 +1,25 @@
+restart new
+punch grid 161 162 164 165
+title
+formaldehyde iso-density surface
+zmat angs
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz
+runtype analyse
+graphics
+gdef
+title
+3d  grid
+type 3d
+points 60
+size 8.0
+calc
+type dens
+section 150
+surf pote 160 0.02 0.04
+vectors 1
+enter

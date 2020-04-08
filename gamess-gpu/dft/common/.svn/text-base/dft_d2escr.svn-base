@@ -1,0 +1,17 @@
+      integer mxp2
+      parameter (mxp2 = mxprms*mxprms)
+
+      integer ncmax
+      parameter(ncmax=65)
+
+      REAL ddij,ddkl,aei,aej,aek,ael,aa,r,x1,y1,z1,dd
+      integer ijden,ik,ijx,ijy,ijz,klx,kly,klz
+      REAL dij,dkl
+      integer ijgt,klgt
+
+      common/dft_d2escr/ddij(ncmax,225),ddkl(ncmax,225),
+     +  aei(ncmax),aej(ncmax),aek(ncmax),ael(ncmax),
+     +  aa(mxp2),r(mxp2),x1(mxp2),y1(mxp2),z1(mxp2),
+     +  dd(4*mxp2),ijden(225),ik(225),
+     +  ijx(225),ijy(225),ijz(225),klx(225),kly(225),klz(225),
+     +  dij(225),dkl(225),ijgt(225),klgt(225)

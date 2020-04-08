@@ -1,0 +1,1594 @@
+\documentclass[11pt,fleqn]{article} 
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\newcommand{\formaldehyde}{\mbox{H$_{2}$CO}}
+\newcommand{\formion}{\mbox{H$_{2}$CO$^{+}$}}
+\newcommand{\bstate}{\mbox{$^{2}$B$_{2}$}}
+\newcommand{\water}{\mbox{H$_{2}$O}}
+\newcommand{\dtwoh}{\mbox{D$_{2h}$}}
+\newcommand{\ctwov}{\mbox{C$_{2v}$}}
+\newcommand{\silane}{\mbox{SiH$_{4}$}}
+\newcommand{\phosphine}{\mbox{PH$_{3}$}}
+\newcommand{\cucl}{\mbox{CuCl}}
+\newcommand{\nitrog}{\mbox{N$_{2}$}}
+\newcommand{\cah}{\mbox{CaH$_{2}$}}
+\newcommand{\astate}{\mbox{$^{1}$A$_{1}$}}
+\newcommand{\xastate}{\mbox{X$^{1}$A$_{1}$}}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+ 
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2010}\\ [.2in]
+{\large PART XX. THE VALENCE BOND PROGRAM TURTLE }\\
+%\vspace{.1in}
+{\large J. Verbeek, J.H. Langenberg, C.P. Byrman, F. Dijkstra, J.J. Engelberts,
+M.L. Zielinski, Z. Rashid and J.H. van Lenthe}\\[0.2in]
+ 
+Copyright (c) 1993-2010 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{5mm}\\
+\end{flushleft}
+
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section[Introduction]{Introduction}
+
+\begin{verbatim}
+
+           ----            ----         ----           ----   )))))
+                      ----       ----         ----   _ _ _   { o o }
+            ----                         ----      _(_)_(_)_  ( ^ )
+     ----                   ----                 _(_)_(_)_(_)_/ /
+----              ----                         _(_)_(_)_(_)_(_)/
+                        ----                  (_)_(_)_(_)_(_)_(_)
+ ----      ----                  ----           //  //   //  //
+\end{verbatim}
+
+TURTLE is an ab initio VB/VBSCF \cite{ref:vb1,ref:vb2} program written by
+J. Verbeek, J.H. Langenberg, C.P. Byrman, F. Dijkstra,
+J.J. Engelberts, M.L. Zielinski, Z. Rashid  and J.H. van Lenthe (Utrecht)\cite{ref:vb3,ref:vb4,ref:vb5}.
+
+The wavefunction can be expressed as a linear combination of structures,
+where the coefficients are variationally optimised. 
+
+The program has the following properties :
+
+\begin{itemize}
+\item No restrictions are put on the number of configurations and structures.
+\item Orbitals may be kept localised on atoms or fragments and may have single
+or double occupancy.
+\item Both the orbitals and the coefficients of the structures are variationally
+optimised.
+\item Analytical gradients can be used to get insight into the structures of molecules and their reactions.
+\item It has been made parallel to let it run on multiple processors at the same time.
+\end{itemize}
+
+The program has two main parts, CRESTR (CREate STRuctures)
+and TURTLE (The VBSCF program)
+
+The program limits are set in a parameter statement, which reads
+\begin{verbatim}
+common/turtleparam
+c
+c...   turtle parameters
+c
+      integer melec,ncorq,maxex,maxact,mbonds,maxato,
+     &        maxopa,ncases,maxcon,mmsocc,mxorbvb,maxspvb
+c
+      parameter (melec=100)
+      parameter (ncorq=2000000)
+      parameter (maxex=MAXEXVB,maxact=50,mbonds=50,
+     &           maxato=20,maxopa=150)
+      parameter (ncases=35)
+c      ... maxcon in vbcrestr ...
+      parameter (maxcon = 3000)
+c      ... msocc max. # singly occupieds ; was always enough (2009) ...
+      parameter (mmsocc = 30)
+c..   maxspvb  maximum # spinfunctions per configuration 
+c..   (42 for 10 singlys and the ultimate answer)
+      parameter (maxspvb=42) 
+c
+c     mxorbvb may be as large as allowed by n816 (32767)
+c
+      parameter (mxorbvb=MXORBVB)
+\end{verbatim}
+The capitalised items are set when configuring GAMESS.
+
+\begin{itemize}
+\item
+In this manual a \textit{LIST} is a list of numbers possible including a TO to indicate 
+a range and usually (especially TURTLE) closed by an END.
+
+{\bf Example }
+\begin{verbatim}
+1 2 4 6 TO 10 5 END
+\end{verbatim}
+\end{itemize}
+
+
+\section[CRESTR]{CRESTR}
+
+\subsection{Introduction}
+
+CRESTR is a support program for TURTLE, a program for Valence Bond 
+calculations. Its name is derived from CREate STRuctures. 
+
+The task of CRESTR is to perform spin projections on chosen sets of 
+configurations; the term configuration standing here for the 
+distribution of electrons over space-orbitals. CRESTR defines 
+symbolical Valence Bond structures. That is, numbers represent orbitals 
+and the connection between these numbers and "real" orbitals is made 
+by complementary programs.
+
+CRESTR is able to construct both Rumer and branching diagram functions. 
+For each configuration it generates all possible spin paths, 
+but the user is able to select if required. For the theory of the 
+construction of spin eigenfunctions see for example the paper by Raimondi
+et al. \cite{ref:vb6}
+The heart of the program consists of a spin projection procedure, 
+based on leading terms \cite{ref:vb6}, which generates 
+Rumer functions. The construction of branching diagram functions is 
+accomplished through Schmidt-orthogonalization of Rumer functions.
+
+There are two ways in which configurations can be defined. 
+The user can provide them directly or can define a set of 
+reference configurations and virtuals, with which CRESTR 
+automatically generates new configurations by performing 
+single and double excitations.
+
+Finally, CRESTR contains a symmetry option. If the user assigns irreps 
+to orbitals, CRESTR removes all symmetry-forbidden configurations.
+
+Note that memory requirements rise rapidly if the maximum  number of
+open shells per configuration exceeds 6.
+
+A configuration (or structure) is specified by a row of orbitals,
+which may include the string 'to'.  A row of orbitals may always be
+spread out over several lines.  If the definition of a configuration or
+Slater-determinant includes tags or integers other than orbitals and
+is scattered among several lines, then the first field in each line
+must be an orbital.  Furthermore, a new configuration or determinant
+should begin on a new line. Doubly occupied orbitals are defined by
+the twofold occurrence of an orbital.
+
+The CRESTR input starts with the keyword CRESTR and ends with an END.
+
+\begin{verbatim}
+   CRESTR
+   ........
+   ........
+   ........
+   END
+\end{verbatim}
+
+\subsection{Directives}
+
+All directives start with a keyword. The order in which the directives 
+appear is irrelevant, except that the first ones (if specified)  
+must be the NELEC, the MULT and/or the CORE-directives and the last
+one must be the END-directive.
+
+\subsubsection{The NELEC-directive}
+
+This directive consists of the keyword NELEC, followed by 
+the number of electrons.  GAMESS passes the number of electrons it used
+for the one and two electron-integrals to TURTLE. This directive overrides the
+number of electrons passed to CRESTR by GAMESS.
+
+{\bf Example }
+\begin{verbatim}
+NELEC  3
+\end{verbatim}
+
+\subsubsection{The MULT-directive}
+
+This directive consists of the keyword MULT, followed by the multiplicity. 
+As with the NELEC-directive, this directive is used to override the value passed
+ to CRESTR by GAMESS.
+
+{\bf Example }
+\begin{verbatim}
+MULT  3
+\end{verbatim}
+
+The wave function is threefold spin degenerate (a triplet).
+
+\subsubsection{The CORE-directive}
+
+This directive consists of the keyword CORE, followed by the number of core orbitals.
+This number tells CRESTR and TURTLE how many of the specified orbitals in
+CONF/STRUC and later inside TURTLE are frozen.
+
+{\bf Example }
+\begin{verbatim}
+CORE 5
+\end{verbatim} 
+
+The first five orbitals are frozen core.
+
+\subsubsection{The PRINT-directive}
+
+This directive consists of the keyword PRINT, followed by a string 
+representing the output-mode. If ALL or H is given, a large amount of 
+output will be generated, considering all phases of program-execution. 
+Amongst it is, for instance, the step by step formation of 
+leading terms from configurations. LIMI or M shows the defined 
+structures and determinants. By default CRESTR gives sparse information.
+
+The interpretation of the user-output CRESTR gives (if LIMI/M or ALL/H 
+is requested) considering the definition of Valence Bond structures 
+is explained in the following example:
+
+\begin{verbatim}
+ == list of configurations ==
+
+ ** configuration     1  **
+      1   1   2   2
+     structure   1  determinants   1 leading term abab
+       1 -1.00000
+
+ ** configuration     2  **
+      2   3   1   1
+     structure   1  determinants   2 leading term abab
+       1 -0.70711   2  0.70711
+     ******** determinants ********
+       1 : ab   2 : ba
+
+ ** configuration     3  **
+      1   2   3   4
+     structure   1  determinants   4 leading term abab
+       1  0.50000   2 -0.50000   3 -0.50000   4  0.50000
+     structure   2  determinants   4 leading term aabb
+       1 -0.50000   4 -0.50000   5  0.50000   6  0.50000
+     ******** determinants ********
+       1 : abab   2 : baab   3 : abba   4 : baba   5 : aabb   6 : bbaa
+
+ ======== end of list  =========
+\end{verbatim}
+
+The configurations are shown in ordered fashion: doubly occupied behind 
+singly occupied orbitals. Doubly occupied orbitals are neglected in the 
+spin-coupling procedure in CRESTR and are not shown in the Slater-determinants above. 
+Consequently, for the first configuration in the example, which does not 
+have any singly occupied orbital, no determinant is shown at all. 
+The second configuration is projected into the following structure :
+
+\begin{equation}
+\Psi = - \sqrt{\frac{1}{2}} |1\overline{1}2\overline{3}| + \sqrt{\frac{1}{2}} |1\overline{1}\overline{2}3| 
+\end{equation}
+
+The third configuration is projected into two structures, which are interpreted 
+as follows:
+
+\begin{equation}
+\Psi_{1} = \frac{1}{2} |1\overline{2}3\overline{4}| -  
+           \frac{1}{2} |\overline{1}23\overline{4}| -  
+           \frac{1}{2} |1\overline{2}\overline{3}4| +  
+           \frac{1}{2} |\overline{1}2\overline{3}4|   
+\end{equation}
+
+\begin{equation}
+\Psi_{2} = -\frac{1}{2} |1\overline{2}3\overline{4}| -  
+           \frac{1}{2} |\overline{1}2\overline{3}4| +  
+           \frac{1}{2} |12\overline{3}\overline{4}| +  
+           \frac{1}{2} |\overline{1}\overline{2}34|   
+\end{equation}
+
+For each structure the leading term is printed as well.
+
+\subsubsection{The SPIN-directive}
+
+This directive consists of the keyword SPIN, followed by a string representing 
+the spin projection. If RUMER or LT is given, Rumer functions will be defined. 
+Any of the strings BD, YK, or GEN, cause branching diagram functions to be defined. 
+OFF defines (all possible) Slater-determinants as independent entities, that is, 
+not gathered in structures. By default CRESTR defines Rumer functions. 
+(See also the CONF-directive, 2.2.6.)
+
+{\bf Example  }
+\begin{verbatim} 
+SPIN RUMER
+\end{verbatim}
+
+Rumer functions will be used.
+
+\subsubsection{The SYM-directive}
+
+With this directive the irreducible representation of the wave function can be defined. 
+It is used to exclude configurations of incorrect symmetry from the (symbolic) wave 
+function. Note that the irreps of the orbitals must be determined by the user,
+as this is not taken care of by TURTLE.
+
+Input-lines :
+\begin{itemize}
+\item The character string SYM.
+\item The number of orbitals participating in the wave function.
+\item The pointgroup of the molecule, followed by the irrep of the wave function.
+\item A number of lines, each one consisting of an irrep-symbol, followed by a series of orbitals.
+\end{itemize}
+
+The irreps of all present orbitals must be assigned. 
+The pointgroups and corresponding irreps allowed for are the same as in 
+DIRECT CI. 
+
+{\bf Example  }
+\begin{verbatim} 
+SYM
+10
+D2H  AG
+AG  1  TO  4
+B1U  7 10
+B2U  6   9
+B3U  5   8
+\end{verbatim}
+
+\subsubsection{The CONF-directive}
+
+This directive is used to define one or more configurations.
+
+Input-lines :
+\begin{itemize}
+
+\item The character string CONF. 
+\item A number of lines consisting of orbitals, defining one or more configurations as a \textit{LIST}
+First in each sequence  CORE NCORE (A,I)
+may be specified, indicating that the first NCORE orbitals are doubly occupied.
+Each configuration may be accompanied by a spin tag and a selection of spin paths 
+(see further).
+\item The character string END.
+\end{itemize}
+
+Each configuration must consist of NELEC orbitals.
+
+{\bf Example }
+\begin{verbatim}
+CONF
+1 1 2 2
+1 1 2 3
+END
+\end{verbatim}
+
+The first configuration consists of two closed shells, orbital 1 and 2. 
+The second consists of one closed shell, orbital 1, and two open shells, 
+orbital 2 and 3.
+
+By default all structures corresponding to a configuration are formed 
+by performance of the spin projection chosen with the SPIN-directive. 
+However, the general approach will be overruled for a certain configuration 
+if its definition is followed by a spin tag. For this tag, the same strings 
+can be used as for the SPIN-directive (except OFF). If the tag is followed 
+by integers, selected structures belonging to the particular configuration 
+will be defined. In this case, the integers represent the selected spin paths. 
+(By definition, the first spin path is the one that exhibits perfect pairing.) 
+No more than 42 structures may be selected per configuration.
+This number can be raised easily by changing maxsp in  turtleparam (we checked it very carefully).
+
+{\bf Example}
+\begin{verbatim}
+SPIN  BD
+CONF
+1 to 4
+1 2 3 5  RUMER
+1 2 4 5  BD  2
+END
+\end{verbatim}
+
+All (two) branching diagram functions are defined for the first configuration, 
+and all Rumer functions for the second configuration. For the third configuration 
+only the second branching diagram function is defined.
+
+The user is protected against the multiple definition of one configuration. 
+This protection will be overruled, for a particular configuration, if the user 
+chooses to select structures as described above. 
+The CONF-directive can not be combined with the MRSD-directive. 
+
+\subsubsection{The ALL-subdirective for CONF}
+
+This subdirective is used to generate all possible configurations in which 
+$m$ electrons are distriuted over $n$ orbitals. The $m \cdot 2$ can't be
+bigger than $n$.
+
+Input-lines:
+\begin{itemize}
+\item The following input-characters should be provided on the same line.
+\item The character string ALL.
+\item The NORB number of orbitals over which we distribute the electrons.
+\item The NELEC number of electrons to distribute.
+\item The character string RESTR.
+\item The NRESTR number of restricted orbitals.
+\item A series of orbitals to restrict. The orbital numbers should include
+NCORE value in it.
+\end{itemize}
+
+If RESTR is specified after the NELEC value, only one of the provided orbitals
+will be doubly occupied per configuration. In all other cases, configurations 
+will be disregarded.
+
+{\bf Example}
+\begin{verbatim}
+CONF
+ALL 4 2
+END
+\end{verbatim}
+
+Generating all possible configurations by distributing two electrons over
+four orbitals. The resulting configurations are:
+\begin{verbatim}
+1 2
+1 3
+1 4
+2 3
+2 4
+3 4
+1 1
+2 2
+3 3
+4 4
+\end{verbatim}
+
+
+{\bf Example}
+\begin{verbatim}
+CONF
+ALL 5 4  RESTR 2  3 4
+END
+\end{verbatim}
+
+The resulting configurations are:
+
+\begin{verbatim}
+ 1    1    2    3    4
+ 1    2    2    3    4
+ 1    2    3    3    4
+ 1    2    3    4    4
+ 1    1    2    2    3
+ 1    1    2    3    3
+ 1    2    2    3    3
+ 1    1    2    2    4
+ 1    1    2    4    4
+ 1    2    2    4    4
+ 1    1    3    3    4
+ 1    1    3    4    4
+ 2    2    3    3    4
+ 2    2    3    4    4
+\end{verbatim}
+
+The skipped configurations have the orbitals number $3$ and $4$ doubly occupied.
+
+\subsubsection{The KEKULE-subdirective for CONF}
+
+KEKULE followed by a set of orbitals {\em LIST} (A, {\em LIST}) is used to generate all configurations corresponding to
+Kekul\'e valence structures (alternating single and double bonds) of a system.
+
+For this sub-directive to work, CRESTR should be called after getting the
+vectors for VB (i.e., after VBVECTORS sub-directive). This is possible, as CRESTR is now
+a vb subdirective. The number
+of orbitals following the character string KEKULE must be even. Kekul\'e valence 
+structures are generated by singlet-coupling the orbitals between the nearest neighbours only.
+The default distance for the nearest neighbours is set equal to 3.1 a.u. User 
+can overwrite this by putting a character string DISTANCE followed by the 
+distance for the nearest neighbours (A, F) after the orbitals {\em LIST} involved in Kekul\'e valence
+structures.
+
+{\bf Example}
+\begin{verbatim}
+CONF
+CORE 18 KEKULE  19 TO 24  DISTANCE 2.7
+END
+\end{verbatim}
+
+
+\subsubsection{The STRUC-directive}
+
+This directive is used to define structures manually. Structures may consist 
+of any linear combination of Slater-determinants and need not necessarily be 
+an eigenfunction of $S^2$. The structures may be used normalised by specifying 
+NORM on the input line.
+
+Input-lines:
+\begin{itemize}
+\item The character string STRUC
+If NORM is specified on this line the structure is normalised.
+\item A number of lines defining one or more determinants and their 
+corresponding spin-coupling coefficients. The coefficients must  precede 
+the orbitals that define a determinant, which are specified as a  \textit{LIST}. 
+First the a-orbitals must be specified, then the b-orbitals. 
+First in each sequence  CORE NCORE (A,I)
+may be specified, meaning that the first NCORE orbitals are doubly occupied.
+\item The character string END.
+\end{itemize}
+STRUC ..... END sequence specifies  a structure, which may be normalised.
+If more structures needs to be introduced, they need to be specified in sequence
+STRUC [NORM] ... STRUC [NORM] ... STRUC [NORM] ... END.
+
+Each determinant must consist of NELEC orbitals.
+
+{\bf Example }
+\begin{verbatim}
+STRUC
+1.0  1 to  4
+1.0  3 4 1 2
+STRUC NORM
+1.0  core 1   2 3
+1.0  core 1   3 4
+END
+\end{verbatim}
+
+A 2 structure (spin-unrestricted) Valence Bond structure is defined which, in case of 
+singlet multiplicity, consists of the following structures: 
+
+$1.0*|12\overline{3}\overline{4}|+1.0*|34\overline{1}\overline{2}|$.
+
+$1.0/\sqrt2 *|1\overline{1}2\overline{3}|+1.0/\sqrt2 *|1\overline{1}3\overline{4}|$
+
+
+The STRUC-directive may be applied as often as one likes but must not be used together 
+with either the CONF- or the MRSD-directive.
+
+\subsubsection{The MRSD-directive}
+
+This directive is used to define a set of reference configurations and a 
+group of virtual orbitals, with which single and double excitations will 
+be performed. The excitations can be defined in two, distinct ways. 
+In the first one (CONF), configurations serve as the reference space. 
+After all single and double excitations to a certain virtual space have been 
+carried out, spin projection is performed to all acquired configurations. 
+In the second one (STRUC), the subject of the excitations is formed by 
+Valence Bond structures, obtained by spin projection of reference configurations. 
+The singles and doubles are generated by one- and twofold appliance of an 
+excitation operator, which, in second quantization language, is defined 
+as a $C_{a \rightarrow v} + C_{\overline a \rightarrow \overline v}$, 
+where v represents a virtual orbital and a an active. 
+Applied to a spin eigenfunction, this operator generates spin eigenfunctions, 
+and no spin projection needs to be subsequently carried out.
+
+Input-lines :
+\begin{itemize}
+\item The character string MRSD, followed by either one of the character strings
+CONF or STRUC.
+\item The character string REFER.
+\item A series of reference configurations. Spin path selection as with the 
+CONF-directive may be applied only if the excitation type is STRUC.
+\item The character string VIRT.
+\item A series of virtual orbitals.
+\item The character string END.
+\item The virtuals may be defined before or after the reference configurations.
+\end{itemize}
+
+{\bf Example }
+\begin{verbatim}
+MRSD  CONF
+REFER
+1 1 2 2 3 3 4 4 6
+1 1 2 2 3 3 5 5 7
+VIRT
+8 9 10
+END
+\end{verbatim}
+
+Correlating configurations are generated by single and double excitations 
+of the two reference configurations to the virtual orbitals 8, 9, and 10. 
+Spin projection is performed after generation of the configurations.
+
+\subsubsection{The END-directive}
+
+This obligatory directive consists of the single keyword END and is used 
+to close an input-session.
+
+\subsubsection{A complete example}
+
+\begin{verbatim}
+CRESTR
+NELEC 4
+PRINT  LIMI
+SPIN  BD
+CONF
+1 1 2 2
+1 1 2 3
+1 1 2 4
+1 2 2 3
+1 2 2 4
+END
+END
+\end{verbatim}
+
+
+\section{TURTLE}
+
+\subsection{Introduction}
+
+TURTLE is a program designed to perform Valence Bond Self Consistent
+Field (VBSCF) and VBCI (VB) calculations. 
+This part contains the directives that are for the general VB program.
+
+\subsection{General Directives}
+
+\subsubsection{PASS}
+
+Pass may be used to specify the number of passes in the 2 sort stages
+of the 4-index transformation : PASS \emph{ipas1 ipas2} (default 1 1).
+
+{\bf Example }
+\begin{verbatim}
+PASS 4 2
+\end{verbatim}
+
+\subsubsection{ACCURACY}
+
+Specify accuracy 4-index (smallest integral retained),using
+ACCUR \emph{iacc}  where the accuracy is set to $10^{(-iacc)}$ (default $10^{-10}$).
+
+{\bf Example }
+\begin{verbatim}
+ACCU 12
+\end{verbatim}
+
+The accuracy will be $10^{-12}$.
+
+\subsubsection{ACTIVE}
+
+Defines set of active orbitals as a  \textit{LIST}. The number of active orbitals must exceed
+or equal the highest occupied orbital number. The active directive couples
+the orbitals defined with the CONF directive in CRESTR to the orbitals or a
+specified set of vectors as defined in TURTLE. This is now set automatically using core.
+
+{\bf Example } 
+\begin{verbatim}
+ACTIVE
+1 2 5 6 7  
+END
+\end{verbatim}
+
+This statement couples the basis functions 1 2 5 6 and 7 to the functions
+1 to 5 as defined in CRESTR. 
+
+\subsubsection{SPLICE / ONELEC}
+
+Defines orbitals to be put in frozen core as a  \textit{LIST}. Cf. the ACTIVE directive.
+
+\subsubsection{NEW2}
+
+Turns on the new ordering scheme of 2-electron integrals. CURTAIL option
+switched off automatically.
+
+\subsubsection{VBVECTORS}
+
+Tell TURTLE to read vectors from dumpfile or input or a combination.
+
+Syntax: 
+
+\begin{verbatim}
+VBVECTORS isec
+
+or 
+
+VBVECTORS MANUAL n s [PRINT]
+
+or
+
+VBVECTORS COMBINE [PRINT]
+...
+...
+...
+END
+\end{verbatim}
+
+\emph{isec} is the section of the dumpfile from which the vectors are to be
+restored. 
+
+MANUAL tells TURTLE to read \emph{n} vectors from the input and to skip \emph{s} columns
+per row. PRINT is optional. When it is used the vectors will be printed in the output.
+After the line with VBVECTORS the vectors have to be given.
+
+COMBINE tells TURTLE to pick up orbitals from different locations, for example two or more different
+dump files. The VBVECTORS  COMBINE recognises the following subdirectives 
+\begin{itemize}
+\item FILE
+FILE FILENAME BLOCK SECTION   \textit{LIST} (2A,2I, \textit{LIST})
+
+The vectors specified in   \textit{LIST}  are included from the section and dumpfile specified.
+If the dimension of vectors does not match (i.e. is less than) the current GAMESS dimension, the AO's
+to be filled in with zero's have to be specified using an line :
+\begin{verbatim}
+EXTRA  LIST  (A,LIST)
+\end{verbatim}
+
+{\bf Example } 
+\begin{verbatim}
+FILE ED5  1  11     1 TO 5 8 9 END
+\end{verbatim}
+
+\item SECT
+SECT SECTION   \textit{LIST} (2A,2I, \textit{LIST})
+
+Vectors are added as in the FILE subdirective, except that they are taken from the current dumpfile.
+
+\item MANUAL
+MANUAL n s
+
+Like the VECTORS MANUAL directive.\
+
+\item DUMP
+DUMP ISECV
+\item PERM (or MOPERM)
+PERM list
+\item ELIMINATE
+ELIMINATE list (A,nI)
+Eliminate the vectors that coefficients at the specified places.
+\item SCREEN (or CLEAN)
+SCREEN A  I (A,F,I)
+Clean vectors up by making elements smaller than $A^I$ exactly zero.
+\item END
+END COMBINE
+\item 
+\end{itemize}
+
+
+{\bf Example 1}
+\begin{verbatim}
+VBVECTORS 10
+\end{verbatim}
+
+Vectors are picked up from section 10 of the dumpfile.
+
+{\bf Example 2 }
+\begin{verbatim}
+VBVECTORS MANUAL 4 1
+1  0.1000  0.3333 
+2  0.4444  0.1113
+3  0.0000  0.0005
+
+1  0.0000  0.0500
+2  0.0000  0.1000
+3  1.0000  0.6666
+\end{verbatim}
+
+In this example four orbitals are manually fed to TURTLE. These molecular orbitals are
+linear combinations of three basis functions (atomic orbitals). 
+
+{\bf Example 3 }
+\begin{verbatim}
+VBVECTORS COMBINE PRINT
+FILE ED13 1 1 1 to 3 END
+EXTRA 7 TO 10 END
+MANUAL 4 0
+0.0   0.0   0.0   0.0
+0.0   0.0   0.0   0.0
+0.0   0.0   0.0   0.0
+0.0   0.0   0.0   0.0
+0.0   0.0   0.0   0.0
+0.0   0.0   0.0   0.0
+0.2   0.0   0.0   0.0
+0.0   0.2   0.0   0.0
+0.0   0.0   0.2   0.0
+0.0   0.0   0.0   0.2
+END
+\end{verbatim}
+
+In this example orbitals are partly picked up from a dumpfile (ed13 in this case) and are partly defined manually. The vectors on ed13 consist of 6 coefficients only. The EXTRA directive increases the dimension of these vectors with 4 by adding zeroes for coefficients 7, 8, 9 and 10. 
+
+\subsubsection{VBMO}
+
+Allows one to dump VB orbitals, in proper, understanable for molden format, to separate file. In order to
+picturize VB orbitals in molden, one has to copy those orbitals from this file, into SCF orbitals in output file.
+
+{\bf Example}
+\begin{verbatim}
+VBMO
+ local
+\end{verbatim}
+
+Creates file called: out.vbmo.{\bf local} in working directory (where all edX files are stored as well).
+
+Given form of {\bf VBMO} directive is the first step to new feature, allowing to dump all the necessary informations
+from VB calculations, for molden.
+
+\subsubsection{BYPASS}
+
+Allows one to bypass a stage of the VB calculation. Options are:
+
+\begin{itemize}
+\item 4INDEX
+\item HMATRIX
+\item DAVIDSON
+\end{itemize}
+
+\subsubsection{DIPOLE}
+
+Defines the dipole integrals to mix in with the 1-electron integrals,
+for (e.g.) the calculation of a polarisability. One specifies on
+one line DIPOLE \emph{fx fy fz}, where \emph{fx}, \emph{fy} and \emph{fz} are the dipole mixing factors.
+
+{\bf Example}
+\begin{verbatim}
+   DIPOLE 0.0 0.0 0.05
+\end{verbatim}
+
+\subsubsection{BLKSIZE}
+
+Set the blocking factor for the sortfiles, by
+specifying BLKSIZE \emph{ibl} (default 10, maximum 24).
+
+\subsubsection{CURTAIL}
+
+Specifies using CURTAIL \emph{ncurt} that the 4-index transformation in TURTLE 
+only produces all integrals for the first \emph{ncurt} orbitals. For the remaining
+integrals at least 2 indices should be in the \emph{ncurt} space. 
+This directive is automatically set in VBSCF calculations. User intervention
+is not recommended.
+
+\subsubsection{TITLE}
+
+The following line is read in as a title of the job. 
+
+\subsubsection{IPRINT}
+
+Sets printing level to \emph{i}, using IPRINT  \emph{i}. A higher value of \emph{i} yields more output. If no module is specified the print level \emph{i} is set for all modules. One may specify individual print flags for different modules:
+
+\begin{itemize}
+\item DAVIDSON
+\item TRANSFORMATION
+\item HMATRIX
+\item SCF
+\end{itemize}
+
+{\bf Example}
+\begin{verbatim}
+IPRINT 50 TRANS HMAT
+\end{verbatim}
+
+\subsubsection{WPRINT}
+Sets the printing level of branching or rumer diagrams with their
+corresponding weight at the end of a VBCI or VBSCF calculation. Weights
+above this value will be printed. The default value is $0.001$.
+
+{\bf Example}
+\begin{verbatim}
+WPRINT 0.03
+\end{verbatim}
+
+All weights with a value higher than 0.03 will printed with their corresponding branching or rumer diagrams.
+
+\subsubsection{SHIFT}
+
+Specify the Davidson levelshift (real), for the VBCI. 
+
+\subsubsection{CRIT}
+
+Specify various criteria by give first the criterion as $RR.10^{(+II)}$, as
+format (F,I) and then as a string the intended module. The possibilities are
+
+
+\begin{itemize}
+\item DAVIDSON
+\item JACOBI
+\item ORTHOGONALISATION
+\end{itemize}
+
+If no module is specified, DAVIDSON is assumed.
+
+\subsubsection{MIX}
+
+Mix input orbitals by hand; If no orbitals are present a Unit matrix is used.
+On the keyword line the string 'PRINT' may be given, causing a print of the result.
+Each resulting orbital occupies one line; Specify for each orbital in the mix
+NO, FO (I,F), being the orbital number and the mixing factor.
+Finish the linew with the keyword 'END'
+
+{\bf Example}
+\begin{verbatim}
+   mix
+   1 0.5 2 0.5
+   1 0.5 2 -0.5
+   end
+\end{verbatim}
+
+\subsubsection{MAX}
+
+Maximum number of cycles in davidson (default 50) or maximum number of
+expansion vectors (default 30), if 'EXPANSION' is specified. 
+
+\subsubsection{CASES}
+
+Analyse the types of matrix elements if specified. 
+
+\subsubsection{SELECT}
+
+SELECT NN 
+
+Number of States to select for starting vector. One has a choice 
+between the  NN first (default) and NN lowest, if 'LOWEST' is specified. 
+
+{\bf Example}
+\begin{verbatim}
+   select 5 lowest
+\end{verbatim}
+
+\subsubsection{MODE}
+
+Select Davidson diagonalisation mode, by giving MODE KEY.  Key may be
+
+\begin{itemize}
+\item EMIN
+\item VMIN
+\item LOCK
+\item JACDAV
+\end{itemize}
+
+\subsubsection{ALTER}
+
+Requests level shift alteration in Davidson. If 'OFF' is specified on the same 
+card the level-shift alternation is switched off again. 
+
+\subsubsection{MULLIKEN}
+
+Atom definition in terms of orbital numbers. Defines which ao's belong
+to which atom and which basis functions belong to that atom. This directive must
+be terminated by 'end'.  Usually the hybrid definition is more efficient at this.
+
+{\bf Example}
+\begin{verbatim}
+mulliken
+ c1
+ 1 3 5 7 end
+ 1 to 12 end
+ c2
+ 2 4 6 8 end
+ 13 to 24 end
+end
+\end{verbatim}
+
+\subsubsection{HYBRIDS}
+
+Try to make bonding hybrids according to rumer-bonds. The hybrids are
+guessed by maximising overlap.
+
+If this directive is followed by 'AO' then per atom the AO's will be
+used for it. 
+
+\subsubsection{CLEAR}
+
+Clear ao's. That is remove coefficients on alien atoms. Atom definitions
+have to be given at the 'mulliken' option. 
+
+\subsubsection{NMOS}
+
+Reduce the number of MO's defined in the active statement. 
+This may be useful when mixing mo's by hand
+
+\subsubsection{SCHMIDT}
+
+SCHMIDT (a string of numbers (possibly using 'TO')
+
+Orthogonalise vectors in the specified set (on 1 card) using Schmidt-orthogonalisation. 
+More then 1 set may be specified. Now SERVEC may be more flexible and well defined.
+
+{\bf Example}
+\begin{verbatim}
+schmidt
+1 2 6 to 8
+\end{verbatim}
+
+\subsubsection{LOWDIN}
+
+LOWDIN (a string of numbers (possibly using 'TO')
+
+Orthogonalise vectors using Lowdin-orthogonalisation. Cf. SCHMIDT 
+
+\subsubsection{ENERGY}
+
+Read sum of atomic energies, using ENERGY E , (A,F). Probably nothing is done
+with this; If we really want something like this the atomscf might be used . 
+
+\subsubsection{EIGEN}
+
+By giving EIGEN NV  (A,I), one requests the print of NV CI eigenvalues and eigenvectors. 
+Instead of a number the text-string ALL may be given.
+
+\subsubsection{MRSD}
+
+This option is meant to steer a MR-VB option;
+
+\subsubsection{DETS}
+
+DETS requests output of matrix-elements between determinants
+
+\subsubsection{PARALLEL} 
+
+Sets parallel modes and checks
+
+Allowed keywords are:
+\begin{itemize}
+\item  SYNCH   : synchronous communication
+\item  ASYNCH  : asynchronous communication
+\item  CHECK   : use checksum do check communication
+\item  NOCHECK : don't use checksum do check communication
+\end{itemize}
+
+\subsubsection{HCPU}
+
+This directive is meant for really huge (in number of determinants) VB calculations.
+It causes the program to print out each row of the H- and S-matrices it calculates
+in high precision. If an integer is supplied on the same card, the calculation starts
+at that group, offering a primitive restart mechanism. So to skip calculation
+of the matrix-elements for the first 8 groups one specifies 
+
+{\bf Example}
+\begin{verbatim}
+HCPU 9
+\end{verbatim}
+
+\subsubsection{END or FINISH}
+
+END or FINISH conclude the total TURTLE input an extra string 'VB" is allowed.
+In addition a section number to store the VB orbitals may be specified
+
+{\bf Example}
+\begin{verbatim}
+END VB 23
+    ..or..
+END 23 VB
+\end{verbatim}
+
+\subsection{SCF-directives}
+
+\subsubsection{Introduction}
+
+The SCF part of the TURTLE input is started by a SCF keyword and 
+concluded with an END. On this card the word SCF and a section number 
+for the VBSCF orbitals may be given.
+
+{\bf Example of global TURTLE input}
+\begin{verbatim} 
+    turtle
+    ......
+    ......
+    scf
+    .....
+    ....
+    end 33 scf
+    .....
+    end vb
+\end{verbatim}
+
+The SCF section contains quite a few directives, that also occur in the
+'normal' TURTLE input (especially directives referring to
+diagonalisation).  These directives then refer to the diagonalisation in
+the Brillouin state part of the code.
+
+\subsubsection{QCSCF}
+
+The default scf procedure is the SUPER-CI method.
+This directive invokes a quadratically convergent scf
+procedure based on a Newton-Raphson scheme.
+
+{\bf example of QCSCF input}
+\begin{verbatim} 
+    qcscf
+    .....
+    .....
+    end 
+\end{verbatim}
+
+The sub-directives available in QCSCF are as follows.
+
+In the Newton-Raphson scheme a necessary condition to get convergence
+is that the Hessian matrix is positive definite. If this is not the case the 
+Hessian must be augmented to make it positive definite otherwise the scf 
+procedure may not converge. In TURTLE the following equation is used 
+for that purpose.
+\begin{equation}
+\label{eq:linear}
+        \delta{\bf c} = -( {\bf H} + \lambda{\bf I})^{-1} . {\bf g}
+         \mbox{ with }  \lambda = - \epsilon_0 + R . \langle {\bf g} | {\bf
+g} \rangle
+\end{equation}
+where {\bf I} is the unit matrix, $\epsilon_0$ is the largest negative
+eigenvalue 
+of the Hessian matrix {\bf H}, {\bf g} is the gradient vector and $R$ is a
+suitably 
+chosen scalar. The default value of R is set equal to 1.5. It can be overwritten 
+by following directive.
+
+AUGMENT R
+
+Alternatively, the Super-CI method can be used in the first few iteration.
+
+SPCI ITERS {\em NITER} use Super-CI in the first {\em NITER} iterations.
+
+SPCI AUTO F use Super-CI until either the maximum component of orbital
+grandient vector or the correction vector decreases to F.
+
+The default value for F is set to 0.01. This directive allows a back and
+forth switching between the Super-CI and the Newton-Raphson method.
+
+A word GRADIENT or CORRECTION can also be specified for just one time
+switching from Super-CI to Newton-Raphson based on the corresponding 
+criterion.
+
+SPCI AUTO F GRADIENT/CORRECTION
+
+By default the above equation (eq. \ref{eq:linear}) is solve by conjugate
+gradient method. However,
+it can also be solved by inverting the Hessian matrix. The following directive
+can be used for that in a new line.
+
+INVERT
+
+\subsubsection{EXCIT / MIX}
+
+EXCIT (or MIX) controls the orbital mixings in the SCF. In general the 
+program is is able to determine the mixing options by itself (using the 
+HYBRID definitions, if specified). This directive is meant to allow 
+more direct control of the optimisation process. 
+This is quite cumbersome and error-prone.
+
+On the same line the word ASIS may be given, forcing the program to use the 
+atomic orbitals as they are (as is). This may well cause dependency problems
+
+After that equivalence restrictions and orbital excitation patterns may be
+specified; See the program text for details.......
+
+
+\subsubsection{CRIT}
+
+Criterion for Jacobi, Davidson or SCF (default SCF) as CRIT FFF III (A,F,I), 
+which specifies the criterion as FFF*$10^(+_i)$ . By default the SCF criterion 
+is set.  On the same line the following keywords (one or more) may be set.
+
+\begin{itemize}
+\item JACOBI     .. set jacobi criterion 
+\item DAVIDSON   .. set davidson criterion 
+\item SCF        .. set scf criterion 
+\item OVERLAP	 .. overlap criterion is used for convergence
+\end{itemize}
+
+{\bf Example}
+\begin{verbatim}
+  crit 2.3 -6 jacobi davidson
+\end{verbatim}
+
+\subsubsection{MAX}
+
+Set the maximum number of iterations for and in the SCF,  using MAX IMAX KEY
+(A,I,A), where key may be one of the following :
+
+\begin{itemize}
+\item SCF        .. set maximum number of SCF iterations  (default 25)
+\item DAVIDSON   .. set maximum no.  davidson iterations (in SCF) (default 50)
+\item EXPANSION	 .. set max. no. expansion vectors in davidson (in SCF) (def. 30)
+\end{itemize}
+
+\subsubsection{MODE}
+
+Set diagonalisation mode using MODE KEYWORD (A,A), where Keyword is one of:
+
+\begin{itemize}
+\item EMIN
+\item VMIN
+\item LOCK
+\item JACDAV
+\end{itemize}
+
+\subsubsection{ALTER}
+
+Request level shift alternation in the Davidson
+
+\subsubsection{SHIFT}
+
+Perform level shift in SCF or SCF-Davidson, using either SHIFT ESHIFT SCF or
+SHIFT ESHIFT DAVIDSON (A,F,A). 
+
+\subsubsection{SELECT}
+
+Select start of Brillouin Interaction Davidson, specifying either
+\begin{itemize}
+\item  SELECT FIRST
+\item  SELECT LOWEST
+\end{itemize}
+
+The SELECT FIRST is the default, and I would be really concerned, if that 
+was not the right choice.
+
+\subsubsection{ORTHO}
+
+The ortho directive allows one to switch off the allowed 
+orthogonalisations; By default for instance singly occupied are
+orthogonalised to the doubly occupied ones. Note that the VBCI
+does not do these orthogonalizations 
+    
+\begin{verbatim}
+    example :
+      ortho off
+\end{verbatim}
+
+This directive may also be used to specify the allowed orthogonalisations 
+explicitly. This a very complicated and possibly "dangerous" procedure.
+Look in the code to see how it's done.
+
+
+\subsubsection{REMOVE}
+
+Specify the criterion to ignore excitations based on the nuclear attraction
+matrix as FFF*$10^III~$, which is read as REMOVE FFF III (A,F,I).
+An excitation corresponding to a nuclear attraction integral smaller then
+this criterion is omitted in the automatic SCF procedure. (Default 1.0d-8)
+
+\subsubsection{HYBRID}
+
+Define atoms for an automatic atomic (local) scf procedure.  If mulliken has been
+specified, those definitions are used.
+On the hybrid card the words CLEAN (Default) or DIRTY may be specified. 
+CLEAN means that all ao's in a hybrid-mo not belonging to that hybrid 
+are zeroed (cleaned). DIRTY leaves them alone.
+
+On a new line the word GUESS may be specified, which means that
+the program tries to guess spin-bonded hybrids based on the spinfunctions
+and the hybrid definitions, using singular a value decomposition.
+
+The restriction that an AO may not belong to different hybrids has been lifted (See equivalence)
+
+Next lines specify the hybrids.
+
+Syntax: 
+
+\begin{verbatim}
+hybrids
+ atom-name 
+ functions (mo's) end
+ basisfunctions end
+end
+\end{verbatim}
+
+Instead of specifying the basis-functions one can give the keyword ATOM
+and specify the numbers of the atoms for this hybrid,
+in which case atom-definitions and the mo's just specified are used
+to determine the ao's in this hybrid. This makes the hybrid definition
+basis-set independent.
+
+
+{\bf Example }
+\begin{verbatim}
+hybrids
+ c1
+ 1 3 5 7 end
+ 1 to 12 end
+ c2
+ 2 4 6 8 end
+ 13 to 24 end
+end
+\end{verbatim}
+
+{\bf Example 2 }
+\begin{verbatim}
+hybrids
+ c1
+ 1 3 5 7 end
+ atom 1 end
+ c2
+ 2 4 6 8 end
+ atom 2 end
+end
+\end{verbatim}
+
+\subsubsection{EQUIV}
+
+EQUIV  (A)
+
+\begin{itemize}
+\item FORCE : Forced equivalence with standard setup.
+FORCE  \textit{LIST}: specify equivalence groups (i.e. \# orbitals in each group)
+
+{\bf Example }
+\begin{verbatim}
+equiv force 1 3 end
+\end{verbatim}
+This defines an equivalent set of 1 orbital and one with 3 orbitals; The remaining sets
+all contain 1 orbital; The remaining keywords detemine how the orbital mixing is set up.
+\begin{itemize}
+\item asis : do excitation selection as the program used to do
+\item h      : select the excitation corresponding to the largest h-matrix element
+\item n      : do not have a specific selection
+\item internal : specify the internal excitations explicitly. A  \textit{LIST} of pairs specifies the excitations
+
+{\bf Example }
+\begin{verbatim}
+internal 2   2 3  3 4 4 2    2 4  3 2  4 3 end
+\end{verbatim}
+\end{itemize}
+
+\item PRIMITIVE (virt)
+Primitive equivalences (only one set); if virt is specified the virtuals are made equivalent.
+An MO and for each MO a set of AO's is specified (like in HYBRID). So we have MO/AO's pairs.
+You may use the same AOs in different combinations; The restriction that an AO may not
+appear in different hybrids is also lifted. See there. Use of super hybrid is recommended.\
+Syntax: 
+
+\begin{verbatim}
+equivalence 
+ functions (mo's) end
+ basisfunctions end
+end
+\end{verbatim}
+
+{\bf Example }
+\begin{verbatim}
+? resonating BLW for H6
+  hybrid  
+  h1h2
+   1 end   
+   atom 1 2 end 
+  h3h4
+   2 end   
+   atom 3 4 end 
+  h5h6
+   3 end   
+   atom 5 6 end 
+  h2h3
+   4 end   
+   atom 2 3 end 
+  h4h5
+   5 end   
+   atom 4 5 end 
+  h6h1
+   6 end   
+   atom 6 1 end 
+  end
+  equivalence virt
+   1 end   
+    1 2 3 4 end 
+   2 end   
+    5 6 7 8 end 
+   3 end   
+    9 10 11 12 end
+   4 end   
+    3 4 5 6 end 
+   5 end   
+    7 8 9 10 end
+       6 end   
+    11 12 1 2 end 
+  end equivalence
+  super hybrid orth
+\end{verbatim}
+\end{itemize}
+ 
+
+\subsubsection{NOSYMM}
+
+Do not use spatial symmetry. If CALC is specified, do not use
+symmetry in the calculation of matrix elements
+
+\subsubsection{NOSPIN}
+
+Do not use symmetry due to spin in matrix element evaluation. 
+
+\subsubsection{SUPER}
+
+Do not allow internal excitations. These are replaced by excitations
+to ao's. This may be very beneficial in cases, where the active
+orbitals are nearly (or exactly) identical. When convergence is
+troublesome in e.g. a Breathing Orbital \cite{ref:vb7} calculation
+try SUPER.
+In addition some super options/approaches may be specified.
+Not all of these are well tested or understood. They are :
+\begin{itemize}
+\item HYBRID : determine mixing completely by HYBRID definition. One
+can ask for the last IGNO AO's to be ignored, by giving IGNORE IGNO (A,I).
+\item CAS    : allow no active-active mixing (CASSCF assumed)
+\item ACTIVE : allow no excitations to virtual orbitals
+\end{itemize} 
+
+Attention, SUPER HYBRID has to appear after the HYBRIDS definition
+
+\subsubsection{FORBI}
+
+FORBID IPAIR1 IPAIR2 ... (a,I,I,I,I,...)
+
+This directive forbids (usual internal) excitations at an orbital level.
+It is meant for eliminations of undetected redundancies.
+
+{\bf Example}
+\begin{verbatim}
+FORBID 1 2 1 3
+\end{verbatim}
+
+\subsubsection{FOCK}
+Control Fock matrix generation; If made the Fock matrix is used, where applicable
+\begin{itemize}
+\item on (or yes) : compute Fock matrix (default)
+\item off (or no)   : do not compute Fock matrix
+\item diag : use a Fock type approximation for the diagonal
+\item nodiag : calculate the diagonal exactly
+\end{itemize}
+
+\subsubsection{OPTIMISE}
+
+OPTIMISE TYPE [IDELP IFIRSP SHIFTP]
+
+This directive is used to specify the way orbitals are optimised. When this directive is not given
+the orbitals are optimised using all possible Brillouin states, which is called Super CI. Building
+the Hamiltonian in the Brillouin basis is the rate determining step in most VBSCF calculation. With this
+directive it is possible to specify certain parts of the Brillouin matrix which will be approximated,
+or not calculated at all, as determined by TYPE:
+\begin{itemize}
+\item BRIL  specify optimisation per Brillouin state with KEY LIST, as many times as needed,
+ with KEY is 
+\begin{itemize}
+\item PERT : treat the Brillouin states with perturbation theory
+\item VARIATIONAL : use SuperCI (default)
+\item END   : end directive
+\end{itemize}
+\item ORBITAL : specify optimisation per orbital similar to BRIL
+\item KIND : specify optimisation by kind of Brillouin state with
+KEY FROM TO
+
+KEY is
+\begin{itemize}
+\item PERT : treat the set  with perturbation theory
+\item VARIATIONAL : use SuperCI (default)
+\item AUTOMATIC : (recommended) switch automatically between variation and perturbation, based on the 
+expected Brillouin-state coefficient from perturbation theory. One may specify a switching criterium
+ at the end of the same line (default 0.0001)
+\item END  :  end directive
+\end{itemize}
+FROM and TO is the kind of orbital we excite from and to
+\begin{itemize}
+\item DOC : doubly occupieds (not for TO)
+\item VOC : variably occupied
+\item UOC : empty (not for FROM)
+\item ALL  : all of the above
+\end{itemize}
+\end{itemize}
+
+{\bf Example 1}
+\begin{verbatim}
+OPTIMISE KIND
+ PERT DOC UOC
+ PERT DOC VOC
+ PERT VOC VOC
+ PERT VOC UOC
+END OPTIMISE
+\end{verbatim}
+
+In this example the orbitals are grouped by their occupation in the wave function (KIND). 
+Perturbation theory is used for excitations from doubly to unoccupied orbitals (PERT DOC UOC), for excitations
+from doubly to variably occupied orbitals (PERT DOC VOC), for excitations from variably to variably
+occupied orbitals (PERT VOC VOC) and for excitations from variably to unoccupied orbitals (PERT VOC UOC).
+Note that the parameters IDELP IFIRSP and SHIFTP are optional. In this case perturbation theory is switched
+on from the beginning.
+
+{\bf Example 2}
+\begin{verbatim}
+OPTIMISE KIND
+ AUTO ALL ALL 0.001
+END OPTIMISE
+\end{verbatim}
+
+The auto option is used for all, starting from the beginning.
+
+
+{\bf Example 3}
+\begin{verbatim}
+OPTIMISE BRILLOUIN -1 5 0
+ PERT 4 5 10 23 END
+END OPTIMISE
+\end{verbatim}
+
+In this example one can select certain Brillouin states. To use this option it is useful to know the way Brillouin
+states are numbered. An earlier run of Turtle can provide this information. The perturbation option is switched
+on after the DEL-value has dropped below -1, but not sooner than iteration 5 for Brillouin states 4, 5, 10 and 23.
+
+
+\subsubsection{EVEC}
+
+
+EVEC IVEC (A,I)
+
+Optimize orbitals for excited state IVEC. 
+If the state order changes during optimisation, you're out of luck
+
+\subsubsection{FREEZE}
+ 
+FREEZE ISTRING
+
+Freeze (i.e. do not optimise) the orbitals in ISTRING.
+
+\subsubsection{VIRTUAL} 
+
+VIRTUAL specifies the way to determine the virtuals in the SCF procedure.
+Options are :
+
+\begin{itemize}
+\item CANONICALISE : Canonicalise over the nuclear attraction matrix
+\item LOCALISE     : Use localised virtuals ; using NIT or ITER a maximum
+number of iterations may be specified.
+\item IDEMPOTENT   : The  projection operator used is idempotent.
+\item AOS          : Use AO's as virtuals.
+\end{itemize}
+
+If the word NOT is specified before an option, the option is negated.
+
+subsubsection{CANONCALISE} 
+Determine canonicalisation in (at beginning of) the VBSCF cycle
+\begin{itemize}
+\item off           : no canonicalisation
+\item h             : use the 1-electron operator
+\item fock        : use the fock operator
+\item localise : localise the orbitals; If nit or iter is specified at the end of the line, the \# iterations may be given (A,I)	
+\end{itemize}
+
+
+
+\subsubsection{END}
+
+END concludes the SCF-TURTLE input. An extra string 'SCF" is allowed.
+In addition a section number to store the VBSCF orbitals may be specified
+
+\clearpage
+
+\begin{thebibliography}{10}
+
+\bibitem{ref:vb1} J.H. van Lenthe and G.G. Balint-Kurti, Chem Phys.
+Lett. {\bf 76}, 138 (1980)
+
+\bibitem{ref:vb2}
+J.H. van Lenthe and G.G. Balint-Kurti,
+  J. Chem. Phys.  {\bf 78}, 5699 (1983), \doi{10.1063/1.445451}.
+
+\bibitem{ref:vb3} J. Verbeek, Nonorthogonal orbitals in {\it ab initio}
+many-electron wavefunctions, Ph.D. Thesis, Utrecht University (1990)
+
+\bibitem{ref:vb4} C.P. Byrman, Nonorthogonal orbitals in Chemistry,
+Ph.D. Thesis, Utrecht University (1995)
+
+\bibitem{ref:vb5} F. Dijkstra, Valence Bond theory, implementation and
+use of analytical gradients, Ph.D. Thesis, Utrecht University (2000)
+
+\bibitem{ref:vb6} M.Raimondi, M. Simonetta and G.F. Tantardini, 
+Ab initio Valence Bond Theory, Computer Physics Reports, Vol {\bf 2}, e 171 (1985) 
+
+\bibitem{ref:vb7} P.C. Hiberty, S.Humbel, C.P. Byrman, J.H. van Lenthe,
+J. Chem. Phys. {\bf 101}, 5969 (1994), \doi{10.1063/1.468459}.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,6 @@
+c
+      REAL freq, pola
+      integer nfreq, ipola, mxfreq
+      parameter (mxfreq=100)
+      common /polars/ nfreq,ipola(3,3),freq(mxfreq),pola(6,mxfreq)
+c

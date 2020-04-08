@@ -1,0 +1,46 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - x1a1 - mp2 (dz basis) - natorb
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis dz
+runtype optimise
+scftype mp2
+natorb 20 print
+xtol 0.0001
+enter
+EOF
+../../bin/gamess << EOF
+restart 
+title
+h2co - mp2 - dz basis - 1-e properties via natorb
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis dz
+runtype analyse
+scftype mp2
+property
+4 c
+4 o
+end
+vectors 20
+enter
+EOF

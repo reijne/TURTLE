@@ -1,0 +1,45 @@
+#!/bin/csh -f
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ed12 mfged12
+../../bin/gamess << EOF
+title
+pyridine 6-311g** analytic 2nd derivs SCF total energy 
+#
+# harmonic frequencies  
+#
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.7684290 
+ch4            1.0726534 
+c2n            1.3322093 
+c2c3           1.3863150 
+c2h6           1.0705170 
+c3h5           1.0715859 
+c2nz         120.5740998 
+ccn          122.5507912 
+nch2         116.3517522 
+c2c3h        120.2853386 
+end
+basis 6-311g**
+runtype hessian
+enter
+EOF
+/bin/rm mfg*

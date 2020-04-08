@@ -1,0 +1,54 @@
+#!/bin/csh
+#
+#BSUB -n 64
+#BSUB -W 240
+#BSUB -e validate.MP2.o%J
+#BSUB -o validate.MP2.o%J
+#BSUB -J validate-MP2
+#
+
+set origin=$cwd/LOGS
+set scratch=$TMPDIR/tmp$$
+
+rm -rf $scratch
+mkdir $scratch
+mkdir $origin 
+ 
+cp ../../../../bin/gamess-uk $scratch
+
+cp ../../input_files/MP2_opt.crno4.in $scratch
+cp ../../input_files/MP2_ECP_opt.crno4.in /$scratch
+cp ../../input_files/MP2_forces.scf3.in $scratch
+cp ../../input_files/MP2_opt.mnco5h.in  $scratch
+cp ../../input_files/MP2_opt_props.brncs.in $scratch
+cp ../../input_files/RPA.pyridine.in $scratch
+cp ../../input_files/SECD_opt.pyridine.6-31G-dp.in $scratch
+cp ../../input_files/SECD.TFMtoluene.6-31G.in $scratch
+cp ../../input_files/SECD_ECP_opt.crco6.in $scratch
+cp ../../input_files/SECD_HCTH.TFMtoluene.6-31G.in $scratch
+ 
+cd $scratch
+
+mpirun -np 64 gamess-uk < MP2_opt.crno4.in > $origin/MP2_opt.crno4.out
+
+mpirun -np 64 gamess-uk < MP2_ECP_opt.crno4.in > $origin/MP2_ECP_opt.crno4.out
+
+mpirun -np 64 gamess-uk < MP2_forces.scf3.in > $origin/MP2_forces.scf3.out
+
+mpirun -np 64 gamess-uk < MP2_opt.mnco5h.in > $origin/MP2_opt.mnco5h.out
+
+mpirun -np 64 gamess-uk < MP2_opt_props.brncs.in > $origin/MP2_opt_props.brncs.out
+
+mpirun -np 64 gamess-uk < RPA.pyridine.in > $origin/RPA.pyridine.out
+
+mpirun -np 64 gamess-uk < SECD_opt.pyridine.6-31G-dp.in > $origin/SECD_opt.pyridine.6-31G-dp.out
+
+mpirun -np 64 gamess-uk < SECD.TFMtoluene.6-31G.in > $origin/SECD.TFMtoluene.6-31G.out
+
+mpirun -np 64 gamess-uk < SECD_ECP_opt.crco6.in > $origin/SECD_ECP_opt.crco6.out
+
+mpirun -np 64 gamess-uk < SECD_HCTH.TFMtoluene.6-31G.in > $origin/SECD_HCTH.TFMtoluene.6-31G.out
+
+cd $origin 
+rm -rf $scratch
+

@@ -1,0 +1,20 @@
+#!/bin/csh
+#
+# validation for nbo
+#
+setenv GAMESS_VTAB ./nbo.vtab
+set path=(../../utilities $path)
+validate nbo_0  LOG/nbo_0.log
+validate nbo_1  LOG/nbo_1.log
+validate nbo_2  LOG/nbo_2.log
+validate nbo_3  LOG/nbo_3.log
+validate nbo_4  LOG/nbo_4.log
+validate nbo_5  LOG/nbo_5.log
+validate nbo_6  LOG/nbo_6.log
+validate nbo_7  LOG/nbo_7.log
+validate nbo_8  LOG/nbo_8.log
+validate nbo_9  LOG/nbo_9.log
+validate nbo_10 LOG/nbo_10.log
+validate nbo_11 LOG/nbo_11.log
+validate nbo_12 LOG/nbo_12.log
+validate nbo_13 LOG/nbo_13.log

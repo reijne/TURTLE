@@ -1,0 +1,88 @@
+
+Begin optimization report for: INTERFACE_GAMESS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gamess.f(945,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gamess.f(945,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gamess.f(954,9)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at gamess.f(968,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at gamess.f(968,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gamess.f(968,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gamess.f(968,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gamess.f(980,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at gamess.f(980,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gamess.f(980,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gamess.f(980,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gamess.f(991,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at gamess.f(1002,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at gamess.f(1002,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at gamess.f(1002,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at gamess.f(1073,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ gamess.f(953,18) ]
+
+   LOOP BEGIN at gamess.f(1031,27)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at gamess.f(1070,14)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ gamess.f(1066,23) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at gamess.f(1090,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

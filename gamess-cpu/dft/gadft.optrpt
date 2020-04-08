@@ -1,0 +1,87 @@
+
+Begin optimization report for: DFT_INVERT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gadft.f(1910,7) inlined into gadft.f(1465,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1912 and  line 1912
+LOOP END
+
+LOOP BEGIN at gadft.f(1939,9) inlined into gadft.f(1465,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1940 and  line 1940
+LOOP END
+
+LOOP BEGIN at gadft.f(1939,9) inlined into gadft.f(1465,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at gadft.f(1943,7) inlined into gadft.f(1465,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ gadft.f(1938,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: MEMREQ_GA_DIAG_STD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gadft.f(853,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 858 and  line 859
+
+   LOOP BEGIN at gadft.f(857,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at gadft.f(876,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 876 and  line 877
+
+   LOOP BEGIN at gadft.f(875,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at gadft.f(890,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 891 and  line 892
+LOOP END
+
+LOOP BEGIN at gadft.f(890,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DFT_INVDIAG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gadft.f(1910,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1912 and  line 1912
+LOOP END
+
+LOOP BEGIN at gadft.f(1939,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1940 and  line 1940
+LOOP END
+
+LOOP BEGIN at gadft.f(1939,9)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at gadft.f(1943,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ gadft.f(1938,14) ]
+LOOP END
+===========================================================================

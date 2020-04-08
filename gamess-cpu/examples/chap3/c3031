@@ -1,0 +1,41 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP + diff.S,F(C) functions - standard spec. -113.9116070017
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+tzvp h
+tzvp c
+tzvp o
+s c
+1.0 0.02
+f c
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP + diff.S,F(C) functions - alternative spec. -113.9116070017
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis nwchem
+h tzvp
+c tzvp
+o tzvp
+c s
+0.02 1.0
+c f
+1.0  1.0
+end
+enter
+EOF

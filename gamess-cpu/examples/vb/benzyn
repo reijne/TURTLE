@@ -1,0 +1,161 @@
+#!/bin/csh
+setenv ed3 ed3-benzyn
+../../bin/gamess <<  EOF
+harmonic
+adapt off
+title
+benzyn molecular + atomic
+zmatrix angstroms
+cartesians
+C   0.   0.7060755899   1.0660892363
+C   0.   -0.7060755899   1.0660892363
+C   0.   -1.4684199286   -0.135555913
+C   0.   -0.6284953499   -1.2443005801
+C   0.   0.6284953499   -1.2443005801
+C   0.   1.4684199286   -0.135555913
+H   0.   2.5571552065   -0.1372182698
+H   0.   -2.5571552065   -0.1372182698
+H   0.   -1.2378280295   2.0198218107
+H   0.   1.2378280295   2.0198218107
+end
+basis 6-31g
+vectors atorbs sect 99 
+enter 1
+EOF
+../../bin/gamess <<  EOF
+time 10000000
+core 3999999
+?core 3999999 debug
+restart new
+adapt off
+title
+benzyn molecular + atomic
+zmatrix angstroms
+cartesians
+C   0.   0.7060755899   1.0660892363
+C   0.   -0.7060755899   1.0660892363
+C   0.   -1.4684199286   -0.135555913
+C   0.   -0.6284953499   -1.2443005801
+C   0.   0.6284953499   -1.2443005801
+C   0.   1.4684199286   -0.135555913
+H   0.   2.5571552065   -0.1372182698
+H   0.   -2.5571552065   -0.1372182698
+H   0.   -1.2378280295   2.0198218107
+H   0.   1.2378280295   2.0198218107
+end
+basis 6-31g
+crestr
+255+
+nelec 6
+ conf
+1  2 3 4 5 6 RUMER 1 4
+ end
+end
+vb
+vbvectors combine
+section 1   1 to 16 18 end
+? order atoms 1 2 3 5 6 4 (bijv.)
+section 99  3 8 13 23 28 18 end
+end combine
+active
+18 to 23
+end
+splice
+1 to 17
+end
+scf
+nosym
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+?   next t2o restore behaviour befor oct09
+crit 1 -10 exci
+canon virtual h
+diis
+hybrids
+ sigma
+end
+  1  2  4  5  6  8  9
+ 10 11 13 14 15 17 18
+ 19 20 22 23 24 26 27
+ 28 29 31 32 33 35 36
+ 37 38 40 41 42 44 45
+ 46 47 49 50 51 53 54
+ 55 to 62 end
+ c1
+ 1 end
+ 3 7 end
+ c2
+ 2 end
+ 12 16 end
+ c3
+ 3 end
+ 21 25 end
+ c4
+ 6 end
+ 30 34 end
+ c5
+ 4 end
+ 39 43 end
+ c6
+ 5 end
+ 48 52 end
+ end hybrids
+? vbscf orbitals to section 91 natural orbitals to 90
+end 91
+end 
+scftype vb
+enter 90
+EOF
+../../bin/gamess <<  EOF
+time 999999
+core 3999999
+?core 3999999 debug
+restart new
+adapt off
+title
+benzyn molecular + atomic delocalised
+zmatrix angstroms
+cartesians
+C   0.   0.7060755899   1.0660892363
+C   0.   -0.7060755899   1.0660892363
+C   0.   -1.4684199286   -0.135555913
+C   0.   -0.6284953499   -1.2443005801
+C   0.   0.6284953499   -1.2443005801
+C   0.   1.4684199286   -0.135555913
+H   0.   2.5571552065   -0.1372182698
+H   0.   -2.5571552065   -0.1372182698
+H   0.   -1.2378280295   2.0198218107
+H   0.   1.2378280295   2.0198218107
+end
+basis 6-31g
+scftype vb
+crestr
+255+
+nelec 6
+ conf
+1  2 3 4 5 6 RUMER 1 4
+ end
+end
+vb
+vbvectors combine
+section 91   1 to 23  end
+end combine
+active
+18 to 23
+end
+splice 
+1 to 17
+end
+scf
+nosym
+diis
+crit 1.0 -7 davi
+crit 1.0 -5 scf
+?   next t2o restore behaviour befor oct09
+crit 1 -10 exci
+canon virtual h
+end 93
+end 
+enter 92
+EOF
+\rm ed3-benzyn

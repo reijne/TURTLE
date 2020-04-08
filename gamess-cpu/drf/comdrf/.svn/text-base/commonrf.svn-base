@@ -1,0 +1,54 @@
+c  commonblocks for drf
+cafc
+INCLUDE(comdrf/drfbem)
+INCLUDE(comdrf/rad)
+c
+INCLUDE(comdrf/dafil)
+c
+INCLUDE(comdrf/defpr4)
+INCLUDE(comdrf/drfamb)
+INCLUDE(comdrf/drfdaf)
+INCLUDE(comdrf/drfexp)
+INCLUDE(comdrf/drfind)
+INCLUDE(comdrf/drfint)
+INCLUDE(../m4/common/drfopt)
+INCLUDE(comdrf/drfpar)
+INCLUDE(comdrf/drfzfa)
+INCLUDE(comdrf/extinf)
+INCLUDE(comdrf/inddaf)
+INCLUDE(comdrf/grinf)
+INCLUDE(comdrf/neqpar)
+INCLUDE(comdrf/rfene)
+c
+INCLUDE(comdrf/auxdrf)
+INCLUDE(comdrf/bas)
+INCLUDE(comdrf/free)
+INCLUDE(comdrf/ijpair)
+INCLUDE(../m4/common/infoa)
+INCLUDE(comdrf/iofil)
+INCLUDE(comdrf/max)
+INCLUDE(comdrf/mollab)
+INCLUDE(../m4/common/nshel)
+INCLUDE(comdrf/opt)
+c
+INCLUDE(comdrf/mcener)
+INCLUDE(comdrf/mcgeom)
+INCLUDE(comdrf/mcinf)
+INCLUDE(comdrf/runpar)
+c
+INCLUDE(comdrf/clas)
+c
+c  PRP/ROTA bevat de dimensionering van het array temprt(10)
+INCLUDE(comdrf/dat)
+INCLUDE(comdrf/expan)
+INCLUDE(comdrf/rota)
+c
+      character*80 rftex
+      common /texneq/ rftex
+c
+      character *80 texrf
+      common /neqtex/ texrf(mxneq+1)
+c
+      integer index, ineqix
+      common /indxneq/ index,ineqix(mxneq+1)
+c

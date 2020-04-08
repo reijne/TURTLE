@@ -1,0 +1,1385 @@
+\documentclass[11pt]{article}
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\newcommand{\http}[1]{\href{#1}{#1}}
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+ 
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\pagestyle{headings}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2008}\\ [.2in]
+{\large PART 1. INTRODUCTION and GENERAL FEATURES}\\
+\vspace{.1in}
+{\large M.F. Guest, J. Kendrick, J.H. van Lenthe, P. Sherwood and
+  J.M.H. Thomas}\\[0.2in]
+
+Copyright (c) 1993-2008 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{3mm}\\
+\end{flushleft}
+
+\pagenumbering{roman}
+
+\section*{Introduction to GAMESS--UK}
+
+GAMESS--UK is a general purpose {\em ab initio} molecular electronic
+structure program for performing SCF-, DFT- and MCSCF-gradient
+calculations, together with a variety of techniques for post Hartree
+Fock calculations.
+
+The program is derived from the original GAMESS code, obtained from
+Michel Dupuis in 1981 (then at the National Resource for Computational
+Chemistry, NRCC), and has been extensively modified and enhanced over
+the past decade. This work has included contributions from numerous
+authors (see below), and has been conducted largely at the former EPSRC
+(Engineering and Physical Sciences Research Council), and now CCLRC
+Daresbury Laboratory, under the auspices of Collaborative Computational
+Project No. 1 (CCP1).  Other major sources that have assisted in the
+on-going development and support of the program include various
+academic funding agencies in the Netherlands, and ICI plc.
+
+All publications resulting from use of this program  must include the
+following acknowledgement:\\
+
+{\em GAMESS-UK is a package of ab initio programs. See:
+  \http{http://www.cfs.dl.ac.uk/gamess-uk/index.shtm}, M.F. Guest,
+  I. J. Bush, H.J.J. van Dam, P. Sherwood, J.M.H. Thomas, J.H. van
+  Lenthe, R.W.A Havenith, J. Kendrick, ''The GAMESS-UK electronic
+  structure package: algorithms, developments and applications'',
+  Molecular Physics, Vol. 103, No. 6-8, 20 March-20 April 2005,
+  719-747, \doi{10.1080/00268970512331340592}.}\\
+
+Depending on which modules are used, the following references
+should be cited:\\
+\begin{itemize}
+\item {\sc MCSCF/CASSCF:}\\
+P.J. Knowles, G.J. Sexton and N.C. Handy, Chem. Phys. 72 (1982) 337,\doi{10.1016/0301-0104(82)85131-8}:\\
+P.J. Knowles and H.-J. Werner, Chem. Phys. Lett. 115 (1985) 259, \doi{10.1016/0009-2614(85)80025-7}.
+
+\item {\sc M{\o}ller-Plesset Perturbation theory (MP2, MP3):}\\
+J.E. Rice, R.D.Amos, N.C. Handy, T.J. Lee and H.F. Schaefer,
+J. Chem. Phys. 85 (1986) 963, \doi{10.1063/1.451253}:\\
+J.D. Watts and M. Dupuis, J. Comput. Chem. 9 (1988) 158, \doi{10.1002/jcc.540090208}.
+
+\item {\sc Full CI (FCI):}\\
+S. Zarrabian and R.J. Harrison,  Chem. Phys. Letts. 81 (1989), \doi{10.1016/0009-2614(89)87358-0 }
+
+\item {\sc Direct-CI (DCI):}\\
+V.R. Saunders and J.H. van Lenthe, Mol. Phys. 48 (1983) 923, \doi{10.1080/00268978300100661}.
+
+\item {\sc Conventional CI (MRDCI):}\\
+R.J. Buenker in `Studies in Physical and Theoretical Chemistry',
+21 (1982) 17.
+
+\item {\sc Multiple Active Space SCF (MASSCF):}\\
+J.Ivanic, J.Chem.Phys. {\bf 119}, 9364-9376(2003), \doi{10.1063/1.1615954}.
+
+\item {\sc Distributed Multipole Analysis (DMA):}\\
+A.J. Stone, Chem. Phys. Letters 83 (1981) 233, \doi{10.1016/0009-2614(81)85452-8}.
+
+\item {\sc Outer-valence Greens' Function (OVGF):}\\
+L.S. Cederbaum and W. Domcke, Adv. Chem. Phys.  36 (1977) 205.
+
+\item {\sc Tamm-Dancoff Method (TDA):}\\
+J. Schirmer and L.S. Cederbaum, J. Phys. B11 (1978) 1889:\\
+I.H. Hillier, K. Rigby, M. Vincent, M.F. Guest and W. von Niessen,
+Chem. Phys. Lett. 134 (1987) 403, \doi{10.1016/0009-2614(87)87162-2}.
+
+\item {\sc Effective Core Potentials (Local ECPs):}\\
+P.J. Hay and W.R. Wadt, J. Chem. Phys. 82 (1985) 270, 284, 299, \doi{10.1063/1.448800}.
+
+\item {\sc Effective Core Potentials (Non-local ECPs):}\\
+Ph. Durand and J.-C.Berthelat, Theoret. Chim. Acta, 38 (1975) 283,
+\doi{10.1007/BF00963468}:\\
+N.A. Burton, I.H. Hillier, M.F. Guest and J. Kendrick,
+Chem. Phys. Lett. 155 (1989) 195, \doi{10.1016/0009-2614(89)85348-5]}.
+
+\item {\sc Infra-red and Raman Intensities:}\\
+R.D. Amos, Adv. Chem. Phys. 67 (1987) 99, \doi{10.1002/9780470142936.ch2}.
+
+\item {\sc Multi configuration Linear Response (MCLR):}\\
+C. Fuchs, V. Bona\v{c}i\'{c}-Kouteck\'{y} and J. Kouteck\'{y},
+J.  Chem.  Phys.  98 (1993) 3121, \doi{10.1063/1.464086}.
+
+\item {\sc Coupled Cluster CCSD and CCSD(T):}\\
+T.J. Lee, J.E. Rice and A.P. Rendell,
+The TITAN Set of Electronic Structure Programs, 1991,
+
+\item {\sc Density Functional Theory (DFT):}\\
+The initial DFT module within GAMESS-UK was developed by Dr. P. Young
+under the auspices of EPSRC's Collaborative Computational Project No. 1
+(CCP1) (1995-1997). Subsequent developments have been undertaken by
+staff at the Daresbury Laboratory.
+
+\item {\sc Direct Reaction Field (DRF):}\\
+A.H. de Vries, P.Th. van Duijnen, A.H. Juffer, J.A.C. Rullmann,
+J.P. Dijkman, H. Merenga, and B.T. Thole,
+  J. Comp. Chem. {\bf 16} (1995) 37--55, \doi{10.1002/jcc.540160105}
+  erratum 1445--1446, \doi{10.1002/jcc.540161113};
+P.Th. van Duijnen and A.H. de Vries,
+  Int. J. Quant. Chem., {\bf 60} (1996) 1111,
+  \doi{10.1002/(SICI)1097-461X(1996)60:6<1111::AID-QUA2>3.0.CO;2-2};
+
+\end{itemize}
+Additional key references and background material on each of the
+modules are provided at appropriate points throughout this
+manual.
+\newpage
+\tableofcontents
+
+\pagenumbering{arabic}
+
+
+\section{About This Manual}
+This manual is divided into sixteen parts or `chapters', which may be
+broadly classified as follows:
+
+\begin{itemize}
+\item {\em Part 1 (this part)} describes the general features of the program,
+detailing the file system employed and the directive structure
+associated with the free-format data input.
+\item {\em Part 2} presents a series of example data files designed to
+  provide a broad outline of the various capabilities of the
+  program. Subsequent chapters provide a more detailed description of the data
+ input formats. 
+\item {\em Parts 3 and 4} describe the 
+directives required in performing SCF, M\o ller Plesset, CASSCF, MCSCF,
+DFT and associated gradient calculations.
+\item {\em Part 5} deals with integral transformation and Direct-CI
+calculations. 
+\item {\em Part 6} covers conventional and semi-direct Table-CI calculations.
+\item {\em Part 7} describes the data required in performing
+RPA and MCLR calculations.
+\item {\em Part 8} describes the various analysis capabilities of the code,
+plus the directives and scope of the DRF solvation module.
+\item {\em Part 9} presents a brief summary of possible problem areas in
+running the code.
+\item {\em Part 10}  provides a brief summary of the
+utility functions associated with GAMESS--UK.
+\item {\em Part 11} describes the way formatted output may be 
+obtained from GAMESS--UK for use by other programs. 
+\item {\em Part 12} presents a sequence of worked examples on a
+UNIX machine, using the specially provided script {\em rungamess}
+\item {\em Part 13} provides a series of worked examples invoking the
+  GAMESS-UK binary directory from a UNIX shell (C-shell).
+\item {\em Part 14} describes the capabilities and running of the
+parallel version of GAMESS--UK on both MPP and SMP hardware.
+\item {\em Turtle} describes how to run the GAMESS-UK Valence Bond module.
+\item {\em Mopac} describes the GAMESS-UK/MOPAC interface.
+\end{itemize}
+
+The user who wishes to acquire rapid familiarity and a sufficient
+subset of knowledge to use the program, albeit perhaps in a somewhat
+restricted fashion, should concentrate initially on Parts 1 and 2,
+together with any appropriate examples from Parts 12-14.
+
+The example input files described in Part 2 are supplied with
+GAMESS-UK and can can be found in the scripts labelled c2001\_a -
+c2035 in the directory: {\bf GAMESS-UK/examples/chap2}.
+
+NB: this documentation describes features available in the current release of
+the code (Version 8.0); some of the features described herein may not
+function as described in earlier releases of the program.
+
+
+\section{General Features}
+
+GAMESS--UK \cite{gamess} is a general purpose {\em ab initio} molecular
+electronic structure program for performing SCF-, DFT- and MCSCF-gradient
+calculations, together with a variety of techniques for post Hartree
+Fock calculations. On-going development of the code is co-ordinated from
+Daresbury, with the program currently available on a wide range of
+machines, including:
+\begin{itemize}
+\item a wide variety of UNIX workstations, including those from SGI
+(R4000-, R4400-, R8k- and R10k-Indigo$^2$, R5k-, R10k- and R12k-O2,
+Challenge and Power Challenge, Origin200, Origin2000, Origin300 and
+Origin3800), Hewlett Packard  (Model 9000/7xx,  PA8000, PA8200,
+PA8500, PA8600 and PA8700), IBM RS/6000s (PowerPC, Power1, Power2,
+P2SC, Power3, Power4 and Power5), Compaq/Digital (EV5-, EV6-, EV67- and
+EV68-AXP under Tru64, OSF/1, OpenVMS and Linux), and SUN (Super-,
+Hyper- and Ultra-SPARC); 
+\item a number of IA-32, IA-64 and AMD PCs (e.g. Pentium, PentiumII,
+Pentium III, Pentium 4, Xeon, EM64T, Itanium1 and Itanium2, Athlon and Opteron) under
+Linux, FreeBSD and Windows NT, 2000 and XP;
+\item Mac OSX running on Power 3, 4 and 5 processors.
+\item Parallel versions of the code are available on both MPP and SMP
+platforms. MPP versions include those for the IBM p-series (TN2, P2SC, WH2
+and Regatta nodes), and a variety of IA32, IA64, EM64T, AMD64 and Alpha-based Beowulf
+Systems. SMP versions are available for the SGI Origin and Altix,
+Compaq AlphaServer SC and Cray XD1.
+Ports to the Fujitsu VPP300 and NEC SX-5 are also available.
+\item Versions for other machines of mainly historical interest include
+the Intel iPSC/860, Amdahl VP, IBM-3090/VF, Convex~C2 and C3 series,
+and Kendall Square KSR-2, Cray~Y-MP, C90 and J90, T3D and T3E
+(Cray-T3E/900 and Cray/T3E-1200), VAX VMS and Hitachi SR2201.
+
+\end{itemize}
+
+The program utilises the Rys Polynomial or Rotation techniques
+\cite{dupuis} to evaluate repulsion integrals over s,p,d,f and g type
+Cartesian Gaussian orbitals. Open- and closed-shell SCF treatments are
+available within both the RHF and UHF framework, with convergence
+controls provided through a hybrid scheme of level shifters and the
+DIIS method \cite{pulay}.  In addition generalised valence bond
+\cite{bobrowicz}, complete active space SCF \cite{roos} and more
+general MCSCF \cite{knowles}, MASSCF \cite{ormas} and M\o ller Plesset
+(MP2 and MP3) \cite{handy} calculations may be performed. The original
+limitation to cartesian basis sets is lifted through the provision of
+spherical harmonic basis sets for all options within the
+programme. The most recent additions to the code, available from
+Version 6.0 onwards, include a full-featured Density Functional Theory
+(DFT) module, with access to a wide variety of functionals (S-VWN,
+B-LYP, B-P86, B3-LYP, HCTH, B97, B97-1, B97-2, FT97 etc). This module
+is subject to on-going developments under the auspices of CCP1.
+
+The analytic energy gradient is available for each class of
+wavefunction above. Gradients for s and p Gaussians are evaluated using
+the algorithm due to Schlegel \cite{schlegel}, while gradients involving d, f
+and g Gaussians utilise the Rys Polynomial Method.
+
+Geometry optimisation may be carried out using the DL-FIND module that
+is included into GAMESS-UK (see Part 4 for information about DL-FIND).
+
+Alternatively, GAMESS-UK has it's own optimisation capabilities using
+a quasi-Newton rank-2 update method, while transition state location
+is available through either a synchronous transit \cite{bell}, trust
+region \cite{cerjan} or `hill-walking' \cite{simons,baker} method.
+Force constants may be evaluated analytically \cite{pople} and by
+numerical differentiation; coupled Hartree--Fock (CHF) calculations
+provide for a range of molecular properties, including
+polarisabilities and molecular hyperpolarisabilities \cite{stevens}
+and, through the calculation of dipole moment and polarisability
+derivatives, the computation of infra--red and Raman intensities
+\cite{amos}.
+
+{\em Ab initio} core potentials are provided in both semi-local
+\cite{hay} and non-local \cite{durand} formalism for valence-only
+molecular orbital treatments.
+
+Conventional CI treatments using the table-driven selection algorithms
+within the framework of MR-DCI calculations \cite{buenker} have been
+extended to include an implementation of the semi-direct table-driven
+MRDCI module. This provides more extensive capabilities in the
+treatment of electronic spectra and related phenomena. The variety of
+correlation treatments available include Direct-CI \cite{siegbahn},
+Full-CI \cite{zarrabian}, and both CCSD \cite{lee,scuseria} and CCSD(T)
+\cite{lee2,rendell} coupled-cluster calculations, the latter being
+limited to closed-shell systems \cite{lee3}.  A size-consistent variant
+of Multi-Reference MP2 theory, popularized in its CASPT2 form by Roos
+et al., is also available~\cite{vanDam}. With no restriction to CAS
+wavefunctions, the module also provides MR-MP3 capabilities.
+
+The direct calculation of molecular valence ionization energies may be
+performed though Green's function techniques, using either the
+outer-valence Green's function (OVGF) \cite{cederbaum} or the
+two-particle-hole Tamm-Dancoff method  (2ph-TDA) \cite{schirmer}.
+
+Calculations of electronic transition energies and corresponding
+oscillator strengths may also be performed using either the Random
+Phase Approximation (RPA) method or the Multiconfigurational Linear
+Response (MCLR) procedure \cite{fuchs}. The RPA calculations may be
+performed either within the conventional approach where the
+two--electron integrals are transformed or with a ``direct''
+implementation.
+
+A variety of wavefunction analysis methods are provided, including
+population analysis, Natural Bond Orbital (NBO)~\cite{weinhold}
+and distributed multipole analysis \cite{stone}, localised orbitals,
+graphical analysis and calculation of 1-electron properties. An
+interface to the AIMPAC code of Bader is provided \cite{aimpac}
+for SCF, DFT, MCSCF, MP2, MP3, MRDCI and Direct-CI calculations.
+
+The treatment of solvation effects is now based on the DRF (Direct
+Reaction Field) model \cite{vries,duijnen}, an embedding technique
+enabling the computation of the interaction between a quantum-mechanically
+described molecule and its classically described surroundings.  The
+classical surroundings may be modelled in a number of ways, (i) by point
+charges to model the electrostatic field due to the surroundings (ii) by
+polarizabilities to model the (electronic) response of the surroundings
+(iii) by an enveloping dielectric to model bulk response (both static
+and electronic) of the surroundings, and (iv) by an enveloping ionic
+solution, characterized by its Debye screening length.
+
+The treatment of relativistic effects is provided within the ZORA
+scheme (Zeroth Order Regular Approximation~\cite{zora}), a two component
+alternative to the full 4 component Dirac equation.  While much cheaper
+than the latter, ZORA recovers  a large part of the relativistic effects.
+The scalar (1-component) form is now available, with the full 2-component
+implementation (including spin-orbit coupling) in progress.  The current
+implementation will allow all usual Ab Initio (and  DFT) methods to be
+performed, incorporating the major relativistic effects.
+
+The restriction of a maximum of 255 basis functions when performing
+conventional processing of two-electron integrals has been removed in
+nearly all modules in Version 7.0 of the code.  The program structure is
+open-ended in both direct-SCF, -DFT and direct-MP2 mode, so that
+direct-SCF calculations up to 22,000 basis functions have been
+performed.  Version 7.0 also features a significant extension to the
+parallel capabilities of GAMESS--UK.
+
+In addition to the functionality outlined above, the program provides
+for (i) Hybrid QM/MM calculations, through an interface to the CHARMM
+QM/MM code, developed in collaboration with B. Brooks and E. Billings,
+of the NIH, and (ii) a Utilities module concerned with house-keeping,
+library file creation, file manipulation etc.
+
+The program also includes version 7.0 of the MOPAC \cite{mopac}
+semi-empirical code, enabling the calculations with the semi-empirical
+Hamiltonians MNDO, MINDO/3, AM1, PM3, PM5, and MNDO-d. The interface
+between GAMESS-UK and MOPAC allows coordinates calculated with MOPAC
+to be imported into GAMESS-UK for a subsequent {\em ab initio}
+calculation.
+
+A free Graphical User Interface (the CCP1GUI) has also been developed
+to simplify the use of the code and to graphically display the results
+of calculations. Further information on the CCP1GUI, as well as
+downloadable packages for a number of different operating systems can
+be found on the web at:
+
+\http{http://www.cse.scitech.ac.uk/ccg/software/ccp1gui/}\\
+
+Areas of application for GAMESS--UK include:
+
+\begin{itemize}
+\item Theoretical studies of reaction surfaces. 
+SCF and MCSCF calculations
+of equilibrium and transition state geometries, 
+and the evaluation of force
+constants and vibrational frequencies at these stationary points.
+\item  Energy assignments  in the entire field of electronic
+spectroscopy.
+Calculation of spectroscopic properties of highly excited molecular
+and ionic states. Evaluation of transition moments.
+\item  Graphical and numerical analysis of 
+Hartree Fock and post-Hartree Fock wavefunctions.
+\item Generation of zero-order wavefunctions required in the more
+extensive treatments of dynamical correlation energy.
+Applicability to general systems with many electrons in this
+treatment of dynamical correlation energy.
+Benchmark treatments of correlation energy using Full-CI calculations.
+\item  Theoretical mechanistic studies of chemisorption in heterogeneous
+catalysis.
+\item Treatment of bio--organic and related molecules
+through Direct-SCF calculations and electrostatic potential
+analysis.
+\end{itemize}
+
+\section{Units used in the manual}
+
+Throughout the manual, use is made of the units of ''words'' and
+''blocks'' to describe the sizes of files and/or memory. These are
+defined as follows:
+
+\subsection{WORD}
+A word is defined as a FORTRAN DOUBLE PRECISION or INTEGER*8
+datatype and is 8 bytes (64 bits) long.
+
+\subsection{BLOCK}
+The definition of BLOCK is derived from the ATMOL \cite{atmol} file system, where a
+BLOCK is 512 words (4096 bytes) long.
+
+\section{The File System}
+
+In this section we provide a brief overview of the file system used by
+GAMESS--UK. Note at this stage that both direct access and FORTRAN
+sequential data sets may be used by the program, the exact usage being
+a function of the particular activity in hand. Manipulation of these
+files e.g., keeping, deleting etc is described in the
+''pre-directives'' section of Part 3 of this manual and also under
+the {\em rungamess} script in Part 13.
+
+\subsection{Direct Access Data Sets}
+
+Extensive use is made of the  system of disk and tape handling
+originally developed within the ATMOL \cite{atmol} program system, with the
+various files of integral data output to one or more direct access data
+sets. Such data sets are allocated to the program using logical file
+names (LFNs) in the range ED0, ED1, ..., ED19 and MT0, MT1, ..., MT19.
+In Table~\ref{table:1} we list those files used by the program, and
+define the default LFN associated with each file.  A full description
+of data set management will not be given here:  for the present it
+suffices to note the following;
+
+\begin{enumerate}
+\item  The Dumpfile, which in default is routed to ED3, is crucial to
+the program and controls all restart activities, This file is organised
+into variable length sections, with the user nominating various
+sections for data storage e.g., eigenvectors. The sections are
+characterised by integers (in the range 1 - 350), which are specified
+by the user through data input.
+
+\item  The Scratchfile, which  is routed to ED7, is used in all runs of
+the program as a file for house-keeping activities. While this data set
+need never be maintained across separate runs of the program, the user
+should be aware of the role of ED7 and avoid any attempts to use the
+data set in, for example, the re-routing of integral output.
+
+\item  Each data file is block addressable (1 block = 512 words). In
+default output of each file commences at block 1 of the associated
+data set, and continues in uninterrupted fashion until output is
+complete. With certain exceptions, the user may control
+file usage in several ways;
+\begin{itemize}
+\item  redefine the LFN to be associated with a given data file
+\item  redefine the starting block for the file, allowing several
+files of data to be stored on the same data set
+\item  partition output of a given file over several data sets, specifying
+the associated LFNs, and the starting and terminal blocks of each LFN. This
+feature is particularly useful in controlling the output of two-electron
+integrals. It is not possible, however, to fragment the Dumpfile,
+Scratchfile or Direct-CI file.
+
+\begin{table}
+ \caption{\label{table:1}\  Direct Access Files and Default LFNs used by GAMESS--UK}
+ 
+ \begin{centering}
+ \begin{tabular}{llr}
+\\ \hline\hline
+  File         &     Contents &     Default LFN\\ \cline{1-3}
+\\
+    Mainfile     &     Two-electron integrals  &              ED2\\
+    Dumpfile     &     Eigenvectors, restart information & ED3\\
+                 &     Hessians, CI-coefficients etc  & \\
+    Scratchfile   &    Temporary file for program   &         ED7\\
+                &            housekeeping & \\
+    Libraryfile &   Pseudopotential Library File & ED0\\
+    Symmetry Adapted   &  Two-electron integrals in a symmetry & ED1\\
+    Mainfile           &     adapted basis & \\
+    Secondary Mainfile  &    Partially transformed two-electron & ED4\\
+       &      integrals  & \\
+    Direct-CI file &  Direct-CI file for restarts   & ED5\\
+       &      and symbolic hamiltonian etc  & \\
+    Transformed Integral &   Transformed two-electron integrals & ED6\\
+    File    & & \\
+    Overflow file &  Direct-CI file for    & ED8\\
+       &      symbolic hamiltonian   & \\
+    Loop Formulae Tape  &    Symbolic formulae used in CASSCF &  ED9\\
+    Reordered Formulae &  Reordered symbolic formulae  &   ED10\\
+    Tape & & \\
+    Density Matrix File & Two particle density matrix  & ED11\\
+                        & used in CASSCF geometry optimisation & \\
+    Hamiltonian File & Derivative Fock Operators   & ED12\\
+    Reordered Integral &   Reordered two-electron integrals & ED13\\
+    File    & used in MCSCF & \\
+    Scratchfiles &   Temporary files used in  & ED16--ED19\\
+            & derivative integral calculations & \\
+\\
+    Sortfile   &    Temporary file for sorting   &        SORT\\
+                &            integrals & \\
+    P-Sortfile   &    Temporary file for sorting molecular  &       PSORT\\
+                &      integrals & \\
+    Tablefile   &    Table-CI file for storing data-base   &       TABLE\\
+                &      of pattern matrix elements & \\
+\\
+\hline\hline
+ \end{tabular}
+ 
+ \end{centering}
+\end{table}
+
+
+\item  while mainly of historical interest, we note that 
+direct access files needed, on an IBM Mainframe (running the MVS or
+VM/CMS operating system), to be preallocated. This
+process assumed the user had some idea of the overall space requirements,
+since any attempt to route file output beyond the terminal block of
+a preallocated file was viewed as an unrecoverable error
+condition. Preallocation was not required when using the
+more-restrictive sequential  data sets, which may be accessed though
+the LFNs MT0-MT19.
+Note that these considerations refer only to GAMESS--UK usage 
+on an IBM mainframe.  On other  machines no formal distinction
+is made between direct (ED0-ED19) and sequential (MT0-MT19) files.
+
+\end{itemize}
+\end{enumerate}
+
+\subsection{FORTRAN Data Sets}
+
+In addition to the direct access data sets described above GAMESS--UK
+will, in certain phases of computation e.g., Table-CI, make use of the
+more conventional FORTRAN unformatted sequential data sets. In the
+majority of cases this usage is restricted to scratch activities, and
+the user need not be concerned with, for example, FORTRAN unit
+specification. In some instances, however, it may be necessary to
+`keep' the files in question between jobs. This activity should be
+controlled through the appropriate FILE pre-directives (see Part 3 of
+this manual).
+
+\section{Data Input - The Directive Structure}
+
+Data input for GAMESS--UK consists of a sequence of data lines, where
+a GAMESS--UK data line consists of a number of data fields, the fields being
+separated by at least one space character. The separating spaces are not
+considered part of the data field.
+
+\subsection{Data Lines}
+
+Data lines normally end at column 72, assuming a `carriage return' is used
+as the line terminator (although this can be altered
+by means of the pre-directive WIDTH (see Part 3 of this manual).
+In fact there are several valid terminators recognised for a data line. These
+include
+\begin{itemize}
+\item the conventional `carriage-return' (CR).
+\item the back-slash character ($\backslash$).
+\item the colon character (:)
+\end{itemize}
+Thus the following sequence of data lines
+{
+\footnotesize
+\begin{verbatim}
+          TITLE
+          H2CO - 3-21G DEFAULT BASIS - CLOSED SHELL SCF
+          ZMATRIX ANGSTROM
+          C
+          O 1 1.203
+          H 1 1.099 2 121.8
+          H 1 1.099 2 121.8 3 180.0
+          END
+          ENTER
+\end{verbatim}
+}
+\noindent
+could be presented as:
+{
+\footnotesize
+\begin{verbatim}
+          TITLE\H2CO - 3-21G DEFAULT BASIS - CLOSED SHELL SCF
+          ZMATRIX ANGSTROM\C\O 1 1.203\H 1 1.099 2 121.8
+          H 1 1.099 2 121.8 3 180.0\END
+          ENTER
+\end{verbatim}
+}
+\noindent
+Note also that a data line with 
+one of the characters \#, $>$ or $<$ in the first column
+will be treated by the program as `comment' lines, 
+being merely echoed to the output file. It goes without saying
+that the $\backslash$ character should be avoided in any TITLE
+data.
+
+\subsection{Data Fields}
+
+A data field consists of a succession of non-space characters on a 
+single line.  Three types of field are in use:
+\begin{itemize}
+\item {\em A-fields} are used for the introduction of textual material, 
+in the form of character strings.
+The maximum length of an A-field is 8 characters. A-fields of 
+less than 8
+characters are padded to the right with spaces, while if more than 8
+characters are found, the field is truncated from the right, so that
+only the leftmost 8 characters are significant.
+
+\item {\em I-fields} are used for the introduction of numeric data in the
+form of integers, and consist of a succession of decimal digits possibly
+preceded by a + or - sign. The sign
+character may be omitted, when the integer is assumed to be positive.
+The following are examples of valid I-fields:
+
+{
+\footnotesize
+\begin{verbatim}
+           0
+           762
+           +4033
+           -6149
+\end{verbatim}
+}
+\item {\em F-fields} are used for the input of floating point numbers. 
+They are
+as I-fields except that a `decimal point' character may appear to
+the right of the sign character. To introduce a decimal exponent a
+concatenation of a F-field, followed by the character E or D, followed
+by an I-field, without intervening blanks is allowed. The following
+are equivalent F-fields:
+
+{
+\footnotesize
+\begin{verbatim}
+           0      .0      0.      0.0      +0.0
+\end{verbatim}
+}
+as are:
+
+{
+\footnotesize
+\begin{verbatim}
+           0.0003      3E-4      3D-4      0.3E-3     +30E-5
+\end{verbatim}
+}
+and:
+
+{
+\footnotesize
+\begin{verbatim}
+           -500.0       -500      -5E2      -5E+2      -5D+2
+\end{verbatim}
+}
+\end{itemize}
+
+Format descriptors are used to describe a data line. The simplest of
+these takes the form nA, or nI or nF, where n is a decimal integer.
+Thus the format nF describes a line consisting of n successive
+F-fields. The omission of the integer (n) before a letter code
+implies that n=1. More complicated descriptors are used; for example
+(iA, jI, kF) describes a line consisting of i A-fields, followed by
+j I-fields, followed by k F-fields. Consider the following line:
+
+{
+\footnotesize
+\begin{verbatim}
+                ATOM 10 1.0 12 HCH
+\end{verbatim}
+}
+
+read to the variables TEXT, I, X, J, BTEXT in format (A, I, F, I, A).
+
+\begin{itemize}
+\item      TEXT    will be set to the character string ATOM.
+\item      I       will be set to the decimal integer 10.
+\item      X       will be set to the floating point value 1.0.
+\item      J       will be set to the decimal integer 12.
+\item      BTEXT   will be set to the character string HCH.
+\end{itemize}
+The same line could be read to variables TEXT, X, Y, ATEXT, BTEXT in format
+(A, 2F, 2A), so that:
+\begin{itemize}
+\item      TEXT    will be set to the character string ATOM.
+\item      X       will be set to the floating point value 10.0.
+\item      Y       will be set to the floating point value 1.0.
+\item      ATEXT   will be set to the character string 12.
+\item      BTEXT   will be set to the character string HCH.
+\end{itemize}
+Consider reading the following line:
+{
+\footnotesize
+\begin{verbatim}
+         GENERALISED ATOMIC AND MOLECULAR ELECTRONIC STRUCTURE SYSTEM
+\end{verbatim}
+}
+to (A(I),I=1,7) in format (7A).
+\begin{itemize}
+\item      A(1)    will be set to the string GENERALI. Note the truncation.
+\item      A(2)    will be set to the string ATOMIC.
+\item      A(3)    will be set to the string AND.
+\item      A(4)    will be set to the string MOLECULA. Note the truncation.
+\item      A(5)    will be set to the string ELECTRON. Note the truncation.
+\item      A(6)    will be set to the string STRUCTUR. Note the truncation.
+\item      A(7)    will be set to the string SYSTEM.
+\end{itemize}
+
+\subsection{GAMESS-UK Directives}
+
+Data input is largely structured as a sequence of `directives'.
+Directives sometimes extend over many lines, sometimes they comprise a
+single line, and usually contain some reasonably self-contained data,
+built up out of A,I, and/or F-fields.  The first field of a directive
+is invariably an A-field, carrying the name of the directive.  Note
+that only the first four characters of such an identifier are in
+practice required.  The directives group into two classes, with {\em
+Class 1} directives (see Part 3) specified before {\em Class 2}
+directives (see Part 4); note that the order within each class may be
+important, and the user is recommended to follow the order outlined in
+the relevant sections of the manuals, or example inputs where
+available.
+
+\subsubsection{INCLUDE - Including external files in an input file}
+As of version 7.0 it is possible to include external text files into a
+GAMESS-UK input file through the use of the 'include' directive. Thus
+the line:
+
+{
+\footnotesize
+\begin{verbatim}
+include /home/wab/inputs/geometry.txt
+\end{verbatim}
+}
+
+placed in a GAMESS-UK input file would cause the ''geometry.txt'' file to
+be inserted at that point in the input file.
+
+\section{Restrictions}
+
+The restrictions which the present program place on the user are
+as follows
+\begin{itemize}
+\item Gaussian functions of s, p, d, f and g may be used.
+\item The maximum number of contracted orbitals depends in general
+on the functionality requested. Conventional SCF and DFT energy and gradient
+calculations are now effectively open-ended (the default being 1024
+functions). Note that lifting this restriction to an arbitrary number
+is trivially performed by changing the build size when configuring the code.
+\item The maximum number of primitive functions within a 
+contraction is 25.
+\item The maximum number of centres is 1000, allowing for the use
+of extensive point-charge arrays.
+\end{itemize}
+
+\section{Release Notes for GAMESS-UK}
+
+\subsection{Changes introduced in GAMESS-UK Version 7.0}
+
+\subsubsection{Changes to GAMESS-UK functionality}
+
+\begin{enumerate}
+
+\item Fermi-dirac smearing implemented
+
+Normally orbitals are filled according to a step function, but this
+can cause convergence problems if it is uncertain which state to
+converge on. Fermi smearing allows orbitals to be partially filled,
+which can improve convergence in some problematic cases.
+
+\item Atomic Guess extended
+
+It is now possible to specify the per-atom electron configuration or
+charge for the atomic guess. It is also possible to specify alpha and
+beta populations for atoms in UHF calculations.
+
+\item Update of the Graphics Module
+
+The graphics modules have been revised to enable both density and
+potential codes to drive through full (s,p,d,f,g) basis sets.
+
+\item User-defined convergence schemes:
+
+It is now possible for a user to specify a particular convergence
+scheme, rather than the default one within GAMESS-UK. This is
+activated by placing the convergence criteria within a block in the
+input file delimited by the keywords "newscf" and "end", following the
+specification of the runtype.
+
+This functionality is available in serial and within the parallel MPI
+ScaLAPACK driver.
+
+\item Changes to the DFT Module
+
+\begin{itemize}
+
+\item New DFT Functionals
+Several new functionals have been added:
+
+\begin{itemize}
+\item PBE exchange-correlation functional
+\item HCTH120, HCTH147, HCTH407, KT1 and KT2 functionals.
+\item PW92 local correlation functional
+\item PW91 exchange, correlation and exchange-correlation functionals.
+\item B95 meta-GGA correlation functional.
+\item BB95, B1B95 and BB1K meta-GGA functionals.
+NB - for the meta-GGA functionals, only the energies and gradients can
+be calculated - the second derivatives of the energy are not
+available.
+\end{itemize}
+
+\item More flexible DFT grid specifications
+
+The atom size is used in a number of tests within in the DFT
+code. Previously the same size was used for all tests, however it is
+now possible to specify the atomic size for each test separately, as
+shown in the examples below:
+
+\begin{enumerate}
+\item The atomic radii for the angular grid pruning schemes: pradii 3.0
+
+\item The atomic size adjustment radii for the weighting scheme: wradii 3.0
+
+\item  The screening radius: sradii 3.0
+
+\item The radial grid scale factor: radii 3.0
+
+\end{enumerate}
+
+It is also now possible to specify the grid size for a row of the
+periodic table - previously this had to be done on a per-element
+basis. For example, to specify the grid size for the Lebedev-Laikov
+angular grid for the first row of the periodic table:
+
+lebedev row 1 194
+
+\end{itemize}
+
+
+\item Changes to the Post-HF Modules
+
+\begin{itemize}
+\item The 255 basis function limit in the MRDCI code has been removed,
+  so that the code is effecively open-ended in the number of basis
+  functions permitted.
+
+\item Configuration Interaction Transformation between AO and MO
+  basis' has been extended to g functions.
+
+
+\item A facility to allow the punching of both transformed integrals
+  and CI coefficients from the full CI code has been introduced. This
+  uses (i) the cards directive, and (ii) an extension of the current
+  print facility within the Full CI module. Thus the data file:
+
+{
+\footnotesize
+\begin{verbatim}
+    core 10000000
+    title
+    h2co - 3-21g basis - valence full-ci
+    super off nosym
+    cards trans fullci
+    zmatrix angstrom
+    c
+    o 1 1.203
+    h 1 1.099 2 121.8
+    h 1 1.099 2 121.8 3 180.0
+    end
+    active\5 to 22 end\core\1 to 4\end
+    runtype ci\fullci 18 4 4
+    punch 1 -8
+    enter
+\end{verbatim}
+}
+
+    Would result in a complete list of transformed 1e- and 2e-integrals to
+    the file "moints,ascii" and all ci coefficients (greater than 1 *
+    10**-8) to the file civecs.ascii.
+
+
+\item The filenames for the files use in CI calculations can now be
+  set through "file" directives in the input file as well as
+  environment variables.
+
+\item MR-ACPF (Multireference Averaged Coupled-Pair-Functional), MR-AQCC
+(Multi-Reference Average Quadratic Coupled-Cluster) and the CEPA0
+coupled electron-pair approximation methods have been added to the
+MRDCI module.
+
+\end{itemize}
+
+
+\item The use of the ''HARMONIC'' directive has been extended to the Valence
+Bond code, allowing spherical harmonic basis sets to be used for d, f
+and g functions.
+
+\item A simple solvation model has been implemented in the Valence Bond code.
+
+\item Arbitrary (not spinadapted) wavefunctions are now possible in the
+Valence Bond code.
+
+\item The Valence Bond module can be compiled with 8-byte integers.
+
+\item The ''RESTORE'' option has been added to the ZORA module to allow zora
+relativistic (atomic) corrections to be stored and restored on the
+current and foreign dumpfile. This permits easy restart calculations,
+when the ZORA corrections do not need to be recalculated.
+
+%Joops additions
+%- improved orbital optimisation (improved pert) and stop criterium
+%(still to be tested and to be part of thesis) This could make orbital
+%optimisation on bigger molecules cheap,since the same number of
+%matrix-elements are required as are needed in a Fock-matrix type
+%optimisation.
+%- basis set optimisation is to optimise outer functions for e.g. negative ions
+%(is not finished yet)
+%- Freeze atom is to not calculate hessians and gradiens for frozen atoms
+%(in testphase)
+%- Spin-orbit ZORA, will be finished in 3 months (I hope)
+%To do relativistic calculations inclusing spin-orbit coupling 
+%brillouin theorem in parallell? VB!
+
+
+\item New distributed data MPI HF/DFT driver
+
+A distributed-data HF and DFT module has been developed using
+MPI-based tools such as ScaLAPACK.  All data structures, except those
+required for the Fock build are fully distributed. The functionality
+of this code is currently limited to closed shell and unrestricted
+open shell. To build this code BLACS and ScaLAPACK (available from
+\http{http://www.netlib.org/}), must be installed on the target machine and
+the "mpi" build option selected when configuring the code. 
+
+\item Taskfarming Harness
+
+A taskfarming harness has been developed. This is an MPI program
+designed to be run on a large number of processors on a parallel
+machine and 'batch processes' numerous small GAMESS-UK jobs. The
+taskfarming harness is currently only available as a separate binary
+of the "mpi" build of the code and is selected by choosing the
+"taskfarm" keyword when configuring the mpi code.
+
+\end{enumerate}
+
+\subsubsection{Changes to the structure of the code}
+
+\begin{enumerate}
+
+\item New Ports
+
+The code has been ported to several new platforms:
+\begin{itemize}
+\item Macintosh OSX (G3, G4, and G5 processors)
+\item Windows XP
+\item AMD Opteron and Athlon processors running Linux.
+\item Intel Xeon, EM64T and Itanium processors running Linux.
+\item HP-UX running on Itanium processors.
+\item Sunfire v880 server
+\item SGI Altix
+\item Cray XD1
+\end{itemize}
+
+\item Global Arrays
+
+The version of the Global Arrays supplied with GAMESS-UK has been
+updated from 3.3 to GA 3.4b.
+
+\item MOPAC
+
+The MOPAC code within GAMESS-UK has been updated to version 7.0
+
+\item Configuring GAMESS-UK
+
+A new configure process has been developed to ease porting the code
+to new platforms and making it easier for users to configure the
+build on their own machine. All platform-specific variables for the make
+process are stored in a file with an .mk suffix in the
+{\footnotesize\textbf{GAMESS-UK/config}} directory and the configuration process is run
+by the configure script in the main {\footnotesize\textbf{GAMESS-UK}} directory. There are 
+further notes in the file: {\footnotesize\textbf{GAMESS-UK/INSTALL}}.
+
+\end{enumerate}
+
+\subsubsection{Peripheral Changes}
+
+\begin{enumerate}
+\item Demo Binaries
+
+Free Windows, Macintosh and Linux demo versions are available for
+users who wish to try out the code.
+
+
+\item Changes to the website
+
+The website has been updated and moved to a new url and a Bugzilla facility for
+logging and querying bugs with the code has also been added.
+
+The new URL for the main GAMESS-UK website is:
+
+\http{http://www.cfs.dl.ac.uk}
+
+\item CCP1GUI
+
+The CCP1GUI is a free, extensible Graphical User Interface to various
+computational chemistry codes. Although it has interfaces to other
+codes such as Dalton and Mopac, the CCP1GUI has been developed around
+GAMESS-UK and provides a powerful tool for setting up and viewing the
+results of calculations with GAMESS-UK.
+
+The CCP1GUI website can be found at:
+
+\http{http://www.cse.scitech.ac.uk/ccg/software/ccp1gui}
+
+
+\end{enumerate}
+
+\subsection{Changes introduced in GAMESS-UK Version 6.3}
+
+\begin{enumerate}
+
+\item Section numbers for vectors/enter can now be omitted.
+
+\item DMA analysis now uses Slater radii table.
+
+\item The old option of performing a DFT energy calculation on a HF
+density (a posteriori) is no longer in the default build. This can still
+be accessed using the old-dft keyword in the configure response at
+build time.
+
+\item Changes to the DFT module:
+\begin{itemize}
+\item More flexible grid input.
+\item Additional DFT functionals (FT97, HCTH, B97, B97-1 and B97-2 etc.)
+\item Optimisations to coulomb fit DFT code.
+\item Built-in DFT Orbital sets (DZVP, DZVP2 and TZVP) and 
+Auxiliary Coulomb Fitting Basis sets (DGauss-A1 and -A2, DeMon
+and those due to Ahlrichs).
+\item Gradient term from derivative of quadrature weights included.
+\end{itemize}
+
+\item Reduced functionality build options (SCF+DFT and MP2) for use on
+parallel machines with limited node memory, and for benchmark porting
+exercises.
+
+\item Major changes to all ECP-related code. with re-writes of
+the integrals and derivatives code. This has sped the energy integrals
+by between 2-3, and the gradients by a factor of at least 5.
+Addition of 4 sets of ECPs to internal libraries
+\begin{itemize} 
+\item  LANL2 (including all inner-valence TM ECPs etc to library;
+the original HW ECP's are now code-named lanl
+\item  CRENBS and CRENBL (Christiansen et al Small- and Large-core ECPs)
+\item  STRLC and STRSC (Stuttgart RLC and RSC sets)
+\end{itemize} 
+all ECPs + associated basis sets added for all elements.
+
+\item New Ports 
+\begin{itemize}
+\item Linux PowerPC 
+\item Windows95
+\item Parallel version for Alpha/Linux clusters.
+\item 64-bit build supported on a range of platforms (Origin, Alpha Linux,
+AIX, Solaris)
+\end{itemize}
+
+\item Global Array and Peigs source for parallel builds has been updated,
+supporting a wider range of platforms.
+
+\item Ability to read in hessian information under runtype optx.
+
+\item Ability to use include directive in input files.
+
+\item Extensions/enhancements to ZORA.
+
+\item Alpha release of Multi-Reference Moller Plesset module.
+
+\item NBO analysis extended to UHF wavefunctions. Interface provided
+to Bader's AIMPAC code.
+
+\item Alpha release of newscf module allowing more flexible treatment
+of cases showing poor SCF convergence.
+
+\item Reduction in memory usage for systems with many nuclear centres,
+e.g. for QM/MM studies.
+
+\item Developments to support VB code (under development, not included
+in Release 6.3.1)
+
+\item Work on CHARMM interface code.
+\end{enumerate}
+
+\subsection{Changes introduced in GAMESS-UK Version 6.2}
+
+\begin{enumerate}
+\item New functionality available includes;
+
+\begin{itemize}
+\item Alpha release of Direct Reaction Field module.
+
+\item Gaussian functions of s, p, d, f and g may now be used
+
+\item Alpha release of ZORA Relativistic treatment.
+
+\item Production release of Density Functional Theory (DFT)
+     module.
+
+\item Alpha release of semi-direct Table-CI module.
+\end{itemize}
+
+\item Change to the default behaviour of the DFT module
+
+   Users of alpha-releases of the DFT module should note that now
+\begin{itemize}
+\item the default functional is now B-LYP
+\item the default grids are now constructed from the logarithmic
+      grid of Knowles and Mura (previously the SG1 grid was selected
+      by default).
+\end{itemize}
+
+\item Point charge calculations using BQ centres - the nuclear energy
+   now excludes the term arising from BQ-BQ interactions. This should
+   simplify the construction of QM/MM models by allowing the classical
+   electrostatic energy to be computed entirely within the MM code. The
+   original behaviour may be restored with the BQBQ directive.
+\end{enumerate}
+
+\section{Enquiries}
+
+All enquiries regarding the availability of the program
+documented herein, should be directed in the first instance to
+the following E-Mail address at Daresbury:
+{
+\footnotesize
+\mailto{gamess\_uk\_contact@dl.ac.uk}
+}
+
+For any problems arising from use of the program, there are two
+sources of help.
+
+\begin{itemize}
+\item There is a bug tracker that lists known problems with the code,
+which can be found at:
+
+{
+\footnotesize
+\http{http://ccpforge.cse.rl.ac.uk/tracker/?group\_id=14}
+}
+
+\item The gamess-uk-users email list is the place to raise any queries
+  about the code or to ask for advice on using the code. The homepage
+  for the list can be found at:
+
+{
+\footnotesize
+\http{http://ccpforge.cse.rl.ac.uk/mailman/listinfo/gamess-uk-users}
+}
+
+\end{itemize}
+                
+
+Note that an electronic copy of this manual is available
+under the CFS web pages:
+{
+\footnotesize
+\http{http://www.cfs.ac.uk/docs/index.shtml}
+}
+
+\section{Acknowledgement}
+
+This program resulted from the efforts of many researchers: we
+gratefully acknowledge the on-going collaborative efforts of those
+colleagues detailed in the preface to this manual.
+
+% \clearpage
+
+\begin{thebibliography}{10}
+\bibitem{gamess} 
+M.F. Guest, I.J. Bush, H.J.J. van Dam, P. Sherwood, J.M.H. Thomas,
+J.H. van Lenthe, R.W.A Havenith, J. Kendrick, 
+"The GAMESS-UK electronic structure package: algorithms, developments
+ and applications", Molecular Physics, {\bf 103} (2005) 719-747,
+\doi{10.1080/00268970512331340592}.
+M.F. Guest, J. Kendrick, GAMESS Users Manual, SERC Daresbury Laboratory,
+CCP1/86/1, 1986: M. Dupuis, D. Spangler and J. Wendoloski, NRCC
+Software Catalog, Vol. 1, Program No. QG01 (GAMESS), 1980:
+M.F. Guest, R.J. Harrison, J.H. van Lenthe and L.C.H. van Corler, 
+Theor. Chim. Acta {\bf 71} (1987) 117, \doi{10.1007/BF00526413}; 
+Note: The CDC version of the GAMESS code was obtained
+from M. Dupuis in June 1981. Serious development work on the program
+commenced in January 1982, after conversion to VAX and IBM systems.
+All sections of the original code have either been extensively modified
+or replaced in the present GAMESS--UK code.
+
+\bibitem{dupuis} 
+M. Dupuis, J. Rys and H.F. King,
+  J. Chem. Phys. {\bf 65} (1976) 111, \doi{10.1063/1.432807};
+J.A. Pople and W.J. Hehre,
+  J. Comp. Phys. {\bf 27} (1978) 161, \doi{10.1016/0021-9991(78)90001-3}.
+
+\bibitem{pulay} 
+P. Pulay,
+  Chem. Phys. Lett. {\bf 73} (1980) 393, \doi{10.1016/0009-2614(80)80396-4};
+P. Pulay,
+  J. Comp. Chem. {\bf 3} (1982) 556, \doi{10.1002/jcc.540030413}.
+
+\bibitem{bobrowicz} 
+F.W. Bobrowicz and W.A. Goddard, in `Modern Theoretical Chemistry',
+Vol. 3, ed. H.F. Schaefer, Plenum, New York (1977) 79.
+
+\bibitem{roos}
+B. Jonsson, B.O. Roos, P.R. Taylor and P.E.M. Siegbahn,
+  J. Chem. Phys.  {\bf 74} (1981) 4566, \doi{10.1063/1.441645};
+B.O. Roos, P. Linse, P.E.M. Siegbahn and M.R.A. Blomberg,
+  Chem. Phys. {\bf 66} (1982) 197, \doi{10.1016/0301-0104(82)88019-1};
+P.J. Knowles, G.J. Sexton and N.C. Handy,
+  Chem. Phys.  {\bf 72} (1982) 337, \doi{10.1016/0301-0104(82)85131-8}:
+  The original CASSCF module, as developed by Dr. P.J. Knowles was incorporated
+  into GAMESS in April 1983.
+
+\bibitem{knowles}  
+P.J. Knowles and H.J. Werner,
+  Chem. Phys. Lett.  {\bf 115} (1985) 259, \doi{10.1016/0009-2614(85)80025-7}.
+
+\bibitem{handy}
+N.C. Handy and H.F. Schaefer,
+  J. Chem. Phys. {\bf 81} (1984) 5031, \doi{10.1063/1.447489};
+J.E. Rice, R.D.Amos, N.C. Handy, T.J. Lee and H.F. Schaefer,
+  J. Chem. Phys. {\bf 85} (1986) 963, \doi{10.1063/1.451253}.
+
+\bibitem{ormas}
+"Direct configuration interaction and multiconfigurational self-consistent 
+field method for multiple active spaces with variable occupations. 
+I. Method", J. Ivanic, J. Chem. Phys. {\bf 119}, 9364-9376(2003),
+\doi{10.1063/1.1615954}.
+
+\bibitem{schlegel} 
+H.B. Schlegel, J. Chem. Phys. {\bf 77} (1982) 3676, \doi{10.1063/1.444270}.
+
+\bibitem{bell} 
+S. Bell and J.S. Crighton,
+  J. Chem. Phys. {\bf 80} (1984) 2464, \doi{10.1063/1.446996}.
+
+\bibitem{cerjan} 
+C.J. Cerjan and W.H. Miller,
+  J. Chem. Phys. {\bf 75} (1981) 2800, \doi{10.1063/1.442352}.
+
+\bibitem{simons}  
+J. Simons, P. Jorgensen, H. Taylor and J. Ozment,
+  J. Phys. Chem. {\bf 87} (1983) 2745, \doi{10.1021/j100238a013}:
+A. Banerjee, N. Adams, J. Simons and R. Shepard,
+  J. Phys. Chem. {\bf 89} (1985) 52, \doi{10.1021/j100247a015}.
+
+\bibitem{baker}  
+J. Baker,
+  J. Comp. Chem. {\bf 7} (1986) 385, \doi{10.1002/jcc.540070402}.
+
+\bibitem{pople} 
+J.A. Pople, R. Krishnan, H.B. Schlegel and J.S. Binkley,
+  Int. J. Quant. Chem. {\bf 14} (1978) 545,
+  \doi{10.1002/qua.560140503};
+Y. Osamura, Y. Yamaguchi, P. Saxe, M.A. Vincent, J.F. Gaw and H.F. Schaefer,
+  Chem. Phys. {\bf 72} (1982) 131,
+  \doi{10.1016/0301-0104(82)87073-0}.
+
+\bibitem{stevens} 
+R.M. Stevens, R.M. Pitzer and W.N. Lipscomb,
+  J. Chem. Phys. {\bf 38} (1963) 550, \doi{10.1063/1.1733693}.
+
+\bibitem{amos} 
+R.D. Amos,
+  Adv. Chem. Phys. {\bf 67} (1987) 99.
+% No doi available.
+
+\bibitem{hay} 
+P.J. Hay and W.R. Wadt, J. Chem. Phys. {\bf 82} (1985)
+270 \doi{10.1063/1.448799},
+284 \doi{10.1063/1.448800},
+299 \doi{10.1063/1.448975}.
+
+\bibitem{durand} 
+Ph. Durand and J.-C. Berthelat,
+  Theoret. Chim. Acta, {\bf 38} (1975) 283, \doi{10.1007/BF00963468}.
+
+\bibitem{buenker} 
+R.J. Buenker in `Proc. of the Workshop on Quantum Chemistry and
+Molecular Physics', Wollongong, Australia (1980);
+R.J. Buenker in `Studies in Physical and Theoretical Chemistry',
+{\bf 21} (1982) 17.
+% This material is not electronically available.
+
+\bibitem{siegbahn} 
+P.E.M. Siegbahn,
+  J. Chem. Phys. {\bf 72} (1980) 1647, \doi{10.1063/1.439365};
+V.R. Saunders and J.H. van Lenthe,
+  Mol. Phys. {\bf 48} (1983) 923, \doi{10.1080/00268978300100661}.
+
+\bibitem{zarrabian}  
+S. Zarrabian and R.J. Harrison,
+  Chem. Phys. Lett. {\bf 81} (1989) 393--398,
+  \doi{10.1016/0009-2614(89)87358-0}.
+
+\bibitem{lee} 
+T.J. Lee and J.E. Rice,
+  Chem. Phys. Lett. {\bf 150} (1988) 406--415,
+  \doi{10.1016/0009-2614(88)80427-5}.
+
+\bibitem{scuseria} 
+G.E. Scuseria, A.C. Scheiner, T.J. Lee, J.E. Rice and H.F. Schaefer,
+  J. Chem. Phys. {\bf 86} (1987) 2881, \doi{10.1063/1.452039}.
+
+\bibitem{lee2} 
+T.J. Lee, A.P. Rendell and P.R. Taylor,
+  J. Phys. Chem.{\bf 94} (1990) 5463, \doi{10.1021/j100377a008}.
+
+\bibitem{rendell} 
+A.P. Rendell, T.J. Lee and A. Komornicki,
+  Chem. Phys. Lett, {\bf 178} (1991) 462--470,
+  \doi{10.1016/0009-2614(91)87003-T}.
+ 
+\bibitem{lee3} 
+T.J. Lee, J.E. Rice and A.P. Rendell,
+The TITAN Set of Electronic Structure Programs, 1991.
+% No more information electronically accessible.
+
+\bibitem{cederbaum}
+L.S. Cederbaum and W. Domcke,
+  Adv. Chem. Phys.  {\bf 36} (1977) 205.
+% Not electronically accessible.
+
+\bibitem{schirmer}
+J. Schirmer and L.S. Cederbaum,
+  J. Phys. {\bf B11} (1978) 1889, \doi{10.1088/0022-3700/11/11/006}.
+
+\bibitem{fuchs} 
+C. Fuchs, V. Bona\v{c}i\'{c}-Kouteck\'{y} and J. Kouteck\'{y},
+J.\ Chem.\ Phys.\ {\bf 98} (1993) 3121, \doi{10.1063/1.464086}.
+
+\bibitem{weinhold}
+Based upon Version 3.0 of the NBO program from the Quantum Chemistry
+Program Exchange (No. 408 ,1980);
+A. E. Reed, L. A. Curtiss, and F. Weinhold,
+  Chem. Rev. {\bf 88} (1988) 899-926, \doi{10.1021/cr00088a005};
+F. Weinhold and J. E. Carpenter, in, R. Naaman and Z. Vager (eds.),
+"The Structure of Small Molecules and Ions," (Plenum, New York, 1988),
+pp. 227-236.
+% NBO source code is also available from http://www.ccl.net/
+
+\bibitem{aimpac}
+Interface to Version 94, Revision B of AIMPAC, 
+F.W. Biegler-K\"onig, R.F.W. Bader and T-H. Tang,
+  J. Comp. Chem. {\bf 3} (1982) 317--328, \doi{10.1002/jcc.540030306}.
+
+\bibitem{stone} 
+A.J. Stone, 
+  Chem. Phys. Lett. {\bf 83} (1983) 233--239,
+  \doi{10.1016/0009-2614(81)85452-8}.
+
+\bibitem{vries}
+A.H. de Vries, P.Th. van Duijnen, A.H. Juffer, J.A.C. Rullmann,
+J.P. Dijkman, H. Merenga, and B.T. Thole,
+  J. Comp. Chem. {\bf 16} (1995) 37--55, \doi{10.1002/jcc.540160105} 
+  erratum 1445--1446, \doi{10.1002/jcc.540161113}.
+
+\bibitem{duijnen}
+P.Th. van Duijnen and A.H. de Vries,
+  Int. J. Quant. Chem., {\bf 60} (1996) 1111,
+  \doi{10.1002/(SICI)1097-461X(1996)60:6<1111::AID-QUA2>3.0.CO;2-2}.
+
+\bibitem{vanDam}
+H.J.J. van Dam, J.H. van Lenthe and P. Pulay,
+  Mol. Phys. {\bf 93} (1998) 431, \doi{10.1080/002689798169122}.
+
+\bibitem{zora}
+S. Faas, J.G. Snijders, J.H. van Lenthe, E. van Lenthe, E.J.  Baerends,
+  Chem. Phys. Lett. {\bf 246} (1995) 632--640,
+  \doi{10.1016/0009-2614(95)01156-0}.
+
+\bibitem{atmol}
+D. Moncrieff and V.R. Saunders, ATMOL-Introduction Notes, UMRCC, May,
+1986; Cyber-205 Note Number 32, UMRCC, September, 1985; V.R. Saunders and
+M.F. Guest, ATMOL3 Part 9, RL-76-106 (1976); M.F. Guest and V.R. Saunders,
+Mol. Phys. {\bf 28} (1974) 819, \doi{10.1080/00268977400102171}.
+
+\bibitem{mopac}
+MOPAC 1993 Version 7.00, J.J.P. Stewart, Fujitsu Limited, Tokyo, Japan.
+% See also http://sourceforge.net/projects/mopac7/
+\end{thebibliography}
+\end{document}

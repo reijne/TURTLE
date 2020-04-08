@@ -1,0 +1,70 @@
+
+Begin optimization report for: REDUC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at reduc.f(66,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at reduc.f(66,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at reduc.f(78,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at reduc.f(82,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at reduc.f(86,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at reduc.f(86,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at reduc.f(92,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at reduc.f(95,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at reduc.f(100,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at reduc.f(100,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at reduc.f(100,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at reduc.f(105,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at reduc.f(105,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at reduc.f(59,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at reduc.f(62,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

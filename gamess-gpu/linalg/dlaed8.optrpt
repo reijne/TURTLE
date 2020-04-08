@@ -1,0 +1,86 @@
+
+Begin optimization report for: DLAED8
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed8.f(207,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(207,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed8.f(207,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(215,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(215,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed8.f(215,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(218,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed8.f(218,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(225,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed8.f(225,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(244,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed8.f(244,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed8.f(368,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed8.f(368,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaed8.f(248,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed8.f(250,21) ]
+LOOP END
+
+LOOP BEGIN at dlaed8.f(268,31)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlaed8.f(290,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed8.f(301,16) ]
+
+   LOOP BEGIN at dlaed8.f(333,19)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed8.f(374,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed8.f(378,18) ]
+LOOP END
+===========================================================================

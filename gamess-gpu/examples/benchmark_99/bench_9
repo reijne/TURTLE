@@ -1,0 +1,38 @@
+#!/bin/csh -f
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ed11 mfged11
+setenv ed16 mfged16
+setenv ed18 mfged18
+setenv ed0 mfged0
+../../bin/gamess << EOF
+title
+h3si-n=c=o mp2/TZVP  total energy (mp2) 
+zmat angs
+n
+c  1 nc
+x  1 1.0 2 alp
+si 1 sin 3 alp 2 180.0
+x  2 1.0 1 90.0 3 180.0
+o  2 co  5 bet 3 180.
+x  4 1.0 1 90.0 3 0.0
+h  4 hsi 7 hsix 1 180.
+h  4 hsi 7 hsix 1 60.
+h  4 hsi 7 hsix 1 -60.
+variables
+nc             1.2382181 hessian    1.067218
+sin            2.5110880 hessian    0.090862
+co             1.2338576 hessian    1.177916
+hsi            1.4817664 hessian    0.889712
+alp           89.9572251 hessian    0.239009
+bet           89.6252374 hessian    0.219253
+hsix          90.0418006 hessian    0.675798
+end
+basis tzvp
+runtype optimize
+scftype mp2
+xtol 0.005
+enter
+EOF
+/bin/rm mfg*

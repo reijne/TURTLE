@@ -1,0 +1,43 @@
+#!/bin/bash
+#BSUB -n 32
+#BSUB -W 180
+#BSUB -o validate_MP2.o%J
+#BSUB -e validate_MP2.e%J
+#BSUB -J validate_MP2
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix 
+
+rm -rf /santmp/dlwab/validate
+mkdir /santmp/dlwab/validate
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/validate
+
+cp ../../input_files/MP2_opt.crno4.in /santmp/dlwab/validate
+cp ../../input_files/MP2_ECP_opt.crno4.in /santmp/dlwab/validate
+cp ../../input_files/MP2_forces.scf3.in /santmp/dlwab/validate
+cp ../../input_files/MP2_opt.mnco5h.in  /santmp/dlwab/validate
+cp ../../input_files/MP2_opt_props.brncs.in /santmp/dlwab/validate
+cp ../../input_files/RPA.pyridine.in /santmp/dlwab/validate
+cp ../../input_files/SECD_opt.pyridine.6-31G-dp.in /santmp/dlwab/validate
+cp ../../input_files/SECD.TFMtoluene.6-31G.in /santmp/dlwab/validate
+cp ../../input_files/SECD_ECP_opt.crco6.in /santmp/dlwab/validate
+cp ../../input_files/SECD_HCTH.TFMtoluene.6-31G.in /santmp/dlwab/validate
+ 
+cd /santmp/dlwab/validate
+
+pam -mpi -auto_place ./gamess-uk < MP2_opt.crno4.in     > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/MP2_opt.crno4.out
+pam -mpi -auto_place ./gamess-uk < MP2_ECP_opt.crno4.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/MP2_ECP_opt.crno4.out
+pam -mpi -auto_place ./gamess-uk < MP2_forces.scf3.in   > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/MP2_forces.scf3.out
+pam -mpi -auto_place ./gamess-uk < MP2_opt.mnco5h.in    > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/MP2_opt.mnco5h.out
+pam -mpi -auto_place ./gamess-uk < MP2_opt_props.brncs.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/MP2_opt_props.brncs.out
+pam -mpi -auto_place ./gamess-uk < RPA.pyridine.in      >    /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/RPA.pyridine.out
+pam -mpi -auto_place ./gamess-uk < SECD_opt.pyridine.6-31G-dp.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/SECD_opt.pyridine.6-31G-dp.out
+pam -mpi -auto_place ./gamess-uk < SECD.TFMtoluene.6-31G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/SECD.TFMtoluene.6-31G.out
+pam -mpi -auto_place ./gamess-uk < SECD_ECP_opt.crco6.in    > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/SECD_ECP_opt.crco6.out
+pam -mpi -auto_place ./gamess-uk < SECD_HCTH.TFMtoluene.6-31G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/SECD_HCTH.TFMtoluene.6-31G.out
+

@@ -1,0 +1,13 @@
+c
+c from March 97, amass is used only for user-input
+c mass values
+c czanr contains a copy of czan made in basis.m after reorganisation and
+c before pseudo potential; so real charges in real order 
+c beware, infob is explicit in direct.m and  dirrpa.m
+c
+      REAL czann, czanr, cat, amass, cnew
+      integer nonsym, map80
+      logical ozmat
+      common/infob/czanr(maxat),czann(maxat),cat(3,maxat),amass(maxat),
+     +             cnew(maxat3,3),nonsym,map80(maxat),ozmat
+

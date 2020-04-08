@@ -1,0 +1,4 @@
+#
+cat run_chap12 | sed 's/time //' | grep -v '#' > file1
+grep '  rungamess'  /nfs/dlsa/usr70/wab/gamess_m4/Latex/chap12.tex > file2
+diff -w file1 file2 > file3

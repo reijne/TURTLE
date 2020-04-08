@@ -1,0 +1,32 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o -- c2v -- optimized energy  =  -75.58595972
+zmat angstrom
+o
+x 1 1.0
+h 1 r 2 90.0
+h 1 r 2 90.0 3 theta
+variables
+theta 104.5
+r 0.951
+end
+runtype optimize
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2o -- c2v -- tag connectivity, optimised energy  =  -75.58595972
+zmat angstrom
+o
+h1 o oh
+h2 o oh h1 hoh
+variables
+hoh 104.5
+oh 0.951
+end
+runtype optimize
+enter
+EOF

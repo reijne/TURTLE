@@ -1,0 +1,60 @@
+#!/bin/csh 
+#
+#PBS -l nodes=16:ppn=2
+#PBS -l walltime=120:00
+# Tell PBS to use 16 nodes and 2 processes per node
+#PBS -j oe
+#PBS -N siosi4
+#PBS -o /home/martyn/GAMESS-UK/examples/ukcp/siosi4.log
+
+set numcpu = 32
+
+setenv MPI_HOME /usr/local/mpich-gm-pgroup121-7b
+setenv PATH "$MPI_HOME/bin:$PATH"
+setenv MANPATH "$MPI_HOME/man:$MANPATH"
+                   
+set mnodes = `cat $PBS_NODEFILE`
+
+setenv scratch  /data/martyn/$PBS_JOBID
+
+set prev = "" 
+foreach i ( $mnodes )
+if ( ${prev} != ${i} ) then    
+  rsh ${i} "mkdir $scratch"  
+  rcp /home/martyn/GAMESS-UK/examples/ukcp/siosi4.in ${i}:$scratch
+  sleep 1
+endif
+set prev = ${i}   
+
+end
+
+set nnodes = $#mnodes
+ 
+set confile = ~/gm.$PBS_JOBID.conf
+echo  $nnodes > $confile
+ 
+set prev = ""
+# Setup interleaving configuration file for Myrinet
+foreach i ( $mnodes )
+  if ( ${prev} != ${i} ) then
+    echo ${i} 4 >>$confile
+  else
+    echo ${i} 2 >>$confile
+  endif
+  set prev = ${i}
+end
+
+cd $scratch
+
+mpirun.ch_gm  --gm-kill 1 --gm-v --gm-use-shmem  --gm-w 1 -np $nnodes --gm-f $confile ~/GAMESS-UK/bin/gamess-uk < siosi4.in >  /home/martyn/GAMESS-UK/examples/ukcp/siosi4.out.$numcpu
+
+
+cd ..
+
+foreach i ( $mnodes )  
+
+rsh ${i} "rm -rf $scratch"
+
+end
+
+rm -rf $confile

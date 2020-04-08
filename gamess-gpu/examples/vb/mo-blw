@@ -1,0 +1,472 @@
+#!/bin/csh
+#
+echo " blh6  6-31g1 "
+#
+../../bin/gamess << EOF
+time 100000
+core 64000000
+adapt off
+title
+h6 scf cartesian  6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+enter 1
+EOF
+
+setenv ed3 ed3
+../../bin/gamess << EOF
+time 100000
+core 64000000
+harmon
+adapt off
+title
+h6 scf startup  6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+vectors atorbs sect 81
+enter 1
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  block left  6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 1 2 2 3 3
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 81 1 + 2 3 + 4 5 + 6 end
+ end
+ active
+  1 to 3
+ end active
+ scf
+hybrid
+h1h2
+1 end
+atom 1 2 end
+h3h4
+2 end
+atom 3 4 end
+h5h6
+3 end
+atom 5 6 end
+end
+  nosymm
+crit 1.0 -6 scf
+ end scf
+end 11
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  block right  6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 1 2 2 3 3
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 81 2 + 3 4 + 5 6 + 1 end
+ end
+ active
+  1 to 3
+ end active
+ scf
+hybrid
+h2h3
+1 end
+atom 2 3 end
+h4h5
+2 end
+atom 4 5 end
+h6h1
+3 end
+atom 6 1 end
+end
+  nosymm
+crit 1.0 -6 scf
+ end scf
+end 12
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  block left block right opt 0  6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 1 2 2 3 3
+4 4 5 5 6 6
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 11  1 to 3 end
+  section 12  1 to 3 end
+ end
+ active
+  1 to 6
+ end active
+ scf
+hybrid
+h1h2
+1 end
+atom 1 2 end
+h3h4
+2 end
+atom 3 4 end
+h5h6
+3 end
+atom 5 6 end
+h2h3
+4 end
+atom 2 3 end
+h4h5
+5 end
+atom 4 5 end
+h6h1
+6 end
+atom 6 1 end
+end
+super hybrid large
+  nosymm
+crit 1.0 -6 scf
+  max 0 scf
+ end scf
+end 13
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  block left block right opt   6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 1 2 2 3 3
+4 4 5 5 6 6
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 11  1 to 3 end
+  section 12  1 to 3 end
+ end
+ active
+  1 to 6
+ end active
+ scf
+hybrid
+h1h2
+1 end
+atom 1 2 end
+h3h4
+2 end
+atom 3 4 end
+h5h6
+3 end
+atom 5 6 end
+h2h3
+4 end
+atom 2 3 end
+h4h5
+5 end
+atom 4 5 end
+h6h1
+6 end
+atom 6 1 end
+end
+super hybrid large ignore 1 1 1 1 1 1
+max 500 davidson
+max 300 expansion
+  nosymm
+crit 1.0 -6 scf
+damp 0.85
+ end scf
+end 13
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  block left block right check GBT   6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 1 2 2 3 3
+4 4 5 5 6 6
+ end conf
+end crestr
+vb
+ vbvectors 13
+ active
+  1 to 6
+ end active
+ scf
+hybrid
+h1h2
+1 end
+atom 1 2 end
+h3h4
+2 end
+atom 3 4 end
+h5h6
+3 end
+atom 5 6 end
+h2h3
+4 end
+atom 2 3 end
+h4h5
+5 end
+atom 4 5 end
+h6h1
+6 end
+atom 6 1 end
+end
+super hybrid large ignore 0 0 0 0 0 0
+OPTIMISE KIND
+ PERT DOC UOC
+ PERT DOC VOC
+ PERT VOC VOC
+ PERT VOC UOC
+END OPTIMISE
+max 500 davidson
+max 300 expansion
+  nosymm
+crit 1.0 -6 scf
+max 0 scf
+damp 0.85
+ end scf
+end 14
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  vb local   6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 2 3 4 5 6 rumer 1 4
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 81 1 2 3 4 5 6 end
+ end
+ active
+  1 to 6
+ end active
+ scf
+hybrid
+h1
+1 end
+atom 1  end
+h2
+2 end
+atom 2 end
+h3 
+3 end
+atom 3 end
+h4
+4 end
+atom 4  end
+h5
+5 end
+atom 5 end
+h6 
+6 end
+atom 6 end
+end
+  nosymm
+max 500 davidson
+max 300 expansion
+crit 1.0 -6 scf
+ end scf
+end 21
+scftype vb
+vectors 1
+enter 10
+EOF
+
+../../bin/gamess << EOF
+time 100000
+core 64000000
+restart new
+title
+h6  vb   6-31g
+? H6 geometry - ring - hh .74 angstrom
+zmat angstroms
+xx
+ h   1 cxx2    
+ h   1 cxx2       2  120.000  
+ h   1 cxx2       3  120.000     2 180.000
+ h   1 cxx2       2 cxxc5        4 180.000
+ h   1 cxx2       5  120.000     2 180.000
+ h   1 cxx2       6  120.000     5 180.000
+variables
+ cxx2            .74 hessian        .838806
+ cxxc5         60.0000000 hessian      24.127557
+end
+basis 6-31g
+crestr
+ conf
+1 2 3 4 5 6 rumer 1 4
+ end conf
+end crestr
+vb
+ vbvectors combine
+  section 81 1 2 3 4 5 6 end
+ end
+ active
+  1 to 6
+ end active
+ scf
+  nosymm
+max 500 davidson
+max 300 expansion
+crit 1.0 -6 scf
+ end scf
+end 22
+scftype vb
+vectors 1
+enter 10
+EOF

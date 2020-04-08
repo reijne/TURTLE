@@ -1,0 +1,7 @@
+c
+      REAL tr, trx, try, trz, prmoms, aprev
+      integer indmx, jaxis, igroup, igrp80
+      logical oprmom
+      common /molsym/ tr(3,3),trx,try,trz,indmx,jaxis,igroup,igrp80,
+     +                prmoms(3),aprev(maxat3,3),oprmom
+c

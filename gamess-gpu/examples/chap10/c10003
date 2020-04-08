@@ -1,0 +1,63 @@
+#!/bin/csh
+setenv ed3  ed3
+$EXE << EOF
+title
+h2co - 3-21g - closed shell SCF 
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+vari
+ch 1.0
+co  1.3
+hco 130
+end
+enter
+EOF
+$EXE << EOF
+title
+h2co - 3-21g - density and orbitals on 2d grid
+restart new
+punch coor conn grid 100 101 102 103
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+vari
+ch 1.0
+co  1.3
+hco 130
+end
+runt analyse
+graphics 
+gdef
+type 2d
+size 10 10
+points 50 50
+x 0 1 0
+y 0 0 1
+calc
+type dens
+title
+formaldehyde total charge density
+section 100
+calc 
+type mo 3
+title
+formaldehyde MO 3
+section 101
+calc 
+type mo 4
+title
+formaldehyde MO 4
+section 102
+calc 
+type mo 4
+title
+formaldehyde MO 4
+section 103
+vectors 1
+enter
+EOF

@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+hcoh <-> h2co 1a' ts - sto3g 
+zmat angs
+c
+o 1 co
+h 1 ch1 2 och1
+h 1 ch5 2 h5co 3 180.0
+variables
+och1 56.3  type 3
+co   1.27  type 3
+ch1  1.22  type 3
+ch5  1.10  type 3
+h5co 115.8 type 3
+end
+basis sto3g
+runtyp saddle
+enter
+EOF
+../../bin/gamess << EOF
+dumpfile ed3 2000
+title
+h2co <-> hcoh 1a' ts 3-21g basis 
+zmat angs
+c
+o 1 co
+h 1 ch1 2 och1
+h 1 ch5 2 h5co 3 180.0
+variables
+och1 57.236  type 3
+co 1.299456  type 3
+ch1 1.201293 type 3
+ch5 1.115436 type 3
+h5co 116.882 type 3
+end
+runtype saddle ed3 1
+vectors getq ed3 1 1
+enter
+EOF

@@ -1,0 +1,62 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co - 3-21g - MP2/RHF 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype mp2
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g - direct-MP2 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct mp2 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g - MP2/RHF (valence) 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype mp2
+# freeze o1s and c1s and discard top virtual m.o.
+active
+3 to 21
+end
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - 3-21g - MP2/RHF (valence) 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct mp2 
+# freeze o1s and c1s and discard top virtual m.o.
+active
+3 to 21
+end
+core
+1 2 end
+enter
+EOF

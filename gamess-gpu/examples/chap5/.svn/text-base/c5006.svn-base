@@ -1,0 +1,76 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o - 6-31g* -  SCF energy  -76.007786455 au
+super off nosym
+zmatrix angstrom
+o
+h 1 0.986
+h 1 0.986 2 105.4
+end
+basis 6-31g*
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o - 6-31g*  basis - valence lmos
+zmatrix angstrom
+o
+h 1 0.986
+h 1 0.986 2 105.4
+end
+basis 6-31g*
+runtype analyse
+local
+2 to 5 end
+vectors 1
+enter 2
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o - 6-31g*  2pair GVB/energy  -76.052427868 au
+bypass
+super off nosym
+adapt off
+zmatrix angstrom
+o
+h 1 0.986
+h 1 0.986 2 105.4
+end
+basis 6-31g*
+scftype gvb 2
+vectors nogen 2
+swap
+2 4
+3 5
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o - 6-31g*  2pair GVB/CI(4M)  energy  -76.2047900395 au
+super off nosym
+bypass scf
+adapt off
+zmatrix angstrom
+o
+h 1 0.986
+h 1 0.986 2 105.4
+end
+basis 6-31g*
+runtype ci
+scftype gvb 2
+active\1 to 19\end
+direct 10 7 12
+conf
+2 2 2 2 0 2 0 
+2 2 2 0 2 2 0
+2 2 2 2 0 0 2
+2 2 2 0 2 0 2
+enter 
+EOF

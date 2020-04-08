@@ -1,0 +1,27 @@
+
+Begin optimization report for: DROT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at drot.f(43,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at drot.f(43,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at drot.f(43,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at drot.f(43,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at drot.f(32,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 33 and  line 35
+LOOP END
+===========================================================================

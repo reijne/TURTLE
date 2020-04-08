@@ -1,0 +1,87 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+nh - tzvp closed shell SCF 
+zmat angstrom
+x
+n   1 1.0
+h   2 nh 1   90.0
+variables
+nh 0.956
+end
+basis tzvp
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+nh+ - tzvp 4sig- state
+charge +1
+mult 4
+zmat angstrom
+x
+n   1 1.0
+h   2 nh 1   90.0
+variables
+nh 0.956
+end
+basis tzvp
+open 1 1 2 2
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+nh+ - tzvp 2delta state
+charge +1
+mult 2
+zmat angstrom
+x
+n   1 1.0
+h   2 nh 1   90.0
+variables
+nh 0.956
+end
+basis tzvp
+open 1 1 2 2 delta
+vectors 5
+enter 6 7
+EOF
+../../bin/gamess << EOF
+restart new
+title
+nh+ - tzvp 2sig(+) state
+charge +1
+mult 2
+zmat angstrom
+x
+n   1 1.0
+h   2 nh 1   90.0
+variables
+nh 0.956
+end
+basis tzvp
+open 1 1 2 2 sigp
+vectors 5
+enter 8 9
+EOF
+../../bin/gamess << EOF
+restart new
+title
+nh+ - tzvp 2sig(-) state
+charge +1
+mult 2
+zmat angstrom
+x
+n   1 1.0
+h   2 nh 1   90.0
+variables
+nh 0.956
+end
+basis tzvp
+open 1 1 2 2 sigm
+vectors 5
+enter 10 11
+EOF

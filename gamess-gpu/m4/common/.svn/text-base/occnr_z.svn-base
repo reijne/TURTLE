@@ -1,0 +1,11 @@
+      REAL xocc_z,xoccav_z
+      integer nd_z,no_z,nocc_z
+      parameter (nocc_z=1024)
+      common/occnr_z/xocc_z(nocc_z),xoccav_z,nd_z,no_z
+c
+c used for spin-orbit ZORA calculation.
+c
+c      xocc: contains occupation numbers for kramers degenerate orbitals
+c      xoccav_z : fractional occupation open shell (not implemented yet)
+c      nd_z : number of orbitals in closed shells
+c      no_z : number of orbitals in open shell

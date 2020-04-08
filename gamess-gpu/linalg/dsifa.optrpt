@@ -1,0 +1,45 @@
+
+Begin optimization report for: DSIFA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsifa.f(110,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsifa.f(110,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsifa.f(110,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dsifa.f(180,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 184 and  line 183
+LOOP END
+
+LOOP BEGIN at dsifa.f(148,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 152 and  line 151
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsifa.f(219,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dsifa.f(198,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsifa.f(205,24) ]
+   LOOP END
+
+   LOOP BEGIN at dsifa.f(158,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsifa.f(162,21) ]
+   LOOP END
+LOOP END
+===========================================================================

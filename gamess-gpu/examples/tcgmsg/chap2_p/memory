@@ -1,0 +1,155 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - SCF/total energy = -113.8690363106
+super on nosort
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+enter 1
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - SCF/total energy = -113.8690363106
+super on sort
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+enter 1
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - SCF/total energy = -113.8690363106
+super force
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+enter 1
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - SCF/total energy = -113.8690363106
+super off
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+enter 1
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - uhf /total energy = -113.5237236191
+mult 2
+charge 1
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+scftype uhf
+enter 1 2
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - uhf /total energy = -113.5237236191
+mult 2
+charge 1
+super off
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+scftype uhf
+enter 1 2
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - rhf/total energy = -113.5165898957
+mult 2
+charge 1
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+open 1 1
+enter 1 
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+title
+h2co - 6-31g** - rhf /total energy = -113.5165898957
+mult 2
+charge 1
+super off
+mfile memory
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g**
+open 1 1
+enter 1 
+EOF

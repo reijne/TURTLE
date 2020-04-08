@@ -1,0 +1,52 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2 + co <-> h2co 1a' ts 6-31G basis / SCF 
+zmat angs
+o
+c 1 co
+x 2 1.0 1 90.0
+x 2 chh 3 ang1 1 180.0
+x 4 1.0 2 90.0 3 0.0
+x 4 1.0 5 ang2 3 0.0
+h 4 xh 6 90.0 2 180.0
+h 4 xh 6 90.0 2 0.0
+variables
+co 1.134  type 3
+ang1 43.7  type 3
+ang2 57.8  type 3
+chh  1.292 type 3
+xh 0.664   type 3
+end
+basis 6-31g
+runtype saddle 
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2 + co <-> h2co 1a' ts 6-31g basis / MP2 
+zmat angs
+o
+c 1 co
+x 2 1.0 1 90.0
+x 2 chh 3 ang1 1 180.0
+x 4 1.0 2 90.0 3 0.0
+x 4 1.0 5 ang2 3 0.0
+h 4 xh 6 90.0 2 180.0
+h 4 xh 6 90.0 2 0.0
+variables
+co             1.1565619 type 3
+chh            1.2935171 type 3
+xh             0.6562584 type 3
+ang1          42.5942740 type 3
+ang2          57.8778292 type 3
+end
+basis 6-31g
+runtype saddle
+xtol 0.0005
+scftype mp2
+enter
+EOF

@@ -1,0 +1,14 @@
+c
+      logical odiis, optester, odynamic, omaxcyc,onoor,otestd
+      integer maxcyc,mconv,nconv,npunch,icoupl,ifolow,irotb
+      integer iter,kcount,iextin,iterv,idiisf
+      REAL accdi1,accdi2,dmpcut,acurcy,en,etot
+      REAL ehf,ehf0,diff,rshift,exttol,dmptol,vshtol
+      REAL damp,damp0,diffd,diffp,de,deavg,diffsp
+      REAL ek, vir,diffpp
+      common/scfopt/maxcyc,mconv,nconv,npunch,accdi1,accdi2,odiis,
+     +      icoupl,ifolow,irotb,dmpcut,acurcy,en,etot,ehf,ehf0,diff,
+     +      iter,kcount,rshift,exttol,dmptol,vshtol,iextin,
+     +      iterv,damp,damp0,diffd,diffp,diffpp,de,deavg,diffsp,
+     +      ek,vir,idiisf,optester,odynamic,omaxcyc,onoor,otestd
+c

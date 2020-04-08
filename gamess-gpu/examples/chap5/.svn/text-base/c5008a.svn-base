@@ -1,0 +1,32 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title\cf2 (tzvp) ;harmonic basis=57 1a1 E(opt) = -236.7511272 au
+harmonic
+zmat angstrom\c\f 1 cf\ f 1 cf 2 fcf
+variables
+cf 1.222
+fcf 124.5
+end
+basis tzvp
+runtype optimize
+enter 
+EOF
+../../bin/gamess << EOF
+time 120
+restart new
+title\cf2 (tzvp) ; harmonic basis=57 1a1 
+harmonic
+zmat angstrom\c\f 1 cf\ f 1 cf 2 fcf
+variables
+cf        1.2761591 hess    1.282724
+fcf     104.9866900 hess     .663086
+end
+basis tzvp
+runtype optimize ci
+direct 24 12 45
+conf
+2 2 2 2 2 2 2 2 2 2 2 2 
+enter
+EOF

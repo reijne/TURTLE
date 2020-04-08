@@ -1,0 +1,126 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co+ 2b2 - 6-31G* - UHF 
+charge 1
+mult 2
+super off
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+scftype uhf
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co+ 2B2 -  6-31g* - UHF geom opt. energy = -113.521443677 au
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+runtype optimize
+scftype uhf
+enter
+EOF
+../../bin/gamess << EOF
+restart 
+title
+h2co+ 2B2 - 6-31g* - UHF force constants
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+runtype force
+scftype uhf
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+  2B2 -  6-31g* - direct UHF 
+charge 1
+mult 2
+super off
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+scftype direct uhf
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co+ 2B2  6-31g* - direct-UHF geom opt. energy =  -113.521443673 au
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+runtype optimize
+scftype direct uhf
+enter
+EOF
+../../bin/gamess << EOF
+restart 
+title
+h2co+ 2B2  6-31g* - direct-UHF  force constants
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g*
+runtype force
+scftype direct uhf
+enter
+EOF

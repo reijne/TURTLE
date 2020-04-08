@@ -1,0 +1,26 @@
+
+Begin optimization report for: DSPEVX2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dspevx2.F(370,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dspevx2.F(370,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dspevx2.F(370,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dspevx2.F(367,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dspevx2.F(383,21) ]
+LOOP END
+===========================================================================

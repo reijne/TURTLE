@@ -1,0 +1,47 @@
+#parallel diag pdsyevd
+file ed3 ed3-tot12
+title
+tot12zonder CMD shell4 DFT B3LYP
+accuracy 20 7
+noprint
+harmonic
+integ mpass
+%include /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI/input_files/tot12.geom
+basis
+dzvp mg1 ahlrichs
+dzvp c1 ahlrichs
+dzvp n1 ahlrichs
+dzvp o1 ahlrichs
+dzvp h1 ahlrichs
+sv c2 6-31g
+sv n2 6-31g
+sv o2 6-31g
+sv h2 6-31g
+sv c3 6-31g
+sv n3 6-31g
+sv o3 6-31g
+sv h3 6-31g
+sto6g c4
+sto6g n4 
+sto6g o4 
+sto6g h4 
+end
+scftype direct
+newscf
+maxcyc 18
+print full
+Phase  1
+Level  1.000000000000000000
+DIIS
+#  Switch to phase  2
+next  2
+Tester below  0.020
+Phase  2
+Level  0.000000000000000000E+00
+DIIS
+#  Converge calculation
+next  0
+Tester below  1.0e-4
+end
+dft b3lyp
+enter

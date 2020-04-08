@@ -1,0 +1,38 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+nh4+  d4h SCF energy  -55.9928547 au
+charge 1
+zmat angstrom
+n
+h 1 r
+h 1 r 2 90.0
+h 1 r 3 90.0 2 theta
+h 1 r 4 90.0 3 theta
+variables
+r 1.16 hessian 2.0
+theta 180.0
+end
+runtype scf
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+nh4+  D4h  optimized energy  =  -56.02186633
+charge 1
+zmat angstrom
+n
+h 1 r
+h 1 r 2 90.0
+h 1 r 3 90.0 2 theta
+h 1 r 4 90.0 3 theta
+variables
+r 1.16 hessian 2.0
+theta 180.0
+end
+runtype optimize
+enter
+EOF

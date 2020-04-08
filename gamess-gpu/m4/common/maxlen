@@ -1,0 +1,11 @@
+c
+      logical omem, ofirt
+_IF(64bitpointers)
+      integer maxq, maxqq, mxblock
+      integer*8 iqqoff
+_ELSE
+      integer maxq, maxqq, iqqoff, mxblock
+_ENDIF
+c
+      common/maxlen/maxq,maxqq,omem(maxlfn),iqqoff(maxlfn),
+     +              ofirt,mxblock

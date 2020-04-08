@@ -1,0 +1,95 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+# 
+# Use the configure script in ../m4
+#
+#if mpole#
+MPOLE=	mpole1.o \
+	mpole2.o 
+#else#
+MPOLE=	omit_mpole.o
+#endif#
+
+#if secd ga#
+GADFT = gadft.o
+#endif#
+#
+# currently exluded
+#xc_fit.o \
+#geometry.o \
+#
+
+DFTOBJ = dftbasis.o \
+	coulomb.o \
+	gamess.o \
+	global.o \
+	interface.o \
+	intpack.o \
+	matpack.o \
+	xc.o \
+        xc_lib.o \
+        weights.o \
+        exp_dksm_hess.o \
+        chf.o \
+        Lebedev-Laikov.o \
+        integ_data.o \
+        integ_te2c_norm.o \
+	readbasis.o \
+	jfitg.o \
+	integ2e.o \
+	deriv2e.o \
+	matform.o \
+	gden.o $(GADFT) $(EXTRA_DFT) \
+	${MPOLE}
+
+#if charmm gromacs#
+## DFTLIB_OLD is a hack to keep older versions of CHARMM happy
+DFTLIB_OLD = ../../../../lib/$(CHMHOST)/dft.a
+DFTLIB = $(GMSLIB)
+#else#
+DFTLIB = libdft.a
+#endif#
+
+dftlib:	$(DFTLIB)
+
+#if charmm#
+## Always remake DFTLIB - required for charmm as otherwise the objects
+## aren't copied into the GAMESS-UK library
+FORCE:
+
+$(DFTLIB):	$(DFTOBJ) FORCE
+#else#
+$(DFTLIB):	$(DFTOBJ)
+#endif#
+		$(ARCHIVE) $(DFTLIB) $(DFTOBJ)
+		$(RANLIB) $(DFTLIB)
+#if charmm#
+		touch $(DFTLIB_OLD)
+#endif#
+
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+clean:
+	touch x.c x.o x~ x.f \#x
+	rm -f *.c *.o *.f *~ \#* $(DFTLIB)
+#if charmm#
+	rm -f $(DFTLIB_OLD)
+#endif#
+#if coverage#
+	rm -f *.gcda *.gcno *.html
+#endif#
+
+
+gadft.o:	gadft.m
+	rm -f gadft.GUK gadft.f
+#--#if secd ga gascf#
+	cat  ../utilities/gener.m gadft.m | $(M4) $(M4OPTS) $(SNGL) > gadft.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < gadft.GUK | sed '/^#/D' >> gadft.f
+	rm -f gadft.GUK
+#--#else#
+	cat  ../utilities/gener.m gadft.m | $(M4) $(M4OPTS) $(SNGL) >> gadft.f
+#--#endif#
+	$(FC) $(FFLAGSS) gadft.f

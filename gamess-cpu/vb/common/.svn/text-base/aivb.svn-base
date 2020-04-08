@@ -1,0 +1,131 @@
+c
+c...  Atoms in Valence Bond (AiVB) directive, common block, work in progress
+c...  Marcin Zielinski 08-09/2007, 04-11/2008, 03-11/2009, 04-06,09-10/2010
+c
+c...  _multname = allowed multiplicity names, in input
+c...  _multrdin = multiplicity names readed from input
+c...  _atstname = allowed atomic term symbols, in input
+c...  _atstrdin = atomic term symbols readed from input
+c...  _atnmrdin = atom's names readed from input
+c...  _atindex  = atom indexes
+c...            ,1: indicates atom number from geometry input
+c...            ,2: x index from _statedef
+c...            ,3: y index from _statedef
+c...            ,4: index from aivb_multname
+c...  _atcntr   = atom counter, gives number of atoms affected by input definition per structure
+c...  _allatst  = allowed atomic states (terms) for P,S block atoms - (x,y) indexing
+c...            x: 1-6 numerates one 'p' to six 'p' electron atoms, 7 and 8 indexes are one and two 's' electron atoms, 
+c...               9 represents 's' with no electrons
+c...            y: lists possible atomic states
+c...  _atstcom  = boundary limits for _confdef/_statedef tables
+c...            (x,1)    - x=1..9 - number of atomic states per given number of 'p'/'s' electrons
+c...            (1..9,y) - number of projections of each of the atomic state
+
+c...  _confdef  = all possible configuration determinants for given 'x' 'p' electron atoms
+c...            x: 1-5 numerates one 'p' to five 'p' electron atoms, 6 and 7 numerates one and two 's' electron atoms
+c...            y: indexing all possible determinants involved in the given 's'/'p' situation
+c...            z: stores given determinant
+
+c...  _statedef = definitions of atomic states
+c...            x: 1-6 indexes are one 'p' to six 'p' electron atoms, 7 and 8 indexes are one and two 's' electron atoms, 
+c...               9 represents 's' with no electrons
+c...            y: index of the given atomic state withing given 'x'
+c...            z: index of the given projection of the atomic state within give 'x'
+c...            u: stores the atomic state definition in terms: (i,j1,k1,j2,k2,j3,k3,.....), where
+c...               'i' - how many configurations of x,y,z orb. (from _confdef) are involved for given atomic state
+c...               'j1' - constant in front of the given configuration involved, 'k1' - which determinant is that (from _confdef)
+c...               if 'i' > 1 then 'j2' and 'k2' is the next pair (next determinant from _confdef)
+
+c...  _statelab = string describing given atomic state
+c...            x: 1-5 numerates one 'p' to five 'p' electron atoms, 6 and 7 numerates one and two 's' electron atoms
+c...            y: numerates given atomic state withing given 'x'
+c...            z: index = 1 - stores general name of the atomic state (e.g. trip P)
+c...               index 2....n - store the atomic state's descriptions in terms of L, M and cos/sin (e.g. |L=x M=y; cos>)
+
+
+c...  _detstruc = number of determinants per structure. for now 1000 structures is top number
+c...              keep in mind for future !!
+c...  _atord    = stores given 'elconfvaria' configuration in <singly><doubly> manner, for 'spinef'
+c...  _elgrps   = 
+c...         ,1 - stores the group (number of the atom), to which given singly occ. orbital belongs to
+c...         ,2 - stores the given spin pattern for the given singly occ. orbitals
+c...  _conford  = keeps the number of possible atomic state variations per atom
+c...              say: _conford[1] = 3, _conford[2] = 1, _conford[3] = 1 means: 
+c...              3 variations of atomic state for atom 1, 1 varia. of atomic state for atom 2 and 3
+c...  _confgrps = gives configuration of atomic state variations in group-like scheme, based od _conford
+c...              say: for previous example 3,1,1 _confgrps would look like: 1 1 1 2 3
+c...  _coreorb  = core orbitals per atom (closed shells only)
+c...  _confvaria= number of variations of given configuration (singly occupied orbs. only) - 1000 max. for now
+c...  _confpr   = number of configurations per readnr - helpful for 'aimo diff' directive
+c...  _reduce   = remove the number of redundant configurations with structure coef. less then 10E-08
+c...  _aimo     = indicate that we're dealing with aimo directive, helpful in various places outside vbcrestr.m
+c...  _diff     = indicate that we want to use different atomic orbitals for different atomic states of atoms, in various confs.
+c...  _trconf   = truncate configurations, contains numbers of configurations per atom per readnr, which we want to keep
+c...            x: readnr
+c...            y: 1= how many configurations after truncation
+c...               2= number indexes of the configurations to keep
+c...            z: (x,2,i...max) explanation above
+c...  _debugpr  = debug prints flags:
+c...         1  = vbcrest.m, cresti subroutine, aivb part printouts -
+c...         2  = vbaivb.m, read_aivb_input subroutine -
+c...         3  = vbaivb.m, generate_aivb_drv subroutine, coeff and vectors/matrices -
+c...         4  = vbaivb.m, generate_aivb_drv subroutine, generate kconf and kconfdetdef -
+c...         5  = vbaivb.m, generate_aivb_drv subroutine, generate kconfdef -
+c...         6  = vbaivb.m, generate_aivb_drv subroutine, generate elconfvaria -
+c...         7  = vbaivb.m, generate_aivb_drv subroutine, generate determinants - print coeffs, vectors and matrices -
+c...         8  = vbaivb.m, gen_aivbconf_drv subroutine, generate couplings between different atomic states -
+c...         9  = vbcrestr.m, spinef subroutine, permute pairs and assign pairs printing
+c...        10  = vbcrestr.m, spinef subroutine, define structures printing
+c...        11  = vbcrestr.m, spinef subroutine, debugging prints + the rest
+c...        12  = vbaivb.m, memory allocation/deallocation -
+c...        13  = vbaivb.m, gen_aivb_descr subroutine -
+c...        14  = vbaivb.m, compperm subroutine -
+c...  _detnr    = variable used in 'spinef' subroutine = detnrold
+c...  _cpats    = configuration nr per given atomic state definition 
+c...              indicates whether we're dealing with the first configuration from the definition or further
+c...              helps with checks
+c... _lmc       = last main configuration, for generating configuration's determinants
+c... _nconfs    = how many configurations make up given at. state (1 if >1, 0 if =1)
+c... _confnr    = stores the number of the given configuration in the given readnr (regardless whether it's stored or not)
+c
+      character(len=1  ) aivb_atstname(4),aivb_atstrdin(maxact,maxact)
+      character(len=2  ) aivb_zchr(maxact)
+      character(len=20 ) aivb_atnmrdin(maxact,maxact)
+      character(len=4  ) aivb_multname(6),aivb_multrdin(maxact,maxact)
+      character(len=6  ) aivb_allatst(9,10)
+      character(len=100) aivb_confdescr(100,5)
+      character(len=20 ) aivb_statelab(9,4,6)
+      character(len=70 ) aivb_conflab(9,4,5)
+c
+      common/aivbchar/aivb_atstrdin,aivb_multrdin,aivb_atnmrdin,
+     &      aivb_allatst,aivb_multname,aivb_atstname,
+     &      aivb_confdescr,aivb_statelab,aivb_conflab,
+     &      aivb_zchr
+c
+      integer :: aimo_atindex(maxact,4),aimo_atcntr(maxact),
+     &        aimo_atstcom(10,5),aimo_nnd(maxact),
+     &        aimo_detnr,aimo_cpats,
+     &        aimo_atord(mmsocc),aimo_detstruc(maxact,2,maxcon),
+     &        aimo_elgrps(mmsocc,2),aimo_coreorb(maxact),
+     &        aimo_confgrps(maxact*4),aimo_conford(maxact),
+     &        aimo_confvaria(maxact),aimo_confpr(maxact),
+     &        aimo_trconf(maxact,2,mmsocc),aimo_debugpr(20),
+     &        aimo_confdef(9,13,10),aimo_statedef(9,4,5,11),
+     &        aimo_confnr(maxact),aivb_ndocc,aimo_lterm(mmsocc),
+     &        aimo_nconfs,aivb_diffadd,aivb_mo2perm(maxact),aivb_nmo2p,
+     &        aivb_nlterm,aimo_lmc,aivb_inpspp(100)
+c
+      common/aivbint/aimo_atindex,aimo_atcntr,aimo_atstcom,
+     &      aimo_detstruc,aimo_atord,aimo_elgrps,
+     &      aimo_coreorb,aimo_conford,aimo_confgrps,aimo_confvaria,
+     &      aimo_confpr,aimo_trconf,aimo_debugpr,aimo_lterm,
+     &      aimo_confdef,aimo_statedef,aimo_confnr,aimo_nnd,
+     &      aimo_detnr,aimo_cpats,aimo_lmc,aimo_nconfs,aivb_ndocc,
+     &      aivb_diffadd,aivb_mo2perm,aivb_nmo2p,aivb_nlterm,aivb_inpspp
+c
+      logical :: aivb_reduce,aivb_set,aivb_diff,aivb_moperm,aivb_optorb
+      common /aivblog/ aivb_reduce,aivb_set,aivb_diff,aivb_moperm,
+     &       aivb_optorb
+
+      REAL :: aivb_threshold, aivb_nms(maxact)
+      common /aivbreal/ aivb_threshold, aivb_nms

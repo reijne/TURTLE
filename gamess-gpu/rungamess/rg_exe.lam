@@ -1,0 +1,146 @@
+#!/bin/sh
+#
+# Rungamess execution script - LAM MPI version
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+appfile=gamess.application
+#
+# --------------------------------------------------------------
+# Parse file definitions to /tmp/filedefs
+# --------------------------------------------------------------
+#
+
+rm -f /tmp/filedefs
+use_file_directives=1
+spool_in_file=/tmp/filedefs
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir/$jobname
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+case ${NODE0:=null} in
+null) ;;
+   *)  job_environment=LOBOSQ;;
+esac
+
+echo rungamess : LAM Job environment is $job_environment
+
+#
+# --------------------------------------------------------------
+# Build hostfile if required
+# --------------------------------------------------------------
+#
+case $job_environment in 
+
+LOBOSQ) boot=0;;
+
+PBS)    boot=1
+        echo $PBS_HOSTFILE
+        hostfile=$PBS_NODEFILE;;
+
+INTER)  # Take hosts from GAMESS_HOSTS
+        echo rungamess: interactive LAM job dir=`pwd` procs=$nprocs hostlist=$GAMESS_HOSTS
+        rm -f gamess.lamhosts
+        i=0
+        lasthost=none
+        for host in ${GAMESS_HOSTS}
+        do
+           if test $i -lt $nprocs 
+           then
+              if test $host != $lasthost
+              then
+                 echo $host >> gamess.lamhosts
+                 lasthost=$host
+              fi
+           fi
+           i=`expr $i + 1`
+        done
+        boot=1;
+        hostfile=gamess.lamhosts;;
+esac
+
+#
+# --------------------------------------------------------------
+# Boot lam daemons
+# --------------------------------------------------------------
+#
+if test $boot -eq 1
+then
+   echo Booting
+   cat $hostfile
+   lamboot $hostfile
+fi
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+echo Running LAM MPI: app=$app appfile=$appfile
+#
+echo '# MPI application file'  > $appfile
+oldhost=XXX
+j=0
+jj=0
+while test $j -lt $nprocs
+do
+  echo n$j -wd $scratchtopdir $app >> $appfile
+  j=`expr $j + 1`
+done
+
+echo ============== Application file for this job ===========
+cat $appfile
+echo ========================================================
+
+#
+# Execute the application (inherit stdin/stdout)
+#
+echo Start at `date`
+cat /tmp/filedefs  $homedir/$jobname.in | mpirun -v -w -O -c2c $appfile
+stat=$?
+echo End at `date`
+
+#
+# Shutdown the virtual machine if we started it
+#
+if test $boot -eq 1
+then
+   wipe -v $hostfile
+fi
+
+rm -f /tmp/filedefs
+case $stat in
+   0) echo ${IDENT}: LAM gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac

@@ -1,0 +1,15 @@
+c
+      REAL cradd, weighb
+_IF(cray,ksr,i8)
+      integer iex1,iex2
+_ELSEIF(convex,i8drct)
+      integer *8 iex1,iex2
+_ELSE
+      REAL iex1,iex2
+_ENDIF
+      integer iblkcc, iblkcr, iblkcv, ncv, nbuenk
+      integer mbuenk
+      logical ifbuen
+      common /comrjb/ cradd(3),weighb,iex1,iex2,ifbuen,
+     +                iblkcc,iblkcr,iblkcv,ncv,nbuenk,mbuenk
+c

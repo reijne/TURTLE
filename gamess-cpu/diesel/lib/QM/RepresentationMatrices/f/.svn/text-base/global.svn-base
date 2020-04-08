@@ -1,0 +1,72 @@
+c
+c include - file des neuen selektionsprogramms
+c
+      
+*      implicit real*8(a-h,p-z)
+* implicit already defined in sga.inc
+
+
+
+cvp
+cvp hilsfelder fuer konfigurationsvergleich
+cvp
+c iqmo(i,j): i=hoeheres mo, j=niedrigeres mo, aus den mo-nummern
+c folgt der q-fall
+c imoq(q-fall,1): hoeheres mo
+c imoq(q-fall,2): niedrigeres mo
+c imo3q(q-fall,1): hoechstes mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,2): mittleres mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,3): tiefstes mo von \phi_r fuer dk=1,p=1
+c imo3q(q-fall,1...3): aus q-fall die positionen ww mo's der
+c                      groesse nach sortiert
+c imo4q(q-fall,1...4): aus q-fall die positionen ww mo's der
+c idk2r: zur bestimmung des r-falles bei dk=2 fuer
+c        linksbuendige mo-positionen
+c nra,nrb,nrc: codierung fuer adressen von ex-integralen
+cvp                      groesse nach sortiert
+      common/rhelp/ iqmo,imoq,imo3q,imo4q
+cxx  &            ,idk2r,nra,nrb,nrc
+      integer iqmo,imoq,imo3q,imo4q
+      dimension iqmo(nopmax,nopmax-1),imoq(nopmax*(nopmax-1)/2,2)
+     &   ,imo3q(nopmax*(nopmax-1)*(nopmax-2)/6,3)
+     &   ,imo4q(nopmax*(nopmax-1)*(nopmax-2)*(nopmax-3)/24,4)
+
+
+cvp
+cvp
+cvp
+cvp felder, die die informationen zur sga-table enthalten
+cvp
+c
+c  common-block fuer aufbau der sga-table
+c   diagtr: diagonalelemente der elementaren transpositionen (j-1,j):
+c           werden mit j-1 angesteuert, ferner nummer der spineigenfkt.
+c           als index
+c   ausdtr: ausserdiagonalelemente der elementaren transpositionen (j-1,j):
+c           werden mit j-1 angesteuert, ferner nummer der spineigenfkt.
+c           als index
+c   iausd: iausd(i,j-1)=l --> die transposition (j-1,j) verknuepft die
+c          spineigenfunktionen i und l miteinander (<i|(j-1,j)|j> =|=0)
+c   ieigs: anzahl der spineigenfunktionen fuer jede sk
+c   umat: enthaelt darstellungsmatrix der symmetrischen gruppe
+c         (dimension kann gross werden --> evtl. auf eine spalte oder
+c          zeile beschraenken)
+c   umat1: enthaelt weitere darstellungsmatrix
+c   usp1: hilfsfeld, enthaelt eine spalte der darstellungsmatrix
+      common/tab44/ 
+     &              umat,umat1,umat2,usp1,uvec
+     &             ,ieigs
+     &             ,emat
+c  , hp5dar
+      integer ieigs(iswhm)
+      real*8 umat(ksafm,ksafm),usp1(ksafm),uvec(ksafm)
+      real*8 umat1(ksafm,ksafm)
+      real*8 umat2(ksafm,ksafm)
+      real*8 emat(nedim)
+c   , hp5dar(nopmax*(nopmax-1)/2,mxeigs,mxeigs)
+
+*   common-block containing the representation matrice used for the
+*   calculation of the matrix-elements 
+*   emat1 ......   darstellungsmatrix die zur berechnung der matrixelemente
+*                  zwischen der Ref.Konf. und den erzeugten Konfigurationen
+*                  verwandt wird. (innerhalb des referenzraumes s.o.)

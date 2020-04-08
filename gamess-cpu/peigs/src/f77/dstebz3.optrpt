@@ -1,0 +1,114 @@
+
+Begin optimization report for: DSTEBZ3
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dstebz3.F(317,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 321 and  line 320
+LOOP END
+
+LOOP BEGIN at dstebz3.F(345,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 349 and  line 347
+LOOP END
+
+LOOP BEGIN at dstebz3.F(414,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dstebz3.F(414,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dstebz3.F(414,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dstebz3.F(414,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dstebz3.F(414,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dstebz3.F(472,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 476 and  line 474
+LOOP END
+
+LOOP BEGIN at dstebz3.F(531,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dstebz3.F(542,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dstebz3.F(542,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dstebz3.F(542,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dstebz3.F(542,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dstebz3.F(562,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 563 and  line 569
+LOOP END
+
+LOOP BEGIN at dstebz3.F(589,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dstebz3.F(591,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 595 and  line 592
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dstebz3.F(604,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dstebz3.F(606,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 610 and  line 607
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dstebz3.F(617,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 618 and  line 621
+LOOP END
+
+LOOP BEGIN at dstebz3.F(636,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dstebz3.F(639,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dstebz3.F(639,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dstebz3.F(639,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dstebz3.F(441,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dstebz3.F(509,18) ]
+LOOP END
+===========================================================================

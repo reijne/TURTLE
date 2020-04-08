@@ -1,0 +1,46 @@
+
+Begin optimization report for: DORGQR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dorgqr.f(159,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgqr.f(160,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dorgqr.f(160,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dorgqr.f(160,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dorgqr.f(203,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dorgqr.f(204,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dorgqr.f(204,19)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dorgqr.f(204,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dorgqr.f(178,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dorgqr.f(185,21) ]
+LOOP END
+===========================================================================

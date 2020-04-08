@@ -1,0 +1,25 @@
+
+Begin optimization report for: ZLACGV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlacgv.f(44,13)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+LOOP BEGIN at zlacgv.f(44,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zlacgv.f(51,13)
+<Multiversioned v1>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 52 and  line 52
+LOOP END
+
+LOOP BEGIN at zlacgv.f(51,13)
+<Multiversioned v2>
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+===========================================================================

@@ -1,0 +1,69 @@
+#!/bin/csh
+setenv ed3 mfged3
+setenv ed2 mfged2
+../../bin/gamess << EOF
+title
+h2o sto3g 
+zmat angstrom
+o 
+h 1 roh
+h 1 roh 2 hoh
+variables
+roh 0.95
+hoh 104.5
+end
+basis sto3g
+scftype direct
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o sto3g direct-SCRF
+#FINAL energy is -74.9666740755 after 12 iterations
+#Induced dipole= -0.03663, RMS gradient= 0.033467686
+zmat angstrom
+o 
+h 1 roh
+h 1 roh 2 hoh
+variables
+roh 0.95
+hoh 104.5
+end
+basis sto3g
+scrf 1.93 0.0 0.0 80.0 
+scftype direct
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2o sto3g 
+zmat angstrom
+o 
+h 1 roh
+h 1 roh 2 hoh
+variables
+roh 0.95
+hoh 104.5
+end
+basis sto3g
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o sto3g SCRF
+#FINAL energy is -74.9666740755 after 12 iterations
+#Induced dipole= -0.03663, RMS gradient= 0.033467686
+zmat angstrom
+o 
+h 1 roh
+h 1 roh 2 hoh
+variables
+roh 0.95
+hoh 104.5
+end
+basis sto3g
+scrf 1.93 0.0 0.0 80.0 
+enter
+EOF

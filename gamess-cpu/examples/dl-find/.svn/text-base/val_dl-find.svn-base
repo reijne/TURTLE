@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# validation for dl-find
+#
+export GAMESS_VTAB=./REF/dl-find.vtab
+export PATH=../../utilities:$PATH
+
+validate h2co_dz_dlc  LOG/h2co_dz_dlc.log
+validate h2co_dz_neb  LOG/h2co_dz_neb.log
+validate h2co_dimer  LOG/h2co_dimer.log

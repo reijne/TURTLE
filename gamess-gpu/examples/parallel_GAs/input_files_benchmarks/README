@@ -1,0 +1,84 @@
+Input files for Benchmarking and Testing the GA-based code
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The list below provides a brief description of all the data sets used
+in testing and benchmarking the parallel GA-based GAMESS-UK code.
+These examples are taken from the various machine-specific examples
+from GAMESS-UK manual.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                             Calculation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+DFT.Alpha-pinene.6-311g-3dfp.in      DFT B3LYP Calculation of Alpha-pinene 6-311g(3df,3p)
+DFT.cyclo.6-31G.in                   DFT B3LYP Calculation of cyclosporin 6-31G basis (1000 GTOS)
+DFT.cyclo.6-31G-dp.in                DFT B3LYP Calculation of cyclosporin 6-31G** basis (1855 GTOs)
+DFT.morphine.6-31G-dp.in             DFT B3LYP Calculation of morphine 6-31G** basis (410 GTOS)
+DFT.morphine.6-31G-dp_harmonic.in    DFT B3LYP Calculation of morphine 6-31G** harmonic basis
+DFT.morphine.A2.DZVP.in              DFT HCTH Calculation of morphine using the DZBP A2 DFT basis
+DFT.pcfe.814.in                      DFT B3LYP Calculation of PcFe(4-Mepip)2 at x-ray geometry (814 GTOs)
+DFT.siosi3.347.in                    DFT SVWN Calculation of the siosi3 zeolite fragment
+DFT.siosi4.617.in                    DFT SVWN Calculation of the siosi4 zeolite fragment (617 GTOS)
+DFT.siosi5.1199.in                   DFT SVWN Calculation of the siosi5 zeolite fragment (1199 GTOs)
+DFT.siosi6.1687.in                   DFT SVWN Calculation of zeolite siosi6 (1687 GTOs)
+DFT.siosi7.3975.in                   DFT B3LYP Calculation of zeolite siosi7 (3975 GTOs)
+DFT.valino.6-31G.in                  DFT B3LYP Calculation of Valinomycin in water 6-31G (882 GTOs)
+DFT.valino.A2.DZVP.in                DFT HCTH Calculation of Valinomycin in water DZVP (882 GTOs)
+DFT.valino.A2.DZVP2.in               DFT HCTH Calculation of Valinomycin in water DZVP2 basis (1620 GTOs)
+DFT_jfit.morphine.A2.in              DFT HCTH calc. of morphine using the DZBP A2 basis with coulomb fitting
+DFT_jfit.siosi3.347.in               DFT SVWN Jfit Calculation of zeolite siosi3 (347 GTOS)
+DFT_jfit.siosi4.617.in               DFT SVWN Jfit Calculation of zeolite  siosi4 (617 GTOs)
+DFT_jfit.siosi5.1199.in              DFT SVWN Jfit Calculation of zeolite  siosi5 (1199 GTOs)
+DFT_jfit.siosi6.1687.in              DFT SVWN Jfit Calculation of zeolite  siosi6 (1687 GTOs)
+DFT_jfit.siosi7.3975.in              DFT SVWN Jfit Calculation of zeolite  siosi7 (3975 GTOs)
+DFT_jfit.valino.A2.DZVP.in           DFT HCTH Jfit Calculation of Valinomycin in water DZVP2 basis (1620 GTOs)
+DFT_jfitA.siosi3.347.in              DFT SVWN Ahlrichs Jfit Calculation of zeolite siosi3 (347 GTOS)
+DFT_jfitA.siosi4.617.in              DFT SVWN Ahlrichs Jfit Calculation of zeolite siosi4 (617 GTOs)
+DFT_jfitA.siosi5.1199.in             DFT SVWN Ahlrichs Jfit Calculation of zeolite siosi5 fragment (1199 GTOS)
+DFT_jfitA.siosi6.1687.in             DFT SVWN Ahlrichs Jfit Calculation of zeolite siosi6 (1687 GTOS)
+DFT_opt.exti4a1.3-21G.in
+
+HF_2e.Bz_crco3.TZVP.in               Conventional-SCF Calculation of (C6H6)Cr(CO)3
+HF.Alpha-pinene.6-311g-dfp.in        Direct SCF Calculation of Alpha-pinene 6-311g(df,p)
+HF.cyclo.sto3G.in                    Direct-SCF STO-3G Calculation of Cyclosporin
+HF.cyclo.3-21G.in                    Direct-SCF 3-21G Calculation of Cyclosporin (1000 GTOs)
+HF.cyclo.6-31G.in                    Direct-SCF 6-31G Calculation of Cyclosporin (1000 GTOs)
+HF.cyclo.6-31G-d.in                  Direct-SCF 6-31G* Calculation of cyclosporin (1516 GTOs)
+HF.cyclo.6-31G-dp.in                 Direct-SCF 6-31G** Calculation of cyclosporin (1855 GTOs)
+HF.cyclo.DZP.in                      Direct-SCF DZP Calculation of Cyclosporin (1941 GTOs)
+HF.morphine.6-31G-d.in               Direct-SCF 6-31G* Calculation of Morphine
+HF.morphine.6-31G-dp.in              Direct-SCF 6-31G** Calculation of Morphine
+HF.valino.sto3G.in                   Direct-SCF STO-3G Calculation of Valinomycin
+HF.valino.3-21G.in                   Direct-SCF 3-21G Calculation of Valinomycin
+HF.valino.6-31G.in                   Direct-SCF 6-31G Calculation of Valinomyxin (882 GTOs)
+HF.valino.6-31G-d.in                 Direct-SCF 6-31G* Calculation of Valinomycin (1350 GTOs)
+HF.valino.6-31G-dp.in                Direct-SCF 6-31G** Calculation of Valinomycin (1620 GTOs)
+UHF_2e.ne20+.in                      Conventional-UHF Calculation on a cationic Neon chain, Ne20+
+
+HF_grad.CAG.1291.in                  Direct-SCF CAG rhf gradient test (1291 GTOs)
+HF_incore.Alpha-pinene.in            in-core SCF Calculation of Alpha-pinene
+HF_incore.TFMtoluene.6-31G-d.in      in-core SCF Calculation of ((C6H4(CF3))2 in 6-31G* basis
+
+MP2.c20h42.6-31G-d.in                Direct MP2 energy Calculation of c20h42 Gaussian example 6-31G*
+MP2.n3pdme.in                        Direct-MP2 energy Calculation of (N3)PdMe(+)
+MP2_opt.Bz_crco3.TZVP.in             Direct-MP2 geometry optimisation of (C6H6)Cr(CO)3
+MP2_opt.c2h4s.cc-pvtz.in             Direct-MP2 geometry optimisation of C2H4S cc-pVTZ basis
+MP2_opt.furan.6-311G-2pd.in          Direct-MP2 geometry optimisation of 2 fluoro furan 6-311G(2p/2d)
+MP2_opt.mnco5h.in                    Direct-MP2 TZVP/DZP geometry optimisation of Mn(CO)5H (217 GTOs)
+
+SECD.TFMtoluene.6-31G.in             Analtyic Frequencies for ((C6H4(CF3))2 in 6-31G basis (196 GTOs)
+SECD.chlorotriazine.in               HF Analtyic Frequencies for chlorotriazine transition state (185 GTOs)
+SECD.morphine.6-31G.in               HF Analtyic Frequencies for morphine 6-31G basis
+SECD_B3LYP.TFMtoluene.6-31G.in       DFT B3LYP Analtyic Frequencies for ((C6H4(CF3))2 in 6-31G basis (196 GTOs)
+SECD_HCTH.TFMtoluene.6-31G.in        DFT HCTH Analtyic Frequencies for ((C6H4(CF3))2 in 6-31G basis (196 GTOs)
+
+DCI.cf2.cc-pvtz                      Direct-CI calculation of CF2 in CC-pvtz basis
+DCI.pyridine.tzvp                    Direct-CI calculation of pyridine in TZVP basis
+
+OVGF.cyclopropane.cc-pvtz.in         OVGF calculation of cyclopropane cc-pVTZ basis
+
+*** Other Tests ***
+
+PCM.cytosine.in
+HF_props.cytosine.in
+HF_props.pyridine.in

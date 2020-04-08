@@ -1,0 +1,122 @@
+
+Begin optimization report for: ZLARFB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlarfb.f(181,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(180,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(234,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(235,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlarfb.f(235,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(299,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(298,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(353,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(354,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlarfb.f(354,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(421,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(420,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(474,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(475,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlarfb.f(475,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(539,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(538,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlarfb.f(593,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zlarfb.f(594,22)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zlarfb.f(594,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zlarfb.f(139,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(140,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(194,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(195,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(256,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(257,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(313,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(314,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(377,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(378,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(434,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(435,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(496,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(497,24) ]
+LOOP END
+
+LOOP BEGIN at zlarfb.f(553,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlarfb.f(554,24) ]
+LOOP END
+===========================================================================

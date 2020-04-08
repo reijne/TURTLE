@@ -1,0 +1,16 @@
+#!/bin/csh
+#
+# Test jobs from semi-empirical Chapter of GAMESS Manual
+#
+# for running all examples under nqs (eg on C90), use
+# the following
+#    qsub -lm 8Mw -lT 1800 run_mopac
+#
+date
+RUN mopac_1
+RUN mopac_2
+RUN mopac_3
+RUN mopac_4
+RUN mopac_5
+date
+/bin/rm gamess_i* archive*

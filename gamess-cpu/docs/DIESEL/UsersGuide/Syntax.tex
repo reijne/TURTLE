@@ -1,0 +1,69 @@
+\section{Sytax Rules}
+
+\label{Syntax}
+Keywords are not case sensitive.
+
+\subsection{Common}
+\begin{tabular}{rrl}
+\key{statement}&::=&\key{comment} $\vert$ \key{assignment} $\vert$ \key{separator};\cr
+\key{comment}&::=&\# \key{text} \key{newline};\cr
+\key{eq}&::=&\key{ws} = \key{ws};\cr
+\key{confSet}&::=&\{ [\key{conf} $\ldots$ \key{conf}] \};\cr
+\key{floatSet}&::=&\{ \key{floatnum} $\ldots$ \key{floatnum} \};\cr
+\key{numSet}&::=&\{ \key{numEnum} \};\cr
+\key{verbositySet}&::=&\{ [\key{verbosityKey} $\ldots$ \key{verbosityKey}] \};\cr
+\key{conf}&::=&\key{numEnum} \key{separator};\cr
+\key{numEnum}&::=&[\key{numRange} [(\key{ws} \key{numRange}) $\ldots$ (\key{ws} \key{numRange})];\cr
+\key{numRange}&::=&\key{num} [- \key{num}];\cr
+\key{separator}&::=&; $\vert$ \key{newline};\cr
+\key{newline}&::=&$\backslash$n;\cr
+\key{text}&::=&\key{char} $\ldots$ \key{char};\cr
+\key{name}&::=&\key{alpha} [\key{alphanum} $\ldots$ \key{alphanum}];\cr
+\key{char}&::=&any printable character;\cr
+\key{floatnum}&::=&[+$\vert$-] [\key{digit} $\ldots$ \key{digit}] . [\key{digit} $\ldots$ \key{digit}] [e$\vert$E [-$\vert$+] \key{num} ];\cr
+\key{num}&::=&\key{digit} [$\ldots$ \key{digit}];\cr
+\key{alphanum}&::=&\key{alpha} $\vert$ \key{digit};\cr
+\key{alpha}&::=&A $\vert$ $\ldots$ $\vert$ Z $\vert$ a $\vert$ $\ldots$ $\vert$ z;\cr
+\key{digit}&::=&0 $\vert$ $\ldots$ $\vert$ 9;\cr
+\key{bool}&::=&yes $\vert$ no;\cr
+\key{ws}&::=&\key{blank} [$\ldots$ \key{blank}];\cr
+\key{blank}&::=& $<$space$>$ $\vert$ $\backslash$t;\cr
+\key{verbosityKey}&::=& Input $\vert$ Integrals $\vert$ MOs $\vert$ RefGuess SGA $\vert$ $\vert$ IterationBlocks $\vert$ \cr
+	&&\hskip10pt RefMat $\vert$ RefMatEigenValues $\vert$ RefMatEigenVectors $\vert$\cr
+	&&\hskip10pt IterationBlocks $\vert$ WaveFunction $\vert$ SelectionPerRoot $\vert$\cr
+	&&\hskip10pt CacheStatistics;\cr
+\end{tabular}
+
+\subsection{Selector}
+\begin{tabular}{rrl}
+\key{Selector-Input}&::=&\key{statement} $\ldots$ \key{statement};\cr
+\key{assignment}&::=&\key{nameAssign} $\vert$ \key{keyAssign} $\vert$ \key{boolAssign}\cr
+	&& \hskip10pt $\vert$ \key{numAssign} $\vert$ \key{floatAssign} $\vert$ \key{setAssign};\cr
+\key{setAssign}&::=&\key{numSetAssign} $\vert$ \key{confSetAssign};\cr
+\key{nameAssign}&::=&\key{nameAssignKeywords} \key{eq} \key{name} \key{separator};\cr
+\key{keyAssign}&::=&\key{FileFormatAssign};\cr
+\key{boolAssign}&::=&\key{boolAssignKeywords} \key{eq} \key{bool} \key{separator};\cr
+\key{numAssign}&::=&\key{numAssignKeywords} \key{eq} \key{num} \key{separator};\cr
+\key{floatAssign}&::=&\key{floatAssignKeywords} \key{eq} \key{foatnum} \key{separator};\cr
+\key{FileFormatAssign}&::=&\key{MOIntegralFileFormatAssign} \key{eq} \cr
+	&&\hskip10pt Fort31RecordFormatNew $\vert$ Fort31RecordFormatOld\cr
+	&&\hskip10pt \key{separator};\cr
+\key{numSetAssign}&::=&\key{numSetAssignKeywords} \key{eq} \key{numSet} \key{separator};\cr
+\key{ConfSetAssign}&::=&\key{numSetAssignKeywords} \key{eq} \key{confSet} \key{separator};\cr
+\key{boolAssignKeywords}&::=&selectInternal;\cr
+\key{numAssignKeywords}&::=&NumberOfElectrons $\vert$ ExcitationLevel $\vert$ Multiplicity $\vert$ IrRep;\cr
+\key{floatAssignKeywords}&::=&SelectionThreshold;\cr
+\key{nameAssignKeywords}&::=&MOIntegralFilename;\cr
+\key{MOIntegralFileFormatAssign}&::=&MOIntegralFileFormat;\cr
+\key{numSetAssignKeywords}&::=&Roots $\vert$ selectNthExcitation;\cr
+\key{confSetAssignKeywords}&::=&RefConfs $\vert$ PTRefConfs;\cr
+\end{tabular}
+
+\subsection{Diagonalisator}
+
+\begin{tabular}{rrl}
+\key{diagVerb}&::=& Input $\vert$ MOs $\vert$ Spin $\vert$ Integrals $\vert$ \cr
+	&&\hskip10pt RefMat $\vert$ RefEigs $\vert$ RefVectors $\vert$\cr
+	&&\hskip10pt IterBlocks $\vert$ Wave $\vert$ NewConfs;\cr
+\end{tabular}
+

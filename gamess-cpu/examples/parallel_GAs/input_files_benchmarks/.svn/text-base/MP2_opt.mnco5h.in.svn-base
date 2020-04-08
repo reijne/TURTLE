@@ -1,0 +1,47 @@
+file ed3 mfged3 gafs length 5000 delete
+file ed7 mfged7 gafs length 5000 delete
+title
+mn(co)5h TZVP/DZP MP2 - geometry optimisation
+zmat angstrom
+mn
+h 1 mnh
+x 1 1.0 2 90.0
+c 1 mncax 3 90.0 2 180.0
+c1 1 mnceq 2 hmnc 3 0.0
+c1 1 mnceq 2 hmnc 5 90.0
+c 1 mnceq 2 hmnc 5 180.0
+c 1 mnceq 2 hmnc 5 -90.0
+x 5 1.0 1 mncoeq 2 0.0
+o 5 coeq 9 mncoeq 1 180.0
+x 6 1.0 1 mncoeq 2 0.0
+o 6 coeq 11 mncoeq 1 180.0
+x 7 1.0 1 mncoeq 2 0.0
+o 7 coeq 13 mncoeq 1 180.0
+x 8 1.0 1 mncoeq 2 0.0
+o 8 coeq 15 mncoeq 1 180.0
+x 4 1.0 1 90.0 3 0.0
+o 4 coax 17 90.0 1 180.0
+variables
+mnh            1.4851254 hess     .202713
+mncax          1.7442753 hess     .443851
+mnceq          1.7674212 hess    1.442388
+coeq           1.1704583 hess    4.391234
+coax           1.1858966 hess    1.046105
+hmnc          85.4049801 hess    1.376268
+mncoeq        90.7656512 hess    2.078584
+end
+basis
+tzvp mn
+dzp c
+dzp c1
+dzp o
+dzp h
+end
+runtype optimize
+scftype direct mp2
+natorb 10 print
+stepmax 0.1
+level 2.0
+maxcyc 50
+xtol 0.003
+enter

@@ -1,0 +1,72 @@
+#!/bin/csh
+../../bin/gamess<<EOF
+title
+mrdci - test of semi-direct module
+zmat ang
+o
+c 1 1.22
+h 2 1.09 1 121
+h 2 1.09 1 121 3 180
+end
+runtype ci
+mrdci direct
+fort
+parkwa
+nele 16
+exci 2
+spin 1
+symm 1
+prin 0
+singles off
+thre 10.0 20.0
+conf occupation
+2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 0 2
+2 2 2 2 2 2 2 1 0 0 1
+2 2 2 2 2 2 1 2 1
+end
+root 2
+enter
+EOF
+../../bin/gamess<<EOF
+title
+mrdci - test of semi-direct module
+zmat ang
+o
+c 1 1.22
+h 2 1.09 1 121
+h 2 1.09 1 121 3 180
+end
+runtype ci
+mrdci direct
+fort
+parkwa
+nele 16
+exci 2
+spin 1
+symm 1
+prin 0
+singles off
+thre 10.0 20.0
+conf 
+0          1   2   3   4   5  13  17  18
+0          1   2   3   4   5  13  14  17
+2 18  19   1   2   3   4   5  13  17
+2 13  14   1   2   3   4   5  17  18
+end
+root 2
+enter
+EOF
+../../bin/gamess<<EOF
+title
+mrdci - test of semi-direct module - defaults
+zmat ang
+o
+c 1 1.22
+h 2 1.09 1 121
+h 2 1.09 1 121 3 180
+end
+runtype ci
+mrdci direct
+enter
+EOF

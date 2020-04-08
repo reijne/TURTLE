@@ -1,0 +1,1824 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> qm optn of formate in formate-imidazole
+ >>>>> noprint basis vectors
+ >>>>> adapt off
+ >>>>> super off nosym
+ >>>>> nosym
+ >>>>> charge -1
+ >>>>> zmat angs
+ >>>>> c1
+ >>>>> o2 1 r2
+ >>>>> o3 1 r3 2 a3
+ >>>>> h4 1 r4 2 a4 3 d4
+ >>>>> variables
+ >>>>> r2  1.2
+ >>>>> r3 1.2
+ >>>>> a3  120.0
+ >>>>> r4 1.1
+ >>>>> a4 120.0
+ >>>>> d4 180.0
+ >>>>> end
+ >>>>> basis  sto3g
+ >>>>> mapping
+ >>>>> 1  11  0.0
+ >>>>> 2  12 0.0
+ >>>>> 3  13 0.0
+ >>>>> 4  10 0.0
+ >>>>> end
+ >>>>> comb onee
+ >>>>> freeze all
+ >>>>> model
+ >>>>> substitute
+ >>>>> cycles 1000
+ >>>>> mechanics 10
+ >>>>> topology formatted
+ >>>>> nonbonded atoms atoms
+ >>>>> diel const 1
+ >>>>> force all
+ >>>>> pairlist 100
+ >>>>> vscale 2.0
+ >>>>> escale 2.0
+ >>>>> cuttol 99.0 angs
+ >>>>> initial formatted
+ >>>>> final formatted
+ >>>>> change on
+ >>>>> thresh 5
+ >>>>> stepmax 0.1
+ >>>>> xtol 0.003
+ >>>>> runtype  optimise hybrid
+ >>>>> scftype  rhf
+ >>>>> vectors minguess
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Generic version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : csevig6.dl.ac.uk                            
+                                        GAMESS-UK Executable: ../../bin/gamess                                                      
+                                        Compiled on 17-03-2008 14:48 by jmht      
+                                        job name   jmht    
+                                        date    Mar 26 2008
+                                        time       12:20:04
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested   4000000 real*8  words
+
+
+
+ local       status  external file name
+ file name 
+ ********************************************************************************
+ ft01        unknown  c2026_e.coord                                                                   
+ ft02        unknown  restart                                                                         
+ ft03        unknown  c2026_e.parm                                                                    
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    qm optn of formate in formate-imidazole                                             *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c1                                                                                                                                  
+ o2 1 r2                                                                                                                             
+ o3 1 r3 2 a3                                                                                                                        
+ h4 1 r4 2 a4 3 d4                                                                                                                   
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ r2           1.200000     0    0.000000    1.200000    1.200000
+ r3           1.200000     0    0.000000    1.200000    1.200000
+ a3         120.000000     0    0.000000  120.000000  120.000000
+ r4           1.100000     0    0.000000    1.100000    1.100000
+ a4         120.000000     0    0.000000  120.000000  120.000000
+ d4         180.000000     0    0.000000  180.000000  180.000000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.200000 (   1)
+   3    3   o     1   1.200000 (   2)   2  120.000 (   4)
+   4    4   h     1   1.100000 (   3)   2  120.000 (   5)   3  180.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c1               0.000000       0.000000       0.000000
+              2  o2               0.000000       0.000000       2.267671
+              3  o3               1.963861       0.000000      -1.133836
+              4  h4              -1.800206       0.000000      -1.039349
+
+ ------------------------------------------------------------------------
+
+ symm--  symmetry turned off by external request
+
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    c1      
+ order of principal axis   0
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   0.0000000
+ point 3 :    0.0000000   0.0000000   0.0000000
+
+ directional parameter -         
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sto     sto3g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c1        6.0   0.0000000      0.0000000      0.0000000       2          *
+         *                                                                1s  2sp      *
+         *                                                                             *
+         *                                                                             *
+         *    o2        8.0   0.0000000      0.0000000      2.2676712       2          *
+         *                                                                1s  2sp      *
+         *                                                                             *
+         *                                                                             *
+         *    o3        8.0   1.9638609      0.0000000     -1.1338356       2          *
+         *                                                                1s  2sp      *
+         *                                                                             *
+         *                                                                             *
+         *    h4        1.0  -1.8002058      0.0000000     -1.0393493       1          *
+         *                                                                1s           *
+         *                                                                             *
+         *******************************************************************************
+
+
+ total number of shells                   7
+ total number of basis functions         16
+ number of electrons                     24
+ charge of molecule                      -1
+ state multiplicity                       1
+ number of occupied orbitals (alpha)     12
+ number of occupied orbitals (beta )     12
+ total number of atoms                    4
+
+ **** symmetry adaption suppressed
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                optimize *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        minguess *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-5 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-09 *
+ ****************************************************** 
+
+ **************************************************** 
+ *            PRINT OPTIONS in EFFECT               * 
+ **************************************************** 
+ * suppress printing of basis functions             * 
+ * suppress printing of non-canonicalised vectors   * 
+ **************************************************** 
+
+
+ ********************************************************** 
+ *          optimisation options in effect                * 
+ ********************************************************** 
+ * optimization procedure invoked                         *
+ ********************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ * suppress symmetry in 2e-integral generator       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.2676712   1--3  2.2676712   1--4  2.0786986
+       (1.2000000)       (1.2000000)       (1.1000000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  120.000000   2--1--4  120.000000   3--1--4  120.000000
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+     *************************
+     initiate mechanics module
+     *************************
+
+
+    reading formatted m o l e c u l a r   t o p o l o g y   f i l e
+
+
+    topology file created in model job with the title :- 
+
+     test case : IMD-FOR                                                            
+
+    a constant dielectric funtion is to used in calculating the electrostatic energy :-    1.00000
+
+    maximum number of cycles of quantum optimisation =   200
+
+    method of force evaluation :-
++                                    complete interaction is calculated.
+
+    a pair list will be generated every  100 cycles.
+
+    cutoff distance for non-bonded pairs            =   99.00000 angs.
+    scale factor for 1-4 vdw interactions           =    2.00000
+    scale factor for 1-4 electrostatic interactions =    2.00000
+
+    initial step length in mechanics optimsation                         =    0.00250
+    maximum step length allowed in mechanics optimisation                =    0.10000
+    convergence criterium for energy in mechanics optimisation           =    0.00001
+    convergence criterium for norm of gradient in mechanics optimisation =    0.00050
+
+
+    final / restart coordinates are to be written in a formatted form.
+
+    initial coordinates will be read form a formatted file.
+
+    z-matrix variables will be regenerated from atomic coordinates.
+
+
+    partial charges will be included in one-electron hamiltonian.
+
+    reading formatted   a t o m i c   c o o r d i n a t e s  file
+
+
+    atomic coordinates created in model job with title:-
+
+     test case : IMD-FOR                                                            
+
+                                  *********************
+                                  regenerated z-matrix.
+                                  *********************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.264754 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.242619 (   5)   5  129.249 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.106927 (   6)   5  114.264 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c1               1.889726       0.000000       3.779452
+              2  o2               4.279764       0.000000       3.779452
+              3  o3               0.404021       0.000000       5.597903
+              4  h4               1.030119       0.000000       1.872449
+
+ ------------------------------------------------------------------------
+
+
+     handedness is not changed in iterst
+
+     initial alignment of mechanics and ab initiocoordinates.
+
+     number of ab initio atoms =    4
+
+                          ab initio                                                  mechanics
+
+    1   0.10000000E+01   0.00000000E+00   0.20000000E+01        11   0.10000000E+01   0.00000000E+00   0.20000000E+01
+    2   0.22647538E+01   0.00000000E+00   0.20000000E+01        12   0.22647538E+01   0.00000000E+00   0.20000000E+01
+    3   0.21379879E+00   0.00000000E+00   0.29622832E+01        13   0.21379879E+00   0.00000000E+00   0.29622832E+01
+    4   0.54511547E+00   0.00000000E+00   0.99085757E+00        10   0.54511547E+00   0.00000000E+00   0.99085757E+00
+
+     square of the deviations = 0.17165875E-15
+
+     ab initio -> mechanics mapping of atoms
+     =======================================
+
+
+     (    1->   11) , (    2->   12) , (    3->   13) , (    4->   10) , (
+
+    the charges of the ab initio atoms havebeen replaced.
+
+    net charge (old) =  -1.00000 net charge (new) =   0.00000
+
+
+ writing dumpfile section 475 to block   218
+ length of section 475               =     1
+
+
+ writing dumpfile section 476 to block   219
+ length of section 476               =     1
+
+
+ writing dumpfile section 477 to block   220
+ length of section 477               =     2
+
+ symm--  symmetry turned off by external request
+
+
+
+     number of atoms excluded from the ab initio set =    0
+
+
+ writing dumpfile section 472 to block   222
+ length of section 472               =     1
+
+
+ writing dumpfile section 473 to block   223
+ length of section 473               =     1
+
+
+ writing dumpfile section 474 to block   224
+ length of section 474               =     1
+
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          16
+ ==============================
+
+
+ initial guess orbitals generated with minimal basis set option
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+                                        *********************
+                                        geometry optimization
+                                        *********************
+
+ number of parameters         6
+ max. no. of calculations   200
+ max. no. of iterations     200
+
+ use function evaluation only for line searches
+
+ input control parameters
+ =========================
+ line search termination criterion            0.600000
+ parameter convergence precision              0.003000
+ line search restriction distance             0.100000
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   1 at       0.01 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.264754 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.242619 (   5)   5  129.249 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.106927 (   6)   5  114.264 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2647538 hessian       0.000000
+ r3             1.2426187 hessian       0.000000
+ r4             1.1069275 hessian       0.000000
+ a3           129.2493890 hessian       0.000000
+ a4           114.2641114 hessian       0.000000
+ d4           180.0000000 hessian       0.000000
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00146777
+    nuclear repulsion energy       =      1.00649859
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.02 seconds
+
+ end of 2-electron integral evaluation at     0.02 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        closed-shell rhf scf calculation
+                                        ********************************
+
+ ----- nuclear energy ----- =      62.583030353182
+
+               convergence data
+               ================
+
+
+ minimise dump and scratchfile i/o
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criterion        =1.0e- 5
+ punch out option             =      0
+
+ =======================================================================================================
+   cycle           total      electronic         e conv.         tester   virtual damping           diis
+                  energy          energy                                   shift
+ =======================================================================================================
+   1   1   -184.03041883   -246.61344918   -246.61344918     1.96870103     1.000   1.000    0.000000000   
+   2   2   -186.38377840   -248.96680875     -2.35335957     0.17081258     1.000   1.000    0.000000000   
+   3   3   -186.48594494   -249.06897530     -0.10216654     0.07831163     1.000   0.000    0.000000000   
+   4   4   -186.50218886   -249.08521922     -0.01624392     0.03641970     1.000   0.000    0.000000000   
+   5   5   -186.50658506   -249.08961541     -0.00439620     0.02057425     1.000   0.000    0.000000000   
+   6   0   -186.50798276   -249.09101311     -0.00139769     0.01172955     0.000   0.000    0.000015940   
+   7   1   -186.50879055   -249.09182090     -0.00080779     0.00083389     0.000   0.000    0.000000692   
+   8   2   -186.50879699   -249.09182734     -0.00000644     0.00015956     0.000   0.000    0.000000039   
+   9   3   -186.50879716   -249.09182752     -0.00000017     0.00003829     0.000   0.000    0.000000002   
+  10   4   -186.50879717   -249.09182753     -0.00000001     0.00000910     0.000   0.000    0.000000000   
+
+          ----------------
+          energy converged
+          ----------------
+
+          --------------
+          final energies   after  10 cycles at       0.02 seconds
+          --------------
+
+
+          electronic energy               -249.0918275273
+          nuclear energy                    62.5830303532
+          total qm energy                 -186.5087971741
+          convergence on density             0.0000198069
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          CONVERGENCE / TESTER ANALYSIS            From DIIS
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Iter.   Tester   (domo/vmo)             Tester   (domo/vmo)
+
+              1  1.9687010 (   3  16) (*)        1.9687010 (   3  16)
+              2  0.1708126 (   3  15) (*)        0.1708126 (   3  15)
+              3  0.0783116 (   4  14) (*)        0.0783116 (   4  14)
+              4  0.0364197 (   6  14) (*)        0.0364197 (   6  14)
+              5  0.0205742 (   6  14) (*)        0.0205742 (   6  14)
+              6  0.0165621 (   6  14)            0.0117296 (   6  14) (*)
+              7  0.0014380 (   8  13)            0.0008339 (   8  13) (*)
+              8  0.0002595 (   8  13)            0.0001596 (   8  13) (*)
+              9  0.0000383 (  11  15)            0.0000383 (   9  16) (*)
+             10  0.0000134 (  12  13)            0.0000091 (  12  13) (*)
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -19.80993536       -539.0610        2.0000
+    2     1    -19.78760705       -538.4534        2.0000
+    3     1    -10.82212260       -294.4878        2.0000
+    4     1     -1.01095780        -27.5098        2.0000
+    5     1     -0.89769133        -24.4277        2.0000
+    6     1     -0.44531544        -12.1178        2.0000
+    7     1     -0.26388246         -7.1807        2.0000
+    8     1     -0.20030574         -5.4506        2.0000
+    9     1     -0.19289919         -5.2491        2.0000
+   10     1     -0.00663226         -0.1805        2.0000
+   11     1      0.00175338          0.0477        2.0000
+   12     1      0.04868940          1.3249        2.0000
+   13     1      0.64664848         17.5964        0.0000
+   14     1      0.97002700         26.3960        0.0000
+   15     1      1.15988977         31.5625        0.0000
+   16     1      1.31979399         35.9138        0.0000
+ ========================================================
+
+
+ end of closed shell scf at       0.02 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                    Total energy      -185.5008308172
+
+ WARNING: freeing nbact but was expecting czmod           
+
+    ******************
+    mechanics gradient
+    ******************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+
+   nstep     energy          econstr           rms            gmax
+     1      9.2106E-01      0.0000E+00      5.1445E+00      1.6005E+01
+
+ bond    =  0.0000E+00     angle   =  0.0000E+00     dihed      =  0.0000E+00
+ nonbond =  1.0152E+00     eel     =  0.0000E+00     hbond      = -9.4175E-02
+ 1-4 nb  =  0.0000E+00     1-4 eel =  0.0000E+00     constraint =  0.0000E+00
+
+
+    ===================
+    mechanics gradients
+    ===================
+
+
+     atom      1                2                3                4
+
+
+       de/dx  -0.10431639E-02  -0.41076917E-02  -0.17121027E-02   0.17720493E-04
+       de/dy   0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
+       de/dz  -0.11447312E-02  -0.13496222E-01  -0.46360508E-02   0.32446301E-04
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0263846     -0.0136151      0.0263056      0.0146525
+   e/y      0.0000000      0.0000000      0.0000000      0.0000000
+   e/z      0.0096951      0.0003470     -0.0296550      0.0240022
+
+
+
+
+
+
+ ========================================================================
+                    internal coordinate forces (hartrees/bohr or /radian)
+ cent atom  n1      length       n2      alpha        n3       beta        j
+ ------------------------------------------------------------------------
+       x 
+       x     1   0.004389 (   1)
+       x     2   0.000958 (   2)   1   0.010846 (   7)
+   1   c     3   0.004389 (   3)   2  -0.002551 (   8)   1   0.000000 (  12)  0
+   2   o     4  -0.013615 (   4)   3   0.004362 (   9)   2   0.000000 (  13)  0
+   3   o     4  -0.039608 (   5)   5  -0.003777 (  10)   3   0.000000 (  14)  0
+   4   h     4  -0.027903 (   6)   5  -0.007310 (  11)   6   0.000000 (  15)  0
+ ========================================================================
+
+
+                                        =====================
+                                        force constant matrix
+                                        =====================
+
+
+
+                  0.2348   0.2348   0.2348   0.3367   0.7978   0.8797
+
+
+                    1        2        3        4        5        6
+
+
+    1             0.7978   0.0000   0.0000   0.0000   0.0000   0.0000
+    2             0.0000   0.8797   0.0000   0.0000   0.0000   0.0000
+    3             0.0000   0.0000   0.2348   0.0000   0.0000   0.0000
+    4             0.0000   0.0000   0.0000   0.3367   0.0000   0.0000
+    5             0.0000   0.0000   0.0000   0.0000   0.2348   0.0000
+    6             0.0000   0.0000   0.0000   0.0000   0.0000   0.2348
+
+ gradients in x-space
+ -0.1361507E-01 -0.3960830E-01 -0.3776999E-02 -0.2790318E-01 -0.7309895E-02 -0.9027127E-17
+
+ step in x-space
+  0.1706546E-01  0.4502462E-01  0.1608932E-01  0.8288162E-01  0.3113879E-01  0.3845388E-16
+
+ current position in x-space
+  0.2390038E+01  0.2348209E+01  0.2255827E+01  0.2091790E+01  0.1994285E+01  0.3141593E+01
+
+                    information on convergence
+                    ==========================
+
+         maximum step    0.08288162  convergence?     0.00300000 no  
+         average step    0.01701005  convergence?     0.00200000 no  
+     maximum gradient    0.03960830  convergence?     0.00075000 no  
+     average gradient    0.00849914  convergence?     0.00050000 no  
+
+     estimated energy lowering   -0.4616747206E-02
+
+ linear search  1 function call    0   1 step  0.0000000E+00 function -0.1855008E+03 approximate derivative -0.4616747E-02
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   2 at       0.05 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.273784 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.266445 (   5)   5  130.171 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.150787 (   6)   5  116.048 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2737845 hessian       0.000000
+ r3             1.2664447 hessian       0.000000
+ r4             1.1507865 hessian       0.000000
+ a3           130.1712389 hessian       0.000000
+ a4           116.0482328 hessian       0.000000
+ d4           180.0000000 hessian       0.000000
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00149011
+    nuclear repulsion energy       =      1.00358485
+
+          --------------
+          final energies   after  10 cycles at       0.06 seconds
+          --------------
+
+
+          electronic energy               -248.1116974970
+          nuclear energy                    61.6041576626
+          total qm energy                 -186.5075398344
+          convergence on density             0.0000168711
+                    Total energy      -185.5024648795
+
+
+ linear search  1 function call    1   2 step  0.1000000E+01 function -0.1855025E+03 approximate derivative  0.1348623E-02
+ WARNING: freeing nbact but was expecting czmod           
+
+    ******************
+    mechanics gradient
+    ******************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+
+   nstep     energy          econstr           rms            gmax
+     1      9.3508E-01      0.0000E+00      5.2464E+00      1.6457E+01
+
+ bond    =  0.0000E+00     angle   =  0.0000E+00     dihed      =  0.0000E+00
+ nonbond =  1.0008E+00     eel     =  0.0000E+00     hbond      = -6.5702E-02
+ 1-4 nb  =  0.0000E+00     1-4 eel =  0.0000E+00     constraint =  0.0000E+00
+
+
+    ===================
+    mechanics gradients
+    ===================
+
+
+     atom      1                2                3                4
+
+
+       de/dx  -0.10431639E-02  -0.41693066E-02  -0.16614835E-02   0.16830833E-04
+       de/dy   0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
+       de/dz  -0.11447312E-02  -0.13877698E-01  -0.44435509E-02   0.30473878E-04
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0045255      0.0089213     -0.0060079     -0.0063775
+   e/y      0.0000000      0.0000000      0.0000000      0.0000000
+   e/z      0.0050633      0.0020089     -0.0006149     -0.0016877
+
+
+
+
+
+
+ ========================================================================
+                    internal coordinate forces (hartrees/bohr or /radian)
+ cent atom  n1      length       n2      alpha        n3       beta        j
+ ------------------------------------------------------------------------
+       x 
+       x     1   0.004770 (   1)
+       x     2   0.001061 (   2)   1   0.012931 (   7)
+   1   c     3   0.004770 (   3)   2  -0.003918 (   8)   1   0.000000 (  12)  0
+   2   o     4   0.008921 (   4)   3   0.005923 (   9)   2   0.000000 (  13)  0
+   3   o     4   0.003406 (   5)   5   0.011936 (  10)   3   0.000000 (  14)  0
+   4   h     4   0.004317 (   6)   5   0.010848 (  11)   6   0.000000 (  15)  0
+ ========================================================================
+
+ =========================
+ linear search....complete....f= -0.1855025E+03 x=  0.1000000E+01 gradx=  0.1193222E-02 esth=  0.5965370E-02
+ =========================
+
+                                        =====================
+                                        force constant matrix
+                                        =====================
+
+
+                  0.2273   0.2348   0.2408   0.3992   0.8040   0.9329
+
+
+                    1        2        3        4        5        6
+
+
+    1             0.8451   0.0500   0.0498   0.0427   0.0489   0.0000
+    2             0.0500   0.8583   0.0839  -0.0008   0.0717   0.0000
+    3             0.0498   0.0839   0.2742   0.0643   0.0431   0.0000
+    4             0.0427  -0.0008   0.0643   0.3467   0.0565   0.0000
+    5             0.0489   0.0717   0.0431   0.0565   0.2799   0.0000
+    6             0.0000   0.0000   0.0000   0.0000   0.0000   0.2348
+
+                    ------------------
+                    lowest eigenvector
+                    ------------------
+
+     0.025384    0.103737   -0.894864    0.415970    0.121582    0.000000
+
+ ********************************************************************************************************
+
+ control parameters for line search no.  2
+ =========================================
+ line search termination criterion                0.600000
+ parameter convergence precision                  0.003000
+ line search termination restriction distance     0.100000
+
+
+ gradients in x-space
+  0.8921288E-02  0.3405685E-02  0.1193611E-01  0.4316835E-02  0.1084842E-01  0.1929690E-17
+
+ step in x-space
+ -0.6625980E-02  0.2885418E-02 -0.3827280E-01  0.7853765E-03 -0.3259832E-01  0.1365551E-17
+
+ current position in x-space
+  0.2407104E+01  0.2393233E+01  0.2271917E+01  0.2174671E+01  0.2025424E+01  0.3141593E+01
+
+                    information on convergence
+                    ==========================
+
+         maximum step    0.03827280  convergence?     0.00300000 no  
+         average step    0.00846611  convergence?     0.00200000 no  
+     maximum gradient    0.01193611  convergence?     0.00075000 no  
+     average gradient    0.00320582  convergence?     0.00050000 no  
+
+     estimated energy lowering   -0.8563636931E-03
+
+ linear search  2 function call    0   2 step  0.0000000E+00 function -0.1855025E+03 approximate derivative -0.8563637E-03
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   3 at       0.09 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.270278 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.267972 (   5)   5  127.978 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.151202 (   6)   5  114.180 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2702781 hessian       0.845079
+ r3             1.2679716 hessian       0.858346
+ r4             1.1512021 hessian       0.346700
+ a3           127.9783691 hessian       0.274158
+ a4           114.1804869 hessian       0.279929
+ d4           180.0000000 hessian       0.234752
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00190127
+    nuclear repulsion energy       =      1.01098815
+
+          --------------
+          final energies   after  10 cycles at       0.10 seconds
+          --------------
+
+
+          electronic energy               -248.2719528577
+          nuclear energy                    61.7568242716
+          total qm energy                 -186.5151285861
+          convergence on density             0.0000283196
+                    Total energy      -185.5022391672
+
+
+ linear search  2 function call    1   3 step  0.1000000E+01 function -0.1855022E+03 approximate derivative  0.1307788E-02
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   4 at       0.10 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.272397 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.267049 (   5)   5  129.304 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.150951 (   6)   5  115.309 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2723970 hessian       0.845079
+ r3             1.2670489 hessian       0.858346
+ r4             1.1509510 hessian       0.346700
+ a3           129.3035115 hessian       0.274158
+ a4           115.3091582 hessian       0.279929
+ d4           180.0000000 hessian       0.234752
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00163972
+    nuclear repulsion energy       =      1.00648290
+
+          --------------
+          final energies   after  10 cycles at       0.12 seconds
+          --------------
+
+
+          electronic energy               -248.1736267515
+          nuclear energy                    61.6628711319
+          total qm energy                 -186.5107556196
+          convergence on density             0.0000128294
+                    Total energy      -185.5026330032
+
+
+ current bounds are:    0.0000000000E+00   -0.1855024649E+03    0.1000000000E+01   -0.1855022392E+03
+
+ linear search  2 function call    2   4 step  0.3957040E+00 function -0.1855026E+03 approximate derivative  0.1142351E-05
+ WARNING: freeing nbact but was expecting czmod           
+
+    ******************
+    mechanics gradient
+    ******************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+
+   nstep     energy          econstr           rms            gmax
+     1      1.0290E+00      0.0000E+00      5.2877E+00      1.6387E+01
+
+ bond    =  0.0000E+00     angle   =  0.0000E+00     dihed      =  0.0000E+00
+ nonbond =  1.1007E+00     eel     =  0.0000E+00     hbond      = -7.1740E-02
+ 1-4 nb  =  0.0000E+00     1-4 eel =  0.0000E+00     constraint =  0.0000E+00
+
+
+    ===================
+    mechanics gradients
+    ===================
+
+
+     atom      1                2                3                4
+
+
+       de/dx  -0.10431639E-02  -0.41599588E-02  -0.18578981E-02   0.16773745E-04
+       de/dy   0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
+       de/dz  -0.11447312E-02  -0.13818701E-01  -0.49474130E-02   0.30547747E-04
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0003165      0.0057786     -0.0024924     -0.0024194
+   e/y      0.0000000      0.0000000      0.0000000      0.0000000
+   e/z      0.0029713      0.0028084      0.0038463     -0.0044710
+
+
+
+
+
+
+ ========================================================================
+                    internal coordinate forces (hartrees/bohr or /radian)
+ cent atom  n1      length       n2      alpha        n3       beta        j
+ ------------------------------------------------------------------------
+       x 
+       x     1   0.005155 (   1)
+       x     2   0.001183 (   2)   1   0.012442 (   7)
+   1   c     3   0.005155 (   3)   2  -0.002701 (   8)   1   0.000000 (  12)  0
+   2   o     4   0.005779 (   4)   3   0.004937 (   9)   2   0.000000 (  13)  0
+   3   o     4   0.004555 (   5)   5  -0.001216 (  10)   3   0.000000 (  14)  0
+   4   h     4   0.005076 (   6)   5   0.000600 (  11)   6   0.000000 (  15)  0
+ ========================================================================
+
+ =========================
+ linear search....complete....f= -0.1855026E+03 x=  0.3957040E+00 gradx=  0.5819935E-05 esth=  0.2153199E-02
+ =========================
+
+                                        =====================
+                                        force constant matrix
+                                        =====================
+
+
+                  0.2340   0.2348   0.3240   0.7449   0.8485   0.8702
+
+
+                    1        2        3        4        5        6
+
+
+    1             0.7811   0.0040   0.0466  -0.0093   0.0303   0.0000
+    2             0.0040   0.8487  -0.0078  -0.0155  -0.0059   0.0000
+    3             0.0466  -0.0078   0.6148  -0.0251   0.2870   0.0000
+    4            -0.0093  -0.0155  -0.0251   0.3266  -0.0210   0.0000
+    5             0.0303  -0.0059   0.2870  -0.0210   0.4504   0.0000
+    6             0.0000   0.0000   0.0000   0.0000   0.0000   0.2348
+
+                    ------------------
+                    lowest eigenvector
+                    ------------------
+
+     0.007381    0.000465   -0.601539    0.018471    0.798596    0.000000
+
+ ********************************************************************************************************
+
+ control parameters for line search no.  3
+ =========================================
+ line search termination criterion                0.600000
+ parameter convergence precision                  0.003000
+ line search termination restriction distance     0.100000
+
+
+ gradients in x-space
+  0.5778616E-02  0.4555014E-02 -0.1215783E-02  0.5076144E-02  0.5997947E-03  0.1659092E-17
+
+ step in x-space
+ -0.7625261E-02 -0.5616686E-02  0.3694094E-02 -0.1599558E-01 -0.3992601E-02 -0.1237246E-17
+
+ current position in x-space
+  0.2404482E+01  0.2394375E+01  0.2256772E+01  0.2174982E+01  0.2012524E+01  0.3141593E+01
+
+                    information on convergence
+                    ==========================
+
+         maximum step    0.01599558  convergence?     0.00300000 no  
+         average step    0.00322808  convergence?     0.00200000 no  
+     maximum gradient    0.00577862  convergence?     0.00075000 no  
+     average gradient    0.00150689  convergence?     0.00050000 no  
+
+     estimated energy lowering   -0.1577293782E-03
+
+ linear search  3 function call    0   4 step  0.0000000E+00 function -0.1855026E+03 approximate derivative -0.1577294E-03
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   5 at       0.14 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.268362 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.264077 (   5)   5  129.515 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.142486 (   6)   5  115.080 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2683619 hessian       0.781089
+ r3             1.2640767 hessian       0.848674
+ r4             1.1424865 hessian       0.326629
+ a3           129.5151675 hessian       0.614789
+ a4           115.0803990 hessian       0.450367
+ d4           180.0000000 hessian       0.234752
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00155319
+    nuclear repulsion energy       =      1.00553306
+
+          --------------
+          final energies   after   8 cycles at       0.16 seconds
+          --------------
+
+
+          electronic energy               -248.3544515718
+          nuclear energy                    61.8446703043
+          total qm energy                 -186.5097812675
+          convergence on density             0.0000388876
+                    Total energy      -185.5026950185
+
+
+ linear search  3 function call    1   5 step  0.1000000E+01 function -0.1855027E+03 approximate derivative  0.3369890E-04
+ WARNING: freeing nbact but was expecting czmod           
+
+    ******************
+    mechanics gradient
+    ******************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+
+   nstep     energy          econstr           rms            gmax
+     1      9.7467E-01      0.0000E+00      5.2120E+00      1.6184E+01
+
+ bond    =  0.0000E+00     angle   =  0.0000E+00     dihed      =  0.0000E+00
+ nonbond =  1.0571E+00     eel     =  0.0000E+00     hbond      = -8.2411E-02
+ 1-4 nb  =  0.0000E+00     1-4 eel =  0.0000E+00     constraint =  0.0000E+00
+
+
+    ===================
+    mechanics gradients
+    ===================
+
+
+     atom      1                2                3                4
+
+
+       de/dx  -0.10431639E-02  -0.41325254E-02  -0.17901594E-02   0.16949140E-04
+       de/dy   0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
+       de/dz  -0.11447312E-02  -0.13647919E-01  -0.47809582E-02   0.30907205E-04
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0011680     -0.0012350      0.0005276      0.0006231
+   e/y      0.0000000      0.0000000      0.0000000      0.0000000
+   e/z      0.0033734      0.0016228     -0.0009357      0.0007807
+
+
+
+
+
+
+ ========================================================================
+                    internal coordinate forces (hartrees/bohr or /radian)
+ cent atom  n1      length       n2      alpha        n3       beta        j
+ ------------------------------------------------------------------------
+       x 
+       x     1   0.004841 (   1)
+       x     2   0.001084 (   2)   1   0.011944 (   7)
+   1   c     3   0.004841 (   3)   2  -0.002796 (   8)   1   0.000000 (  12)  0
+   2   o     4  -0.001235 (   4)   3   0.004844 (   9)   2   0.000000 (  13)  0
+   3   o     4  -0.001058 (   5)   5   0.000450 (  10)   3   0.000000 (  14)  0
+   4   h     4  -0.000971 (   6)   5  -0.000504 (  11)   6   0.000000 (  15)  0
+ ========================================================================
+
+ =========================
+ linear search....complete....f= -0.1855027E+03 x=  0.1000000E+01 gradx=  0.3456684E-04 esth=  0.1914283E-03
+ =========================
+
+                                        =====================
+                                        force constant matrix
+                                        =====================
+
+
+                  0.2348   0.2393   0.3516   0.7649   0.8687   0.9094
+
+
+                    1        2        3        4        5        6
+
+
+    1             0.8252   0.0418   0.0304   0.0253   0.0486   0.0000
+    2             0.0418   0.8809  -0.0214   0.0145   0.0089   0.0000
+    3             0.0304  -0.0214   0.6198  -0.0384   0.2821   0.0000
+    4             0.0253   0.0145  -0.0384   0.3534  -0.0056   0.0000
+    5             0.0486   0.0089   0.2821  -0.0056   0.4544   0.0000
+    6             0.0000   0.0000   0.0000   0.0000   0.0000   0.2348
+
+                    ------------------
+                    lowest eigenvector
+                    ------------------
+
+     0.000000    0.000000    0.000000    0.000000    0.000000    1.000000
+
+ ********************************************************************************************************
+
+ control parameters for line search no.  4
+ =========================================
+ line search termination criterion                0.600000
+ parameter convergence precision                  0.003000
+ line search termination restriction distance     0.100000
+
+
+ gradients in x-space
+ -0.1234958E-02 -0.1057518E-02  0.4499279E-03 -0.9712549E-03 -0.5040208E-03 -0.3361734E-18
+
+ step in x-space
+  0.1310432E-02  0.1043054E-02 -0.1457688E-02  0.2482786E-02  0.1883801E-02 -0.7764133E-19
+
+ current position in x-space
+  0.2396856E+01  0.2388759E+01  0.2260466E+01  0.2158986E+01  0.2008532E+01  0.3141593E+01
+
+                    information on convergence
+                    ==========================
+
+         maximum step    0.00248279  convergence?     0.00300000 yes 
+         average step    0.00063777  convergence?     0.00200000 yes 
+     maximum gradient    0.00123496  convergence?     0.00075000 no  
+     average gradient    0.00033513  convergence?     0.00050000 yes 
+
+     estimated energy lowering   -0.6738124659E-05
+
+ linear search  4 function call    0   5 step  0.0000000E+00 function -0.1855027E+03 approximate derivative -0.6738125E-05
+
+
+
+ ========================================================================================================
+
+          ***************
+ commence new calculation  -  point   6 at       0.18 seconds
+          ***************
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.269055 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.264629 (   5)   5  129.432 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.143800 (   6)   5  115.188 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2690553 hessian       0.825186
+ r3             1.2646286 hessian       0.880944
+ r4             1.1438003 hessian       0.353446
+ a3           129.4316481 hessian       0.619847
+ a4           115.1883329 hessian       0.454422
+ d4           180.0000000 hessian       0.234752
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+    ****************************
+    mechanics energy calculation
+    ****************************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+    energy due to the surroundings =      0.00157688
+    nuclear repulsion energy       =      1.00585844
+
+          --------------
+          final energies   after   8 cycles at       0.20 seconds
+          --------------
+
+
+          electronic energy               -248.3254408796
+          nuclear energy                    61.8153072334
+          total qm energy                 -186.5101336462
+          convergence on density             0.0000137385
+                    Total energy      -185.5026983268
+
+
+ linear search  4 function call    1   6 step  0.1000000E+01 function -0.1855027E+03 approximate derivative  0.1213953E-06
+ WARNING: freeing nbact but was expecting czmod           
+
+    ******************
+    mechanics gradient
+    ******************
+
+
+
+    non-bonded pairs are generated in atom base
+
+    number of non-bonded pairs     =        36
+    number of hbonded pairs        =         2
+
+
+   nstep     energy          econstr           rms            gmax
+     1      9.8953E-01      0.0000E+00      5.2284E+00      1.6219E+01
+
+ bond    =  0.0000E+00     angle   =  0.0000E+00     dihed      =  0.0000E+00
+ nonbond =  1.0702E+00     eel     =  0.0000E+00     hbond      = -8.0708E-02
+ 1-4 nb  =  0.0000E+00     1-4 eel =  0.0000E+00     constraint =  0.0000E+00
+
+
+    ===================
+    mechanics gradients
+    ===================
+
+
+     atom      1                2                3                4
+
+
+       de/dx  -0.10431639E-02  -0.41372658E-02  -0.18125558E-02   0.16926801E-04
+       de/dy   0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
+       de/dz  -0.11447312E-02  -0.13677184E-01  -0.48372374E-02   0.30842787E-04
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0011031     -0.0000209      0.0000689     -0.0000435
+   e/y      0.0000000      0.0000000      0.0000000      0.0000000
+   e/z      0.0029443      0.0020597     -0.0000661     -0.0000182
+
+
+
+
+
+
+ ========================================================================
+                    internal coordinate forces (hartrees/bohr or /radian)
+ cent atom  n1      length       n2      alpha        n3       beta        j
+ ------------------------------------------------------------------------
+       x 
+       x     1   0.004920 (   1)
+       x     2   0.001108 (   2)   1   0.012048 (   7)
+   1   c     3   0.004920 (   3)   2  -0.002751 (   8)   1   0.000000 (  12)  0
+   2   o     4  -0.000021 (   4)   3   0.004844 (   9)   2   0.000000 (  13)  0
+   3   o     4  -0.000095 (   5)   5  -0.000027 (  10)   3   0.000000 (  14)  0
+   4   h     4   0.000035 (   6)   5   0.000068 (  11)   6   0.000000 (  15)  0
+ ========================================================================
+
+ =========================
+ linear search....complete....f= -0.1855027E+03 x=  0.1000000E+01 gradx=  0.1284221E-06 esth=  0.6859520E-05
+ =========================
+
+                                        =====================
+                                        force constant matrix
+                                        =====================
+
+
+                  0.2348   0.2469   0.3644   0.7645   0.8537   0.8822
+
+
+                    1        2        3        4        5        6
+
+
+    1             0.8135   0.0182   0.0286   0.0252   0.0574   0.0000
+    2             0.0182   0.8499  -0.0176   0.0031   0.0101   0.0000
+    3             0.0286  -0.0176   0.6229  -0.0434   0.2760   0.0000
+    4             0.0252   0.0031  -0.0434   0.3609   0.0056   0.0000
+    5             0.0574   0.0101   0.2760   0.0056   0.4644   0.0000
+    6             0.0000   0.0000   0.0000   0.0000   0.0000   0.2348
+
+                    ------------------
+                    lowest eigenvector
+                    ------------------
+
+     0.000000    0.000000    0.000000    0.000000    0.000000    1.000000
+
+ ********************************************************************************************************
+
+ control parameters for line search no.  5
+ =========================================
+ line search termination criterion                0.600000
+ parameter convergence precision                  0.003000
+ line search termination restriction distance     0.100000
+
+
+ gradients in x-space
+ -0.2090018E-04 -0.9479975E-04 -0.2693043E-04  0.3496074E-04  0.6828503E-04  0.1476874E-19
+
+ step in x-space
+  0.3732736E-04  0.1168810E-03  0.1454824E-03 -0.7923298E-04 -0.2396676E-03 -0.6561646E-19
+
+ current position in x-space
+  0.2398167E+01  0.2389802E+01  0.2259008E+01  0.2161469E+01  0.2010416E+01  0.3141593E+01
+
+                    information on convergence
+                    ==========================
+
+         maximum step    0.00023967  convergence?     0.00300000 yes 
+         average step    0.00005269  convergence?     0.00200000 yes 
+     maximum gradient    0.00009480  convergence?     0.00075000 yes 
+     average gradient    0.00002110  convergence?     0.00050000 yes 
+
+     estimated energy lowering   -0.3491409712E-07
+
+
+                                        **********************
+                                        optimization converged
+                                        **********************
+
+
+
+ end of optimization at       0.22 seconds
+
+1
+ =================================================================================================================
+
+                         s u m m a r y   o f   s e a r c h     i n f o r m a t i o n
+
+ =================================================================================================================
+   line    function gradient      function value     position         gmax         grms         comments
+ searches     calls    calls
+ =================================================================================================================
+         0        1        1   -0.1855008308E+03  0.00000E+00  0.39608E-01  0.84991E-02       Initialisation         
+         1        2        2   -0.1855024649E+03  0.10000E+01  0.11936E-01  0.32058E-02  Line search for minimum     
+         2        3        2   -0.1855022392E+03  0.10000E+01  0.11936E-01  0.32058E-02  Line search for minimum     
+         2        4        3   -0.1855026330E+03  0.39570E+00  0.57786E-02  0.15069E-02  Line search for minimum     
+         3        5        4   -0.1855026950E+03  0.10000E+01  0.12350E-02  0.33513E-03  Line search for minimum     
+         4        6        5   -0.1855026983E+03  0.10000E+01  0.94800E-04  0.21104E-04  Line search for minimum     
+ =================================================================================================================
+
+
+                                        **********************
+                                        geometry of last point
+                                        **********************
+
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.3981669   1--3  2.3898016   1--4  2.1614692
+       (1.2690553)       (1.2646286)       (1.1438003)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  129.431648   2--1--4  115.188333   3--1--4  115.380019
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1        x 
+   2        x     1   1.000000 (   1)
+   3        x     2   1.000000 (   2)   1   90.000 (   7)
+   4    1   c     3   1.000000 (   3)   2   90.000 (   8)   1  180.000 (  12)   0
+   5    2   o     4   1.269055 (   4)   3   90.000 (   9)   2  180.000 (  13)   0
+   6    3   o     4   1.264629 (   5)   5  129.432 (  10)   3  180.000 (  14)   0
+   7    4   h     4   1.143800 (   6)   5  115.188 (  11)   6  180.000 (  15)   0
+ ========================================================================
+
+ ===============================================
+ variable           value                hessian
+ ===============================================
+ r2             1.2690553 hessian       0.813499
+ r3             1.2646286 hessian       0.849948
+ r4             1.1438003 hessian       0.360896
+ a3           129.4316481 hessian       0.622920
+ a4           115.1883329 hessian       0.464421
+ d4           180.0000000 hessian       0.234752
+ ===============================================
+
+ symm--  symmetry turned off by external request
+
+
+
+                                        ===================
+                                        nuclear coordinates
+                                        ===================
+
+         x              y              z            chg  tag
+  ============================================================
+        1.8897260      0.0000000      3.7794520    6.00  c1      
+        4.2878928      0.0000000      3.7794520    8.00  o2      
+        0.3718262      0.0000000      5.6252938    8.00  o3      
+        0.9698154      0.0000000      1.8235088    1.00  h4      
+  ============================================================
+
+
+ ========================================================================================================
+
+                         qm optn of formate in formate-imidazole                                         
+                         ================================================================================
+
+
+                     nuclear energy    =      61.815307233423
+                     electronic energy =    -248.325440879631
+                     total energy      =    -186.510133646208
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -19.80562691       -538.9438        2.0000
+    2     1    -19.79797051       -538.7354        2.0000
+    3     1    -10.82236091       -294.4943        2.0000
+    4     1     -1.00314463        -27.2972        2.0000
+    5     1     -0.89522355        -24.3605        2.0000
+    6     1     -0.43534281        -11.8464        2.0000
+    7     1     -0.26211884         -7.1327        2.0000
+    8     1     -0.19427943         -5.2867        2.0000
+    9     1     -0.19109862         -5.2001        2.0000
+   10     1     -0.00907619         -0.2470        2.0000
+   11     1      0.00080213          0.0218        2.0000
+   12     1      0.04691760          1.2767        2.0000
+   13     1      0.63714228         17.3377        0.0000
+   14     1      0.92954652         25.2945        0.0000
+   15     1      1.13593962         30.9108        0.0000
+   16     1      1.29742529         35.3051        0.0000
+ ========================================================
+
+ vectors restored from section   1
+
+ ================================================================================
+
+                                        *********************
+                                        wavefunction analysis
+                                        *********************
+
+ commence analysis at      0.22 seconds
+
+                 dipole moments
+
+
+           nuclear      electronic           total
+
+ x      49.5859236     -51.9453205      -2.3593969
+ y       0.0000000       0.0000000       0.0000000
+ z      99.7381866    -104.3912610      -4.6530745
+
+ total dipole moment =        5.2170735 (a.u.)
+                             13.2596127 (debye)
+
+
+ ================================================================================
+
+          ---------------------------------------
+          mulliken and lowdin population analyses               all electrons
+          ---------------------------------------
+
+          ----- total gross population in aos ------
+
+              1  1  c s         1.99396     1.98666
+              2  1  c s         1.11919     1.06742
+              3  1  c x         0.88321     0.94196
+              4  1  c y         0.94341     0.94504
+              5  1  c z         0.90275     0.94329
+              6  2  o s         1.99821     1.99721
+              7  2  o s         1.86751     1.78136
+              8  2  o x         1.22221     1.27952
+              9  2  o y         1.53903     1.53815
+             10  2  o z         1.90845     1.91141
+             11  3  o s         1.99820     1.99721
+             12  3  o s         1.86721     1.77932
+             13  3  o x         1.62995     1.65286
+             14  3  o y         1.51756     1.51681
+             15  3  o z         1.50156     1.53931
+             16  4  h s         1.10757     1.12246
+
+          ----- condensed to atoms -----
+
+
+          ----- total gross population on atoms ----
+
+              1  c1           6.0     5.84252     5.88438
+              2  o2           8.0     8.53542     8.50765
+              3  o3           8.0     8.51449     8.48551
+              4  h4           1.0     1.10757     1.12246
+
+
+ end of wavefunction analysis at     0.22 seconds.
+
+ ================================================================================
+
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      0.22          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      0.22 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               333 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     242      34
+ *    205    5     294       1
+ *    206    6     295       1
+ *    207    7     298       1
+ *    208    8     299      34
+ *    209    9     333       1
+ *    213   13     194       1
+ *    242   42     296       1
+ *    244   44     186       7
+ *    253   53     214       4
+ *    303  103     193       1
+ *    408  101       7       7
+ *    420  100     115      71
+ *    467  167     239       3
+ *    472   51     222       1
+ *    473   51     223       1
+ *    474   51     224       1
+ *    475   51     218       1
+ *    476   51     219       1
+ *    477   51     220       2
+ *    489   80     282      12
+ *    490   51     232       5
+ *    491    1      54      61
+ *    492    2     225       7
+ *    493   15       6       1
+ *    494   16     297       1
+ *    495   17     276       6
+ *    496   18      14      40
+ *    497   19     237       2
+ *    501   21       2       4
+ *    503   22     199      15
+ *    504   23     195       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      12:20:04 on Mar 26  qm optn of formate in formate-imidazole
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       16      16
+ ed3      243     243
+ ed7       17      17
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.01      4.35            0.01      3.89
+ vector generation                     0.00      0.00            0.01      2.74
+ 1e-integral evaluation                0.01      4.35            0.01      2.86
+ 2e-integral evaluation                0.04     17.39            0.03      9.69
+ scf                                   0.01      4.35            0.04     11.48
+ 1e-integral derivatives               0.00      0.00            0.00      0.51
+ 2e-integral derivatives               0.07     30.43            0.10     32.02
+ other                                 0.09     39.13            0.12     36.47
+ ******************************************************************************
+ Total                                 0.23                      0.32
+ ******************************************************************************
+
+ Memory high water mark
+ ======================
+
+ heap memory high water mark =       126871 words
+Return Code =  0

@@ -1,0 +1,74 @@
+
+Begin optimization report for: DLASYF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlasyf.f(283,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasyf.f(283,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasyf.f(283,22)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasyf.f(283,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasyf.f(506,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasyf.f(506,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasyf.f(506,22)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasyf.f(506,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlasyf.f(139,18)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dlasyf.f(319,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlasyf.f(325,21) ]
+
+   LOOP BEGIN at dlasyf.f(324,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlasyf.f(325,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlasyf.f(351,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlasyf.f(531,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dlasyf.f(542,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlasyf.f(548,21) ]
+
+   LOOP BEGIN at dlasyf.f(547,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlasyf.f(548,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlasyf.f(575,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================

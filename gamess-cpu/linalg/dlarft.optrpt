@@ -1,0 +1,42 @@
+
+Begin optimization report for: DLARFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlarft.f(133,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarft.f(133,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarft.f(133,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarft.f(172,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarft.f(172,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarft.f(172,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlarft.f(128,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarft.f(142,20) ]
+LOOP END
+
+LOOP BEGIN at dlarft.f(167,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarft.f(180,23) ]
+LOOP END
+===========================================================================

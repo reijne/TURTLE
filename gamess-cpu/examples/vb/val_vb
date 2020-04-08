@@ -1,0 +1,28 @@
+#!/bin/csh -f
+#
+# validation for vb
+#
+setenv GAMESS_VTAB ./vb.vtab
+set path=(../../utilities $path)
+validate h2co-servec       LOG/h2co-servec.log
+validate h2       LOG/h2.log
+validate benzyn       LOG/benzyn.log
+validate h2o-dimer-mi      LOG/h2o-dimer-mi.log
+validate c2h2      LOG/c2h2.log
+validate hexatriene      LOG/hexatriene.log
+validate mo-sto3g      LOG/mo-sto3g.log
+validate mo-dzp      LOG/mo-dzp.log
+validate c12h8      LOG/c12h8.log
+validate c2030_b      LOG/c2030_b.log
+validate c2030_c      LOG/c2030_c.log
+validate c2030_d      LOG/c2030_d.log
+validate h2o-grad      LOG/h2o-grad.log
+validate mo-blw      LOG/mo-blw.log
+# Need remco to fix
+#validate c6h6-propm      LOG/c6h6-propm.log
+validate benzene      LOG/benzene.log
+validate H6-resblw      LOG/H6-resblw.log
+validate cpsih-1ionic      LOG/cpsih-1ionic.log
+validate h2o-fullvb      LOG/h2o-fullvb.log
+validate brian-cc6z      LOG/brian-cc6z.log
+validate benzene-locals      LOG/benzene-locals.log

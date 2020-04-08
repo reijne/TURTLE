@@ -1,0 +1,39 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+oo..hf uhf/6-31g* nbo del test case
+mult 3
+nosym
+zmatrix angstrom
+f
+h 1 0.911
+x 1 1.0 2 90.000
+x 1 r 3 gamma 2 0.0
+x 4 1.0 1 90.000 3 0.0
+o 4 0.584 5 beta 3 0.0
+x 4 1.0 6 90.000 5 180.0
+o 4 0.584 7 90.000 6 180.0
+variables
+r     3.950
+beta  90.000
+gamma 90.000
+end 
+basis 6-31g*
+scftype uhf
+vectors atoms
+enter 1 2
+runtype analyse
+scftype uhf
+nbo
+vectors 1 2
+enter 1 2
+  \$nbo \$end
+  \$del
+   a zero 1 deloc  from 1 to 2
+   b zero 1 deloc  from 1 to 2
+   a zero 1 deloc  from 2 to 1
+   b zero 1 deloc  from 2 to 1
+   a zero 2 deloc  from 1 to 2     from 2 to 1
+   b zero 2 deloc  from 1 to 2     from 2 to 1
+  \$end
+EOF

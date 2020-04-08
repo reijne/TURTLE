@@ -1,0 +1,209 @@
+
+rungamess - Version 3.0
+
+This file provides a brief description on the rungamess script, aimed
+at the staff responsible for local installation. Please see Chapter 13
+of the GAMESS--UK User Manual and Reference Guide for usage instructions.
+
+Please report any problems to p.sherwood@dl.ac.uk.
+
+
+0 Contents
+----------
+1 Main changes from previous versions
+2 How to configure rungamess
+3 Component scripts
+4 Some sample installation instructions
+
+
+1 Main changes from previous versions:
+--------------------------------------
+
+a) only single-letter flags are accepted (ie -k but not -keep), to
+   simplify argument parseing
+
+b) The script is split into pieces to simplify maintenance, see 
+   descriptions below.
+
+c) The jobname argument must be presented last.
+
+2 How to Configure rungamess
+----------------------------
+
+2.1 Preliminaries
+
+The first steps in configuration should be performed automatically
+by the configure script used to configure the Makefiles.
+
+This should include converting rungamess.in --> rungamess and 
+rg_defaults.in -> rg_defaults.
+
+You will almost certainly need to perform further configuration, 
+especially if you are using a queuing system or running in 
+parallel.
+
+2.2 Environment Variables
+
+The configuration requires setting a series of environment variables. 
+If the defaults selected  in rg_defaults after running the configure
+script are not satisfactory, they can be set
+ -  on a site-wide basis in rg_site_defaults,
+ -  on a user-by-user basis by adding the settings to .cshrc (C-Shell users) or
+    .profile (Korn or Bourne shell users).
+
+The variables are as follows:
+
+In all cases :
+
+   setenv GAMESS_SCR    location for scratch files - a subdirectory
+                        will be created in $GAMESS_SCR
+   setenv GAMESS_TMP    location for temporary files (saved between jobs)
+   setenv GAMESS_LIB    location for library files (generally ... GAMESS-UK/libs )
+
+If the platform supports only serial jobs
+                         -----------
+
+   setenv GAMESS_EXE to the executable name
+
+If the platform support both parallel and serial jobs:
+                        ------------------------
+
+   Determine the parallel mode to be used, (see files rg_exe.* for
+   those supported, typically lam, tcgmsg, poe and t3e are supported
+   you can implement your own by writing the rg_exe.<mode> script.
+
+   set GAMESS_PARMODE  to the required mode for the parallel case
+   set GAMESS_EXE      to the serial executable
+   set GAMESS_PAREXE   to the parallel executable for all other cases
+   set GAMESS_HOSTS    to a list of hosts to use (LAM etc)
+
+   You will get the serial code if the -p argument is omitted.
+
+If the platform supports only parallel jobs:
+                         -------------
+   set GAMESS_JOBMODE  to the required parallel mode (e.g. t3e, mpi, etc)
+   set GAMESS_NPROCS   to the default number of processors you require
+   set GAMESS_PAREXE   as described above
+
+Note that if additional programs are implicated by the parallel mode
+chosen that they should be in your path (mpirun (LAM) and parallel
+(TCGMG) are the likely example).
+
+If you want to use a local queueing system (-q and -Q options) you will need to
+set GAMESS_SUBMODE to the queuing system you require (check the files
+rg_sub.* for the supported systems, or created a new script if 
+necessary. Typical values of GAMESS_SUBMODE are ll (LoadLeveler), pbs,
+(Portable Batch System) and nqs.
+
+If you are using a queuing system that requires a request including the
+number of nodes (and there is > 1 processor per node) set the variable
+GAMESS_PROCSPERNODE to indicate how many processors there are per node.
+
+If the system only supports jobs run in the queues (ie no interactive runs)
+              -----
+
+   setenv GAMESS_QUEUEMODE submit
+
+so that all jobs will be submitted to batch.
+
+
+3 Component scripts
+-------------------
+
+a) General scripts (should not require changes unless errors are found)
+
+rungamess        Master script, this is build from rungamess,in when the
+                 code is configured
+
+rg_filedefs      Pass file control arguments using file directives or the
+                 environment
+rg_info          List out settings and arguments
+rg_config        Check environment variables, and print some advice in case
+                 of problems
+rg_setenv        File to output settings (C-shell version)
+rg_export        " "               " "   (Bourne-shell version)
+rg_rsh           Invocation of remove execution
+rg_server_setup  Local configuration for server process
+
+b) Variable scripts (These will probably need modifying)
+
+rg_site_defaults Local settings for environment variables
+                 this is build from rg_site_defaults.in when the code
+                 is built
+rg_sub.*         Scripts to submit job into a queuing system
+                 The file use will depend on GAMESS_SUBMODE
+
+rg_exe.*         Executes the code in a specific environment
+                 The file use will depend on GAMESS_JOBMODE
+                 and GAMESS_PARMODE (see above)
+
+
+4 Sample Installations
+----------------------
+
+4.1 IBM SP systems running loadleveller, built using the GAs
+
+in rg_site_defaults indicate that parallel GAMESS-UK jobs are to be using
+poe
+
+GAMESS_PARMODE=poe
+export GAMESS_PARMODE
+
+You may want to edit rg_exe.poe to set the variables needed for interactive use,
+particularly the Resource Manager Pool to be used (search for MP_RMPOOL).
+
+To indicate that submitted jobs are to be submitted to LoadLeveler, set
+
+GAMESS_SUBMODE=ll
+export GAMESS_SUBMODE
+
+Edit rg_sub.ll to reflect the local loadleveller requirements.
+
+4.2 Linux Clusters running PBS (Portable Batch System)
+
+Note the switch /bin/ksh -> /bin/bash as mentioned above.
+
+In rg_site_defaults, you should set GAMESS_SUBMODE to pbs 
+
+The execution script depends on the parallel toolkit you have
+adopted, as follows:
+
+4.2.1 GAMESS-UK Built with Global Arrays
+
+rg_site_defaults should contain
+
+GAMESS_PARMODE=tcgmsg
+export GAMESS_PARMODE
+
+Your path must contain the 'parallel' executable.
+
+4.2.1 GAMESS-UK Built with LAM MPI
+
+rg_site_defaults should contain
+
+GAMESS_PARMODE=lam
+export GAMESS_PARMODE
+
+You should set up the correct path for the 
+executables like lamboot, mpirun etc (these 
+tools are referenced in rg_exe.lam).
+
+4.2.3 GAMESS-UK Built with MPICH
+
+ - not yet available, you will need to modify rg_exe.lam
+   accordingly.
+
+
+5 Known Bugs and features
+-------------------------
+
+TCGMSG and POE versions do not create a job-specific scratch
+subdirectory, due problems with directory creation on the 
+remote nodes.
+
+When using file directives to control the files, the file
+/tmp/filedefs.$user is always used. This could cause problems
+ifa user runs concurrent jobs on the same system.
+
+
+

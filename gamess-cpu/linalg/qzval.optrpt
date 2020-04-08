@@ -1,0 +1,59 @@
+
+Begin optimization report for: QZVAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at qzval.f(139,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzval.f(139,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzval.f(139,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzval.f(150,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at qzval.f(150,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzval.f(150,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at qzval.f(150,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzval.f(150,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at qzval.f(173,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at qzval.f(173,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at qzval.f(78,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at qzval.f(263,10)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,50 @@
+parallel iomode nzo
+title
+pyridine - dzp + r(sp) basis - direct-rpa excitation energies
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.7684290
+ch4            1.0726534
+c2n            1.3322093
+c2c3           1.3863150
+c2h6           1.0705170
+c3h5           1.0715859
+c2nz         120.5740998
+ccn          122.5507912
+nch2         116.3517522
+c2c3h        120.2853386
+end
+basis 
+dzp n
+dzp c
+dzp h
+s n
+1.0 0.02
+p n
+1.0 0.02
+end
+scftype direct
+runtype response rpa direct
+tda
+symm 1 1 to 5
+symm 2 1 to 5
+symm 3 1 to 5
+symm 4 1 to 5
+analyse
+enter  1 

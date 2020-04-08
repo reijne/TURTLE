@@ -1,0 +1,83 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o 6-31g** psscrf startup
+adapt off
+accuracy 19 8
+zmat angs
+o
+x 1 1.0
+h 1 ho 2 hox
+h 1 ho 2 hox 3 180.0
+variables
+ho 0.967
+hox 53.8
+end
+basis 6-31g**
+thresh 5
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o 6-31g** energy = -76.036967 
+accuracy 19 8
+noprint vectors
+adapt off
+pssc 78.5 30.0 3 1.4 1.2 1.2 0
+zmat angs
+o
+x 1 1.0
+h 1 ho 2 hox
+h 1 ho 2 hox 3 180.0
+variables
+ho 0.967
+hox 53.8
+end
+basis 6-31g**
+thresh 5
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2o 6-31g** psscrf startup
+adapt off
+accuracy 19 8
+zmat angs
+o
+x 1 1.0
+h 1 ho 2 hox
+h 1 ho 2 hox 3 180.0
+variables
+ho 0.967
+hox 53.8
+end
+basis 6-31g**
+scftype direct rhf
+thresh 5
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2o 6-31g** energy = -76.036967 
+adapt off
+accuracy 19 8
+noprint vectors
+pssc 78.5 30.0  0 0
+zmat angs
+o
+x 1 1.0
+h 1 ho 2 hox
+h 1 ho 2 hox 3 180.0
+variables
+ho 0.967
+hox 53.8
+end
+basis 6-31g**
+scftype direct rhf
+thresh 5
+enter
+EOF

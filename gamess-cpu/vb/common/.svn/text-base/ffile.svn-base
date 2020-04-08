@@ -1,0 +1,8 @@
+c
+c     core :  frozen core energy for the whole job
+c     core_i :  frozen core energy  in makeps0 
+c
+      REAL core,pot_nuc,core_i
+      integer nfil,nofil,iblvb,lblvb,iblhs
+      common /ffile/ core,core_i,pot_nuc,nfil,
+     1               nofil(20),iblvb(20),lblvb(20),iblhs

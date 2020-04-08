@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+string=$1
+shift
+list=$*
+echo gtouch: searching for $string in $list
+#
+for file in $list
+do
+   grep $string $file
+   stat=$?
+   case $stat in 0) echo touching $file;  touch $file ;; *);; esac
+done

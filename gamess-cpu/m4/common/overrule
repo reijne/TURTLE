@@ -1,0 +1,10 @@
+c...   common for overruling local criteria (e.g. dependency, diag thresholds)
+      integer  i_depen_check, i_global_diag, n_depen_check
+      logical  o_depen_print
+      common/overrule/ i_depen_check,i_global_diag, o_depen_print, 
+     1                 n_depen_check
+c
+c     i_depen_check : criterion for throwing out vectors
+c     n_depen_check : number  of vectors to be thrown out 
+c     o_depen_print : if true +> extra print 
+

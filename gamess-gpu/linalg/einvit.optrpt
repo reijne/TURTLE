@@ -1,0 +1,120 @@
+
+Begin optimization report for: EINVIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at einvit.f(152,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at einvit.f(180,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at einvit.f(180,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at einvit.f(180,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at einvit.f(180,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at einvit.f(180,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at einvit.f(221,16)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at einvit.f(221,16)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at einvit.f(221,16)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at einvit.f(221,16)
+<Distributed chunk2>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 230 and  line 242
+LOOP END
+
+LOOP BEGIN at einvit.f(276,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 287 and  line 285
+LOOP END
+
+LOOP BEGIN at einvit.f(299,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 302 and  line 300
+LOOP END
+
+LOOP BEGIN at einvit.f(333,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at einvit.f(333,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at einvit.f(333,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at einvit.f(336,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at einvit.f(336,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at einvit.f(336,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at einvit.f(336,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at einvit.f(339,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at einvit.f(339,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at einvit.f(339,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at einvit.f(147,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at einvit.f(164,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ einvit.f(190,29) ]
+
+      LOOP BEGIN at einvit.f(260,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+         LOOP BEGIN at einvit.f(313,33)
+            remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

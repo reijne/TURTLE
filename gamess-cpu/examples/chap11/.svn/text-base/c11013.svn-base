@@ -1,0 +1,33 @@
+#!/bin/csh
+setenv ed2 h2omain
+setenv ed3 h2odump
+../../bin/gamess << EOF
+title\h2o 3-21g scf energy -75.585328 au
+zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+enter 
+EOF
+../../bin/gamess << EOF
+restart new
+title
+water 3-21G casscf energy -75.6385055 au
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+scftype casscf
+config print
+doc 1 to 5
+uoc 6 7
+end
+superci 1 to 8
+newton 9 to 20
+hessian 9 to 20
+simul 9 to 20
+enter
+EOF
+#

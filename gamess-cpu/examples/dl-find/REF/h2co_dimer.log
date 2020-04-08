@@ -1,0 +1,2804 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2co - dz - dl-find dimer ts search energy = -113.6497336
+ >>>>> zmatrix angstrom
+ >>>>> c
+ >>>>> o 1 co
+ >>>>> h 1 l2 2 a1
+ >>>>> h 1 l3 2 a2 3 0.0
+ >>>>> variables
+ >>>>> co 1.25
+ >>>>> l2 1.3
+ >>>>> l3 1.5
+ >>>>> a1 100.0
+ >>>>> a2 150.0
+ >>>>> end
+ >>>>> basis dz
+ >>>>> runtype optimize
+ >>>>> dlfind
+ >>>>>   coordinates dlc
+ >>>>>   dimer
+ >>>>> end
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Opteron version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : cselnx1                                     
+                                        GAMESS-UK Executable: ../../bin/gamess-uk                                                   
+                                        Compiled on 10-07-2008 16:30 by jmht      
+                                        job name   jmht    
+                                        date    Jul 11 2008
+                                        time       12:44:59
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested  50000000 real*8  words
+
+                                        shared memory used to hold global arrays instead of main memory array
+
+
+
+                                        TCGMSG/GA-Tools parallel implementation - node information:
+                                        ----------------------------------------------------------
+
+                                        node     pid   hostname     user           version
+
+                                        root   15682   cselnx1      jmht         Generic version 7.0             1.14
+                                           1   15683   cselnx1      jmht         Generic version 7.0             1.16
+                                           2   15684   cselnx1      jmht         Generic version 7.0             0.00
+                                           3   15685   cselnx1      jmht         Generic version 7.0             1.16
+
+
+                                        print timings for root node
+                                        use the pdsyev  parallel diagonaliser for matrices size  200 and above
+                                        use parallel diis solver for matrices  200 and above
+                                        use parallel mult2 for matrices  200 and above
+                                        use parallel orthog. for matrices  200 and above
+                                        use the parallel pdsyev   algorithm for matrix inversion
+                                        chunk size based on     40 tasks/SCF cycle
+                                        i/o will be routed through node 0
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2co - dz - dl-find dimer ts search energy = -113.6497336                           *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ c                                                                                                                                   
+ o 1 co                                                                                                                              
+ h 1 l2 2 a1                                                                                                                         
+ h 1 l3 2 a2 3 0.0                                                                                                                   
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ co           1.250000     0    0.000000    1.250000    1.250000
+ l2           1.300000     0    0.000000    1.300000    1.300000
+ l3           1.500000     0    0.000000    1.500000    1.500000
+ a1         100.000000     0    0.000000  100.000000  100.000000
+ a2         150.000000     0    0.000000  150.000000  150.000000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   c 
+   2    2   o     1   1.250000 (   1)
+   3    3   h     1   1.300000 (   2)   2  100.000 (   4)
+   4    4   h     1   1.500000 (   3)   2  150.000 (   5)   3    0.000 (   6)   0
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  c                0.000000       0.000000       0.000000
+              2  o                0.000000       0.000000       2.362157
+              3  h                2.419322       0.000000      -0.426592
+              4  h                1.417294       0.000000      -2.454826
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cs      
+ order of principal axis   0
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   0.0000000
+ point 3 :    0.0000000   0.0000000   0.0000000
+
+ directional parameter -         
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is dz                 *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    c         6.0   0.2397885      1.0009901      0.0000000       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.2397885     -1.3611674      0.0000000       6          *
+         *                                                                s   s   s    *
+         *                                                                s   p   p    *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0  -2.1795333      1.4275818      0.0000000       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0  -1.1775060      3.4558162      0.0000000       2          *
+         *                                                                s   s        *
+         *                                                                             *
+         *******************************************************************************
+
+
+                                        *******************
+                                        molecular basis set
+                                        *******************
+
+
+                                        ==============================
+                                        contracted primitive functions
+                                        ==============================
+
+ atom        shell   type  prim       exponents            contraction coefficients
+ =================================================================================================================
+
+ c       
+
+
+                 1   s        1     4232.610000       0.758837  (    0.002029  )
+                 1   s        2      634.882000       1.400365  (    0.015535  )
+                 1   s        3      146.097000       2.258530  (    0.075411  )
+                 1   s        4       42.497400       3.050138  (    0.257121  )
+                 1   s        5       14.189200       3.108344  (    0.596555  )
+                 1   s        6        1.966600       0.287038  (    0.242517  )
+
+
+                 2   s        7        5.147700       2.435679  (    1.000000  )
+
+
+                 3   s        8        0.496200       0.421359  (    1.000000  )
+
+
+                 4   s        9        0.153300       0.174609  (    1.000000  )
+
+
+                 5   p       10       18.155700       0.990092  (    0.018534  )
+                 5   p       11        3.986400       0.926894  (    0.115442  )
+                 5   p       12        1.142900       0.650533  (    0.386206  )
+                 5   p       13        0.359400       0.253894  (    0.640089  )
+
+
+                 6   p       14        0.114600       0.095043  (    1.000000  )
+
+ o       
+
+
+                 7   s       15     7816.540000       1.203318  (    0.002031  )
+                 7   s       16     1175.820000       2.209022  (    0.015436  )
+                 7   s       17      273.188000       3.532983  (    0.073771  )
+                 7   s       18       81.169600       4.772170  (    0.247606  )
+                 7   s       19       27.183600       5.191252  (    0.611832  )
+                 7   s       20        3.413600       0.431723  (    0.241205  )
+
+
+                 8   s       21        9.532200       3.866384  (    1.000000  )
+
+
+                 9   s       22        0.939800       0.680278  (    1.000000  )
+
+
+                10   s       23        0.284600       0.277707  (    1.000000  )
+
+
+                11   p       24       35.183200       2.391506  (    0.019580  )
+                11   p       25        7.904000       2.346019  (    0.124189  )
+                11   p       26        2.305100       1.598081  (    0.394727  )
+                11   p       27        0.717100       0.590122  (    0.627375  )
+
+
+                12   p       28        0.213700       0.207107  (    1.000000  )
+
+ h       
+
+
+                13   s       29       19.238400       0.214922  (    0.032828  )
+                13   s       30        2.898720       0.366067  (    0.231204  )
+                13   s       31        0.653472       0.423324  (    0.817226  )
+
+
+                14   s       32        0.163064       0.182885  (    1.000000  )
+
+ h       
+
+
+                15   s       33       19.238400       0.214922  (    0.032828  )
+                15   s       34        2.898720       0.366067  (    0.231204  )
+                15   s       35        0.653472       0.423324  (    0.817226  )
+
+
+                16   s       36        0.163064       0.182885  (    1.000000  )
+ =================================================================================================================
+
+ total number of shells                  16
+ total number of basis functions         24
+ number of electrons                     16
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      8
+ number of occupied orbitals (beta )      8
+ total number of atoms                    4
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                optimize *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-7 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-13 *
+ ****************************************************** 
+
+ ********************************************************** 
+ *          optimisation options in effect                * 
+ ********************************************************** 
+ * optimization procedure invoked                         *
+ ********************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in p-supermatrix form         *
+ ****************************************************
+
+ use serial orthogonalisation routines
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.3621575
+       (1.2500000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+     --- none ---
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: Cs 
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1          20
+   2           4
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy     -113.44115329 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+***********************************************************************
+**                                                                   **
+**                              DL-FIND                              **
+**                       Geometry Optimisation                       **
+**               written by Johannes Kaestner, in 2006               **
+**               Copyright:  STFC Daresbury Laboratory               **
+**                           Revision: 345M                          **
+**                                                                   **
+***********************************************************************
+Dimer direction randomised
+                        0                         0  groups will be deleted as they only contain one atom
+ groups will be deleted as they only contain one atom
+                        0  groups will be deleted as they only contain one atom
+Residue member list:
+    0 :     1    1    1    1
+                        0  groups will be deleted as they only contain one atom
+
+Generating new HDLC for    1 residues
+
+Located a new residue for HDLC
+   Residue number is    1
+   Number of atoms it contains     4
+   Atoms:      1     2     3     4
+     Adding inter fragment connction     4    3
+   Generating HDLC for residue    1
+       System near planar - making improper
+
+   The Cartesian coordinates
+         1     0.23978852109011     1.00099013130432     0.00000000000000
+         2     0.23978852109011    -1.36116735441933     0.00000000000000
+         3    -2.17953332491743     1.42758184777286     0.00000000000000
+         4    -1.17750597034409     3.45581619975584     0.00000000000000
+
+   The primitive internal coordinates
+
+
+     The system has     4 stretches
+         1 Stre     2     1              =    2.36215749
+         2 Stre     3     1              =    2.45664379
+         3 Stre     4     1              =    2.83458898
+         4 Stre     4     3              =    2.26225405
+
+
+     The system has     5 bends and impropers
+         5 Bend     2     1     3        =  100.00000000 deg =    1.74532925
+         6 Bend     2     1     4        =  150.00000000 deg =    2.61799388
+         7 Impr     3     1     4     2  =    0.00000000 deg =    0.00000000
+         8 Bend     1     3     4        =   73.70882092 deg =    1.28646161
+         9 Bend     1     4     3        =   56.29117908 deg =    0.98246641
+
+
+     The system has     2 dihedrals
+        10 Dihe     2     1     3     4  = -180.00000000 deg =   -3.14159265
+        11 Dihe     2     1     4     3  =    0.00000000 deg =    0.00000000
+
+
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+DL-FIND Report:
+===============
+Optimisation algorithm: L-BFGS
+Number of steps in L-BFGS memory ...............         12
+
+Step length: simple scaled
+Maximum step length ............................  5.000E-01
+Scaling step by ................................  1.000E+00
+
+Coordinate system: Delocalised internal coordinates (DLC)
+Dimer method, rotation by line search with extrapolation
+Dimer distance (mid- to endpoint) ..............  1.000E-02
+Maximum number of dimer rotations ..............         10
+Tolerance in rotation ..........................  5.000E+00 degrees
+
+Number of atoms ................................          4
+Number of input geometries .....................          2
+Variables to be optimised ......................         12
+No restart information is written
+This run has not been restarted.
+Maximum number of steps ........................         60
+Maximum number of energy evaluations ...........     100000
+
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.04 seconds
+
+ search  0
+                                        *******************
+ point   1                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2397885      1.0009901      0.0000000    6.00  c       
+        0.2397885     -1.3611674      0.0000000    8.00  o       
+       -2.1795333      1.4275818      0.0000000    1.00  h       
+       -1.1775060      3.4558162      0.0000000    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  15 cycles at       0.06 seconds
+          --------------
+
+
+          electronic energy               -142.6716617509
+          nuclear energy                    29.0816628354
+          total energy                    -113.5899989156
+          convergence on density             0.0000002180
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0658289      0.0136952      0.0420610      0.0100727
+   e/y      0.0274089     -0.0610902     -0.0579396      0.0916208
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135899989E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+ hdlc%ngroups                        1
+Testing convergence of dimer midpoint in cycle    1
+  Max grad  8.4984E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  4.3951E-02 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.10 seconds
+
+ search  0
+                                        *******************
+ point   2                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2410903      0.9988995     -0.0019012    6.00  c       
+        0.2392250     -1.3595230      0.0013169    8.00  o       
+       -2.1799827      1.4265214     -0.0008265    1.00  h       
+       -1.1777949      3.4573229      0.0014108    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  12 cycles at       0.12 seconds
+          --------------
+
+
+          electronic energy               -142.6999259809
+          nuclear energy                    29.1098560450
+          total energy                    -113.5900699358
+          convergence on density             0.0000002011
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0676584      0.0139176      0.0424563      0.0112845
+   e/y      0.0267967     -0.0593764     -0.0590622      0.0916418
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135900699E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                    0.02155 hdlc%ngroups                        1
+
+Predicted dimer rotation angle:     42.527 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.16 seconds
+
+ search  0
+                                        *******************
+ point   3                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2427663      0.9998370     -0.0015358    6.00  c       
+        0.2400595     -1.3640305      0.0010631    8.00  o       
+       -2.1801086      1.4293425     -0.0006626    1.00  h       
+       -1.1801795      3.4580719      0.0011352    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  12 cycles at       0.18 seconds
+          --------------
+
+
+          electronic energy               -142.6445540280
+          nuclear energy                    29.0545542384
+          total energy                    -113.5899997896
+          convergence on density             0.0000001754
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0683762      0.0143455      0.0420934      0.0119373
+   e/y      0.0311890     -0.0634274     -0.0592209      0.0914592
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135899998E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.13431
+Curvature at dimer minimum                    -0.14621
+Actual dimer rotation angle:        33.967 deg hdlc%ngroups                        1
+
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:     25.432 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.22 seconds
+
+ search  0
+                                        *******************
+ point   4                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2436097      0.9995412     -0.0009743    6.00  c       
+        0.2395082     -1.3636705      0.0006727    8.00  o       
+       -2.1795136      1.4300552     -0.0004148    1.00  h       
+       -1.1810665      3.4572949      0.0007165    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  12 cycles at       0.25 seconds
+          --------------
+
+
+          electronic energy               -142.6506134657
+          nuclear energy                    29.0604157083
+          total energy                    -113.5901977574
+          convergence on density             0.0000002754
+
+ ======================
+ gradient of the energy
+ ======================
+
+ hdlc%ngroups  hdlc%ngroups                        1
+                       1
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0693965      0.0145041      0.0422963      0.0125961
+   e/y      0.0317928     -0.0634031     -0.0597598      0.0913700
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135901978E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.29557
+Curvature at dimer minimum                    -0.35574
+Actual dimer rotation angle:        49.448 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:     16.828 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.28 seconds
+
+ search  0
+                                        *******************
+ point   5                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2439157      0.9993170      0.0003208    6.00  c       
+        0.2385949     -1.3620235     -0.0002269    8.00  o       
+       -2.1785164      1.4304467      0.0001551    1.00  h       
+       -1.1814566      3.4554806     -0.0002490    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       0.34 seconds
+          --------------
+
+
+          electronic energy               -142.6712178911
+          nuclear energy                    29.0807225996
+          total energy                    -113.5904952915
+          convergence on density             0.0000004196
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0701857      0.0145426      0.0426155      0.0130276
+   e/y      0.0313228     -0.0624193     -0.0602014      0.0912980
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135904953E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.43589
+Curvature at dimer minimum                    -0.43644 hdlc%ngroups                        1
+
+Actual dimer rotation angle:        18.321 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      6.848 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.37 seconds
+
+ search  0
+                                        *******************
+ point   6                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2439549      0.9990334      0.0001409    6.00  c       
+        0.2384971     -1.3615824     -0.0001019    8.00  o       
+       -2.1785697      1.4301850      0.0000760    1.00  h       
+       -1.1813446      3.4555849     -0.0001151    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  11 cycles at       0.40 seconds
+          --------------
+
+
+          electronic energy               -142.6775271142
+          nuclear energy                    29.0870158014
+          total energy                    -113.5905113128
+          convergence on density             0.0000001312
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+   e/x     -0.0703405      0.0145429      0.0426771      0.0131205
+   e/y      0.0310028     -0.0619998     -0.0603119      0.0913089
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135905113E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.45399
+Curvature at dimer minimum                    -0.45674
+Actual dimer rotation angle:        10.803 deg
+
+ hdlc%ngroups                        1
+Converting HDLC to Cartesians
+ hdlc%ngroups                        1
+Predicted dimer rotation angle:      1.026 deg
+Dimer rotation converged after    4 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.45678
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.43 seconds
+
+ search  0
+                                        *******************
+ point   7                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2365402      1.0024077     -0.0000451    6.00  c       
+        0.2400672     -1.3517267      0.0000273    8.00  o       
+       -2.1844335      1.4264453     -0.0000055    1.00  h       
+       -1.1696361      3.4460945      0.0000233    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  13 cycles at       0.48 seconds
+          --------------
+
+
+          electronic energy               -142.7620117648
+          nuclear energy                    29.1707505301
+          total energy                    -113.5912612347
+          convergence on density             0.0000003361
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0623095      0.0125576      0.0416348      0.0081171
+   e/y      0.0199829     -0.0550393     -0.0565817      0.0916381
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135912612E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+ hdlc%ngroups                        1
+Testing convergence of dimer midpoint in cycle    2
+    Energy  1.2623E-03 Target: 1.0000E+00 converged?  yes
+  Max step  1.7363E-02 Target: 5.3333E-03 converged?   no
+  RMS step  8.1650E-03 Target: 3.5556E-03 converged?   no
+  Max grad  8.1434E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  4.2115E-02 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.51 seconds
+
+ search  0
+                                        *******************
+ point   8                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2407045      1.0003168     -0.0000245    6.00  c       
+        0.2387737     -1.3519834      0.0000130    8.00  o       
+       -2.1835313      1.4288991      0.0000035    1.00  h       
+       -1.1734091      3.4459883      0.0000080    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  13 cycles at       0.55 seconds
+          --------------
+
+
+          electronic energy               -142.7703811833
+          nuclear energy                    29.1786524704
+          total energy                    -113.5917287130
+          convergence on density             0.0000000854
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0670025      0.0134648      0.0423037      0.0112340
+   e/y      0.0233536     -0.0557226     -0.0590020      0.0913711
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.135917287E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.46191
+Predicted dimer rotation angle:      1.382 deg hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Dimer rotation converged after    0 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.46191
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.58 seconds
+
+ search  0
+                                        *******************
+ point   9                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1899933      1.0647483     -0.0006920    6.00  c       
+        0.2793878     -1.1386403      0.0004896    8.00  o       
+       -2.3627664      1.5110427     -0.0002926    1.00  h       
+       -0.9840770      3.0860702      0.0004949    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  14 cycles at       0.63 seconds
+          --------------
+
+
+          electronic energy               -144.7089510912
+          nuclear energy                    31.0786927614
+          total energy                    -113.6302583299
+          convergence on density             0.0000001520
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0087898     -0.0121078      0.0311155     -0.0102179
+   e/y     -0.0873458      0.0643589     -0.0298450      0.0528318
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136302583E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    3
+    Energy  3.8997E-02 Target: 1.0000E+00 converged?  yes
+  Max step  5.0000E-01 Target: 5.3333E-03 converged?   no
+  RMS step  2.6844E-01 Target: 3.5556E-03 converged?   no
+  Max grad  4.9375E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  3.4487E-02 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.66 seconds
+
+ search  0
+                                        *******************
+ point  10                 hdlc%ngroups                        1
+              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1938495      1.0626940     -0.0006807    6.00  c       
+        0.2785946     -1.1390409      0.0004818    8.00  o       
+       -2.3619109      1.5131267     -0.0002864    1.00  h       
+       -0.9879955      3.0864411      0.0004854    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  12 cycles at       0.70 seconds
+          --------------
+
+
+          electronic energy               -144.7170931274
+          nuclear energy                    31.0869749294
+          total energy                    -113.6301181980
+          convergence on density             0.0000001016
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0125345     -0.0110677      0.0315895     -0.0079873
+   e/y     -0.0875227      0.0653427     -0.0313771      0.0535571
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136301182E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.26632
+Predicted dimer rotation angle:     16.469 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.72 seconds
+
+ search  0
+                                        *******************
+ point  11                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1941474      1.0638078     -0.0006899    6.00  c       
+        0.2787577     -1.1403296      0.0004875    8.00  o       
+       -2.3621703      1.5135400     -0.0002890    1.00  h       
+       -0.9881970      3.0862027      0.0004914    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  10 cycles at       0.76 seconds
+          --------------
+
+
+          electronic energy               -144.6930585068
+          nuclear energy                    31.0627241855
+          total energy                    -113.6303343212
+          convergence on density             0.0000005844
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0123498     -0.0109426      0.0313083     -0.0080159
+   e/y     -0.0848093      0.0626698     -0.0311963      0.0533358
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136303343E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.27423
+Curvature at dimer minimum                    -0.29348
+Actual dimer rotation angle:         8.947 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      6.359 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.80 seconds
+
+ search  0
+                                        *******************
+ point  12                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1942068      1.0635520     -0.0006927    6.00  c       
+        0.2783763     -1.1393285      0.0004890    8.00  o       
+       -2.3620673      1.5132752     -0.0002898    1.00  h       
+       -0.9879780      3.0857222      0.0004935    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  10 cycles at       0.84 seconds
+          --------------
+
+
+          electronic energy               -144.7072717040
+          nuclear energy                    31.0770102620
+          total energy                    -113.6302614420
+          convergence on density             0.0000002275
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0124798     -0.0110496      0.0314432     -0.0079137
+   e/y     -0.0860567      0.0640850     -0.0313373      0.0533090
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136302614E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.30220
+Curvature at dimer minimum                    -0.30256
+Actual dimer rotation angle:         7.917 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      0.841 deg
+Dimer rotation converged after    2 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.30263
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.87 seconds
+
+ search  0
+                                        *******************
+ point  13                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1192143      1.1793556     -0.0011123    6.00  c       
+        0.4223385     -1.1053664      0.0008655    8.00  o       
+       -2.5559000      1.7329861     -0.0005079    1.00  h       
+       -0.8631151      2.7162456      0.0007546    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  14 cycles at       0.91 seconds
+          --------------
+
+
+          electronic energy               -144.3761253420
+          nuclear energy                    30.7518801690
+          total energy                    -113.6242451730
+          convergence on density             0.0000001994
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0568359     -0.0034504      0.0207547      0.0395315
+   e/y      0.1802233     -0.0543511      0.0159754     -0.1418476
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136242452E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    4
+    Energy  6.0132E-03 Target: 1.0000E+00 converged?  yes
+  Max step  4.5413E-01 Target: 5.3333E-03 converged?   no
+  RMS step  2.9768E-01 Target: 3.5556E-03 converged?   no
+  Max grad  1.2329E-01 Target: 1.3333E-03 converged?   no
+  RMS grad  5.5306E-02 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       0.94 seconds
+
+ search  0
+                                        *******************
+ point  14                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1231207      1.1784608     -0.0011220    6.00  c       
+        0.4217288     -1.1060950      0.0008690    8.00  o       
+       -2.5550741      1.7345635     -0.0005059    1.00  h       
+       -0.8672376      2.7162916      0.0007589    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  10 cycles at       0.98 seconds
+          --------------
+
+
+          electronic energy               -144.3715164942
+          nuclear energy                    30.7467998808
+          total energy                    -113.6247166133
+          convergence on density             0.0000007769
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0580513     -0.0030365      0.0210601      0.0400276
+   e/y      0.1774103     -0.0541521      0.0152233     -0.1384815
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136247166E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.02979
+Predicted dimer rotation angle:     41.768 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.00 seconds
+
+ search  0
+                                        *******************
+ point  15                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1224454      1.1803799     -0.0011220    6.00  c       
+        0.4213287     -1.1047058      0.0008701    8.00  o       
+       -2.5555874      1.7349306     -0.0005062    1.00  h       
+       -0.8656490      2.7126161      0.0007581    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  10 cycles at       1.04 seconds
+          --------------
+
+
+          electronic energy               -144.3796308518
+          nuclear energy                    30.7558003784
+          total energy                    -113.6238304734
+          convergence on density             0.0000002359
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups
+
+   e/x     -0.0595697     -0.0032688      0.0210259      0.0418126
+   e/y      0.1816577     -0.0545784      0.0154186     -0.1424979
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136238305E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.09930
+Curvature at dimer minimum                    -0.15403
+Actual dimer rotation angle:        25.295 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      5.635 deg
+
+Converting HDLC to Cartesians
+                        1
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.06 seconds
+
+ search  0
+                                        *******************
+ point  16                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1228531      1.1793423     -0.0011227    6.00  c       
+        0.4219353     -1.1053124      0.0008701    8.00  o       
+       -2.5558516      1.7354490     -0.0005063    1.00  h       
+       -0.8663991      2.7137420      0.0007589    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  11 cycles at       1.10 seconds
+          --------------
+
+
+          electronic energy               -144.3767832842
+          nuclear energy                    30.7525839675
+          total energy                    -113.6241993166
+          convergence on density             0.0000000659
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4 hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+
+
+   e/x     -0.0591534     -0.0030933      0.0210710      0.0411757
+   e/y      0.1798726     -0.0543830      0.0153365     -0.1408261
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136241993E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.15754
+Curvature at dimer minimum                    -0.15762
+Actual dimer rotation angle:         6.663 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      1.293 deg
+Dimer rotation converged after    2 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.15768
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commen hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ce scf/gradient treatment at       1.12 seconds
+
+ search  0
+                                        *******************
+ point  17                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1672594      1.0875856     -0.0009423    6.00  c       
+        0.3815579     -1.1652438      0.0006958    8.00  o       
+       -2.4863224      1.6286972     -0.0004272    1.00  h       
+       -0.9399572      2.9721819      0.0006737    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  14 cycles at       1.14 seconds
+          --------------
+
+
+          electronic energy               -144.1419243365
+          nuclear energy                    30.4994457619
+          total energy                    -113.6424785747
+          convergence on density             0.0000001299
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0082834     -0.0016326      0.0204908     -0.0105748
+   e/y     -0.0001150     -0.0120077     -0.0070054      0.0191281
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136424786E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    5
+    Energy  1.8233E-02 Target: 1.0000E+00 converged?  yes
+  Max step  3.2637E-01 Target: 5.3333E-03 converged?   no
+  RMS step  1.9104E-01 Target: 3.5556E-03 converged?   no
+  Max grad  2.3838E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  1.0762E-02 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.17 seconds
+
+ search  0
+                                        *******************
+ point  18                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1711649      1.0874790     -0.0009506    6.00  c       
+        0.3808823     -1.1651571      0.0006 hdlc%ngroups                        1
+998    8.00  o       
+       -2.4866260      1.6313832     -0.0004258    1.00  h       
+       -0.9428835      2.9695157      0.0006766    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  12 cycles at       1.21 seconds
+          --------------
+
+
+          electronic energy               -144.1437871403
+          nuclear energy                    30.5012211390
+          total energy                    -113.6425660013
+          convergence on density             0.0000000719
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups
+   e/x     -0.0110688     -0.0010729      0.0207091     -0.0085673
+   e/y      0.0012300     -0.0122710     -0.0080526      0.0190936
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136425660E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.20331
+Predicted dimer rotation angle:     15.658 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.22 seconds
+
+ search  0
+                                        *******************
+ point  19                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1713443      1                        1
+.0866730     -0.0009516    6.00  c       
+        0.3810044     -1.1655682      0.0007000    8.00  o       
+       -2.4862969      1.6312801     -0.0004260    1.00  h       
+       -0.9435141      2.9708360      0.0006776    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after   9 cycles at       1.26 seconds
+          --------------
+
+
+          electronic energy               -144.1437993933
+          nuclear energy                    30.5012742223
+          total energy                    -113.6425251710
+          convergence on density             0.0000010422
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0112360     -0.0009685      0.0207757     -0.0085712
+   e/y      0.0004684     -0.0119448     -0.0081970      0.0196735
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136425252E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.24247
+Curvature at dimer minimum                    -0.24307
+Actual dimer rotation angle:        17.822 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      3.651 deg
+Dimer rotation converged after    1 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.24304
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.30 seconds
+
+ search  0
+                                        *******************
+ point  20                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1638410      1.0780853     -0.0009298    6.00  c       
+        0.4100102     -1.1406766      0.0007051    8.00  o       
+       -2.5363566      1.6714467     -0.0004501    1.00  h       
+       -0.9149568      2.9143654      0.0006748    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  13 cycles at       1.34 seconds
+          --------------
+
+
+          electronic energy               -144.4629017590
+          nuclear energy                    30.8182197071
+          total energy                    -113.6446820519
+          convergence on density             0.0000001719
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0149446     -0.0022134      0.0218730     -0.0047150
+   e/y     -0.0081358      0.0082854     -0.0043364      0.0041867
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136446821E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    6
+    Energy  2.2035E-03 Target: 1.0000E+00 converged?  yes
+  Max step  9.8946E-02 Target: 5.3333E-03 converged?   no
+  RMS step  4.8240E-02 Target: 3.5556E-03 converged?   no
+  Max grad  1.6055E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  8.1757E-03 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.37 seconds
+
+ search  0
+                                        *******************
+ point  21                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1678543      1.0770604     -0.0009396    6.00  c       
+        0.4095761     -1.1411142      0.0007095    8.00  o       
+       -2.5362231      1.6739692     -0.0004490    1.00  h       
+       -0.9186696      2.9133056      0.0006791    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       1.42 seconds
+          --------------
+
+
+          electronic energy               -144.4648435647
+          nuclear energy                    30.8201011378
+          total energy                    -113.6447424269
+          convergence on density             0.0000007815
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0177253     -0.0015627      0.0221238     -0.0028358
+   e/y     -0.0080310      0.0085493     -0.0054626      0.0049443
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136447424E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.22179
+Predicted dimer rotation angle:      5.861 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.45 seconds
+
+ search  0
+                                        *******************
+ point  22                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1678576      1.0774630     -0.0009404    6.00  c       
+        0.4096850     -1.1416579      0.0007101    8.00  o       
+       -2.5362170      1.6740744     -0.0004490    1.00  h       
+       -0.9187878      2.9133413      0.0006794    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  10 cycles at       1.49 seconds
+          --------------
+
+
+          electronic energy               -144.4555711154
+          nuclear energy                    30.8108211165
+          total energy                    -113.6447499989
+          convergence on density             0.0000001420
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0177334     -0.0014628      0.0220443     -0.0028480
+   e/y     -0.0070785      0.0076290     -0.0053955      0.0048450
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136447500E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.21980
+Curvature at dimer minimum                    -0.22374
+Actual dimer rotation angle:         2.419 deg
+
+Converting HDLC to Cartesians
+Dimer rotation converged after    1 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.22374
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.52 seconds
+
+ search  0
+                                        *******************
+ point  23                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1543220      1.0702154     -0.0008997    6.00  c       
+        0.4719015     -1.1390227      0.0007208    8.00  o       
+       -2.6328519      1.7375175     -0.0004956    1.00  h       
+       -0.8708338      2.8545107      0.0006745    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  14 cycles at       1.57 seconds
+          --------------
+
+
+          electronic energy               -144.4297020410
+          nuclear energy                    30.7833790955
+          total energy                    -113.6463229454
+          convergence on density             0.0000001441
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0177732      0.0009671      0.0180996     -0.0012935
+   e/y      0.0170903     -0.0031822      0.0031858     -0.0170938
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136463229E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    7
+    Energy  1.6409E-03 Target: 1.0000E+00 converged?  yes
+  Max step  1.3052E-01 Target: 5.3333E-03 converged?   no
+  RMS step  7.3105E-02 Target: 3.5556E-03 converged?   no
+  Max grad  1.8031E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  8.0801E-03 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.60 seconds
+
+ search  0
+                                        *******************
+ point  24                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1582672      1.0693623     -0.0009112    6.00  c       
+        0.4716534     -1.1397901      0.0007261    8.00  o       
+       -2.6326280      1.7400112     -0.0004946    1.00  h       
+       -0.8747549      2.8536374      0.0006797    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       1.64 seconds
+          --------------
+
+
+          electronic energy               -144.4274558241
+          nuclear energy                    30.7810724673
+          total energy                    -113.6463833568
+          convergence on density             0.0000004002
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups
+   e/x     -0.0202611      0.0015681      0.0183082      0.0003847
+   e/y      0.0170835     -0.0031860      0.0021940     -0.0160915
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136463834E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.19550
+Predicted dimer rotation angle:      6.464 deg
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer endpoint after rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.67 seconds
+
+ search  0
+                                        *******************
+ point  25                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1582339      1                        1
+.0696865     -0.0009116    6.00  c       
+        0.4715692     -1.1395923      0.0007264    8.00  o       
+       -2.6326779      1.7400963     -0.0004947    1.00  h       
+       -0.8745874      2.8530303      0.0006799    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after   9 cycles at       1.70 seconds
+          --------------
+
+
+          electronic energy               -144.4280804336
+          nuclear energy                    30.7817118002
+          total energy                    -113.6463686334
+          convergence on density             0.0000002573
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0203071      0.0015385      0.0183005      0.0004681
+   e/y      0.0174965     -0.0033009      0.0022309     -0.0164265
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136463686E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint after rotation    -0.19958
+Curvature at dimer minimum                    -0.19974
+Actual dimer rotation angle:         5.403 deg
+
+Converting HDLC to Cartesians
+Predicted dimer rotation angle:      0.997 deg
+Dimer rotation converged after    1 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.19972
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.74 seconds
+
+ search  0
+                                        *******************
+ point  26                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1588593      1.0522870     -0.0008089    6.00  c       
+        0.5078560     -1.1407919      0.0006865    8.00  o       
+       -2.7092291      1.7634759     -0.0005164    1.00  h       
+       -0.8349485      2.8482497      0.0006387    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  13 cycles at       1.78 seconds
+          --------------
+
+
+          electronic energy               -144.4246676665
+          nuclear energy                    30.7769725572
+          total energy                    -113.6476951093
+          convergence on density             0.0000001842
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0129418      0.0009929      0.0138698     -0.0019209
+   e/y      0.0118164     -0.0000562      0.0039645     -0.0157247
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136476951E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle    8
+    Energy  1.3722E-03 Target: 1.0000E+00 converged?  yes
+  Max step  7.1890E-02 Target: 5.3333E-03 converged?   no
+  RMS step  5.3254E-02 Target: 3.5556E-03 converged?   no
+  Max grad  1.3779E-02 Target: 1.3333E-03 converged?   no
+  RMS grad  6.6575E-03 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.82 seconds
+
+ search  0
+                                        *******************
+ point  27                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1627630      1.0516852     -0.0008210    6.00  c       
+        0.5076151     -1.1414627      0.0006923    8.00  o       
+       -2.7090120      1.7660297     -0.0005155    1.00  h       
+       -0.8388284      2.8469686      0.0006443    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       1.86 seconds
+          --------------
+
+
+          electronic energy               -144.4229580246
+          nuclear energy                    30.7752360475
+          total energy                    -113.6477219772
+          convergence on density             0.0000002897
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0153668      0.0015423      0.0140528     -0.0002283
+   e/y      0.0120474     -0.0000973      0.0030419     -0.0149920
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136477220E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.19233
+Predicted dimer rotation angle:      1.624 deg
+Dimer rotation converged after    0 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.19233
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       1.90 seconds
+
+ search  0
+                                        *******************
+ point  28                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2152626      1.0336213     -0.0008074    6.00  c       
+        0.5470579     -1.1478017      0.0007002    8.00  o       
+       -2.8952574      1.7782462     -0.0005781    1.00  h       
+       -0.7445254      2.8591551      0.0006853    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  13 cycles at       1.96 seconds
+          --------------
+
+
+          electronic energy               -144.2748637689
+          nuclear energy                    30.6252894835
+          total energy                    -113.6495742854
+          convergence on density             0.0000001998
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups
+
+   e/x     -0.0006503     -0.0023915     -0.0001607      0.0032024
+   e/y      0.0119281     -0.0031270     -0.0016434     -0.0071577
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136495743E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+                        1
+Testing convergence of dimer midpoint in cycle    9
+    Energy  1.8792E-03 Target: 1.0000E+00 converged?  yes
+  Max step  2.1969E-01 Target: 5.3333E-03 converged?   no
+  RMS step  1.4069E-01 Target: 3.5556E-03 converged?   no
+  Max grad  6.3898E-03 Target: 1.3333E-03 converged?   no
+  RMS grad  3.7020E-03 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.00 seconds
+
+ search  0
+                                        *******************
+ point  29                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2191673      1.0329716     -0.0008205    6.00  c       
+        0.5469380     -1.1484738      0.0007065    8.00  o       
+       -2.8950206      1.7807624     -0.0005773    1.00  h       
+       -0.7485470      2.8579607      0.0006913    1.00  h       
+  ============================================================
+
+          --------------
+          final energies   after  11 cycles at       2.04 seconds
+          --------------
+
+
+          electronic energy               -144.2734747043
+          nuclear energy                    30.6238758390
+          total energy                    -113.6495988653
+          convergence on density             0.0000001964
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0026368     -0.0019637     -0.0000561      0.0046565
+   e/y      0.0119492     -0.0030522     -0.0023904     -0.0065066
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136495989E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.16210
+Predicted dimer rotation angle:      3.872 deg
+Dimer rotation converged after    0 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.16210
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.07 seconds
+
+ search  0
+                                        *******************
+ point  30                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1885479      0.9916173     -0.0006353    6.00  c       
+        0.6124332     -1.1666688      0.0006245    8.00  o       
+       -2.9400037      1.8248093     -0.0005922    1.00  h       
+       -0.7384396      2.8734630      0.0006030    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  13 cycles at       2.12 seconds
+          --------------
+
+
+          electronic energy               -144.1964332464
+          nuclear energy                    30.5469550825
+          total energy                    -113.6494781640
+          convergence on density             0.0000001135
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0017865      0.0034209      0.0005162     -0.0057237
+   e/y     -0.0126941      0.0011320      0.0034001      0.0081621
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136494782E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle   10
+    Energy  9.6121E-05 Target: 1.0000E+00 converged?  yes
+  Max step  9.1193E-02 Target: 5.3333E-03 converged?   no
+  RMS step  4.6995E-02 Target: 3.5556E-03 converged?   no
+  Max grad  7.5147E-03 Target: 1.3333E-03 converged?   no
+  RMS grad  4.8008E-03 Target: 8.8889E-04 converged?   no
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.15 seconds
+
+ search  0
+                                        *******************
+ point  31                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.1924569      0.9909640     -0.0006496    6.00  c       
+        0.6123525     -1.1675114      0.0006316    8.00  o       
+       -2.9397282      1.8273417     -0.0005915    1.00  h       
+       -0.7425435      2.8724265      0.0006096    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       2.19 seconds
+          --------------
+
+
+          electronic energy               -144.1950471358
+          nuclear energy                    30.5455979901
+          total energy                    -113.6494491457
+          convergence on density             0.0000001543
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0003557      0.0038807      0.0006351     -0.0041601
+   e/y     -0.0124555      0.0012048      0.0025753      0.0086754
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136494491E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.17834
+Predicted dimer rotation angle:      2.607 deg
+Dimer rotation converged after    0 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.17834
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.22 seconds
+
+ search  0
+                                        *******************
+ point  32                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2061246      1.0149738     -0.0007395    6.00  c       
+        0.5744117     -1.1552868      0.0006704    8.00  o       
+       -2.9166401      1.7980168     -0.0005850    1.00  h       
+       -0.7413584      2.8655171      0.0006541    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  12 cycles at       2.27 seconds
+          --------------
+
+
+          electronic energy               -144.2580222075
+          nuclear energy                    30.6082884607
+          total energy                    -113.6497337468
+          convergence on density             0.0000001453
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0004121     -0.0001369      0.0000266     -0.0003018
+   e/y     -0.0006523      0.0005381      0.0001517     -0.0000374
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136497337E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle   11
+    Energy  2.5558E-04 Target: 1.0000E+00 converged?  yes
+  Max step  5.2986E-02 Target: 5.3333E-03 converged?   no
+  RMS step  2.6670E-02 Target: 3.5556E-03 converged?   no
+  Max grad  3.9740E-04 Target: 1.3333E-03 converged?  yes
+  RMS grad  2.5927E-04 Target: 8.8889E-04 converged?  yes
+Next calculation will be the dimer endpoint before rotation
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.30 seconds
+
+ search  0
+                                        *******************
+ point  33                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2100309      1.0143214     -0.0007531    6.00  c       
+        0.5743084     -1.1560282      0.0006770    8.00  o       
+       -2.9163863      1.8005411     -0.0005842    1.00  h       
+       -0.7454153      2.8643866      0.0006603    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       2.34 seconds
+          --------------
+
+
+          electronic energy               -144.2566635984
+          nuclear energy                    30.6069247422
+          total energy                    -113.6497388562
+          convergence on density             0.0000001622
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x     -0.0016333      0.0003038      0.0001324      0.0011971
+   e/y     -0.0005357      0.0006171     -0.0006253      0.0005439
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136497389E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+Curvature at dimer midpoint                   -0.16842
+Predicted dimer rotation angle:      3.168 deg
+Dimer rotation converged after    0 steps
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Curvature after dimer rotation:               -0.16842
+Restarting L-BFGS optimiser, instance: dimer rotation
+
+Converting HDLC to Cartesians
+Next calculation will be the dimer  midpoint
+
+
+ ========================================================================================================
+
+ commence scf/gradient treatment at       2.38 seconds
+
+ search  0
+                                        *******************
+ point  34                              nuclear coordinates
+                                        *******************
+
+         x              y              z            chg  tag
+  ============================================================
+        0.2066925      1.0155368     -0.0007444    6.00  c       
+        0.5736718     -1.1555319      0.0006727    8.00  o       
+       -2.9160119      1.7975374     -0.0005850    1.00  h       
+       -0.7418147      2.8656785      0.0006567    1.00  h       
+  ============================================================
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+          --------------
+          final energies   after  11 cycles at       2.42 seconds
+          --------------
+
+
+          electronic energy               -144.2527650695
+          nuclear energy                    30.6030314231
+          total energy                    -113.6497336464
+          convergence on density             0.0000003393
+
+ ======================
+ gradient of the energy
+ ======================
+
+
+ atom        1              2              3              4
+
+
+   e/x      0.0002300     -0.0000770     -0.0000063     -0.0001466
+   e/y      0.0000757     -0.0000493      0.0000531     -0.0000795
+   e/z      0.0000000      0.0000000      0.0000000      0.0000000
+ Energy calculation finished, energy: -1.136497336E+02
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Testing convergence of dimer midpoint in cycle   12
+    Energy  1.0046E-07 Target: 1.0000E+00 converged?  yes
+  Max step  1.1591E-03 Target: 5.3333E-03 converged?  yes
+  RMS step  7.2840E-04 Target: 3.5556E-03 converged?  yes
+  Max grad  1.2491E-04 Target: 1.3333E-03 converged?  yes
+  RMS grad  7.6966E-05 Target: 8.8889E-04 converged?  yes
+Converged!
+
+Converting Cartesians to HDLC
+ hdlc%ngroups                        1
+
+Converting HDLC to Cartesians
+Writing TS-mode
+Testing convergence of dimer midpoint in cycle   12
+    Energy  0.0000E+00 Target: 1.0000E+00 converged?  yes
+  Max step  1.1591E-03 Target: 5.3333E-03 converged?  yes
+  RMS step  7.2840E-04 Target: 3.5556E-03 converged?  yes
+  Max grad  1.2491E-04 Target: 1.3333E-03 converged?  yes
+  RMS grad  7.6966E-05 Target: 8.8889E-04 converged?  yes
+Converged!
+ converged
+Destroying all HDLC residues
+
+
+DL-FIND Report:
+===============
+Optimisation algorithm: L-BFGS
+Number of steps in L-BFGS memory ...............         12
+
+Step hdlc%ngroups                        1
+ hdlc%ngroups                        1
+ length: simple scaled
+Maximum step length ............................  5.000E-01
+Scaling step by ................................  1.000E+00
+
+Coordinate system: Delocalised internal coordinates (DLC)
+Dimer method, rotation by line search with extrapolation
+Dimer distance (mid- to endpoint) ..............  1.000E-02
+Maximum number of dimer rotations ..............         10
+Tolerance in rotation ..........................  5.000E+00 degrees
+
+Number of atoms ................................          4
+Number of input geometries .....................          2
+Variables to be optimised ......................         12
+No restart information is written
+This run has not been restarted.
+Total number of energy evaluations .............         34
+Number of steps ................................         12
+Number of accepted steps / line searches .......         12
+
+
+Timing report
+=============
+Module                                      CPU time            Wall clock time
+Total .................................     3.788 (100.00%)     3.788 (100.00%) seconds
+Energy and Gradient ...................     3.644 ( 96.19%)     3.644 ( 96.19%) seconds
+Step direction ........................     0.000 (  0.01%)     0.000 (  0.01%) seconds
+Coordinate transformation .............     0.038 (  1.01%)     0.038 (  1.01%) seconds
+Checkpoint file I/O ...................     0.000 (  0.00%)     0.000 (  0.00%) seconds
+XYZ-file I/O ..........................     0.000 (  0.00%)     0.000 (  0.00%) seconds
+
+
+ ========================================================================================================
+
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  2.2018663   1--4  2.0791085
+       (1.1651775)       (1.1002169)
+
+
+                                        ===========
+                                        bond angles
+                            hdlc%ngroups                        1
+ hdlc%ngroups                        1
+             ===========
+
+
+  2--1--4  162.451216
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+
+ ========================================================================================================
+
+                         h2co - dz - dl-find dimer ts search energy = -113.6497336                       
+                         ================================================================================
+
+
+                     nuclear energy    =      30.603031423111
+                     electronic energy =    -144.252765069465
+                     total energy      =    -113.649733646354
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.67157882       -562.5078        2.0000
+    2     1    -11.43305794       -311.1124        2.0000
+    3     1     -1.52591036        -41.5225        2.0000
+    4     1     -0.90681528        -24.6759        2.0000
+    5     1     -0.73911321        -20.1125        2.0000
+    6     1     -0.66109644        -17.9895        2.0000
+    7     2     -0.62088499        -16.8953        2.0000
+    8     1     -0.33695050         -9.1690        2.0000
+    9     2      0.07939884          2.1606        0.0000
+   10     1      0.11582365          3.1518        0.0000
+   11     1      0.17828021          4.8513        0.0000
+   12     1      0.38168053         10.3862        0.0000
+   13     2      0.42828457         11.6543        0.0000
+   14     1      0.45815331         12.4671        0.0000
+   15     1      0.61008009         16.6013        0.0000
+   16     1      0.78978838         21.4914        0.0000
+   17     2      0.93167816         25.3525        0.0000
+   18     1      0.93585166         25.4661        0.0000
+   19     1      0.98559535         26.8197        0.0000
+   20     1      1.11795222         30.4213        0.0000
+   21     1      1.28146728         34.8708        0.0000
+   22     1      1.83037703         49.8076        0.0000
+   23     1     23.67292342        644.1793        0.0000
+   24     1     43.31309977       1178.6209        0.0000
+ ========================================================
+
+ vectors restored from section   1
+
+ ================================================================================
+
+                                        *********************
+                                        wavefunction analysis
+                                        *********************
+
+ commence analysis at      2.45 seconds
+
+                 dipole moments
+
+
+           nuclear      electronic           total
+
+ x       2.1717032      -1.7582258       0.4134774
+ y       1.5121819      -0.6729916       0.8391903
+ z       0.0009871      -0.0010183      -0.0000312
+
+ total dipole moment =        0.9355233 (a.u.)
+                              2.3777079 (debye)
+
+
+ ================================================================================
+
+          ---------------------------------------
+          mulliken and lowdin population analyses               all electrons
+          ---------------------------------------
+
+          ----- total gross population in aos ------
+
+              1  1  c s         1.17562     1.09307
+              2  1  c s         0.81781     0.88482
+              3  1  c s         0.86957     0.69535
+              4  1  c s         0.48136     0.47441
+              5  1  c x         0.63840     0.55207
+              6  1  c y         1.03540     0.94697
+              7  1  c z         0.53105     0.46970
+              8  1  c x         0.22047     0.39362
+              9  1  c y         0.05513     0.22376
+             10  1  c z         0.08809     0.16585
+             11  2  o s         1.13266     1.07383
+             12  2  o s         0.86192     0.90945
+             13  2  o s         0.98129     0.88384
+             14  2  o s         0.83113     0.73869
+             15  2  o x         1.27932     1.21872
+             16  2  o y         1.12252     1.07521
+             17  2  o z         0.96766     0.89854
+             18  2  o x         0.41898     0.51263
+             19  2  o y         0.17798     0.41801
+             20  2  o z         0.41321     0.46591
+             21  3  h s         0.41961     0.46264
+             22  3  h s         0.85056     0.72018
+             23  4  h s         0.41791     0.38863
+             24  4  h s         0.21236     0.33409
+
+          ----- condensed to atoms -----
+
+
+          ----- total gross population on atoms ----
+
+              1  c            6.0     5.91289     5.89963
+              2  o            8.0     8.18666     8.19483
+              3  h            1.0     1.27018     1.18281
+              4  h            1.0     0.63028     0.72272
+
+
+ end of wavefunction analysis at     2.46 seconds.
+
+ ================================================================================
+
+
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      2.46          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      2.46 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               542 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     370      85
+ *    205    5     364       1
+ *    206    6     365       1
+ *    207    7     456       1
+ *    208    8     457      85
+ *    209    9     542       1
+ *    213   13     302       1
+ *    244   44     276      25
+ *    253   53     322      10
+ *    303  103     301       1
+ *    408  101      10       8
+ *    420  100     188      88
+ *    467  167     366       4
+ *    490   51     339      17
+ *    491    1      58     130
+ *    492    2     332       7
+ *    493   15       9       1
+ *    494   16     455       1
+ *    495   17     358       6
+ *    496   18      18      40
+ *    497   19     356       2
+ *    501   21       2       7
+ *    503   22     307      15
+ *    504   23     303       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      12:44:59 on Jul 11  h2co - dz - dl-find dimer ts search energy = -113.6497336
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2       39      39
+ ed3      371     371
+ ed7       19      19
+ **** unit =  4 no. of 4K broadcasts =     5377 amount transferred =    21508.0 Kbytes (    9176.7 triangles)
+ **** unit =  8 no. of 4K broadcasts =      195 amount transferred =      780.0 Kbytes (     332.8 triangles)
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.01      0.41            0.36      8.21
+ vector generation                     0.01      0.41            0.11      2.41
+ 1e-integral evaluation                0.12      4.92            0.17      3.91
+ 2e-integral evaluation                0.40     16.39            0.54     12.37
+ scf                                   0.79     32.38            1.43     32.82
+ 1e-integral derivatives               0.46     18.85            0.48     11.05
+ 2e-integral derivatives               0.56     22.95            0.67     15.31
+ wave-function analysis                0.01      0.41            0.02      0.53
+ other                                 0.08      3.28            0.58     13.38
+ ******************************************************************************
+ Total                                 2.44                      4.37
+ ******************************************************************************
+
+ matrix operations (seconds)
+ ===========================
+ diagonalisation (jacobi)      0.00
+ orthogonalisation (orfog)     0.00
+ fock-build (dbuild)           0.32
+ DIIS (mult2 etc)              0.19
+ q*hq (mult2)                  0.22
+ ===========================
+
+
+ Timing analysis for node   0
+ ============================
+                                                             CPU                 Aggr.    WALL  eff.
+ entire                              1     2.84 (     2.46 u+     0.38 s)        9.14     4.57  62
+    scf                             34     0.85 (     0.79 u+     0.06 s)        3.02     1.43  59
+       denscf                        1     0.01 (     0.00 u+     0.01 s)        0.01     0.04  25
+          Fock build                 1     0.00 (     0.00 u+     0.00 s)        0.00     0.01   0
+             ints                    1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+             other                   0     0.00 (     0.00 u+     0.00 s)        0.00     0.01   0
+          diag Overlap               1     0.01 (     0.00 u+     0.01 s)        0.01     0.00 285
+          simil                      1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          diag                       1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          back                       1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          make dens                  1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          tdown                      2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          other                      0     0.00 (     0.00 u+     0.00 s)        0.00     0.03   0
+       other                         0     0.84 (     0.79 u+     0.05 s)        3.01     1.39  60
+    hfgrad                          34     1.06 (     1.02 u+     0.04 s)        3.23     1.15  92
+       tvder                        34     0.16 (     0.16 u+     0.00 s)        0.62     0.15 104
+       sder                         34     0.20 (     0.20 u+     0.00 s)        0.50     0.23  88
+          sgrad                     34     0.20 (     0.20 u+     0.00 s)        0.47     0.21  94
+          other                      0     0.00 (     0.00 u+     0.00 s)        0.03     0.01   0
+       helfey                       34     0.09 (     0.09 u+     0.00 s)        0.24     0.06 139
+       other                         0     0.61 (     0.57 u+     0.04 s)        1.87     0.71  86
+    integ                           34     0.43 (     0.40 u+     0.03 s)        1.37     0.58  75
+    other                            0     0.50 (     0.25 u+     0.25 s)        1.52     1.40  36
+ diag                               35     0.02 (     0.02 u+     0.00 s)        0.07     0.02  93
+ dgop                              674     0.42 (     0.42 u+     0.00 s)        1.10     0.45  93
+ bcast                            5594     0.20 (     0.00 u+     0.20 s)        0.51     0.22  89
+ nxtval                           3081     0.00 (     0.00 u+     0.00 s)        0.02     0.06   0
+ mult2                            1690     0.27 (     0.27 u+     0.00 s)        0.88     0.21 126
+ find (node)                     14982     0.04 (     0.04 u+     0.00 s)        0.11     0.03 137
+ find (node0)                     5572     0.02 (     0.02 u+     0.00 s)        0.04     0.01 174
+ get (node)                      14982     0.08 (     0.07 u+     0.01 s)        0.21     0.07 112
+ get (node0)                      5572     0.25 (     0.03 u+     0.22 s)        0.65     0.27  92
+ put (node)                       1327     0.03 (     0.01 u+     0.02 s)        0.08     0.09  34
+ put (node0)                     10647     0.07 (     0.02 u+     0.05 s)        0.16     0.19  36
+ open (node)                         1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ open (node0)                        2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+
+                         GA Statistics for process    0
+                         ------------------------------
+
+       create   destroy   get      put      acc     scatter   gather  read&inc
+calls:   25        4        0       70        0        0        0        0     
+number of processes/call 0.00e+00 1.00e+00 0.00e+00 0.00e+00 0.00e+00
+bytes total:             0.00e+00 8.06e+04 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+bytes remote:            0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+Max memory consumed for GA by this process: 28800 bytes
+
+ Memory high water mark
+ ======================
+
+ heap memory high water mark =       351311 words
+ GA   memory high water mark =        14400 words overall

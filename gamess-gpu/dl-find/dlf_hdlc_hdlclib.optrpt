@@ -1,0 +1,3425 @@
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_CREATE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,48)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,58)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,68)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,68)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,68)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,68)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(207,68)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2506,5) inlined into dlf_hdlc_hdlclib_d.F90(213,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2507,7) inlined into dlf_hdlc_hdlclib_d.F90(213,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2507 and  line 2507
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(213,47)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(253,38)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,35)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,49)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,59)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,69)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,69)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,69)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,69)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(254,69)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,40)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,50)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(258,60)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(259,49)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,41)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,41)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,41)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,41)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(260,41)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(267,48)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(277,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(277,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(277,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(277,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(280,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 281 and  line 281
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(280,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(293,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(293,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(293,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,28)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,28)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,28)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,28)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(293,28)
+<Remainder, Multiversioned v2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(274,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(284,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(280,17) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(296,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(304,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(314,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(314,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(314,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(314,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(314,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_MAKE_UT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1877,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1878 and  line 1878
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1877,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1880 and  line 1880
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1877,5)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1844,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1845,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1858,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1859,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1869,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1905,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1916,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1916,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1916,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1916,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::COORD_CART_TO_HDLC..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(449,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 451 and  line 455
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Multiversioned v2>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(602,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 603 and  line 603
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(620,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(538,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(573,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(616,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(611,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::GRAD_CART_TO_HDLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(685,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,53)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,53)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,53)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,53)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(686,53)
+<Remainder, Multiversioned v2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(701,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(717,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(717,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(717,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(717,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(717,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HESS_CART_TO_HDLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(767,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,53)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,53)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,53)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,53)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(768,53)
+<Remainder, Multiversioned v2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(784,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(788,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(804,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::COORD_HDLC_TO_CART
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1004,52)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Multiversioned v1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+<Multiversioned v2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,53)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,53)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,53)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,53)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1005,53)
+<Remainder, Multiversioned v2>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(868,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(869,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(870,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(871,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(873,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(874,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(913,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1119,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1100,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1156,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_LINEAR_CHECKIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2463,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2469,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2469,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2469,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2469,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2478,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2478,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2478,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2478,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_MAKE_IGHDLC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2003,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2008,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2031,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_MAKE_BHDLC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1955,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_MAKE_BPRIM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1277,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1280 and  line 1280
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1321,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1321,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1321,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1647,7) inlined into dlf_hdlc_hdlclib_d.F90(1332,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1651,7) inlined into dlf_hdlc_hdlclib_d.F90(1332,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1651,7) inlined into dlf_hdlc_hdlclib_d.F90(1332,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1337,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1338,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1338,9)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1347,11)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1346,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1346,9)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1677,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1369,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1377,36)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1376,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1376,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1376,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1385,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1384,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1384,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1384,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1423,36)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1422,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1422,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1422,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1422,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1431,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1430,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1430,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1430,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1430,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1677,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1456,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1462,34)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1677,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1472,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1489,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1488,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1488,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1488,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1677,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1512,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1517,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1677,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1686,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1701,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1693,7) inlined into dlf_hdlc_hdlclib_d.F90(1533,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1552,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1551,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1551,13)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1551,13)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1582,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1583,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1583,9)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1583,9)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1583,9)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1592,11)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1591,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1591,9)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1591,9)
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1591,9)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1602,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1603 and  line 1613
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1300,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1306,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1351,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(1342,14) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1559,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(1484,18) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1597,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(1576,12) ]
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1616,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(1613,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_MAKE_BPRIM:TORS_DLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1732,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1743,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1743,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1758,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1758,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::COORD_CART_TO_HDLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(449,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 451 and  line 455
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Multiversioned v2>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(581,7)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(602,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 603 and  line 603
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Peeled, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(612,7)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(620,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(538,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(573,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(616,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_hdlc_hdlclib_d.F90(611,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_SPLIT_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1177,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1177,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1177,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1177,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1178,23)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1178,23)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1178,23)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1178,23)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1178,23)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_REST_CONS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,10)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,71)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,71)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,71)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,71)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(1197,71)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_WR_HDLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2073,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2073,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2073,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2076,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2076,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2076,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2141,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2141,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2141,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2141,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2132,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2103,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2104,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2105,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2106,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2106,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2107,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2107,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2108,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2108,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2109,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2109,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2110,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2111,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2112,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2114,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2115,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2116,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2117,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2117,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2118,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2118,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2119,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2119,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2120,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2120,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2121,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2122,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2123,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_RD_HDLC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2198,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2198,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2198,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2199,60)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2199,60)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2199,60)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2199,60)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2201,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2201,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2201,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2202,60)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2202,60)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2202,60)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2202,60)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2289,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2291,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2293,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,13)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,13)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(2329,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(2329,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5) inlined into dlf_hdlc_hdlclib_d.F90(2329,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,32)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,32)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,32)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,32)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2329,32)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2403,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2403,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2403,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2403,3)
+      remark #15423: loop was not vectorized: has only one iteration
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2389,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2338,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2339,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2340,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2341,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2341,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2342,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2342,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2343,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2343,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2344,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2344,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2345,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2346,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2347,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2349,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2350,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2351,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2352,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2352,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2353,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2353,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2354,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2354,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2355,9)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2355,9)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2356,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2357,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2358,9)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_DESTROY_ALL
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2430,5)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::HDLC_CON_CHECKIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2506,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2507,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_HDLCLIB::VECTOR_INITIALISE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_hdlclib_d.F90(2547,5)
+<Remainder>
+LOOP END
+===========================================================================

@@ -1,0 +1,1513 @@
+
+Begin optimization report for: CD_MEMREQ_ENERGY_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(572,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(572,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(572,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(575,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(575,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(575,18)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAX_ARRAY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_ENERGY_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1322,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1322,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1322,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1325,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1325,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(1325,18)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_ENERGY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2125,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2125,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2125,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2128,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2128,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2128,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(2242,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(2242,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(2242,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(2242,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(2242,14)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(2242,14)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ACLEAR_DP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16877,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16877,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16882,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_FORCES_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2786,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2786,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2786,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2789,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2789,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(2789,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_CHF_RHS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3382,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3382,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3385,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3385,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_CHF_LHS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3975,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3975,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3978,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(3978,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_CHF_DKSM_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(4567,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(4567,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(4570,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(4570,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_DKSM_EXP_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5168,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5168,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5171,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5171,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_DKSM_EXP_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5755,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5755,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5758,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(5758,19)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_HESS_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6338,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6338,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6343,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6343,22)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_MEMREQ_HESS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6931,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6931,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6934,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(6934,22)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_ENERGY_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7532,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(7556,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7556,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7556,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(7556,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7556,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7556,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(7559,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7559,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7559,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(7559,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7559,18)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7559,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(7581,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7581,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7581,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(7581,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7581,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7581,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7621,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7621,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7621,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7624,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7624,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(7624,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(7769,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7769,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(7769,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(7769,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7769,14)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(7769,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(7808,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(7808,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(7808,9)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at global.f(7808,9)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_ENERGY_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8424,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8453,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8453,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8453,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8453,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8453,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8453,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8456,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8456,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8456,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8456,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8456,18)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8456,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8478,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8478,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8478,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8478,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8478,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8478,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8518,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8518,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8518,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8521,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8521,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(8521,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8541,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8541,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8541,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8541,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8541,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8541,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8545,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8545,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8545,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8545,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8545,18)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8545,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(8683,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8683,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(8683,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(8683,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8683,14)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(8683,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(8718,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(8718,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(8718,9)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at global.f(8718,9)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_ENERGY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9333,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9333,25)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9333,25)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9333,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9333,25)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9333,25)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9333,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9362,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9362,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9362,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9362,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9362,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9362,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9365,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9365,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9365,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9365,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9365,18)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9365,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9387,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9387,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9387,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9387,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9387,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9387,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9427,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9427,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9427,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9430,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9430,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(9430,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9450,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9450,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9450,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9450,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9450,15)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9450,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9454,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9454,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9454,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9454,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9454,18)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9454,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16877,10) inlined into global.f(9592,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9592,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16877,10) inlined into global.f(9592,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(16882,10) inlined into global.f(9592,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9592,14)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16883,9) inlined into global.f(9592,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at global.f(9627,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(9627,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(9627,9)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at global.f(9627,9)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_FORCES_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10151,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(10160,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 10161 and  line 10161
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10186,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10186,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10186,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10189,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10189,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10189,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(10249,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 10250 and  line 10250
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_RHS_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10856,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10856,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10859,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(10859,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(10822,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10821,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(10828,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10827,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(10836,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10835,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(10842,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10841,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(10922,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10921,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(10928,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(10927,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_RHS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(11517,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(11517,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(11520,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(11520,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(11483,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11482,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(11489,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11488,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(11497,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11496,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(11503,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11502,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(11583,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11582,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(11589,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(11588,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_LHS_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12195,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12195,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12198,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12198,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(12161,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12160,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12167,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12166,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(12175,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12174,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12181,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12180,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(12261,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12260,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12267,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12266,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_LHS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12834,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12834,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12834,25)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12834,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12888,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12888,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12891,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(12891,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(12854,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12853,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12860,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12859,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(12868,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12867,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12874,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12873,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(12954,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12953,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(12960,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(12959,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_DKSM_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(13568,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(13568,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(13571,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(13571,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(13533,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13532,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(13539,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13538,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(13548,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13547,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(13554,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13553,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(13635,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13634,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(13641,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(13640,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_CHF_DKSM_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14231,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14231,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14234,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14234,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(14196,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14195,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(14202,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14201,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(14211,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14210,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(14217,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14216,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(14298,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14297,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(14304,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14303,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_DKSM_EXP_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14891,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14891,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14894,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(14894,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(14871,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14870,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(14877,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14876,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(14961,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14960,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(14967,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(14966,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_DKSM_EXP_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(15536,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(15536,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(15539,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(15539,19)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at global.f(15516,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(15515,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(15522,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(15521,21) ]
+LOOP END
+
+LOOP BEGIN at global.f(15606,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(15605,18) ]
+LOOP END
+
+LOOP BEGIN at global.f(15612,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ global.f(15611,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_HESS_AO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16169,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16169,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16172,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16172,22)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CD_HESS_MO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16788,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16788,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16791,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at global.f(16978,7) inlined into global.f(16791,22)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ACLEAR_INT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16911,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at global.f(16911,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at global.f(16911,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ACOPY_DP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at global.f(16934,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at global.f(16934,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at global.f(16934,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at global.f(16934,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at global.f(16934,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,17 @@
+title
+h2co - DFT B3LYP/6-31G redefine quadrature
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 6-31g
+dft b3lyp
+dft weight beckescr
+dft log element h 60 3.0
+dft log element c 70 3.0
+dft lebedev 86 0.5 302 1.5 194
+dft screen p 1d-10 rho 1d-10
+dft screen psi 1d-7
+enter

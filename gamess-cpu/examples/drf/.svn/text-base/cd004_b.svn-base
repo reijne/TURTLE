@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+ 4 classical waters in dielectric - juffer surface
+geom au
+  0.0              0.0           0.0  0.0  BQ
+end
+basis
+s bq
+1.0 1.0
+end
+maxcyc 0
+react
+ field stat pert reac pert
+ drfout some
+ external
+o   w1     -0.796   3.459378         4.492394     0.0     
+h   w1      0.398   3.459378         5.595494    +1.4325  
+h   w1      0.398   3.459378         5.595494    -1.4325
+GROUP    ANAL 1
+o   w2     -0.796   3.459378        -4.492394     0.0                 
+h   w2      0.398   3.459378        -5.595494    +1.4325        
+h   w2      0.398   3.459378        -5.595494    -1.4325        
+GROUP    ANAL 2
+o   w3     -0.796  -4.492394         0.0         -3.459378      
+h   w3      0.398  -3.059894         0.0         -2.356278      
+h   w3      0.398  -5.924894         0.0         -2.356278      
+GROUP    ANAL 3
+o   w4     -0.796  -4.492394         0.0          3.459378      
+h   w4      0.398  -3.059894         0.0          2.356278      
+h   w4      0.398  -3.791924         0.0          5.126180      
+GROUP    ANAL 4
+ end
+ dielectric
+  surface juffer
+  solvent water
+ end
+end
+enter 1
+EOF

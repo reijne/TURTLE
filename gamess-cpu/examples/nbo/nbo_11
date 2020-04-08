@@ -1,0 +1,25 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2o  sto3g nbo del test case
+nosym
+zmatrix angstrom
+o
+h 1 r
+h 1 r 2 alp
+variables
+r     0.965
+alp   105.4
+end 
+basis sto3g
+runtype optimize
+enter 1
+runtype analyse
+nbo
+vectors 1
+enter 1
+  \$nbo \$end
+  \$del
+   nostar
+  \$end
+EOF

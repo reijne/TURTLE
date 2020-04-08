@@ -1,0 +1,1324 @@
+
+ Found a Makefile in m4, using this to build GAMESS-UK.
+
+ The build will take place in the m4 directory.
+
+make[1]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Building full code
+(cd ../utilities; make)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+cc -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4   -c -o wrap72.o wrap72.c
+wrap72.c:10:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main(argc, argv)
+ ^~~~
+wrap72.c: In function ‘main’:
+wrap72.c:19:12: warning: implicit declaration of function ‘psh_getline’ [-Wimplicit-function-declaration]
+     iret = psh_getline(stdin,buff,MAXBUFF-1);
+            ^~~~~~~~~~~
+wrap72.c: In function ‘psh_getline’:
+wrap72.c:70:7: warning: implicit declaration of function ‘strst1’; did you mean ‘strstr’? [-Wimplicit-function-declaration]
+   i = strst1(line,"\n");
+       ^~~~~~
+       strstr
+cc -o wrap72 -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4 wrap72.o -lm
+cc -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4   -c -o validate.o validate.c
+validate.c:13:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main(argc,argv)
+ ^~~~
+validate.c: In function ‘main’:
+validate.c:62:7: warning: implicit declaration of function ‘psh_getline’ [-Wimplicit-function-declaration]
+       psh_getline(fp,buff,MAXC);
+       ^~~~~~~~~~~
+validate.c:65:7: warning: implicit declaration of function ‘split_line’ [-Wimplicit-function-declaration]
+  ns = split_line(buff,bits,MAXS,MAXC);
+       ^~~~~~~~~~
+validate.c: In function ‘psh_getline’:
+validate.c:215:11: warning: implicit declaration of function ‘strst1’; did you mean ‘strstr’? [-Wimplicit-function-declaration]
+       i = strst1(line,">");
+           ^~~~~~
+           strstr
+cc -o validate -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4 validate.o -lm
+cc -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4   -c -o ccnvrt.o ccnvrt.c
+ccnvrt.c:59:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main(int argc,
+ ^~~~
+ccnvrt.c: In function ‘windup’:
+ccnvrt.c:533:5: warning: implicit declaration of function ‘unlink’; did you mean ‘unix’? [-Wimplicit-function-declaration]
+     unlink(outfile);
+     ^~~~~~
+     unix
+cc -o ccnvrt -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4 ccnvrt.o -lm
+cc -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4   -c -o quote.o quote.c
+quote.c:8:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main()
+ ^~~~
+cc -o quote -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4 quote.o -lm
+cc -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4   -c -o timer.o timer.c
+timer.c:7:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main()
+ ^~~~
+cc -o timer -g -D_POSIX_C_SOURCE=200112L -D_SYSTYPE_SVR4 timer.o -lm
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+(cd ../linalg; make linalg)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+rm -f nag.f
+cat ../utilities/gener.m nag.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> nag.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  nag.f
+rm -f mxm_blas3.f
+cat ../utilities/gener.m mxm_blas3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mxm_blas3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mxm_blas3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dasum.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  daxpy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dcopy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ddot.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgemm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgemv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dnrm2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drot.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dscal.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dswap.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  idamax.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  izamax.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  lsame.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  xerbla.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zcopy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zdotc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgemm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyr2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyr2k.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrsm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgeru.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  icopy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  igthr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  isctr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  iswap.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ddoti.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dfill.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgthr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsctr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  idamin.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  idmax.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  idmin.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsum.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  cgemm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  epslon.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  pythag.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  qzhes.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  qzit.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  qzval.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  qzvec.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  rebak.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  reduc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  rsg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tql2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tred2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tred1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tqlrat.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  evvrsp.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  freda.f
+rm -f einvit.f
+cat ../utilities/gener.m einvit.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> einvit.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  einvit.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  elau.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  eqlrat.f
+rm -f etrbk3.f
+cat ../utilities/gener.m etrbk3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> etrbk3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  etrbk3.f
+rm -f etred3.f
+cat ../utilities/gener.m etred3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> etred3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  etred3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  estpi1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsifa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsisl.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgedi.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgefa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsytrf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsytri.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zheev.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsytf2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlasyf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsymv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ilaenv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ieeeck.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  iparmq.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  disnan.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaisnan.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlamch.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlanhe.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlascl.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zhetrd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsterf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zungtr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zsteqr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlassq.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zher2k.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zhetd2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlatrd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlanst.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlascl.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlapy2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlae2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlasrt.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaev2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlasr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlartg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zswap.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zaxpy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zher2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zhemv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgemv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlacgv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zscal.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlarfg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlassq.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zungql.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zungqr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlaset.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dcabs1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dznrm2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlapy3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zladiv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zdscal.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zung2l.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlarft.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlarfb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zung2r.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dladiv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlarf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrmv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrmm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgerc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgetri.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgetrf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrtri.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgetf2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaswp.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrsm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrti2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrmm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrmv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dger.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaruv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlagtf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlagts.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyev.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlansy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlarfb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlarf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlarfg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlarft.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaset.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlasr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlatrd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorg2l.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorg2r.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorgql.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorgqr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorgtr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsteqr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsytd2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsytrd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyevx.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlacpy.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaebz.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlarnv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorm2l.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dorm2r.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dormql.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dormqr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dormtr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dstebz.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dstein.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgetrf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgetri.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgesv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dgetrs.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zgetf2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zlaswp.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrti2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrtri.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dtrsv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  luelmf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsymm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dsyrk.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ztrsv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zher.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zsymm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zhemm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zsyrk.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zherk.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zsyr2k.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zdotu.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dstedc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaeda.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed0.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed5.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed6.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed7.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed8.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlaed9.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dlamrg.f
+ar rcv liblinalg.a  nag.o mxm_blas3.o dasum.o daxpy.o dcopy.o ddot.o dgemm.o dgemv.o dnrm2.o drot.o dscal.o dswap.o idamax.o izamax.o lsame.o xerbla.o zcopy.o zdotc.o zgemm.o dsyr2.o dsyr2k.o ztrsm.o zgeru.o icopy.o igthr.o isctr.o iswap.o  ddoti.o dfill.o dgthr.o dsctr.o idamin.o idmax.o idmin.o dsum.o cgemm.o epslon.o pythag.o qzhes.o qzit.o qzval.o qzvec.o rebak.o reduc.o rsg.o tql2.o tred2.o tred1.o tqlrat.o evvrsp.o freda.o einvit.o elau.o eqlrat.o etrbk3.o etred3.o estpi1.o dsifa.o dsisl.o dgedi.o dgefa.o  dsytrf.o dsytri.o zheev.o dsytf2.o dlasyf.o dsymv.o ilaenv.o ieeeck.o iparmq.o dsyr.o disnan.o dlaisnan.o dlamch.o zlanhe.o zlascl.o zhetrd.o dsterf.o zungtr.o zsteqr.o zlassq.o zher2k.o zhetd2.o zlatrd.o dlanst.o dlascl.o dlapy2.o dlae2.o dlasrt.o dlaev2.o zlasr.o dlartg.o zswap.o zaxpy.o zher2.o zhemv.o zgemv.o zlacgv.o zscal.o zlarfg.o dlassq.o zungql.o zungqr.o zlaset.o dcabs1.o dznrm2.o dlapy3.o zscal.o zladiv.o zdscal.o zung2l.o zlarft.o zlarfb.o zung2r.o dladiv.o zlarf.o ztrmv.o ztrmm.o zgerc.o dgetri.o dgetrf.o dtrtri.o dgetf2.o dlaswp.o dtrsm.o dtrti2.o dtrmm.o dtrmv.o dger.o dlaruv.o dlagtf.o dlagts.o dsyev.o dlansy.o dlarfb.o dlarf.o dlarfg.o dlarft.o dlaset.o dlasr.o dlatrd.o dorg2l.o dorg2r.o dorgql.o dorgqr.o dorgtr.o dsteqr.o dsytd2.o dsytrd.o dsyevx.o dlacpy.o dlaebz.o dlarnv.o dorm2l.o dorm2r.o dormql.o dormqr.o dormtr.o dstebz.o dstein.o zgetrf.o zgetri.o dgesv.o dgetrs.o zgetf2.o zlaswp.o ztrti2.o ztrtri.o dtrsv.o luelmf.o dsymm.o dsyrk.o ztrsv.o zher.o zsymm.o zhemm.o zsyrk.o zherk.o zsyr2k.o zdotu.o dstedc.o dlaeda.o dlaed0.o dlaed1.o dlaed2.o dlaed3.o dlaed4.o dlaed5.o dlaed6.o dlaed7.o dlaed8.o dlaed9.o dlamrg.o  
+a - nag.o
+a - mxm_blas3.o
+a - dasum.o
+a - daxpy.o
+a - dcopy.o
+a - ddot.o
+a - dgemm.o
+a - dgemv.o
+a - dnrm2.o
+a - drot.o
+a - dscal.o
+a - dswap.o
+a - idamax.o
+a - izamax.o
+a - lsame.o
+a - xerbla.o
+a - zcopy.o
+a - zdotc.o
+a - zgemm.o
+a - dsyr2.o
+a - dsyr2k.o
+a - ztrsm.o
+a - zgeru.o
+a - icopy.o
+a - igthr.o
+a - isctr.o
+a - iswap.o
+a - ddoti.o
+a - dfill.o
+a - dgthr.o
+a - dsctr.o
+a - idamin.o
+a - idmax.o
+a - idmin.o
+a - dsum.o
+a - cgemm.o
+a - epslon.o
+a - pythag.o
+a - qzhes.o
+a - qzit.o
+a - qzval.o
+a - qzvec.o
+a - rebak.o
+a - reduc.o
+a - rsg.o
+a - tql2.o
+a - tred2.o
+a - tred1.o
+a - tqlrat.o
+a - evvrsp.o
+a - freda.o
+a - einvit.o
+a - elau.o
+a - eqlrat.o
+a - etrbk3.o
+a - etred3.o
+a - estpi1.o
+a - dsifa.o
+a - dsisl.o
+a - dgedi.o
+a - dgefa.o
+a - dsytrf.o
+a - dsytri.o
+a - zheev.o
+a - dsytf2.o
+a - dlasyf.o
+a - dsymv.o
+a - ilaenv.o
+a - ieeeck.o
+a - iparmq.o
+a - dsyr.o
+a - disnan.o
+a - dlaisnan.o
+a - dlamch.o
+a - zlanhe.o
+a - zlascl.o
+a - zhetrd.o
+a - dsterf.o
+a - zungtr.o
+a - zsteqr.o
+a - zlassq.o
+a - zher2k.o
+a - zhetd2.o
+a - zlatrd.o
+a - dlanst.o
+a - dlascl.o
+a - dlapy2.o
+a - dlae2.o
+a - dlasrt.o
+a - dlaev2.o
+a - zlasr.o
+a - dlartg.o
+a - zswap.o
+a - zaxpy.o
+a - zher2.o
+a - zhemv.o
+a - zgemv.o
+a - zlacgv.o
+a - zscal.o
+a - zlarfg.o
+a - dlassq.o
+a - zungql.o
+a - zungqr.o
+a - zlaset.o
+a - dcabs1.o
+a - dznrm2.o
+a - dlapy3.o
+a - zscal.o
+a - zladiv.o
+a - zdscal.o
+a - zung2l.o
+a - zlarft.o
+a - zlarfb.o
+a - zung2r.o
+a - dladiv.o
+a - zlarf.o
+a - ztrmv.o
+a - ztrmm.o
+a - zgerc.o
+a - dgetri.o
+a - dgetrf.o
+a - dtrtri.o
+a - dgetf2.o
+a - dlaswp.o
+a - dtrsm.o
+a - dtrti2.o
+a - dtrmm.o
+a - dtrmv.o
+a - dger.o
+a - dlaruv.o
+a - dlagtf.o
+a - dlagts.o
+a - dsyev.o
+a - dlansy.o
+a - dlarfb.o
+a - dlarf.o
+a - dlarfg.o
+a - dlarft.o
+a - dlaset.o
+a - dlasr.o
+a - dlatrd.o
+a - dorg2l.o
+a - dorg2r.o
+a - dorgql.o
+a - dorgqr.o
+a - dorgtr.o
+a - dsteqr.o
+a - dsytd2.o
+a - dsytrd.o
+a - dsyevx.o
+a - dlacpy.o
+a - dlaebz.o
+a - dlarnv.o
+a - dorm2l.o
+a - dorm2r.o
+a - dormql.o
+a - dormqr.o
+a - dormtr.o
+a - dstebz.o
+a - dstein.o
+a - zgetrf.o
+a - zgetri.o
+a - dgesv.o
+a - dgetrs.o
+a - zgetf2.o
+a - zlaswp.o
+a - ztrti2.o
+a - ztrtri.o
+a - dtrsv.o
+a - luelmf.o
+a - dsymm.o
+a - dsyrk.o
+a - ztrsv.o
+a - zher.o
+a - zsymm.o
+a - zhemm.o
+a - zsyrk.o
+a - zherk.o
+a - zsyr2k.o
+a - zdotu.o
+a - dstedc.o
+a - dlaeda.o
+a - dlaed0.o
+a - dlaed1.o
+a - dlaed2.o
+a - dlaed3.o
+a - dlaed4.o
+a - dlaed5.o
+a - dlaed6.o
+a - dlaed7.o
+a - dlaed8.o
+a - dlaed9.o
+a - dlamrg.o
+ar -s liblinalg.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+(cd ../dft; make dftlib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+rm -f dftbasis.f
+cat ../utilities/gener.m dftbasis.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dftbasis.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dftbasis.f
+rm -f coulomb.f
+cat ../utilities/gener.m coulomb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> coulomb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  coulomb.f
+rm -f gamess.f
+cat ../utilities/gener.m gamess.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gamess.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gamess.f
+rm -f global.f
+cat ../utilities/gener.m global.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> global.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  global.f
+rm -f interface.f
+cat ../utilities/gener.m interface.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> interface.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  interface.f
+rm -f intpack.f
+cat ../utilities/gener.m intpack.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> intpack.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  intpack.f
+rm -f matpack.f
+cat ../utilities/gener.m matpack.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> matpack.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  matpack.f
+rm -f xc.f
+cat ../utilities/gener.m xc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> xc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  xc.f
+rm -f xc_lib.f
+cat ../utilities/gener.m xc_lib.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> xc_lib.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  xc_lib.f
+rm -f weights.f
+cat ../utilities/gener.m weights.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> weights.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  weights.f
+rm -f exp_dksm_hess.f
+cat ../utilities/gener.m exp_dksm_hess.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> exp_dksm_hess.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  exp_dksm_hess.f
+rm -f chf.f
+cat ../utilities/gener.m chf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> chf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  chf.f
+rm -f Lebedev-Laikov.f
+cat ../utilities/gener.m Lebedev-Laikov.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> Lebedev-Laikov.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  Lebedev-Laikov.f
+rm -f integ_data.f
+cat ../utilities/gener.m integ_data.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integ_data.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integ_data.f
+rm -f integ_te2c_norm.f
+cat ../utilities/gener.m integ_te2c_norm.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integ_te2c_norm.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integ_te2c_norm.f
+rm -f readbasis.f
+cat ../utilities/gener.m readbasis.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> readbasis.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  readbasis.f
+rm -f jfitg.f
+cat ../utilities/gener.m jfitg.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> jfitg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  jfitg.f
+rm -f integ2e.f
+cat ../utilities/gener.m integ2e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integ2e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integ2e.f
+rm -f deriv2e.f
+cat ../utilities/gener.m deriv2e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> deriv2e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  deriv2e.f
+rm -f matform.f
+cat ../utilities/gener.m matform.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> matform.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  matform.f
+rm -f gden.f
+cat ../utilities/gener.m gden.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gden.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gden.f
+cat ../machines/ ../utilities/gener.m  integ2e.m | m4 -DGEN_EXTRACTFILE=jkint_dft -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  > jkint_dft.f
+cat: ../machines/: No such file or directory
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 jkint_dft.f
+cat ../machines/ ../utilities/gener.m  deriv2e.m | m4 -DGEN_EXTRACTFILE=jkder_dft -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  > jkder_dft.f
+cat: ../machines/: No such file or directory
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 jkder_dft.f
+rm -f omit_mpole.f
+cat ../utilities/gener.m omit_mpole.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> omit_mpole.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  omit_mpole.f
+ar rcv libdft.a dftbasis.o coulomb.o gamess.o global.o interface.o intpack.o matpack.o xc.o xc_lib.o weights.o exp_dksm_hess.o chf.o Lebedev-Laikov.o integ_data.o integ_te2c_norm.o readbasis.o jfitg.o integ2e.o deriv2e.o matform.o gden.o  jkint_dft.o jkder_dft.o omit_mpole.o
+a - dftbasis.o
+a - coulomb.o
+a - gamess.o
+a - global.o
+a - interface.o
+a - intpack.o
+a - matpack.o
+a - xc.o
+a - xc_lib.o
+a - weights.o
+a - exp_dksm_hess.o
+a - chf.o
+a - Lebedev-Laikov.o
+a - integ_data.o
+a - integ_te2c_norm.o
+a - readbasis.o
+a - jfitg.o
+a - integ2e.o
+a - deriv2e.o
+a - matform.o
+a - gden.o
+a - jkint_dft.o
+a - jkder_dft.o
+a - omit_mpole.o
+ar -s libdft.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+(cd ../drf; make drflib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+rm -f drfctl.f
+cat ../utilities/gener.m drfctl.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfctl.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfctl.f
+rm -f drfsub.f
+cat ../utilities/gener.m drfsub.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfsub.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfsub.f
+rm -f neqpot.f
+cat ../utilities/gener.m neqpot.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> neqpot.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  neqpot.f
+rm -f radius.f
+cat ../utilities/gener.m radius.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> radius.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  radius.f
+rm -f drfsolv.f
+cat ../utilities/gener.m drfsolv.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfsolv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfsolv.f
+rm -f drfscf.f
+cat ../utilities/gener.m drfscf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfscf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfscf.f
+rm -f surfsub.f
+cat ../utilities/gener.m surfsub.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> surfsub.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  surfsub.f
+rm -f hondext.f
+cat ../utilities/gener.m hondext.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> hondext.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  hondext.f
+rm -f dppop.f
+cat ../utilities/gener.m dppop.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dppop.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dppop.f
+rm -f fld.f
+cat ../utilities/gener.m fld.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> fld.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  fld.f
+rm -f missing.f
+cat ../utilities/gener.m missing.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> missing.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  missing.f
+rm -f mcsub.f
+cat ../utilities/gener.m mcsub.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mcsub.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mcsub.f
+rm -f drfextra.f
+cat ../utilities/gener.m drfextra.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfextra.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfextra.f
+rm -f rfin.f
+cat ../utilities/gener.m rfin.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> rfin.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  rfin.f
+rm -f mscon.f
+cat ../utilities/gener.m mscon.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mscon.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mscon.f
+rm -f drfgrad.f
+cat ../utilities/gener.m drfgrad.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfgrad.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfgrad.f
+rm -f extgrad.f
+cat ../utilities/gener.m extgrad.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> extgrad.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  extgrad.f
+rm -f drfder.f
+cat ../utilities/gener.m drfder.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drfder.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drfder.f
+ar rcv libdrf.a  drfctl.o drfsub.o neqpot.o radius.o drfsolv.o drfscf.o surfsub.o hondext.o dppop.o fld.o missing.o mcsub.o drfextra.o rfin.o mscon.o drfgrad.o extgrad.o drfder.o  
+a - drfctl.o
+a - drfsub.o
+a - neqpot.o
+a - radius.o
+a - drfsolv.o
+a - drfscf.o
+a - surfsub.o
+a - hondext.o
+a - dppop.o
+a - fld.o
+a - missing.o
+a - mcsub.o
+a - drfextra.o
+a - rfin.o
+a - mscon.o
+a - drfgrad.o
+a - extgrad.o
+a - drfder.o
+ar -s libdrf.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+(cd ../dl-find; gmake libdlf.a )
+gmake[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dl-find'
+Makefile:838: warning: overriding recipe for target '.f90.o'
+Makefile:617: warning: ignoring old recipe for target '.f90.o'
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_stat_module.f90 > dlf_stat_module_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_stat_module_d.F90 -o dlf_stat_module.o
+rm dlf_stat_module_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_global_module.f90 > dlf_global_module_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_global_module_d.F90 -o dlf_global_module.o
+rm dlf_global_module_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_allocate.f90 > dlf_allocate_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_allocate_d.F90 -o dlf_allocate.o
+rm dlf_allocate_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_util.f90 > dlf_util_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_util_d.F90 -o dlf_util.o
+rm dlf_util_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_sort.f90 > dlf_sort_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_sort_d.F90 -o dlf_sort.o
+rm dlf_sort_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dl-find.f90 > dl-find_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dl-find_d.F90 -o dl-find.o
+rm dl-find_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_convergence.f90 > dlf_convergence_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_convergence_d.F90 -o dlf_convergence.o
+rm dlf_convergence_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_checkpoint.f90 > dlf_checkpoint_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_checkpoint_d.F90 -o dlf_checkpoint.o
+rm dlf_checkpoint_d.F90
+rm -f dlf_mpi.o
+cp dlf_svnversion.head dlf_svnversion.f90
+svnversion -n . >> dlf_svnversion.f90
+svnversion: E155036: The working copy at '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dl-find'
+is too old (format 10) to work with client version '1.9.7 (r1800392)' (expects format 31). You need to upgrade the working copy first.
+
+Makefile:827: recipe for target 'dlf_svnversion.f90' failed
+gmake[2]: [dlf_svnversion.f90] Error 1 (ignored)
+echo '"' >> dlf_svnversion.f90
+echo "end subroutine dlf_svnversion" >> dlf_svnversion.f90
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_svnversion.f90 > dlf_svnversion_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_svnversion_d.F90 -o dlf_svnversion.o
+rm dlf_svnversion_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_formstep.f90 > dlf_formstep_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_formstep_d.F90 -o dlf_formstep.o
+rm dlf_formstep_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_scalestep.f90 > dlf_scalestep_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_scalestep_d.F90 -o dlf_scalestep.o
+rm dlf_scalestep_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_lbfgs.f90 > dlf_lbfgs_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_lbfgs_d.F90 -o dlf_lbfgs.o
+rm dlf_lbfgs_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_time.f90 > dlf_time_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_time_d.F90 -o dlf_time.o
+rm dlf_time_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_task.f90 > dlf_task_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_task_d.F90 -o dlf_task.o
+rm dlf_task_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_neb.f90 > dlf_neb_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_neb_d.F90 -o dlf_neb.o
+rm dlf_neb_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_qts.f90 > dlf_qts_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_qts_d.F90 -o dlf_qts.o
+rm dlf_qts_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_dimer.f90 > dlf_dimer_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_dimer_d.F90 -o dlf_dimer.o
+rm dlf_dimer_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_conint.f90 > dlf_conint_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_conint_d.F90 -o dlf_conint.o
+rm dlf_conint_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_coords.f90 > dlf_coords_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_coords_d.F90 -o dlf_coords.o
+rm dlf_coords_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_parallel_opt.f90 > dlf_parallel_opt_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_parallel_opt_d.F90 -o dlf_parallel_opt.o
+rm dlf_parallel_opt_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_microiter.f90 > dlf_microiter_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_microiter_d.F90 -o dlf_microiter.o
+rm dlf_microiter_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_hdlc_matrixlib.f90 > dlf_hdlc_matrixlib_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_hdlc_matrixlib_d.F90 -o dlf_hdlc_matrixlib.o
+rm dlf_hdlc_matrixlib_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_hdlc_primitive.f90 > dlf_hdlc_primitive_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_hdlc_primitive_d.F90 -o dlf_hdlc_primitive.o
+rm dlf_hdlc_primitive_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_hdlc_constraint.f90 > dlf_hdlc_constraint_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_hdlc_constraint_d.F90 -o dlf_hdlc_constraint.o
+rm dlf_hdlc_constraint_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_hdlc_hdlclib.f90 > dlf_hdlc_hdlclib_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_hdlc_hdlclib_d.F90 -o dlf_hdlc_hdlclib.o
+rm dlf_hdlc_hdlclib_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_hdlc_interface.f90 > dlf_hdlc_interface_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_hdlc_interface_d.F90 -o dlf_hdlc_interface.o
+rm dlf_hdlc_interface_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_linalg.f90 > dlf_linalg_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_linalg_d.F90 -o dlf_linalg.o
+rm dlf_linalg_d.F90
+rm -f dlf_mpi.o
+sed -e"s/call allocate *(/ aLLocate(/g" \
+               -e"/ aLLocate(/s/,/(/" \
+               -e"/ aLLocate(/s/\(.*\))/\1))/" \
+               -e"s/call deallocate *(/deallocate(/" dlf_serial.f90 > dlf_serial_d.F90
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2 -DOLDALLOC -DGAMESS -c dlf_serial_d.F90 -o dlf_serial.o
+rm dlf_serial_d.F90
+rm -f dlf_mpi.o
+rm -f dlfind_gamess.GUK dlfind_gamess.f
+cat  ../utilities/gener.m dlfind_gamess.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dlfind_gamess.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O dlfind_gamess.f -o dlfind_gamess.o
+ar rcv libdlf.a  dlf_stat_module.o dlf_global_module.o dlf_allocate.o dlf_util.o dlf_sort.o dl-find.o dlf_convergence.o dlf_checkpoint.o dlf_svnversion.o dlf_formstep.o dlf_scalestep.o dlf_lbfgs.o dlf_time.o dlf_task.o dlf_neb.o dlf_qts.o dlf_dimer.o dlf_conint.o dlf_coords.o dlf_parallel_opt.o dlf_microiter.o dlf_hdlc_matrixlib.o dlf_hdlc_primitive.o dlf_hdlc_constraint.o dlf_hdlc_hdlclib.o dlf_hdlc_interface.o dlf_linalg.o dlf_serial.o dlfind_gamess.o 
+a - dlf_stat_module.o
+a - dlf_global_module.o
+a - dlf_allocate.o
+a - dlf_util.o
+a - dlf_sort.o
+a - dl-find.o
+a - dlf_convergence.o
+a - dlf_checkpoint.o
+a - dlf_svnversion.o
+a - dlf_formstep.o
+a - dlf_scalestep.o
+a - dlf_lbfgs.o
+a - dlf_time.o
+a - dlf_task.o
+a - dlf_neb.o
+a - dlf_qts.o
+a - dlf_dimer.o
+a - dlf_conint.o
+a - dlf_coords.o
+a - dlf_parallel_opt.o
+a - dlf_microiter.o
+a - dlf_hdlc_matrixlib.o
+a - dlf_hdlc_primitive.o
+a - dlf_hdlc_constraint.o
+a - dlf_hdlc_hdlclib.o
+a - dlf_hdlc_interface.o
+a - dlf_linalg.o
+a - dlf_serial.o
+a - dlfind_gamess.o
+ar -s libdlf.a
+gmake[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dl-find'
+(cd ../vb; make vb )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+rm -f vbaivb.f
+cat ../utilities/gener.m vbaivb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbaivb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbaivb.f
+rm -f vbci.f
+cat ../utilities/gener.m vbci.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbci.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbci.f
+rm -f vbdebug.f
+cat ../utilities/gener.m vbdebug.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbdebug.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbdebug.f
+rm -f vbin.f
+cat ../utilities/gener.m vbin.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbin.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbin.f
+rm -f vbscf.f
+cat ../utilities/gener.m vbscf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbscf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbscf.f
+rm -f vbqcscf.f
+cat ../utilities/gener.m vbqcscf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbqcscf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbqcscf.f
+rm -f vbutil.f
+cat ../utilities/gener.m vbutil.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbutil.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbutil.f
+rm -f vbcrestr.f
+cat ../utilities/gener.m vbcrestr.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbcrestr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbcrestr.f
+rm -f vbgamess.f
+cat ../utilities/gener.m vbgamess.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbgamess.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbgamess.f
+rm -f vbmatre.f
+cat ../utilities/gener.m vbmatre.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbmatre.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbmatre.f
+rm -f vbtran.f
+cat ../utilities/gener.m vbtran.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbtran.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbtran.f
+rm -f vbdens.f
+cat ../utilities/gener.m vbdens.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbdens.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbdens.f
+rm -f vbprop.f
+cat ../utilities/gener.m vbprop.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbprop.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbprop.f
+echo "      subroutine vbversion(cdate,ctime,cname)" > vbversion.f
+echo "      character*10 cdate,cname" >> vbversion.f
+echo "      character*5 ctime" >> vbversion.f
+echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> vbversion.f
+echo "      ctime=\""`date '+%H:%M'`"\"" >> vbversion.f
+echo "      cname=\""`whoami`"\"" >> vbversion.f
+echo "      return" >> vbversion.f
+echo "      end" >> vbversion.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vbversion.f
+rm -f servec.f
+cat ../utilities/gener.m servec.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> servec.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  servec.f
+rm -f sendrecv.c
+cat ../utilities/gener.m sendrecv.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - >> sendrecv.c
+if  [ "../g/include" ] ; \
+then pgcc -c -DLONG_INTEGER -tp=k8-64 -D_REENTRANT  -I../g/include -I../g/tcgmsg-mpi  sendrecv.c ; \
+else pgcc -c -DLONG_INTEGER -tp=k8-64 -D_REENTRANT  -I../g/tcgmsg-mpi  sendrecv.c ; \
+fi
+ar rcv libvb.a  vbaivb.o vbci.o vbdebug.o vbin.o vbscf.o vbqcscf.o vbutil.o vbcrestr.o vbgamess.o vbmatre.o vbtran.o vbdens.o vbprop.o vbversion.o servec.o sendrecv.o  
+a - vbaivb.o
+a - vbci.o
+a - vbdebug.o
+a - vbin.o
+a - vbscf.o
+a - vbqcscf.o
+a - vbutil.o
+a - vbcrestr.o
+a - vbgamess.o
+a - vbmatre.o
+a - vbtran.o
+a - vbdens.o
+a - vbprop.o
+a - vbversion.o
+a - servec.o
+a - sendrecv.o
+ar -s libvb.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+(cd ../m4; make zora.o )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+rm -f zora.f
+cat ../utilities/gener.m zora.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> zora.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  zora.f
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+rm -f mains.f
+cat ../utilities/gener.m mains.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mains.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mains.f
+rm -f anala.f
+cat ../utilities/gener.m anala.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> anala.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  anala.f
+rm -f analb.f
+cat ../utilities/gener.m analb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> analb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  analb.f
+rm -f junk_dma.f
+cat ../utilities/gener.m junk_dma.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> junk_dma.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  junk_dma.f
+rm -f analc.f
+cat ../utilities/gener.m analc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> analc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  analc.f
+rm -f analf.f
+cat ../utilities/gener.m analf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> analf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  analf.f
+rm -f analg.f
+cat ../utilities/gener.m analg.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> analg.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  analg.f
+rm -f basis.f
+cat ../utilities/gener.m basis.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> basis.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  basis.f
+rm -f basis1.f
+cat ../utilities/gener.m basis1.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> basis1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  basis1.f
+rm -f basis2.f
+cat ../utilities/gener.m basis2.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> basis2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  basis2.f
+rm -f basis3.f
+cat ../utilities/gener.m basis3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> basis3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  basis3.f
+rm -f dft.f
+cat ../utilities/gener.m dft.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dft.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dft.f
+rm -f input.f
+cat ../utilities/gener.m input.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> input.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  input.f
+rm -f intega.f
+cat ../utilities/gener.m intega.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> intega.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  intega.f
+rm -f machscf.f
+cat ../utilities/gener.m machscf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> machscf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  machscf.f
+rm -f drv2e.f
+cat ../utilities/gener.m drv2e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drv2e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drv2e.f
+rm -f drv80.f
+cat ../utilities/gener.m drv80.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drv80.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drv80.f
+rm -f integs.f
+cat ../utilities/gener.m integs.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integs.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integs.f
+rm -f scf.f
+cat ../utilities/gener.m scf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> scf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  scf.f
+rm -f server.f
+cat ../utilities/gener.m server.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> server.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  server.f
+rm -f optim.f
+cat ../utilities/gener.m optim.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> optim.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  optim.f
+rm -f optef.f
+cat ../utilities/gener.m optef.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> optef.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  optef.f
+rm -f integb.f
+cat ../utilities/gener.m integb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integb.f
+rm -f integb_nl.f
+cat ../utilities/gener.m integb_nl.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integb_nl.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integb_nl.f
+rm -f integb_lib.f
+cat ../utilities/gener.m integb_lib.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integb_lib.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integb_lib.f
+rm -f integc.f
+cat ../utilities/gener.m integc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integc.f
+rm -f guess.f
+cat ../utilities/gener.m guess.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> guess.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  guess.f
+rm -f master.f
+cat ../utilities/gener.m master.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> master.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  master.f
+rm -f util1.f
+cat ../utilities/gener.m util1.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util1.f
+rm -f util2.f
+cat ../utilities/gener.m util2.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util2.f
+rm -f util3.f
+cat ../utilities/gener.m util3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util3.f
+rm -f parallel.GUK parallel.f
+cat  ../utilities/gener.m parallel.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> parallel.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O  parallel.f
+rm -f mass.f
+cat ../utilities/gener.m mass.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mass.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mass.f
+rm -f drv1e.f
+cat ../utilities/gener.m drv1e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drv1e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drv1e.f
+rm -f c.c
+cat ../utilities/gener.m c.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - >> c.c
+pgcc -c -DLONG_INTEGER -tp=k8-64 -D_REENTRANT  c.c
+rm -f morokuma.f
+cat ../utilities/gener.m morokuma.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> morokuma.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  morokuma.f
+rm -f nbo.f
+cat ../utilities/gener.m nbo.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> nbo.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  nbo.f
+rm -f omit.f
+cat ../utilities/gener.m omit.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> omit.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  omit.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  vdwaals_corr.f90
+rm -f inter_vdwaals.f
+cat ../utilities/gener.m inter_vdwaals.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> inter_vdwaals.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  inter_vdwaals.f
+rm -f sysmo.f
+cat ../utilities/gener.m sysmo.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> sysmo.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  sysmo.f
+rm -f gamess_hondo.f
+cat ../utilities/gener.m gamess_hondo.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gamess_hondo.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gamess_hondo.f
+cat  ../utilities/gener.m casb.m | m4 -DGEN_EXTRACTFILE=gethes -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > gethes.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 gethes.f
+rm -f gdiesel.f
+cat ../utilities/gener.m gdiesel.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gdiesel.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gdiesel.f
+rm -f glue_uk_us.GUK glue_uk_us.f
+/lib/cpp -traditional  -traditional  < glue_uk_us.m | sed '/^#/D' >> glue_uk_us.GUK
+cat  ../utilities/gener.m glue_uk_us.GUK | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  > glue_uk_us.f
+rm -f glue_uk_us.GUK
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O  glue_uk_us.f
+which svnversion > ./m4_svnversion; chmod +x ./m4_svnversion
+echo "      subroutine gms_version(cdate,ctime,cname,cversion)" > gms_version.m
+echo "      character*10 cdate,cname,cversion" >> gms_version.m
+echo "      character*5 ctime" >> gms_version.m
+echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> gms_version.m
+echo "      ctime=\""`date '+%H:%M'`"\"" >> gms_version.m
+echo "      cname=\""`whoami`"\"" >> gms_version.m
+echo "      cversion=\""`./m4_svnversion ..`"\"" >> gms_version.m
+svnversion: E155036: The working copy at '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+is too old (format 10) to work with client version '1.9.7 (r1800392)' (expects format 31). You need to upgrade the working copy first.
+
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine getm4keys(m4keys)" >> gms_version.m
+echo "      implicit none" >> gms_version.m
+echo "      character*(*) m4keys" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 |awk 'BEGIN {i=0} {if (i==0) {printf "       m4keys=\"%s\"\n",$0} else {printf "     &//\"%s \"\n", $0} i++}' >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine wrtkeys(iwr)" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 | awk '{printf "      write(iwr,*)\n     &\"M4-Keys: %s \"\n", $0}'  >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+rm -f gms_version.f
+cat ../utilities/gener.m gms_version.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gms_version.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gms_version.f
+rm -f mainci.f
+cat ../utilities/gener.m mainci.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mainci.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mainci.f
+rm -f anald.f
+cat ../utilities/gener.m anald.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> anald.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  anald.f
+rm -f anale.f
+cat ../utilities/gener.m anale.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> anale.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  anale.f
+rm -f cphf.f
+cat ../utilities/gener.m cphf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> cphf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  cphf.f
+rm -f derdrv.f
+cat ../utilities/gener.m derdrv.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> derdrv.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  derdrv.f
+rm -f drvmp.f
+cat ../utilities/gener.m drvmp.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> drvmp.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  drvmp.f
+rm -f inpci.f
+cat ../utilities/gener.m inpci.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> inpci.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  inpci.f
+rm -f integd.f
+cat ../utilities/gener.m integd.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> integd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  integd.f
+rm -f intege.f
+cat ../utilities/gener.m intege.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> intege.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  intege.f
+rm -f machci.f
+cat ../utilities/gener.m machci.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> machci.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  machci.f
+rm -f tran4.f
+cat ../utilities/gener.m tran4.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> tran4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tran4.f
+rm -f index4.f
+cat ../utilities/gener.m index4.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> index4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  index4.f
+rm -f util4.f
+cat ../utilities/gener.m util4.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util4.f
+rm -f util5.f
+cat ../utilities/gener.m util5.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util5.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util5.f
+rm -f util6.f
+cat ../utilities/gener.m util6.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util6.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util6.f
+rm -f util7.f
+cat ../utilities/gener.m util7.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util7.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util7.f
+rm -f util8.f
+cat ../utilities/gener.m util8.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> util8.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  util8.f
+rm -f sec1e.f
+cat ../utilities/gener.m sec1e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> sec1e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  sec1e.f
+rm -f sec2e.f
+cat ../utilities/gener.m sec2e.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> sec2e.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  sec2e.f
+cat  ../utilities/gener.m drvmp.m | m4 -DGEN_EXTRACTFILE=mkmakw -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > mkmakw.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O mkmakw.f
+cat  ../utilities/gener.m secmp2.m | m4 -DGEN_EXTRACTFILE=mpmakw -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > mpmakw.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O mpmakw.f
+cat  ../utilities/gener.m mp3.m | m4 -DGEN_EXTRACTFILE=umpe3a -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > umpe3a.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O umpe3a.f
+cat  ../utilities/gener.m mp3.m | m4 -DGEN_EXTRACTFILE=umpe3b -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > umpe3b.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O umpe3b.f
+cat ../utilities/gener.m newmrd5.m | m4 -DGEN_EXTRACTFILE=check0a -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - > check0a.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 check0a.f
+rm -f mp2a.f
+cat ../utilities/gener.m mp2a.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mp2a.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mp2a.f
+rm -f mp2b.f
+cat ../utilities/gener.m mp2b.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mp2b.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mp2b.f
+rm -f mp2c.f
+cat ../utilities/gener.m mp2c.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mp2c.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mp2c.f
+rm -f mp2d.f
+cat ../utilities/gener.m mp2d.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mp2d.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mp2d.f
+rm -f mp3.f
+cat ../utilities/gener.m mp3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mp3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mp3.f
+rm -f secmp2.f
+cat ../utilities/gener.m secmp2.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> secmp2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  secmp2.f
+rm -f tdaf.f
+cat ../utilities/gener.m tdaf.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> tdaf.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tdaf.f
+rm -f model.f
+cat ../utilities/gener.m model.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> model.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  model.f
+rm -f newmrd1.f
+cat ../utilities/gener.m newmrd1.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd1.f
+rm -f newmrd2.f
+cat ../utilities/gener.m newmrd2.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd2.f
+rm -f newmrd3.f
+cat ../utilities/gener.m newmrd3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd3.f
+rm -f newmrd4.f
+cat ../utilities/gener.m newmrd4.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd4.f
+rm -f newmrd5.f
+cat ../utilities/gener.m newmrd5.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd5.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd5.f
+rm -f newmrd6.f
+cat ../utilities/gener.m newmrd6.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> newmrd6.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  newmrd6.f
+rm -f mcscfa.f
+cat ../utilities/gener.m mcscfa.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mcscfa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mcscfa.f
+rm -f mcscfb.f
+cat ../utilities/gener.m mcscfb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mcscfb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mcscfb.f
+rm -f mcscfc.f
+cat ../utilities/gener.m mcscfc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mcscfc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mcscfc.f
+rm -f mrdci1.f
+cat ../utilities/gener.m mrdci1.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci1.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci1.f
+rm -f mrdci2.f
+cat ../utilities/gener.m mrdci2.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci2.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci2.f
+rm -f mrdci3.f
+cat ../utilities/gener.m mrdci3.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci3.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci3.f
+rm -f mrdci4.f
+cat ../utilities/gener.m mrdci4.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci4.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci4.f
+rm -f mrdci5.f
+cat ../utilities/gener.m mrdci5.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci5.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 mrdci5.f
+rm -f mrdci6.f
+cat ../utilities/gener.m mrdci6.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci6.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci6.f
+rm -f mrdci7.f
+cat ../utilities/gener.m mrdci7.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mrdci7.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mrdci7.f
+rm -f fullci.f
+cat ../utilities/gener.m fullci.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> fullci.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  fullci.f
+rm -f direct.f
+cat ../utilities/gener.m direct.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> direct.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  direct.f
+rm -f casa.f
+cat ../utilities/gener.m casa.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> casa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  casa.f
+rm -f casb.f
+cat ../utilities/gener.m casb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> casb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  casb.f
+rm -f ccsd.f
+cat ../utilities/gener.m ccsd.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> ccsd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  ccsd.f
+rm -f dirrpa.f
+cat ../utilities/gener.m dirrpa.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dirrpa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dirrpa.f
+rm -f mclr.f
+cat ../utilities/gener.m mclr.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mclr.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  mclr.f
+rm -f nvccsd.f
+cat ../utilities/gener.m nvccsd.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> nvccsd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  nvccsd.f
+rm -f rpa.f
+cat ../utilities/gener.m rpa.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> rpa.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O1 rpa.f
+rm -f rpagrad.f
+cat ../utilities/gener.m rpagrad.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> rpagrad.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  rpagrad.f
+rm -f tsort.f
+cat ../utilities/gener.m tsort.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> tsort.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  tsort.f
+rm -f tsortc.c
+cat ../utilities/gener.m tsortc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 - >> tsortc.c
+pgcc -c -DLONG_INTEGER -tp=k8-64 -D_REENTRANT  tsortc.c
+rm -f dircta.f
+cat ../utilities/gener.m dircta.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dircta.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dircta.f
+rm -f dirctb.f
+cat ../utilities/gener.m dirctb.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dirctb.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dirctb.f
+rm -f dirctc.f
+cat ../utilities/gener.m dirctc.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dirctc.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dirctc.f
+rm -f dirctd.f
+cat ../utilities/gener.m dirctd.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> dirctd.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  dirctd.f
+rm -f gff.f
+cat ../utilities/gener.m gff.m | m4 -DGEN_OPTIONS=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv,blas,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,vdw,sysmo,dl-find,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gff.f
+pgf90 -c -i8 -tp=k8-64 -Mcache_align -O2  gff.f
+pgf90 -o ../bin/gamess -tp=k8-64 mains.o anala.o analb.o analc.o analf.o analg.o basis.o basis1.o basis2.o basis3.o dft.o input.o intega.o machscf.o  drv2e.o drv80.o integs.o scf.o server.o optim.o optef.o integb.o integb_nl.o integb_lib.o integc.o guess.o master.o  util1.o util2.o util3.o parallel.o  mass.o drv1e.o c.o     morokuma.o nbo.o    omit.o   vdwaals_corr.o inter_vdwaals.o sysmo.o gamess_hondo.o gethes.o gdiesel.o glue_uk_us.o gms_version.o mainci.o anald.o anale.o cphf.o derdrv.o drvmp.o inpci.o integd.o intege.o machci.o tran4.o index4.o util4.o util5.o util6.o util7.o util8.o sec1e.o sec2e.o mkmakw.o mpmakw.o umpe3a.o umpe3b.o check0a.o mp2a.o mp2b.o mp2c.o mp2d.o mp3.o secmp2.o tdaf.o model.o newmrd1.o newmrd2.o newmrd3.o newmrd4.o newmrd5.o newmrd6.o mcscfa.o mcscfb.o mcscfc.o mrdci1.o mrdci2.o mrdci3.o mrdci4.o mrdci5.o mrdci6.o mrdci7.o fullci.o direct.o casa.o casb.o ccsd.o dirrpa.o mclr.o nvccsd.o rpa.o rpagrad.o tsort.o tsortc.o  dircta.o dirctb.o dirctc.o dirctd.o gff.o   ../dft/libdft.a ../drf/libdrf.a  ./zora.o ../vb/libvb.a    ../dl-find/libdlf.a       /usr/pgi/linux86-64/6.1/lib/libacml.a ../linalg/liblinalg.a 
+/usr/bin/ld: cannot find /usr/pgi/linux86-64/6.1/lib/libacml.a: No such file or directory
+Makefile:578: recipe for target '../bin/gamess' failed
+make[1]: *** [../bin/gamess] Error 2
+make[1]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Makefile:4: recipe for target 'all' failed
+make: *** [all] Error 2

@@ -1,0 +1,26 @@
+
+Begin optimization report for: IDMAX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at idmax.f(43,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at idmax.f(43,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at idmax.f(43,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at idmax.f(32,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at idmax.f(32,10)
+<Remainder>
+LOOP END
+===========================================================================

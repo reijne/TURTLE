@@ -1,0 +1,26 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g - mrdci 4m/1r 
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci
+select
+singles 1
+conf
+0 1 2 3 4 5  13  17 18
+0 1 2 3 4 5  14  17 18
+0 1 2 3 4 5  13  17 19
+4 13 14 18 19  1 2 3 4 5 17
+enter
+EOF

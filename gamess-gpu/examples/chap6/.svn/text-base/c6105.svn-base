@@ -1,0 +1,50 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - tzvp basis - SCF + MRDCI on X1A1
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+mrdci direct
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+ - tzvp basis - SCF + MRDCI on 2B2
+mult 2 
+charge 1
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+mrdci direct
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co+ B1 state - SCF + MRDCI on 2B1 state
+mult 2 
+charge 1
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+mrdci direct
+swap
+7 8
+end
+enter
+EOF

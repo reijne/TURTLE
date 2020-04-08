@@ -1,0 +1,34 @@
+#
+# This is an extra section designed to be
+# appended to a copy of the GAMESS-UK/m4 Makefile
+# 
+# Use the configure script in ../config to generate the Makefile
+#
+FFLAGSV90 = $(FFLAGSV) `$(AGENTXDIR)/bin/agentx-config --fflags` -c $*.f90
+XMLOBJ = writexmli.o writexml.o readxml.o xml_modules.o known_basis.o
+XMLLIB = libxml.a
+
+$(XMLLIB):	$(XMLOBJ)
+		$(ARCHIVE) $(XMLLIB)  $(XMLOBJ) 
+		$(RANLIB) $(XMLLIB)
+clean:
+	touch x.mod x.c x.o x~ x.f \#x 
+	rm -f *.mod *.c *.o *.f *~ \#* mpif.h $(XMLLIB) 
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+xml_modules.o:	xml_modules.m
+	rm -f xml_modules.F xml_modules.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > xml_modules.f
+	echo "c       DO  NOT  HAND  EDIT  " >> xml_modules.f
+#--#endif#
+	cat  ../utilities/gener.m xml_modules.m | $(M4) $(M4OPTS)  >> xml_modules.f
+	$(FC) $(FFLAGSS) xml_modules.f
+#--#if protect-source#
+	chmod u-w xml_modules.f
+#--#endif#
+
+readxml.o:	xml_modules.o known_basis.o
+

@@ -1,0 +1,58 @@
+      character*80 dmpfil,rstfil
+      common/blkin /acorev(512),potnuc,dx,dy,dz,sout(510)
+      common/blkin1/evalue(maxorb),rocc(maxorb),etot,nbasis,newbas,
+     +              ncol,ivalue,ioccup,ispa
+      common/cntrol/iseca,isecb,maxr,maxr2,maxrs,maxr2s,maxit,ispc8,
+     +              eps,epsana,sytol,
+     +              iblkc,ned3,ned4,ned6,ned7,itech,ocanon,nbegin,
+     +              onospl,ono4,
+     +              epstab,oanal,oreduc,otrue,oexca,iwast(2),multip,
+     +              ointin,
+     +              ozint,oipos,orevrs,ostore,cshift,oinvrs,isecao,
+     +              nitst,iseccn,orpa,odirc,olsen,osafe,onewa,onoana,
+     +              ococo,nsplit,ootva,ootvsp,
+     +              tfac,maxro,maxito,onoad,onoad4,dsmall,oshift
+      common/craypk/mmmm(65),ibfcod(maxorb),itype(maxorb)
+      common/detcic/na,nb,isym,icf(32),npairs(8),nstra(8),nstrb(8),
+     +              intoff(8),nint1,nint2,nstraa,nstrbb,maxaa,maxbb,
+     +              maxrpl,maxpar
+      common/gjs   /nirri,multi(8,8),isymai(maxorb),isymmo(maxorb)
+      common/infoa /nat,ich,mul,num
+      common/insort/ned0,ibl124,ibl356,iblkgv,iblkaa,iblkwm(8)
+      common/intbuf/intpos,intfil,intmod
+      common/iter  /niter,neig,tim(4),leng(3),noff(3),shtim(10),
+     +              ierr,icvgd,
+     +              cotim(10),nitero
+      common/junk  /gin(511),ddiag(31)
+      common/junk2 /iii(340),jjj(340),kkk(340),lll(340)
+      common/lineax/nacnac,nconac,nconco,nvinco,nvinac,nbasq,nbatri,
+     +              nact2,nact3,nact4
+      common/mcblok/iblo7,ibdp,iblkr,ibzint,iblofi,iblofa,ibdiag,
+     +              ibloab,ibcan,
+     +              iblkpp,iblkw,iblku,ibco
+      common/mccore/intrel,lword,ltop,lmax,lmin
+      common/mcints/list(7),lpair(7),nbox(7),nbox0(7),nbox1(7),nbl(7)
+      common/multic/waste(40),iwaste(24),nba,ncore,nact,nlen,norbr,
+     +              nprim,
+     +              nvirt,nst,nfreez,ifreez(8),nprimp,nirr
+      common/posit /ipo((maxorb*(maxorb-1))/2),ipos(961),
+     +              ioff0(961),ioff1(961)
+      common/scrach/intspc,k0h,k0,k02,k025,kspace,lp,iblo4
+      common/syminf/mult(8,8),npoint(maxorb),kstart(8),nfin(8),nsymm(8),
+     +              nprm(8),mcore(8),mact(8),mvirt(8),ic1d,ne,
+     +              itypea(31),
+     +              ilifa(maxorb),jwaste(558)
+      common/symlok/ic2e(496),ic3e(496)
+      common/symsca/isss,isymr,maxrp3,nci1,n0int1,n0int2,n0int,
+     +              n1int1,n1int2,
+     +              n1int,intlen,norb,norb2,nci0,npar,npar2,
+     +              norbti,norbai,norbat,ntrans,nirs,nfock,nparam,nci,
+     +              lenrs
+      common/symvek/nev(8),lengci(8),npair(8),
+     +              norbs(8),intof0(8),intof1(8),
+     +              iorbti(8),iorbai(8),iorbat(8),iofcor(8),
+     +              iofact(8),iofvir(8),
+     +              ivioff(8),iofsd(8,8),kstra(8),kstrb(8)
+      common/table /dmpfil,rstfil,rlines
+      common/values/excmax,core,e0,val,fvisum,excave,const,trycor,
+     +              denomy(50)

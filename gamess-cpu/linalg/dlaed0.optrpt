@@ -1,0 +1,116 @@
+
+Begin optimization report for: DLAED0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed0.f(173,26)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlaed0.f(174,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 175 and  line 176
+   LOOP END
+
+   LOOP BEGIN at dlaed0.f(174,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed0.f(182,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 183 and  line 183
+LOOP END
+
+LOOP BEGIN at dlaed0.f(182,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(191,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 194 and  line 195
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at dlaed0.f(223,13)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(264,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(264,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed0.f(264,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed0.f(345,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed0.f(345,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaed0.f(234,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dlaed0.f(277,17)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlaed0.f(279,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed0.f(306,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed0.f(330,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed0.f(333,18) ]
+LOOP END
+
+LOOP BEGIN at dlaed0.f(337,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed0.f(340,18) ]
+LOOP END
+===========================================================================

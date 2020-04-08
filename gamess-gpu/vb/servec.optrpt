@@ -1,0 +1,1707 @@
+
+Begin optimization report for: SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(719,7) inlined into servec.f(539,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at servec.f(719,7) inlined into servec.f(539,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(719,7) inlined into servec.f(539,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(723,7) inlined into servec.f(539,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: DRIVER_SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1362,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1362,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1362,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1362,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1362,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1362,15)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1362,15)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1362,15)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1362,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1362,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1362,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1362,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1365,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1365,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1365,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1365,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1365,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1365,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1365,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1365,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1365,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1365,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1365,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1365,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1366,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1366,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1366,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1366,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1366,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1366,15)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1366,15)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1366,15)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1366,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1366,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1366,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1366,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1347,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1347,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1347,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1347,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1347,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1347,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1347,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1347,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1347,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1347,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1347,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1347,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1350,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1350,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1350,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1350,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1350,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1350,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1350,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1350,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1350,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1350,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1350,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1350,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(1331,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1333 and  line 1333
+LOOP END
+
+LOOP BEGIN at servec.f(1331,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(1272,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(1273,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(1273,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at servec.f(1273,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(1300,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(1301,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(1301,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1135,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1135,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1135,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1135,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1135,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 2157 and  line 2157
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1135,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1135,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1127,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1127,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1127,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1127,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1127,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1127,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1127,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1127,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1127,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1127,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1127,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1127,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1115,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1115,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1115,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1115,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1115,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1115,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1115,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1115,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1115,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1115,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1115,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1115,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1120,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1120,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1120,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1120,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1120,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1120,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1120,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1120,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1120,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1120,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1120,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1120,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(1091,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(1094,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(1098,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(1040,27)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(1040,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(1040,27)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(1046,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at servec.f(1046,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(1046,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(1052,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1054 and  line 1054
+LOOP END
+
+LOOP BEGIN at servec.f(2379,10) inlined into servec.f(1035,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2381 and  line 2381
+LOOP END
+
+LOOP BEGIN at servec.f(1014,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(1011,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(2893,7) inlined into servec.f(1017,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(1316,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at servec.f(969,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at servec.f(1348,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1349,12) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(1603,10) inlined into servec.f(1245,12)
+         remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+      LOOP END
+
+      LOOP BEGIN at servec.f(1228,7)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1222,15) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(1184,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1185,15) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(1156,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1157,12) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(2128,13) inlined into servec.f(988,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2129,15) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ATOMMO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(3081,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(3081,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(3090,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(3092,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(3092,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(3092,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(3095,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3096 and  line 3096
+   LOOP END
+
+   LOOP BEGIN at servec.f(3095,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at servec.f(3099,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3100 and  line 3101
+   LOOP END
+
+   LOOP BEGIN at servec.f(3099,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(3110,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(3111,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3113 and  line 3113
+   LOOP END
+
+   LOOP BEGIN at servec.f(3111,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(3119,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(3119,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(3136,13)
+   remark #15524: loop was not vectorized: search loop cannot be vectorized unless all memory references can be aligned vector load. 
+LOOP END
+
+LOOP BEGIN at servec.f(3141,1)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3142 and  line 3144
+LOOP END
+
+LOOP BEGIN at servec.f(3141,1)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(3085,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(3079,18) ]
+LOOP END
+
+LOOP BEGIN at servec.f(3150,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(3140,18) ]
+
+   LOOP BEGIN at servec.f(3148,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(3140,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: LOCMP..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2668,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(2668,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at servec.f(2668,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2684,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2686 and  line 2686
+LOOP END
+
+LOOP BEGIN at servec.f(2684,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2693,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2696 and  line 2696
+LOOP END
+
+LOOP BEGIN at servec.f(2708,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2744,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 2747 and  line 2753
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2677,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2678,15) ]
+LOOP END
+
+LOOP BEGIN at servec.f(2758,20)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at servec.f(2704,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CHECKS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2324,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 2326 and  line 2326
+LOOP END
+
+LOOP BEGIN at servec.f(2324,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2339,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(2342,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 2344 and  line 2345
+   LOOP END
+
+   LOOP BEGIN at servec.f(2342,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2379,10) inlined into servec.f(2368,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2381 and  line 2381
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMH_SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2523,13) inlined into servec.f(2420,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2546,7) inlined into servec.f(2420,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2420,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2420,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2420,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2448,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(2448,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2477,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2479,13)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2479,13)
+      <Distributed chunk1>
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2479,13)
+      <Remainder, Distributed chunk1>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2479,13)
+   <Distributed chunk2>
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2481,16)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 2484 and  line 2484
+      LOOP END
+
+      LOOP BEGIN at servec.f(2481,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(2497,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2497,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2497,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2497,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2497,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2497,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(2497,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2497,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2497,12)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2497,12)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2497,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2497,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2497,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2497,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2497,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2517,10) inlined into servec.f(2420,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at servec.f(2453,11)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at servec.f(2445,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at servec.f(2465,19)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMMETR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2222,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(2223,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2223 and  line 2223
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(2248,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2248,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2248,15)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2248,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2248,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2149,10) inlined into servec.f(2248,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(2248,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2248,15)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2248,15)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at servec.f(2156,10) inlined into servec.f(2248,15)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2248,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2248,15)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2248,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2248,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2167,10) inlined into servec.f(2248,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2250,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(2250,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2207,13)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at servec.f(2210,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2211,15) ]
+
+   LOOP BEGIN at servec.f(2212,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2213,18) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2233,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2235,15) ]
+
+   LOOP BEGIN at servec.f(2237,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at servec.f(2238,16)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+         LOOP BEGIN at servec.f(2271,10) inlined into servec.f(2239,20)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+            LOOP BEGIN at servec.f(2274,18) inlined into servec.f(2239,20)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+
+            LOOP BEGIN at servec.f(2284,18) inlined into servec.f(2239,20)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: EXTRA_SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2141,10) inlined into servec.f(1762,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1762,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2149,10) inlined into servec.f(1762,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7) inlined into servec.f(1762,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10) inlined into servec.f(1762,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 2157 and  line 2157
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1762,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10) inlined into servec.f(1762,12)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMBIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(1930,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at servec.f(1930,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(1930,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at servec.f(1930,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(1994,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(1997,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1997 and  line 1997
+   LOOP END
+
+   LOOP BEGIN at servec.f(1998,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1998 and  line 1998
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2008,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(2008,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2077,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(2077,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2062,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at servec.f(2062,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2087,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(2090,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2090 and  line 2090
+   LOOP END
+
+   LOOP BEGIN at servec.f(2091,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2091 and  line 2091
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(1912,11)
+   remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+LOOP END
+
+LOOP BEGIN at servec.f(1978,9)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1937,16) ]
+
+   LOOP BEGIN at servec.f(1978,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1979,43) ]
+   LOOP END
+
+   LOOP BEGIN at servec.f(1968,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(1969,43) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2065,9)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2019,16) ]
+
+   LOOP BEGIN at servec.f(2065,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2066,42) ]
+   LOOP END
+
+   LOOP BEGIN at servec.f(2050,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2051,42) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FORM_SERVEC..0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2612,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: FORM_SERVEC..1
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2612,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: SERVEC_GAMESS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(719,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at servec.f(719,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at servec.f(719,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(723,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: LOCMP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2668,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at servec.f(2668,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at servec.f(2668,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at servec.f(2684,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2686 and  line 2686
+LOOP END
+
+LOOP BEGIN at servec.f(2684,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at servec.f(2693,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2696 and  line 2696
+LOOP END
+
+LOOP BEGIN at servec.f(2708,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2744,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 2747 and  line 2753
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2713,19)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2721,25) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+         remark #15410: vectorization support: conversion from int to float will be emulated   [ servec.f(2723,25) ]
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+
+      LOOP BEGIN at servec.f(2716,22)
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2677,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2678,15) ]
+LOOP END
+
+LOOP BEGIN at servec.f(2758,20)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at servec.f(2704,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SMAXD
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(1603,10)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: CHANGE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2141,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2149,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2149,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2149,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2154,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at servec.f(2156,10)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 2157 and  line 2157
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2167,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRTRS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2379,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2381 and  line 2381
+LOOP END
+===========================================================================
+
+Begin optimization report for: INI_CTRANS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2893,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: FORM_SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2612,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: RDVCIN
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2128,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ servec.f(2129,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ICOMPS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2271,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at servec.f(2274,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at servec.f(2284,18)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMDIV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2523,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2546,7) inlined into servec.f(2526,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2526,18)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2526,18)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at servec.f(2548,10) inlined into servec.f(2526,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at servec.f(2517,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: COMSYM_SERVEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at servec.f(2548,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at servec.f(2548,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at servec.f(2548,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at servec.f(2548,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

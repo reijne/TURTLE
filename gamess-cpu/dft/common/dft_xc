@@ -1,0 +1,9 @@
+c
+c  exchange/correlation integration parameters
+c  see interface/options_api for definition
+c  see exquad for use
+c
+	REAL  dentol, rhotol, wghtol
+	logical screen_sw
+	common/xc_parms/dentol(max_grids), rhotol(max_grids), 
+     &                  wghtol(max_grids), screen_sw

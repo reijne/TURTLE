@@ -1,0 +1,18 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE\CAH2 .. 3-21G - CI(1M)  energy  -674.5311808
+ZMAT ANGS\CA\X 1 1.0\ H 1 CAH 2 90.0\H 1 CAH 2 90.0 3 THETA
+VARIABLES\CAH 2.148 \THETA 180.0 \END
+BASIS 3-21G
+RUNTYPE CI
+CORE
+1 TO 9 END
+ACTIVE
+10 TO 21 END
+DIRECT 4 2 10
+CONF
+2 2
+ENTER
+EOF

@@ -1,0 +1,15 @@
+cd to gamess directory
+type: ./configure
+
+and select the compiler options (I usually make the parallel, large version with i8; I used the following options:
+pgi parallel ga mpi ci dl-find vdw masscf mpiwrap i8 vb zora large))
+
+then type make; that should work
+
+2 bottlenecks in the code:
+
+1) in vbmatre.m, in the routine matre3, subroutine gwmix
+(a profiler would probably point to the function intpos, which calculates integral addresses)
+The original code in gamess-cpu uses the routine gmix, I rewrote gwmix to port it to the GPU
+
+2) 4-index transformation in vbtran.m (but this is not the main bottleneck)

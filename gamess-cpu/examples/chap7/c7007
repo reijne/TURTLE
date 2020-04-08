@@ -1,0 +1,107 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title                                                             
+nh2cho = DZ basis = Closed Shell SCF
+super off nosym
+zmatrix angstrom
+n
+h 1 1.002
+h 1 1.002 2 121.5
+c 1 1.352 2 118.5 3 180.0
+h 4 1.098 1 112.7 3 0.0
+o 4 1.219 1 124.7 3 180.0
+end
+basis dz
+enter
+EOF
+../../bin/gamess << EOF
+restart
+punch grid 150 151 152 153 
+punch coor conn
+title                                                             
+nh2cho = DZ basis = Closed Shell SCF
+super off nosym
+zmatrix angstrom
+n
+h 1 1.002
+h 1 1.002 2 121.5
+c 1 1.352 2 118.5 3 180.0
+h 4 1.098 1 112.7 3 0.0
+o 4 1.219 1 124.7 3 180.0
+end
+basis dz
+runtype analyze
+graphics
+gdef
+title
+formamide - mo 1
+type 2d
+orig 0.0 0.0 1.0
+x    1.0 0.0 0.0
+y    0.0 1.0 0.0
+points 75
+size 10.0 10.0
+calc
+type dens
+occdef
+  2.0 1
+end
+section 150
+title
+formamide 1
+gdef
+title
+formamide - mo 2
+type 2d
+orig 0.0 0.0 1.0
+x    1.0 0.0 0.0
+y    0.0 1.0 0.0
+points 75
+size 10.0 10.0
+calc
+type dens
+occdef
+  2.0 2
+end
+section 151
+title
+formamide 2
+gdef
+title
+formamide - mo 3
+type 2d
+orig 0.0 0.0 1.0
+x    1.0 0.0 0.0
+y    0.0 1.0 0.0
+points 75
+size 10.0 10.0 
+calc
+type dens
+occdef
+  2.0 3
+end
+section 152
+title
+formamide 3
+gdef
+title
+formamide - mo 4
+type 2d
+orig 0.0 0.0 1.0
+x    1.0 0.0 0.0
+y    0.0 1.0 0.0
+points 75
+size 10.0 10.0
+calc
+type dens
+occdef
+  2.0 4
+end
+section 153
+title
+formamide 4
+vectors 1
+enter
+EOF

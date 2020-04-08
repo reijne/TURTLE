@@ -1,0 +1,41 @@
+
+Begin optimization report for: TIME_REPORT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_time_d.F90(167,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_time_d.F90(168,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_time_d.F90(169,6)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 177 and  line 177
+LOOP END
+
+LOOP BEGIN at dlf_time_d.F90(193,6)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+===========================================================================
+
+Begin optimization report for: TIME_INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_time_d.F90(140,3)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_time_d.F90(141,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_time_d.F90(142,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================

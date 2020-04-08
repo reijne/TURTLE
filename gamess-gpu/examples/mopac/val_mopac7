@@ -1,0 +1,29 @@
+#!/bin/csh
+#
+# validation for mopac7
+#
+setenv GAMESS_VTAB ./mopac7.vtab
+set path=(../../utilities $path)
+validate mopac_1  LOG/mopac_1.log
+validate mopac_2  LOG/mopac_2.log
+validate mopac_3  LOG/mopac_3.log
+validate mopac_4  LOG/mopac_4.log
+validate mopac_5  LOG/mopac_5.log
+validate ph3      LOG/ph3.log
+validate test     LOG/test.log
+validate cosmo    LOG/cosmo.log
+validate ef_1     LOG/ef_1.log
+validate ef_2     LOG/ef_2.log
+validate ef_3     LOG/ef_3.log
+validate ef_4     LOG/ef_4.log
+validate ef_5     LOG/ef_5.log
+validate greenf   LOG/greenf.log
+validate polar    LOG/polar.log
+validate pmep1    LOG/pmep1.log
+validate pmep2    LOG/pmep2.log
+validate pmep3    LOG/pmep3.log
+validate pmep4    LOG/pmep4.log
+validate pmep5    LOG/pmep5.log
+#
+date
+/bin/rm gamess_i* archive*

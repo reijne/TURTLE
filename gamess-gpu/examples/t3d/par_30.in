@@ -1,0 +1,27 @@
+core 1
+title
+h2co - tzvp + r(sp) basis - direct-rpa excitation energies
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+s o
+1.0 0.02
+p o
+1.0 0.02
+end
+scftype direct
+runtype response rpa direct
+tda
+symm 1 1 to 5
+symm 2 1 to 5
+symm 3 1 to 5
+symm 4 1 to 5
+analyse
+enter  1 

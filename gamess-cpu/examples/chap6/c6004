@@ -1,0 +1,22 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+TITLE\N2 .. 3-21G extrapolated energy -108.4984623
+SUPER OFF NOSYM
+ZMAT ANGS\N\N 1 NN
+VARIABLES\NN 1.05 \END
+BASIS 3-21G
+RUNTYPE CI
+MRDCI
+TRAN CORE
+1 0 0 1 0 0 
+1  1 
+SELECT 
+SINGLES 1
+CONF
+0 1 2 5 7  9
+NATORB IPRIN
+ENTER
+EOF

@@ -1,0 +1,16 @@
+c
+c ax bx cx: limits of the bracket
+c fa fb fc: energies at ax bx cx
+c bta: exponets ratio
+c nexp: number of even tempered expanded exponents
+c outexp: outermost core exponent
+c juniq:  number of symmetry unique atoms
+c tnprim: number of primitives per atom
+c
+       REAL tod_ax,tod_bx,tod_cx,tod_fa,tod_fb,tod_fc,tod_bta
+       integer nexp,outexp,ipoint,juniq,tnprim
+       logical plusmin,optbas
+       common/coptbas/tod_ax,tod_bx,tod_cx,tod_fa,tod_fb,
+     +              tod_fc,tod_bta,plusmin
+     +              ,ipoint,optbas,nexp,outexp,juniq,tnprim
+c

@@ -1,0 +1,46 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co+ - 2b2 - 3-21g - UHF 
+charge 1
+mult 2
+super off
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+scftype uhf
+enter 
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co+ 2B2 MP2/UHF geom opt
+charge 1
+mult 2
+bypass
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype optimize
+xtol 0.0001
+scftype mp2
+thresh 7
+enter
+EOF

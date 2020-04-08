@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+ 4 classical waters in dielectric - spherical surface, angs
+geom au
+  0.0              0.0           0.0  0.0  BQ
+end
+basis
+s bq
+1.0 1.0
+end
+maxcyc 0
+react
+ field stat pert reac pert
+ drfout some
+ units angstrom
+ grouping on 2 3
+ dstgrp 1.5875313
+ external
+o   w1gr1_o1  -0.796       1.8306236        2.377272     0.0                 
+h   w1gr1_h11  0.398       1.8306236        2.9610073   +0.7580462    
+h   w1gr1_h12  0.398       1.8306236        2.9610073   -0.7580462    
+o   w2gr2_o2  -0.796       1.8306236       -2.377272     0.0                 
+h   w2gr2_h21  0.398       1.8306236       -2.9610073   +0.7580462     
+h   w2gr2_h22  0.398       1.8306236       -2.9610073   -0.7580462     
+o   w3gr3_o3  -0.796      -2.377272         0.0         -1.8306236     
+h   w3gr3_h31  0.398      -1.6192258        0.0         -1.2468884     
+h   w3gr3_h32  0.398      -3.1353182        0.0         -1.2468884     
+o   w4gr4_o4  -0.796      -2.377272         0.0          1.8306236     
+h   w4gr4_h41  0.398      -1.6192258        0.0          1.2468884     
+h   w4gr4_h42  0.398      -2.0066089        0.0          2.7126571     
+ end
+ dielectric
+  surface sphere
+  sradius 7.9376565
+  solvent water
+ end
+end
+enter 1
+EOF

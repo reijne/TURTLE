@@ -1,0 +1,41 @@
+title
+cr(co)6 LANL Eopt = -136.6729679562 au
+zmat angstrom
+cr
+c1 1 crc
+c1 1 crc 2 90.0
+c 1 crc 2 90.0 3 90.0
+c 1 crc 2 90.0 3 180.0
+c 1 crc 2 90.0 3 -90.0
+c 1 crc 3 90.0 2 180.0
+x 2 1.0 1 90.0 3 0.0
+o 2 co 8 90.0 1 180.0
+x 3 1.0 1 90.0 2 0.0
+o 3 co 10 90.0 1 180.0
+x 4 1.0 1 90.0 2 0.0
+o 4 co 12 90.0 1 180.0
+x 5 1.0 1 90.0 2 0.0
+o 5 co 14 90.0 1 180.0
+x 6 1.0 1 90.0 2 0.0
+o 6 co 16 90.0 1 180.0
+x 7 1.0 1 90.0 3 0.0
+o 7 co 18 90.0 1 180.0
+variables
+crc    1.9753371 hess     .561520
+co     1.1417194 hess    7.957561
+end
+basis ecp lanl
+pseudo
+cr lanl cr
+o lanl o
+c lanl c c1
+runtype optimize
+scftype direct
+level 3.0 15 2.0
+xtol 0.001
+enter
+runtype hessian
+scftype direct
+level 3.0 15 2.0
+xtol 0.001
+enter

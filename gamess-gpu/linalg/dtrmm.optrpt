@@ -1,0 +1,262 @@
+
+Begin optimization report for: DTRMM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dtrmm.f(190,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(191,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(191,18)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(191,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(206,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(207,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(210,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(210,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(210,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(210,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(219,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(220,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(225,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(225,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(225,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(225,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(237,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(238,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(241,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(241,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(241,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(241,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(248,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(249,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(252,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(252,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(252,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(252,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(266,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(269,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(269,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(269,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(272,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(275,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(275,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(275,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(275,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(282,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(285,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(285,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(285,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(288,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(291,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(291,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(291,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(291,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(303,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(304,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(307,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(307,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(307,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(307,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(315,30)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(315,30)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(315,30)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrmm.f(321,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrmm.f(322,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dtrmm.f(325,34)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(325,34)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(325,34)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dtrmm.f(325,34)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(333,30)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(333,30)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrmm.f(333,30)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

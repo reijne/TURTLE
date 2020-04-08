@@ -1,0 +1,36 @@
+
+Interim instructions for testing GAMESS-UK using the new QA system
+==================================================================
+
+0. Please note
+
+This QA system is still under development and you should not
+expect it to work smoothly at this point.
+
+1. Populating this directory
+
+If you install a copy of the GAMESS-UK_misc directory in the
+same directory as GAMESS-UK you can run the script populate.sh
+in this directory. Only the QA subdirectory of GAMESS-UK_misc
+is needed so you can check this out most efficiently using
+
+cvs co GAMESS-UK_misc/QA
+
+2. Determine which directories are to be used for this platform.
+
+You can create the file testdirs.txt manually but the usual
+procedure will be to issue 
+
+make qa
+
+in the GAMESS-UK/m4 directory
+This will create a file testdirs.txt (from testdirs.txt.in) in
+this directory, and this will contain a list of subdirectories
+required to test the current build.
+
+3. Finally, you need to choose which execution command you 
+are going to use.  If rungamess is working you should not need
+to change this, if not, edit the qa script to say how you want
+the individual jobs to be executed on the current platform. 
+Some examples are present in the scripts directory.
+

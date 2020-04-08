@@ -1,0 +1,41 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+file ed2 mfged2
+file ed3 mfged3
+title
+h2co - 3-21g  closed shell scf  -  suppress skeletonisation
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter 1
+EOF
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+file ed2 mfged2
+file ed3 mfged3
+restart
+title
+h2co  - casscf   - 3-21g basis - (10e in 9 m.o.)
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype mcscf
+thresh 4
+mcscf
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+print orbitals virtuals natorb
+canonical 6 fock density fock
+vectors 1
+enter 2 3
+EOF

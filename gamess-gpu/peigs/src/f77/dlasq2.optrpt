@@ -1,0 +1,120 @@
+
+Begin optimization report for: DLASQ2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlasq2.F(175,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(175,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(175,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(201,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between z line 203 and z line 205
+LOOP END
+
+LOOP BEGIN at dlasq2.F(201,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(212,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(212,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(233,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between d line 234 and d line 236
+LOOP END
+
+LOOP BEGIN at dlasq2.F(233,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(246,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between z line 248 and z line 258
+LOOP END
+
+LOOP BEGIN at dlasq2.F(273,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(273,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(273,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(313,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq2.F(361,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between qmax line 366 and qmax line 370
+LOOP END
+
+LOOP BEGIN at dlasq2.F(401,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(401,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(401,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(410,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq2.F(410,10)
+   remark #15301: REVERSED LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(410,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq2.F(410,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlasq2.F(161,20)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlasq2.F(226,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dlasq2.F(286,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlasq2.F(341,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================

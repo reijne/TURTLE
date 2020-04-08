@@ -1,0 +1,39 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+li4
+super off nosym
+geom au
+  0.0000000   0.0000000   5.4400000 3. li
+  0.0000000   0.0000000  -5.4400000 3. li
+  0.0000000   2.5300000   0.0000000 3. li
+  0.0000000  -2.5300000   0.0000000 3. li
+end
+basis 6-31g*
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+li4 (originall BF 94-3)
+super off nosym
+bypass 
+geom au
+  0.0000000   0.0000000   5.4400000 3. li
+  0.0000000   0.0000000  -5.4400000 3. li
+  0.0000000   2.5300000   0.0000000 3. li
+  0.0000000  -2.5300000   0.0000000 3. li
+end
+basis 6-31g*
+runtype scf 
+scft mcscf
+mcscf
+orbital
+fzc1 fzc3 fzc1 fzc5 doc1 doc5 uoc3 uoc1 uoc2 uoc7
+uoc5 uoc1 uoc6 uoc4
+end
+enter
+EOF

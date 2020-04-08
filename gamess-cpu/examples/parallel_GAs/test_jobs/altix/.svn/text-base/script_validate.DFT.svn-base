@@ -1,0 +1,43 @@
+#!/bin/bash
+#BSUB -n 32
+#BSUB -W 180
+#BSUB -o validate_DFT.o%J
+#BSUB -e validate_DFT.e%J
+#BSUB -J validate_DFT
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix 
+
+rm -rf /santmp/dlwab/validate
+mkdir /santmp/dlwab/validate
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/validate
+
+cp ../../input_files/DFT.morphine.6-31G-dp.in /santmp/dlwab/validate
+cp ../../input_files/DFT.morphine.6-31G-dp_harmonic.in /santmp/dlwab/validate
+cp ../../input_files/DFT.morphine.A2.DZVP.in /santmp/dlwab/validate
+cp ../../input_files/UKS.pyridine.in /santmp/dlwab/validate
+cp ../../input_files/DFT.siosi4.617.in /santmp/dlwab/validate
+cp ../../input_files/DFT.siosi5.1199.in /santmp/dlwab/validate
+cp ../../input_files/DFT.cyclo.6-31G.in /santmp/dlwab/validate
+cp ../../input_files/DFT_jfit.morphine.A2.in /santmp/dlwab/validate
+cp ../../input_files/DFT_jfitA.siosi5.1199.in /santmp/dlwab/validate
+cp ../../input_files/DFT_opt.exti4a1.3-21G.in /santmp/dlwab/validate
+ 
+cd /santmp/dlwab/validate
+
+pam -mpi -auto_place ./gamess-uk < DFT.morphine.6-31G-dp.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.morphine.6-31G-dp.out
+pam -mpi -auto_place ./gamess-uk < DFT.morphine.6-31G-dp_harmonic.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.morphine.6-31G-dp_harmonic.out
+pam -mpi -auto_place ./gamess-uk < DFT.morphine.A2.DZVP.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.morphine.A2.DZVP.out
+pam -mpi -auto_place ./gamess-uk < UKS.pyridine.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/UKS.pyridine.out
+pam -mpi -auto_place ./gamess-uk < DFT.siosi4.617.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.siosi4.617.out
+pam -mpi -auto_place ./gamess-uk < DFT.siosi5.1199.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.siosi5.1199.out
+pam -mpi -auto_place ./gamess-uk < DFT.cyclo.6-31G.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.cyclo.6-31G.out
+pam -mpi -auto_place ./gamess-uk < DFT_jfit.morphine.A2.in   > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT_jfit.morphine.A2.out
+pam -mpi -auto_place ./gamess-uk < DFT_jfitA.siosi5.1199.in  > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT_jfitA.siosi5.1199.out
+pam -mpi -auto_place ./gamess-uk < DFT_opt.exti4a1.3-21G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT_opt.exti4a1.3-21G.out
+

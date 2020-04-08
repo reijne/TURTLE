@@ -1,0 +1,82 @@
+title
+2 fluoro furan cartesian 6-311G++(2p/2d) - Energy = -327.570920847459 au
+zmat angstrom
+O
+X 1 ROX
+C 2 RCX 1 ACX
+- 2 1.0 3 90. 1 180.
+C 2 RCX 4 90. 3 180.
+C 3 RC1 2 AC1 1 0.
+C 5 RC2 2 AC2 1 0.
+F 3 RCF 6 ACF 1 180.
+H 5 RH1 7 AH1 1 180.
+H 6 RH2 3 AH2 1 180.
+H 7 RH3 5 AH3 1 180.
+variables
+rox            2.0771272 hessian     .674124
+rcx             .7153414 hessian    2.998334
+rc1            1.3346115 hessian     .850303
+rc2            1.3411424 hessian     .781951
+rcf            1.3195571 hessian     .481128
+rh1            1.0691746 hessian     .371951
+rh2            1.0663115 hessian     .377282
+rh3            1.0680712 hessian     .378115
+acx           88.6448078 hessian   12.994055
+ac1          108.1533593 hessian    4.209048
+ac2          104.0476577 hessian    3.919021
+acf          126.7116859 hessian     .328618
+ah1          128.2376307 hessian     .240712
+ah2          133.6750022 hessian     .297897
+ah3          132.4084624 hessian     .310148
+end
+basis 
+tzv c 6-311g
+l c
+1.0 0.0438 1.0
+d c
+1.0 1.252
+d c
+1.0 0.313
+tzv f 6-311g
+l f
+1.0 0.1076 1.0
+d f
+1.0 3.5
+d f 
+1.0 0.875
+tzv o 6-311g
+l o
+1.0 0.0845 1.0
+d o
+1.0 2.584
+d o
+1.0 0.646
+tzv h 6-311g
+s h
+1.0 0.0360
+p h
+1.0 1.50
+p h
+1.0 0.375
+end
+runtype optimize
+scftype direct
+newscf
+print full
+Phase  1
+Level  1.000000000000000000
+DIIS
+#  Switch to phase  2
+next  2
+Tester below  0.015
+Phase  2
+Level  0.000000000000000000E+00
+DIIS
+#  Converge calculation
+next  0
+Tester below  1.0e-7
+maxcyc 50
+end
+stepmax 0.1
+xtol 0.005
+enter

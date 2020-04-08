@@ -1,0 +1,54 @@
+#!/bin/csh
+#
+#BSUB -n 64
+#BSUB -W 240
+#BSUB -o validate-DFT.o%J
+#BSUB -e validate-DFT.o%J
+#BSUB -J validate-DFT
+#
+
+set origin=$cwd/LOGS
+set scratch=$TMPDIR/tmp$$
+
+rm -rf $scratch
+mkdir $scratch
+mkdir $origin 
+ 
+cp ../../../../bin/gamess-uk $scratch
+
+cp ../../input_files/DFT.morphine.6-31G-dp.in $scratch
+cp ../../input_files/DFT.morphine.6-31G-dp_harmonic.in $scratch
+cp ../../input_files/DFT.morphine.A2.DZVP.in $scratch
+cp ../../input_files/UKS.pyridine.in $scratch
+cp ../../input_files/DFT.siosi4.617.in $scratch
+cp ../../input_files/DFT.siosi5.1199.in $scratch
+cp ../../input_files/DFT.cyclo.6-31G.in $scratch
+cp ../../input_files/DFT_jfit.morphine.A2.in $scratch
+cp ../../input_files/DFT_jfitA.siosi5.1199.in $scratch
+cp ../../input_files/DFT_opt.exti4a1.3-21G.in $scratch
+ 
+cd $scratch
+
+mpirun -np 64 gamess-uk < DFT.morphine.6-31G-dp.in > $origin/DFT.morphine.6-31G-dp.out
+
+mpirun -np 64 gamess-uk < DFT.morphine.6-31G-dp_harmonic.in > $origin/DFT.morphine.6-31G-dp_harmonic.out
+
+mpirun -np 64 gamess-uk < DFT.morphine.A2.DZVP.in > $origin/DFT.morphine.A2.DZVP.out
+
+mpirun -np 64 gamess-uk < UKS.pyridine.in > $origin/UKS.pyridine.out
+
+mpirun -np 64 gamess-uk < DFT.siosi4.617.in > $origin/DFT.siosi4.617.out
+
+mpirun -np 64 gamess-uk < DFT.siosi5.1199.in > $origin/DFT.siosi5.1199.out
+
+mpirun -np 64 gamess-uk < DFT.cyclo.6-31G.in > $origin/DFT.cyclo.6-31G.out
+
+mpirun -np 64 gamess-uk < DFT_jfit.morphine.A2.in > $origin/DFT_jfit.morphine.A2.out
+
+mpirun -np 64 gamess-uk < DFT_jfitA.siosi5.1199.in > $origin/DFT_jfitA.siosi5.1199.out
+
+mpirun -np 64 gamess-uk < DFT_opt.exti4a1.3-21G.in > $origin/DFT_opt.exti4a1.3-21G.out
+
+cd $origin 
+rm -rf $scratch
+

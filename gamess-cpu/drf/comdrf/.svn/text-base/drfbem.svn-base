@@ -1,0 +1,18 @@
+c
+      integer itwoeps,ioponly,itwosur,ixnsurf,ibemout,iuniout
+      common /drfbem1/ itwoeps,ioponly,itwosur,ixnsurf,ibemout,iuniout
+c
+      integer leveli, levelo, nbem1, nbem2, nraw
+      common /drfbem2/ leveli,levelo,nbem1,nbem2,nraw
+c
+      character*32 solnam
+      REAL radmax, eps1, eps2, spherad, rprobe, rprobej
+      REAL solrad, swidth, sdist
+      REAL kappa
+      REAL kappa1, kappa2, kappas
+      common /drfbem3/ radmax,eps1,eps2,kappa1,kappa2,spherad,rprobe,
+     +                 rprobej,solnam,solrad,swidth,sdist
+c
+      REAL radat, cgrav
+      common /drfbem4/ radat(maxat),cgrav(3)
+c

@@ -1,0 +1,375 @@
+
+Begin optimization report for: CGEMM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at cgemm.f(212,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(213,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(213,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(213,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(218,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(219,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(219,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(219,22)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(219,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(234,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(236,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(236,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(236,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(240,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(240,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(240,26)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(240,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(244,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(247,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(247,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(247,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(247,30)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(247,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(257,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(258,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(260,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(260,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(260,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(260,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(260,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(274,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(275,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(277,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(277,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(277,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(277,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(277,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(293,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(295,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(295,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(295,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(299,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(299,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(299,26)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(299,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(303,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(306,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(306,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(306,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(306,30)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(306,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(316,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(318,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(318,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(318,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(322,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(322,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(322,26)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(322,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at cgemm.f(326,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(329,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(329,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(329,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(329,30)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(329,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(341,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(342,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(344,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(344,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(344,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(344,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(358,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(359,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(361,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(361,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(361,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(361,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(377,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(378,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(380,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(380,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(380,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(380,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at cgemm.f(394,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at cgemm.f(395,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at cgemm.f(397,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(397,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(397,26)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at cgemm.f(397,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

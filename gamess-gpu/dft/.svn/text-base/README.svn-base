@@ -1,0 +1,175 @@
+
+          CCP1 DFT code - developmental version
+
+
+1) Introduction
+===============
+
+This directory contains the source code and example input files
+the CCP1 DFT project, as interfaced to GAMESS-UK.
+
+
+2) User Documentation
+=====================
+
+The code is run by preparing a standard GAMESS-UK input deck, 
+additional control directives beginning with the keyword `cdft'.
+
+The following is a summary of the possible options.
+
+cdft
+
+  by itself (or with any of the following sub keywords) requests use of
+  the ccpdft module. Available only for RHF, direct or conventional
+  (rhfclm) SCF drivers.
+
+cdft gauss ntheta
+
+Select a Gauss-Legendre angular grid. ntheta is the number of theta
+points requested. The total number of angular points per radial shell
+is then ntheta*(ntheta*2)
+
+cdft lebedev nang
+
+  Select a Lebedev angular grid. nang is the number of angular points
+  selected from 6,18,26,38,50,110,146,194,264,302,434.
+
+cdft euler nrad
+   
+  Use nrad radial points per atom.
+
+
+cdft jbas [ gamess | nwchem ]
+....
+end
+
+  Enter fitting basis, nwchem or gamess-uk format. gamess is default.
+
+cdft 4c2e  
+
+  Request coulomb evaluation using 2e integrals
+
+cdft hfex
+
+  Request HF exchange instead of LDA
+
+cdft lyp
+
+  Request Lee-Yang-Parr correlation functional (default is VWN)
+
+cdft b3lyp
+
+  Request B3-LYP, (implemented as in nwchem)
+
+cdft mix p1 p2 p3 p4 p5 p6  ...
+
+  Request mixed functional. check meaning of parameters in 
+  ccpdft.f77/interface/options_api.f routine CD_mix.
+  At time of writing they are wghts for 
+        HFex, Slater, VWN, VWNRPA, LYP, Becke88
+  Becke88 here, and in b3lyp, excludes LDA part.
+
+cdft nocorr 
+
+  Request omission of correlation functional
+
+cdft weight [ ssf ssfscr becke ]
+
+  Choose weighting scheme. 
+  becke   Modified Becke 
+  ssf     Stratmann/Scuseria/Frisch from CPL v257 p213 (1996),
+          including all atoms
+  ssfscr  as above, but including only close atoms (defined using psi test
+          below, if any function on the atom is significant at the nearest
+          point on the current quadrature shell the atom is neighbour).
+          This cannot be used unless screening is enabled.
+
+cdft screen  [ psi psitol ] [ p dentol] [rho rhotol ]
+
+  Switches on screening in XC integration
+  psitol - determines whether a basis function is significant
+           used in setup of atomic grids, determination of grid
+           weights and computation of basis values at points
+  dentol - determines if a density matrix element is significant
+           when constructing density, gradient, hessian etc
+  rhotol - is the total density value at a point large enough to 
+           justify computing XC energy and KS matrix elements
+
+  NB - screening is not yet exploited in the XC gradient code
+
+cdft abort
+
+    Stop after the first DFT energy/KS-matrix evaluation
+    this also suppresses any 2-e integral exchange or correlation terms
+
+
+3) Nature of coupling between ccpdft and GAMESS-UK.
+===============================================
+
+Host code capabilities
+
+1) There are calls to ccpdft from the following stages of GAMESS-UK
+  a) input directive processing
+  b) system setup
+  c) SCF (to get contributions to Fock matrix)
+  d) fock matrix build (to provide control data)
+  e) gradient driver
+  f) 2-e derivative integral evaluation (to provide control data)
+
+2) CCPDFT makes calls to GAMESS-UK routines to provide
+  a) to dynamically allocate memory for use in DFT terms
+  b) to store timing information within GAMESS-UK's internal tables
+
+3) CCPDFT references common blocks from GAMESS-UK 
+    !!!! some work to do here !!!!
+
+4) API Definitions
+==================
+
+see the top part of interface.m for the current version of these
+notes.
+
+
+5) Descriptions of Approximations
+=================================
+
+Quadrature
+
+becke weight calculation 
+    screening of atoms included
+
+basis function calculation
+    elimination of shells based on radial factors
+
+density calculation
+    check of density matrix elements
+
+
+TO DO 
+=====
+
+lebe_sw, sg1_sw, are separate switches . but sg1 implies lebedev grids
+  resolve?
+
+Setup routines to be moved out of SCF to start of code
+
+Print control to be passed into dft_control
+
+Add some standard grid choices.
+
+compute/Add missing radii for heavier elements
+
+bas_val - fix memory allocation for hardwired arrays (500)
+
+remove gamess commons from integ_ routines
+
+find a way of passing time info back to gamess without using 
+  include files
+
+point  batch  size should be controlable to allow optimisatio
+  and to save memory
+
+sort out dependency on correct SCF driver (rhfclm, drhfcl)
+  - flag error when entering rhfcld
+
+Open Shell options

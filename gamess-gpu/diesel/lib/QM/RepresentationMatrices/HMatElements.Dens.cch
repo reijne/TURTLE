@@ -1,0 +1,157 @@
+#include "HMatElements.h"
+
+#include <stdlib.h>
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::Dens(
+	const CIVectors<VectorType> * CIy, const CIVectors<VectorType> * CIx,
+	INT SAFStartA, INT SAFStartB,
+	const DiffConf<MOType> & diffConf,
+	const TableCase<MOType> & tc,
+	VectorType **densMat) const
+{
+INT	iys = 0;
+INT	iye = 0;
+const CIVectors<VectorType> * _CIy;
+	if ( CIy )
+	{
+		iys = 0;
+		iye = CIy->getN();
+		_CIy = CIy;
+	}
+	else
+		_CIy = CIx;
+
+	switch ( this->P ) {
+	case 1:
+		break;
+		
+	case 3:
+	{
+	MOType	mo1, mo2;
+		if ( tc.getdK()>0 )
+		{
+			if ( tc.getR()==1 )
+			{
+				mo1 = diffConf.getTo().getOpenShell(0);
+				mo2 = diffConf.getTo().getOpenShell(1);
+			}
+			else
+			{
+				mo1 = diffConf.getTo().getOpenShell(1),
+				mo2 = diffConf.getTo().getOpenShell(0);
+			}
+		}
+		else
+		if ( tc.getdK()<0 )
+		{
+			if ( tc.getR()==1 )
+			{
+				mo2 = diffConf.getFrom().getOpenShell(0);
+				mo1 = diffConf.getFrom().getOpenShell(1);
+			}
+			else
+			{
+				mo2 = diffConf.getFrom().getOpenShell(1);
+				mo1 = diffConf.getFrom().getOpenShell(0);
+			}
+		}
+		else
+		{
+			if ( tc.getR()==1 )
+			{
+				mo1 = diffConf.getFrom().getOpenShell(0);
+				mo2 = diffConf.getTo().getOpenShell(0);
+			}
+			else
+			{
+				mo2 = diffConf.getFrom().getOpenShell(0);
+				mo1 = diffConf.getTo().getOpenShell(0);
+			}
+		}
+		
+	INT	nDens = 0;
+
+		for ( INT ix=0 ; ix<CIx->getN() ; ix++ )
+		{
+			if ( !CIy )
+			{
+				iys = ix;
+				iye = ix+1;
+			}
+
+			for ( INT iy=iys ; iy<iye ; iy++ )
+			{
+		
+			MatrixType	value = 0;
+			const MatrixType	*pMatCb = this->CbMat->getP();
+
+				for ( INT i=0 ; i<this->matDim.rows ; i++ )
+					for ( INT j=0 ; j<this->matDim.cols ; j++ )
+						value += (* ((CIVectors<VectorType> *) CIx))(SAFStartA+i, ix) *
+							(* ((CIVectors<VectorType> *) _CIy))(SAFStartB+j, iy)* *pMatCb++;
+
+
+/*				if ( nDens==0 && fabs(value)>0 )
+				{
+					cout << diffConf << endl;
+					cout << mo1 << " " << mo2 << " " << value << endl;
+					cout << endl;
+				}
+*/
+				densMat[nDens][(mo1-1)*maxMO+(mo2-1)] += value;
+
+
+				nDens++;
+			}
+		}
+
+	}
+		break;
+		
+	case 2:
+	case 4:
+		break;
+		
+	case 5:
+	{
+	INT	nDens = 0;
+		for ( INT ix=0 ; ix<CIx->getN() ; ix++ )
+		{
+			if ( !CIy )
+			{
+				iys = ix;
+				iye = ix+1;
+			}
+
+			for ( INT iy=iys ; iy<iye ; iy++ )
+			{
+		
+			MatrixType	value = 0;
+				for ( INT i=0 ; i<this->matDim.rows ; i++ )
+					value += (* ((CIVectors<VectorType> *) CIx))(SAFStartA+i, ix) * 
+						(* ((CIVectors<VectorType> *) _CIy))(SAFStartB+i, iy);
+
+				for ( INT i=0 ; i<diffConf.getSame().getNumberOfOpenShells() ; i++ )
+				{
+				MOType	mo = diffConf.getSame().getOpenShell(i);
+
+					densMat[nDens][(mo-1)*maxMO+(mo-1)] += value;
+				}
+
+				for ( INT i=0 ; i<diffConf.getSame().getNumberOfClosedShells() ; i++ )
+				{
+				MOType	mo = diffConf.getSame().getClosedShell(i);
+
+					densMat[nDens][(mo-1)*maxMO+(mo-1)] += 2*value;
+				}
+
+				nDens++;
+			}
+		}
+	}
+		break;
+	}
+}
+

@@ -1,0 +1,841 @@
+
+ **********************************
+ **** GAMESS-UK Input Data Set ****
+ **********************************
+
+ >>>>> title
+ >>>>> h2o  - masscf   - 3-21g basis
+ >>>>> zmatrix angstrom
+ >>>>> o
+ >>>>> h 1 oh
+ >>>>> h 1 oh 2 hoh
+ >>>>> variables
+ >>>>> oh  0.956
+ >>>>> hoh 104.5
+ >>>>> end
+ >>>>> scftype masscf
+ >>>>> masscf
+ >>>>>   ncore  1
+ >>>>>   nact   8
+ >>>>>   nels   8
+ >>>>>   nspace 1
+ >>>>>   norb   8
+ >>>>>   mine   8
+ >>>>>   maxe   8
+ >>>>> end
+ >>>>> enter
+
+
+                                   ****************************************************************
+                                   *                                                              *
+                                   *               ===  G A M E S S - U K    ===                  *
+                                   *                                                              *
+                                   * Generalised Atomic and Molecular Electronic Structure System *
+                                   *                                                              *
+                                   *               ===   Opteron version  7.0  ===                *
+                                   *                                                              *
+                                   ****************************************************************
+
+                                        Hostname  : cselnx1                                     
+                                        GAMESS-UK Executable: /home/jmht/SVN/GAMESS-UK_svn.pgi.parallel/bin/gamess-uk               
+                                        Compiled on 10-07-2008 16:30 by jmht      
+                                        job name   jmht    
+                                        date    Jul 10 2008
+                                        time       16:42:19
+                                        acct          13545
+
+                                        job time specified      60000 minutes
+
+                                        main store requested  50000000 real*8  words
+
+                                        shared memory used to hold global arrays instead of main memory array
+
+
+
+                                        TCGMSG/GA-Tools parallel implementation - node information:
+                                        ----------------------------------------------------------
+
+                                        node     pid   hostname     user           version
+
+                                        root    8143   cselnx1      jmht         Generic version 7.0             1.15
+                                           1    8144   cselnx1      jmht         Generic version 7.0             1.16
+                                           2    8145   cselnx1      jmht         Generic version 7.0             1.16
+                                           3    8146   cselnx1      jmht         Generic version 7.0             0.00
+
+
+                                        print timings for root node
+                                        use the pdsyev  parallel diagonaliser for matrices size  200 and above
+                                        use parallel diis solver for matrices  200 and above
+                                        use parallel mult2 for matrices  200 and above
+                                        use parallel orthog. for matrices  200 and above
+                                        use the parallel pdsyev   algorithm for matrix inversion
+                                        chunk size based on     40 tasks/SCF cycle
+                                        i/o will be routed through node 0
+
+
+          ******************************************************************************************
+          *                                                                                        *
+          *    h2o  - masscf   - 3-21g basis                                                       *
+          *                                                                                        *
+          ******************************************************************************************
+
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        *****************
+                                        symbolic z-matrix
+                                        *****************
+
+ ------------------------------------------------------------------------
+                              input z-matrix
+ ------------------------------------------------------------------------
+
+ o                                                                                                                                   
+ h 1 oh                                                                                                                              
+ h 1 oh 2 hoh                                                                                                                        
+
+ ========================================================================
+ name            input  type     hessian         minima
+                 value                       -1-         -2-
+ oh           0.956000     0    0.000000    0.956000    0.956000
+ hoh        104.500000     0    0.000000  104.500000  104.500000
+
+
+ ========================================================================
+                         z-matrix (angstroms and degrees)
+  cd cent  atom  n1       length      n2     alpha       n3      beta        j
+ ------------------------------------------------------------------------
+   1    1   o 
+   2    2   h     1   0.956000 (   1)
+   3    3   h     1   0.956000 (   2)   2  104.500 (   3)
+ ========================================================================
+
+                              coordinates (a.u.) - prior to orientation
+ ------------------------------------------------------------------------
+                 atom                x              y              z
+
+              1  o                0.000000       0.000000       0.000000
+              2  h                0.000000       0.000000       1.806578
+              3  h                1.749034       0.000000      -0.452331
+
+ ------------------------------------------------------------------------
+
+ ---------------------
+ this is a startup job
+ ---------------------
+    dump file on ed3  starting at block     1
+ scratch file on ed7  starting at block     1
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular symmetry
+                                        ******************
+
+ molecular point group    cnv     
+ order of principal axis   2
+
+ symmetry points :
+
+ point 1 :    0.0000000   0.0000000   0.0000000
+ point 2 :    0.0000000   0.0000000   1.0000000
+ point 3 :    0.0000000   1.0000000   0.0000000
+
+ directional parameter - parallel
+
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ******************
+                                        molecular geometry
+                                        ******************
+
+ ****************************************
+ * basis selected is sv      3-21g      *
+ ****************************************
+
+         *******************************************************************************
+         *                                                                             *
+         *     atom   atomic                coordinates                 number of      *
+         *            charge       x             y              z       shells         *
+         *                                                                             *
+         *******************************************************************************
+         *                                                                             *
+         *                                                                             *
+         *    o         8.0   0.0000000      0.0000000     -0.2212037       3          *
+         *                                                                1s  2sp 2sp  *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000      1.4284424      0.8848146       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *                                                                             *
+         *    h         1.0   0.0000000     -1.4284424      0.8848146       2          *
+         *                                                                1s  1s       *
+         *                                                                             *
+         *******************************************************************************
+
+
+                                        *******************
+                                        molecular basis set
+                                        *******************
+
+
+                                        ==============================
+                                        contracted primitive functions
+                                        ==============================
+
+ atom        shell   type  prim       exponents            contraction coefficients
+ =================================================================================================================
+
+ o       
+
+
+                 1   1s       1      322.037000       3.209593  (    0.059239  )
+                 1   1s       2       48.430800       4.599140  (    0.351500  )
+                 1   1s       3       10.420600       2.925183  (    0.707658  )
+
+
+                 2   2sp      4        7.402940      -1.293695  (   -0.404453  )       4.257230  (    0.244586  )
+                 2   2sp      5        1.576200       1.224712  (    1.221560  )       2.149757  (    0.853955  )
+
+
+                 3   2sp      6        0.373684       0.340634  (    1.000000  )       0.416458  (    1.000000  )
+
+ h       
+
+
+                 6   1s       7        5.447178       0.397151  (    0.156285  )
+                 6   1s       8        0.824547       0.557920  (    0.904691  )
+
+
+                 7   1s       9        0.183192       0.199567  (    1.000000  )
+ =================================================================================================================
+
+ total number of shells                   7
+ total number of basis functions         13
+ number of electrons                     10
+ charge of molecule                       0
+ state multiplicity                       1
+ number of occupied orbitals (alpha)      5
+ number of occupied orbitals (beta )      5
+ total number of atoms                    3
+
+
+ **************************************************** 
+ *            JOB OPTIONS in EFFECT                 * 
+ **************************************************** 
+ * RUN TYPE                                scf      *
+ * SCF TYPE                                rhf      *
+ * Molecular orbital starting point        atoms    *
+ * Route   a-vectors to section                   1 *
+
+ **************************************************** 
+ *             MASSCF Specifications                * 
+ **************************************************** 
+ ** ncore =  1  ** nact =  8 ** nels =  8
+ * energy convergence tolerance = 0.10E-09
+ * newton-raphson and davidson convergence = 0.10E-04
+ * newton-raphson damping factor = 0.00E+00
+ * maximum number of masscf iterations =  30
+ * number of frozen rotations =   0
+ * number of frozen orbitals =   0
+ * maximum number of davidson expansions =  10
+ * maximum number of davidson iterations =  30
+ * option to freeze all core orbitals = F
+ * perform single-ref second order calc = F
+ * SCFTYPE = rhf     
+ * number of active spaces =   1
+ * mini        8
+ * maxi        8
+ * mnum        8
+ * msta        2
+ **************************************************** 
+
+ ****************************************************** 
+ *        SCF CONVERGENCE CONTROLS in EFFECT          * 
+ ****************************************************** 
+ * Wavefunction convergence                    1.0e-7 *
+ * Level shifting                                     *
+ * Level shifter =    1.000 to cycle  5 then    0.300 *
+ * Commence diis treatment at threshold of    0.10000 *
+ * Finish diis when residuum less than   0.100000E-13 *
+ ****************************************************** 
+
+
+ 2-electron ao integral files    
+ ----------------------------
+
+         ddnames   ed2 
+ starting blocks     1
+ terminal blocks     0
+
+ **************************************************** 
+ * 2-electron integral options                      * 
+ **************************************************** 
+ * prefactor tolerance for integrals        1.0e-20 *
+ * integral cutoff                          1.0e- 9 *
+ * starting shells                    1   1   1   1 *
+ * generate integrals in non-supermatrix form       *
+ ****************************************************
+
+
+ --------------------------------------------------------------------------------------------------------
+
+
+                                        ===============================
+                                        bond lengths in bohr (angstrom)
+                                        ===============================
+
+
+  1--2  1.8065780   1--3  1.8065780
+       (0.9560000)       (0.9560000)
+
+
+                                        ===========
+                                        bond angles
+                                        ===========
+
+
+  2--1--3  104.500000
+
+
+                                        ===============
+                                        dihedral angles
+                                        ===============
+
+     --- none ---
+
+                                        *****************
+                                        vector generation
+                                        *****************
+
+
+ point group used for symmetry adaption: C2v
+
+ ==============================
+ irrep  no. of symmetry adapted
+        basis functions
+ ==============================
+   1           7
+   2           2
+   3           4
+ ==============================
+
+
+ initial guess orbitals generated by superposition of atomic densities
+
+ ***** total atomic energy      -75.36108723 *** 
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ commence 2-electron integral evaluation at     0.04 seconds
+
+ end of 2-electron integral evaluation at     0.04 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+                                        ********************************
+                                        closed-shell rhf scf calculation
+                                        ********************************
+
+ ----- nuclear energy ----- =       9.206554604692
+
+ use symmetry adapted jacobi diagonalisation
+
+               convergence data
+               ================
+
+
+ minimise dump and scratchfile i/o
+
+ maximum number of iterations =     50
+ method of convergence        =      5
+ convergence criterion        =1.0e- 7
+ punch out option             =      0
+
+ =======================================================================================================
+   cycle           total      electronic         e conv.         tester   virtual damping           diis
+                  energy          energy                                   shift
+ =======================================================================================================
+   1   1    -75.54959634    -84.75615095    -84.75615095     0.09450443     1.000   1.000    0.000000000   
+   2   2    -75.58020289    -84.78675749     -0.03060655     0.03567471     1.000   1.000    0.000000000   
+   3   3    -75.58309365    -84.78964826     -0.00289076     0.02639827     1.000   0.000    0.000000000   
+   4   0    -75.58475786    -84.79131246     -0.00166421     0.01021433     0.000   0.000    0.000150459   
+   5   1    -75.58529002    -84.79184463     -0.00053216     0.00324116     0.000   0.000    0.000004402   
+   6   2    -75.58532636    -84.79188096     -0.00003633     0.00085663     0.000   0.000    0.000000157   
+   7   3    -75.58532827    -84.79188287     -0.00000191     0.00029292     0.000   0.000    0.000000003   
+   8   4    -75.58532846    -84.79188307     -0.00000020     0.00002767     0.000   0.000    0.000000000   
+   9   5    -75.58532847    -84.79188307      0.00000000     0.00001280     0.000   0.000    0.000000000   
+  10   6    -75.58532847    -84.79188307      0.00000000     0.00000080     0.000   0.000    0.000000000   
+  11   7    -75.58532847    -84.79188307      0.00000000     0.00000003     0.000   0.000    0.000000000   
+
+          ----------------
+          energy converged
+          ----------------
+
+          --------------
+          final energies   after  11 cycles at       0.05 seconds
+          --------------
+
+
+          electronic energy                -84.7918830708
+          nuclear energy                     9.2065546047
+          total energy                     -75.5853284661
+          convergence on density             0.0000001620
+
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          CONVERGENCE / TESTER ANALYSIS            From DIIS
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          Iter.   Tester   (domo/vmo)             Tester   (domo/vmo)
+
+              1  0.0945044 (   3   8) (*)        0.0945044 (   3   8)
+              2  0.0356747 (   3   8) (*)        0.0356747 (   3   8)
+              3  0.0263983 (   5  10) (*)        0.0263983 (   5  10)
+              4  0.0134348 (   5  10)            0.0102143 (   3   7) (*)
+              5  0.0021919 (   3  12)            0.0032412 (   3  12) (*)
+              6  0.0004074 (   4  11)            0.0008566 (   5  10) (*)
+              7  0.0002410 (   5  10)            0.0002929 (   5  10) (*)
+              8  0.0000129 (   5  10)            0.0000277 (   5  10) (*)
+              9  0.0000095 (   5  10)            0.0000128 (   5  10) (*)
+             10  0.0000007 (   5  10)            0.0000008 (   5  10) (*)
+             11  0.0000000 (   5  10)            0.0000000 (   4  11) (*)
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ========================================================
+  m.o. irrep        orbital         orbital       orbital
+              energy (a.u.)   energy (e.v.)     occupancy
+ ========================================================
+    1     1    -20.42787603       -555.8762        2.0000
+    2     1     -1.33011059        -36.1945        2.0000
+    3     3     -0.68632448        -18.6760        2.0000
+    4     1     -0.53781562        -14.6349        2.0000
+    5     2     -0.47967433        -13.0527        2.0000
+    6     1      0.26414448          7.1878        0.0000
+    7     3      0.36257078          9.8661        0.0000
+    8     3      1.19404271         32.4919        0.0000
+    9     1      1.31035636         35.6570        0.0000
+   10     2      1.78234499         48.5005        0.0000
+   11     1      1.86635743         50.7867        0.0000
+   12     3      2.01581437         54.8536        0.0000
+   13     1      3.11430238         84.7453        0.0000
+ ========================================================
+
+ ======================================================================================
+                               SYMMETRY ASSIGNMENT
+ ======================================================================================
+ E level    m.o.     symmetry           orbital         orbital  degeneracy  occupancy
+                                  energy (a.u.)    energy (e.v)
+ ======================================================================================
+    1      1 -  1      1 a1        -20.42787603       -555.8762       1        2.000000
+    2      2 -  2      2 a1         -1.33011059        -36.1945       1        2.000000
+    3      3 -  3      1 b2         -0.68632448        -18.6760       1        2.000000
+    4      4 -  4      3 a1         -0.53781562        -14.6349       1        2.000000
+    5      5 -  5      1 b1         -0.47967433        -13.0527       1        2.000000
+    6      6 -  6      4 a1          0.26414448          7.1878       1        0.000000
+    7      7 -  7      2 b2          0.36257078          9.8661       1        0.000000
+    8      8 -  8      3 b2          1.19404271         32.4919       1        0.000000
+    9      9 -  9      5 a1          1.31035636         35.6570       1        0.000000
+   10     10 - 10      2 b1          1.78234499         48.5005       1        0.000000
+   11     11 - 11      6 a1          1.86635743         50.7867       1        0.000000
+   12     12 - 12      4 b2          2.01581437         54.8536       1        0.000000
+   13     13 - 13      7 a1          3.11430238         84.7453       1        0.000000
+ ======================================================================================
+
+ ---------------------------------------------------------------------------
+               Number of orbitals belonging to irreps of this group
+ ---------------------------------------------------------------------------
+   7 a1     0 a2     2 b1     4 b2   
+ ---------------------------------------------------------------------------
+
+ Symmetry assignment was successfull.
+ Degeneracy criterium used was .500E-05 a.u.
+
+
+ ----------------------------------------------------------------------------------------------------
+
+                                                  ------------
+                                                  eigenvectors
+                                                  ------------
+
+
+                  -20.4279  -1.3301  -0.6863  -0.5378  -0.4797   0.2641   0.3626   1.1940   1.3104   1.7823
+
+
+                      1        2        3        4        5        6        7        8        9       10
+
+
+    1  1  o s      -0.9832  -0.2291   0.0000  -0.0885   0.0000   0.1093   0.0000   0.0000   0.0688   0.0000
+    2  1  o s      -0.0959   0.2175   0.0000   0.0822   0.0000  -0.0348   0.0000   0.0000  -0.0986   0.0000
+    3  1  o x       0.0000   0.0000   0.0000   0.0000   0.5212   0.0000   0.0000   0.0000   0.0000   1.0293
+    4  1  o y       0.0000   0.0000  -0.3988   0.0000   0.0000   0.0000  -0.3027   0.1819   0.0000   0.0000
+    5  1  o z      -0.0035   0.0839   0.0000  -0.4422   0.0000  -0.2086   0.0000   0.0000  -0.2765   0.0000
+    6  1  o s       0.0381   0.7058   0.0000   0.4053   0.0000  -1.0476   0.0000   0.0000  -0.1218   0.0000
+    7  1  o x       0.0000   0.0000   0.0000   0.0000   0.6322   0.0000   0.0000   0.0000   0.0000  -0.9651
+    8  1  o y       0.0000   0.0000  -0.3693   0.0000   0.0000   0.0000  -0.7751   0.4582   0.0000   0.0000
+    9  1  o z       0.0068   0.0936   0.0000  -0.5081   0.0000  -0.4654   0.0000   0.0000  -0.3053   0.0000
+   10  2  h s      -0.0026   0.1176  -0.2343  -0.1308   0.0000   0.0460   0.0356  -0.9657   0.9864   0.0000
+   11  2  h s      -0.0069   0.0189  -0.1828  -0.1046   0.0000   0.8643   1.1798   0.6810  -0.4835   0.0000
+   12  3  h s      -0.0026   0.1176   0.2343  -0.1308   0.0000   0.0460  -0.0356   0.9657   0.9864   0.0000
+   13  3  h s      -0.0069   0.0189   0.1828  -0.1046   0.0000   0.8643  -1.1798  -0.6810  -0.4835   0.0000
+
+
+ end of closed shell scf at       0.05 seconds
+
+ --------------------------------------------------------------------------------------------------------
+
+
+
+ = = = = = = = = = = = = = = = = = = = = = = =
+ =    Multiple Active Space SCF (MASSCF)     =
+ =       written by Graham D Fletcher        =
+ = based on ORMAS, originally developed for  =
+ = GAMESS, Iowa State University, Ames, Iowa =
+ =        written by Joseph Ivanic           =
+ = = = = = = = = = = = = = = = = = = = = = = =
+
+ commence masscf energy evaluation at      0.05 seconds
+
+ number of basis functions            13
+ number of molecular orbitals         13
+ number of active molecular orbitals  13
+ number of occupied orbitals           5
+ number of occupied active orbitals    9
+
+
+ ********************
+ 2-electron integrals
+ ********************
+
+
+ integrals are not in a supermatrix form : p-k option is off
+ number of integrals per block = 340
+
+ integrals are on mainfile section ed2  starting at block      1
+
+ starting shells are :     1    1    1    1
+
+ restarting at block      3
+
+
+ commence 2-electron integral evaluation at     0.05 seconds
+
+     ------------------------------------------------------------
+       direct determinant ormas-ci input sorter
+       program written by joe ivanic and mike schmidt
+       ormas = occupation restricted multiple active space
+     ------------------------------------------------------------
+
+ the point group                  =   c2v     
+ the state symmetry               =   a1      
+ number of core orbitals          =    1
+ number of active orbitals        =    8
+ number of alpha electrons        =    5 (   4 active)
+ number of beta electrons         =    5 (   4 active)
+ number of occupied orbitals      =    9
+
+ number of ci states requested    =    1
+ number of ci starting vectors    =    1
+ max. no. of ci expansion vectors =   10
+ size of initial ci guess matrix  =  300
+
+ max. no. of ci iters/state       =  100
+ ci diagonalization criterion     = 1.00E-05
+ pure spin state averaged 1e- and 2e- density matrix option=.T.
+ state=   1 dm2 weight=   1.00000
+
+ the number of spaces             =   1
+ each space starts at orbital     =   2
+ no of orbitals in each space     =   8
+ min no of elecs in each space    =   8
+ max no of elecs in each space    =   8
+
+ space specifications have passed preliminary checks
+
+ all valid determinants will be expressed as pairs of alpha and beta strings.
+
+ min no of alpha elecs =    4
+ max no of alpha elecs =    4
+
+ min no of beta  elecs =    4
+ max no of beta  elecs =    4
+
+     --------------------------------------------------
+                 direct determinant ormas-ci 
+                program written by joe ivanic
+     --------------------------------------------------
+
+ storage of binomial coefficients requires          45 words
+
+ total number of alpha groups  =            1
+ total number of beta  groups  =            1
+
+ total number of alpha strings =           70
+ total number of beta  strings =           70
+
+ storage of tables requires                       571 words
+
+ total number of alpha-beta group combinations =            1
+ of these the allowed number of combinations   =            1
+
+ total number of (b -> b) where  (b > b)  =          560
+
+ time for setting up table set 1 :          0.0
+
+ the number of determinants having space symmetry a1 
+ in point group c2v  with sz=  0.0 is           1234
+
+ integral storage requires                 757 words
+ extra ormas storage requires           168010 words
+ (extra ormas storage includes that for mxxpan = 10)
+ total ormas calculation requires       169383 words
+
+ fully direct would require             166772 words
+
+ commence GA-based integral transformation at      0.05 seconds
+ p: set chunk size                        1
+
+                                      mo symmetries
+                                      *************
+
+              1    1    3    1    2    1    3    3    1    2    1    3    1
+
+ schwarz inequality test skipped          0 integral blocks
+
+ initial ormas vector guess time :          0.2
+ setting up calculation time     :          0.0
+ ormas spin calculation time     :          0.0
+ initial ormas ci iteration time :          0.0
+
+ iteration      energy           gradient
+     0      -75.6257302715     0.07768814
+     1      -75.6269914569     0.01212015
+     2      -75.6270227259     0.00277916
+     3      -75.6270246486     0.00083216
+     4      -75.6270248350     0.00020858
+     5      -75.6270248461     0.00004774
+     6      -75.6270248468     0.00001363
+     7      -75.6270248468     0.00000413
+
+ converged state    1 energy=      -75.6270248468 in    7 iters
+
+ all states converged.
+
+ ci eigenvectors will be labeled in group=c2v     
+ printing ci coefficients larger than  0.050000
+
+ state   1  energy=       -75.6270248468  s=  0.00  sz=  0.00  space sym=a1  
+
+   alpha     |    beta     | coefficient
+ 1           | 1           |
+-------------|-------------|------------
+  1  2  3  4 |  1  2  3  4 |   0.9893715
+  1  3  4  6 |  1  3  4  6 |  -0.0543391
+
+ ..... done with ormas-ci computation .....
+
+ ---------------------------------
+     elapsed time =     0.25 secs
+     total time   =     0.30 secs
+ ---------------------------------
+
+
+     -------------------------------------------------------
+      one and two particle ormas density matrix computation
+                  program written by joe ivanic
+     -------------------------------------------------------
+
+ the densities are state averaged over   1 root(s)
+ state=   1   energy=      -75.6270248468   weight= 1.00000   s=  0.00
+ sieving the a    symmetry nonzero density elements in group c1      
+ ..... done with 1 and 2 particle density matrix .....
+
+ ---------------------------------
+     elapsed time =     0.01 secs
+     total time   =     0.31 secs
+ ---------------------------------
+
+ grad=  4.889982E-08 for orb. rotation i,j=    4    2 exceeds tolerance.
+ grad=  1.426754E-07 for orb. rotation i,j=    6    2 exceeds tolerance.
+ grad=  2.656239E-07 for orb. rotation i,j=    6    4 exceeds tolerance.
+ grad=  3.008885E-07 for orb. rotation i,j=    7    3 exceeds tolerance.
+ grad=  6.714671E-07 for orb. rotation i,j=    8    3 exceeds tolerance.
+ grad=  6.099423E-07 for orb. rotation i,j=    9    2 exceeds tolerance.
+ grad=  1.162990E-07 for orb. rotation i,j=    9    4 exceeds tolerance.
+ grad=  3.872355E-08 for orb. rotation i,j=    9    6 exceeds tolerance.
+ number of independent orbital rotation parameters =    18
+
+ iter     total energy      del(e)  lagrangian asymmetry   sqcdf   damp
+   1      -75.627024847 -0.627024847  0.021442   13    2 2.457E-01   0.0000
+   2      -75.644531105 -0.017506258  0.006775   11    4 2.562E-01   0.0000
+   3      -75.650364137 -0.005833032  0.004218   11    6 2.646E-01   0.0014
+   4      -75.657832276 -0.007468140  0.004687   13    9 1.841E-01   0.0014
+   5      -75.662989341 -0.005157064  0.005598   11    4 6.266E-02   0.0030
+   6      -75.664169299 -0.001179958  0.002670   11    4 1.087E-02   0.0000
+   7      -75.664284463 -0.000115164  0.000869   11    4 1.151E-03   0.0000
+   8      -75.664294532 -0.000010070  0.000279   11    4 1.023E-04   0.0000
+   9      -75.664295396 -0.000000864  0.000091   12    3 8.687E-06   0.0000
+  10      -75.664295471 -0.000000074  0.000032   11    4 7.169E-07   0.0000
+  11      -75.664295477 -0.000000006  0.000010   11    4 6.203E-08   0.0000
+  12      -75.664295478 -0.000000001  0.000004    9    4 3.389E-10   0.0000
+ masscf converged
+
+ ci eigenvectors will be labeled in group=c2v     
+ printing ci coefficients larger than  0.050000
+
+ state   1  energy=       -75.6642954779  s=  0.00  sz=  0.00  space sym=a1  
+
+   alpha     |    beta     | coefficient
+ 1           | 1           |
+-------------|-------------|------------
+  1  2  3  4 |  1  2  3  4 |   0.9864246
+  1  3  4  6 |  1  3  4  6 |  -0.0568156
+  
+ (masscf properties unavailable)
+  
+
+ ************************************************************
+ ************************************************************
+ *                                                          *
+ *     job  option  complete at      1.24          seconds  *
+ *                                                          *
+ ************************************************************
+ ************************************************************
+
+
+
+
+ end of  G A M E S S   program at      1.24 seconds
+
+
+
+ *summary of dumpfile on ed3  at block       1
+ *
+ *current length=               520 blocks
+ *
+ *maximum length=           9999999 blocks
+ *
+ *section type   block  length
+ *      1    3     347      84
+ *    205    5     342       1
+ *    206    6     343       1
+ *    207    7     435       1
+ *    208    8     436      84
+ *    209    9     520       1
+ *    213   13     301       1
+ *    244   44     275      25
+ *    253   53     306      10
+ *    303  103     300       1
+ *    408  101      10       7
+ *    420  100     187      88
+ *    467  167     344       3
+ *    490   51     323      17
+ *    491    1      57     130
+ *    492    2     316       7
+ *    493   15       9       1
+ *    494   16     434       1
+ *    496   18      17      40
+ *    497   19     340       2
+ *    499   99     431       3
+ *    501   21       2       7
+ *    504   23     302       4
+
+ *summary of vector sections
+ *
+ *section    type      created:           title:
+ *      1    rhf      16:42:19 on Jul 10  h2o  - masscf   - 3-21g basis
+
+ file positions
+ lfn   block  length
+ ===================
+
+ ed2        3       3
+ ed3      348     348
+ ed7        4       4
+ **** unit =  4 no. of 4K broadcasts =      243 amount transferred =      972.0 Kbytes (    1367.2 triangles)
+ **** unit =  8 no. of 4K broadcasts =       13 amount transferred =       52.0 Kbytes (      73.1 triangles)
+
+
+ ******************************************************************************
+ gamess timing analysis
+ task                         cpu (seconds)   percent  wall (seconds)   percent
+ ******************************************************************************
+ input                                 0.01      0.83            0.02      1.56
+ vector generation                     0.00      0.00            0.06      4.06
+ 2e-integral evaluation                0.00      0.00            0.01      0.40
+ scf                                   0.01      0.83            0.04      2.28
+ other                                 1.19     98.35            1.45     91.70
+ ******************************************************************************
+ Total                                 1.21                      1.58
+ ******************************************************************************
+
+ matrix operations (seconds)
+ ===========================
+ diagonalisation (jacobi)      0.00
+ orthogonalisation (orfog)     0.00
+ fock-build (dbuild)           0.00
+ DIIS (mult2 etc)              0.00
+ q*hq (mult2)                  0.00
+ ===========================
+
+
+ Timing analysis for node   0
+ ============================
+                                                             CPU                 Aggr.    WALL  eff.
+ entire                              1     1.34 (     1.24 u+     0.10 s)        4.32     1.67  80
+    scf                              1     0.01 (     0.01 u+     0.00 s)        0.04     0.04  28
+       denscf                        1     0.00 (     0.00 u+     0.00 s)        0.01     0.01   0
+          Fock build                 1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+             ints                    1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+             other                   0     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          diag Overlap               1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          simil                      1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          diag                       1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          back                       1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          make dens                  1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          tdown                      2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+          other                      0     0.00 (     0.00 u+     0.00 s)        0.01     0.01   0
+       other                         0     0.01 (     0.01 u+     0.00 s)        0.03     0.02  46
+    integ                            1     0.00 (     0.00 u+     0.00 s)        0.02     0.01   0
+    other                            0     1.33 (     1.23 u+     0.10 s)        4.26     1.63  82
+ diag                                2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ aprdmp2                            12     0.03 (     0.03 u+     0.00 s)        0.10     0.07  44
+ dgop                              202     0.47 (     0.46 u+     0.01 s)        1.12     0.56  84
+ bcast                             278     0.00 (     0.00 u+     0.00 s)        0.03     0.02   0
+ nxtval                          19686     0.03 (     0.03 u+     0.00 s)        0.18     0.06  52
+ mult2                              48     0.00 (     0.00 u+     0.00 s)        0.01     0.00   0
+ find (node)                        13     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ find (node0)                      256     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ get (node)                         13     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ get (node0)                       256     0.00 (     0.00 u+     0.00 s)        0.03     0.02   0
+ put (node)                          2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ put (node0)                       712     0.02 (     0.00 u+     0.02 s)        0.02     0.04  56
+ open (node)                         1     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+ open (node0)                        2     0.00 (     0.00 u+     0.00 s)        0.00     0.00   0
+
+                         GA Statistics for process    0
+                         ------------------------------
+
+       create   destroy   get      put      acc     scatter   gather  read&inc
+calls:   25       25     2.52e+04 7744     3600        0        0        0     
+number of processes/call 1.00e+00 1.00e+00 1.00e+00 0.00e+00 0.00e+00
+bytes total:             2.04e+06 6.83e+05 2.06e+05 0.00e+00 0.00e+00 0.00e+00
+bytes remote:            1.02e+06 3.66e+04 1.51e+05 0.00e+00 0.00e+00 0.00e+00
+Max memory consumed for GA by this process: 32544 bytes
+
+ Memory high water mark
+ ======================
+
+ heap memory high water mark =       351311 words
+ GA   memory high water mark =        15345 words overall

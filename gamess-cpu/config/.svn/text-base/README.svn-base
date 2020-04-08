@@ -1,0 +1,95 @@
+
+GAMESS-UK Alternative Configuration Files
+=========================================
+
+At present this alternative to the configure
+script in the m4 directory is under development.
+
+It similar to the Makefile.in in that a precursor
+Makefile.in is converted using a simple preprocessor
+to Makefile, and that m4 is used to process the
+source code.
+
+It is different in that 
+i) all the architecture-specific
+details are moved in to a separate file, and we
+maintain a set of files for each architecture,
+(there are currently 4 of these in the general
+case, corresponding to serial, mpi and Global
+Array builds). 
+
+ii) These file contain not only
+the machine specific parts of the old Makefile.in
+but also all relevant contents of the M4 macro files 
+kept in the machines directory.
+
+iii) A guess as to the architecture is made using the
+gnu utilities.
+
+
+Some sample configures.
+=======================
+
+Serial build with all optional functionality should
+eventually require the following on all supported 
+platforms.
+
+./configure mrdci nbo zora drf
+
+A smaller binary with no post-hf functionality
+would require
+
+./configure base
+
+
+So far these should work for 
+
+pentium/linux
+
+opteron/linux
+  We recommend also adding pgf for Portland Gp compilers
+ if you have them
+
+
+
+## NOTES ADDED BY JENS AS THE PROJECT PROGRESSES ##
+The head of each machine dependant file can contain a number of
+lines prefixed with #doc - anything appearing after such a line
+is printed when the configure script runs.
+Lines prefixed with #opt are used to specify which options are 
+allowed for a particular build - any option give to the configure
+script that is not listed here causes the configure to abort.
+
+# Description of Variables #
+MACHOPT = the m4 directives that came from the old machine directory.
+DFLTOPT = options that are now considered default for a build on
+this architectire
+These two are copied into OPTIONS0 - splitting things up like this 
+is only temporary so that people can see what has come from the old
+process and what has been added.
+
+The actual m4 options are passed through with the OPTIONS variable, which
+is used so that extra options dependant on the type of build (e.g. blas, base)
+can be added on. If nothing extra is added OPTIONS should be set to OPTIONS0
+
+The linker options have been broken down into three parts, default
+libraries, blas libaries and MPI libraries - the MPI libraries are
+handled in the old way i.e. MPI_LIBS must be constructed from
+MPI_LIB and LIB_MPI
+
+The other two are handled by the -L and -l flags beind seperated out
+into:
+LLIB, lLIB, LBLAS, lBLAS
+
+The option with the capital L holds the -L flags for the linker and
+must also include the -L too. The option with the lower case l holds
+the -l flags. These are all joined to create the final LIB variable by:
+LIB = ${LIBDIR} ${lLIB}  ${BLASDIR} ${lBLAS} ${MPI_LIBS}
+
+The tcgmsg/tcmgsg-mpi flag has been removed and the variable:
+GA_LIB_TCGMSG needs to be set to the relevant libarary that is
+to be created - currently this defaults to libtcgmsg.a
+Unfortunatley, this has necessitated the creation of a GA_CP_PARALLEL
+variable that holds the command to copy the parallel binary to the GAMESS-UK
+bin directory - this should be set to nothing for the tcgmsg-mpi case - .i.e.
+GA_CP_PARALLEL=

@@ -1,0 +1,49 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co - 3-21g  scf prior to ci / SCF 
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  cisd direct-ci  / transformation
+super off nosym
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype transform
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  cisd direct-ci 
+super off nosym
+bypass transform
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+direct 16 8 14
+conf
+2 2 2 2 2 2 2 2 
+enter
+EOF

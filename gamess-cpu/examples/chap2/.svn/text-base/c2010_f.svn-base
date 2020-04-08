@@ -1,0 +1,50 @@
+#!/bin/csh
+setenv ed3 mfgdump
+../../bin/gamess << EOF
+title
+h2co - 3a2 gvb properties - 3-21g basis
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype gvb
+property atoms
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3a2 grhf - properties
+mult 3
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+property
+1 C
+2 C
+3 C
+4 C
+5 5
+6 5
+7 5
+8 5
+9 5
+10 5
+11 5
+12 5
+13 5
+14 5
+16 C
+17 C
+18 C
+end
+vectors 5
+enter
+EOF

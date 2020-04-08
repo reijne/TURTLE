@@ -1,0 +1,174 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ftn031 tran
+setenv ftn036 diag
+setenv ftn041 moment
+../../bin/gamess << EOF
+TITLE  
+H2O  TZVP/DIFFUSE S,P * SCF energy  -76.05599667
+SUPER OFF NOSYM
+ZMAT ANGSTROM
+O
+H 1 0.951
+H 1 0.951 2 104.5
+END
+BASIS 
+TZVP O
+TZVP H
+S O
+1.0 0.02
+P O
+1.0 0.02
+END
+ENTER
+EOF
+../../bin/gamess << EOF
+RESTART NEW
+TITLE  
+H2O  TZVP + DIFFUSE S,P TABLE-CI 3M/3R*
+# extrapolated energy =   -76.2724087
+# extrapolated energy =   -75.9009087
+# extrapolated energy =   -75.8825342
+SUPER OFF NOSYM
+BYPASS SCF
+ZMAT ANGSTROM
+O
+H 1 0.951
+H 1 0.951 2 104.5
+END
+BASIS 
+TZVP O
+TZVP H
+S O
+1.0 0.02
+P O
+1.0 0.02
+END
+RUNTYPE CI
+ACTIVE 
+2 TO 35
+END
+CORE
+1 END
+MRDCI DIRECT
+SELECT
+CNTRL 8
+CONF 
+0        1 2  17  23
+2  2  3  1    17  23
+2 17 18  1 2  23
+END
+THRE 10 10
+ROOT 3
+ENTER
+EOF
+../../bin/gamess << EOF
+RESTART CI
+TITLE  
+H2O  TZVP + DIFFUSE S,P TABLE-CI 12M/3R *
+# extrapolated energy  -76.2727674
+# extrapolated energy  -75.9108322
+# extrapolated energy  -75.9021869
+SUPER OFF NOSYM
+BYPASS SCF TRAN
+ZMAT ANGSTROM
+O
+H 1 0.951
+H 1 0.951 2 104.5
+END
+BASIS 
+TZVP O
+TZVP H
+S O
+1.0 0.02
+P O
+1.0 0.02
+END
+RUNTYPE CI
+ACTIVE 
+2 TO 35
+END
+CORE
+1 END
+MRDCI DIRECT
+TABLE BYPASS
+SELECT
+CNTRL 8
+CONF
+0        1 2  17  23
+2  2  3  1    17  23
+2  2  4  1    17  23
+2  2  5  1    17  23
+2 17 18  1 2  23
+2 18 19  1 2  23
+4 17 18 23 25  1  2
+4 17 18 23 27  1  2
+4  2  7 17 18  1  23
+4  2  3 17 19  1  23
+4  2  3 23 25  1  17
+4  2  3 23 27  1  17
+END
+THRE 10 10
+ROOT 3
+ENTER
+EOF
+../../bin/gamess << EOF
+RESTART CI
+TITLE  
+****  H2O  TZVP + DIFFUSE S,P TABLE-CI / ANALYSIS *
+SUPER OFF NOSYM
+BYPASS SCF TRAN
+ZMAT ANGSTROM
+O
+H 1 0.951
+H 1 0.951 2 104.5
+END
+BASIS 
+TZVP O
+TZVP H
+S O
+1.0 0.02
+P O
+1.0 0.02
+END
+ACTIVE 
+2 TO 35
+END
+CORE
+1 END
+RUNTYPE CI
+MRDCI DIRECT
+TABLE BYPASS
+SELECT BYPASS
+CNTRL 8
+CONF
+0        1 2  17  23
+2  2  3  1    17  23
+2  2  4  1    17  23
+2  2  5  1    17  23
+2 17 18  1 2  23
+2 18 19  1 2  23
+4 17 18 23 25  1  2
+4 17 18 23 27  1  2
+4  2  7 17 18  1  23
+4  2  3 17 19  1  23
+4  2  3 23 25  1  17
+4  2  3 23 27  1  17
+END
+THRE 10 10
+ROOT 3
+CI BYPASS
+NATORB IPRIN
+CIVE 1 2 3
+PUTQ AOS 50 51 52
+PROP
+CIVE 1 2 3
+0        1 2  17  23
+2 17 18  1 2  23
+2  2  3  1    17  23
+MOMENT
+36 1 36 2 2
+ENTER
+EOF
+/bin/rm mfged2 mfged3 tran diag moment

@@ -1,0 +1,904 @@
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_ADD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(70,5)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_TRANSPOSE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(98,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(99,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(99,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(99,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(112,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(111,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(111,7)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(111,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(898,7) inlined into dlf_hdlc_matrixlib_d.F90(108,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(110,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(119,3)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_DIAGONALISE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9) inlined into dlf_hdlc_matrixlib_d.F90(213,26)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::ARRAY_DIAGONALISE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(249,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(299,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(301,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(302,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(303,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(380,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(381,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(383,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(384,9)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_INVERT
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(631,5) inlined into dlf_hdlc_matrixlib_d.F90(428,23)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(617,7) inlined into dlf_hdlc_matrixlib_d.F90(428,23)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(627,7) inlined into dlf_hdlc_matrixlib_d.F90(428,23)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::ARRAY_INVERT
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(631,5) inlined into dlf_hdlc_matrixlib_d.F90(482,16)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(617,7) inlined into dlf_hdlc_matrixlib_d.F90(482,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(627,7) inlined into dlf_hdlc_matrixlib_d.F90(482,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_SCALE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(511,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(511,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(511,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(511,5)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_ABSMAX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(531,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(532,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(532,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(532,7)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(532,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_LENGTH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(555,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(556,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(556,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(556,7)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(556,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::DGEDET
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(631,5)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(617,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(627,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_SET_COLUMN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(757,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(757,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(757,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(757,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_SET_ROW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(774,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(774,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(774,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_SET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(788,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(789,7)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_GET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(806,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(807,7)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_GET_COLUMN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(826,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(826,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(826,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(826,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_GET_ROW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(842,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(842,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(842,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::INT_MATRIX_SET_COLUMN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(859,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(859,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(859,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(859,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_ASSIGN_UNIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(880,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(880,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(880,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(880,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(881,5)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(881,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_COPY
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(898,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::MATRIX_PRINT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(948,7) inlined into dlf_hdlc_matrixlib_d.F90(920,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(945,23) inlined into dlf_hdlc_matrixlib_d.F90(920,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 945 and  line 945
+   LOOP END
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(948,7) inlined into dlf_hdlc_matrixlib_d.F90(920,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 950 and  line 950
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::HDLC_WR_MATRIX
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(989,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(989,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(993,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(993,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLFHDLC_MATRIXLIB::HDLC_RD_MATRIX
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(1035,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(1035,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(1037,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_hdlc_matrixlib_d.F90(1037,7)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================

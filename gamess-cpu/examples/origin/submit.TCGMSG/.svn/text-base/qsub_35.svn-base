@@ -1,0 +1,10 @@
+#!/bin/csh
+#QSUB -lT 10000
+#QSUB -lF 250MB
+#QSUB -lM 2Gb 
+#QSUB  -eo
+#QSUB -s /bin/csh
+#QSUB -l mpp_p=16
+#
+../../bin/parallel gamess16 < par_35.in > par_35.out.16
+#

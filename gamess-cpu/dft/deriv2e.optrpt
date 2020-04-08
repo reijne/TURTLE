@@ -1,0 +1,2336 @@
+
+Begin optimization report for: MEMREQ_JKDER_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(768,26)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(768,26)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(769,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(769,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(797,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(799,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(799,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MEMREQ_JKDER_DFT_GENUSE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(1650,26)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(1650,26)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(1651,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(1651,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(1679,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(1681,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(1681,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: JKDER_DFT_GENUSE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(2548,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2548,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2548,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2656,26)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2656,26)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(2657,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(2657,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2687,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(2689,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(2689,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2881,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2917,22)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6478,10) inlined into deriv2e.f(2944,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6478,10) inlined into deriv2e.f(2944,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10) inlined into deriv2e.f(2944,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10) inlined into deriv2e.f(2944,24)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10) inlined into deriv2e.f(2944,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(2980,28)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3030,40)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7628,7) inlined into deriv2e.f(3086,36)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7633,10) inlined into deriv2e.f(3086,36)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7684,16) inlined into deriv2e.f(3086,36)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3848,10) inlined into deriv2e.f(3188,39)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(3848,10) inlined into deriv2e.f(3188,39)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3848,10) inlined into deriv2e.f(3188,39)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3856,13) inlined into deriv2e.f(3188,39)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(3857,16) inlined into deriv2e.f(3188,39)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3857,16) inlined into deriv2e.f(3188,39)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3857,16) inlined into deriv2e.f(3188,39)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3870,10) inlined into deriv2e.f(3188,39)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(3871,13) inlined into deriv2e.f(3188,39)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3875 and  line 3875
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3871,13) inlined into deriv2e.f(3188,39)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8271,10) inlined into deriv2e.f(3216,41)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 8275 and  line 8275
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4523,13) inlined into deriv2e.f(3272,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(4525,13) inlined into deriv2e.f(3272,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4525 and  line 4525
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(4527,16) inlined into deriv2e.f(3272,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4528 and  line 4528
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4536,10) inlined into deriv2e.f(3272,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4536,10) inlined into deriv2e.f(3272,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(2874,13)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(2903,16)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(6364,10) inlined into deriv2e.f(2944,24)
+         remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6365,10) ]
+
+         LOOP BEGIN at deriv2e.f(6373,13) inlined into deriv2e.f(2944,24)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6374,13) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(6387,10) inlined into deriv2e.f(2944,24)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(6400,13) inlined into deriv2e.f(2944,24)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at deriv2e.f(6419,16) inlined into deriv2e.f(2944,24)
+               remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6421,16) ]
+
+               LOOP BEGIN at deriv2e.f(6435,19) inlined into deriv2e.f(2944,24)
+                  remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6436,19) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(2973,25)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(3126,32) ]
+
+         LOOP BEGIN at deriv2e.f(3002,28)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(3126,32) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DSHELL_DFT..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6731 and  line 6731
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6782 and  line 6782
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6803,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6814,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6859 and  line 6859
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6916 and  line 6916
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DSHELL_DFT..1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6731 and  line 6731
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6782 and  line 6782
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6803,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6814,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6859 and  line 6859
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6916 and  line 6916
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DABAB_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(9098,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(9100,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(9114,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(9146,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(9148,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 9151 and  line 9151
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(9177,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(9179,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(9179,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(9179,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(9179,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(9179,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(8983,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(9046,28) ]
+
+   LOOP BEGIN at deriv2e.f(8985,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(9046,28) ]
+
+      LOOP BEGIN at deriv2e.f(8987,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(9046,28) ]
+
+         LOOP BEGIN at deriv2e.f(8989,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(9046,28) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DGENRL_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(5501,13)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5501,13)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5501,13)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5501,13)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5507,13)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5507,13)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5507,13)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5507,13)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5522,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5523,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5527 and  line 5529
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5534,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 5542 and  line 5543
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5639,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5639,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5639,25)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5639,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Distributed chunk3>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5648,25)
+<Remainder, Distributed chunk3>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5683,37)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5683,37)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5740,40)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(5742,43)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5742,43)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5745,43)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5745,43)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5745,43)
+   <Peeled>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5765,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5765,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5765,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5765,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5765,45)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5765,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5765,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5765,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5765,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5765,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5765,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5765,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5784,45)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5784,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5784,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5784,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5784,45)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5784,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5784,45)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5784,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5784,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5784,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5803,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5803,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5803,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5803,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5803,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5822,45)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5822,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5822,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5822,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5822,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5822,45)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5862,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5862,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5862,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5862,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5862,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5877,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5877,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5877,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5877,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5877,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5877,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5892,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5892,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5892,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5892,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5892,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5907,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5907,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10) inlined into deriv2e.f(5907,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22) inlined into deriv2e.f(5907,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22) inlined into deriv2e.f(5907,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22) inlined into deriv2e.f(5907,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Peeled, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Multiversioned v3>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Alternate Alignment Vectorized Loop, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5930,16)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5934,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(5934,16)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5934,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5934,16)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(5934,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6126,10) inlined into deriv2e.f(5949,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6135,13) inlined into deriv2e.f(5949,21)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6143 and  line 6136
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6135,13) inlined into deriv2e.f(5949,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6149,10) inlined into deriv2e.f(5949,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6158,13) inlined into deriv2e.f(5949,21)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6166 and  line 6159
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6158,13) inlined into deriv2e.f(5949,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6171,10) inlined into deriv2e.f(5949,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6173,13) inlined into deriv2e.f(5949,21)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(6178,19) inlined into deriv2e.f(5949,21)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 6179 and  line 6179
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8052,13) inlined into deriv2e.f(5956,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(8055,16) inlined into deriv2e.f(5956,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(8060,19) inlined into deriv2e.f(5956,12)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(8063,22) inlined into deriv2e.f(5956,12)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at deriv2e.f(8071,28) inlined into deriv2e.f(5956,12)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 8080 and  line 8080
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8121,18) inlined into deriv2e.f(5956,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 8121 and  line 8121
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8124,21) inlined into deriv2e.f(5956,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 8124 and  line 8124
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(5592,13)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(5607,16)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(5673,25)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(5676,28)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at deriv2e.f(5701,37)
+               remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+            LOOP END
+
+            LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5765,45)
+               remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+               LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5765,45)
+                  remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                  LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5765,45)
+                     remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                     LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5765,45)
+                        remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+                     LOOP END
+                  LOOP END
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5784,45)
+               remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+               LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5784,45)
+                  remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                  LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5784,45)
+                     remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                     LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5784,45)
+                        remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+                     LOOP END
+                  LOOP END
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5803,45)
+               remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+               LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5803,45)
+                  remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                  LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5803,45)
+                     remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                     LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5803,45)
+                        remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+                     LOOP END
+                  LOOP END
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5822,45)
+               remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+               LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5822,45)
+                  remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                  LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5822,45)
+                     remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                     LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5822,45)
+                        remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+                     LOOP END
+                  LOOP END
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5862,21)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5862,21)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5862,21)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5862,21)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5877,21)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5877,21)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5877,21)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5877,21)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5892,21)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5892,21)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5892,21)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5892,21)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7435,10) inlined into deriv2e.f(5907,21)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(7437,13) inlined into deriv2e.f(5907,21)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(7439,16) inlined into deriv2e.f(5907,21)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(7441,19) inlined into deriv2e.f(5907,21)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8122,13) inlined into deriv2e.f(5956,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(8126,37) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DFORMA_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(5013,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5013,25)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5013,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5025,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(5026,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at deriv2e.f(5036,25)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(5036,25)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(5036,25)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5048,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(5049,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at deriv2e.f(5059,25)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(5059,25)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(5059,25)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5170,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5171,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5178 and  line 5191
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5142,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5143,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5150 and  line 5161
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5117,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5118,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5125 and  line 5134
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5096,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5097,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5104 and  line 5110
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(5078,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(5079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 5086 and  line 5090
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(5005,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(5018,32) ]
+
+   LOOP BEGIN at deriv2e.f(5006,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(5018,32) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DFORM_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(4812,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4816 and  line 4822
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4797,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4801 and  line 4807
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4785,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4789 and  line 4793
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4773,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4777 and  line 4781
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4764,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4768 and  line 4770
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4751,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4751,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(4747,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(4756,33) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DXYZ_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6970,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6970,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6973,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6973,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6989,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6989,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6989,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6989,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7000,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7000,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7000,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7000,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7009,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7009,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7009,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7014,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7016,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7016,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7021,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7022 and  line 7022
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7365,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7359,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7362,10)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 7363 and  line 7363
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7375,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7377,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7379,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 7380 and  line 7380
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7038,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7038,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7038,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7038,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7048,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7048,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7057,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7057,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7057,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7062,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7063,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7063,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7068,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7069 and  line 7069
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7332,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7326,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7329,10)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 7330 and  line 7330
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7342,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7344,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7346,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 7347 and  line 7347
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7087,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7087,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7087,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7087,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7097,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7097,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7108,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7108,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7108,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7108,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7117,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7118 and  line 7118
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7124,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7124,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7124,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7130,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7133,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7133,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7137,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7138 and  line 7138
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7143,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7143,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7149,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7143,19)
+   <Peeled>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7160,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7160,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7160,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7166,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7167,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7167,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7173,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7174 and  line 7174
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7179,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7179,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7185,19)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7186 and  line 7186
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7179,19)
+   <Peeled>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7198,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7198,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7198,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7202,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(7204,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7204,19)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7210,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at deriv2e.f(7213,22)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 7214 and  line 7214
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(7222,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(7222,22)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(7222,22)
+      <Peeled>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7245,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7237,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7239,7)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(7242,10)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 7243 and  line 7243
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(7255,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7257,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(7259,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 7260 and  line 7260
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7289,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(7281,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(7283,7)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(7286,10)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 7287 and  line 7287
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at deriv2e.f(7299,13)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(7301,16)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at deriv2e.f(7303,19)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed FLOW dependence between  line 7304 and  line 7304
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DENFAC_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(3896,13)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(3898,13) ]
+
+   LOOP BEGIN at deriv2e.f(3912,16)
+      remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(3913,16) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3937,13)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(3939,13) ]
+
+   LOOP BEGIN at deriv2e.f(3953,16)
+      remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(3954,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DFINAL_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(4523,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(4525,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4525 and  line 4525
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(4527,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4528 and  line 4528
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4536,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(4536,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: FORMEG_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(8271,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 8275 and  line 8275
+LOOP END
+===========================================================================
+
+Begin optimization report for: DELIM_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(3848,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(3848,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3848,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3856,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(3857,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3862 and  line 3862
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3857,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(3870,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(3871,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3875 and  line 3875
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(3871,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: REDUND_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(7628,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7633,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7684,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: DPRIM_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6478,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6478,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6481,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(6364,10)
+   remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6365,10) ]
+
+   LOOP BEGIN at deriv2e.f(6373,13)
+      remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6374,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6387,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(6400,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(6419,16)
+         remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6421,16) ]
+
+         LOOP BEGIN at deriv2e.f(6435,19)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(6436,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DSHELL_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6731 and  line 6731
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6723,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6782 and  line 6782
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6774,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6803,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6806,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6814,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6817,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6859 and  line 6859
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6850,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6916 and  line 6916
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6908,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: GRDCON_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(8052,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(8055,16)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(8060,19)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at deriv2e.f(8063,22)
+            remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+            LOOP BEGIN at deriv2e.f(8071,28)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+               remark #15346: vector dependence: assumed OUTPUT dependence between  line 8080 and  line 8080
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8121,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 8121 and  line 8121
+LOOP END
+
+LOOP BEGIN at deriv2e.f(8124,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 8124 and  line 8124
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(8122,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ deriv2e.f(8126,37) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DNORM_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(6126,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6135,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6143 and  line 6136
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6135,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6149,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6158,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6166 and  line 6159
+   LOOP END
+
+   LOOP BEGIN at deriv2e.f(6158,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at deriv2e.f(6171,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at deriv2e.f(6173,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at deriv2e.f(6178,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 6179 and  line 6179
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SUBSD_DFT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at deriv2e.f(7430,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7430,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7472 and  line 7472
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7467,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7461 and  line 7461
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7456,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7450 and  line 7450
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at deriv2e.f(7444,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at deriv2e.f(7435,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at deriv2e.f(7437,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at deriv2e.f(7439,16)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at deriv2e.f(7441,19)
+            remark #15534: loop was not vectorized: loop contains arithmetic if or computed goto. Consider using if-then-else statement.    [ deriv2e.f(7442,19) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

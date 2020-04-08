@@ -1,0 +1,73 @@
+title
+c20h42 Gaussian test example 6-31g*
+zmat angstrom
+ ha
+ c1    ha    hc
+ c2    c1    cc        ha    tet
+ c3    c2    cc        c1    tet       ha    180.      0
+ c4    c3    cc        c2    tet       c1    180.      0
+ c5    c4    cc        c3    tet       c2    180.      0
+ c6    c5    cc        c4    tet       c3    180.      0
+ c7    c6    cc        c5    tet       c4    180.      0
+ c8    c7    cc        c6    tet       c5    180.      0
+ c9    c8    cc        c7    tet       c6    180.      0
+ c10   c9    cc        c8    tet       c7    180.      0
+ c11   c10   cc        c9    tet       c8    180.      0
+ c12   c11   cc        c10   tet       c9    180.      0
+ c13   c12   cc        c11   tet       c10   180.      0
+ c14   c13   cc        c12   tet       c11   180.      0
+ c15   c14   cc        c13   tet       c12   180.      0
+ c16   c15   cc        c14   tet       c13   180.      0
+ c17   c16   cc        c15   tet       c14   180.      0
+ c18   c17   cc        c16   tet       c15   180.      0
+ c19   c18   cc        c17   tet       c16   180.      0
+ c20   c19   cc        c18   tet       c17   180.      0
+ hb    c20   hc        c19   tet       c18   180.      0
+ h1    c1    hc        ha    tet       c2    tet       1
+ h2    c1    hc        ha    tet       c2    tet       -1
+ h3    c2    hc        c1    tet       c3    tet       1
+ h4    c2    hc        c1    tet       c3    tet       -1
+ h5    c3    hc        c2    tet       c4    tet       1
+ h6    c3    hc        c2    tet       c4    tet       -1
+ h7    c4    hc        c3    tet       c5    tet       1
+ h8    c4    hc        c3    tet       c5    tet       -1
+ h9    c5    hc        c4    tet       c6    tet       1
+ h10   c5    hc        c4    tet       c6    tet       -1
+ h11   c6    hc        c5    tet       c7    tet       1
+ h12   c6    hc        c5    tet       c7    tet       -1
+ h13   c7    hc        c6    tet       c8    tet       1
+ h14   c7    hc        c6    tet       c8    tet       -1
+ h15   c8    hc        c7    tet       c9    tet       1
+ h16   c8    hc        c7    tet       c9    tet       -1
+ h17   c9    hc        c8    tet       c10   tet       1
+ h18   c9    hc        c8    tet       c10   tet       -1
+ h19   c10   hc        c9    tet       c11   tet       1
+ h20   c10   hc        c9    tet       c11   tet       -1
+ h21   c11   hc        c10   tet       c12   tet       1
+ h22   c11   hc        c10   tet       c12   tet       -1
+ h23   c12   hc        c11   tet       c13   tet       1
+ h24   c12   hc        c11   tet       c13   tet       -1
+ h25   c13   hc        c12   tet       c14   tet       1
+ h26   c13   hc        c12   tet       c14   tet       -1
+ h27   c14   hc        c13   tet       c15   tet       1
+ h28   c14   hc        c13   tet       c15   tet       -1
+ h29   c15   hc        c14   tet       c16   tet       1
+ h30   c15   hc        c14   tet       c16   tet       -1
+ h31   c16   hc        c15   tet       c17   tet       1
+ h32   c16   hc        c15   tet       c17   tet       -1
+ h33   c17   hc        c16   tet       c18   tet       1
+ h34   c17   hc        c16   tet       c18   tet       -1
+ h35   c18   hc        c17   tet       c19   tet       1
+ h36   c18   hc        c17   tet       c19   tet       -1
+ h37   c19   hc        c18   tet       c20   tet       1
+ h38   c19   hc        c18   tet       c20   tet       -1
+ h39   c20   hc        c19   tet       hb    tet       1
+ h40   c20   hc        c19   tet       hb    tet       -1
+Variables:
+hc                    1.09
+cc                    1.54
+tet                 109.47
+end
+basis 6-31g*
+scftype direct mp2
+enter

@@ -1,0 +1,43 @@
+#!/bin/bash
+#BSUB -n 64
+#BSUB -W 240
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix 
+
+rm -rf /santmp/dlwab/benchmark
+mkdir /santmp/dlwab/benchmark
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/benchmark
+
+cp ../../input_files_benchmarks/HF.cyclo.3-21G.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G-d.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G-dp.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.DZP.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/DFT.cyclo.6-31G.in /santmp/dlwab/benchmark
+cp ../../input_files_benchmarks/DFT.cyclo.6-31G-dp.in /santmp/dlwab/benchmark
+ 
+cd /santmp/dlwab/benchmark
+
+pam -mpi -auto_place ./gamess-uk < HF.cyclo.3-21G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/HF.cyclo.3-21G.out
+
+pam -mpi -auto_place ./gamess-uk < HF.cyclo.6-31G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/HF.cyclo.6-31G.out
+
+pam -mpi -auto_place ./gamess-uk < HF.cyclo.6-31G-d.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/HF.cyclo.6-31G-d.out
+
+pam -mpi -auto_place ./gamess-uk < HF.cyclo.6-31G-dp.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/HF.cyclo.6-31G-dp.out
+
+pam -mpi -auto_place ./gamess-uk < HF.cyclo.DZP.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/HF.cyclo.DZP.out
+
+pam -mpi -auto_place ./gamess-uk < DFT.cyclo.6-31G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/DFT.cyclo.6-31G.out
+
+pam -mpi -auto_place ./gamess-uk < DFT.cyclo.6-31G-dp.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/altix/DFT.cyclo.6-31G-dp.out
+

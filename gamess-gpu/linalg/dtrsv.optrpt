@@ -1,0 +1,138 @@
+
+Begin optimization report for: DTRSV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dtrsv.f(170,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrsv.f(175,25)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(175,25)
+      remark #15301: REVERSED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(175,25)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(175,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(182,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dtrsv.f(188,25)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 190 and  line 190
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(198,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrsv.f(203,25)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(203,25)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(203,25)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(203,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(210,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrsv.f(216,25)
+   <Peeled, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(216,25)
+   <Multiversioned v1>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(216,25)
+   <Remainder, Multiversioned v1>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(216,25)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(216,25)
+   <Multiversioned v2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(231,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrsv.f(233,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(233,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(233,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(233,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(242,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dtrsv.f(245,22)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(257,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dtrsv.f(259,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(259,22)
+      remark #15301: REVERSED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(259,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dtrsv.f(259,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dtrsv.f(269,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dtrsv.f(272,22)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================

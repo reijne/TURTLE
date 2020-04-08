@@ -1,0 +1,56 @@
+c
+c     COMMON/DRIVE_DFT/ contains options that specify how GAMESS-UK
+c     should drive the CCP1 DFT module.
+c
+      integer KS_AO,     KS_MO,     KS_AOMO
+      integer KS_GRD_AO, KS_GRD_MO, KS_GRD_AOMO
+      integer KS_RHS_AO, KS_RHS_MO, KS_RHS_AOMO
+      integer KS_LHS_AO, KS_LHS_MO, KS_LHS_AOMO
+      integer KS_DT_AO,  KS_DT_MO,  KS_DT_AOMO
+      integer KS_HES_AO, KS_HES_MO, KS_HES_AOMO
+      integer KS_DX_AO,  KS_DX_MO,  KS_DX_AOMO
+      parameter (KS_AO    =01,KS_MO    =02,KS_AOMO    =03)
+      parameter (KS_GRD_AO=04,KS_GRD_MO=05,KS_GRD_AOMO=06)
+      parameter (KS_RHS_AO=07,KS_RHS_MO=08,KS_RHS_AOMO=09)
+      parameter (KS_LHS_AO=10,KS_LHS_MO=11,KS_LHS_AOMO=12)
+      parameter (KS_DT_AO =13,KS_DT_MO =14,KS_DT_AOMO =15)
+      parameter (KS_HES_AO=16,KS_HES_MO=17,KS_HES_AOMO=18)
+      parameter (KS_DX_AO =19,KS_DX_MO =20,KS_DX_AOMO =21)
+c
+c     if ks_bas.eq.KS_AO           call CD_energy_ao
+c     if ks_bas.eq.KS_MO           call CD_energy_mo
+c     if ks_bas.eq.KS_AOMO         call CD_energy
+c
+c     if ks_grd_bas.eq.KS_GRD_AO   call CD_force_ao
+c     if ks_grd_bas.eq.KS_GRD_MO   call CD_force_mo
+c     if ks_grd_bas.eq.KS_GRD_AOMO call CD_force
+c
+c     if ks_rhs_bas.eq.KS_RHS_AO   call CD_chf_rhs_ao
+c     if ks_rhs_bas.eq.KS_RHS_MO   call CD_chf_rhs_mo
+c     if ks_rhs_bas.eq.KS_RHS_AOMO call CD_chf_rhs
+c
+c     if ks_lhs_bas.eq.KS_LHS_AO   call CD_chf_lhs_ao
+c     if ks_lhs_bas.eq.KS_LHS_MO   call CD_chf_lhs_mo
+c     if ks_lhs_bas.eq.KS_LHS_AOMO call CD_chf_lhs
+c
+c     if ks_dt_bas.eq.KS_DT_AO     call CD_dksm_ao
+c     if ks_dt_bas.eq.KS_DT_MO     call CD_dksm_mo
+c     if ks_dt_bas.eq.KS_DT_AOMO   call CD_dksm
+c
+c     if ks_hes_bas.eq.KS_HES_AO   call CD_hess_ao
+c     if ks_hes_bas.eq.KS_HES_MO   call CD_hess_mo
+c     if ks_hes_bas.eq.KS_HES_AOMO call CD_hess
+c
+c     if ks_dx_bas.eq.KS_DX_AO     call CD_dksm_exp_ao
+c     if ks_dx_bas.eq.KS_DX_MO     call CD_dksm_exp_mo
+c     if ks_dx_bas.eq.KS_DX_AOMO   call CD_dksm_exp
+c
+      integer ks_bas,     ks_grd_bas, ks_hes_bas
+      integer ks_rhs_bas, ks_lhs_bas, ks_dt_bas
+      integer ks_dx_bas
+      logical ogeompert
+c
+      common/drive_dft/ks_bas, ks_grd_bas, 
+     &       ks_rhs_bas, ks_lhs_bas, ks_dt_bas,
+     &       ks_hes_bas, ks_dx_bas,
+     &       ogeompert

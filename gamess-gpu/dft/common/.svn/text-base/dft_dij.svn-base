@@ -1,0 +1,10 @@
+c
+c Interatomic distances
+c
+_IF(qmmm)
+c use function to avoid n**2 memory
+      REAL dij
+_ELSE
+      REAL dij(max_atom,max_atom)
+      common/dijtab/dij
+_ENDIF

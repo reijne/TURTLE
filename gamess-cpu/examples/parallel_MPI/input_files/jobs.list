@@ -1,0 +1,61 @@
+# These are the list of jobs that need to be run to validate the
+# MPI/ScaLAPACK version of GAMESS-UK. The jobs are split up into 
+# groups depending on their functionality. If you don't need/want
+# to run a particular job, just comment out the job by placing a
+# hash symbol (#) at the start of the line
+
+# HF SCF
+HF.Bz_crco3.TZVP
+HF.cyclo.sto3G
+HF.cyclo.3-21G
+HF.cyclo.6-31G
+HF.cyclo.6-31G-d
+HF.cyclo.6-31G-dp
+HF.cyclo.DZP
+HF.valino.sto3G
+HF.valino.3-21G
+HF.valino.6-31G
+HF.valino.6-31G-d
+HF.valino.6-31G-dp
+HF.morphine.6-31G-d
+HF_prop.morphine.6-31G-d
+HF.morphine.6-31G-dp
+## The following 2 jobs may require 128 CPUs
+#HF.hf12z-shell4
+#HF.siosi7.3975
+HF_grad.CAG.1291
+HF_opt.fluro_furan.6-311G++2pd
+HF_props.pyridine
+HF.morphine.start
+HF.morphine.restart
+ECP_opt.crno4
+ECP_SBKJC.crno4
+HF_ECP_opt.crco6
+## UHF jobs
+UHF.Bz_crco3.TZVP
+UHF.pyridine
+UHF_opt.pyridine
+UHF.morphine.6-31G-d
+## DFT jobs
+DFT.morphine.6-31G-dp
+DFT.morphine.6-31G-dp_harmonic
+DFT.morphine.A2.DZVP
+DFT.cyclo.6-31G
+DFT.cyclo.6-31G-dp
+DFT.valino.6-31G
+DFT.valino.A2.DZVP
+DFT.valino.A2.DZVP2
+DFT.siosi3.347
+DFT.siosi4.617
+DFT.siosi5.1199
+DFT.siosi6.1687
+## The following job may 128 CPUs
+#DFT.siosi7.3975
+DFT.Alpha-pinene.6-311g-3dfp
+DFT.c20h42.6-31G-d
+DFT.pcfe.814
+DFT_opt.exti4a1.3-21G
+DFT_opt_props.brncs
+## The following job may require 128 CPUs
+#DFT.hf12z-shell4
+UKS.pyridine

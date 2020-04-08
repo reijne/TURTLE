@@ -1,0 +1,21 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title 
+HF ... RHF/3-21G - nobond nbo analysis
+nosym
+zmatrix angstrom 
+X
+F   1 1.0
+H   2  FH   1   90.0
+variables
+FH    0.956
+end
+basis 3-21g
+runtype optimize
+enter 
+runtype analysis
+nbo
+vectors 1
+enter 1
+\$nbo  nobond \$end
+EOF

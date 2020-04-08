@@ -1,0 +1,42 @@
+
+Begin optimization report for: ZGETRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zgetri.f(162,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zgetri.f(163,19)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zgetri.f(163,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zgetri.f(140,16)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+LOOP BEGIN at zgetri.f(140,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zgetri.f(156,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zgetri.f(172,16) ]
+LOOP END
+
+LOOP BEGIN at zgetri.f(136,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zgetri.f(148,16) ]
+LOOP END
+
+LOOP BEGIN at zgetri.f(182,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zgetri.f(185,13) ]
+LOOP END
+===========================================================================

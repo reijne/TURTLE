@@ -1,0 +1,366 @@
+#!/bin/sh
+#
+# --------------------------------------------------------------
+#
+# This file is built from rungamess.in. DO NOT EDIT rungamess,
+# change rungamess.in instead and run configure in the
+# GAMESS-UK/m4 directory to regenerate.
+#
+#---------------------------------------------------------------
+#
+debug=0
+#
+# --------------------------------------------------------------
+# Establish directory for sub-commands
+# --------------------------------------------------------------
+#
+case $0 in
+  rungamess)RUNGAMESS_DIR=.; export RUNGAMESS_DIR;;
+  *) RUNGAMESS_DIR=`echo $0 | sed 's@/rungamess$@@'` ; export RUNGAMESS_DIR;;
+esac
+
+RUNGAMESS_DIR=`(cd $RUNGAMESS_DIR;pwd)`
+
+VERSION=3.0
+PROG=rungamess
+#
+# --------------------------------------------------------------
+# Save command line arguments 
+# --------------------------------------------------------------
+#
+args=$*
+
+#
+# --------------------------------------------------------------
+# Define subprocedures
+# --------------------------------------------------------------
+#
+. $RUNGAMESS_DIR/rg_info
+. $RUNGAMESS_DIR/rg_vars
+
+#
+# --------------------------------------------------------------
+# Load any Site-specific defaults 
+# --------------------------------------------------------------
+#
+. $RUNGAMESS_DIR/rg_site_defaults
+#
+# --------------------------------------------------------------
+# Load configuration-dependent defaults for anything not already selected
+# --------------------------------------------------------------
+#
+. $RUNGAMESS_DIR/rg_defaults
+#
+# --------------------------------------------------------------
+# Set Defaults
+# --------------------------------------------------------------
+#
+executable=$GAMESS_EXE
+set_exe=0
+scratchtopdir=$GAMESS_SCR
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+queuemode=${GAMESS_QUEUEMODE:=immediate}
+mpidyn=${GAMESS_MPIDYN:=0}
+datain=${GAMESS_DATAIN:=0}
+queueargs=""
+jobname=ERROR
+jobmode=${GAMESS_JOBMODE:=serial}
+submode=${GAMESS_SUBMODE:=none}
+nprocs=${GAMESS_NPROCS:=0}
+nnodes=1
+# use a default time of 2 hours
+jobtime=120
+procspernode=${GAMESS_PROCSPERNODE:=1}
+project=${GAMESS_PROJECT:=none}
+jobworkdir=${GAMESS_WORK:=none}
+stdout=0
+flist=""
+host=`hostname`
+homedir=`pwd`
+root=undefined
+listing=undefined
+originator=none
+validation=none
+queue=${GAMESS_QUEUE:=none}
+info=0
+par=0
+vars=0
+
+export jobname
+export root
+export executable
+export jobmode
+export flist
+export nprocs
+export nnodes
+export datain
+export procspernode
+export jobtime
+export scratchtopdir
+export libdir
+export tempdir
+export homedir
+export project
+export stdout
+export listing
+export RUNGAMESS_DIR
+export PROG
+export queueargs
+export queue
+export debug
+
+
+#
+# --------------------------------------------------------------
+# Parse Command Arguments
+# --------------------------------------------------------------
+#
+
+flag=0
+while test $flag -eq 0
+do
+   if getopts n:m:e:k:t:l:r:p:P:T:o:h:D:O:Q:qsiIdVv: next
+   then
+      case $next in 
+         d) debug=1;;
+         n) root=$OPTARG;;
+         e) executable=$OPTARG; set_exe=1;;
+         k) flist="$flist -k $OPTARG";;
+         t) flist="$flist -t $OPTARG";;
+         l) flist="$flist -l $OPTARG";;
+         r) flist="$flist -r $OPTARG";;
+         m) jobmode=$OPTARG;;
+         T) jobtime=$OPTARG;;
+         Q) queuemode=submit; queue=$OPTARG;;
+         q) queuemode=submit;;
+         s) stdout=1;;
+         o) listing=$OPTARG;;
+         p) nprocs=$OPTARG;;
+         P) procspernode=$OPTARG;;
+         i) info=1; stdout=1;;
+         I) info=2; stdout=1;;
+         V) vars=1; stdout=1;;
+         h) host=$OPTARG;;
+         v) validation=$OPTARG;;
+         O) originator=$OPTARG;;
+         D) remotedir=$OPTARG;;
+         *) echo ${PROG}: Bad argument $next; rg_info; exit -1;;
+      esac
+   else
+      flag=1
+   fi
+done
+
+#echo $flist
+#
+# --------------------------------------------------------------
+# Assign jobname to value of last argument 
+# --------------------------------------------------------------
+#
+shift `expr $OPTIND - 1`; jobname=$1 
+
+case X$2 in 
+   X) ;;
+   *) echo "rungamess error: jobname must be the last argument";  exit 120; ;;
+esac
+
+case X$jobname in
+   X) if test $info -eq 0; then
+        if test $vars -eq 0; then
+          echo ${PROG}: missing jobname; exit 109; fi; fi;; 
+esac
+
+case $root in
+  undefined) root=$jobname;;
+esac
+
+case $listing in
+  undefined) listing=$jobname.out;;
+esac
+
+#
+# --------------------------------------------------------------
+#
+# set NO_RERUN to 1 means check validation and skip if it is
+# already OK.
+#
+# You must provide -v <vtab> or a setting for GAMESS_VTAB 
+# and have validate in your path
+#
+# --------------------------------------------------------------
+#
+case $validation in 
+   none) ;;
+   *)GAMESS_VTAB=$validation
+     export GAMESS_VTAB
+esac
+
+case ${NO_RERUN:=0} in
+   1) validate $jobname $listing
+      vstat=$?
+      case $vstat in 
+              0) echo skipping $1 - validated OK
+                 exit 0;;
+              *)
+                 echo validate for $1 returned $vstat, running job;;
+       esac;;
+esac
+#
+# --------------------------------------------------------------
+# Switch to parallel execution if requested
+# GAMESS_NPROCS=1 or -p 1 means use parallel code on one node
+# --------------------------------------------------------------
+#
+
+
+case $nprocs in 
+ 0) ;;
+ *) jobmode=$GAMESS_PARMODE;
+    case $set_exe in
+      0) executable=$GAMESS_PAREXE;;
+    esac
+
+    # add an extra processor if needed for dynamic load balancing
+    case $mpidyn in
+      0) ;;
+      1) nprocs=`expr $nprocs + 1`;;
+    esac
+
+    # Work out number of nodes required
+    nnodes=`expr 1 + \( \( $nprocs - 1 \) / $procspernode \) `
+    ;;
+esac
+
+#
+# --------------------------------------------------------------
+# If required, pass control to a remote hosts
+# This command wont return
+# --------------------------------------------------------------
+#
+
+if test `hostname | awk -F. '{print $1}'` != $host -a `hostname` != $host
+then
+  echo ${PROG}: will execute on $host
+. $RUNGAMESS_DIR/rg_rsh
+fi
+
+#
+# --------------------------------------------------------------
+# Help messages and environment print
+# --------------------------------------------------------------
+#
+if test $info -ne 0
+then
+   rg_info
+   exit 0
+fi
+#
+# --------------------------------------------------------------
+# If we are running in response to a remote shell, set up
+# a working directory for the job.
+# copy in the inputfile, and set parameters accordingly
+# --------------------------------------------------------------
+#
+case $originator in
+  none) ;;
+  *) . $RUNGAMESS_DIR/rg_server_setup;;
+esac
+
+#
+# Define temporary file, can replace following with mktemp
+#
+num=0
+flag=0
+while test $flag = 0 ; do
+   envfile=/tmp/$LOGNAME.$num
+   if test -f $envfile ; then
+      num=`expr $num + 1`
+   else
+      flag=1
+   fi
+done
+
+# --------------------------------------------------------------
+# Check environment vars
+# --------------------------------------------------------------
+#
+. $RUNGAMESS_DIR/rg_config
+
+# --------------------------------------------------------------
+# Variable echo (used by GUI)
+# --------------------------------------------------------------
+
+if test $vars -eq 1
+then
+   rg_vars
+   exit 0
+fi
+
+# --------------------------------------------------------------
+# Job working directory
+# --------------------------------------------------------------
+
+if test $jobworkdir = none
+then
+   jobworkdir=$scratchtopdir/$job
+fi
+
+#
+# --------------------------------------------------------------
+# Check for existence of input
+# --------------------------------------------------------------
+#
+if ! test -f "$homedir/$jobname.in" 
+then
+echo rungamess:  input file $jobname.in  does not exist
+exit
+fi
+#
+# --------------------------------------------------------------
+# Prepend punchfile request
+# --------------------------------------------------------------
+#
+flist="-k ftn058=$jobname.pun $flist"
+
+# Invoke execution or submission script as required
+# --------------------------------------------------------------
+#
+echo =========== $jobname============
+
+case $queuemode in
+   immediate)
+      # run job immediately
+      case $stdout in
+         1)  . $RUNGAMESS_DIR/rg_exe.$jobmode ;;
+         0)  . $RUNGAMESS_DIR/rg_exe.$jobmode > $listing;;
+      esac
+      rm -f $TMPFILE
+   ;;
+   submit)
+      case $submode in
+      none) 
+        echo "rungamess: batch job submission has not been set up"
+        echo "you can set the GAMESS_SUBMODE environment variable"
+        echo "or by editing" $RUNGAMESS_DIR/rg_site_defaults.in
+        ;;
+      *)
+        $RUNGAMESS_DIR/rg_sub.$submode
+        ;;
+      esac
+   ;;
+esac
+
+#
+# --------------------------------------------------------------
+# If we are running in response to a remote shell, copy back
+# the punchfile if present
+# --------------------------------------------------------------
+#
+case $originator in
+  none) ;;
+  *) if test -f $jobname.pun
+     then
+        rcp $jobname.pun $originator:$remotedir
+     fi;;
+esac

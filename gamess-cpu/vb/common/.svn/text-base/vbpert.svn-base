@@ -1,0 +1,40 @@
+      common/vbpert/crivarpert(4),shiftp,fpdoc,fpuoc,
+     &              nvarp,ifirsp,idelp,npert,
+     &              ntype,itype(mxorbvb),
+     &              minfock,maxfock,minpert,maxpert,minvar,maxvarp,
+     &              minfockd,maxfockd,
+     &              fckp,ovbper,fockdiagonal
+      INTEGER nvarp,ifirsp,idelp,npert,ntype,itype
+      INTEGER minfock,maxfock,minpert,maxpert,minvar,maxvarp
+      INTEGER minfockd,maxfockd
+      logical ovbper,fckp,fockdiagonal
+      REAL crivarpert,shiftp,fpdoc,fpuoc
+c description:
+c   ntype -> 1 - specify optimisation per brillioun structure
+c            2 - specify optimisation per orbital
+c            3 - specify optimisation per kind (type excitation)
+c   itype ->
+c
+c          ntype = 1
+c            itype(1..maxex) - optimisation type for each (brillouin) structure
+c
+c          ntype = 2
+c            itype(1..mxorbvb) - optimisation type for each orbital
+c            
+c          ntype = 3 
+c            itype(1) - optimisation type for doubly to variably occupied
+c            itype(2) - optimisation type for doubly to unoccupied
+c            itype(3) - optimisation type for variably to variably occupied
+c            itype(4) - optimisation type for variably to unoccupied
+c            
+c          ntype = 4
+c            itype(1..mxorbvb) - optimisation type for each orbital (to be
+c                               specified by clsbril
+c
+c   contents of itype array:
+c            itype(x)=1 for Super CI optimalisation
+c            itype(x)=2 for perturbation theory optimalisation
+c            itype(x)=4 perturbation theory  determines choice between Super and Pert
+c
+c   crivarpert ~: critaria for itype=4 case per class if applicable
+

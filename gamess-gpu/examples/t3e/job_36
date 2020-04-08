@@ -1,0 +1,10 @@
+#!/bin/csh
+#QSUB -l mpp_p=64
+#QSUB -l mpp_t=0:30:0
+#QSUB -lT 0:30:0
+#QSUB -eo
+#QSUB -r siosi4
+cd  ~/GAMESS-UK/examples/t3e
+setenv SCACHE_I_STREAMS 1
+setenv SCACHE_D_STREAMS 1
+time mpprun -n 64 ../../bin/gamess-uk < par_36.in  > par_36.out_64

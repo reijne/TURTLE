@@ -1,0 +1,12 @@
+c
+      integer icnexp, iexpas, iexpcn, nexpc, nexpx, nex, icch
+      logical expat
+      common /expanc2/ icnexp,iexpas,iexpcn,nexpc,
+     +                 nexpx,nex,icch,expat
+c
+      character*16 expnam
+      common /xnames/ expnam(maxex)
+c
+      REAL ufact
+      common /expun/ ufact
+c

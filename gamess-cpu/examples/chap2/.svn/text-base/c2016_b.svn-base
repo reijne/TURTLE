@@ -1,0 +1,44 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+hcoh <-> h2co 1a'  6-31g / optimised 
+zmat angs
+c
+o 1 co
+h 1 ch1 2 och1
+h 1 ch5 2 h5co 3 180.0
+variables
+och1 56.3  type 3
+co   1.27  type 3
+ch1  1.22  type 3
+ch5  1.10  type 3
+h5co 115.8 type 3
+end
+basis 6-31g
+runtyp saddle
+xtol 0.001
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+hcoh <-> h2co 1a' ts - 6-31g opt. geom SCF 
+#  freq. -2727.6, 688.9, 1356.0, 1503.4, 2666.6, 3214.5
+zmat angs
+c
+o 1 co
+h 1 ch1 2 och1
+h 1 ch5 2 h5co 3 180.0
+variables
+och1 56.3  
+co   1.27  
+ch1  1.22  
+ch5  1.10  
+h5co 115.8 
+end
+basis 6-31g
+runtyp hessian
+enter
+EOF

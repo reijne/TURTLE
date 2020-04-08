@@ -1,0 +1,79 @@
+c
+      character *8 title,scftyp,runtyp,guess,conf,fkder
+      character *8 scder,dpder,plder,guesc,rstop,charsp
+      common/restrz/title(10),scftyp,runtyp,guess,conf,fkder,
+     + scder,dpder,plder,guesc,rstop,charsp(30)
+c
+      REAL gx, gy, gz, rspace, tiny, tit, scale, ropt, vibsiz
+      common/restrr/
+     + gx,gy,gz,rspace(21),tiny,tit(2),scale,ropt,vibsiz
+c
+      logical lset,ladapt,lsym,latmol,berny,oss,ldiag,ciopt,mp2,ciforc,
+     + fpres,ldens,llibry,limpt,lskip,ldenom,ignore,lcontr,lvcd,
+     +lfdtrn,unit7,lgten,hfgr,bfgs,ump2,lmeth2,lcart,lmcdat,
+     +lopti,lmcscf,lci,lforce,lcpf,ladp,loptor,mp2w,ordmo,ump3,rmp3,
+     +opbas,odbas,ofbas,ogbas,orestrl,oatmdft,odenscfdft
+c
+      common/restrl/ciopt,ciforc,mp2,hfgr,bfgs,ump2,lmeth2,ump3,rmp3,
+     +ordmo,mp2w,loptor,ladp,lcpf,lopti,lmcscf,lforce,lci,lcart,
+     +lmcdat,lfdtrn,unit7,lcontr,lvcd,lgten,ldenom,ignore,
+     +ldens,lset,ladapt,lsym,latmol,berny,llibry,limpt,fpres,oss,
+     +ldiag,lskip,opbas,odbas,ofbas,ogbas,orestrl(6),oatmdft,odenscfdft
+c
+      integer jjfile, notape, iblk, lblk
+      integer nnfile, nofile, jblk, mblk
+      integer mmfile, nufile, kblk, nblk
+      integer ione, lone, lds, isect, ldsect, iacsct
+      common/restri/jjfile,notape(4),iblk(4),lblk(4),
+     +              nnfile,nofile(4),jblk(4),mblk(4),
+     +              mmfile,nufile(4),kblk(4),nblk(4),
+     +              ione(12),lone(12),
+     +              lds(508),isect(508),ldsect(508),iacsct(508)
+c
+      integer ifilm,iblkm,mblkm,itwo,ltwo
+      equivalence (ifilm,notape(1)),(iblkm,iblk(1)),(mblkm,lblk(1))
+      dimension itwo(6),ltwo(6)
+      equivalence (ione(7),itwo(1)),(lone(7),ltwo(1))
+c
+      integer nprint, itol, icut, normf, normp, nopk, irest
+      integer nrec, ist, jst, kst, lst 
+      integer nintmx, nindmx, intg76
+      integer mfilep, mainp, mblp, iblkmp
+      integer m2file, m2tape, m2blk, m2last
+      integer m4file, m4tape, m4blk, m4last
+      integer m6file, m6tape, m6blk, m6last
+      integer m5file, m5tape, m5blk, m5last
+      integer m9file, m9tape, m9blk, m9last
+      integer mtfile, mttape, mtblk, mtlast
+      integer m1file, m1tape, m1blk, m1last
+      integer m11fil, m11tap, m11bl, m11lst
+      integer m12fil, m12tap, m12bl, m12lst
+      integer m13fil, m13tap, m13bl, m13lst
+      integer local, mtask 
+      integer itask, irest2, irest3, irest4, irest5, intloc
+      integer iblkl, ifill, iblkd, ifild, iblks, ifils, iblkf, ifockf 
+      integer nopkr, iofsym, iofrst, idurie, imaxb_ic
+      logical omaxb, ognore
+      common/restar/nprint,itol,icut,normf,normp,nopk,
+     + irest,nrec,omaxb,ist,jst,kst,lst,nintmx,nindmx,intg76,
+     + mfilep,mainp,mblp,iblkmp,
+     + m2file,m2tape(20),m2blk(20),m2last(20),
+     + m4file,m4tape(20),m4blk(20),m4last(20),
+     + m6file,m6tape(20),m6blk(20),m6last(20),
+     + m5file,m5tape(20),m5blk(20),m5last(20),
+     + m9file,m9tape(20),m9blk(20),m9last(20),
+     + mtfile,mttape(20),mtblk(20),mtlast(20),
+     + m1file,m1tape(20),m1blk(20),m1last(20),
+     + m11fil,m11tap(20),m11bl(20),m11lst(20),
+     + m12fil,m12tap(20),m12bl(20),m12lst(20),
+     + m13fil,m13tap(20),m13bl(20),m13lst(20),
+     + local,mtask,itask(50),
+     + irest2,irest3,irest4,irest5,intloc,
+     + iblkl,ifill,iblkd,ifild,iblks,ifils,iblkf,ifockf,
+     + nopkr,iofsym,iofrst,idurie(2),ognore,imaxb_ic
+c
+      integer len_restrl,len_restri,len_restar,len_restrr
+      parameter (len_restrl=40,len_restri=1590,len_restar=700)
+      parameter (len_restrr=30)
+c      used: restre(util1),revise(util1),utyp21(server)
+c...   lengths are not accurate

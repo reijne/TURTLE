@@ -1,0 +1,2214 @@
+
+Begin optimization report for: FILLMATRIX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2742,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2743,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2743,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRANSFORMMIX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2791,7)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FORMDAGGER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2781,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2782,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FILLIDETPS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2852,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SETQIG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(1826,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: BCREAT2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2075,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2075,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2085,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2085 and  line 2085
+LOOP END
+
+LOOP BEGIN at vbprop.f(2109,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2109,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2119,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2119 and  line 2119
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(2094,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2086,21) ]
+LOOP END
+
+LOOP BEGIN at vbprop.f(2128,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2120,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BUBBLE_SORT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2020,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2020,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2024
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2020,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PROP_MATRE3
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3055,10) inlined into vbprop.f(2386,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3056,13) inlined into vbprop.f(2386,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2386,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2386,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2386,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2386,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2386,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2394,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2394,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2394,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3106,10) inlined into vbprop.f(2446,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2446,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2446,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2446,22)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2446,22)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2446,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2453,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2453,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2453,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2556,22)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2562,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2562,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2562,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2614,22)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2620,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2620,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2620,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3245,10) inlined into vbprop.f(2698,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2698,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2698,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2698,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2698,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2698,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2706,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2706,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2706,18)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(2366,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2367,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: PAB_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3245,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3246,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PI0_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10)
+<Remainder, Distributed chunk2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0K_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10)
+<Remainder, Distributed chunk2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: P00_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3106,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3107,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GATHER_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3012,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIK_PROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(3055,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3056,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(3057,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIAGMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2826,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2827 and  line 2827
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBPROP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(456,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(457,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(457,10)
+      <Multiversioned v2>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(457,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1826,7) inlined into vbprop.f(543,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(611,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(611,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(611,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(643,7)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(643,7)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(643,7)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(643,7)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(670,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(670,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(670,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(673,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(673,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(673,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(758,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 762 and  line 767
+LOOP END
+
+LOOP BEGIN at vbprop.f(797,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 799 and  line 799
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(810,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(810,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(810,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(813,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(813,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(813,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(854,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(854,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(854,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(867,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 868 and  line 870
+LOOP END
+
+LOOP BEGIN at vbprop.f(867,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(906,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(906,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(906,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(920,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(920,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(920,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(964,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(964,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(964,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(967,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(967,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(967,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1082,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1082,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1082,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1085,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1085,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1085,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1161,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1161,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1161,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1164,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1164,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1164,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1190,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1190,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1190,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1193,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1193,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1193,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2781,7) inlined into vbprop.f(1284,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1284,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1284,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1284,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1289,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1289,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1289,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1298,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+   <Peeled, Distributed chunk1>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+   <Remainder, Distributed chunk1>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1299,15)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1299,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1303,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1303,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1303,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1340,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1340,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1342,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1342,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1342,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1345,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1345,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1347,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1347,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1347,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1350,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1350,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1352,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1352,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1352,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2742,7) inlined into vbprop.f(1366,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2743,10) inlined into vbprop.f(1366,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2743,10) inlined into vbprop.f(1366,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1380,8)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1383 and  line 1383
+LOOP END
+
+LOOP BEGIN at vbprop.f(1380,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(1393,8)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1394,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(1394,12)
+      <Multiversioned v2>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(1394,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2742,7) inlined into vbprop.f(1408,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2743,10) inlined into vbprop.f(1408,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2743,10) inlined into vbprop.f(1408,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2781,7) inlined into vbprop.f(1414,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1414,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1414,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2782,10) inlined into vbprop.f(1414,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1421,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1421,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1421,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1429,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1429,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1431,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1431,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1431,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1434,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1434,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1436,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1436,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1436,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+   <Distributed chunk1>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+   <Remainder, Distributed chunk1>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2793,10) inlined into vbprop.f(1439,12)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2791,7) inlined into vbprop.f(1439,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1441,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1441,7)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1441,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1458,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1459 and  line 1459
+LOOP END
+
+LOOP BEGIN at vbprop.f(1498,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1499 and  line 1499
+LOOP END
+
+LOOP BEGIN at vbprop.f(1514,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1515 and  line 1515
+LOOP END
+
+LOOP BEGIN at vbprop.f(1570,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(1570,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(1570,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(1593,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(1595,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1598 and  line 1598
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1648,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1648,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1648,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1659,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1659,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1659,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1668,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1668,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1668,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1677,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1677,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1677,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1686,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1686,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1686,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1695,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1695,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2852,7) inlined into vbprop.f(1695,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(736,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(663,18) ]
+
+   LOOP BEGIN at vbprop.f(735,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(663,18) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(783,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(776,20) ]
+
+   LOOP BEGIN at vbprop.f(781,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(776,20) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(834,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(805,15) ]
+LOOP END
+
+LOOP BEGIN at vbprop.f(934,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(895,18) ]
+
+   LOOP BEGIN at vbprop.f(933,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(895,18) ]
+
+      LOOP BEGIN at vbprop.f(932,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(904,24) ]
+
+         LOOP BEGIN at vbprop.f(931,16)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(904,24) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(984,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(956,24) ]
+
+   LOOP BEGIN at vbprop.f(983,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(956,24) ]
+
+      LOOP BEGIN at vbprop.f(982,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(956,24) ]
+
+         LOOP BEGIN at vbprop.f(981,16)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(956,24) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1105,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1078,18) ]
+
+   LOOP BEGIN at vbprop.f(1104,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1078,18) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1175,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1156,18) ]
+
+   LOOP BEGIN at vbprop.f(1174,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1156,18) ]
+
+      LOOP BEGIN at vbprop.f(1173,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1159,21) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(1206,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1183,23) ]
+
+   LOOP BEGIN at vbprop.f(1205,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1183,23) ]
+
+      LOOP BEGIN at vbprop.f(1204,14)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(1183,23) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TAKECIDERIV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2726,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2726,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2726,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2729,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2731,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(2731,10)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2731,10)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2731,10)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2731,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CREATE_EXC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2075,7) inlined into vbprop.f(1981,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2075,7) inlined into vbprop.f(1981,16)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7) inlined into vbprop.f(1981,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7) inlined into vbprop.f(1981,16)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2075,7) inlined into vbprop.f(1981,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2085,7) inlined into vbprop.f(1981,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2085 and  line 2085
+LOOP END
+
+LOOP BEGIN at vbprop.f(2109,7) inlined into vbprop.f(1981,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2109,7) inlined into vbprop.f(1981,16)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7) inlined into vbprop.f(1981,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7) inlined into vbprop.f(1981,16)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2109,7) inlined into vbprop.f(1981,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2119,7) inlined into vbprop.f(1981,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2119 and  line 2119
+LOOP END
+
+LOOP BEGIN at vbprop.f(1996,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(1996,26)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1996,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1996,26)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1996,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2038,7) inlined into vbprop.f(2008,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2017,7) inlined into vbprop.f(2008,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2008,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2024
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2008,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2017,7) inlined into vbprop.f(2008,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2008,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2024
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2008,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(1980,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2086,21) ]
+
+   LOOP BEGIN at vbprop.f(2094,7) inlined into vbprop.f(1981,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2086,21) ]
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2128,7) inlined into vbprop.f(1981,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2120,21) ]
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1984,16)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbprop.f(1986,17)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: REMTRANS2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2865,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2866,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(2867,13)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbprop.f(2868,16)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 2869 and  line 2869
+         LOOP END
+
+         LOOP BEGIN at vbprop.f(2868,16)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PROP_HATHAM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2194,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2194,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2194,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2194,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3055,10) inlined into vbprop.f(2205,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3056,13) inlined into vbprop.f(2205,21)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2205,21)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2205,21)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2205,21)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2205,21)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(3057,16) inlined into vbprop.f(2205,21)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3106,10) inlined into vbprop.f(2205,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2205,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2205,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2205,21)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2205,21)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3107,13) inlined into vbprop.f(2205,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3154,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Distributed chunk2>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbprop.f(3199,10) inlined into vbprop.f(2205,21)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3245,10) inlined into vbprop.f(2205,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2205,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2205,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2205,21)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2205,21)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(3246,13) inlined into vbprop.f(2205,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(3012,10) inlined into vbprop.f(2205,21)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(2181,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2188,40) ]
+
+   LOOP BEGIN at vbprop.f(2186,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2188,40) ]
+
+      LOOP BEGIN at vbprop.f(2366,13) inlined into vbprop.f(2205,21)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2367,18) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRINTWAVE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(1847,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1848 and  line 1849
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETWAVE2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2909,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2909,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2909,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2920,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2920,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbprop.f(2920,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbprop.f(2935,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2938,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(2941,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbprop.f(2941,16)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at vbprop.f(2941,16)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbprop.f(2941,16)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at vbprop.f(2941,16)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbprop.f(2948,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbprop.f(2932,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETWAVE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(1899,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(1900,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1900,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1900,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1905,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1905,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1905,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1905,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1910,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1910,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1910,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1915,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1915,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1915,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(1915,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORDERMO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2038,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2017,7) inlined into vbprop.f(2043,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2043,15)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2024
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2043,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2017,7) inlined into vbprop.f(2044,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2044,15)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2024
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2020,10) inlined into vbprop.f(2044,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMAMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2755,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2756,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2756,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2760,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2761,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2761,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2766,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2765,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbprop.f(2765,7)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2765,7)
+      <Multiversioned v2>
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2765,7)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbprop.f(2765,7)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbprop.f(2770,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbprop.f(2771,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2771,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2771,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMFILL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbprop.f(2842,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbprop.f(2841,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbprop.f(2841,7)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

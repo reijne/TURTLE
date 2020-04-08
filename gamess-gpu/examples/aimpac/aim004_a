@@ -1,0 +1,21 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP - MCSCF - aimpac
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+scftype mcscf
+mcscf
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+natorb 10 print
+savefile aimpac section 10 file aim004_a.wfn
+enter
+EOF

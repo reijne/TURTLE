@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# Rungamess execution script - LAM MPI version
+#
+
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE}}
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir/$jobname
+
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+echo Start at `date`
+cat $homedir/$jobname.in | dmpirun -np $nprocs $executable
+stat=$?
+echo End at `date`
+
+case $stat in
+   0) echo ${IDENT}: Compaq MPI gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

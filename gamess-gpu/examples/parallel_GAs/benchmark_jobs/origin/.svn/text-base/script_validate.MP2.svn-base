@@ -1,0 +1,34 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 360
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin
+
+rm -rf /scratch/local/gamess/benchmark
+mkdir /scratch/local/gamess/benchmark
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/benchmark
+
+cp ../../input_files_benchmarks/MP2.c20h42.6-31G-d.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/MP2.n3pdme.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/MP2_opt.Bz_crco3.TZVP.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/MP2_opt.c2h4s.cc-pvtz.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/MP2_opt.furan.6-311G-2pd.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/MP2_opt.mnco5h.in /scratch/local/gamess/benchmark
+ 
+cd /scratch/local/gamess/benchmark
+
+mpirun -np 128 gamess-uk < MP2.c20h42.6-31G-d.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2.c20h42.6-31G-d.out
+
+mpirun -np 128 gamess-uk < MP2.n3pdme.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2.n3pdme.out
+
+mpirun -np 128 gamess-uk < MP2_opt.Bz_crco3.TZVP.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2_opt.Bz_crco3.TZVP.out
+
+mpirun -np 128 gamess-uk < MP2_opt.c2h4s.cc-pvtz.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2_opt.c2h4s.cc-pvtz.out
+
+mpirun -np 128 gamess-uk < MP2_opt.furan.6-311G-2pd.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2_opt.furan.6-311G-2pd.out
+
+mpirun -np 128 gamess-uk < MP2_opt.mnco5h.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/MP2_opt.mnco5h.out

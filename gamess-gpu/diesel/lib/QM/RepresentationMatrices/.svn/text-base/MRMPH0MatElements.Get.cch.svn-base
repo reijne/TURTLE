@@ -1,0 +1,98 @@
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::getMatrix(
+	MatrixType *p,
+	const DiffConf<MOType> & diffConf,
+	const TableCase<MOType> & tc) const
+{
+	memset(p, 0, this->matDim.rows*this->matDim.cols*sizeof(MatrixType));
+
+	switch ( this->P ) {
+	case 3:
+		getCaseP3Matrix(p, diffConf, tc.getdK(), tc.getR());
+		break;
+		
+		
+	case 5:
+		getCase14Matrix(p, diffConf.getSame());
+		break;
+	}
+}
+
+
+
+
+
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::getCaseP3Matrix(
+		MatrixType *p,
+		const DiffConf<MOType> & diffConf,
+		INT	dK, INT R) const
+{
+	if ( dK>0 )
+	{	if ( R==1 )
+			getCaseP3Matrix(p,
+					diffConf.getTo().getOpenShell(0),
+					diffConf.getTo().getOpenShell(1));
+		else
+			getCaseP3Matrix(p,
+					diffConf.getTo().getOpenShell(1),
+					diffConf.getTo().getOpenShell(0));
+	}
+	else
+	if ( dK<0 )
+	{	if ( R==1 )
+			getCaseP3Matrix(p,
+					diffConf.getFrom().getOpenShell(0),
+					diffConf.getFrom().getOpenShell(1));
+		else
+			getCaseP3Matrix(p,
+					diffConf.getFrom().getOpenShell(1),
+					diffConf.getFrom().getOpenShell(0));
+	}
+	else
+	{	if ( R==1 )
+			getCaseP3Matrix(p,
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+		else
+			getCaseP3Matrix(p,
+				diffConf.getFrom().getOpenShell(0),
+				diffConf.getTo().getOpenShell(0));
+	}
+}
+
+
+
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::getCaseP3Matrix(
+	MatrixType *p,
+	MOType a, MOType b) const
+{
+const MatrixType	*pMatCb = NULL;
+MatrixType	h = (*mrFockMatrix)(a, b);
+
+	pMatCb = this->CbMat->getP();
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			*p++ = h * *pMatCb++;
+}
+
+
+
+
+template <class MatrixType, class VectorType>
+void	MRMPH0MatElements<MatrixType, VectorType>::getCase14Matrix(
+	MatrixType *p,
+	const Configuration<MOType> & same) const
+{
+MatrixType	diag = getDiag(same) - E0;
+
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		p[(this->matDim.rows + 1)*i] = diag;
+}
+

@@ -1,0 +1,30 @@
+Input files for Validating and Testing the MPI-based code
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The list below provides a brief description of a number of data sets that
+can be used in benchmarking the parallel MPI/SCaLAPACK/BLACS-based GAMESS-UK code.
+These examples are taken from the various machine-specific chapters of
+the GAMESS-UK manual.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                             Calculation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+HF.cyclo.6-31G-dp.in               Direct-SCF 6-31G** Calculation of cyclosporin (1855 GTOs)
+HF.cyclo.DZP.in                    Direct-SCF DZP Calculation of Cyclosporin (1941 GTOs)
+HF_grad.CAG.1291.in                Direct-SCF CAG rhf gradient test (1291 GTOs)
+HF.hf12z-shell4.in                 Direct-SCF tot12zonder CMD shell4 
+HF.valino.6-31G-dp.in              Direct-SCF 6-31G** Calculation of Valinomycin (1620 GTOs)
+HF.siosi7.3975.in                  Direct-SCF Calculation of zeolite siosi7 (3975 GTOs)
+# DFT jobs
+DFT.cyclo.6-31G.in                 DFT B3LYP Calculation of cyclosporin 6-31G basis (1000 GTOs)
+DFT.cyclo.6-31G-dp.in              DFT B3LYP Calculation of cyclosporin 6-31G** basis (1855 GTOs)
+DFT.hf12z-shell4.in                DFT B3LYP Calculation of tot12zonder CMD shell4
+DFT_opt.exti4a1.3-21G.in           DFT BLYP geometry optimisation of exti4a1 with 3-21G* basis (446 GTOs)
+DFT.pcfe.814.in                    DFT B3LYP Calculation of PcFe(4-Mepip)2 at x-ray geometry (814 GTOs)
+DFT.siosi6.1687.in                 DFT SVWN Calculation of zeolite siosi6 (1687 GTOs)
+DFT.siosi7.3975.in                 DFT B3LYP Calculation of zeolite siosi7 (3975 GTOs)
+DFT.valino.A2.DZVP2.in             DFT HCTH Calculation of Valinomycin in water DZVP2 basis (1620 GTOs)
+DFT.valino.A2.DZVP.in              DFT HCTH Calculation of Valinomycin in water DZVP (882 GTOs)
+
+August 2005

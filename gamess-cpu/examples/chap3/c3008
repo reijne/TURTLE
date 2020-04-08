@@ -1,0 +1,19 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h3o+ SCF energy   -75.89060829
+charge 1
+zmat angstrom
+o
+x 1 1.0
+h 1 r 2 90.0
+h 1 r 2 90.0 3 120.0
+h 1 r 2 90.0 3 -120.0
+variables
+r 0.964 hessian 1.5
+end
+runtype scf
+enter
+EOF

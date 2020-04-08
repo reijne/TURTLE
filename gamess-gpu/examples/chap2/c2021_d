@@ -1,0 +1,108 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+setenv ftn022 adapt
+setenv ftn031 tran
+../../bin/gamess << EOF
+title
+h2co - 3-21g  scf prior to table-ci/ SCF 
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  table-ci 1m/1r -adaption
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci
+adapt 
+tran bypass
+select bypass
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  13  17 18
+roots 1
+thresh 30 10
+ci bypass
+diag bypass
+extrap 2
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  table-ci 1m/1r -transformation
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci
+adapt bypass
+tran 
+select bypass
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  13  17 18
+roots 1
+thresh 30 10
+ci bypass
+diag bypass
+extrap 2
+enter
+EOF
+../../bin/gamess << EOF
+restart ci
+title
+h2co - 3-21g 1m/1r 
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+mrdci
+adapt bypass
+tran bypass
+select 
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  13  17 18
+roots 1
+thresh 30 10
+ci 
+diag 
+extrap 2
+enter
+EOF

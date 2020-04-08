@@ -1,0 +1,20 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+scf3 tzvp basis d3h symmetry LDA Energy = -1056.819044588978 au.
+zmat angstrom
+sc
+x 1 1.0
+f 1 scf 2 90.0
+f 1 scf 2 90.0 3 120.0
+f 1 scf 2 90.0 3 -120.0
+variables
+scf       1.8225963 hessian     .888291
+end
+basis tzvp
+runtype optimize
+scftype direct
+cdft s-vwn
+level 2
+enter
+EOF

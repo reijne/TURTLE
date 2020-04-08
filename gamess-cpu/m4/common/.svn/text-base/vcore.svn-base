@@ -1,0 +1,8 @@
+      REAL qq
+_IF(64bitpointers)
+      integer*8 ivoff, memhandle
+_ELSE
+      integer ivoff, memhandle
+_ENDIF
+      common/vcore/qq(2)
+      common/vcoreoff/ivoff, memhandle

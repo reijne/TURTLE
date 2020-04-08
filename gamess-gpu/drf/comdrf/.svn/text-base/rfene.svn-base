@@ -1,0 +1,107 @@
+c
+      REAL unucrep, eoneel, ekin, enua, etwoel, extel, extnuc
+      REAL snucnuc, selel, snua, snucel, selnuc, stwoel, sextel
+      REAL sextnuc, selext, snucext, upolqm 
+      REAL uneqnuc, uneqel, uclas, suclas, uclase, uclasd, uclasr
+      REAL upolcl, udisp, rdisp, repmod, ustanuc, ustael
+      common /rfene1/ unucrep,eoneel(mxst),ekin(mxst),enua(mxst),
+     +  etwoel(mxst),extel(mxst),extnuc(mxst),snucnuc(mxst),
+     +  selel(mxst),snua(mxst),snucel(mxst),selnuc(mxst),stwoel(mxst),
+     +  sextel(mxst),
+     +  sextnuc(mxst),selext(mxst),snucext(mxst),upolqm(mxst),
+     +  uneqnuc(mxst),uneqel(mxst),uclas,suclas,uclase,uclasd,uclasr,
+     +  upolcl,udisp(mxst),rdisp(mxst),repmod(mxst),
+     +  ustanuc(mxst),ustael(mxst)
+c
+      REAL smolnuc, smolel, smolmol, snucmol, selmol, sextmol
+      REAL smolext
+      REAL stotnuc, stotel, stotext, stotmol, upoleq, ucstst, ucstpl
+      common/rfene2/smolnuc(mxst),smolel(mxst),smolmol(mxst),
+     +  snucmol(mxst),selmol(mxst),sextmol(mxst),smolext(mxst),
+     +  stotnuc(mxst),stotel(mxst),stotext(mxst),stotmol(mxst),
+     +  upoleq(mxst),ucstst(mxst),ucstpl(mxst)
+c
+      REAL uscf, uqm, uelst, uint, suqm, suint, uneq, uneqqm, uneqcl
+      REAL upolneq, usta, ustaqm, ustacl, ustaneq, uens
+      common /rfene3/ uscf(mxst),uqm(mxst),uelst(mxst),uint(mxst),
+     +  suqm(mxst),suint(mxst),uneq(mxst),uneqqm(mxst),uneqcl,
+     +  upolneq(mxst),usta(mxst),ustaqm(mxst),ustacl,ustaneq(mxst),
+     +  uens(mxst)
+c
+      REAL snucno, selelo, snuao, snucelo, selnuco, stwoelo, sextelo
+      REAL sextno, selexto, snucexo, upolqmo, suclaso, upolclo
+      common/rfene4/snucno(mxst),selelo(mxst),snuao(mxst),snucelo(mxst),
+     +  selnuco(mxst),stwoelo(mxst),sextelo(mxst),sextno(mxst),
+     +  selexto(mxst),snucexo(mxst),upolqmo(mxst),suclaso,upolclo
+c
+      REAL smolno, smolelo, smolmo, snucmo, selmolo, sextmo, smolexo
+      REAL stotno, stotelo, stotexo, stotmo, upoleqo, ucstplo
+      common/rfene5/smolno(mxst),smolelo(mxst),smolmo(mxst),
+     +  snucmo(mxst),selmolo(mxst),sextmo(mxst),smolexo(mxst),
+     +  stotno(mxst),stotelo(mxst),stotexo(mxst),stotmo(mxst),
+     +  upoleqo(mxst),ucstplo(mxst)
+c
+      REAL suqmo, suinto, stabtot, stabto 
+      common/rfene6/suqmo(mxst),suinto(mxst),stabtot(mxst),stabto(mxst)
+c
+      REAL extelg, extnucg, sextelg, sxtnucg, selextg, snucxtg, uclasg
+      REAL uclaseg, uclasdg, uclasrg, suclasg, upolclg, repmodg
+      common /rfene7/ extelg(mxgran,mxst),extnucg(mxgran,mxst),
+     +  sextelg(mxgran,mxst),sxtnucg(mxgran,mxst),selextg(mxgran,mxst),
+     +  snucxtg(mxgran,mxst),uclasg(mxgrpar),uclaseg(mxgrpar),
+     +  uclasdg(mxgrpar),uclasrg(mxgrpar),suclasg(mxgran,mxgran),
+     +  upolclg(mxgran),repmodg(mxgran,mxst)
+c
+      REAL sxtmolg, smolxtg, stotxtg
+      common /rfene8/ sxtmolg(mxgran,mxst),smolxtg(mxgran,mxst),
+     +  stotxtg(mxgran,mxst)
+c
+      REAL uelstg, uintg, suintg, uneqclg, ustaclg
+      common /rfene9/ uelstg(mxgran,mxst),uintg(mxgran,mxst),
+     +  suintg(mxgran,mxst),uneqclg(mxgran),ustaclg(mxgran)
+c
+      REAL sxtelog, sextnog, selxtog, sncexog, suclsog, uplclog
+      common /rfene10/ sxtelog(mxgran,mxst),sextnog(mxgran,mxst),
+     +  selxtog(mxgran,mxst),sncexog(mxgran,mxst),
+     +  suclsog(mxgran,mxgran),uplclog(mxgran)
+c
+      REAL sextmog, smlexog, sttexog
+      common/rfene11/sextmog(mxgran,mxst),smlexog(mxgran,mxst),
+     +  sttexog(mxgran,mxst)
+c
+      REAL suintog
+      common /rfene12/ suintog(mxgran,mxst)
+c
+c
+      REAL unucrepo, eoneelo, ekino, enuao, etwoelo
+      REAL extelo, extnuco
+      REAL uneqno, uneqelo, uclaso, uclaseo, uclasdo, uclasro
+      REAL rdispo, repmo, ustano, ustaelo
+      common /rfene21/ unucrepo,eoneelo(mxst),ekino(mxst),enuao(mxst),
+     +  etwoelo(mxst),extelo(mxst),extnuco(mxst),
+     +  uneqno(mxst),uneqelo(mxst),uclaso,uclaseo,
+     +  uclasdo,uclasro,
+     +  rdispo(mxst),repmo(mxst),
+     +  ustano(mxst),ustaelo(mxst)
+c
+      REAL ucststo
+      common/rfene22/
+     +  ucststo(mxst)
+c
+      REAL uscfo, uelsto, uinto, uneqo, uneqqmo, uneqclo
+      REAL upolno, ustao, ustaqmo, ustaclo
+      common /rfene23/ uscfo(mxst),uelsto(mxst),uinto(mxst),
+     +  uneqo(mxst),uneqqmo(mxst),uneqclo,
+     +  upolno(mxst),ustao(mxst),ustaqmo(mxst),ustaclo
+c
+      REAL extelgo, extnucgo, uclasgo
+      REAL uclasego, uclasdgo, uclasrgo, repmodgo
+      common /rfene27/ extelgo(mxgran,mxst),extnucgo(mxgran,mxst),
+     +  uclasgo(mxgrpar),uclasego(mxgrpar),
+     +  uclasdgo(mxgrpar),uclasrgo(mxgrpar),
+     +  repmodgo(mxgran,mxst)
+c
+      REAL uelstgo, uintgo, uneqclgo, ustaclgo
+      common /rfene29/ uelstgo(mxgran,mxst),uintgo(mxgran,mxst),
+     +  uneqclgo(mxgran),ustaclgo(mxgran)
+c

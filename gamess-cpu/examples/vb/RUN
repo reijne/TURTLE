@@ -1,0 +1,40 @@
+#!/bin/csh
+#
+# set the environment variable NO_RERUN to skip
+# jobs which already validate OK
+#
+
+# Make sure we can find the run script and validate binary
+set path=(. ../../utilities $path)
+
+if ($?NO_RERUN == 1) then
+
+  setenv GAMESS_VTAB ./vb.vtab
+
+  set job=`basename $1`
+  validate $job  LOG/$job.log
+  set vstat=$status
+  if ($vstat == 0) then
+    echo skipping $1 - validated OK
+  else
+    echo validate for $1 returned $vstat, running job
+    time $1 > LOG/$1.log
+    echo 'Return Code = ' $status   >> LOG/$1.log
+  endif
+  exit 0
+else
+
+  if ($?RUN_SILENT == 1) then
+
+    $1 > LOG/$1.log
+
+  else
+
+    echo $1
+    time $1 > LOG/$1.log
+
+  endif
+
+  echo 'Return Code = ' $status   >> LOG/$1.log
+
+endif

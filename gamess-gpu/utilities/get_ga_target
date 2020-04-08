@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# need to detect other architectures here
+case $1 in
+  gnu) 
+      if test 1 = `grep GNUALPHA $chmbuild/pref.dat | wc -l` ; then 
+        echo LINUX64
+      else
+        echo LINUX
+      fi;;
+sgi64) echo SGITFP;;
+alpha) echo DECOSF;;
+    *) echo fix_GAMESS-UK_utilities_get_ga_target
+esac

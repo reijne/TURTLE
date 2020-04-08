@@ -1,0 +1,9 @@
+c
+c nexp: number of exponents per shell
+c lexp: label the exponents in ex()
+c inlexp: initial exponents to be optimized
+c
+       REAL inlexp(200)
+       integer nexp(20),lexp(20,10)
+       common/sortbeta/inlexp,nexp,lexp
+c

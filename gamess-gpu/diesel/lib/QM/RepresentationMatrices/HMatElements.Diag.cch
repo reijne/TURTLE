@@ -1,0 +1,394 @@
+#include "HMatElements.h"
+#include "../Configuration/TableCase.h"
+#include "RepDiag.h"
+
+template <class MatrixType, class VectorType>
+MatrixType	HMatElements<MatrixType, VectorType>::getCase14DiagTeil(
+	const Configuration<MOType> & same) const
+{
+TwoElectronIntegralIndex<MOType>	ind1, ind2;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+TwoElectronIntegralCbExIndex CbExIndex;
+OneElectronIntegralIndex	ind;
+
+MatrixType	diag = core;
+MOType	moi, moj, mok, mol;
+IntegralType	Cb, Ex;
+
+//	cout << "same: " << same << endl;
+
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{	moi = same.getOpenShell(i);
+		ind.set(moi, moi);
+//		cout << "########## " << (*int2Container)[ind] << endl;
+		diag += (*int2Container)[ind];
+	}
+//	cout << "diag= " << diag << endl;
+	
+	for ( INT k=0 ; k<same.getNumberOfClosedShells() ; k++ )
+	{	mok = same.getClosedShell(k);
+		ind.set(mok, mok);
+//		cout << (*int2Container)[ind] << endl;
+		diag += 2*(*int2Container)[ind];
+		ind1.set(mok, mok, mok, mok);
+//		cout << (*int4Container)[ind1] << endl;
+		diag += (*int4Container)[ind1];
+
+//                cout << "open shells: " << same.getNumberOfOpenShells() << endl;
+		
+		for ( INT j=0 ; j<same.getNumberOfOpenShells() ; j++ )
+		{	moj = same.getOpenShell(j);
+			ind1.set(mok, mok, moj, moj);
+			ind2.set(moj, mok, mok, moj);
+			CbExIndex.set(ind1, ind2);
+//                        cout << "mok:" << mok  << ", moj:" << moj << endl;
+//                        cout << "IND:" << ind1 << ", " << ind2 << endl;
+			int4Container->get(CbExIndex, Cb, Ex);
+//  			cout << "I. Cb= " << Cb << ", Ex= " << Ex << endl;
+			diag += 2*Cb;
+			diag -= Ex;
+		}
+	}
+//	cout << "diag= " << diag << endl;
+	
+	for ( INT j=0 ; j<same.getNumberOfOpenShells()-1 ; j++ )
+	{	moj = same.getOpenShell(j);
+		for ( INT i=j+1 ; i<same.getNumberOfOpenShells() ; i++ )
+		{	moi = same.getOpenShell(i);
+			ind1.set(moi, moi, moj, moj);
+			triadeIndex.set(ind1);
+//			cout << "II. Cb= " << (*int4Container)[triadeIndex] << endl;
+			diag += (*int4Container)[triadeIndex];
+		}
+	}
+//	cout << "diag= " << diag << endl;
+	
+	for ( INT k=0 ; k<same.getNumberOfClosedShells()-1 ; k++ )
+	{	mok = same.getClosedShell(k);
+		for ( INT l=k+1 ; l<same.getNumberOfClosedShells() ; l++ )
+		{	mol = same.getClosedShell(l);
+			ind1.set(mol, mol, mok, mok);
+			ind2.set(mol, mok, mok, mol);
+//  			cout << "IND:" << ind1 << ", " << ind2 << endl;
+			CbExIndex.set(ind1, ind2);
+			int4Container->get(CbExIndex, Cb, Ex);
+//  			cout << "III. Cb= " << Cb << ", Ex= " << Ex << endl;
+			diag += 4*Cb;
+			diag -= 2*Ex;
+		}	
+	}
+//	cout << "diag= " << diag << endl;
+	return diag;
+}
+
+
+template <class MatrixType, class VectorType>
+MatrixType	HMatElements<MatrixType, VectorType>::getCase14DiagAppendClosed(
+	const Configuration<MOType> & same,
+	MOType mo) const
+{
+TwoElectronIntegralIndex<MOType>	ind1, ind2;
+TwoElectronIntegralCbExIndex CbExIndex;
+OneElectronIntegralIndex	ind;
+
+VectorType	diag;
+
+MOType	moj, mol;
+IntegralType	Cb, Ex;
+
+//	cout << "same: " << same << endl;
+
+	ind.set(mo, mo);
+	diag = 2*(*int2Container)[ind];
+	ind1.set(mo, mo, mo, mo);
+	diag += (*int4Container)[ind1];
+
+	for ( INT j=0 ; j<same.getNumberOfOpenShells() ; j++ )
+	{	moj = same.getOpenShell(j);
+		ind1.set(mo, mo, moj, moj);
+		ind2.set(moj, mo, mo, moj);
+		CbExIndex.set(ind1, ind2);
+//		int4Container->get(CbExIndex, Cb, Ex);
+		int4Container->get(CbExIndex, Cb, Ex);
+		diag += 2*Cb;
+		diag -= Ex;
+	}
+	
+	for ( INT l=0 ; l<same.getNumberOfClosedShells() ; l++ )
+	{
+		mol = same.getClosedShell(l);
+		ind1.set(mol, mol, mo, mo);
+		ind2.set(mol, mo, mo, mol);
+		CbExIndex.set(ind1, ind2);
+//		int4Container->get(CbExIndex, Cb, Ex);
+		int4Container->get(CbExIndex, Cb, Ex);
+		diag += 4*Cb;
+		diag -= 2*Ex;
+	}	
+	return diag;
+}
+
+
+template <class MatrixType, class VectorType>
+MatrixType	HMatElements<MatrixType, VectorType>::getCase14DiagAppendOpen(
+	const Configuration<MOType> & same,
+	MOType mo) const
+{
+TwoElectronIntegralIndex<MOType>	ind1, ind2;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+TwoElectronIntegralCbExIndex CbExIndex;
+OneElectronIntegralIndex	ind;
+
+VectorType	diag;
+MOType	moj, mok;
+IntegralType	Cb, Ex;
+
+//	cout << "same: " << same << endl;
+	ind.set(mo, mo);
+	diag = (*int2Container)[ind];
+	
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{
+		moj = same.getOpenShell(i);
+		ind1.set(moj, moj, mo, mo);
+		triadeIndex.set(ind1);
+//		diag += (*int4Container)[triadeIndex];
+		diag += (*int4Container)[triadeIndex];
+	}
+
+	for ( INT k=0 ; k<same.getNumberOfClosedShells() ; k++ )
+	{
+		mok = same.getClosedShell(k);
+		ind1.set(mok, mok, mo, mo);
+		ind2.set(mo, mok, mok, mo);
+		CbExIndex.set(ind1, ind2);
+//		int4Container->get(CbExIndex, Cb, Ex);
+		int4Container->get(CbExIndex, Cb, Ex);
+		diag += 2*Cb;
+		diag -= Ex;
+	}
+	return diag;
+}
+
+
+/*
+template <class MatrixType, class VectorType>
+MatrixType	HMatElements<MatrixType, VectorType>::getCase14DiagAppendOpen(
+	const Configuration<MOType> & same,
+	MOType mo1, MOType mo2) const
+{
+TwoElectronIntegralIndex<MOType>	ind1, ind2;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+TwoElectronIntegralCbExIndex CbExIndex;
+OneElectronIntegralIndex	ind;
+
+CIVectorType	diag;
+MOType	moi, moj, mok, mol;
+IntegralType	Cb, Ex;
+
+
+	ind.set(mo1, mo1);
+	diag = (*int2Container)[ind];
+	ind.set(mo2, mo2);
+	diag += (*int2Container)[ind];
+	
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{
+		moj = same.getOpenShell(i);
+		ind1.set(moj, moj, mo1, mo1);
+		triadeIndex.set(ind1);
+//		diag += (*int4Container)[triadeIndex];
+		diag += (*int4Container)[triadeIndex];
+		ind1.set(moj, moj, mo2, mo2);
+		triadeIndex.set(ind1);
+//		diag += (*int4Container)[triadeIndex];
+		diag += (*int4Container)[triadeIndex];
+	}
+
+	for ( INT k=0 ; k<same.getNumberOfClosedShells() ; k++ )
+	{
+		mok = same.getClosedShell(k);
+		ind1.set(mok, mok, mo1, mo1);
+		ind2.set(mo1, mok, mok, mo1);
+		CbExIndex.set(ind1, ind2);
+//		int4Container->get(CbExIndex, Cb, Ex);
+		int4Container->get(CbExIndex, Cb, Ex);
+		diag += 2*Cb;
+		diag -= Ex;
+		ind1.set(mok, mok, mo2, mo2);
+		ind2.set(mo2, mok, mok, mo2);
+		CbExIndex.set(ind1, ind2);
+//		int4Container->get(CbExIndex, Cb, Ex);
+		int4Container->get(CbExIndex, Cb, Ex);
+		diag += 2*Cb;
+		diag -= Ex;
+	}
+	return diag;
+}
+*/
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase14Matrix(
+	MatrixType *p,
+	const Configuration<MOType> & same) const
+{
+TwoElectronIntegralIndex<MOType>	ind1;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+MOType	moi, moj;
+const MatrixType	*pMatP5;
+//	cout << "same: " << same << endl;
+
+MatrixType	diag = getCase14DiagTeil(same);
+
+//	Perform y = A*x
+
+IntegralType	intBuf[MAXOPENSHELLS*(MAXOPENSHELLS+1)/2];
+INT	l = 0;
+//	for ( INT j=0 ; j<same.getNumberOfOpenShells()-1 ; j++ )
+//	{	moj = same.getOpenShell(j);
+//		for ( INT i=j+1 ; i<same.getNumberOfOpenShells() ; i++ )
+//		{	moi = same.getOpenShell(i);
+
+//	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+//	attention: ordering of permutations from "calcdarhp5.f"!
+//
+//	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	for ( INT i=1 ; i<same.getNumberOfOpenShells() ; i++ )
+	{	moi = same.getOpenShell(i);
+		for ( INT j=0 ; j<i ; j++ )
+		{	moj = same.getOpenShell(j);
+			ind1.set(moi, moj, moj, moi);
+			triadeIndex.set(ind1);
+			intBuf[l++] = (*int4Container)[triadeIndex];
+		}
+	}
+
+	pMatP5 = this->CbMat->getP();
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+	{
+		for ( INT j=0 ; j<=i ; j++ )
+		{
+		MatrixType	h = 0;
+			for ( INT ll=0 ; ll<l ; ll++ )
+				h += intBuf[ll] * *pMatP5++;
+
+			if ( i==j )
+				h += diag;
+			else
+				p[this->matDim.rows*j + i] = h;
+
+			p[this->matDim.rows*i + j] = h;
+		}
+	}
+}
+
+/*
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase14Matrix(
+	MatrixType *p,
+	const Configuration<MOType> & same) const
+{
+TwoElectronIntegralIndex<MOType>	ind1;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+MOType	moi, moj;
+const MatrixType	*pMatP5;
+
+IntegralType	intBuf[MAXOPENSHELLS*(MAXOPENSHELLS+1)/2];
+INT	l = 0;
+
+	for ( INT i=1 ; i<same.getNumberOfOpenShells() ; i++ )
+	{	moi = same.getOpenShell(i);
+		for ( INT j=0 ; j<i ; j++ )
+		{	moj = same.getOpenShell(j);
+			ind1.set(moi, moj, moj, moi);
+			triadeIndex.set(ind1);
+			intBuf[l++] = (*int4Container)[triadeIndex];
+		}
+	}
+
+	pMatP5 = CbMat->getP();
+	for ( INT i=0 ; i<matDim.rows ; i++ )
+	{
+	MatrixType	h = 0;
+		for ( INT ll=0 ; ll<l ; ll++ )
+			h += intBuf[ll] * *pMatP5;
+	
+		pMatP5 += 
+
+		p[i] = h;
+	}
+}
+*/
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase14UDiagRest(
+	MatrixType *p,
+	const MatrixType	*pMatP5Diag,
+	const Configuration<MOType> & same,
+	MOType	mo) const
+{
+TwoElectronIntegralIndex<MOType>	ind1;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+IntegralType	intBuf;
+//	cout << "same: " << same << endl;
+
+
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{
+		ind1.set(same.getOpenShell(i), mo, mo, same.getOpenShell(i));
+		triadeIndex.set(ind1);
+		intBuf = (*int4Container)[triadeIndex];
+
+		for ( INT j=0 ; j<this->matDim.rows ; j++ )
+			p[j] += intBuf * *pMatP5Diag++;
+	}
+}
+
+
+/*
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::getCase14UDiagRest(
+	MatrixType *p,
+	const MatrixType	*pMatP5Diag,
+	const Configuration<MOType> & same,
+	MOType	mo1, MOType mo2) const
+{
+TwoElectronIntegralIndex<MOType>	ind1;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+IntegralType	intBuf;
+
+
+//	for ( INT i=0 ; i<matDim.rows*(2*same.getNumberOfOpenShells()+1) ; i++ )
+//		cout << pMatP5Diag[i] << " ";
+//	cout << endl;
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{
+		ind1.set(same.getOpenShell(i), mo1, mo1, same.getOpenShell(i));
+		triadeIndex.set(ind1);
+		intBuf = (*int4Container)[triadeIndex];
+
+		for ( INT j=0 ; j<matDim.rows ; j++ )
+			p[j] += intBuf * *pMatP5Diag++;
+	}
+
+	for ( INT i=0 ; i<same.getNumberOfOpenShells() ; i++ )
+	{
+		ind1.set(same.getOpenShell(i), mo2, mo2, same.getOpenShell(i));
+		triadeIndex.set(ind1);
+		intBuf = (*int4Container)[triadeIndex];
+
+		for ( INT j=0 ; j<matDim.rows ; j++ )
+			p[j] += intBuf * *pMatP5Diag++;
+	}
+	
+	ind1.set(mo1, mo2, mo2, mo1);
+	triadeIndex.set(ind1);
+	intBuf = (*int4Container)[triadeIndex];
+
+	for ( INT j=0 ; j<matDim.rows ; j++ )
+		p[j] += intBuf * *pMatP5Diag++;
+}
+*/
+

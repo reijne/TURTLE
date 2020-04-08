@@ -1,0 +1,1108 @@
+#!/bin/bash
+#
+# Configuration script for GAMESS-UK
+#
+
+# See if echo takes a -e option
+echo -e | grep '\-e' > /dev/null
+[ $? -eq 0 ] && echo_opts="" || echo_opts="-e" 
+
+# Default values
+custom=""
+machfile=""
+arch=""
+build=""
+compiler=""
+silent=0
+expert=0
+charmm=0
+expertopt=""
+sizes="demo small medium large huge giga tera qmmm" # supercalafragamegagiga? tera
+
+
+# allexpert holds a list of all the possible options that GAMESS-UK can be
+# configured with and is used for a quick error check for typos for the expert
+# route
+allexpert="base bench charmm chemshell ci debug demo dfttest diesel drf f90 \
+flucq ga gromacs i8 ma masscf mopac mopac6 mopac7 mp2 mpi mrdci nbo newints newscf \
+dl-find nmr nodft old-dft peigs protect-source qmmm rpagrad static_lb sysmo \
+taskfarm tcgmsg tcgmsg-mpi timings vb vdw zora"
+
+touch dft/dependencies.txt dl-find/dependencies.txt drf/dependencies.txt linalg/dependencies.txt newscf/dependencies.txt \
+      nmr/dependencies.txt vb/dependencies.txt xml/dependencies.txt diesel/dependencies.txt docs/dependencies.txt \
+      m4/dependencies.txt mopac/dependencies.txt newscf_f77/dependencies.txt
+
+##########################################################################
+#
+# Function definitions
+#
+##########################################################################
+
+usage(){
+# Print the usage of the script
+    echo 
+    echo " ####################################"
+    echo " ###  GAMESS-UK configure script  ###"
+    echo " ####################################"
+    echo
+    echo " Usage:  ./configure [-e] [-f file]"
+    echo
+    echo " Options:"
+    echo " -e        'expert mode' - read in the options required to configure this build"
+    echo "           from the file \"m4/configure.dat\" in this directory and don't harass me"
+    echo "           with a bunch of questions."
+    echo
+    echo " -f file   use \"file\" as the include file to the GAMESS-UK Makefile"
+    echo "           instead of that as determined by the \"config.wrap\" script,"
+    echo "           build type and compiler options."
+    echo
+    echo " -s        'silent mode' - do not ask any questions at all."
+    echo "                           Read options from file:  \"m4/configure.dat\""
+    echo
+    echo " For more information on the configure script, please read the INSTALL and"
+    echo " INSTALL_advanced.txt in the GAMESS-UK/config directory."
+}
+
+display_help(){
+# Pull the help from the Makefile and chuck it through more
+
+    cat m4/Makefile.in | awk '\
+      BEGIN {printit=0 }\
+      /startdoc/{ printit=1; next;}\
+      /enddoc/{ printit=0 }\
+      {if(printit == 1){ print $0} }' | more
+}
+
+no_builds() {
+    echo
+    echo " #############################################################################"
+    echo " ### Sorry but GAMESS-UK does not appear to be ported to your architecture ###"
+    echo " ### Please contact the GAMESS-UK contact at Computing for Science at:     ###"
+    echo " ###                                                                       ###"  
+    echo " ###       gamess_uk_contact@dl.ac.uk                                      ###"
+    echo " ###                                                                       ###"  
+    echo " ### to discuss your requirements.                                         ###"
+    echo " #############################################################################"
+    echo
+}
+
+chkit() {
+# check argument against list of valid ones
+# return 0 if we find it 1 if not
+   chk=1
+   var=$1 ; shift
+   for o in $*
+   do
+      if test $var = $o
+      then
+         return 0
+      fi
+   done
+   return 1
+}
+
+getopt() {
+# Ask the user for an option and check it against
+# a list of valid ones (the arguments to the function).
+# Set the (global) variable optok to the chosen variable
+# if it is o.k. or just keep asking and beat them into
+# submission by our sheer persistence otherwise...
+# 
+# NB: Before calling this function the global variable question
+#     must be set to hold the question that will be asked.
+#
+# NB: If the first argument to the function is the string "nullok"
+#     then it is o.k. for the user just to hit return - optok
+#     is then set to the string "null" and this must be checked for 
+#     when calling optok
+
+optok=""
+l=1
+nullok=0
+
+# Check if null an o.k. response
+if [ "$1" = "nullok" ]; then
+    nullok=1
+    shift
+fi
+    
+while [ $l -eq 1 ]; do
+    echo
+    echo $echo_opts $question
+    echo
+    # list the options
+    for opt in $@
+    do
+      echo $opt
+    done
+    echo
+    read myopt
+    case $myopt in
+	"?" | [hH][eE][lL][pP] ) display_help ;;
+	[qQ] | [qQ][uU][iI][tT] | [bB][yY][eE] ) exit 0 ;;
+	*) if [ ! "$myopt" ]; then
+	      if [ $nullok -eq 1 ]; then
+		  optok="null"
+		  l=0
+		  break
+	      fi
+	   fi
+
+	   chkit $myopt $@
+	   if [ $? -eq 1 ]; then
+	       print_error "Invalid option \"$myopt\" presented!"
+	   else
+	       optok=$myopt
+	       l=0
+	   fi
+	   ;;
+    esac
+done
+}
+
+get_multiopt(){
+# Ask the user for a range of options
+# Return the options in multiopt
+# Option checking is handled by the calling function
+# Before calling this function the global variable question
+# must be set to hold the question that will be asked.
+
+multiopt=""
+l1=1
+
+while [ $l1 -eq 1 ]
+  do
+  echo
+  echo $echo_opts $question
+  echo
+  read multiopt
+  case $multiopt in
+      "?" | [hH][eE][lL][pP] ) display_help ;;
+      [qQ] | [qQ][uU][iI][tT] | [bB][yY][eE] ) exit 0 ;;
+       * ) l1=0  ;;
+  esac
+done
+}
+
+yes_or_no() {
+# Ask the user for a yes or no response. The default is yes
+# which is triggered by the user just hitting enter
+
+    answer=""
+    l=1
+    while [ $l -eq 1 ]
+      do
+      echo " Please enter yes (y), no (n), quit (q) or ? for help [yes] : " | awk '{printf "%s", $0}'
+      read answer
+      case $answer in
+	  [yY] | [yY][eE][sS]| "" ) answer=y; l=0 ;;
+          [nN]| [nN][oO] ) answer=n; l=0  ;;
+	  "?" | [hH][eE][lL][pP] ) display_help ;;
+	  [qQ]| [qQ][uU][iI][tT] | [bB][yY][eE] ) echo
+	         echo " *** Quitting GAMESS-UK configure script ***"
+		 exit 0 ;;
+	  * ) print_error "Unknown option: $answer!"
+	      ;;
+      esac
+    done
+}
+
+getsize(){
+# Set the size for the build - the default for serial is large & huge for parallel
+
+defaultsize=""
+
+if [ "$build" = "serial" ]; then
+    defaultsize="medium"
+else
+    defaultsize="large"
+fi
+
+question=" Please choose a size for your build from the below.\n \
+NB: Larger sizes will result in increased memory usage.\n \n 
+demo     200 basis functions\n \ 
+small    1024 basis functions\n \
+medium   2048 basis functions\n \
+large    4096 basis functions\n \
+huge     8192 basis functions  2000 atoms\n \
+giga     16384 basis functions 4000 atoms\n \
+tera     19900 basis functions on 5000 nuclei (peptide, see m4/Makefile.in)\n \
+qmmm     3000 nuclear centres also suppresses some large (eg NAT*NAT) memory arrays\n\n \
+The default (and recommended) size for this build is: $defaultsize\n\n \
+Please choose from: "
+
+# we check if the size is acceptable (i.e. it exists in the size variable) and 
+# then check that no mutually exclusive size options are being used and keep 
+# looping till both tests are satisified
+
+sloop=1
+while [ $sloop -eq 1 ]
+do
+  getopt nullok $sizes
+  if [ "$optok" = "null" ]; then
+      size=$defaultsize
+      sloop=0
+  else
+      tmp=""
+      tmp=`check_exclusive $optok`
+      if [ "$tmp" ]; then
+	  print_error "$tmp"
+      else
+	  size=$optok
+	  sloop=0
+      fi
+  fi
+done
+}
+
+check_exclusive(){
+# This takes a list of options and makes sure that there are no
+# mutually incompatible options present.
+
+# we echo back a string with the error message if we detect problems
+# otherwise don't echo anything. The echoed string cannot contain
+# any ** etc. symbols crap as the starts get interpreted by the shell
+# and cause havoc
+
+# The variables excl<1 ... n> hold lists that contain a set of variables that
+# are mutually exclusive.
+# To add a new set of incompatible variables, create a new excl<n> list and
+# then append the name of the list to the exclusive variable
+
+
+excl1="base mp2 ci"
+excl2="small medium large huge giga tera"
+excl3="i4 i8"
+excl4="mkl scs"
+excl5="mp2 ci qmmm"
+excl6="nbo qmmm"
+excl7="i8 scalapack"
+excl8="parallel sysmo"
+excl9="parallel newscf i8"
+
+all_exclusive="excl1 excl2 excl3 excl4 excl5 excl6 excl7 excl8 excl9"
+
+
+# Is annoying but we need to remove any duplicates from the options we have been given
+# And there _has_ to be a better way of doing this...
+local useropts=$*
+for opt in $useropts
+  do
+  echo $opt >> gamessuk_conf.tmp.$$
+done
+useropts=`sort -u gamessuk_conf.tmp.$$`
+rm -f gamessuk_conf.tmp.$$
+
+# We need to add the build to useropts so that we can check for
+# things that are not available in parallel in general
+useropts="$build $useropts"
+
+
+for label in $all_exclusive
+  do
+
+  # Get the list of options in the variable excl?
+  eval exlist=\$$label
+
+  local got=0 # Count of how many matched
+  local kwcount=0   # Count of the number of keywords in the list
+
+  for kw in $exlist
+    do
+
+    kwcount=$((++kwcount))
+
+    # loop through the users options
+    for uopt in $useropts
+      do
+      if [ $kw = $uopt ]
+	  then
+	  # If any in the users options match one of the exclusive ones
+	  # increment got
+	  got=$((++got))
+      fi
+    done
+  done
+
+  if [ $got -eq $kwcount ]
+      then
+      # We matched all of the exclusive options in a set
+      echo "Got mutually exclusive keywords: $exlist"
+      break
+  fi
+
+done
+
+}
+
+
+remove_excluded(){
+#
+# Remove any options prefixed in a minus in re_subject from re_options
+# Also remove the minus-prefixed option from re_options
+#
+# This requires that re_subject and re_options be set before this function is called
+#
+# Set error if we hit a problem
+
+for opt in $re_options
+  do
+  tmp=`echo $opt | awk '{ if ( substr($1,1,1)=="-" )  print substr($1,2); else print "n" }'`
+  if [ ! "$tmp" = "n" ]; then
+      error=1 # Only set to 0 if we get a match
+      #Check the opt is contained in the defaults
+      for uopt in $re_subject
+	do
+	[ $uopt = $tmp ] && error=0 && break
+      done
+      
+      if [ $error -eq 0 ]; then
+	  echo
+	  echo " ** Removing $tmp from options **"
+	  echo
+	  re_subject=`echo $re_subject | sed "s/$tmp//"`
+      else
+	  print_warn "deleted option $tmp is not a valid option!"
+      fi
+
+      # remove it from the string anyway
+      re_options=`echo $re_options | sed "s/-$tmp//"`
+  fi
+done
+}
+
+print_header(){
+# Print the Header
+echo " ####################################"
+echo " ###  GAMESS-UK configure script  ###"
+echo " ####################################"
+echo
+echo " Enter ? to display help or q to quit at any point in the script"
+echo
+}
+
+print_summary(){
+# Print a summary of the options that the build has been configured with
+# and get the user to confirm or not
+    echo
+    echo " For this build the following options will apply:"
+    echo
+    if [ ! "$custom" ]; then
+	echo " Build-type:                $build"
+	echo " Compiler/library options:  $compiler"
+    fi
+    echo " Include file:              $machfile"
+    if [ $expert -eq 1 ]; then
+	echo " Selected build options:    $expertopt"
+    elif [ $silent -eq 1 -o $charmm -eq 1 ]; then
+	echo " Selected build options:    $options"
+    else
+	echo " Selected build options:    $user_defaults $useropt"
+	echo " Build size:                $size"
+    fi
+    echo
+}
+
+print_error(){
+# Print an error string in a standard template
+echo 
+echo " ********************************************************************"
+echo " *                                                                  *"
+echo $*  | awk '{printf(" *  %-62s  *\n",$0)}'
+echo " *                                                                  *"
+echo " ********************************************************************"
+echo
+
+}
+print_warn(){
+# Print an error string in a standard template
+echo 
+echo $*  | awk '{printf(" !  %-62s  *\n",$0)}'
+}
+
+
+set_builds_and_compilers(){
+# Set the avail_builds, serial_compilers and parallel_compilers
+# based on the available mk files in config
+
+    serial_compilers=""
+    parallel_compilers=""
+    avail_builds=""
+
+    # For each build type build up a list of support compiler options
+    # serial
+    for file in `ls config/$arch-serial-*.mk 2> /dev/null`; do
+	mycompiler=`basename $file .mk | sed -e "s/$arch-serial-//"`
+	# If we have a compiler add it to the list for '$serial_compilers
+	[ "$mycompiler" ] && serial_compilers="$mycompiler $serial_compilers"
+    done
+    # If we found any options add serial to the available builds
+    [ "$serial_compilers" ] && avail_builds="serial"
+
+    # parallel
+    for file in `ls config/$arch-parallel-*.mk 2> /dev/null`; do
+	mycompiler=`basename $file .mk | sed -e "s/$arch-parallel-//"`
+	# If we have a compiler add it to the list for '$parallel_compilers
+	[ "$mycompiler" ] && parallel_compilers="$mycompiler $parallel_compilers"
+    done
+    # If we found any options add parallel to the available builds
+    [ "$parallel_compilers" ] && avail_builds="$avail_builds parallel"
+
+    # If we don't have any builds available quit.
+    [ ! "$avail_builds" ] && no_builds && exit 1
+}
+
+ask_build_and_compiler(){ 
+
+# State what the architecture is and which build/compiler options are available
+if [ ! "$custom" ] ; then
+
+    # This if block is for determining the MK file from the architecture & compiler
+    echo " Architechture of this machine as determined by the config.wrap script is:"
+    echo "     $arch"
+    echo
+
+    if [ ! "$expertopt" ]; then  # This clause for normal usage and expert with no configure.dat file
+
+        # List which builds and options are available for this architecture
+	echo " The following build types and associated compiler/library options"
+	echo " are available for GAMESS-UK on the $arch platform:"
+	echo
+	for build in $avail_builds; do
+	    case $build in
+		"serial"   )  echo " Serial build:        $serial_compilers" ;;
+		"parallel" )  echo " Parallel build:      $parallel_compilers" ;;
+	    esac
+	done
+
+        # Ask for the build type
+	question=" Please select the build type from the following:"
+	if [ `echo $avail_builds | wc -w` -eq 1 ]; then
+	    # if only 1 build the user can select it by hitting enter
+	    getopt nullok $avail_builds
+	    build=`echo $avail_builds | sed 's/ *//'`
+	    echo " Using build: $build"
+	else
+	    getopt $avail_builds
+	    build=$optok
+	fi
+
+	# compilers variables holds all available compilers for the selected build
+	eval "compilers=\$${build}_compilers"
+
+	if [ $expert -eq 1 ]; then
+	    question=" Please select a compiler/library option from the following:"
+	    if [ `echo $compilers | wc -w` -eq 1 ]; then
+		# if only 1 compiler the user can select it by hitting enter
+		getopt nullok $compilers
+		compiler=`echo $compilers | sed 's/ *//'`
+	    else
+		getopt $compilers
+		compiler=$optok
+	    fi
+
+	 else
+            # Not in expert mode so keep looping & displaying help till the user has made a choice
+	    oloop=1
+	    while [ $oloop -eq 1  ]
+	    do
+	      question=" Please select a compiler/library option from the following:"
+	      if [ `echo $compilers | wc -w` -eq 1 ]; then
+	        # Hack for Joop - if only 1 compiler allow the user to select it by hitting enter
+		  getopt nullok $compilers
+		  compiler=`echo $compilers | sed 's/ *//'` 
+	      else
+		  getopt $compilers
+		  compiler=$optok
+	      fi
+	      echo
+	      echo " The compiler and library definitions will be sourced from the file:"
+	      echo
+	      confdir=`(cd config; pwd)`
+	      echo " $confdir/${arch}-${build}-${compiler}.mk"
+	      echo
+	      echo " This file contains all machine-specific definitions for the build."
+	      echo " Please quit this script and edit the above file to change the paths"
+	      echo " to any libraries or compilers on your machine that may differ from"
+	      echo " the standard locations. Information from the file follows:"
+	      echo
+	      echo " -----------------START IN-FILE DOCUMENTATION------------"
+	      echo
+	      cat config/${arch}-${build}-${compiler}.mk | awk '/#doc/{print $0}' | sed 's/#doc//'
+	      echo
+	      echo " -----------------END OF IN-FILE DOCUMENTATION----------"
+	      echo
+	      echo " Use this file? - n to examine another, q to quit and edit a file."
+	      echo
+	      echo " NB: if you already know which file you would like to use please"
+	      echo "     restart this script using the -f option to specify the file."
+	      echo
+	      yes_or_no
+	      [  $answer = y ] && oloop=0 || clear
+	    done
+	fi
+
+    elif [ $expert -eq 1 ] ; then
+
+	# Here we are in expert mode, not using a custom file but we have options from
+	# configure.dat so we need to parse out the build and compiler flags from the
+	# options that were present in configure.dat
+	build_and_compiler_from_expertopt
+	
+    fi # END [ !$expertopt ]
+
+else
+    # Using custom file, so if expert get build from configure.dat 
+    # otherwise ask the user
+
+    # Potentially all builds available
+    avail_builds="serial parallel"
+
+    if [ "$expertopt" ]
+        #parse build from options
+	then
+	tmp=1
+	echo " Getting build-type from configure.dat ..."
+	for opt in $expertopt
+	  do
+	  chkit $opt $avail_builds
+	  [ $? -eq 0 ] && tmp=0 && break
+	done
+	if [ $tmp -eq 0 ]; then
+	    build=$opt
+	    echo " Build $build selected from expert options in configure.dat"
+	# remove build from expertopt
+	    expertopt=`echo $expertopt | sed -e "s/$build//"`
+	else
+	    print_error "No supported build found in expert options from configure.dat !"
+	    exit 1
+	fi
+    else
+        # ask the user for the build
+	question=" Please specify the type of this build from:"
+	getopt $avail_builds
+	build=$optok
+    fi
+    
+fi # END [ ! $custom ]
+# END ask_build_and_compiler
+}
+
+build_and_compiler_from_expertopt(){ 
+# See if a suitable build and compiler are in expertopt, set build and
+# compiler if they are, and remove them from expertopt
+# avail_builds, serial, parallel_compilers variables need to have been
+# set before this is called
+
+    local tmp=1
+    local opt=""
+    echo " Checking build-type is supported..."
+    for opt in $expertopt; do
+	chkit $opt $avail_builds
+	[ $? -eq 0 ] && tmp=0 && break
+    done
+    if [ $tmp -eq 0 ]; then
+	build=$opt
+	echo " Build $build selected"
+	    # remove build from expertopt
+	expertopt=`echo $expertopt | sed -e "s/$build//"`
+    else
+	print_error "No supported build found in options!"
+	exit 1
+    fi
+    
+    echo
+    echo " Checking compiler is supported..."
+    eval "mycomp=\$${build}_compilers"
+    tmp=1
+    for opt in $expertopt; do
+	chkit $opt $mycomp
+	[ $? -eq 0 ] && tmp=0 && break
+    done
+    if [ $tmp -eq 0 ]; then
+	compiler=$opt
+	echo " Compiler $compiler selected"
+	    #remove compiler from expertopt
+	expertopt=`echo $expertopt | sed -e "s/$compiler//"`
+    else
+	print_error "No supported compiler for \"$build\" build found in expert options!"
+	exit 1
+    fi
+}
+
+
+ask_options(){
+# Ask the user for the options. This sets the options variable
+
+
+# Not using expert mode so print the available default options, any extra ones
+# and ask the user to choose them, followed by the size they are after
+if [ $expert -eq 0 ]; then
+    r=1
+    while [ $r = 1 ]
+      do
+      user_defaults=$defaultopt # Hack needed when using print_summary function
+                                 # as otherwise user_defaults empty if no options removed
+      question=\
+"   The recommended (default) options for this build are:\n  $defaultopt\n\n \
+In addition, the following options are available:\n  $extraopt\n\n \
+Please enter any additional options from the list above that you would\n \
+like to include in this build or just hit enter to go with the defaults.\n \
+NB: to remove default options, prefix them with a minus sign."
+
+      get_multiopt
+      useropt=$multiopt
+      error=0
+      if [ ! -z "$useropt" ]; then
+
+	  # we have extra options so we need to check them
+
+	  # Remove any options prefixed with a minus from the defaults
+	  # and then remove the minus-prefixed option from the remaining user options
+	  re_subject=$user_defaults
+	  re_options=$useropt
+	  remove_excluded
+	  user_defaults=$re_subject
+	  useropt=$re_options
+	  	  	  
+	  # Go through each additional option and check it - if any are wrong set error to 1
+	  if [ $error -eq 0 ]; then
+	      for opt in $useropt
+		do
+		# For parallel add the build types to the supported options
+		if [ $build = "parallel" ]
+		    then
+		    chkit $opt $allopt $buildopts
+		else
+		    chkit $opt $allopt
+		fi
+		[ $? -eq 1 ] && print_error "Option \"$opt\" is not supported!" && error=1
+	      done		  
+	  fi
+	  
+	  if [ $error -ne 0 ]; then
+	      echo
+	      echo " There were unsupported options in your entry."
+	      echo " Please try again"
+          else # No bad options so now check for incompatibe options
+	      tmp=""
+	      tmp=`check_exclusive $useropt $user_defaults`
+	      if [ "$tmp" ] ; then
+		  print_error "$tmp"
+		  error=1
+	      fi
+	  fi
+	  
+	  # Finally Check that one of the build types (base, bench, mp2, ci) is present if we
+          # are a parallel build
+	  if [ $error -eq 0 ]
+	      then
+	      if [ $build = "parallel" ]
+		  then
+		  tmp="$useropt $user_defaults"
+		  error=1
+		  for uopt in $tmp
+		    do
+		    for bopt in $buildopts
+		      do
+		      if [ x$uopt = x$bopt ]
+			  then
+			  error=0
+		      fi
+		    done
+		  done
+		  if [ $error -eq 1 ]
+		      then
+		      print_error "No Build type specified!"
+		      echo "  -----------------------------------------------------------------"
+		      echo "  This is a parallel build of the Global Array version of GAMESS-UK"
+		      echo "  Please ensure that one of the build types:"
+		      echo
+		      echo "      $buildopts"
+		      echo
+		      echo "  is present in your options."
+		      echo "  -----------------------------------------------------------------"
+		  fi
+	      fi
+	  fi
+      fi # End of the if checking the useropt
+	  
+
+      if [ $error -eq 0 ]; then
+          # Get the size and check there are no incompatible options in there.
+	  sizeloop=1
+	  while [ $sizeloop -eq 1 ]
+	  do
+	    getsize # this sets the size variable so we need to check it is 
+                    # compatible with all the other options
+	    tmp=""
+	    tmp=`check_exclusive $size $useropt $user_defaults`
+	    if [ "$tmp" ] ; then
+		print_error "$tmp"
+	    else
+		sizeloop=0
+	    fi
+	  done
+      fi
+
+      # error will only be 0 if there were either no extra options
+      # or no errors/incompatibities in any options
+      if [ $error -eq 0 ]; then
+        # Print a summary and get confirmation or loop back again
+	print_summary
+	echo " Continue to configure GAMESS-UK with these options?"
+	yes_or_no
+	[ $answer = "y" ] && r=0 
+      fi
+    done
+
+elif [ $expert -eq 1 ]; then
+
+    # Expert mode - we've sorted out the build & compiler options so
+    # display the options from configure.dat if necessary or just display
+    # all the available options
+    # are in allopt
+    loop=1
+    while [ $loop -eq 1 ]
+    do
+      echo
+      echo " Default options for this build are:"
+      echo " $defaultopt"
+      echo
+      echo " Additional options for this build are:"
+      echo " $extraopt"
+      echo
+      echo " Possible build sizes are:"
+      echo " $sizes"
+      echo
+
+      if [ "$expertopt" ]; then
+	  echo " Previous options from configure.dat are: $expertopt"
+	  echo " Press enter to run with the previous options or type in a new set."
+	  read myopt
+	  [ "$myopt" ] && expertopt=$myopt
+      else
+	  echo " Press enter to use the default options ( $defaultopt )"
+	  echo " or type in a new set."
+	  read expertopt
+	  [ ! "$expertopt" ] && expertopt=$defaultopt
+      fi
+
+      echo
+      echo " Checking expert options are o.k. ..."
+      echo
+      # Go through each option and check it - if any are wrong set error to 1
+      # If at the end of the loop error is still 0, assume we are o.k.
+      error=0
+      for opt in $expertopt
+	do
+	chkit $opt $allopt $allexpert $sizes # REM to add sizes here
+	[ $? -eq 1 ] && print_error "Option \"$opt\" is not supported!" && error=1
+      done
+      
+      # Check for incompatiblities
+      tmp=""
+      tmp=`check_exclusive $expertopt`
+      [ "$tmp" ] && print_error "$tmp" && error=1
+
+      if [ $error -ne 0 ]; then
+	  echo " *** WARNING! - There were unsupported options in your choices. ***"
+      else
+	  echo " Options all o.k."
+      fi
+
+      # Summarise all the options and get user confirmation
+      print_summary
+      echo " Continue to configure GAMESS-UK with these options?"
+      yes_or_no
+
+      [ $answer = "y" ] && loop=0
+    done
+fi
+# End of checking the additional options
+
+
+# Now that we've got through all the checking, set the variable $options to hold
+# the code-related and build-type options but excluding the compiler options
+if [ $expert -eq 1 ]; then
+    options=$build" "$expertopt
+else
+    options=$build" "$user_defaults" "$useropt" "$size
+fi
+
+} # END ask_options
+
+##########################################################################
+#
+# Start of script
+#
+##########################################################################
+
+#  Get the command-line options to see if we are running in expert mode and
+# to see if we are using a custom file.
+while [ $# -ne 0 -a $charmm -eq 0 ]
+do
+  case "$1" in
+      -c  )  charmm=1; shift; build=$1; shift; compiler=$1; shift; extras=$*; break ;;
+      -e  )  expert=1 ;;
+      -f  )  shift; custom=$1; [ ! -f "$custom" ] && \
+	  print_error "-f argument requires a path to a file!" && usage && exit 1;;
+      -s  )  silent=1 ;;
+      *   )  usage; exit 1 ;;
+  esac 
+  shift
+done
+
+# Clear the screen if not in silent mode
+[ $silent -ne 1 ] && clear
+
+# Determine the architecture
+arch=`config/config.wrap`
+
+# Set up the list of available builds and compilers
+[ ! "$custom" ] && set_builds_and_compilers
+
+# Print the Header
+print_header
+ 
+# If we are in expert/silent mode, check if we have a m4/configure.dat file
+# and get the options from it
+if [ $expert -eq 1 -o $silent -eq 1 ]; then
+    echo
+    echo " Script running in expert/silent mode."
+    echo " The assumption will be made that you know what you are doing..."
+    echo
+ if [ -f m4/configure.dat ] ; then
+     expertopt=`cat m4/configure.dat`
+     echo
+     echo " Found file m4/configure.dat with options:"
+     echo " $expertopt"
+     echo
+
+     # Ask if in expert mode
+     if [ $expert -eq 1 ]
+	 then
+	 echo " Use these options (y) or choose a fresh set (n)?"
+	 echo
+	 yes_or_no
+	 [ $answer = "n" ] && expertopt="" # Blank out the expert opts
+     fi
+ else
+     if [ $silent -eq 1 ]
+	 then
+         # silent mode but no configure.dat
+	 print_error "Silent mode but no configure.dat file!"
+	 exit 1
+     fi
+ fi
+fi
+
+# Print if we are using a custom file
+if [ "$custom" ]
+    then
+    echo 
+    echo " ****************** "
+    echo " Using custom file: $custom"
+    echo " ****************** "
+    echo 
+fi
+
+# If silent, set the build and compiler from expertopt 
+# and set extras to expertopt
+if [ $silent -eq 1 ]
+then
+    build_and_compiler_from_expertopt
+    extras=$expertopt
+fi
+
+# If we haven't had a build and compiler specified get them from the user
+if [ ! $compiler -a ! $build ]; then
+    ask_build_and_compiler
+else
+    echo "got build: $build and compiler: $compiler"
+fi
+
+# Determine the name of the mk file
+if [ "$custom" ]; then
+
+    # If we are using a custom file, make sure we can find it and ask for
+    # the build type
+    if [ ! -f "$custom" ]; then
+	print_error "Cannot find custom file: $custom"
+	usage
+	exit 1 
+    else
+	echo
+	echo " Using custom file $custom"
+	echo
+	machfile="$custom"
+    fi
+else
+    # Get the file from the config directory
+    machfile=`(cd config; pwd)`/${arch}-${build}-${compiler}.mk
+fi
+
+
+# Info for silent
+if [ $silent -eq 1 ]
+    then
+    echo 
+    echo " Build running in silent mode with args:  $build $compiler $extras"    
+fi
+
+# Print out which file we are using and copy it to machine.mk
+echo
+if test -f $machfile
+then
+    echo " Using include file:  $machfile"
+    cp $machfile m4/machine.mk
+else
+    echo "Missing include file :  $machfile !!!!!"
+    exit -10
+fi
+
+# Get the default and optional options from the mk file
+defaultopt=`cat m4/machine.mk | awk '/^#dopt/{print $0}' | sed 's/#dopt[ ]*//'`
+extraopt=`cat m4/machine.mk | awk '/^#opt/{print $0}' | sed 's/#opt[ ]*//'`
+allopt=$defaultopt" "$extraopt
+# buildopts specifies all allowable builds
+buildopts="base bench mp2 ci"
+
+
+# If charmm or silent remove any minus prefixed options from the defaults
+# and add those in extra if charmm we also add the charmm keyword
+if [ $silent -eq 1 -o $charmm -eq 1 ]
+    then
+    re_subject=$defaultopt 
+    re_options=$extras
+    remove_excluded
+
+    [ $charmm -eq 1 ] && options=$build" "$re_subject" charmm "$re_options
+
+    if [ $silent -eq 1 ]
+	then
+	#Also set build size for silent
+	if [ "$build" = "serial" ]; then
+	    size="medium"
+	else
+	    size="large"
+	fi
+	options=$build" "$re_subject" "$size" "$re_options
+    elif [ $charmm -eq 1 ]
+	then 
+	options=$build" "$re_subject" charmm "$re_options
+    fi
+
+    # Now print a summary so we know what we've built
+    print_summary
+fi
+    
+
+# If we haven't had the options specified get them from the user
+if [ ! "$options" ]
+then
+    ask_options
+fi
+
+
+# build the code converter program ccnvrt
+(cd utilities; make -s ccnvrt)
+ 
+# Generate the main Makefile in m4
+echo
+echo building Makefile
+( cd m4; ../utilities/ccnvrt -c $options < Makefile.in > Makefile.tmp )
+vstat=$?
+case $vstat in
+              0) mv m4/Makefile.tmp m4/Makefile;;
+              *)
+                echo Makefile could not be generated
+                echo Check that options are OK and that ccnvrt is build
+                echo for this architecture - to do this try
+                echo % cd utilities
+                echo % make clean
+                echo % make
+                exit -1;;
+esac
+ 
+#
+# process DFT, DRF, DL-FIND, MOPAC and VB makefiles if required
+#
+for dir in linalg dft diesel drf mopac vb newscf dl-find nmr xml
+do
+   if test -d $dir
+   then
+     echo "        processing $dir makefile : $options"
+
+     # dl-find needs additional processing as it is checked out from 
+     # an external repository
+     if [ $dir = "dl-find" ]
+	 then
+	 (cd $dir; rm -f Makefile.in;  cp Makefile.in.gamess Makefile.in)
+         (cd $dir; cat ../m4/Makefile.in Makefile.in | ../utilities/ccnvrt -c $options ${dir}_makefile > Makefile )
+     else
+
+     if [ ! -f $dir/dependencies.txt ]
+     then
+        echo "regenerating $dir/dependencies.txt"
+	(cd $dir; ../utilities/makedeps)
+     fi
+     ( cd $dir; cat ../m4/Makefile.in Makefile.in | ../utilities/ccnvrt -c $options ${dir}_makefile > Makefile )
+     fi
+   fi
+done
+ 
+# Write out configure.dat (including the compiler if not in custom mode).
+if [ ! "$custom" ]; then
+	echo $compiler" "$options > m4/configure.dat
+else
+	echo $options > m4/configure.dat
+fi
+ 
+# Configure rungamess
+if test -f rungamess/rg_defaults.in
+then
+  rm -f rungamess/rg_defaults
+  echo
+  echo creating rungamess defaults file rg_defaults : $arch $options 
+  (cd rungamess; cat rg_defaults.in  | ../utilities/ccnvrt -c $arch $options > rg_defaults )
+fi
+ 
+if test -f rungamess/rungamess.in
+then
+  rm -f rungamess/rungamess
+  echo creating rungamess script : $arch $options
+  (cd rungamess; cat rungamess.in  | ../utilities/ccnvrt -c $arch $options > rungamess; chmod +x rungamess )
+  echo 
+  rungamess/rungamess -I
+  echo Please add `(cd rungamess;/bin/pwd)` to your path to access rungamess
+fi
+
+# Configure examples to run for run_em_all.sh
+if test -f examples/testdirs.in
+then
+  (cd examples; cat testdirs.in  | ../utilities/ccnvrt -c $options > testdirs )
+fi
+
+# Configure examples to run for chap2
+if test -f examples/chap2/jobs.list.in
+then
+  (cd examples/chap2; cat jobs.list.in  | ../../utilities/ccnvrt -c $options > jobs.list )
+fi
+
+# Configure toldiff
+if test -f utilities/toldiff/toldiff.in
+then
+    tdir=`(cd utilities/toldiff;pwd)`
+    sed -e s@TOLDIFFDIR@$tdir@ < utilities/toldiff/toldiff.in  > utilities/toldiff/toldiff
+    chmod +x utilities/toldiff/toldiff
+fi
+
+echo
+echo " #######################################################################"
+echo " ###                                                                 ###"
+echo " ### The GAMESS-UK Makefile in the m4 directory has been created.    ###"
+echo " ### Type \"make\" to build GAMESS-UK                                  ###"
+echo " ###                                                                 ###"
+echo " #######################################################################"
+echo

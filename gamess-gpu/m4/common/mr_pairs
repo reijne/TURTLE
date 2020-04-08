@@ -1,0 +1,7 @@
+      integer maxpair
+      parameter (maxpair=40)
+      REAL c0,h11ci,ecorr_mr epair
+      common /mr_pairs/ c0,h11ci,ecorr_mr,epair(maxpair,maxpair)
+c
+      REAL eshifc eshifd
+      common /shifts/ eshifc(maxpair,maxpair),eshifd(maxpair)

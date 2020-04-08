@@ -1,0 +1,6 @@
+
+
+
+# $Header: /c/qcg/cvs/psh/GAMESS-UK/g/tcgmsg/ipcv4.0/ipcreset,v 1.1.1.5 2007-10-30 10:14:14 jmht Exp $
+ipcrm `ipcs | awk '{if (($1 == "m") || ($1 == "s")) print sprintf("-%s %s",$1,$2) }'`
+ipcs

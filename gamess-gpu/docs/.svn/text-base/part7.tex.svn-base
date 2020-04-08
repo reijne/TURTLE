@@ -1,0 +1,779 @@
+\documentclass[11pt,fleqn]{article}
+
+\usepackage{hyperref}
+
+% package HTML requires Latex2HTML to be installed for html.sty
+\usepackage{html}
+\newcommand{\doi}[1]{doi:\href{http://dx.doi.org/#1}{#1}}
+\begin{htmlonly}
+\renewcommand{\href}[2]{\htmladdnormallink{#2}{#1}}
+\end{htmlonly}
+\hypersetup{colorlinks,
+            %citecolor=black,
+            %filecolor=black,
+            %linkcolor=black,
+            %urlcolor=black,
+            bookmarksopen=true,
+            pdftex}
+ 
+\addtolength{\textwidth}{1.0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\newcommand{\yvec}{\mbox{\boldmath $y$}}
+\newcommand{\zvec}{\mbox{\boldmath $z$}}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+\begin{document}
+\sf
+\parindent 0cm
+\parskip 1ex
+\begin{flushleft}
+ 
+Computing for Science (CFS) Ltd.,\\CCLRC Daresbury Laboratory.\\[0.30in]
+{\large Generalised Atomic and Molecular Electronic Structure System }\\[.2in]
+\rule{150mm}{3mm}\\
+\vspace{.2in}
+{\huge G~A~M~E~S~S~-~U~K}\\[.3in]
+{\huge USER'S GUIDE~~and}\\[.2in]
+{\huge REFERENCE MANUAL}\\[0.2in]
+{\huge Version 8.0~~~June 2008}\\ [.2in]
+{\large PART 7. RPA and MCLR CALCULATIONS}\\
+\vspace{.1in}
+{\large M.F. Guest, J. Kendrick, J.H. van Lenthe and P. Sherwood}\\[0.2in]
+ 
+Copyright (c) 1993-2008 Computing for Science Ltd.\\[.1in]
+This document may be freely reproduced provided that it is reproduced\\
+unaltered and in its entirety.\\
+\vspace{.2in}
+\rule{150mm}{3mm}\\
+\end{flushleft}
+
+% 
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section[Introduction]{Introduction}
+
+
+Under the common runtype RESPONSE, the user may perform calculations
+of electronic transition energies and corresponding oscillator strengths,
+using either the Random Phase Approximation (RPA) method or the
+Multiconfigurational Linear Response (MCLR) procedure. The RPA calculations
+may be performed either within the conventional approach where the
+two--electron integrals are transformed or with a ``direct'' 
+implementation. The next sections describe in detail how to perform
+calculations with the linear response module.
+%
+\section{RPA and TDA calculations}
+
+Calculations of excitation energies and oscillator strengths
+based on the Random Phase Approximation (RPA) are initiated
+by specifying the data line
+
+{
+\footnotesize
+\begin{verbatim}
+          RUNTYPE RESPONSE RPA
+\end{verbatim}
+}
+in the input file. Data input characterising the details of 
+the calculation is presented immediately after the RUNTYPE data 
+line. Termination of this data is accomplished by presenting
+a valid {\em Class 2} directive, such as VECTORS.
+
+RUNTYPE RESPONSE is in fact a combination of tasks, requesting
+integral generation, SCF, integral transformation (in conventional
+RPA calculations) and, finally, the response calculation itself. 
+While in simple cases it may be feasible to perform all steps 
+in a single calculation, it will often be necessary to break up the 
+calculation into multiple jobs, driving through each of the tasks under
+control of the appropriate RUNTYPE directive, with use made
+of the BYPASS directive in the latter stages of the computation.
+
+The data input required when performing an RPA calculation 
+in a single job is shown schematically below:
+
+{
+\footnotesize
+\begin{verbatim}
+          TITLE
+          H2CO - TZVP + R(SP) BASIS - RPA CALCULATION
+          SUPER OFF NOSYM
+           .
+           .
+          RUNTYPE RESPONSE RPA
+           .
+           .
+           RPA Data
+           .
+          ENTER
+\end{verbatim}
+}
+When splitting the RPA calculation into multiple steps, we will be 
+involved in performing the following tasks:
+\begin{itemize}
+\item A closed-shell SCF calculation requesting, through use
+of the SUPER directive,  full integral list generation required 
+in the subsequent transformation.  Note that in most cases this 
+part of the calculation may also be conveniently broken up 
+into two parts, the first being a normal SCF where the integrals are 
+generated in supermatrix form, and the second being a restart job 
+with the "SUPER OFF NOSYM" data line.  Dumpfile (ED3) and 
+Mainfile (ED2) from the SCF calculation must be kept.
+
+{
+\footnotesize
+\begin{verbatim}
+          TITLE
+          H2CO - TZVP + R(SP) BASIS - SCF PRIOR TO RPA CALCULATION
+          SUPER OFF NOSYM
+           .
+           .
+           .
+          ENTER
+\end{verbatim}
+}
+
+\item An integral transformation, using the MOs from the
+SCF job as input vectors. The Dumpfile (ED3) and the transformed
+integral file (ED6) must be kept.
+
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2CO - TZVP + R(SP) BASIS - INTEGRAL TRANSFORMATION
+          SUPER OFF NOSYM
+          BYPASS SCF
+            .
+          RUNTYPE TRANSFORM
+            .
+          ENTER
+\end{verbatim}
+}
+Note that the SCF computation is BYPASS'ed, with the SCF vectors 
+from the first run now restored from the default closed shell
+SCF eigenvector section (section 1) and used in the transformation.
+
+\item The final RPA job must be declared as a restart job, and
+BYPASS's the integral transformation.
+
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2CO - TZVP + R(SP) BASIS - CONVENTIONAL RPA CALCULATION
+          SUPER OFF NOSYM
+          BYPASS TRANSFORM
+            .
+          RUNTYPE RESPONSE RPA
+            .
+            RPA Data
+            .
+          ENTER
+\end{verbatim}
+}
+The RPA input data is terminated by the ENTER directive, where the
+default SCF eigenvectors section is again in the absence of
+section specification.
+
+\end{itemize}
+In the following sections the directives controlling the RPA 
+calculation are described. 
+
+
+\subsection{RPA Data - SYMM}
+
+The computation of excitation energies and corresponding oscillator
+strengths is initiated by the
+SYMM directive comprising the variables TEXT1, ISYM, ILOW,
+TEXT2, IHIGH using format (A,2I,A,I).
+\begin{itemize}
+\item TEXT1 should be set to the character string SYMM.
+\item TEXT2 should be set to the character string TO.
+\end{itemize}
+The excited states no. ILOW to IHIGH
+of the irreducible representation ISYM are then computed.
+\subsubsection{SYMM Example}
+Calculation of the excitation energies for the lowest five states of each of
+the optically allowed symmetries B$_{1u}$, B$_{2u}$, B$_{3u}$ of a molecule
+with D$_{2h}$ symmetry requires the data lines
+
+{
+\footnotesize
+\begin{verbatim}
+          SYMM 2 1 TO 5
+          SYMM 3 1 TO 5
+          SYMM 5 1 TO 5
+\end{verbatim}
+}
+in the input.
+%
+\subsection{RPA Data - TDA}
+By presenting the data line
+{
+\footnotesize
+\begin{verbatim}
+          TDA
+\end{verbatim}
+}
+an additional Tamm-Dancoff (TDA) calculation is performed for the
+specified irreps and roots, corresponding to a CI in the space of
+single excitations. The line
+
+{
+\footnotesize
+\begin{verbatim}
+          TDA ONLY
+\end{verbatim}
+}
+can be used to suppress the RPA calculation, performing a TDA
+calculation only.
+%
+\subsection{RPA Data - POLA}
+This directive initiates the computation of dynamic polarisabilities within
+the time-dependent Hartree-Fock model. Each data line should begin with the
+character string POLA, followed by one or several (up to 10) floating point
+numbers, representing the frequencies (in atomic units) for which the
+polarisabilities are requested. If more than 10 frequencies are required,
+a new data line must be presented.
+%
+\subsection{RPA Data - MAXRED}
+The maximal size of the reduced matrices in the iterative RPA algorithm
+can be adjusted with the MAXRED directive, consisting of a single dataline
+read to the variables TEXT, MAXR, MAXRR using format (A,2I).
+\begin{itemize}
+\item TEXT should be set to the character string MAXRED.
+\item MAXR is an integer, specifying the maximal size of the reduced matrices
+      in the iterative eigenvalue search. The default value of MAXR is 50.
+\item MAXRR is an integer, specifying the maximal size of the reduced matrices
+      during solution of the linear response equations for polarisability
+      calculations. The default value of MAXRR is 50. Within the MAXRED
+      directive, the specification of MAXRR is optional.
+\end{itemize}
+Note that there is no danger in specifying a value of MAXR (or MAXRR) which
+is too large with respect to the memory available. The program automatically
+adjusts the value of MAXR if the iterative procedure consumes too much
+memory. If the user, however, absolutely insists on the desired value 
+for MAXR, she/he
+should increase the available memory using the MEMORY predirective.
+The value of MAXR should at least be three times as large
+as the largest number of eigenvalues wanted for one specific symmetry,
+except for very large calculations. The following table gives recommended
+values for MAXR:
+\begin{center}
+\begin{tabular}{|c|c|}
+Number of eigenvalues desired & Recommended value of MAXR \\ \hline
+10         &  50 - 80    \\
+20         &  80 - 100    \\
+30         &  90 - 120    \\
+50         &  150 - 200    \\
+100        &  200 - 300    \\
+200        &  400                                         \\ \hline
+\end{tabular}
+\end{center}
+If the iterative algorithm reaches the maximum dimension before convergence,
+it restarts the procedure, using the current approximate eigenvectors
+as starting vectors.
+%
+\subsection{RPA Data - MAXIT}
+This directive sets the maximal number of iterations for the iterative
+algorithms in the RPA module. The data line
+
+{
+\footnotesize
+\begin{verbatim}
+          MAXIT 50 10
+\end{verbatim}
+}
+sets the maximum number of cycles to 50 for the eigenvalue problem and to
+10 for the linear equation solver. The default value is 30 for both 
+algorithms. As for MAXRED, specification of the second integer is
+optional within the MAXIT directive.
+%
+\subsection{RPA Data - ANALYSE}
+The result table printed after successful completion of the iterative
+TDA/RPA procedure contains the most important one-electron excitations
+of the corresponding states. If $(\yvec,\zvec)$ denotes an RPA eigenvector,
+then all components of the vector $\yvec - \zvec$ with modulus larger than a
+certain threshold which may be specified in the THRESH directive
+(see below) are listed in this table. With the help of the ANALYSE
+directive which consists of the single data line ANALYSE, the user may,
+in addition, examine smaller components, without having them listed in
+the result table. The corresponding threshold is again specified by means
+of the THRESH directive (see below). The additional output generated
+by the ANALYSE directive also contains the dipole integrals, useful
+for an investigation which mono-excitations contribute to a large
+oscillator strength, and the weights of the vectors $\yvec$ and $\zvec$
+in the RPA eigenvectors $(\yvec,\zvec)$.
+%
+\subsection{RPA Data - THRESH}
+It is possible to define various thresholds to control the convergence
+and output. The first data line of the THRESH directive should be set to
+the character string
+
+{
+\footnotesize
+\begin{verbatim}
+          THRESH
+\end{verbatim}
+}
+Each following line should begin with one of the character strings
+{
+\footnotesize
+\begin{verbatim}
+          EIGEN, EQSYS, TABLE, ANALYSIS
+\end{verbatim}
+}
+followed by a floating point number, using format (A,F). The last data line
+should be set to the character string
+
+{
+\footnotesize
+\begin{verbatim}
+          END
+\end{verbatim}
+}
+The numbers following the keywords EIGEN, EQSYS define the thresholds to which
+the residual in the eigenvalue algorithm and equation system solver, 
+respectively, is converged. The default value is 0.001 for both algorithms.
+The data line
+
+{
+\footnotesize
+\begin{verbatim}
+          TABLE 0.1
+\end{verbatim}
+}
+causes printing of all eigenvector components with modulus larger than or
+equal to 0.1 in the result tables for TDA and RPA. The default value is 0.2.
+Finally, the data line
+
+{
+\footnotesize
+\begin{verbatim}
+          ANALYSIS 0.01
+\end{verbatim}
+}
+causes printing of all eigenvector components $c_i$ with $c^2_i\geq 0.01$,
+provided a detailed analysis of the eigenvectors is requested by means of
+the ANALYSE directive.
+%
+\subsection{RPA Data - BEGIN}
+In the result table of an RPA calculation, the leading components of the
+eigenvectors are listed, attached with symmetry labels of the orbitals
+involved in the corresponding one-electron excitation, e.g.
+$$ 0.85\;(2\,a_1\rightarrow 1\,b_2) $$
+Usually the labeling starts with the first MO, i.e. the one with the lowest
+energy. Now, if there is a core of orbitals from which virtually no
+excitations are expected in the lowest excited states, the user may wish to
+start labeling the orbitals at the first valence MO. This is accomplished
+with the BEGIN directive which consists of a single data line, read to
+variables TEXT, NBEGIN using format (A,I). 
+\begin{itemize}
+\item TEXT should be set to the character string BEGIN.
+\item NBEGIN is an integer specifying the number of the first MO to be labeled.
+\end{itemize}
+%
+\subsubsection{BEGIN Example}
+In an all-electron calculation on MgNa$_6$, there are 70 electrons in
+doubly occupied core orbitals. The first valence MO thus carries the
+number 36, and the data line
+
+{
+\footnotesize
+\begin{verbatim}
+          BEGIN 36
+\end{verbatim}
+}
+starts the orbital counting with this MO.
+%
+\subsection{RPA Data - QZ}
+Usually the RPA calculation is carried out for the ground state of a molecule.
+In this case the symmetric RPA matrix is positive definite, and the projected
+generalized eigenvalue problems can be reduced to ordinary eigenvalue
+problems. This is the default strategy of the iterative algorithm.
+If, however, the user wishes to perform a calculation on a state different
+from the ground state, or if the RPA matrix is extremely ill-conditioned,
+she/he can resort to the QZ algorithm of Moler and Stewart which treats
+generalized indefinite eigenvalue problems. This path detects and discards
+complex eigenvalues. It is initiated by presentation of the single data line
+
+{
+\footnotesize
+\begin{verbatim}
+          QZ
+\end{verbatim}
+}
+Note that the QZ algorithm is considerably slower than the standard method
+for positive definite matrices.
+The occurrence of complex eigenvalues during the standard reduction is usually
+indicated by the message
+
+{
+\footnotesize
+\begin{verbatim}
+          PROBLEM IN ITERATION STEP 1: ERED2 IS NOT POSITIVE DEFINITE
+\end{verbatim}
+}
+which terminates the RPA procedure for that particular symmetry. In this
+case the user should first check if she/he is really calculating on the
+Hartree-Fock ground state.
+Note that the QZ algorithm is the default in Direct RPA calculations.
+%
+\subsection{Auxiliary files}
+The RPA program automatically generates a file named {\tt rpa\_spectrum}
+(and/or {\tt tda\_spectrum}, if a TDA calculation is performed),
+which contains a table of the excitation energies (in a.u.) and
+corresponding oscillator strengths. This file may serve as input for
+a suitable plotting program.
+If the user wishes to keep this
+file for plotting, she/he should place a corresponding command line
+at the end of the shell script file which moves {\tt rpa\_spectrum} to the user's
+permanent directory.
+
+The files {\tt tda\_table.tex} and {\tt rpa\_table.tex} contain the
+\LaTeX\ input for a list of the excited states computed with TDA and RPA,
+respectively, with excitation energies, oscillator strengths and
+most important single excitations.
+
+If a calculation is performed on the states of symmetry $i\;
+(1\leq i\leq 8)$, a file {\tt tm4$i$} is generated
+which contains the input for a plot of the RPA analogue of the 
+transition density matrix.
+
+Finally, we list the complete input data for an RPA plus polarisability 
+calculation on the water molecule, using a 4-31G basis:
+%
+\subsubsection{SCF calculation}
+{
+\footnotesize
+\begin{verbatim}
+          TITLE
+          H2O 4-31G BASIS 
+          SUPER OFF NOSYM
+          ZMAT
+          O
+          H 1 1.809 
+          H 1 1.809 2 104.52 
+          END
+          BASIS 4-31G
+          ENTER
+\end{verbatim}
+}
+%
+\subsubsection{Integral transformation}
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2O 4-31G BASIS + INTEGRAL TRANSFORMATION
+          BYPASS SCF
+          SUPER OFF NOSYM
+          ZMAT
+          O
+          H 1 1.809 
+          H 1 1.809 2 104.52 
+          END
+          BASIS 4-31G
+          RUNTYPE TRANSFORM
+          ENTER
+\end{verbatim}
+}
+%
+\subsubsection{RPA calculation}
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2O 4-31G BASIS RPA CALCULATION
+          BYPASS TRANSFORM
+          SUPER OFF NOSYM
+          ZMAT
+          O
+          H 1 1.809 
+          H 1 1.809 2 104.52 
+          END
+          BASIS SV 4-31G
+          RUNTYPE RESPONSE RPA
+          TDA
+          SYMM 1 1 TO 5
+          SYMM 2 1 TO 5
+          SYMM 3 1 TO 2
+          MAXRED 25
+          MAXIT 20
+          ANALYSE
+          THRESH
+           EIGEN    0.001
+           EQSYS    0.0001
+           TABLE    0.25
+           ANALYSIS 0.05
+          END
+          POLA 0.0 0.1 0.2
+          ENTER
+\end{verbatim}
+}
+%
+\section{Direct RPA calculations}
+
+For large atomic orbital basis sets, the integral transformation step
+in conventional RPA calculations can become prohibitive. In this case
+it is possible to resort to a ``Direct SCF'' like implementation of the
+RPA procedure which breaks up the four--index transformation into
+two two--index transformation whenever the RPA matrix acts on a trial
+vector. The Direct RPA module is started by the input lines
+
+{
+\footnotesize
+\begin{verbatim}
+          RUNTYPE RESPONSE RPA DIRECT
+\end{verbatim}
+}
+in the input file. In this case the only preparatory run is a 
+closed shell SCF calculation which may be conventional or direct,
+and in which the integrals may be generated in supermatrix or {\tt 2E}
+format. Only the Dumpfile of the SCF calculation must be kept.
+All directives that are available for conventional RPA calculations
+can also be used for the Direct RPA case, with two exceptions:
+The polarisability module has not yet been implemented, and the 
+QZ directive is redundant ({\em vide supra}).
+The following additional directives are available:
+%
+\subsection{PREF}
+This directive controls the prefactor tolerance for the integral
+generator. It consists of a single data line with variables
+TEXT, EXP using format (A,I), where TEXT is set to the character string
+PREF and EXP is a positive integer, setting the prefactor tolerance
+to $10^{-\mbox{\scriptsize\sf EXP}}$. The default value for EXP is 7.
+%
+\subsection{MAXVEC}
+The direct RPA procedure is organized in such a way that a maximal number
+of trial vectors, with respect to the main memory available,
+is contracted with the integrals generated in one batch.
+It may, however, sometimes be necessary to reduce this number since
+valuable memory is needed for other purposes, e.g., to increase the
+maximal size of the reduced matrices during the iterations. The
+MAXVEC directive allows to limit the number of trial vectors which are
+treated in one batch to a specific value M.
+It consists of a single data line
+with the variables TEXT, M using format (A,I), 
+where TEXT is set to the character string
+MAXVEC and M is the above mentioned integer.
+%
+\subsection{Dumping and restoring trial vectors}
+Since Direct RPA calculations on larger systems are rather 
+time-consuming, it is desirable to have the possibility to interrupt
+a calculation and restart it at a later time.
+Dumping and restoring intermediate results is possible with the DUMP
+and RESTORE directives.
+The user may dump vectors by specifying the data line
+\begin{flushleft}
+\mbox{\hphantom{{\tt ABCDEFGHIJ}}}{\tt DUMP} {\em file}
+\end{flushleft}
+where {\em file} is (the complete path of) a file in some permanent
+directory that may be chosen freely. In case the RPA (or TDA)
+calculation aborts in the middle of the iterative process
+(either by runtime problems or by a user's operation), this file
+contains the approximate
+eigenvectors of the last iteration step that was completed.
+These vectors may be used in a later job to resume the calculation
+at that iteration step. This is accomplished by the data line
+\begin{flushleft}
+\mbox{\hphantom{{\tt ABCDEFGHIJ}}}{\tt RESTORE RPA} {\em file}
+\end{flushleft}
+where {\em file} is the above mentioned file containing the saved vectors.
+Note that the keyword {\tt RPA} has to be replaced by {\tt TDA} if
+the job was interrupted during a TDA calculation.
+Note also that the restart run must begin with the particular irrep
+in which the termination occurred, and that the
+same number of roots must be specified.
+%
+\section{Multiconfigurational linear response calculations}
+A multiconfigurational linear response (MCLR) calculation
+\cite{ref:46}, also known under
+the term time--dependent multiconfigurational SCF, is performed by
+presenting the data line
+
+{
+\footnotesize
+\begin{verbatim}
+          RUNTYPE RESPONSE MCLR
+\end{verbatim}
+}
+in the input file. A necessary condition for performing an MCLR
+calculation is the successful completion of a corresponding
+multiconfigurational SCF calculation with the GAMESS--UK MCSCF module.
+The Dumpfile (ED3) and the transformed integral
+file (ED6) must be saved. The MCLR calculation is then performed
+as a restart job. In the following we list the directives which are
+available in the MCLR module. Note that the first four are obligatory.
+%
+\subsection{MCLR Data - ORBITAL}
+The set of active orbitals must be specified by means of the ORBITAL
+directive. The individual lines of this directive must be identical 
+to those presented in the preceding MCSCF calculation.
+Since this directive is described in detail in the
+MCSCF part (and is usually copied into the MCLR job
+from the MCSCF job), we refer the reader to the corresponding
+section.
+%
+\subsection{MCLR Data - SECTIONS}
+In order to perform an MCLR calculation, several vectors have to be
+retrieved from the Dumpfile. The SECTIONS directive specifies in which
+sections of the Dumpfile the corresponding vectors are stored. Note that
+these sections must still be specified even if the default sections have
+been used at vector generation time (in the absence of explicit section
+specification on the corresponding ENTER directive).
+
+The data lines
+
+{
+\footnotesize
+\begin{verbatim}
+          SECTIONS
+             SCF        1
+             MCSCF      8
+             CANONICAL  10
+             CIVEC      9
+\end{verbatim}
+}
+instruct the program to read the SCF eigenvectors from section 1,
+the MCSCF MOs from section 8, the pseudocanonical MCSCF orbitals from
+section 10 and the MCSCF CI vector from section 9 of the Dumpfile. Note
+that with the possible exception of CANONICAL (as specified by the CANONICAL MCSCF
+directive), these section numbers correspond to the defaults in place
+at vector generation time in the closed-shell SCF and MCSCF module.
+Note that the default section for the MCSCF NOs is now section 10, and
+it is this section number that should be specified in the data above.
+The indentation is, of course, not necessary but convenient for better
+reading.
+
+%
+\subsection{MCLR Data - SYMM}
+This directive controls the calculation of excited states. 
+It consists of the variables TEXT, ISYM, IHIGH using format (A,2I).
+TEXT should be set to the character string SYMM. The integer ISYM
+indicates the irreducible representation, and IHIGH is the number 
+of roots to be calculated in the irrep ISYM. Note that the syntax
+of this directive is different from the corresponding directive
+in the RPA module. In particular, it is not possible to calculate
+an interval [ILOW,IHIGH] of roots with ILOW different from 1.
+%
+\subsection{MCLR Data - END}
+This directive which consists of the single keyword END terminates
+the input which controls the MCLR calculation. It must always be
+present.
+%
+\subsection{MCLR Data - REDUCE}
+The default algorithm for solving the small generalized eigenvalue
+problems during the iterative MCLR calculation is the QZ algorithm
+(see the description of the QZ directive in the RPA module).
+The REDUCE directive which consists of a single data line with the
+keyword REDUCE forces the program to reduce the generalized
+eigenvalue problems to standard eigenvalue problems.
+%
+\subsection{MCLR Data - SPLIT}
+This directive initiates the use of split trial vectors, as described
+in \cite{ref:47}. It consists of variables TEXT, ITER using format (A,I),
+where TEXT is set to the character string SPLIT and ITER is an integer
+indicating after which iteration step split trial vectors are to be used.
+Usually there is no loss of speed of convergence when split trial vectors
+are used from the very beginning. Setting ITER to zero is therefore
+recommended with this directive.
+%
+\subsection{MCLR Data - Further directives}
+The directives MAXRED, MAXIT, BEGIN, POLA and THRESH are also 
+available in MCLR calculations.
+They are identical to the corresponding directives in the RPA module,
+with one exception: the THRESH directive must {\em not} be terminated
+by the keyword END since this is reserved for signaling the end of
+the MCLR directives.
+The reader is referred to the corresponding sections for a
+detailed description of the directives.
+
+We list below the complete input for an MCLR calculation on the 
+water molecule, using a TZVP basis and performing a full valence 
+space calculation. We start with the MCSCF job, omitting the SCF job(s):
+%
+\subsubsection{MCSCF calculation}
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2CO TZVP MCSCF
+          BYPASS
+          ZMAT
+          O
+          H 1 1.809 
+          H 1 1.809 2 104.52 
+          END
+          BASIS TZVP
+          RUNTYPE SCF
+          SCFTYPE MCSCF
+          MCSCF
+          ORBITAL
+          DOC1 DOC1 DOC3 DOC1 DOC2 UOC1 UOC3
+          END
+          ENTER
+\end{verbatim}
+}
+%
+\subsubsection{MCLR calculation}
+{
+\footnotesize
+\begin{verbatim}
+          RESTART
+          TITLE
+          H2CO TZVP MCSCF
+          BYPASS MCSCF
+          ZMAT
+          O
+          H 1 1.809 
+          H 1 1.809 2 104.52 
+          END
+          BASIS TZVP
+          SCFTYPE MCSCF
+          MCSCF
+          ORBITAL
+          DOC1 DOC1 DOC3 DOC1 DOC2 UOC1 UOC3
+          END
+          RUNTYPE RESPONSE MCLR
+          ORBITAL
+          DOC1 DOC1 DOC3 DOC1 DOC2 UOC1 UOC3
+          END
+          SECTIONS
+             SCF       1
+             MCSCF     8
+             CANONICAL 10
+             CIVEC     9
+          SYMM 1 5
+          SYMM 2 5
+          SYMM 3 5
+          SPLIT 0
+          END
+          VECTORS 2 3
+          ENTER 2 3 
+\end{verbatim}
+}
+\clearpage
+
+\begin{thebibliography}{10}
+
+\bibitem{ref:46} C. Fuchs, V. Bona\v{c}i\'{c}-Kouteck\'{y} and J. Kouteck\'{y},
+       J.\ Chem.\ Phys.\ {\bf 98} (1993) 3121, \doi{10.1063/1.464086}.
+
+\bibitem{ref:47} P.~J\o rgensen, H.\,J.\,Aa.~Jensen, and J.~Olsen,
+       J.\ Chem.\ Phys.\ {\bf 89} (1988) 3654, \doi{10.1063/1.454885}.
+
+\end{thebibliography}
+
+\end{document}

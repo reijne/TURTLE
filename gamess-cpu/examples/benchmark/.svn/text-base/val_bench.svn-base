@@ -1,0 +1,18 @@
+#!/bin/csh
+#
+# validation for benchmark
+#
+setenv GAMESS_VTAB ./bench.vtab
+set path=(../../utilities $path)
+validate bench_1  LOG/bench_1.log
+validate bench_2  LOG/bench_2.log
+validate bench_3  LOG/bench_3.log
+validate bench_4  LOG/bench_4.log
+validate bench_5  LOG/bench_5.log
+validate bench_6  LOG/bench_6.log
+validate bench_7  LOG/bench_7.log
+validate bench_8  LOG/bench_8.log
+validate bench_9  LOG/bench_9.log
+validate bench_10  LOG/bench_10.log
+validate bench_11  LOG/bench_11.log
+validate bench_12  LOG/bench_12.log

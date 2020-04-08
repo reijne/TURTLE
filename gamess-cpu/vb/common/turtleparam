@@ -1,0 +1,23 @@
+c
+c...   turtle parameters
+c
+      integer melec,ncorq,maxex,maxact,mbonds,maxato,
+     &        maxopa,ncases,maxcon,mmsocc,mxorbvb,maxspvb
+c
+      parameter (melec=300)
+      parameter (ncorq=2000000)
+      parameter (maxex=MAXEXVB,maxact=150,mbonds=150,
+     &           maxato=750,maxopa=1500)
+      parameter (ncases=35)
+c      ... maxcon in vbcrestr ...
+c92      parameter (maxcon = 100)
+      parameter (maxcon = 3000)
+c      ... msocc max. # singly occuppieds ; was always enough (2009) ...
+      parameter (mmsocc = 30)
+c..   maxspvb  maximum # spinfunctions per configuration 
+c..   (42 for 10 singlys and the ultimate answer)
+      parameter (maxspvb=42) 
+c
+c     mxorbvb may be as large as allowed by n_8_16 (32767)
+c
+      parameter (mxorbvb=MXORBVB)

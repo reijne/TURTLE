@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# Wrapper to enable configure to be run from m4.
+#
+# We need to work out the path to any custom file we may have been given
+# to feed to the script proper
+
+custom=""
+args=""
+# Cycle through the arguments building up the list of arguments and check if
+# we have a custom file - this gets stripped from the arguments and then appended
+# again once we have worked out the full path
+while [ $# -ne 0 ]
+do
+  case "$1" in
+      -f  )  shift; custom=$1 ;;
+      * ) args="$args $1" ;;
+  esac 
+  shift
+done
+
+# work out the full path to the file
+if [ "$custom" ]
+    then
+    dir=""
+    fbase=`basename $custom`
+    if [ "${custom:0:1}" = "/" ]
+	then
+        # we've been called with an absolute path so just get the directory
+	dir=`dirname $0`
+    else
+        # We've been called with a relative path so work out where the script lives
+        # relvative to us, go there and print the directory name to get its full path
+	path_to_dir=`dirname $custom`
+	dir=`(cd $path_to_dir; pwd)`
+    fi
+    filename=$dir"/"$fbase
+    # Append to the arguments
+    args="$args -f $filename"
+fi
+
+# cd ..
+eval ./configure $args

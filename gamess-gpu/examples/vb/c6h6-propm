@@ -1,0 +1,83 @@
+#!/bin/csh
+exit
+setenv ed3 c6h6.ed3
+
+../../bin/gamess<<EOF
+harmon
+adapt off
+title
+c6h6 scf startup
+zmat angstroms
+xx
+ c   1 cxx2
+ c   1 cxx2       2   60.000
+ c   1 cxx2       3   60.000     2 180.000
+ c   1 cxx2       4   60.000     3 180.000
+ c   1 cxx2       5   60.000     4 180.000
+ c   1 cxx2       6   60.000     5 180.000
+ h   1 hxx8       5   60.000     6 180.000
+ h   1 hxx8       8   60.000     3 180.000
+ h   1 hxx8       9   60.000     4 180.000
+ h   1 hxx8      10   60.000     5 180.000
+ h   1 hxx8      11   60.000     6 180.000
+ h   1 hxx8      12   60.000     7 180.000
+variables
+ cxx2           1.3882713 hessian       5.718118
+ hxx8           2.4615187 hessian       2.381906
+end
+basis sto3g
+vectors atorbs section 81
+enter 1
+EOF
+echo ' too time-consuming'
+
+../../bin/gamess<<EOF
+core 64000000
+time 100000
+restart new
+title
+c6h6 vbscf 
+zmat angstroms
+xx
+ c   1 cxx2
+ c   1 cxx2       2   60.000
+ c   1 cxx2       3   60.000     2 180.000
+ c   1 cxx2       4   60.000     3 180.000
+ c   1 cxx2       5   60.000     4 180.000
+ c   1 cxx2       6   60.000     5 180.000
+ h   1 hxx8       5   60.000     6 180.000
+ h   1 hxx8       8   60.000     3 180.000
+ h   1 hxx8       9   60.000     4 180.000
+ h   1 hxx8      10   60.000     5 180.000
+ h   1 hxx8      11   60.000     6 180.000
+ h   1 hxx8      12   60.000     7 180.000
+variables
+ cxx2           1.3882713 hessian       5.718118
+ hxx8           2.4615187 hessian       2.381906
+end
+basis sto3g
+vb
+vbvectors combine print
+section 1  1 to 16 18 19 end
+section 81 5 10 15 20 25 30 end
+end
+crestr
+conf
+core 18 kekule 19 to 24 
+end conf
+end crestr
+active
+1 to 24 end
+scf
+optimise kind
+pert doc uoc
+end
+diis
+nosymm
+prop pola magn end
+end scf
+end 9
+scftype vb
+enter 1
+EOF
+\rm -f c6h6.ed3

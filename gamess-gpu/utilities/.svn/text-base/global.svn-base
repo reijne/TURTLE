@@ -1,0 +1,16 @@
+#!/bin/csh
+foreach dir (Scf91 Ci91 New91)
+   cd $dir
+   set filelist=`/bin/ls *.m`
+   foreach file ( $filelist )
+       echo  editing $dir/$file
+       cp $file /tmp/$file.save
+       cat $file | sed -e s/^......include..common./INCLUDE\(common\)/ > temp
+       if $status != 0 then
+           echo screw-up - exiting
+           exit 1
+       endif
+       mv temp $file
+    end
+    cd ..
+end

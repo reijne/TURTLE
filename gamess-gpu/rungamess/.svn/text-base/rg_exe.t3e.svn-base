@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# Rungamess execution script - T3E version
+#
+
+IDENT=rungamess
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# --------------------------------------------------------------
+#
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to environment variables
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# T3E Specific environment variables
+# --------------------------------------------------------------
+#
+
+export SCACHE_I_STREAMS=1
+export SCACHE_D_STREAMS=1
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+rm -rf  $scratchtopdir/$jobname
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir
+echo done
+
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK 
+# --------------------------------------------------------------
+#
+
+mpprun -n $nprocs $executable  < $homedir/$jobname.in 
+
+stat=$?
+case $stat in
+   0) echo ${IDENT}: T3E gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+
+#
+# --------------------------------------------------------------
+# Delete scratch directory. The test on contents is applied in 
+# case of core files,  user-added file directives, + the
+# save command
+# --------------------------------------------------------------
+#
+
+list=`/bin/ls -1 $scratchtopdir/$root`
+case X$list in
+  X) rmdir $scratchtopdir/$root;;
+  *) echo "rungamess: scratch directory has not been deleted as it is not empty"
+     echo Directory $scratchtopdir/$root on `hostname` contains the following files:
+     /bin/ls -l $scratchtopdir/$root
+  ;;
+esac
+

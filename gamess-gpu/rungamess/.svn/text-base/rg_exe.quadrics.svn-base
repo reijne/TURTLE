@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# Rungamess execution script - QUADRICS MPI
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+mode=master-slave
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+#
+# - should be able to pick up PBS parameters in future
+#
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+# --------------------------------------------------------------
+# Execute GAMESS-UK (inherit stdin/stdout)
+# --------------------------------------------------------------
+#
+
+#
+# At present it seems we need a wrapper script to execute
+# the 
+#
+env | grep ELAN
+
+prun -n $nprocs $RUNGAMESS_DIR/prun.sh  $scratchtopdir $jobname $executable $homedir
+
+#rm -f $jobname.sh
+#echo '#!/bin/sh ' > $jobname.sh
+#echo mkdir -p $scratchtopdir/$jobname >> $jobname.sh
+#echo cd $scratchtopdir/$jobname >> $jobname.sh
+#echo if test \$RMS_RANK -eq 0 >> $jobname.sh
+#echo then >> $jobname.sh
+#echo 'echo Start at `date` ' >> $jobname.sh
+#echo fi >> $jobname.sh
+#echo $executable ' < ' $homedir/$jobname.in >> $jobname.sh
+#chmod +x $jobname.sh
+#sleep 2
+#prun -n $nprocs ./$jobname.sh
+
+stat=$?
+echo End at `date`
+
+case $stat in
+   0) echo ${IDENT}: QSW MPI gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

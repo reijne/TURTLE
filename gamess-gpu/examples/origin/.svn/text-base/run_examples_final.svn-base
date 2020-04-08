@@ -1,0 +1,82 @@
+#!/bin/csh
+#
+# run the parallel validation jobs for GAMESS-UK
+# on the SGI Origin 3800. Note that usage of
+# the script rungamess is assumed here, where
+# rungamess is added to the users path .. thus
+#
+# set path=($path ~/GAMESS-UK/rungamess .)
+#
+date
+#
+# rungamess -p 8 -q par_1
+# rungamess -p 8 -q par_1a
+# rungamess -p 8 -q par_1b
+# rungamess -p 8 -q par_1c
+# rungamess -p 16 -q par_2
+# rungamess -p 8 -q par_2a
+# rungamess -p 8 -q par_3
+# rungamess -p 4 -q par_4
+# rungamess -p 4 -q par_4a
+# rungamess -p 8 -q par_4_geom
+# rungamess -p 8 -q par_5
+# rungamess -p 8 -q par_5a
+# rungamess -p 8 -q par_5b
+# rungamess -p 8 -q par_6
+# rungamess -p 8 -q par_6a
+# rungamess -p 8 -q par_7
+# rungamess -p 8 -q par_8
+# rungamess -p 8 -q par_9
+# rungamess -p 8 -q par_10
+# rungamess -p 8 -q par_11
+# rungamess -p 32 -q par_12
+# rungamess -p 4 -q par_14
+# rungamess -p 16 -q par_16
+# rungamess -p 16 -q par_17
+# rungamess -p 16 -q par_18
+# rungamess -p 32 -q par_19
+# rungamess -p 32 -q par_19_uhf
+# rungamess -p 32 -q par_20
+# rungamess -p 32 -q par_21
+# rungamess -p 32 -q par_22
+# rungamess -p 32 -q par_23
+# rungamess -p 32 -q par_24
+# rungamess -p 32 -q par_25
+# rungamess -p 32 -q par_26
+# rungamess -p 32 -q par_27
+# rungamess -p 32 -q par_28
+# rungamess -p 4 -q par_29
+# rungamess -p 32 -q par_30
+# rungamess -p 32 -q par_34
+# rungamess -p 32 -q par_35
+# rungamess -p 32 -q par_36
+# rungamess -p 32 -q par_37
+# rungamess -p 32 -q par_38
+# rungamess -p 32 -q par_35.jfit
+# rungamess -p 32 -q par_36.jfit
+# rungamess -p 32 -q par_37.jfit
+# rungamess -p 32 -q par_38.jfit
+# rungamess -p 32 -q par_40
+# rungamess -p 32 -q par_41
+# rungamess -p 32 -q par_42
+# rungamess -p 8 -q par_51
+# rungamess -p 32 -q par_52
+# rungamess -p 32 -q par_54
+# rungamess -p 8 -q par_55
+# rungamess -p 32 -q par_61
+# rungamess -p 32 -q par_62
+# rungamess -p 32 -q par_63
+# rungamess -p 32 -q par_70
+# rungamess -p 32 -q par_71
+# rungamess -p 32 -q morphine_A2
+# rungamess -p 32 -q morphine_jfitA2
+# rungamess -p 32 -q valino
+# rungamess -p 32 -q valino_jfit
+# rungamess -p 32 -q siosi3
+# rungamess -p 32 -q siosi4
+# rungamess -p 64 -q siosi5
+# rungamess -p 64 -q siosi6
+#
+# bsub < bsub_save_1
+# bsub < bsub_save_2
+# bsub < bsub_save_3

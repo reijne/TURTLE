@@ -1,0 +1,42 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - dzp  - harmonic + atomic startup
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dzp
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - dzp  - harmonic + closed-shell SCF startup
+harmonic
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dzp
+enter
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF

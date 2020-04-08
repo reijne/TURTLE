@@ -1,0 +1,24 @@
+#!/bin/bash
+#BSUB -n 32
+#BSUB -W 30
+#BSUB -o validate.o%J
+#BSUB -e validate.e%J
+#BSUB -J validate
+
+export LD_LIBRARY_PATH=/opt/modules/intel/mkl721/lib/64:/opt/modules/cmplrs/intel/8.1.023/lib:${LD_LIBRARY_PATH}
+export OMP_NUM_THREADS=1
+export MPI_DSM_DISTRIBUTE=1
+export MPI_GROUP_MAX=1024
+
+cd /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix 
+
+rm -rf /santmp/dlwab/validate
+mkdir /santmp/dlwab/validate
+
+cp /m/dlwab/release-7-0/GAMESS-UK/bin/gamess-uk /santmp/dlwab/validate
+
+cp ../../input_files/DFT.cyclo.6-31G.in /santmp/dlwab/validate
+ 
+cd /santmp/dlwab/validate
+
+mpirun -np 32 dplace -s1 ./gamess-uk < DFT.cyclo.6-31G.in > /m/dlwab/release-7-0/GAMESS-UK/examples/parallel_GAs/test_jobs/altix/DFT.cyclo.6-31G.out

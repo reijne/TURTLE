@@ -1,0 +1,35 @@
+
+Begin optimization report for: DASUM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dasum.f(46,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dasum.f(46,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dasum.f(51,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dasum.f(52,11)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dasum.f(33,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dasum.f(33,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dasum.f(33,10)
+<Remainder>
+LOOP END
+===========================================================================

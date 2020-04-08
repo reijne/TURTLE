@@ -1,0 +1,75 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - default DFT (DZVP) orbitals - DFT/BLYP  / energy = -114.49723887 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dft
+scftype direct
+dft
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - DZVP DFT orbitals - DFT/BLYP  / energy = -114.497238874 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dft dzvp
+scftype direct
+dft
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - DZVP2 DFT orbitals - DFT/BLYP  / energy = -114.508644960 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dft dzvp2
+scftype direct
+dft
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZVP DFT orbitals - DFT/BLYP  / energy = -114.518971527 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dft tzvp
+scftype direct
+dft
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - mixed DFT orbitals - DFT/BLYP  / energy = -114.510444852 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis
+dft h dzvp
+dft c dzvp2
+dft o tzvp
+end
+scftype direct
+dft
+enter
+EOF

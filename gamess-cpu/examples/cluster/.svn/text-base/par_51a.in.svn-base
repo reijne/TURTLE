@@ -1,0 +1,38 @@
+title
+pyridine ECP lanl geometry opt. plus analytic 2nd derivs
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.8144139 hessian       0.511142
+ch4            1.0759344 hessian       0.380845
+c2n            1.3456919 hessian       2.250428
+c2c3           1.4098754 hessian       1.632632
+c2h6           1.0754637 hessian       0.735432
+c3h5           1.0744278 hessian       0.765347
+c2nz         120.7831184 hessian      26.520743
+ccn          123.0361459 hessian       9.806134
+nch2         116.1704206 hessian       0.663288
+c2c3h        120.2127180 hessian       0.665463
+end
+basis ecp lanl
+pseudo ecp
+c lanl c
+n lanl n
+runtype hessian
+scftype direct
+enter

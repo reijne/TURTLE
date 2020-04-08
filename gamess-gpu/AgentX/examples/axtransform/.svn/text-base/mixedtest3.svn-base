@@ -1,0 +1,25 @@
+***********************************************************************
+
+Initial Structure: 
+
+    Lattice Vectors:
+<axLoop id="latVec" concept="Module[1].LatticeVector">       Vector: <axSubstitute id="latVec" property="value"/>
+</axLoop>
+
+    No of atoms in Basis = <axSubstitute property="Module[1].Atom.count"/>
+
+    Basis:
+<axLoop id="atoms" concept="Module[1].Atom">        Atoms: <axSubstitute id="atoms" property="elementType"/>
+</axLoop>
+
+***********************************************************************
+
+Final Structure: 
+
+    No of atoms in Basis = <axSubstitute property="Module[2].Atom.count"/>
+
+    Basis:
+<axLoop id="atoms" concept="Module[2].Atom">        Atoms: <axSubstitute id="atoms" property="elementType"/>
+</axLoop>
+
+***********************************************************************

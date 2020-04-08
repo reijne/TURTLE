@@ -1,0 +1,14 @@
+#! /bin/csh
+#
+# $Id: perl.script,v 1.2 2000-10-26 15:38:26 psh Exp $
+#
+
+perl -pi.bak -e 's/\b dlamch_("base") \b/DLAMCHB/g' *.c
+perl -pi.bak -e 's/dlamch_("base")/DLAMCHB/g' *.c
+perl -pi.bak -e 's/\bdlamch_\(\"s\"\)\b/DLAMCHB/g' *.c
+perl -pi.bak -e 's/dlamch_\(\"s\"\)/DLAMCHB/g' *.c
+perl -pi.bak -e 's/dlamch_\(\"epsilon\"\)/DLAMCHE/g' *.c
+perl -pi.bak -e 's/dlamch_\(\"e\"\)/DLAMCHE/g' *.c
+perl -pi.bak -e 's/dlamch_\(\"b\"\)/DLAMCHB/g' *.c
+perl -pi.bak -e 's/dlamch_\(\"base\"\)/DLAMCHB/g' *.c
+

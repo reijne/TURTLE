@@ -1,0 +1,18 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 60
+#BSUB -o valino.o%J
+#BSUB -e valino.e%J
+#BSUB -J valino_jfit
+
+cd /home/u3/gamess/GAMESS-UK/examples/origin
+
+rm -rf /scratch/local/gamess/valino_jfit
+mkdir /scratch/local/gamess/valino_jfit
+ 
+cp /home/u3/gamess/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/valino_jfit
+cp valino_jfit.in /scratch/local/gamess/valino_jfit
+ 
+cd /scratch/local/gamess/valino_jfit
+
+mpirun -np 128 gamess-uk < valino_jfit.in > /home/u3/gamess/GAMESS-UK/examples/origin/valino_jfit.out.128

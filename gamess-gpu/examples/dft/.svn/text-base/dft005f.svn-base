@@ -1,0 +1,236 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+cytosine B-LYP in-core coulomb fit DGauss A2 /  energy = -394.694747673 au
+noprint distance vectors hessian
+zmatrix angstrom
+n
+c     1  cn1
+n     2  nc2           1  ncn1
+c     3  cn3           2  cnc2          1  cncn1
+c     4  cc4           3  ccn3          2  ccnc2
+c     5  cc5           4  ccc4          3  cccn3
+o     2  oc6           1  ocn5          6  ocnc4
+n     4  nc7           3  ncn6          2  ncnc5
+h     8  hn8           4  hnc7          3  hncn6
+h     8  hn9           4  hnc8          3  hncn7
+h     5  hc10          4  hcc9          3  hccn8
+h     6  hc11          1  hcn10         2  hcnc9
+h     1  hn12          2  hnc11         7  hnco10
+variables
+cn1        1.415
+nc2        1.369
+ncn1       115.2
+cn3        1.298
+cnc2       122.1
+cncn1      0.0000
+cc4        1.443
+ccn3       122.8
+ccnc2      0.0000
+cc5        1.337
+ccc4       116.1
+cccn3      -0.0396
+oc6        1.211
+ocn5       118.8536
+ocnc4      -179.955
+nc7        1.344
+ncn6       118.2670
+ncnc5      179.9657
+hn8        0.995
+hnc7       118.9
+hncn6      180.0000
+hn9        0.998
+hnc8       118.3
+hncn7      -0.0280
+hc10       1.0670
+hcc9       121.7
+hccn8      179.9031
+hc11       1.0700
+hcn10      116.8
+hcnc9      -179.980
+hn12       0.998
+hnc11      115.7
+hnco10     -0.0396
+end
+basis 6-31G
+scftype direct
+dft blyp jfit memory
+dft schwarz 6
+dft jbas nwchem
+#
+# DGauss A2 basis
+#
+H  S
+        45.000000000      1.00000000
+H  S
+         7.500000000      1.00000000
+H  S
+         0.300000000      1.00000000
+H  S
+         1.500000000      1.00000000    
+H  P
+         1.500000000      1.00000000    
+H  D
+         1.500000000      1.00000000
+# 
+C  S
+      1500.000000000      1.00000000
+C  S
+       330.000000000      1.00000000
+C  S
+        94.320000000      1.00000000
+C  S
+        27.000000000      1.00000000
+C  S
+         9.920000000      1.00000000  
+C  S
+         2.200000000      1.00000000  
+C  S
+         0.630000000      1.00000000  
+C  S
+         0.180000000      1.00000000  
+C  P
+         9.920000000      1.00000000  
+C  P
+         2.200000000      1.00000000  
+C  P
+         0.630000000      1.00000000  
+C  P
+         0.180000000      1.00000000  
+C  D
+         9.920000000      1.00000000
+C  D
+         2.200000000      1.00000000
+C  D
+         0.630000000      1.00000000
+C  D
+         0.180000000      1.00000000
+#
+N  S
+      2066.000000000      1.00000000
+N  S
+       459.000000000      1.00000000
+N  S
+       131.000000000      1.00000000
+N  S
+        37.500000000      1.00000000
+N  S
+        13.800000000      1.00000000  
+N  S
+         3.060000000      1.00000000  
+N  S
+         0.880000000      1.00000000  
+N  S
+         0.250000000      1.00000000  
+N  P
+        13.800000000      1.00000000  
+N  P
+         3.060000000      1.00000000  
+N  P
+         0.880000000      1.00000000  
+N  P
+         0.250000000      1.00000000  
+N  D
+        13.800000000      1.00000000
+N  D
+         3.060000000      1.00000000
+N  D
+         0.880000000      1.00000000
+N  D
+         0.250000000      1.00000000
+#
+O  S
+      2566.000000000      1.00000000
+O  S
+       570.000000000      1.00000000
+O  S
+       163.000000000      1.00000000
+O  S
+        46.500000000      1.00000000
+O  S
+        17.000000000      1.00000000   
+O  S
+         3.800000000      1.00000000    
+O  S
+         1.080000000      1.00000000    
+O  S
+         0.310000000      1.00000000    
+O  P
+        17.000000000      1.00000000    
+O  P
+         3.800000000      1.00000000    
+O  P
+         1.080000000      1.00000000    
+O  P
+         0.310000000      1.00000000    
+O  D
+        17.000000000      1.00000000
+O  D
+         3.800000000      1.00000000
+O  D
+         1.080000000      1.00000000
+O  D
+         0.310000000      1.00000000
+end
+enter
+EOF
+../../bin/gamess << EOF
+title
+cytosine B-LYP in-core coulomb fit DGauss A2 /  energy = -394.694747673 au
+noprint distance vectors hessian
+zmatrix angstrom
+n
+c     1  cn1
+n     2  nc2           1  ncn1
+c     3  cn3           2  cnc2          1  cncn1
+c     4  cc4           3  ccn3          2  ccnc2
+c     5  cc5           4  ccc4          3  cccn3
+o     2  oc6           1  ocn5          6  ocnc4
+n     4  nc7           3  ncn6          2  ncnc5
+h     8  hn8           4  hnc7          3  hncn6
+h     8  hn9           4  hnc8          3  hncn7
+h     5  hc10          4  hcc9          3  hccn8
+h     6  hc11          1  hcn10         2  hcnc9
+h     1  hn12          2  hnc11         7  hnco10
+variables
+cn1        1.415
+nc2        1.369
+ncn1       115.2
+cn3        1.298
+cnc2       122.1
+cncn1      0.0000
+cc4        1.443
+ccn3       122.8
+ccnc2      0.0000
+cc5        1.337
+ccc4       116.1
+cccn3      -0.0396
+oc6        1.211
+ocn5       118.8536
+ocnc4      -179.955
+nc7        1.344
+ncn6       118.2670
+ncnc5      179.9657
+hn8        0.995
+hnc7       118.9
+hncn6      180.0000
+hn9        0.998
+hnc8       118.3
+hncn7      -0.0280
+hc10       1.0670
+hcc9       121.7
+hccn8      179.9031
+hc11       1.0700
+hcn10      116.8
+hcnc9      -179.980
+hn12       0.998
+hnc11      115.7
+hnco10     -0.0396
+end
+basis 6-31G
+scftype direct
+dft blyp jfit memory
+dft schwarz 6
+dft jbas a2-dgauss
+enter
+EOF

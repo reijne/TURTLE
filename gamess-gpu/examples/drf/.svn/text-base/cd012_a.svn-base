@@ -1,0 +1,28 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o surrounded by dielectric; connolly solvent-accessible surface
+nosymm
+super on 
+integral high
+geom au
+  0.0              0.0           0.0  8.0  O
+  1.1031           1.4325        0.0  1.0  H
+  1.1031          -1.4325        0.0  1.0  H
+end
+basis sv 4-31g**
+adapt off
+react
+ field reac scf
+ drftwoel disk
+ gamdrf 0.5
+ dielectric
+  dieltyp stat opt
+  solvent water
+  connolly mxsurpts 300 rprobe 3.64
+ end
+end
+enter 1
+EOF

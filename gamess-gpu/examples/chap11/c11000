@@ -1,0 +1,104 @@
+#!/bin/csh
+setenv ed2 h2omain
+setenv ed3 h2odump
+../../bin/gamess << EOF
+title\h2o 3-21g scf energy   -75.5853285
+zmat angstrom\o\h 1 roh\h 1 roh 2 theta
+variables\roh 0.956 hess 0.7\theta 104.5 hess 0.2 \end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+water optimisation SCF 3-21G/optimised energy = -75.5859595
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype optimise
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart optimise
+title
+restart optimisation SCF 3-21G/optimised energy = -75.5859595
+zmat angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype optimise
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+h2o+ doublet b1 state - SCF energy -75.1999894
+charge 1
+mult 2
+zmat angs
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+enter 
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+lmos for h2o--  ground state geometry
+charge 0
+mult 1
+zmat angs
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+runtype analyse
+local
+2 to 5
+end
+vectors 1
+enter 5
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+water gvb calculation using LMOs/ GVB energy -75.628981
+charge 0
+mult 1
+adapt off
+zmat ang
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh 0.956
+hoh 104.5
+end
+scftype gvb 2
+vectors nogen 5
+swap
+2 5
+3 4
+end
+enter
+EOF
+#

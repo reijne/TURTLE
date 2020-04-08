@@ -1,0 +1,148 @@
+
+Begin optimization report for: DLASQ3
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlasq3.F(120,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(120,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(120,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(120,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(120,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(136,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(136,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(136,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(136,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(136,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(402,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq3.F(534,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 536 and  line 535
+LOOP END
+
+LOOP BEGIN at dlasq3.F(534,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(573,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq3.F(621,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(621,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(621,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(621,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(621,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(731,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq3.F(202,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 204 and  line 203
+LOOP END
+
+LOOP BEGIN at dlasq3.F(202,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(241,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlasq3.F(289,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(289,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(289,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlasq3.F(289,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlasq3.F(289,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlasq3.F(296,7)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlasq3.F(328,10)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at dlasq3.F(818,17)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at dlasq3.F(659,10)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at dlasq3.F(490,17)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+LOOP END
+===========================================================================

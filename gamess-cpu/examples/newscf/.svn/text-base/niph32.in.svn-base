@@ -1,0 +1,42 @@
+memory 6000000
+title
+ChemShell GAMESS-UK interface:
+noprint vectors
+noprint basis
+punch high grad energy coor conn tran title  
+nosym
+adapt off
+noprint vectors
+elec 64 
+geometry
+    0.00000000000000      0.00000000000000      1.88972666351032 28 ni
+    4.11992235642263      0.00000000000000      1.88972666351032 15 p
+   -4.11992235642263      0.00000000000000      1.88972666351032 15 p
+    5.50371229183755      0.00000000000000      4.22259583369734 1 h
+    5.50371229183755     -2.02032396508748      0.72329207841681 1 h
+    5.50371229183755      2.02032396508748      0.72329207841681 1 h
+   -5.50371229183755      0.00000000000000     -0.44314250667670 1 h
+   -5.50371229183755     -2.02032396508748      3.05616124860383 1 h
+   -5.50371229183755      2.02032396508748      3.05616124860383 1 h
+end
+basis dz
+dft s-vwn
+dft quad medium
+dft debug quad
+scft rhf
+runtype gradient
+newscf
+print full frontier
+phase 1
+level 2
+next 2
+tester below 0.005
+phase 2
+level 0.2
+lock
+diis
+next 0
+tester below 5.0d-6
+end
+vectors atoms
+enter 1

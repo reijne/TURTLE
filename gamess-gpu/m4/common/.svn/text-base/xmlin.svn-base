@@ -1,0 +1,12 @@
+c
+c integer labels denote which xml file the data is to be 
+c pulled from (0=use gamess-uk normal method)
+c 
+      integer nixfile, ixfcoord, ixfaobas, ixfcdbas, ixfvect, 
+     & ixfpop, ixfdens
+      common/xmlin/nixfile, ixfcoord, ixfaobas, ixfcdbas, ixfvect,
+     & ixfpop, ixfdens
+c
+      character*132 xmlinfile(3)
+      common/xmlinf/xmlinfile
+

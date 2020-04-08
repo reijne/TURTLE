@@ -1,0 +1,1199 @@
+
+Begin optimization report for: MEMREQ_INTPACK_DRV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(1725,7) inlined into intpack.f(550,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(550,14)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(550,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(1725,7) inlined into intpack.f(611,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(611,14)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(611,14)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCRATCH_SIZE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(1725,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(1726,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INTPACK_DRV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(1725,7) inlined into intpack.f(1455,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(1455,14)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(1455,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(2700,7) inlined into intpack.f(1470,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(1470,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(1470,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(1470,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(1470,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(1470,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(1470,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(1470,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(1470,14)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(1470,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2936,7) inlined into intpack.f(1470,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2936,7) inlined into intpack.f(1470,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2936,7) inlined into intpack.f(1470,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2936,7) inlined into intpack.f(1470,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2948,9) inlined into intpack.f(1470,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2948,9) inlined into intpack.f(1470,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2948,9) inlined into intpack.f(1470,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2948,9) inlined into intpack.f(1470,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2956,8) inlined into intpack.f(1470,14)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(2960,11) inlined into intpack.f(1470,14)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2960,11) inlined into intpack.f(1470,14)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2960,11) inlined into intpack.f(1470,14)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2960,11) inlined into intpack.f(1470,14)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2968,11) inlined into intpack.f(1470,14)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(2969,13) inlined into intpack.f(1470,14)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(2969,13) inlined into intpack.f(1470,14)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(2969,13) inlined into intpack.f(1470,14)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2982,11) inlined into intpack.f(1470,14)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2982,11) inlined into intpack.f(1470,14)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2982,11) inlined into intpack.f(1470,14)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3037,7) inlined into intpack.f(1470,14)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3040,9) inlined into intpack.f(1470,14)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(1470,14)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(1470,14)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(1470,14)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(1470,14)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(1725,7) inlined into intpack.f(1516,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(1516,14)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at intpack.f(1726,9) inlined into intpack.f(1516,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3708,7) inlined into intpack.f(1532,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3709,9) inlined into intpack.f(1532,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3709,9) inlined into intpack.f(1532,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3709,9) inlined into intpack.f(1532,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3723,7) inlined into intpack.f(1532,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3724 and  line 3734
+LOOP END
+
+LOOP BEGIN at intpack.f(3963,7) inlined into intpack.f(1532,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3964,9) inlined into intpack.f(1532,14)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3967,11) inlined into intpack.f(1532,14)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(3973,13) inlined into intpack.f(1532,14)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(1532,14)
+            <Peeled>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(1532,14)
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(1532,14)
+            <Alternate Alignment Vectorized Loop>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(1532,14)
+            <Remainder>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at intpack.f(3543,7) inlined into intpack.f(1532,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(3532,16) ]
+
+   LOOP BEGIN at intpack.f(3542,9) inlined into intpack.f(1532,14)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(3532,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: OE_OVERLAP_2C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(3963,7) inlined into intpack.f(3540,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3964,9) inlined into intpack.f(3540,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3967,11) inlined into intpack.f(3540,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(3973,13) inlined into intpack.f(3540,16)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(3540,16)
+            <Peeled>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(3540,16)
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(3540,16)
+            <Alternate Alignment Vectorized Loop>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15) inlined into intpack.f(3540,16)
+            <Remainder>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at intpack.f(3543,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(3519,16) ]
+
+   LOOP BEGIN at intpack.f(3542,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(3519,16) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: D_FORM_2C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(3794,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3793,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3792,9)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3792,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3792,9)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3792,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3809,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(3809,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(3809,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(3823,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3827,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3827,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3827,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3827,9)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3838,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3839,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3839,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3839,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3854,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3854,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3854,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3868,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(3869,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3875,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3876,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3880,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3880,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3880,11)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3880,11)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3891,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(3892,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(3892,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(3892,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3907,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3907,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3907,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHLPAIR_INF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(3708,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3709,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3709,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(3709,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(3723,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3724 and  line 3734
+LOOP END
+===========================================================================
+
+Begin optimization report for: OE_INTEGRAL_1C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(2705,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(2705,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(2705,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7) inlined into intpack.f(2705,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(2705,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(2705,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(2705,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(2705,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7) inlined into intpack.f(2705,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(3037,7) inlined into intpack.f(2718,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3040,9) inlined into intpack.f(2718,14)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(2718,14)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(2718,14)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(2718,14)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11) inlined into intpack.f(2718,14)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at intpack.f(2721,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(2711,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: D_FORM_1C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(2936,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2936,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2936,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2936,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(2948,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2948,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2948,9)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2948,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(2956,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(2960,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2960,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2960,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2960,11)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2968,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(2969,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2969,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(2969,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2982,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2982,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(2982,11)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORDER_FILL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(1941,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(1941,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(1966,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(1966,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(1966,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(1972,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(1972,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(1972,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(1980,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(1980,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(1980,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(1986,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(1986,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(1986,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ANG_NORM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(2018,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2018,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: O3DRIVER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(4649,7) inlined into intpack.f(2200,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4650,7) inlined into intpack.f(2200,18)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4651,9) inlined into intpack.f(2200,18)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9) inlined into intpack.f(2200,18)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9) inlined into intpack.f(2200,18)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9) inlined into intpack.f(2200,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4991,7) inlined into intpack.f(2200,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(4995,9) inlined into intpack.f(2200,18)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at intpack.f(4999,11) inlined into intpack.f(2200,18)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at intpack.f(5005,13) inlined into intpack.f(2200,18)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 5010 and  line 5010
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at intpack.f(2223,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(4674,12) ]
+
+   LOOP BEGIN at intpack.f(2222,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(4674,12) ]
+
+      LOOP BEGIN at intpack.f(2219,11)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(4674,12) ]
+
+         LOOP BEGIN at intpack.f(4705,7) inlined into intpack.f(2200,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(4690,21) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: D_FORM_3C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(4760,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4759,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4758,9)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(4757,7)
+            remark #15301: PERMUTED LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4757,7)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4771,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(4771,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(4771,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(4787,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4791,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4791,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4791,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4791,9)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4802,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4803,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4803,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4803,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4818,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4818,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at intpack.f(4818,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4832,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(4833,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4839,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4840,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4844,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4844,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4844,11)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4844,11)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4855,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(4856,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4856,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4856,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4871,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4871,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4871,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4887,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(4888,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at intpack.f(4894,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4895,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4896,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(4900,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4900,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4900,13)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4900,13)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4911,13)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at intpack.f(4912,15)
+            <Peeled>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(4912,15)
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at intpack.f(4912,15)
+            <Remainder>
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4928,13)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4928,13)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at intpack.f(4928,13)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHLTRIPLE_INF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(4649,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(4650,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(4651,9)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(4651,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at intpack.f(4705,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ intpack.f(4690,21) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SMAT_FORM_3C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(4991,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at intpack.f(4995,9)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at intpack.f(4999,11)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at intpack.f(5005,13)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed FLOW dependence between  line 5006 and  line 5006
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAT_FORM_1C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(3037,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3040,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3049,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at intpack.f(3049,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHL_INF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(2862,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2862,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at intpack.f(2873,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SMAT_FORM_2C
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at intpack.f(3963,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at intpack.f(3964,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at intpack.f(3967,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at intpack.f(3973,13)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at intpack.f(3980,15)
+            <Peeled>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15)
+               remark #15300: LOOP WAS VECTORIZED
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15)
+            <Alternate Alignment Vectorized Loop>
+            LOOP END
+
+            LOOP BEGIN at intpack.f(3980,15)
+            <Remainder>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

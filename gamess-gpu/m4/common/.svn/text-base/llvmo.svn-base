@@ -1,0 +1,8 @@
+c
+c     Control data for the state averaging in subroutine llvmo
+c
+      logical oaverage ! .true. if state averaging should be used
+      REAL    dtolavg  ! degeneracy tolerance for state averaging
+c
+      common/common_llvmo/dtolavg,oaverage
+c

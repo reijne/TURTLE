@@ -1,0 +1,98 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+../../bin/gamess << EOF
+title
+h2co  closed shell dz+r(sp)
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o 
+1.0 0.02
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - dz+r(sp) mcscf (10e/9 m.o.)
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o 
+1.0 0.02
+end
+scftype mcscf
+mcscf
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - dz+r(sp) mclr (10e/9 m.o.)
+super off nosym
+noprint
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dz o
+dz c
+dz h
+s o
+1.0 0.02
+p o 
+1.0 0.02
+end
+runtype response mclr
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+sections
+scf 1
+mcscf 8
+canonical 10
+civec 9
+symm 1 5
+symm 2 5
+symm 3 5
+split 0
+maxit 50
+end
+scftype mcscf
+mcscf
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter
+EOF

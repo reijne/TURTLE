@@ -1,0 +1,7 @@
+      integer limpar,limprn,limftn,limtol,liminf 
+      PARAMETER (LIMPAR=50,LIMPRN=200,LIMFTN=100,LIMTOL=50,LIMINF=200)
+
+      REAL  par
+      integer lprint,iunit,itol,inf,itit,iin,iout
+      COMMON/PARINF/PAR(LIMPAR),LPRINT(LIMPRN),IUNIT(LIMFTN),
+     *ITOL(LIMTOL),INF(LIMINF),ITIT(20),IIN,IOUT

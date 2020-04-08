@@ -1,0 +1,17 @@
+c
+      integer master, indxi, indxj, nfiles, junits, jblkrs, jblkas
+      integer nfilef, junitf, jblkrf, jblkaf, isecbl, iscftp
+      integer lword4, ilow4, ncol4, nsa4, newb4, nbas4, lenb4
+      integer ndump4, iblkq4, nblkq4, lena4, nbb4, ionsv4, isecv4
+      logical oprin4, oindx4
+      integer npas41, npas42, iacc4
+c
+      common /cndx40/ master,indxi,indxj,nfiles,junits,jblkrs,jblkas,
+     + nfilef,junitf,jblkrf,jblkaf,isecbl,iscftp,
+     + lword4,ilow4,ncol4,nsa4,newb4,nbas4,lenb4,ndump4,iblkq4,
+     + nblkq4,lena4,nbb4,
+     + oprin4(10),oindx4,ionsv4,npas41,npas42,iacc4,isecv4
+c
+       integer len_cndx40
+       parameter (len_cndx40=37)
+c      used: restre(util1),revise(util1),utyp21(server)

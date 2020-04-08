@@ -1,0 +1,57 @@
+#!/bin/ksh
+#
+#  interactive job script for IBM SP2
+#
+export MP_CSS_INTERRUPT=yes
+dir=`pwd`
+#
+# default argument settings
+#
+nodes=8
+###class=dev
+adaptor=hps_ip
+arg="-euilib ip -euidevice css0"
+pool=2
+root=`(cd ../..;pwd)`
+here=`pwd`
+# NB this is only valid for example subdirectory
+exe=$root/bin/gamess-uk
+dir=/scratch/$USER
+#
+use="[ -n nodes ] [-a adaptor] [-p pool] [-e executable] [-d directory] job "
+#
+# process command line options
+#
+while getopts :q:c:p:n:a:e:d: opt ; do
+  case $opt in 
+      n) nodes=$OPTARG;;
+      p) pool=$OPTARG;;
+      a) adaptor=$OPTARG;;
+      e) exe=$OPTARG;;
+      d) dir=$OPTARG;;
+      ?) echo usage: $0 $use; exit -1;
+  esac
+done
+#
+# remaining arg should be the job name
+#
+let nshift=OPTIND-1
+
+shift $nshift
+if test $# -ne 1 ; then
+  echo usage: $0 $use
+  exit -1
+fi
+jobname=$1
+
+echo 'job     = ' $jobname
+echo 'adaptor = ' $adaptor
+echo 'exe     = ' $exe $arg
+echo 'class   = <interactive>'
+echo 'pool    = ' $pool
+echo 'nodes   = ' $nodes
+echo 'direc   = ' $here
+echo 'scratch = ' $dir
+
+cd $dir
+/usr/bin/poe $exe $arg  -procs $nodes -rmpool $pool < $here/$1.in > $here/$1.out

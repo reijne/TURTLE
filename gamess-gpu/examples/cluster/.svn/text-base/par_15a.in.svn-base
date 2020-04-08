@@ -1,0 +1,47 @@
+parallel iomode nzo
+title
+sf5-cf3  CC-PVDZ + R(sp) // CC-PVDZ + R(sp) RPA calculation
+harmonic
+zmat angstrom
+s
+x 1 1.0
+c 1 cs 2 90.0
+f 3 cf 1 fcs 2 0.0
+f 3 cf1 1 fcs1 2 120.0
+f 3 cf1 1 fcs1 2 -120.0
+x 3 1.0 1 90.0 2 0.0
+f 1 sfax 2 90.0 3 180.0
+f 1 sfeq 3 sfc 7 fsf2
+f 1 sfeq 3 sfc 7 -fsf2
+f 1 sfeq 3 sfc 7 fsf3
+f 1 sfeq 3 sfc 7 -fsf3
+variables
+cs             1.8766174 hessian       0.275342
+cf             1.3008702 hessian       0.571598
+cf1            1.2994213 hessian       1.379813
+sfax           1.5745734 hessian       0.513247
+sfeq           1.5851605 hessian       1.828236
+fcs          108.4493294 hessian       0.760914
+fcs1         110.1245679 hessian       1.503507
+sfc           90.9224165 hessian       5.950548
+fsf2          45.2095868 hessian       1.930015
+fsf3        -135.2100608 hessian       2.017219
+end
+basis nwchem
+s cc-pvdz
+f cc-pvdz
+c cc-pvdz
+s s
+0.02 1.0
+s p
+0.02 1.0
+end
+scftype direct
+runtype response rpa direct
+tda
+symm 1 1 to 30
+symm 2 1 to 30
+analyse
+maxred 150
+MAXIT 50 50
+enter

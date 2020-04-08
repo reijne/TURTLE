@@ -1,0 +1,53 @@
+include                  = 
+define                   = -DFLEX_SPC
+
+integrator               = steep
+
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 1000
+
+nstcomm                  = 1
+comm_grps                = system
+
+emtol                    = 100.0
+emstep                   = 0.0001
+
+nstxout                  = 10
+nstvout                  = 10
+nstfout                  = 10
+nstlog                   = 1
+nstenergy                = 1
+nstxtcout                = 1
+xtc-precision            = 1000
+xtc_grps                 = system
+energy_grps              = QMatoms MMatoms
+
+nstlist                  = 10
+ns_type                  = grid
+pbc                      = xyz
+rlist                    = 1.0
+coulombtype              = Reaction-Field
+rcoulomb-switch          = 0
+rcoulomb                 = 1.6
+epsilon_rf               = 50.0
+
+vdwtype                  = Cut-off
+rvdw-switch              = 0
+rvdw                     = 1.6
+DispCorr                 = No
+
+QMMM                     = yes
+QMMM-grps                = QMatoms
+QMmethod                 = RHF
+QMbasis                  = STO3G
+QMMMscheme               = ONIOM
+QMcharge                 = 0
+QMmult                   = 2
+bOPT                     = yes
+
+constraints              = none
+
+
+
+

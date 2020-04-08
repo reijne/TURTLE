@@ -1,0 +1,257 @@
+#!/bin/csh
+#
+#  verg met morokuma analysis
+#  Coulomb energy and 1st order energy may be derived
+#  will work for dft as well
+#  also added BSSE calculation
+#  currently requires VB (for servec)
+#
+setenv ed3 ed3-part1_nzo
+../../bin/gamess<<EOF > outmor
+noprint basis vectors
+title 
+frag1
+adapt off
+nosym
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h
+ 0.00000000  -1.10092542  1.43475395  1.0 h
+ 0.00000000   0.00000000  0.00000000  8.0 o
+end
+basis sv 4-31g 
+enter 1
+noprint basis vectors
+adapt off
+runtype scf
+dft null
+maxcyc 1
+vectors 1 noorth
+enter 10
+EOF
+setenv ed3 ed3-part2_nzo
+../../bin/gamess<<EOF >> outmor
+noprint basis vectors
+title 
+part 2
+adapt off
+nosym
+geometry
+ 3.24201636   2.02583666  0.00000000  1.0 h
+ 4.24693920   4.71362490  0.00000000  1.0 h
+ 4.77568401   2.98417857  0.00000000  8.0 o
+end
+basis sv 4-31g 
+enter 1
+noprint basis vectors
+adapt off
+runtype scf
+dft null
+maxcyc 1
+vectors 1 noorth
+enter 10
+EOF
+setenv ed4 ed3-part1_nzo
+setenv ed5 ed3-part2_nzo
+setenv ed3
+../../bin/gamess<<EOF >> outmor
+noprint basis vectors
+title 
+coul test
+adapt off
+nosym
+noprint vectors
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h
+ 0.00000000  -1.10092542  1.43475395  1.0 h
+ 0.00000000   0.00000000  0.00000000  8.0 o
+ 3.24201636   2.02583666  0.00000000  1.0 h
+ 4.24693920   4.71362490  0.00000000  1.0 h
+ 4.77568401   2.98417857  0.00000000  8.0 o
+end
+basis sv 4-31g 
+servec
+combine ed4 1 1 ed5 1 1
+1 13 a 1
+14 26 b 1
+end
+1 5 a 1
+6 10 b 1
+11 18 a 6
+19 26 b 6
+end
+write ed3 1 19 
+finish servec
+dft null
+vectors 19   noorth
+maxcyc 1
+enter
+noprint basis vectors
+adapt off
+runtype scf
+vectors 19
+enter
+EOF
+../../bin/gamess<<EOF >> outmor
+noprint basis vectors
+title 
+bsse-a  
+adapt off
+nosym
+noprint vectors
+ghost *2 end
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h1
+ 0.00000000  -1.10092542  1.43475395  1.0 h1
+ 0.00000000   0.00000000  0.00000000  8.0 o1
+ 3.24201636   2.02583666  0.00000000  1.0 h2
+ 4.24693920   4.71362490  0.00000000  1.0 h2
+ 4.77568401   2.98417857  0.00000000  8.0 o2
+end
+basis sv 4-31g 
+runtype scf
+enter
+EOF
+../../bin/gamess<<EOF >> outmor
+noprint basis vectors
+title 
+bsse-b  
+adapt off
+nosym
+noprint vectors
+ghost *1 end
+geometry
+ 0.00000000  -1.10092542 -1.43475395  1.0 h1
+ 0.00000000  -1.10092542  1.43475395  1.0 h1
+ 0.00000000   0.00000000  0.00000000  8.0 o1
+ 3.24201636   2.02583666  0.00000000  1.0 h2
+ 4.24693920   4.71362490  0.00000000  1.0 h2
+ 4.77568401   2.98417857  0.00000000  8.0 o2
+end
+basis sv 4-31g 
+runtype scf
+enter
+EOF
+cat outmor
+cat > clex.f << EOF
+      program coulexch
+c
+c...  print coulomb/exchange/scf 
+c
+      implicit real*8 (a-h,o-z)
+      character*72 line
+      character*20 date
+      common/lines/line
+      parameter (tokcal = 627.5095d0)
+c
+      call find('date')
+      date = line(35:60)
+      call find('     *********')
+      call skip(2)
+      write(6,'(a,a,a)') ' COUL_EXCH_SCF ',date,line(15:60)
+      call find('total energy')
+      read(line,'(40x,f20.10)')  scfpart1
+      call find('               energy     ')
+      call skip(2)
+      if (index(line,'warning').ne.0) call skip(1)
+      read(line,'(8x,g16.10)')  coulpart1
+      call find('date')
+      call find('total energy')
+      read(line,'(40x,f20.10)')  scfpart2
+      call find('               energy     ')
+      call skip(2)
+      if (index(line,'warning').ne.0) call skip(1)
+      read(line,'(8x,g16.10)')  coulpart2
+      call find('date')
+      call find('               energy')
+      call skip(2)
+      if (index(line,'warning').ne.0) call skip(1)
+      read(line,'(8x,g16.10)')  couldim
+      call find('               energy     ')
+      call skip(2)
+      if (index(line,'warning').ne.0) call skip(1)
+      read(line,'(8x,g16.10)')  e1dim
+      call find('total energy')
+      read(line,'(40x,f20.10)')  scfdim
+c
+      write(6,'(a,f12.6,a,f12.6,a,f12.6,a,f12.6)')
+     1 ' SCF  - part1 ',scfpart1,' part2 ',scfpart2,
+     2 ' complex ',scfdim,' e1dim ',e1dim
+      write(6,'(a,f12.6,a,f12.6,a,f12.6)')
+     1' COUL - part1 ',coulpart1,' part2 ',coulpart2,' complex ',couldim
+      e1 = e1dim - scfpart1 - scfpart2
+      coul = couldim -coulpart1 - coulpart2
+      exch = e1 - coul
+      pol = scfdim - e1dim
+      tot = scfdim - scfpart1 - scfpart2
+c
+      write(6,'(a,f12.6,a,f12.3,a)')
+     1 ' E1  ',e1,' a.u.',e1*tokcal,' kcal/mol'
+      write(6,'(a,f12.6,a,f12.3,a)')
+     1 ' Coul',coul,' a.u.',coul*tokcal,' kcal/mol'
+      write(6,'(a,f12.6,a,f12.3,a)')
+     1 ' Exch',exch,' a.u.',exch*tokcal,' kcal/mol'
+      write(6,'(a,f12.6,a,f12.3,a)')
+     1 ' Rest',pol ,' a.u.',pol*tokcal,' kcal/mol'
+      write(6,'(a,f12.6,a,f12.3,a)')
+     1 ' Tot:',tot ,' a.u.',tot*tokcal,' kcal/mol'
+c
+      call find('total energy')
+      read(line,'(40x,f20.10)')  cpa
+      call find('total energy')
+      read(line,'(40x,f20.10)')  cpb
+c
+      write(6,'(a,f12.6,a,f12.6)') ' Counterpoise procedure - ghosta',
+     1                             cpa,' ghostb ',cpb
+      bssea = scfpart1 - cpa
+      bsseb = scfpart2 - cpb
+      write(6,'(a,f12.6,a,f12.3,a)') 
+     1 ' BSSE-A ',bssea,' a.u.',bssea*tokcal,' kcal/mol'
+      write(6,'(a,f12.6,a,f12.3,a)') 
+     1 ' BSSE-B ',bsseb,' a.u.',bsseb*tokcal,' kcal/mol'
+      eint = scfdim - cpa - cpb
+      write(6,'(a,f12.6,a,f12.3,a)') 
+     1 ' E-int  ',eint,' a.u.',eint*tokcal,' kcal/mol'
+c
+      end
+      subroutine find(string)
+c...   find a the line with a textstring
+      implicit real*8 (a-h,o-z)
+      character*(*) string
+      character*72 line
+      common/lines/line
+c
+10    read(5,'(a)',end=100) line
+      if (index(line,string).eq.0) go to 10
+c
+      return
+100   print *,' EOF while searching for : ',string
+      stop ' E/O/F '
+      end
+      subroutine skip(n)
+c...   skip n lines
+      implicit real*8 (a-h,o-z)
+      character*72 line
+      common/lines/line
+c
+      do i=1,n
+         read(5,'(a)') line
+      end do
+c
+      return
+      end
+EOF
+f77 -o clex clex.f >&  vbtmp.$$
+set stat=$status
+if ($stat) then
+   gfortran -o clex clex.f >>&  vbtmp.$$
+   set stat=$status
+endif
+if ($stat) then
+   ifort -o clex clex.f >>&  vbtmp.$$
+   set stat=$status
+endif
+if ($stat) then
+   cat vbtmp.$$
+endif
+./clex < outmor 
+\rm  clex clex.f outmor vbtmp.$$

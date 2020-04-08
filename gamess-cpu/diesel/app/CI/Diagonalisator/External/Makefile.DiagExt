@@ -1,0 +1,48 @@
+
+INCS += \
+        -I$(QMCBaseDir)/lib/Math/FortranNumeric \
+        -I$(QMCBaseDir)/lib/Math/Group \
+        -I$(QMCBaseDir)/lib/Math/MatrixVector \
+        -I$(QMCBaseDir)/lib/Math/etc \
+        -I$(QMCBaseDir)/lib/Container \
+        -I$(QMCBaseDir)/lib/QM/Cache \
+        -I$(QMCBaseDir)/lib/QM/Configuration \
+        -I$(QMCBaseDir)/lib/QM/Davidson \
+        -I$(QMCBaseDir)/lib/QM/Davidson/CIMat \
+        -I$(QMCBaseDir)/lib/QM/IO \
+        -I$(QMCBaseDir)/lib/QM/IO/Fortran \
+        -I$(QMCBaseDir)/lib/QM/IntegralContainer \
+        -I$(QMCBaseDir)/lib/QM/IntegralIndex \
+        -I$(QMCBaseDir)/lib/QM/IntegralSort \
+        -I$(QMCBaseDir)/lib/QM/MO \
+        -I$(QMCBaseDir)/lib/QM/MO/Iterators \
+        -I$(QMCBaseDir)/lib/QM/MRCIMatrix \
+        -I$(QMCBaseDir)/lib/QM/MRCIMatrix/MatrixAction \
+        -I$(QMCBaseDir)/lib/QM/MRTree \
+        -I$(QMCBaseDir)/lib/QM/MRTree/Base \
+        -I$(QMCBaseDir)/lib/QM/MRTree/Container \
+        -I$(QMCBaseDir)/lib/QM/MRTree/Diag \
+        -I$(QMCBaseDir)/lib/QM/MRTree/EnergyMap \
+        -I$(QMCBaseDir)/lib/QM/MRTree/Sel \
+        -I$(QMCBaseDir)/lib/QM/MRTree/Set \
+        -I$(QMCBaseDir)/lib/QM/Math \
+        -I$(QMCBaseDir)/lib/QM/Molecule \
+        -I$(QMCBaseDir)/lib/QM/Net \
+        -I$(QMCBaseDir)/lib/QM/Parallel \
+        -I$(QMCBaseDir)/lib/QM/RepresentationMatrices \
+        -I$(QMCBaseDir)/lib/QM/Symmetry \
+        -I$(QMCBaseDir)/lib/QM/Symmetry/DegenPointgroups \
+        -I$(QMCBaseDir)/lib/QM \
+        -I$(QMCBaseDir) \
+        -I$(QMCBaseDir)/app/CI/Selector/ \
+	-I$(QMCBaseDir)/app/common \
+	-I..
+
+QMLIBS = \
+	$(QMCBaseDir)/lib/QM/libQM.a \
+	$(QMCBaseDir)/lib/Container/libContainer.a \
+	$(QMCBaseDir)/lib/Math/libMath.a \
+	$(QMCBaseDir)/app/common/libCommon.a 
+
+STDLIBS = -lfl
+

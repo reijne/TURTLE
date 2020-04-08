@@ -1,0 +1,31 @@
+C *Contains all sorts of precomputed numbers
+      REAL  one,two,three,four,five,six,seven,eight
+      REAL  n13,n15,n43,n16,n18,n19,n83,rt3,rt5,rt7
+      REAL  tn13,tn43
+c     common/num_digits/one,two,three,four,five,six,seven,eight
+      parameter(one  = 1.0d0)
+      parameter(two  = 2.0d0)
+      parameter(three= 3.0d0)
+      parameter(four = 4.0d0)
+      parameter(five = 5.0d0)
+      parameter(six  = 6.0d0)
+      parameter(seven= 7.0d0)
+      parameter(eight= 8.0d0)
+c     common/num_divide/n13,n15,n43,n16,n18,n19,n83
+      parameter(n13  = 1.0d0/3.0d0)
+      parameter(n15  = 1.0d0/5.0d0)
+      parameter(n43  = 4.0d0/3.0d0)
+      parameter(n16  = 1.0d0/6.0d0)
+      parameter(n18  = 1.0d0/8.0d0)
+      parameter(n19  = 1.0d0/9.0d0)
+      parameter(n83  = 8.0d0/3.0d0)
+c     common/num_roots/rt3
+      parameter(rt3  = 1.73205080756887729353d0)
+      parameter(rt5  = 2.23606797749978969641d0)
+      parameter(rt7  = 2.64575131106459059050d0)
+c     common/num_powers/tn13,tn43
+c     tn13 = 2.0**(1.0/3.0)
+c     tn43 = 2.0**(4.0/3.0)
+      parameter(tn13 = 1.25992104989487316477d0)
+      parameter(tn43 = 2.51984209978974632953d0)
+

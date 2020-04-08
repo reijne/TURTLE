@@ -1,0 +1,71 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 1a1 - local ecp HAY WADT ECPs (old format)/Energy  -22.262622247 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis ecpdz
+pseudo ecp
+o o
+c c
+enter 
+EOF
+../../bin/gamess << EOF
+title
+h2co - 1a1 - local ecp HW ECPs - revised format/Energy  -22.262622247 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis ecp lanl
+pseudo 
+o lanl o
+c lanl c
+enter 
+EOF
+../../bin/gamess << EOF
+title
+h2co - 1a1 - local ecp CRENBL ECPs/ Energy  -22.302747333 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+ecp o crenbl
+ecp c crenbl
+dz h
+end
+pseudo 
+o crenbl o
+c crenbl c
+enter 
+EOF
+../../bin/gamess << EOF
+title
+h2co - 1a1 - local ecp Stuttgart RLC ECPs/Energy  -22.359278826 au
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dz h
+ecp o strlc
+ecp c strlc
+end
+pseudo 
+o strlc o
+c strlc c
+enter 
+EOF

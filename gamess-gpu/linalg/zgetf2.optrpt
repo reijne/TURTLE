@@ -1,0 +1,22 @@
+
+Begin optimization report for: ZGETF2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zgetf2.f(125,22)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+LOOP BEGIN at zgetf2.f(125,22)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zgetf2.f(106,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zgetf2.f(110,23) ]
+LOOP END
+===========================================================================

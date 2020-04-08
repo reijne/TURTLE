@@ -1,0 +1,147 @@
+/* 
+Copyright (C) 1988 Free Software Foundation
+    written by Doug Lea (dl@rocky.oswego.edu)
+
+This file is part of the GNU C++ Library.  This library is free
+software; you can redistribute it and/or modify it under the terms of
+the GNU Library General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your
+option) any later version.  This library is distributed in the hope
+that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.  See the GNU Library General Public License for more details.
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the Free Software
+Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+*/
+
+/* 
+  Regex class implementation
+ */
+
+#include <ctype.h>
+#include <new>
+#include <string>
+#include <stdlib.h>
+#include "builtin.h"
+
+extern "C" {
+#if 1
+#include "rx.h"
+#else
+#include <regex.h>
+#endif
+}
+
+#include "Regex.h"
+
+Regex::~Regex()
+{
+  if (buf->buffer) free(buf->buffer);
+  if (buf->fastmap) free(buf->fastmap);
+  if (buf->translate) free (buf->translate);
+
+  if (reg->start)
+    free (reg->start);
+  if (reg->end)
+    free (reg->end);
+
+  delete(buf);
+  delete(reg);
+}
+
+Regex::Regex(const char* t, INT fast, INT bufsize, 
+               const char* transtable)
+{
+  INT tlen = (t == 0)? 0 : strlen(t);
+  buf = new re_pattern_buffer;
+  memset (buf, 0, sizeof(re_pattern_buffer));
+  reg = new re_registers;
+  reg->start = 0;
+  reg->end = 0;
+  if (fast)
+    buf->fastmap = (char*)malloc(256);
+  else
+    buf->fastmap = 0;
+  buf->translate = (unsigned char *) transtable;
+  if (tlen > bufsize)
+    bufsize = tlen;
+  buf->allocated = bufsize;
+  buf->buffer = (void *) malloc (buf->allocated);
+  const char* msg = re_compile_pattern((const char*)t, tlen, buf);
+  if (msg != 0)
+    (*lib_error_handler)("Regex", msg);
+  else if (fast)
+    re_compile_fastmap(buf);
+}
+
+INT Regex::match_info(INT& start, INT& length, INT nth) const
+{
+  if ((unsigned)(nth) >= RE_NREGS)
+    return 0;
+  else
+  {
+    start = reg->start[nth];
+    length = reg->end[nth] - start;
+    return start >= 0 && length >= 0;
+  }
+}
+
+INT Regex::search(const char* s, INT len, INT& matchlen, INT startpos) const
+{
+  INT matchpos, pos, range;
+  if (startpos >= 0)
+  {
+    pos = startpos;
+    range = len - startpos;
+  }
+  else
+  {
+    pos = len + startpos;
+    range = -pos;
+  }
+  matchpos = re_search_2(buf, 0, 0, (char*)s, len, pos, range, reg, len);
+  if (matchpos >= 0)
+    matchlen = reg->end[0] - reg->start[0];
+  else
+    matchlen = 0;
+  return matchpos;
+}
+
+INT Regex::match(const char*s, INT len, INT p) const
+{
+  if (p < 0)
+  {
+    p += len;
+    if (p > len)
+      return -1;
+    return re_match_2(buf, 0, 0, (char*)s, p, 0, reg, p);
+  }
+  else if (p > len)
+    return -1;
+  else
+    return re_match_2(buf, 0, 0, (char*)s, len, p, reg, len);
+}
+
+INT Regex::OK() const
+{
+// can't verify much, since we've lost the original string
+  INT v = buf != 0;             // have a regex buf
+  v &= buf->buffer != 0;        // with a pat
+  if (!v) (*lib_error_handler)("Regex", "invariant failure");
+  return v;
+}
+
+/*
+ some built-in Regular expressions
+*/
+
+const Regex RXwhite("[ \n\t\r\v\f]+", 1);
+const Regex RXint("-?[0-9]+", 1);
+const Regex RXdouble("-?\\(\\([0-9]+\\.[0-9]*\\)\\|\\([0-9]+\\)\\|\\(\\.[0-9]+\\)\\)\\([eE][---+]?[0-9]+\\)?", 1, 200);
+const Regex RXalpha("[A-Za-z]+", 1);
+const Regex RXlowercase("[a-z]+", 1);
+const Regex RXuppercase("[A-Z]+", 1);
+const Regex RXalphanum("[0-9A-Za-z]+", 1);
+const Regex RXidentifier("[A-Za-z_][A-Za-z0-9_]*", 1);
+

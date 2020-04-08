@@ -1,0 +1,69 @@
+From d3g681@fermi.pnl.gov Tue Jun 21 16:43:01 1994
+Return-Path: <d3g681@fermi.pnl.gov>
+Received: from pnl.gov (gate.pnl.gov) by cagle.pnl.gov (4.1/SMI-4.1)
+	id AA06191; Tue, 21 Jun 94 16:42:59 PDT
+Received: from fermi.pnl.gov by pnl.gov (PMDF V4.2-15 #4032) id
+ <01HDT75VS5Z40036HW@pnl.gov>; Tue, 21 Jun 1994 16:40:32 PDT
+Received: by fermi.pnl.gov (4.1/SMI-4.1) id AA14756; Tue, 21 Jun 94 16:42:50 PDT
+Date: Tue, 21 Jun 1994 16:42:49 -0700
+From: Robert J Harrison <d3g681@fermi.pnl.gov>
+Subject: Can U run this thru Gamess please?
+To: d3g929@cagle.pnl.gov
+Message-Id: <9406212342.AA14756@fermi.pnl.gov>
+Content-Transfer-Encoding: 7BIT
+Status: RO
+
+Martyn,
+       I'm having some trouble with this sucker on the KSR
+... could you please run it thru gamess for me so that I
+can compare both times and energies.  It is in atomic units.
+
+  If you could also do the 3-21g basis then I can enter
+both gamess outputs into our test suite for future QA.
+
+  Thanks,
+          Robert
+
+title; John 28
+
+start john28
+
+geometry
+H  1  -6.43086  0  4.5473
+H  1  6.43086  0  4.5473
+H  1  0  6.43086  -4.5473
+H  1  0  -6.43086  -4.5473
+H  1  0  -6.43086  4.5473
+H  1  0  6.43086  4.5473
+H  1  6.43086  0  -4.5473
+H  1  -6.43086  0  -4.5473
+O  8  -2.50059  2.50059  3.53637
+O  8  -2.50059  -2.50059  3.53637
+O  8  2.50059  2.50059  3.53637
+O  8  2.50059  -2.50059  3.53637
+O  8  -2.50059  2.50059  -3.53637
+O  8  2.50059  2.50059  -3.53637
+O  8  -2.50059  -2.50059  -3.53637
+O  8  2.50059  -2.50059  -3.53637
+O  8  -5.00118  0  0
+O  8  5.00118  0  0
+O  8  0  5.00118  0
+O  8  0  -5.00118  0
+Si  14  -4.1901  0  2.96285
+Si  14  4.1901  0  2.96285
+Si  14  0  4.1901  -2.96285
+Si  14  0  -4.1901  -2.96285
+Si  14  0  -4.1901  2.96285
+Si  14  0  4.1901  2.96285
+Si  14  4.1901  0  -2.96285
+Si  14  -4.1901  0  -2.96285
+end
+
+basis segment
+O  library  sto-3g file ../src/basis/library
+Si library  sto-3g file ../src/basis/library
+H  library  sto-3g file ../src/basis/library
+end
+
+task scf
+

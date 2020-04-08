@@ -1,0 +1,38 @@
+#!/bin/csh
+#
+# run a single example job using the GA tools
+# (interactive run) and mpirun. Parallel executable
+# in GAMESS-UK/bin/gamess-uk
+#
+# set the environment variable NO_RERUN to skip
+# jobs which already validate OK
+#
+if ($?NO_RERUN == 1) then
+
+  setenv GAMESS_VTAB ./hpux.vtab
+  set path=(../../utilities $path)
+
+  validate $1 LOGS/$1.out >& /dev/null
+  set vstat=$status
+  if ($vstat == 0) then
+    echo $1 validated OK, skipping job
+    set runit=0
+  else
+    echo validate for $1 returned $vstat, running job
+    set runit=1
+  endif
+else
+  set runit=1
+endif
+#
+#
+if ($runit == 1) then
+  echo $1
+# note - reading from stdin (as below) runs into BIG problems when
+# the .in file is > 100 or so lines - April 2002)
+# time mpirun -np 8 -stdio=i ../../bin/gamess-uk < $1.in > LOGS/$1.out
+# hence resort to reading from a named file, datain
+  cp $1.in datain
+  time mpirun -np 4 ../../bin/gamess-uk > LOGS/$1.out
+  echo 'Return Code = ' $status   >> LOGS/$1.out  
+endif

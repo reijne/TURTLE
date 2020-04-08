@@ -1,0 +1,558 @@
+    ===============================================================
+    =                     GAMESS-UK version 8.0                   =
+    =                                                             =
+    =            Explanation of the build process and issues      =
+    =            around porting the code to new platforms         =
+    =                                                             =
+    ===============================================================
+
+
+Serial and parallel implementations
+===================================
+
+Currently, the best source of information regarding the differences
+between the serial and parallel builds can be found in the LATEX file:
+
+    docs/part14.tex
+
+This can be converted into pdf, html or postscript documentation using
+the scripts gener_pdf_all, gener_html_all or gener_ps_all respectively
+in the docs directory.
+
+Alternatively, a copy should be available on the web at:
+
+     http://www.cfs.dl.ac.uk/docs/gamess_manual/chap14/chap14.html
+
+
+The build process
+=================
+
+GAMESS-UK is built by the unix Make utility under the control of a
+Makefile, with the main build taking place in the m4 directory. Additional
+functionality is added into GAMESS-UK through libraries that are
+created in subsidiary directories of the GAMESS-UK folder and then
+linked in statically to the gamess binary (so for example, dft
+functionality is added through the library libdft.a that is built in
+the GAMESS-UK/dft directory). 
+
+Primary Makefile
+----------------
+The primary Makefile resides in the m4 directory and which controls
+the build is created from two pieces. The first is the file
+Makefile.in (found in m4), which holds all the default/general
+definitions and instructions to build the main code. The second is a
+machine- and compiler-specific file (known henceforth as the MK file)
+that holds all of the definitions for building GAMESS-UK on a
+supported platform with a particular compiler.
+
+All of the MK files for the available builds for GAMESS-UK can be
+found in the config directory and are inserted into the final makefile
+at the "#--#include machine.mk#" line in Makefile.in.
+
+The MK file
+-----------
+The name of the MK file is made up of three parts. The first is a "GNU
+system triplet" as determined by the config.wrap script (situated in
+the config directory). The config.wrap script is a simple wrapper for
+the GNU autoconf config.guess script (also situated in config) that
+makes a guess at processor and operating system in use.
+
+For example, when run on a machine with Pentium processors running
+Linux, the output is:
+
+i686-pc-linux-gnu
+
+The second part of the MK file name is one of the three build types for
+GAMESS-UK, namely:
+
+serial: This runs on one processor and supports the full functionality
+of GAMESS-UK.
+
+parallel: This is the parallel version of GAMESS-UK. There are a
+number of different parallel modules available for GAMESS-UK and which
+are included depends on how the code is configured (see later).
+
+The third and final part of the MK file name is a string identifying
+the compiler and possibly a specific version of the compiler.
+
+An example of an MK file name is:
+
+i686-pc-linux-gnu-serial-intel81.mk
+
+This breaks down to give:
+
+i686-pc-linux-gnu: system triplet - a linux kernel running on an i686 processor
+serial:            the serial version of the code.
+intel81:           using the Intel compilers version 8.1
+
+Build options
+-------------
+Only certain sections of Makefile.in and the MK file are relevant to a
+particular build, so the files are split up into sections internally
+that are bracketed by statements such as:
+
+#--#if <option1>#
+...
+#--#elseif <option2>#
+...
+#--#endif#
+
+These serve to define which bits of Makefile.in and the MK file go
+into the final Makefile. Depending on the options that have been
+selected (the lines in the MK file beginning with "#dopt" "#opt" serve
+to define which options are supported for a particular build as
+explained in the section on the structure of the MK file).
+
+With the build options selected, the configure script passes
+Makefile.in and the MK file through the "ccnvrt" program (found in the
+utilities directory) and this removes any sections that are not
+required by the build options and creates the main Makefile.
+
+The build options are also used by the configure script to determine
+which of the Makefiles for generating the additional libraries are
+required. These are then processed in a similar fashion to the m4
+Makefile and copied into the relevant directories.
+
+
+Preprocessing the GAMESS-UK source code with M4
+===============================================
+
+The GAMESS-UK source code is primarily written in arcane,
+impenetrable, and frankly perverse FORTRAN 77, together with some
+FORTRAN 90 and C. Various parts of the source code are only applicable
+to particular architectures and build types and need to be removed
+before the files can be compiled into machine code.
+
+The source files are therefore named with a .m suffix (instead of the
+usual .f or .c suffix) and the M4 preprocessor is used to parse out
+the relevant blocks of code and create the .f and .c files.
+
+A series of m4 directives have been written that can be found in the
+gener.m file in the utilities directory. These macros allow constructs
+such as:
+
+_IF(dft)
+...
+_ELSIF(mp2,_AND(itanium,mopac))
+...
+_ENDIF(dft)
+
+to be used within the .m file to bracket out sections of the code.
+
+The M4 preprocessor is also used in conventional preprocessor mode to
+replace certain variables in the code with their true values (for
+example "REAL" in the .m file can be replaced with "real*8" in the
+source file) and to include additional files into the final source
+code (through the use of INCLUDE(...) directives).
+
+
+
+The Structure of the MK file
+============================
+All of the MK files should try and adhere to the same structure to
+make it easier to document them and to ease porting to new platforms.
+
+Information on the platform
+---------------------------
+The first few lines should be prefaced by the string "#doc" Any text
+that comes after the #doc string is parsed out by the configure script
+and is displayed when the user has selected the MK file. It should
+provide just enough information to let the user know if the MK file
+they have selected is suitable for their build.
+
+The default and optional options
+--------------------------------
+The next two lines should define the default options (#dopt) and
+additional options that are available (#opt), e.g.
+
+#dopt ga mpi vb zora mp2
+#opt debug blas
+
+The default options should define the supported build that has been
+tested and is expected to work on that platform. The extra options
+should define all possible build options (excluding size options) that
+could be expected to work on that platform.
+
+Architecture-specific options
+-----------------------------
+The next section serves to define a number of M4 keywords, macros and
+Makefile variables that define the architecture of the machine that
+the build is configured for. For a more detailed explanation of the
+different options here, please read the section at the bottom on
+porting GAMESS-UK to new platforms (particularly the section
+describing MACHOPT).
+
+
+Specifying libraries and directories for linking
+================================================
+
+The LIB macro in the MK file holds all of additional -L and -l flags
+required by the linker. This is usually built up from a series of
+macros that define the libraries required by particular functionality
+(e.g. scalapack or blas libraries).
+
+The MPI flags
+-------------
+
+When used with the Global Arrays, the MPI flags have a specific
+structure, due to the way that they are passed passed through to the
+Global Array makefiles. The format is:
+
+MPI_INCLUDE = The location of the mpi header files ( mpi.h )
+MPI_LIB = directory for MPI libraries
+LIBMPI = -L and -l settings for MPI libraries
+
+The LIBMPI macro should therefore be included in the LIB macro to
+ensure that the MPI libraries are linked in (assuming of course that
+MPI-wrapper scripts such as mpif90 are not being used, in which case
+all of the above macros can be blank).
+
+Vendor and GAMESS-UK's own BLAS
+===============================
+
+GAMESS-UK relies on a number of subroutines for performing numerical
+operations (particularly linear algebra operations). Most of these
+are derived from the netlib BLAS library (Basic Linear Algebra
+Subprograms - see http://www.netlib.org/).
+
+The source code for (almost) all of these routines resides in the
+linalg directory. A library called liblinalg.a is created there as
+part of the build process and is the last library appended to the link
+of GAMESS-UK.
+
+If there are vendor-supplied optimised BLAS libraries available, then
+these should obviously be used in preference to the self-compiled
+GAMESS-UK ones.
+
+However, several of the routines required by GAMESS-UK are present in
+some vendor BLAS libraries, but not in others. The way we have dealt
+with this is that the vendor blas library should be included in the
+LIB macro. Any blas routines will therefore be firstly resolved from
+the vendor blas library and any remaining routines that are not
+present will be "mopped up" by the liblinalg.a library that is
+appended to the final link.
+
+There is blas m4 keyword that should be appended when vendor blas is
+being used, but this currently only affects the newmrd5.m file.
+
+
+Compilation flags
+==================
+
+There are several variables that server to define the compilers,
+linker and archiving tools required by GAMESS-UK and different
+optimisation flags to be used on different files. The most important
+ones are as follows:
+
+FC = Fixed-format FORTRAN compiler
+FC90 = Free-format FORTRAN compiler
+CC  =  C compiler
+LD =  Linker
+AS =  Assembler
+GMAKE  = gmake
+ARCHIVE  =  Archive utility
+RANLIB   =  Tool for creating indexes for libraries
+
+FFLAGSV = Highest optimisation flag for FORTRAN code (Historically: vector)
+FFLAGSS = Lower level of optimisation (Historically: scalar)
+FFLAGSN = Flag specifying no optimisation
+CFLAGS = compilation flags for the C-compiler
+LDFLAGS  = flags for the linker
+
+General Options (required for all builds)
+=========================================
+
+OPTIONS - this variable holds all of the non-parallel m4 options
+	required for a particular build. It is usually build up by defining
+	the variables (explained elsewhere):
+	MACHOPT, DFLTOPT and BLASOPT
+
+PAR_M4_OPTS - This holds all of the m4 options that specify the
+	    parallel functionality that will be included in a
+	    particular parallel build.
+
+Global Array Variables
+----------------------
+GA_F77_DEFS   cpp defines and flags for GA codes
+GA_F77_INC    cpp include directory for GA codes (F77)
+GA_C_INC      cpp includes for GA codes (C)
+
+
+Charmm variables
+---------------
+If it is anticipated that the code should interface to CHARMM on the 
+platform it is necessary to include the name that the CHARMM build process
+uses to identify the platform. Unlike the new GAMESS-UK process, this is
+an user-supplied input parameter to the build  (the first argument to the
+install.com script). A typical example for linux systems would be
+
+CHMHOST=gnu
+
+The rest of the logic for CHARMM interfacing is handled by the script
+GAMESS-UK/utilities/charmm_configure. This is invoked by install.com
+and will run a GAMESS-UK configure (passing some charmm-specific 
+control arguments) every time a build of GAMESS-UK is required. See
+comments in this file for more information.
+
+Information on the build machine
+================================
+
+The final section of the MK file should be a section (each line of
+which must begin with a "#" symbol so as to stop it being interpreted
+by Make) that provides detailed information on the machine that the
+build was configured on, and the versions and locations of the
+compilers and libraries used in the build. The output of such
+utilities as uname, /proc/cpuinfo, the version flag to the compiler,
+etc should all be included.
+
+
+######################################################################
+
+            Issues on porting GAMESS-UK to new platforms
+
+######################################################################
+
+
+This section is for users/vendors/developers that are porting
+GAMESS-UK to new platforms. 
+
+Options defining the machine-architecture
+==========================================
+
+These are variables that configure the source code for a particular
+machine architecture and generally appear at the head of the MK file,
+with their default values being set towards the top of Makefile.in.
+
+
+MACHINE_KEY
+-----------
+e.g. MACHINE_KEY=G
+
+The MACHINE_KEY m4 macro serves to define the target architecture. The
+value of "G" provided here denotes the generic unix version, for
+systems with a 32-bit default length for integers and reals. This is
+case sensitive.
+
+Available options and examples of the machines they are used on
+follow:
+a: alliance
+b: hp700, hp700_lblas, hp800, 
+c: unicos
+d: DEC alpha AXP osf & EV6 workstation
+g: sgi, iris r8000
+h: ipsc
+G: (GENERIC) hitachi SR2201, Itanium, Linux, Linux(absoft), LinuxPPC, NEC SX/4, Opteron, FJ VPP300, Windows
+k: Cray t3d, t3e, ksr
+i: ibm
+p: hp700_blas, apollo
+r: rs6000
+s: SuperSPARC running Solaris, UltraSPARC running Solaris
+t: titan
+v: vax
+x: convex
+
+MACHOPT
+-------
+e.g. MACHOPT=linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv
+
+The MACHOPT variable holds a list of that:
+
+-  set for conditional compilation of machine-specific code changes,
+   by including a keyword (e.g."hitachi") for a particular architecture
+
+- define which I/O subsystem to employ (the version requested by "cio"
+  is based on the C-callable functions read(), write(), seek() etc.
+
+- indicate whether to use the C-language interface to the UNIX system
+  calls such as malloc(), getenv(), etc. The "unix" keyword requests
+  these, and is recommended as otherwise the code will generally try
+  and link non-standard fortran language  extensions.
+
+-  if the machine is littleendian, add the "littleendian" keyword here.
+
+-  if the machine requires \ occuring in fortran format statements to
+   be escaped (as \\) add the "doublebackslash" keyword here.
+
+-  a vectorised version of some of the integral generation routines is
+   available, to select these add the "vector" keyword.
+
+The next section should be used to define any of the following Macros
+that differ from those set at the top of Makefile.in
+
+REAL and COMPLEX: define the required declaration for real variables
+		  (real*8) and complex variables (complex*16)
+		  respectively.
+
+DFLOAT: set to use the dble() or dfloat() intrinsic to convert from
+	integer to floating point.
+
+IAND32, IOR32, IXOR32, IAND64, IOR64, IXOR64:
+macros to substitute integer bitwise intrinsics
+(e.g. IAND32=and($$1,$$2) )
+
+SHIFT: generally set to shift unless there is a conflicting system
+       routine. 
+
+MA_LOGICAL and MA_INTEGER: should be set to logical and integer
+	   respectively, unless
+	   - the GA tools are in use
+	   - the GA tools have a different default data type for
+	   logical or integer variables (eg integer*8) to that used
+	   by GAMESS-UK. 
+
+For 64-bit machines without a -dp option, include the macro setting
+
+SNGL = | ../utilities/sngl.sed
+
+which will convert the numeric constants (e.g. 1.0d0) to the single
+precision forms (1.0e0).
+
+
+Working with the Global Arrays and PeIGS
+========================================
+
+It is not the purpose of this Guide to describe the porting of either GA or
+PeIGS to new architectures.  If, however, these libraries have already been
+ported you may still need to make some adjustments to get them working within
+the GAMESS-UK environment.
+
+  i) Modify the PeIGS definition file (peigs2.0/DEFS) so that the architecture in
+     question is requested using the same TARGET setting as that used by GA.
+
+ ii) Check that the PeIGS library file builds into the top directory of 
+     peigs (peigs2.0/libpeigs.a) rather than an architecture specific directory.
+
+d) Modify c.m to reflect the fortran/C interface
+
+
+Subroutine naming
+=================
+
+Most fortran compilers will append an underscore to names generated by the
+fortran compiler, so C functions called from fortran will need an extra
+underscore in their names, ie.
+
+        fortran name: func
+        C name:       func_
+
+This is the default.  If the naming convention is different c.m or the CFLAGS
+options passed when compiling it) will need to be modified. Two sets of name
+switches are currently implemented in c.m :
+
+   -DCRAYXX  (for Cray and similar systems) gives name switches of the form   
+
+        fortran name: func
+        C name:       FUNC
+
+
+    -DLINUXF2C (for f2c-based compilation) gives name switches of the form
+   
+        fortran name: func
+        C name:       func_
+  and
+        fortran name: first_func
+        C name:       first_func__
+
+
+Other conventions will need coding up in c.m.
+
+Passing character variables
+===========================
+
+You will need to be able to pass character variables from Fortran to C.
+
+By default, the code assumes this can be done as follows (this is currently the
+most common mechanism).
+
+In the fortran part, the length of the string is found using the len intrinsic,
+and this is passed to the C routine together with the character variable.
+
+    character string*12
+    integer l
+    real*8 f
+....
+    l = len(string)
+    call subc(string,l,f)
+...
+
+In C, this corresponds to a function of the following form, where the additional
+argument fortran_len has been added, at the end of the argument list, by the
+fortran compiler (and will generally have the value corresponding to the length
+of the string). In GAMESS-UK this parameter is ignored, instead the explicit
+length, generated using the len intrinsic in fortran is always used.
+
+void len(char *s, int *l, double *f, int fortran_len)
+
+In c.m you will find three macros, (STRING_ARGS1, etc) which (by default)
+substitute substitute for the first 2 arguments in the C procedures that accept
+character arguments from Fortran.
+
+Less often the fortran compiler will insert the additional argument directly
+after that passing the character pointer, rather than at the end, the correct C
+argument list having the form:
+
+void len(char *s, int fortran_len, int *l, double *f)
+
+In this case the STRING_ARGS macros must translate to the first 3 arguments
+(char *s, int fortran_len, int *l).
+
+If required, choose this case by modifying the M4 processing macro, adding the
+keyword chosen for the new machine (see 6a above)
+
+Other argument passing conventions will need a new definition of STRING_ARGS.
+
+The following simple program will confirm the most common (default) interface,
+as in this case the routines should link and run, printing "1 10".
+
+testc.c:
+
+#include <stdio.h>
+void test_( char *, int *, int );
+void test_( char *name, int *test, int len )
+{
+  printf( "%i  %i\n", *test, len );
+}
+
+test.f
+
+      Character*10 name
+      Integer i
+      i = 1
+      Call test( name, i )
+      End
+
+
+Dealing with compiler failures
+==============================
+
+As this guide is being written with vendors in mind it is assumed that the
+reader is capable of determining the optimum compiler options for the code as a
+whole and tracking any compiler failures. For reference, the following is the
+procedure generally adopted.
+
+i) The failing routine is removed from the compilation of the .m file in which
+   it resides using the M4 construct:
+
+   _IFN(key) 
+         subroutine ifail
+         ...
+         end
+   _ENDIF
+        
+  key is replaced by the flag adopted for the machine (see GEN_OPTIONS macro, 
+  section 6a).
+
+ii) a copy of the routine is added into a separate .m file (say ifail.m) Note a .f
+    file will be removed by the "make clean" target.
+
+iii) a separate target is added to Makefile.in, under control of #if # constructs
+     which ensure it is added for the required architectures, for example.
+
+#--#if sspsol sgitfp sgitfp10k#
+#--#
+#--#  ==========  Exceptions for SuperSPARC/Solaris and and SGI R8 and R10K ====
+#--#
+#--smrd0.o:     smrd0.m
+#--     cat ../machines/$(MACH) ../utilities/gener.m smrd0.m | $(M4) $(M4OPTS) $(SNGL) > smrd0.f
+#--     $(FC) $(FFLAGSS) smrd0.f
+#--#endif sspsol#

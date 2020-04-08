@@ -1,0 +1,13 @@
+c
+      REAL crtsym
+_IF(cray,ksr,i8)
+      integer excit
+_ELSEIF(convex,i8drct)
+      integer *8 excit
+_ELSE
+       REAL  excit
+_ENDIF
+      integer nrep
+      logical lsymd,lsadap
+      common /symchk/ crtsym,excit,nrep,lsymd,lsadap
+c

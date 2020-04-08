@@ -1,0 +1,11 @@
+c
+c     Constants for converting between atomic units and other units
+c
+      REAL bohr_to_ang,   ang_to_bohr
+      REAL hartree_to_eV, eV_to_hartree
+      parameter (bohr_to_ang   = 0.529177249d0)
+      parameter (ang_to_bohr   = 1.0d0/bohr_to_ang)
+      parameter (hartree_to_eV = 27.21165d0)
+      parameter (eV_to_hartree = 1.0d0/hartree_to_eV)
+     
+

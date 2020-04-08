@@ -1,0 +1,68 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed4 mfgsv
+setenv ed3 mfgdzp
+../../bin/gamess << EOF
+DUMPFILE ED4
+TITLE\HCCH/CCH2 . TS/3-21G . ENERGY = -76.293432103 AU
+ZMAT ANGS\C\ C 1 L1\ H 2 L2  1 A1
+X 2 1.0 1 90.0 3 180.0\ H 2 L3  4 A2   1 180.0
+VARIABLES
+L1 1.24054 TYPE 3
+L2 1.65694 TYPE 3
+L3 1.06318 TYPE 3
+A1 60.3568 TYPE 3
+A2 60.3568 TYPE 3
+END 
+RUNTYPE SADDLE
+ENTER 
+EOF
+../../bin/gamess << EOF
+TITLE\HCCH/CCH2 TS/cc-pvtz  energy = -76.7697012204 AU
+ZMAT ANGS\C\ C 1 L1\ H 2 L2  1 A1
+X 2 1.0 1 90.0 3 180.0\ H 2 L3  4 A2   1 180.0
+VARIABLES
+L1             1.2465870 
+L2             1.4283701 
+L3             1.0555304 
+A1            54.1723665 
+A2            86.5983024 
+END 
+BASIS cc-pvtz
+RUNTYPE SADDLE ED4 1
+VECTORS GETQ ED4 1 1
+ENTER 
+EOF
+../../bin/gamess << EOF
+TIME 0.5
+RESTART
+TITLE\HCCH/CCH2 cc-pvtz  INITIAL FORCE CONSTANT RUN
+ZMAT ANGS\C\ C 1 L1\ H 2 L2  1 A1
+X 2 1.0 1 90.0 3 180.0\ H 2 L3  4 A2   1 180.0
+VARIABLES
+L1             1.2465870 
+L2             1.4283701 
+L3             1.0555304 
+A1            54.1723665 
+A2            86.5983024 
+END 
+BASIS cc-pvtz
+RUNTYPE FORCE 2
+ENTER 
+EOF
+../../bin/gamess << EOF
+RESTART FORCE
+TITLE\HCCH/CCH2 cc-pvtz RESTART FORCE CONSTANTS
+ZMAT ANGS\C\ C 1 L1\ H 2 L2  1 A1
+X 2 1.0 1 90.0 3 180.0\ H 2 L3  4 A2   1 180.0
+VARIABLES
+L1             1.2465870 
+L2             1.4283701 
+L3             1.0555304 
+A1            54.1723665 
+A2            86.5983024 
+END 
+BASIS cc-pvtz
+RUNTYPE FORCE 2
+ENTER 
+EOF

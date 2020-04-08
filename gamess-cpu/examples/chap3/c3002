@@ -1,0 +1,31 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o - surrounding charges/ optimised energy = -75.579266562440
+zmat angstrom
+x
+o 1 d
+h 2 oh 1 hox
+h 2 oh 1 hox 3 180.0
+variables
+oh 0.956   hessian 1.4
+hox 133.05  hessian 0.5
+constants
+d 3.0
+coordinates
+bq 0.0 0.0 0.0 2.0
+bq 0.0 -2.106 0.0 -2.0
+bq 0.0 2.106 0.0 -2.0
+bq 2.106 0.0 0.0 -2.0
+bq -2.106 0.0 0.0 -2.0
+bq 0.0 0.0 -2.106 -2.0
+bq 2.106 2.106 0.0 2.0
+bq -2.106 -2.106 0.0 2.0
+bq 2.106 -2.106 0.0 2.0
+bq -2.106 2.106 0.0 2.0
+end
+runtype optimize
+enter
+EOF

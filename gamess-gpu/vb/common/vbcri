@@ -1,0 +1,20 @@
+c...   common meant for all kind of (fixed) vb criteria
+c...   critor .. criterium to determine orthogonality
+c...   crilow .. criterium  for orthogonalization (e.g.jacoby in lowdin)
+c...   cridep .. criterium for dependency (on c**2)
+c...   symcri .. criterium for symmetry equivalence
+c...   remcri .. criterium for including excitation on basis of 1-e ints
+c...   crihyb .. max hybrid contam. allowed in matrix and (*100) vector
+c...   cribri .. min. size of bcoeff to avoid annihilation
+c...   crinor .. min. norm of a vector
+c...   cribub .. a meaningful difference (in a bubble sort)
+c...   criign .. size of matrix elements that really may be ignored
+c...   cripop .. criterium for pipek/mizek localization
+c...   normally critor = 1.0d-14, crilow = critor/10, cridep = critor*10
+c...            symcri = critor*100 remcri = 1.0d-10 crihyb = 1.0d-14
+c...            cribri = 1.0d-8 crinor = critor*100  cribub = 1.0d-10
+c...            criign = 1.0d-44 cripop 1.0d-10
+      REAL critor,crilow,cridep,symcri,remcri,crihyb,cribri,
+     1     crinor,cribub,criign,cripop
+      common/vbcri/ critor,crilow,cridep,symcri,remcri,crihyb,cribri,
+     1              crinor,cribub,criign,cripop

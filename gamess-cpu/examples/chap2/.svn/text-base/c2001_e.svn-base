@@ -1,0 +1,87 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - SV-ahlrichs closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis ahlrichs
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - SV-dunning closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dunning
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - DZ- ahlrichs closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz ahlrichs
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - DZ- dunning closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis dz 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZ-ahlrichs closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzv ahlrichs
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - TZ-dunning closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzv 
+enter
+EOF
+../../bin/gamess << EOF
+title
+h2co - EXTENDED - closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis extended
+enter
+EOF

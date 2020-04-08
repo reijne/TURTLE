@@ -1,0 +1,11 @@
+c
+      integer nxblk, index, numci, mblkci, ispbig, ispsma
+_IF(parallel)
+c MPP
+      integer numcip,numcic,numcz
+      common /disktl/ nxblk,index(199),numci,mblkci,
+     +                ispbig,ispsma,numcip,numcic,numcz
+c MPP
+_ELSE
+      common/disktl/nxblk,index(199),numci,mblkci,ispbig,ispsma
+_ENDIF

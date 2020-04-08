@@ -1,0 +1,55 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  - no skeleton.
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+cards casscf
+title
+h2co - casscf (10e in 9 m.o.)
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter 8 9
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g   ci conf cards
+super off nosym
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+core
+1 to 3 end
+direct 10 9 10
+conf cards 
+vectors 8
+enter
+EOF

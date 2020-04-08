@@ -1,0 +1,21 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - dz basis - tda valence i.e.s
+super off nosym
+noprint
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype tda
+thresh 7
+active\3 to 22 end\core\1 to 2\end
+i.p.
+band 3 to 8 end
+enter 
+EOF

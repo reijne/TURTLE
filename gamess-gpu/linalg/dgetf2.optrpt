@@ -1,0 +1,31 @@
+
+Begin optimization report for: DGETF2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgetf2.f(124,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dgetf2.f(124,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgetf2.f(124,21)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dgetf2.f(124,21)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dgetf2.f(105,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dgetf2.f(109,23) ]
+LOOP END
+===========================================================================

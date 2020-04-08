@@ -1,0 +1,89 @@
+#!/bin/csh
+setenv ed3 ci.dump
+setenv ed2 ci.int
+../../bin/gamess << EOF
+title 
+ethylene DZ ground state SCF/ energy  -78.0050343
+super off nosym
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title 
+c2h4 CI X 2M SCF-MOs extrapolated energy -78.1998796
+bypass scf
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+core
+1 2 end
+active
+3 to 28 end
+runtype ci
+mrdci direct
+select
+symmetry 1
+cntrl 12
+spin 1
+singles 1
+thresh 30 10
+conf
+0 1 2 8 10 14 23
+0 1 2   10 14 21 23
+end
+natorb iprint
+putq sabf 200
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title 
+c2h4 CI X 2M NOs extrapolated energy -78.2021186
+bypass scf
+zmatrix angstrom
+c
+c 1 1.4
+h 1 1.1 2 120.0
+h 1 1.1 2 120.0 3 180.0
+h 2 1.1 1 120.0 3 0.0
+h 2 1.1 1 120.0 3 180.0
+end
+basis dz
+active
+3 to 28 end
+core
+1 2 end
+runtype ci
+mrdci direct
+table bypass
+select
+cntrl 12
+thresh 30 10
+symmetry 1
+spin 1
+singles 1
+conf
+0 1 2 8 10 14 23
+0 1 2   10 14 21 23
+end
+natorb iprint
+putq sabf 210
+vectors 200
+enter 200
+EOF
+/bin/rm ci.dump ci.int

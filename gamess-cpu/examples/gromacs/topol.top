@@ -1,0 +1,39 @@
+;
+;	File 'topol.top' was generated
+;	By user: groenhof (500)
+;	On host: biochem24
+;	At date: Tue Jul 13 19:15:13 2004
+;
+;	This is your topology file
+;	"It Costs Too Much If It Costs a Lot" (Magnapop)
+;
+; Include forcefield parameters
+#include "ffG43a2.itp"
+
+; Include chain topologies
+#include "topol_A.itp"
+
+; Include water topology
+#ifdef FLEX_SPC
+#include "flexspc.itp"
+#else
+#include "spc.itp"
+#endif
+
+#include "ions.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+[ system ]
+; Name
+Protein
+
+[ molecules ]
+; Compound        #mols
+Protein_A           1
+

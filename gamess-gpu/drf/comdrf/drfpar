@@ -1,0 +1,38 @@
+c
+      integer ibem,nodiscr,ixrelay,ialfso,neqsta,neqdis,neqrep
+      integer neqrf,ixamat,ixbmat,ixzfp,ixexp,ixwtvr,ixomga
+      integer idipcal,iclinte,iclintd,ieffpol,isodis,iclintr
+      integer iextdip,itsolv,itermax,isolsav,imomsav,idisadd
+      integer ianal,ineqex,ithole,irevdis,ihbond,igrppol
+      integer maxci_drf
+      common/drfpar1/ibem,nodiscr,ixrelay,ialfso,neqsta,neqdis,neqrep,
+     +               neqrf,ixamat,ixbmat,ixzfp,ixexp,ixwtvr,ixomga,
+     +               idipcal,iclinte,iclintd,ieffpol,isodis,iclintr,
+     +               iextdip,itsolv,itermax,isolsav,imomsav,idisadd,
+     +               ianal,ineqex,ithole,irevdis,ihbond,igrppol,
+     +               maxci_drf
+c
+      integer nxtpts, npol, nexp, natint, nshint, namb, nspec, ngran
+      common/drfpar2/nxtpts,npol,nexp,natint,nshint,namb,nspec,ngran
+c
+      integer ndima, ndimb, nbem, ndim, nexp4, npol3, nwtr, nwtc, nzfa
+      integer lomga, nomga, nchd, ngrnam, ngrnam2, nzfp, nzfn
+      integer nneq, nneqrf, maxneq, neqdim, nqdim, nqcls
+      common/drfpar3/ndima,ndimb,nbem,ndim,nexp4,npol3,nwtr,nwtc,nzfa,
+     +               lomga,nomga,nchd,ngrnam,ngrnam2,nzfp,nzfn,
+     +               nneq,nneqrf,maxneq,neqdim,nqdim,nqcls
+c
+      integer ifldin, ifldout, idrfout, modxza, irepopt
+      integer iexpza, icmexp, iadexp, nodpe, igetden, iarfcal, iqmclr
+      common/drfpar4/ifldin,ifldout,idrfout,modxza,irepopt,
+     +               iexpza,icmexp,iadexp,nodpe,igetden,iarfcal,
+     +               iqmclr
+c
+      REAL gamdrf, dstmin, dstmax, hbondl, hbondr, afact, rfact
+      REAL cvgrel, agrpe, agrpm, agrpc, scffact, acur
+      REAL conci_drf
+      common/drfpar5/gamdrf,dstmin,dstmax,hbondl,hbondr,afact,rfact,
+     +               cvgrel,agrpe,agrpm,agrpc,scffact,acur,conci_drf
+c
+      integer iind, isur1, isur2, ilwt, ilvr, illur, ilindx
+      common/drfpar6/iind,isur1,isur2,ilwt,ilvr,illur,ilindx

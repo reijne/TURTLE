@@ -1,0 +1,88 @@
+#!/bin/csh
+#   workshop session 1 examples using rungamess script
+#
+set path=(../../rungamess ../../utilities $path)
+unalias cd
+ 
+(cd ../../utilities; make validate)
+set root=`cd ../..;pwd`
+set here=`pwd`
+setenv GAMESS_EXE $root/bin/gamess
+setenv GAMESS_SCR $here
+setenv GAMESS_TMP $here
+setenv GAMESS_LIB $root/libs
+#
+# If local disk space is short you may want to
+# edit the next two lines
+#
+#setenv GAMESS_SCR /tmp/wab
+#setenv GAMESS_TMP /tmp/wab
+#
+rungamess input0
+rungamess input1
+#
+rungamess geom0
+#
+rungamess zmat1
+rungamess zmat2
+rungamess zmat3
+rungamess zmat4a
+rungamess zmat4b
+rungamess zmat5
+rungamess zmat6
+#
+rungamess symmetry1a
+rungamess symmetry1b
+#
+rungamess basis0
+rungamess basis1a
+rungamess basis1b
+rungamess basis2a
+rungamess basis2b
+#
+rungamess scf1
+rungamess scf2a
+rungamess scf2b
+rungamess scf2c
+rungamess -t ed3 scf3a
+rungamess -t ed4=scf3a.ed3 scf3b
+rungamess scf4a
+rungamess scf4b
+rungamess scf4c
+rungamess scf4d
+#
+rungamess dft1a
+rungamess dft1b
+rungamess dft2
+rungamess dft3
+#
+rungamess geom.opt.1
+rungamess geom.opt.2
+rungamess geom.opt.3
+#
+rungamess files1
+rungamess files2
+#
+rungamess -t ed3=dumpfile -t ed2=mainfile restart1a 
+rungamess -t ed3=dumpfile -t ed2=mainfile restart1b
+#
+# now tidy up the files left around because of rungamess
+# and the files it leaves lying around e.g. options.dft
+#
+/bin/rm -rf dft1a dft1b dft2 dft3 files2 basis0
+/bin/rm -rf *.pun
+/bin/rm -rf dumpfile mainfile scf3a.ed3
+/bin/rm -rf mfged2 mfged3
+#
+# validate and store output files into OUT directory
+#
+./val_session1 > val_session1.out
+#
+/bin/rm -rf OUT.session1
+mkdir OUT.session1
+mv *.out OUT.session1
+#
+echo '***********************'
+echo '***** validation ******'
+echo '***********************'
+cat OUT.session1/val_session1.out

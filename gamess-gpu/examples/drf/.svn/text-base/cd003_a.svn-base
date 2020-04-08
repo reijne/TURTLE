@@ -1,0 +1,29 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+ 2 classical water molecules - compare mixed QM/MM
+geom au
+  0.0              0.0           0.0  0.0  BQ
+end
+basis
+s bq
+1.0 1.0
+end
+maxcyc 0
+react
+ field stat pert reac pert
+ clasclas nodisp
+ external
+o   w1      -0.796       3.459378         4.492394     0.000000
+h   w1       0.398       3.459378         5.595494    +1.432500
+h   w1       0.398       3.459378         5.595494    -1.432500 
+group anal 2
+o   w2      -0.796       0.000000         0.000000     0.000000  2.666
+h   w2       0.398       1.103100        +1.432500     0.000000  1.448
+h   w2       0.398       1.103100        -1.432500     0.000000  1.448
+ end
+end
+enter 1 
+EOF

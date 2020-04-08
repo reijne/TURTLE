@@ -1,0 +1,93 @@
+#!/bin/csh
+#
+#  calculated polarisation dispersion energy
+#  interestingly the vector-set produced in this run could 
+#  be used to calculate e-coul (see c2020_b)
+#
+setenv ed10 ne-ed3_nzo
+../../bin/gamess <<EOF
+dumpfile ed10
+harmonic
+title 
+ne monomer c1d2
+geometry
+0 0   0 10 ne
+end
+basis
+# NEON
+S   Ne
+      1.0000000             14.3000000        
+S   Ne
+      1.0000000              1.5280000        
+S   Ne
+      1.0000000              0.5842000        
+S   Ne
+      1.0000000              0.3118000        
+P   Ne
+      1.0000000             22.1200000        
+P   Ne
+      1.0000000              5.1250000        
+P   Ne
+      1.0000000              1.4330000        
+P   Ne
+      1.0000000              0.3838000    
+end
+pseudo ecp
+CARDS NE
+    1     2
+ 3
+2     -1.05784200            16.20239997       
+2     -7.71812600            56.17350006       
+1     -1.57767500           170.70949936       
+ 4
+2     13.66500998             3.57620001       
+2    -21.93867993             3.88209999       
+1      0.92151100             6.98530000       
+0      2.28758100             3.48379999       
+enter
+EOF
+../../bin/gamess <<EOF
+harmonic
+nosym
+title 
+he dimer disp c1d2
+geometry
+0 0   0 10 ne
+0 0 5.6 10 ne
+end
+basis
+# NEON
+S   Ne
+      1.0000000             14.3000000        
+S   Ne
+      1.0000000              1.5280000        
+S   Ne
+      1.0000000              0.5842000        
+S   Ne
+      1.0000000              0.3118000        
+P   Ne
+      1.0000000             22.1200000        
+P   Ne
+      1.0000000              5.1250000        
+P   Ne
+      1.0000000              1.4330000        
+P   Ne
+      1.0000000              0.3838000    
+end
+pseudo ecp
+CARDS NE
+    1     2
+ 3
+2     -1.05784200            16.20239997       
+2     -7.71812600            56.17350006       
+1     -1.57767500           170.70949936       
+ 4
+2     13.66500998             3.57620001       
+2    -21.93867993             3.88209999       
+1      0.92151100             6.98530000       
+0      2.28758100             3.48379999       
+disp ed10 1 1 ed10 1 1
+scftype mp2
+enter 1
+EOF
+\rm ne-ed3_nzo

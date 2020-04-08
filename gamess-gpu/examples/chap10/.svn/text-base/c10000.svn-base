@@ -1,0 +1,13 @@
+#!/bin/csh
+$EXE << EOF
+title
+h2co - 3-21g - closed shell SCF/total energy =  -113.2213858 punch test
+punch coor conn vect 1 occu basis scfenergy mull lowd
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF

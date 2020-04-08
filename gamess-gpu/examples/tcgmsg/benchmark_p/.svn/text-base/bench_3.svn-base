@@ -1,0 +1,79 @@
+#!/bin/csh -f
+../../libs/tcgmsg/ipcv4.0/parallel gamess << EOF
+file ed2 mfged2
+file ed3 mfged3
+title
+namg7+ ecp /closed shell singlet SCF total energy  -1.95791987 au
+mult 1
+charge 1
+super off
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1       3.0943588 hess        0.067747
+r2       3.3246065 hess        0.076497
+end
+basis 
+ecpdz na 
+ecpdz mg
+d mg
+1.0 0.175
+end
+ecp
+na na
+mg mg
+runtype scf
+level  1.0
+maxcyc 30
+enter  1
+EOF
+#
+../../tcgmsg/ipcv4.0/parallel gamess << EOF
+file ed2 mfged2
+file ed3 mfged3
+time 180
+restart
+title
+namg7+ ecp /singlet rhf optimised total energy  -1.92271798 au
+mult 1
+charge 1
+super off
+bypass
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1       3.0943588 hess        0.067747
+r2       3.3246065 hess        0.076497
+end
+basis 
+ecpdz na 
+ecpdz mg
+d mg
+1.0 0.175
+end
+ecp
+na na
+mg mg
+runtype optimize
+thresh 5
+open 1 1 1 1
+vectors 1
+level  0.3 1.0
+maxcyc 30
+enter  2 3 
+EOF
+/bin/rm mfg*

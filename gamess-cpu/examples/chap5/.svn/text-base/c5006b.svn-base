@@ -1,0 +1,77 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g -  scf energy  
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203 
+h 1 1.099 2 121.8 
+h 1 1.099 2 121.8 3 180.0 
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3-21g  basis - valence lmos
+zmatrix angstrom
+c
+o 1 1.203 
+h 1 1.099 2 121.8 
+h 1 1.099 2 121.8 3 180.0 
+end
+runtype analyse
+local
+3 to 8 end
+vectors 1
+enter 2
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3-21g  4pair gvb/energy  -113.30623138 au
+bypass
+super off nosym
+adapt off
+zmatrix angstrom
+c
+o 1 1.203 
+h 1 1.099 2 121.8 
+h 1 1.099 2 121.8 3 180.0 
+end
+scftype gvb 4
+vectors nogen 2
+swap
+4 6
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3-21g  4pair gvb
+super off nosym
+bypass scf
+adapt off
+zmatrix angstrom
+c
+o 1 1.203 
+h 1 1.099 2 121.8 
+h 1 1.099 2 121.8 3 180.0 
+end
+runtype ci
+scftype gvb 4
+core\1 2 \end
+active\3 to 22\end
+direct 12 10 10
+conf
+2 2  2 0 2 0 2 0 2 0 
+2 2  0 2 2 0 2 0 2 0 
+2 2  2 0 0 2 2 0 2 0 
+2 2  2 0 2 0 0 2 2 0 
+2 2  2 0 2 0 2 0 0 2 
+enter
+EOF

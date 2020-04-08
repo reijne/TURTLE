@@ -1,0 +1,20 @@
+restart
+title 
+ethylene 6-31g** ground state vibrational frequencies
+#freq    894.3, 1092.5, 1100.4, 1151.6, 1346.8, 1488.1,  
+#freq   1598.0, 1851.3, 3298.1, 3321.6, 3375.6, 3401.9
+zmatrix angstrom
+c
+c 1 cc
+h 1 ch 2 hcc
+h 1 ch 2 hcc 3 180.0
+h 2 ch 1 hcc 3 0.0
+h 2 ch 1 hcc 3 180.0
+variables
+cc 1.40
+ch 1.10
+hcc 118.0
+end
+basis 6-31g**
+runtype hessian
+enter

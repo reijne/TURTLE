@@ -1,0 +1,18 @@
+Problem cases for CCP1 DFT module
+
+testfit1_dga2 : DGauss A2 fitting for water
+---------------
+Problem is that the energy/coefficients and most markedly the 2 components of
+the coulomb gradient (the 2 centre and  3 centre parts) differ from nwchem.
+See also testfit1_dga2.nw (NWChem job) and dftg_cdfit.F (modified NWChem routine
+to write out data for comparison).
+
+testsp:  SP basis sets used in coulomb fit.
+-------
+Initial problem is in the 1 centre integrals - may be more to 
+follow.
+
+h2o_lda_mpole
+-------------
+Still needs work on this module. May run on SP2, to be confirmed.
+

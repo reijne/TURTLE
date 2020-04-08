@@ -1,0 +1,39 @@
+c
+c mtrx1 - integer indexing information
+c
+      integer number_of_matrices
+      integer max_matrices
+      parameter (max_matrices=20000)
+      integer max_dimensions
+      parameter (max_dimensions=2)
+      integer dimensions
+      integer number_of_dimensions
+      integer matrix_handle
+      common /mtrx1/ number_of_matrices,
+     &     matrix_handle(max_matrices),
+     &     number_of_dimensions(max_matrices),
+     &     dimensions(max_dimensions,max_matrices)
+c
+c mtrx2 -
+c
+      character*32 matrix_tag
+      common /mtrx2/ matrix_tag(max_matrices)
+c
+c mtrx3 -
+c
+      integer matrix_type
+      common /mtrx3/ matrix_type(max_matrices)
+c
+c Interface with memory
+c
+c  Alexander J Turner
+c  January 19987
+c
+c  Header file of dynamic memory allocation
+c
+_IF(ma)
+INCLUDE(../m4/common/vcore)
+      include 'matrix_ma.fh'
+_ELSE
+      include 'matrix.fh'
+_ENDIF

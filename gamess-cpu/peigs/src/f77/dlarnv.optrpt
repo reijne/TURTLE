@@ -1,0 +1,47 @@
+
+Begin optimization report for: DLARNV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlarnv.f(95,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarnv.f(95,16)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarnv.f(95,16)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlarnv.f(95,16)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarnv.f(102,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlarnv.f(102,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlarnv.f(109,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlarnv.f(109,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlarnv.f(78,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarnv.f(89,15) ]
+LOOP END
+===========================================================================

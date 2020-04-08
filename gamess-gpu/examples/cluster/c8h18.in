@@ -1,0 +1,110 @@
+file ed3 mfged3 gafs length 8000 delete
+file ed7 mfged7 gafs length 8000 delete
+title
+c8h18 2nd derivs
+zmat angstroms
+ c
+ c   1 cc2     
+ h   1 hc3        2 hcc3      
+ h   1 hc4        2 hcc4         3 dih4   
+ h   1 hc5        2 hcc5         3 dih5   
+ h   2 hc6        1 hcc6         3 dih6   
+ c   2 cc7        1 ccc7         6 dih7   
+ h   2 hc8        1 hcc8         6 dih8   
+ c   7 cc9        2 ccc9         1 dih9   
+ h   7 hc10       2 hcc10        9 dih10  
+ h   7 hc11       2 hcc11        9 dih11  
+ c   9 cc12       7 ccc12        2 dih12  
+ h   9 hc13       7 hcc13       12 dih13  
+ h   9 hc14       7 hcc14       12 dih14  
+ c  12 cc15       9 ccc15        7 dih15  
+ h  12 hc16       9 hcc16       15 dih16  
+ h  12 hc17       9 hcc17       15 dih17  
+ c  15 cc18      12 ccc18        9 dih18  
+ h  15 hc19      12 hcc19       18 dih19  
+ h  15 hc20      12 hcc20       18 dih20  
+ c  18 cc21      15 ccc21       12 dih21  
+ h  18 hc22      15 hcc22       21 dih22  
+ h  18 hc23      15 hcc23       21 dih23  
+ h  21 hc24      18 hcc24       15 dih24  
+ h  21 hc25      18 hcc25       24 dih25  
+ h  21 hc26      18 hcc26       24 dih26  
+variables
+cc2         1.450000
+hc3         1.089000
+hcc3        109.471
+hc4         1.089000
+hcc4        109.471
+dih4        120.000
+hc5         1.089000
+hcc5        109.471
+dih5        240.000
+hc6         1.089000
+hcc6        109.471
+dih6        180.000
+cc7         1.450000
+ccc7        109.471
+dih7        120.000
+hc8         1.089000
+hcc8        109.471
+dih8        240.000
+cc9         1.450000
+ccc9        109.471
+dih9        180.000
+hc10        1.089000
+hcc10       109.471
+dih10       120.000
+hc11        1.089000
+hcc11       109.471
+dih11       240.000
+cc12        1.450000
+ccc12       109.471
+dih12       180.000
+hc13        1.089000
+hcc13       109.471
+dih13       120.000
+hc14        1.089000
+hcc14       109.471
+dih14       240.000
+cc15        1.450000
+ccc15       109.471
+dih15       180.000
+hc16        1.089000
+hcc16       109.471
+dih16       120.000
+hc17        1.089000
+hcc17       109.471
+dih17       240.000
+cc18        1.450000
+ccc18       109.471
+dih18       180.000
+hc19        1.089000
+hcc19       109.471
+dih19       120.000
+hc20        1.089000
+hcc20       109.471
+dih20       240.000
+cc21        1.450000
+ccc21       109.471
+dih21       180.000
+hc22        1.089000
+hcc22       109.471
+dih22       120.000
+hc23        1.089000
+hcc23       109.471
+dih23       240.000
+hc24        1.089000
+hcc24       109.471
+dih24       180.000
+hc25        1.089000
+hcc25       109.471
+dih25       120.000
+hc26        1.089000
+hcc26       109.471
+dih26       240.000
+constants
+end
+basis 6-31g*
+runtype hessian
+scftype direct
+enter

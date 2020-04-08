@@ -1,0 +1,44 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+nbo test of choose option
+mult 2
+nosym
+zmatrix angstrom
+c
+o    1     rco
+h    2     roh        1       acoh
+h    1     rch4       2       aoch4    3     dhoch4
+h    1     rch5       2       aoch5    3     dhoch5
+variables
+rco           1.3586
+roh           0.9464
+acoh        110.2383
+rch4          1.0730
+aoch4       112.7241
+dhoch4      178.5055
+rch5          1.0780
+aoch5       117.6814
+dhoch5       34.8124
+end
+basis 6-31g*
+scftype uhf
+vectors atoms
+enter 1 2
+runtype analyse
+scftype uhf
+nbo
+vectors 1 2
+enter 1 2
+ \$nbo \$end
+ \$choose
+   alpha
+     lone 2 2 3 1 end
+     bond d 1 2 s 1 4 s 1 5 end
+   end
+   beta
+     lone 2 2     end
+     bond d 1 2 s 1 4 s 1 5 end
+   end
+ \$end
+EOF

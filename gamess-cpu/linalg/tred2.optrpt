@@ -1,0 +1,269 @@
+
+Begin optimization report for: TRED2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at tred2.f(45,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tred2.f(47,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred2.f(47,13)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(47,13)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred2.f(47,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(47,13)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at tred2.f(55,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tred2.f(62,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(62,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(62,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(62,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(76,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(76,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(76,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(76,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(87,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(87,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(87,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(90,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred2.f(97,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(97,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred2.f(97,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(97,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at tred2.f(107,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(107,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(107,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(107,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(107,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(114,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(114,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(114,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(114,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(117,13)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred2.f(121,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(121,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred2.f(121,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(121,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at tred2.f(117,13)
+   <Distributed chunk2>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(117,13)
+   <Remainder, Distributed chunk2>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(68,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(68,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(68,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(68,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at tred2.f(131,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tred2.f(138,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(138,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(138,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(138,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(138,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(141,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at tred2.f(144,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(144,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred2.f(144,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(144,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(147,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(147,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at tred2.f(147,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at tred2.f(147,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at tred2.f(151,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tred2.f(151,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tred2.f(151,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at tred2.f(156,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at tred2.f(156,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tred2.f(156,10)
+<Remainder>
+LOOP END
+===========================================================================

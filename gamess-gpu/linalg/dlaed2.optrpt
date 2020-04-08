@@ -1,0 +1,116 @@
+
+Begin optimization report for: DLAED2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaed2.f(197,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(197,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed2.f(197,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(203,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed2.f(203,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(207,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaed2.f(207,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(242,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(242,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed2.f(242,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(245,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(245,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed2.f(245,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(346,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlaed2.f(349,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 351 and  line 351
+LOOP END
+
+LOOP BEGIN at dlaed2.f(349,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlaed2.f(366,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 369 and  line 371
+LOOP END
+
+LOOP BEGIN at dlaed2.f(425,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlaed2.f(225,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(227,18) ]
+LOOP END
+
+LOOP BEGIN at dlaed2.f(254,32)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlaed2.f(279,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(290,16) ]
+
+   LOOP BEGIN at dlaed2.f(314,19)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaed2.f(382,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(384,15) ]
+LOOP END
+
+LOOP BEGIN at dlaed2.f(390,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(392,15) ]
+LOOP END
+
+LOOP BEGIN at dlaed2.f(400,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(402,15) ]
+LOOP END
+
+LOOP BEGIN at dlaed2.f(409,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlaed2.f(411,15) ]
+LOOP END
+===========================================================================

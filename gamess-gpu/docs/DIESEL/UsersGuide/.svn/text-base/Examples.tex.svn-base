@@ -1,0 +1,810 @@
+\section{Examples}
+
+
+\subsection{C$_6$ with automatic reference generation and property
+calculation}
+
+
+\begin{prog}
+\begin{verbatim}
+#!/bin/bash
+
+export DIESEL_EXE_DIR=somepath
+export MOLCAS_EXE_DIR=somepath
+cd whereEver
+
+cat <<! >diesel.in
+# MO integral file
+MOIntegralFileFormat             = New
+MOLCASRootDir                    = `pwd`/..
+
+# MOs
+MOEquivalence                    = auto
+
+# electrons / state
+NumberOfElectrons                = 16
+Multiplicities                   = { 1 3 }
+IrReps                           = { 0 1 3 }
+Roots                            = { 1 2 3 4 }
+
+# references
+RefConfs                         = auto
+
+#selection
+SelectionThresholds              = { 1e-3 1e-4 1e-5 }
+
+#properties
+propertyThresholds               = { 1e-3 1e-4 1e-5 }
+orbitalFile                      = INPORB
+
+MaxHamiltonStorageMem            = 500MB
+!
+
+$DIESEL_EXE_DIR/diesel <diesel.in 1>diesel.out 2>diesel.prot.out
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefIterInput} Listing of a simple diesel driver 
+job file for C$_6$ with 20 core electrons using automatic reference
+generation}
+\end{prog}
+
+
+
+\begin{prog}
+\begin{verbatim}
+*******************************************************************************
+*                                                                             *
+*                                diesel protocol                              *
+*                                                                             *
+*******************************************************************************
+
+
+multiplicity=1
+    irrep=0
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+            iteration #4
+            iteration #5
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    irrep=1
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    irrep=3
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    calculating one particle density matrices
+        threshold=1e-3
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+        threshold=1e-4
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+        threshold=1e-5
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+    one particle density matrices calculation finished
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefIterProtOut} Protocol output (stderr)}
+\end{prog}
+
+\begin{prog}
+\begin{verbatim}
+multiplicity=3
+    irrep=0
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    irrep=1
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+            iteration #4
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    irrep=3
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+
+    calculating one particle density matrices
+        threshold=1e-3
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+        threshold=1e-4
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+        threshold=1e-5
+            iirrep=0
+                jirrep=1
+                jirrep=3
+            iirrep=1
+                jirrep=3
+            iirrep=3
+            calculating properties
+            property calculation finished
+    one particle density matrices calculation finished
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefIterProtOut} Protocol output (stderr, continued)}
+\end{prog}
+
+\begin{prog}
+\begin{verbatim}
+user@machine>ls -R  
+1                =Multiplicity    diesel.in        diesel.prot.out
+3                CI.job           diesel.out
+
+1:
+0              3              Densities      dens.out.1e-4  fort.31        prop.out.1e-4
+1              =Irrep         dens.out.1e-3  dens.out.1e-5  prop.out.1e-3  prop.out.1e-5
+
+1/0:
+ConfTree.dat           Eigenvectors.dat.1e-5  genspace.0             sel.in.2
+ConfTree.dat.0.001     diag.in                genspace.1             sel.in.3
+ConfTree.dat.1e-3      diag.in.RefGen         genspace.2             sel.in.4
+ConfTree.dat.1e-4      diag.out.1e-3          genspace.3             sel.in.all
+ConfTree.dat.1e-5      diag.out.1e-4          genspace.4             sel.out.all
+Eigenvectors.dat.1e-3  diag.out.1e-5          sel.in.0
+Eigenvectors.dat.1e-4  fort.31                sel.in.1
+
+1/1:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+1/3:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+1/Densities:
+Density.dat.I0R1_I0R1.1e-3  Density.dat.I0R3_I1R2.1e-3  Density.dat.I1R2_I1R4.1e-3
+.
+.
+.
+
+3:
+0              3              Densities      dens.out.1e-4  fort.31        prop.out.1e-4
+1              =Irrep         dens.out.1e-3  dens.out.1e-5  prop.out.1e-3  prop.out.1e-5
+
+3/0:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+3/1:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.0
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.1
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.2
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.in.3
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2             sel.in.all
+Eigenvectors.dat.1e-3  diag.out.1e-4          genspace.3             sel.out.all
+
+3/3:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+3/Densities:
+Density.dat.I0R1_I0R1.1e-3  Density.dat.I0R3_I1R2.1e-3  Density.dat.I1R2_I1R4.1e-3
+.
+.
+.
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleDir} Recursive directory contents}
+\end{prog}
+
+
+The property output is written to the files {\tt prop.out.}{\it thresh}.
+
+
+\begin{table}
+\begin{tabular}{r|r|p{5cm}}
+{\bf programs}
+& motra&\\
+& form31&\\[5pt]
+\hline&\\[-9pt]
+{\bf read files}
+& motra&\\
+& form31&\\[5pt]
+\hline&\\[-9pt]
+{\bf written files}
+& motra&\\
+& form31&
+\end{tabular}
+\caption{MOLCAS-dependencies}
+\end{table}
+
+
+\begin{prog}
+\begin{verbatim}
+============================================
+             Project = c6
+            Geometry = linear
+               Basis = C.DUN...5S3P1D
+            Orbitals = 2_2.CAS
+                Core = 20e
+       ReferenceType = RefIter
+        Multiplicity = 1
+               Irrep = 0
+============================================
+
+
+
+reference configurations:
+0 1-2 23-24 35-36 50 72        # 1
+.
+.
+.
+4 35-36 84-85 1-2 23-24 50 72   # 32
+
+
+number of configurations: 32
+dimension of ci matrix  : 42
+
+
+selected roots within reference space:
+root #1: -226.910979
+root #2: -226.901841
+root #3: -226.725320
+root #4: -226.721146
+
+
+total generated configurations/CSFs:
+
+                confs.        CSFs
+intern-0:          352         603
+intern-1:        23423       70382
+intern-2:       531645     2215655
+          ------------------------
+total   :       555420     2286640
+
+
+
+++++++++
+root #1:
+reference energy: -226.91098
+character (at threshold 1.00e-02 mH, ci^2>0.01): 
+        0.0126213162       -0.1123446312:   ref.   0 1-2 23-24 35-36 50 72  # 1
+        0.0120907020        0.1099577283:   ref.   0 1-2 23-24 35-36 50 84  # 2
+        0.4144999165        0.6438166793:   ref.   0 1-2 23-24 35 50 72 84  # 4
+        0.3989897564       -0.6316563594:   ref.   0 1-2 23 35-36 50 72 84  # 10
+
+   threshold  sel. confs   sel. CSFs   CI energy    ref ci^2     overlap      PT(EN)      PT(EN)
+         /mH                                  /H                     max         /mH weighted/mH
+----------------------------------------------------------------------------------------------------
+           1          18          28   -226.9351  0.97464208  0.99998533    -434.763  -434.76363
+         0.1         648        1014  -227.04893  0.90646824  0.99992052    -299.391  -299.39962
+        0.01        8279       14719  -227.19895  0.87097902  0.99995333    -100.904  -100.90425
+
+
+extrapolation to full MRCI (all Energies in H):
+
+   threshold _______________ EN ________________
+         /mH      E(l=1)           l        E(l)
+------------------------------------------------
+           1  -227.36987         ---         ---
+         0.1  -227.34833  0.84093363  -227.30071
+        0.01  -227.29985  0.75575772  -227.27521
+
+
+extrapolation to full CI (all Energies in H):
+
+         /mH   ____________________ EN _____________________
+   threshold   ____ Davidson 1 _____   ____ Davidson 2 _____
+                  E(l=1)        E(l)      E(l=1)        E(l)
+------------------------------------------------------------
+           1   -227.3815         ---  -227.38181         ---
+         0.1  -227.38924  -227.33716  -227.39346  -227.34092
+        0.01  -227.35003   -227.3222  -227.35746  -227.32916
+++++++++
+.
+.
+.
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefIterOut} Report output (stdout)}
+\end{prog}
+
+
+
+\subsection{C$_6$ with active space references and root homing}
+
+
+
+\begin{prog}
+\begin{verbatim}
+#!/bin/bash
+
+export DIESEL_EXE_DIR=somepath
+export MOLCAS_EXE_DIR=somepath
+cd whereEver
+
+cat <<! >diesel.in
+# MO integral file
+MOIntegralFileFormat             = New
+MOLCASRootDir                    = `pwd`/..
+
+# MOs
+MOEquivalence                    = auto
+
+# electrons / state
+NumberOfElectrons                = 16
+Multiplicities                   = { 1 3 }
+IrReps                           = { 0 1 3 }
+Roots                            = { 1 2 3 4 }
+
+# references
+RefConfs                         = {
+0 1-2 23-24 35 50 72 84   
+0 1-2 23 35-36 50 72 84   
+2 24 36 1-2 23 35 50 72 84
+}
+AnnihilatorSpace                 = { 2 23 24 35 36 50 72 84 }
+CreatorSpace                     = { 23 24 35 36 72 73 84 85 }
+activeSpaceExcitationLevel       = 2
+maxRefOpenShells                 = 6
+
+RootHoming                       = yes
+
+#selection
+SelectionThresholds              = { 1e-3 1e-4 1e-5 }
+
+MaxHamiltonStorageMem            = 500MB
+!
+
+$DIESEL_EXE_DIR/diesel <diesel.in 1>diesel.out 2>diesel.prot.out
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefActiveInput} Listing of a simple diesel driver 
+job file for C$_6$ with 20 core electrons using active space references}
+\end{prog}
+
+
+If you later decide you need one more threshold simply add it in the input
+(s. Listing \ref{ListExampleAppendThresh}) and restart.
+\begin{prog}
+\begin{verbatim}
+SelectionThresholds              = { 1e-3 1e-4 5e-5 1e-5 }
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleAppendThresh} 
+Input for an additional threshold}
+\end{prog}
+As you see in Listing \ref{ListExampleAppendThreshProt} only the
+necessary steps are executed.
+
+
+\begin{prog}
+\begin{verbatim}
+multiplicity=1
+        irrep=0
+                using active space references
+                performing selection on given thresholds
+                diagonalization steps
+                        threshold 1e-3: already done
+                        threshold 1e-4: already done
+                        threshold 5e-5
+                        threshold 1e-5: already done
+                diagonalization finished
+.
+.
+.
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleAppendThreshProt} Protocol output (stderr)}
+\end{prog}
+
+The same way you may append additional irreducible representations or
+multiplicities. The output of results will contain all information as if
+you originally started with the whole set of parameters
+(s. Listing \ref{ListExampleRefActiveOut}). If you want to change something
+different from that described above (e. g. different fort.31-file, 
+reference configurations, convergence criterions, ...) please delete the
+calculation tree before restarting the calculation in order to get 
+what you want.
+
+
+\begin{prog}
+\begin{verbatim}
+============================================
+             Project = c6
+            Geometry = linear
+               Basis = C.DUN...5S3P1D
+            Orbitals = 2_2.CAS
+                Core = 20e
+       ReferenceType = RefActive
+        Multiplicity = 1
+               Irrep = 0
+============================================
+
+
+
+reference configurations:
+0 1-2 23-24 35-36 50 72         # 1
+.
+.
+.
+4 72-73 84-85 1-2 23 35-36 50   # 72
+
+
+number of configurations: 72
+dimension of ci matrix  : 100
+
+
+selected roots within reference space:
+root #1: -226.926197
+root #2: -226.917450
+root #3: -226.743097
+root #4: -226.738563
+
+
+total generated configurations/CSFs:
+
+                confs.        CSFs
+intern-0:          412         751
+intern-1:        41684      133864
+intern-2:      1133336     5392979
+          ------------------------
+total   :      1175432     5527594
+
+
+
+++++++++
+root #1:
+reference energy: -226.9262
+character (at threshold 1.00e-02 mH, ci^2>0.01): 
+        0.0121657647       -0.1102985255:   ref.   0 1-2 23-24 35-36 50 72  # 1
+        0.0122560845        0.1107072015:   ref.   0 1-2 23-24 35-36 50 84  # 2
+        0.4050904682        0.6364671777:   ref.   0 1-2 23-24 35 50 72 84  # 5
+        0.4078713680       -0.6386480784:   ref.   0 1-2 23 35-36 50 72 84  # 15
+
+   threshold  sel. confs   sel. CSFs   CI energy    ref ci^2     overlap      PT(EN)      PT(EN)
+         /mH                                  /H                     max         /mH weighted/mH
+----------------------------------------------------------------------------------------------------
+           1          10          14  -226.93881  0.98552683  0.99987399     -427.22  -427.22388
+         0.1         603         953  -227.04791  0.91783744  0.99999991     -301.27  -301.27001
+        0.05        1501        2383  -227.09915  0.90225781  0.99994973    -235.914  -235.92348
+        0.01        8088       14344  -227.19816  0.88045173  0.99997603    -106.048  -106.05273
+
+
+extrapolation to full MRCI (all Energies in H):
+
+   threshold _______________ EN ________________
+         /mH      E(l=1)           l        E(l)
+------------------------------------------------
+           1  -227.36603         ---         ---
+         0.1  -227.34918  0.86624541  -227.30889
+        0.05  -227.33508  0.78410956  -227.28414
+        0.01  -227.30422  0.76237506  -227.27902
+
+
+extrapolation to full CI (all Energies in H):
+
+         /mH   ____________________ EN _____________________
+   threshold   ____ Davidson 1 _____   ____ Davidson 2 _____
+                  E(l=1)        E(l)      E(l=1)        E(l)
+------------------------------------------------------------
+           1   -227.3724         ---  -227.37249         ---
+         0.1  -227.38394  -227.34033  -227.38705  -227.34315
+        0.05  -227.37504  -227.31913  -227.37937  -227.32292
+        0.01  -227.34941  -227.32119  -227.35554  -227.32692
+++++++++
+.
+.
+.
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleRefActiveOut} Report output (stdout)}
+\end{prog}
+
+\subsection{Using natural orbitals}
+
+\begin{prog}
+\begin{verbatim}
+# MO integral file
+#MOIntegralFilename               = fort.31
+MOIntegralFileFormat             = New  #test
+MOLCASRootDir                    = `pwd`/..
+# MOs
+#MORestrictions                   = none
+MOEquivalence                    = auto
+
+# electrons / state
+NumberOfElectrons                = 16
+Multiplicities                   = { 3 }
+IrReps                           = { 3 }
+Roots                            = { 1 2 3 4 }
+
+RefConfs                         = auto
+
+RootHoming                       = yes
+
+# selection
+SelectionThresholds              = { 1e-3 1e-4 1e-5 }
+
+# natural orbitals
+useNaturalOrbitals               = yes
+NaturalOrbitalSelectionThreshold = 1e-5
+orbitalFile                      = RASORB
+#averagedNaturalOrbitals          = no
+
+MaxHamiltonStorageMem            = 500MB
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleNatOrbInput} Natural orbital calculation}
+\end{prog}
+
+Be careful to set the {\tt orbitalFile = XXXORB} keyword. This has to be the
+orbital file you previously generated the STONEY file with.
+
+\begin{prog}
+\begin{verbatim}
+*******************************************************************************
+*                                                                             *
+*                                diesel protocol                              *
+*                                                                             *
+*******************************************************************************
+
+
+multiplicity=3
+    irrep=3
+        creating natural orbitals
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-5
+        diagonalization finished
+        calculating density matrices
+        calculating natural orbitals
+        performing MO transformation for root #1
+        performing MO transformation for root #2
+        performing MO transformation for root #3
+        performing MO transformation for root #4
+        performing MR-CI calculation with natural orbitals for root #1
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+            iteration #4
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+        performing MR-CI calculation with natural orbitals for root #2
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+        performing MR-CI calculation with natural orbitals for root #3
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+        performing MR-CI calculation with natural orbitals for root #4
+        creating reference space:
+            iteration #1
+            iteration #2
+            iteration #3
+            iteration #4
+            iteration #5
+            iteration #6
+        reference space generation completed
+        performing selection on given thresholds
+        diagonalization steps
+            threshold 1e-3
+            threshold 1e-4
+            threshold 1e-5
+        diagonalization finished
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleNatProt} Protocol output}
+\end{prog}
+
+
+\begin{prog}
+\begin{verbatim}
+user@machine>ls -R
+3                CI.job           diesel.out       
+=Multiplicity    diesel.in        diesel.prot.out
+
+3:
+3       =Irrep
+
+3/3:
+1            2            3            4            =NatOrbRoot  NatOrb
+
+3/3/1:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.0
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.1
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.2
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.in.3
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2             sel.in.all
+Eigenvectors.dat.1e-3  diag.out.1e-4          genspace.3             sel.out.all
+
+3/3/2:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+3/3/3:
+ConfTree.dat           Eigenvectors.dat.1e-4  diag.out.1e-5          sel.in.1
+ConfTree.dat.0.001     Eigenvectors.dat.1e-5  fort.31                sel.in.2
+ConfTree.dat.1e-3      diag.in                genspace.0             sel.in.all
+ConfTree.dat.1e-4      diag.in.RefGen         genspace.1             sel.out.all
+ConfTree.dat.1e-5      diag.out.1e-3          genspace.2
+Eigenvectors.dat.1e-3  diag.out.1e-4          sel.in.0
+
+3/3/4:
+ConfTree.dat           Eigenvectors.dat.1e-5  genspace.0             sel.in.1
+ConfTree.dat.0.001     diag.in                genspace.1             sel.in.2
+ConfTree.dat.1e-3      diag.in.RefGen         genspace.2             sel.in.3
+ConfTree.dat.1e-4      diag.out.1e-3          genspace.3             sel.in.4
+ConfTree.dat.1e-5      diag.out.1e-4          genspace.4             sel.in.5
+Eigenvectors.dat.1e-3  diag.out.1e-5          genspace.5             sel.in.all
+Eigenvectors.dat.1e-4  fort.31                sel.in.0               sel.out.all
+
+3/3/NatOrb:
+ConfTree.dat                Density.dat.I.R2_I.R4.1e-5  fort.31
+ConfTree.dat.0.001          Density.dat.I.R3_I.R3.1e-5  genspace.0
+ConfTree.dat.1e-5           Density.dat.I.R3_I.R4.1e-5  genspace.1
+Density.dat.I.R1_I.R1.1e-5  Density.dat.I.R4_I.R4.1e-5  genspace.2
+Density.dat.I.R1_I.R2.1e-5  Eigenvectors.dat.1e-5       sel.in.0
+Density.dat.I.R1_I.R3.1e-5  dens.out                    sel.in.1
+Density.dat.I.R1_I.R4.1e-5  diag.in                     sel.in.2
+Density.dat.I.R2_I.R2.1e-5  diag.in.RefGen              sel.in.all
+Density.dat.I.R2_I.R3.1e-5  diag.out.1e-5               sel.out.all
+\end{verbatim}
+\vspace{-9pt}
+\caption{\label{ListExampleDir} Recursive directory contents for 
+natural orbital calculation}
+\end{prog}
+
+\begin{table}
+\begin{tabular}{r|r|p{5cm}}
+{\bf programs}
+& {\tt motra}&\\
+& {\tt form31}&\\[5pt]
+\hline&\\[-9pt]
+{\bf read files}
+& {\tt ONEINT}&\\
+& {\tt ORDINT}&\\
+& {\tt STONEY}&\\[5pt]
+\hline&\\[-9pt]
+{\bf written files}
+& {\tt STONEY.NatOrb.}$n$&
+\end{tabular}
+\caption{MOLCAS-dependencies}
+\end{table}
+
+
+\subsection{Specialities}
+\subsubsection{Distinct number of roots in each irrep/multiplicity}
+If you want to calculate a different number of roots in each irrep or
+multiplicity you will have to calculate each irrep/multiplicity seperately.
+If want to get properties from a stepwise calculation you are on your own.
+You have to call the "dens" and the "prop" programs manually.
+
+%\subsection{Getting some specific parameter (direct usage of {\tt dr})}
+

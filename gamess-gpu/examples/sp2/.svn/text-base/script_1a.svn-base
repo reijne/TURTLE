@@ -1,0 +1,22 @@
+#
+#@ job_type = parallel
+#@ input =  /h/wab/GAMESS-UK/examples/sp2/par_1a.in
+#@ output =  /h/wab/GAMESS-UK/examples/sp2/par_1a.out.8
+#@ error =  /h/wab/GAMESS-UK/examples/sp2/par_1a.err
+#@ initialdir = /scratch/wab
+#@ node = 2,2
+#@ tasks_per_node = 4
+#@ network.LAPI = css0,not_shared,us
+#@ class = smp4
+#@ queue
+export MP_EUIDEVICE=css0
+export MP_CSS_INTERRUPT=yes
+export MP_EUILIB=us
+export MP_INFOLEVEL=1
+export MP_PULSE=0
+export MP_SINGLE_THREAD=yes
+export MP_SHARED_MEMORY=yes
+export MP_WAIT_MODE=yield
+export AIXTHREAD_SCOPE=S
+export RT_GRQ=ON
+/usr/bin/poe /h/wab/GAMESS-UK/bin/gamess-uk

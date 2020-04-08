@@ -1,0 +1,57 @@
+# open shell rhf sto3g                                     *
+# check super force                                        *
+title
+1-imino-2,4-pentadiene *  energy -245.073475
+super force nosym
+mult 1
+accuracy 20 7
+charge 1
+zmat angs
+c
+c 1 r1
+c 2 r2 1 a1
+c 3 r3 2 a2 1 cx
+c 4 r4 3 a3 2 c2
+n 1 r5 2 a4 3 c2
+h 1 r6 2 a5 3 c1
+h 2 r7 3 a6 7 c2
+h 3 r8 4 a7 8 c2
+h 4 r9 5 a8 9 c2
+h 5 r10 4 a9 10 c1
+h 5 r11 4 a10 11 c2
+h 6 r12 1 a11 7 c1 
+h 6 r13 1 a12 13 c2
+variables
+r1     1.3463261 
+r2     1.4632685
+r3     1.3961480 
+r4     1.3568062 
+r5     1.3416773 
+r6     1.0748794
+r7     1.0669518
+r8     1.0811641
+r9     1.0707072
+r10    1.0729928
+r11    1.0747118
+r12    0.9971261
+r13    0.9985437
+a1   118.2539432
+a2   122.8419092
+a3   119.3229511
+a4   125.9857684
+a5   119.9766875
+a6   122.1120978
+a7   116.3317717
+a8   120.9014063
+a9   121.5606571
+a10  121.8124933
+a11  120.9303349
+a12  121.8324395
+constants
+c1 0.
+c2 180.
+cx  90.
+end
+basis sto3g
+open 1 1 1 1
+enter

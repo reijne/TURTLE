@@ -1,0 +1,18 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - TZVP - closed shell MRDCI - aimpac
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis tzvp
+runtype ci
+mrdci direct
+natorb print
+putq sabf 10
+savefile aimpac section 10 file aim009_a.wfn
+enter
+EOF

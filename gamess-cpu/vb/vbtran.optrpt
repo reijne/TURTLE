@@ -1,0 +1,989 @@
+
+Begin optimization report for: TRANSFORMVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(1085,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(4325,7) inlined into vbtran.f(1167,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(4347,13) inlined into vbtran.f(1167,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4348 and  line 4348
+LOOP END
+
+LOOP BEGIN at vbtran.f(4347,13) inlined into vbtran.f(1167,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(4066,10) inlined into vbtran.f(1167,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4084 and  line 4101
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1167,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1167,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1167,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1167,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(1180,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(1199,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(4339,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4345,21) ]
+
+   LOOP BEGIN at vbtran.f(4342,16) inlined into vbtran.f(1167,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(4353,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4357,18) ]
+
+   LOOP BEGIN at vbtran.f(4359,18) inlined into vbtran.f(1167,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+   LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(1167,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+   LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(1167,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+   LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(1167,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(1167,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+   LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(1167,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GET1E
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(2365,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2365,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(2365,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2365,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2373,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(2390,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2390,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(2390,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2390,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2395,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(2395,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(2402,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbtran.f(2406,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2406,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2406,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2406,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IND4VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3354,10) inlined into vbtran.f(3133,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3365 and  line 3370
+LOOP END
+
+LOOP BEGIN at vbtran.f(1379,9) inlined into vbtran.f(3140,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1384 and  line 1381
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(3140,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(3140,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(3140,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(3140,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(3140,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(3140,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3412,10) inlined into vbtran.f(3182,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3418 and  line 3418
+LOOP END
+
+LOOP BEGIN at vbtran.f(3412,10) inlined into vbtran.f(3182,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(3119,27)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbtran.f(3129,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4587,24) ]
+
+   LOOP BEGIN at vbtran.f(4582,15) inlined into vbtran.f(3133,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(4601,10) inlined into vbtran.f(3133,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4605,15) ]
+
+      LOOP BEGIN at vbtran.f(4614,17) inlined into vbtran.f(3133,15)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(4618,10) inlined into vbtran.f(3133,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4621,18) ]
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(1375,10) inlined into vbtran.f(3140,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1392,14) ]
+
+      LOOP BEGIN at vbtran.f(1396,12) inlined into vbtran.f(3140,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+
+         LOOP BEGIN at vbtran.f(1453,32) inlined into vbtran.f(3140,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(1459,17) inlined into vbtran.f(3140,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(1470,12) inlined into vbtran.f(3140,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3578,15) ]
+
+         LOOP BEGIN at vbtran.f(1985,10) inlined into vbtran.f(3140,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+
+            LOOP BEGIN at vbtran.f(1987,13) inlined into vbtran.f(3140,15)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(3140,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+            LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(3140,15)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(3140,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+            LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(3140,15)
+               remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at vbtran.f(1486,14) inlined into vbtran.f(3140,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3751,34) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3161,27)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbtran.f(3178,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4834,24) ]
+
+   LOOP BEGIN at vbtran.f(4829,14) inlined into vbtran.f(3182,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(4849,10) inlined into vbtran.f(3182,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4852,15) ]
+
+      LOOP BEGIN at vbtran.f(4854,15) inlined into vbtran.f(3182,15)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(4865,10) inlined into vbtran.f(3182,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4868,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: STACKER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3459,10) inlined into vbtran.f(4914,12)
+<Distributed chunk1>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3460,22) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10) inlined into vbtran.f(4914,12)
+<Remainder, Distributed chunk1>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3460,22) ]
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10) inlined into vbtran.f(4914,12)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10) inlined into vbtran.f(4914,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10) inlined into vbtran.f(4914,12)
+<Distributed chunk1>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3467,22) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10) inlined into vbtran.f(4914,12)
+<Remainder, Distributed chunk1>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3467,22) ]
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10) inlined into vbtran.f(4914,12)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10) inlined into vbtran.f(4914,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbtran.f(4929,20)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(3536,16) inlined into vbtran.f(4916,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbtran.f(4917,17)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC2VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(1694,9)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbtran.f(1699,11)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1700 and  line 1703
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1768,18)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1768,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1781,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1781,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1796,20)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1796,20)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(1690,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1713,14) ]
+
+   LOOP BEGIN at vbtran.f(1715,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+
+      LOOP BEGIN at vbtran.f(1773,32)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(1779,17)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(1789,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3578,15) ]
+
+      LOOP BEGIN at vbtran.f(2150,10) inlined into vbtran.f(1792,20)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2155,17) ]
+
+         LOOP BEGIN at vbtran.f(2154,13) inlined into vbtran.f(1792,20)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2155,17) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(1796,20)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+         LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(1796,20)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(1796,20)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+         LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(1796,20)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(1803,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3915,34) ]
+
+         LOOP BEGIN at vbtran.f(1811,21)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3915,34) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SHCBLD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(4325,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(4347,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4348 and  line 4348
+LOOP END
+
+LOOP BEGIN at vbtran.f(4347,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(4066,10) inlined into vbtran.f(4360,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4084 and  line 4101
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(4374,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(4374,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(4379,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(4379,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(4339,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4345,21) ]
+
+   LOOP BEGIN at vbtran.f(4342,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(4353,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4357,18) ]
+
+   LOOP BEGIN at vbtran.f(4359,18)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(4374,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+   LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(4374,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(4374,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+   LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(4374,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(4379,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+   LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(4379,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(4379,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+   LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(4379,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: TRANSCVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(1286,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: CALC1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(1379,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1384 and  line 1381
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1448,18)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1448,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1461,16)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbtran.f(1286,10) inlined into vbtran.f(1461,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1481,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10) inlined into vbtran.f(1481,18)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(1375,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1392,14) ]
+
+   LOOP BEGIN at vbtran.f(1396,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+
+      LOOP BEGIN at vbtran.f(1453,32)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(1459,17)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4988,15) ]
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(1470,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3578,15) ]
+
+      LOOP BEGIN at vbtran.f(1985,10) inlined into vbtran.f(1479,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+
+         LOOP BEGIN at vbtran.f(1987,13) inlined into vbtran.f(1479,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(3582,13) inlined into vbtran.f(1481,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+         LOOP BEGIN at vbtran.f(3584,16) inlined into vbtran.f(1481,18)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(3592,13) inlined into vbtran.f(1481,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+         LOOP BEGIN at vbtran.f(3594,16) inlined into vbtran.f(1481,18)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbtran.f(1486,14)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3751,34) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MULT1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3553,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3554 and  line 3554
+LOOP END
+
+LOOP BEGIN at vbtran.f(3553,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(3582,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3585,21) ]
+
+   LOOP BEGIN at vbtran.f(3584,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(3592,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(3595,21) ]
+
+   LOOP BEGIN at vbtran.f(3594,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CURT1
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(1985,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+
+   LOOP BEGIN at vbtran.f(1987,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(1989,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CURT2
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(2150,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2155,17) ]
+
+   LOOP BEGIN at vbtran.f(2154,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2155,17) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETIN2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(2563,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(2499,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2504,14) ]
+
+   LOOP BEGIN at vbtran.f(2507,14)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2514,21) ]
+
+      LOOP BEGIN at vbtran.f(2513,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2514,21) ]
+
+         LOOP BEGIN at vbtran.f(2522,21)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2523,28) ]
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2570,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2559,23) ]
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2587,16)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbtran.f(2593,17)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(2594,24) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: INTPOS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(2851,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbtran.f(2853,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2867 and  line 2858
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2853,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2853,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2867 and  line 2858
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2853,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2853,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2867 and  line 2858
+   LOOP END
+
+   LOOP BEGIN at vbtran.f(2853,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SORT2VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3412,10) inlined into vbtran.f(4856,17)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3418 and  line 3418
+LOOP END
+
+LOOP BEGIN at vbtran.f(3412,10) inlined into vbtran.f(4856,17)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(4829,14)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbtran.f(4849,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4852,15) ]
+
+   LOOP BEGIN at vbtran.f(4854,15)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(4865,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4868,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SORT1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3354,10) inlined into vbtran.f(4609,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3365 and  line 3370
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbtran.f(4582,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbtran.f(4601,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4605,15) ]
+
+   LOOP BEGIN at vbtran.f(4614,17)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbtran.f(4618,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbtran.f(4621,18) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ISORT1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3354,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3365 and  line 3370
+LOOP END
+===========================================================================
+
+Begin optimization report for: ISORT2VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3412,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3418 and  line 3418
+LOOP END
+
+LOOP BEGIN at vbtran.f(3412,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: JSORT1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3459,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10)
+<Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3460,22) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3459,10)
+<Remainder, Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3460,22) ]
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10)
+<Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3467,22) ]
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbtran.f(3466,10)
+<Remainder, Distributed chunk2>
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbtran.f(3467,22) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: KSORT1VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(3536,7)
+   remark #15521: loop was not vectorized: explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: SGMATVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbtran.f(4066,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4084 and  line 4101
+LOOP END
+===========================================================================

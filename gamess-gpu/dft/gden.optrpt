@@ -1,0 +1,216 @@
+
+Begin optimization report for: GDEN_ADD_GAUSS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gden.f(1089,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at gden.f(1089,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at gden.f(1144,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ gden.f(1129,20) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GDEN_ENERGY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gden.f(1881,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1885 and  line 1885
+LOOP END
+
+LOOP BEGIN at gden.f(1881,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(1881,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(1881,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gden.f(1889,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1891 and  line 1897
+LOOP END
+
+LOOP BEGIN at gden.f(1912,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at gden.f(1913,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1913 and  line 1913
+   LOOP END
+LOOP END
+
+LOOP BEGIN at gden.f(1922,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at gden.f(1923,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at gden.f(1923,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at gden.f(1923,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at gden.f(2141,7) inlined into gden.f(1960,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at gden.f(2142,7) inlined into gden.f(1960,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2142 and  line 2142
+   LOOP END
+
+   LOOP BEGIN at gden.f(2143,10) inlined into gden.f(1960,18)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at gden.f(2145,10) inlined into gden.f(1960,18)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at gden.f(2145,10) inlined into gden.f(1960,18)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRTRIPREC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gden.f(2141,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at gden.f(2142,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2142 and  line 2142
+   LOOP END
+
+   LOOP BEGIN at gden.f(2143,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at gden.f(2145,10)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at gden.f(2145,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GDEN_FORCES
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gden.f(2822,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2826 and  line 2826
+LOOP END
+
+LOOP BEGIN at gden.f(2822,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(2822,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(2822,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gden.f(2829,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2835 and  line 2835
+LOOP END
+
+LOOP BEGIN at gden.f(2829,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ gden.f(2831,10) ]
+LOOP END
+
+LOOP BEGIN at gden.f(2829,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gden.f(2849,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2850 and  line 2850
+LOOP END
+
+LOOP BEGIN at gden.f(2855,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(2855,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gden.f(2864,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at gden.f(2879,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2880 and  line 2880
+LOOP END
+
+LOOP BEGIN at gden.f(2886,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at gden.f(2901,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2902 and  line 2902
+LOOP END
+
+LOOP BEGIN at gden.f(2906,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at gden.f(2906,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at gden.f(2917,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2918 and  line 2918
+LOOP END
+===========================================================================
+
+Begin optimization report for: GDEN_INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at gden.f(678,7)
+   remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+LOOP END
+===========================================================================

@@ -1,0 +1,1275 @@
+
+Begin optimization report for: HSC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1553,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1559,11)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DAVIDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1072,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1072,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1076,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(1076,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1076,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1080,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1099,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1099,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1101,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(1101,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1101,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1103,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACDAV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(3235,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3235,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3235,8)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3235,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3242,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(3242,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3242,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6352,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6352,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6359,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6359,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(3578,7) inlined into vbci.f(6378,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3578,7) inlined into vbci.f(6378,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3604,13) inlined into vbci.f(6378,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3604,13) inlined into vbci.f(6378,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3613,10) inlined into vbci.f(6378,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6378,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6378,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6378,15)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6378,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22) inlined into vbci.f(6378,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3644 and  line 3645
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22) inlined into vbci.f(6378,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6378,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6378,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6378,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6428,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6428,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11) inlined into vbci.f(6428,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11) inlined into vbci.f(6428,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11) inlined into vbci.f(6428,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11) inlined into vbci.f(6428,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11) inlined into vbci.f(6428,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11) inlined into vbci.f(6428,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11) inlined into vbci.f(6428,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11) inlined into vbci.f(6428,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6428,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6428,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15) inlined into vbci.f(6428,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15) inlined into vbci.f(6428,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15) inlined into vbci.f(6428,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15) inlined into vbci.f(6428,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15) inlined into vbci.f(6428,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3345,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3345,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3345,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3345,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(3345,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3256,15) ]
+
+   LOOP BEGIN at vbci.f(3258,8)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3256,15) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6352,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6359,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3279,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3278,35) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3621,13) inlined into vbci.f(6378,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+      LOOP BEGIN at vbci.f(3621,13) inlined into vbci.f(6378,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+         LOOP BEGIN at vbci.f(3625,16) inlined into vbci.f(6378,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3637,24) ]
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3692,10) inlined into vbci.f(6378,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3540,8) inlined into vbci.f(6389,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3539,16) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3540,8) inlined into vbci.f(6390,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3539,16) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3540,8) inlined into vbci.f(6391,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3539,16) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6428,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3502,23) inlined into vbci.f(6428,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6428,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DAVIDT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(946,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 947 and  line 947
+LOOP END
+
+LOOP BEGIN at vbci.f(952,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 953 and  line 953
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(986,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(988,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRHS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1611,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(1611,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1622,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbci.f(1623,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 1623 and  line 1623
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1611,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1607,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: FEW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1324,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(1324,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(1324,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1332,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1333 and  line 1333
+LOOP END
+
+LOOP BEGIN at vbci.f(1332,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1339,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1356,19)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1368,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(1368,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1368,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1368,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1368,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1371,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1374 and  line 1374
+LOOP END
+
+LOOP BEGIN at vbci.f(1371,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1715,19) inlined into vbci.f(1393,12)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1417,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1417 and  line 1417
+LOOP END
+
+LOOP BEGIN at vbci.f(1421,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1423 and  line 1423
+LOOP END
+
+LOOP BEGIN at vbci.f(1715,19) inlined into vbci.f(1441,18)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1455,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbci.f(1456,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbci.f(1459,25)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 1459 and  line 1459
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1715,19) inlined into vbci.f(1473,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1503,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1503 and  line 1503
+LOOP END
+
+LOOP BEGIN at vbci.f(1511,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(1511,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1382,18)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3098,12) ]
+
+   LOOP BEGIN at vbci.f(1342,16)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1352,10)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1469,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3098,12) ]
+
+   LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1393,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+      LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1393,12)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbci.f(1713,13) inlined into vbci.f(1393,12)
+            remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1413,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1414,16)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1437,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1438,18) ]
+
+      LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1441,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+         LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1441,18)
+            remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+            LOOP BEGIN at vbci.f(1713,13) inlined into vbci.f(1441,18)
+               remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1473,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+   LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(1473,13)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1713,13) inlined into vbci.f(1473,13)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DAVDIA
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(488,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(488,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(488,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(488,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(495,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(495,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(537,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(537,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(537,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(564,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(564,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(580,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(580,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(580,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(580,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(584,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(584,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(596,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(596,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(616,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(616,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(616,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(625,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 625 and  line 625
+LOOP END
+
+LOOP BEGIN at vbci.f(627,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 627 and  line 627
+LOOP END
+
+LOOP BEGIN at vbci.f(629,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(629,19)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(629,19)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(629,19)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(629,19)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(645,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(645,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(645,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(645,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(667,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(667,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(671,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(671,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(495,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+LOOP END
+
+LOOP BEGIN at vbci.f(676,12)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbci.f(528,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(564,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbci.f(587,28)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbci.f(578,13)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(579,17) ]
+         LOOP END
+
+         LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(584,15)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(596,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbci.f(599,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(601,38) ]
+      LOOP END
+
+      LOOP BEGIN at vbci.f(654,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(656,18) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(667,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(671,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SUBMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1715,19)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1711,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+   LOOP BEGIN at vbci.f(1711,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1713,13)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETHS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1659,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1659,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1655,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBCI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(2728,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbci.f(2728,10)
+   <Multiversioned v2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbci.f(2728,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1715,19) inlined into vbci.f(2747,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(1715,19) inlined into vbci.f(2761,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbci.f(2770,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2772 and  line 2771
+LOOP END
+
+LOOP BEGIN at vbci.f(2770,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(2776,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 2777 and  line 2778
+LOOP END
+
+LOOP BEGIN at vbci.f(2776,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(2783,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbci.f(2785,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2786 and  line 2786
+   LOOP END
+
+   LOOP BEGIN at vbci.f(2785,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(2791,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2791 and  line 2791
+LOOP END
+
+LOOP BEGIN at vbci.f(2792,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2792 and  line 2792
+LOOP END
+
+LOOP BEGIN at vbci.f(2798,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2798 and  line 2798
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(2747,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+   LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(2747,15)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1713,13) inlined into vbci.f(2747,15)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(2761,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1707,12) ]
+
+   LOOP BEGIN at vbci.f(1711,10) inlined into vbci.f(2761,15)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbci.f(1713,13) inlined into vbci.f(2761,15)
+         remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: JD_ITERATE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6516,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6516,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3427,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3439,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(1553,13) inlined into vbci.f(6544,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1554 and  line 1556
+LOOP END
+
+LOOP BEGIN at vbci.f(1560,13) inlined into vbci.f(6544,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1561 and  line 1563
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3496,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6516,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+LOOP END
+
+LOOP BEGIN at vbci.f(3502,23)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbci.f(1559,11) inlined into vbci.f(6544,19)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(1548,12) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: JD_EV
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(3540,8)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3539,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACODIAG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(3578,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3578,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3604,13) inlined into vbci.f(6674,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3604,13) inlined into vbci.f(6674,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3613,10) inlined into vbci.f(6674,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6674,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6674,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6674,12)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13) inlined into vbci.f(6674,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22) inlined into vbci.f(6674,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3644 and  line 3645
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22) inlined into vbci.f(6674,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6674,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6674,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6674,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(3621,13) inlined into vbci.f(6674,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+   LOOP BEGIN at vbci.f(3621,13) inlined into vbci.f(6674,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+      LOOP BEGIN at vbci.f(3625,16) inlined into vbci.f(6674,12)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3637,24) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(3692,10) inlined into vbci.f(6674,12)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: JD_JACOBI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(3604,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3604,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3613,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbci.f(3615,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbci.f(3615,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3644 and  line 3645
+LOOP END
+
+LOOP BEGIN at vbci.f(3641,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6756,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6756,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6756,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6760,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6760,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10) inlined into vbci.f(6760,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(3621,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+   LOOP BEGIN at vbci.f(3621,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3622,18) ]
+
+      LOOP BEGIN at vbci.f(3625,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbci.f(3637,24) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbci.f(3692,10) inlined into vbci.f(6756,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbci.f(3692,10) inlined into vbci.f(6760,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: JD_ORDER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(3688,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbci.f(3688,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbci.f(3692,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: IGATHER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbci.f(3677,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbci.f(3677,10)
+<Remainder>
+LOOP END
+===========================================================================

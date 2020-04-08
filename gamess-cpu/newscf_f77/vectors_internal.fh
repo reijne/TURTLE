@@ -1,0 +1,27 @@
+c
+c  Vectors information
+c
+      integer maxvec
+      parameter (maxvec=5)
+c
+c Matrix pointers:
+c
+      integer Alph_vec(maxvec)  ! matrix pointer
+      integer Beta_vec(maxvec)   ! matrix pointer
+      integer Occa_vec(maxvec)   ! alpha occupancy
+      integer Occb_vec(maxvec)   ! beta occupancy
+      integer Eiga_vec(maxvec)   ! alpha eigenvalue 
+      integer Eigb_vec(maxvec)   ! beta eigenvalue 
+
+      integer itop_vec(maxvec)    ! highest occupied
+
+      integer ncol_vec(maxvec)    ! column dimension
+      integer nrow_vec(maxvec)    ! row dimension
+      integer n_vec               ! number of sets allocated
+
+      logical uhf_vec(maxvec)     ! is beta set present
+
+      common/scfvectors/Occa_vec,Occb_vec,
+     & Eiga_vec,Eigb_vec,
+     & Alph_vec,Beta_vec,
+     & itop_vec,ncol_vec,nrow_vec,n_vec,uhf_vec

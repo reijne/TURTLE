@@ -1,0 +1,136 @@
+#!/bin/sh
+#
+# Rungamess execution script - Myrinet MPICH
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+# (see below)
+
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+case ${NODE0:=null} in
+null) ;;
+   *)  job_environment=LOBOSQ;;
+esac
+
+echo rungamess : GM Job environment is $job_environment
+
+#
+# --------------------------------------------------------------
+# Build hostfile if required
+# --------------------------------------------------------------
+#
+case $job_environment in 
+
+LOBOSQ) ;;
+
+PBS)    
+        scratch=${scratchtopdir}/$PBS_JOBID
+        echo rungamess : Scratch directtory is $scratch
+        mnodes=`cat $PBS_NODEFILE`
+        confile=~/gm.$PBS_JOBID.conf
+        echo  $nprocs > $confile
+        # Setup interleaving configuration file for Myrinet
+        prev="dum"
+        for i in $mnodes 
+        do
+           if test ${prev} != ${i} 
+           then
+              rsh  ${i} "mkdir $scratch"  
+              echo ======================== $i ==========================
+              rsh  ${i} ps -fu $USER
+	      rsh  ${i}
+              echo ${i} 4 >>$confile
+           else
+              echo ${i} 2 >>$confile
+           fi
+           sleep 1
+           prev=${i}
+        done;;
+
+INTER)  # Take hosts from GAMESS_HOSTS
+        echo rungamess: interactive myrinet jobs not supported
+        exit 999;;
+esac
+
+# --------------------------------------------------------------
+# Execute GAMESS-UK (inherit stdin/stdout)
+# --------------------------------------------------------------
+#
+
+export MPI_HOME=/usr/local/mpich-gm-pgroup121-7b
+export PATH="$MPI_HOME/bin:$PATH"
+export MANPATH="$MPI_HOME/man:$MANPATH"
+                   
+cd $scratch
+
+
+echo mpirun.ch_gm  --gm-kill 1 --gm-v --gm-use-shmem  --gm-w 1 -np $nprocs --gm-f $confile $executable 
+cat $confile
+
+mpirun.ch_gm  --gm-kill 1 --gm-v --gm-use-shmem  --gm-w 1 -np $nprocs --gm-f $confile $executable < $homedir/$jobname.in 
+
+stat=$?
+echo End at `date`
+
+prev="dum"
+for i in $mnodes 
+do
+           if test ${prev} != ${i}
+           then
+              echo ======================== $i ==========================
+              rsh  ${i} ps -fu $USER
+              rsh  ${i} ipcs
+              #set list=`rsh $i ps -uh | grep -v tcsh | awk '{print $2}' `
+              #rsh $node kill -9 $list
+           fi
+           prev=${i}
+done
+
+case $stat in
+   0) echo ${IDENT}: Myrinet gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+
+cd ..
+for i in $mnodes
+do
+   rsh ${i} "rm -rf $scratch"
+done
+
+rm -rf $confile

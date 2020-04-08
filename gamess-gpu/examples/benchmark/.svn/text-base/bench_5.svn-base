@@ -1,0 +1,55 @@
+#!/bin/csh
+setenv ed1 mfged1
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed4 mfged4
+setenv ed6 mfged6
+setenv ed9 mfged9
+setenv ed10 mfged10
+setenv ed11 mfged11
+../../bin/gamess << EOF
+title
+h2co - tzvp - closed shell scf energy  -113.908210 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis tzvp
+enter
+EOF
+../../bin/gamess << EOF
+time 180
+restart new
+title
+h2co tzvp- geometry opt/CASSCF energy  -114.0266495 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis tzvp
+runtype optimise
+scftype casscf
+config 
+fzc 1 to 4
+doc 5 to 8
+uoc 9 to 12 
+end
+superci 1 to 7
+newton 8 to 20
+hessian 8 to 20
+simul 8 to 20
+enter
+EOF
+/bin/rm mfg*

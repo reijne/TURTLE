@@ -1,0 +1,19 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co -3-21g - optimisation (TYPE 3) 
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203 type 3
+ch 1.099 type 3
+hco 121.8 type 3
+end
+runtype optimize
+enter
+EOF

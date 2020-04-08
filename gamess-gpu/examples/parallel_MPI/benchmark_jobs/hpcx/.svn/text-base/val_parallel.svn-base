@@ -1,0 +1,27 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../../../utilities;make validate)
+setenv GAMESS_VTAB ../validate.vtab
+set path=(../../../../utilities $path)
+#
+date
+#
+validate HF.cyclo.6-31G-dp              HF.cyclo.6-31G-dp.out
+validate HF.cyclo.DZP                   HF.cyclo.DZP.out
+validate HF.valino.6-31G-dp             HF.valino.6-31G-dp.out
+validate HF.hf12z-shell4                HF.hf12z-shell4.out
+validate HF.siosi7.3975                 HF.siosi7.3975.out
+validate HF_grad.CAG.1291               HF_grad.CAG.1291.out
+#
+validate DFT.cyclo.6-31G               DFT.cyclo.6-31G.out
+validate DFT.cyclo.6-31G-dp            DFT.cyclo.6-31G-dp.out
+validate DFT.valino.A2.DZVP            DFT.valino.A2.DZVP.out
+validate DFT.valino.A2.DZVP2           DFT.valino.A2.DZVP2.out
+validate DFT.siosi6.1687               DFT.siosi6.1687.out
+validate DFT.siosi7.3975               DFT.siosi7.3975.out
+validate DFT_opt.exti4a1.3-21G         DFT_opt.exti4a1.3-21G.out
+validate DFT.hf12z-shell4              DFT.hf12z-shell4.out
+validate DFT.pcfe.814                  DFT.pcfe.814.out
+#

@@ -1,0 +1,4401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>
+      The CCP1 density functional theory (DFT) module
+   </TITLE>
+</HEAD>
+<BODY bgcolor="#fffff0">
+
+
+<H1>The CCP1 density functional theory (DFT) module</H1>
+
+<A NAME="preface">
+<H2>Preface</H2>
+</A>
+<P>
+The attractive scaling properties of DFT, together with the implementation of
+such techniques on massively parallel computers, promises to extend quantitative
+moleculer modelling using electronic structure methods into many new areas of
+chemistry. In line with these developments, the aims of the CCP1 project are
+<OL>
+<LI>to promote a major UK presence in the area of DFT methodology,
+<LI>to develop a full featured DFT code and to demonstrate the code on a 
+    variety of chemical problems, 
+<LI>and to target those developments to both present and future generations of
+    massively parallel hardware.
+</OL>
+</P><P>
+The use of different electronic structure codes by members of the UK 
+academic community has resulted in several code design issues which are 
+central to the present CCP1 DFT project. These issues and the development path
+of the CCP1 DFT project are overseen by the DFT project working group, 
+comprising 
+<UL>
+<LI>Prof. Nicholas Handy
+<LI>Prof. Peter Knowles
+<LI>Prof. Mike Robb
+<LI>Dr. Chris Reynolds
+<LI>Vic Saunders
+</UL>
+</P><P>
+The DFT code has been written by 
+<UL>
+<LI>Dr. Phillip Young
+</UL>
+After the project closed in 1997 on going maintainance was carried out by
+<UL>
+<LI>Dr. Huub van Dam
+<LI>Dr. Paul Sherwood
+</UL>
+
+
+<A NAME="introduction">
+<H2>Introduction</H2>
+</A>
+<P>
+This document describes the source of the CCP1 DFT module. The document is
+meant for programmers using the DFT module as well as for programmers modifying 
+the module.
+</P><P>
+The DFT module was designed as a library of routines that can be incorporated
+in any Hartree-Fock SCF program to yield a working DFT program. 
+Therefore the module only contains those components that are not part of 
+Hartree-Fock programs but needed in efficient DFT programs. 
+These components naturally include
+<UL>
+<LI><A HREF="#intro_exchange_func">
+    exchange functionals</A>,
+<LI><A HREF="#intro_correlation_func">
+    correlation functionals</A>,
+<LI><A HREF="#intro_quadratures">
+    quadrature grid routines</A>,
+<LI>and <A HREF="#intro_integration">
+    functional integration routines</A>.
+</UL>
+In view of future calculations on large molecules an efficient DFT code also
+needs special facilities to treat the Coulomb integrals. Because these 
+facilities may not be present in an ordinary Hartree-Fock code the DFT module
+contains routines to use
+<UL>
+<LI>multipole expansions,
+<LI>or auxilary basis functions
+</UL>
+to compute Coulomb integrals.
+
+<A NAME="intro_exchange_func">
+<H3>Exchange functionals</H3>
+</A>
+The DFT module offers the exchange functionals:
+<UL>
+<LI>The Local Density Approximation (LDA) <B>default</B>
+<LI>The Becke exchange functional (BECKE88) 
+    [<A HREF="dft_ref.html#Becke:1988">Becke:1988</A>]
+<LI>The Becke 3-parameter functional (B3) 
+    [<A HREF="dft_ref.html#Becke:1993">Becke:1993</A>]
+<LI>The Hartree-Fock exchange (HFEX)
+</UL>
+
+<A NAME="intro_correlation_func">
+<H3>Correlation functionals</H3>
+</A>
+The correlation functionals supported by the DFT module are:
+<UL>
+<LI>The Vosko, Wilk and Nusair functional (VWN) <B>default</B>
+<LI>The Lee, Yang and Parr functional (LYP) 
+    [<A HREF="dft_ref.html#Lee:1988">Lee:1988</A>]
+<LI>The nill functional
+</UL>
+
+<A NAME="intro_quadratures">
+<H3>Quadrature grid routines</H3>
+</A>
+<P>
+In general the exchange and correlation functionals are too complicated to 
+be integrated analytically. So numerical integration techniques are used where
+the integrant is discretised on a grid. In most implementations the molecular
+grid is a superposition of atomic grids. Different approaches exist to define
+both the atomic grids and to construct the molecular grids.
+</P><P>
+The atomic grids are in general separated into radial grids and angular grids.
+In practice it seems not worthwile to separate the angular grids further. 
+The grids supported are
+<UL>
+<LI>The Euler-MacLaurin radial grid
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+<LI>The logarithmic radial grid
+    [<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>]
+<LI>The Gauss-Legendre angular grid
+<LI>The Lebedev angular grid 
+    [<A HREF="dft_ref.html#Lebedev:1975">Lebedev:1975</A>,
+     <A HREF="dft_ref.html#Lebedev:1976">Lebedev:1976</A>,
+     <A HREF="dft_ref.html#Lebedev:1977">Lebedev:1977</A>,
+     <A HREF="dft_ref.html#Lebedev:1992">Lebedev:1992</A>,
+     <A HREF="dft_ref.html#Lebedev:1995">Lebedev:1995</A>,
+     <A HREF="dft_ref.html#Lebedev:1999">Lebedev:1999</A>]
+</UL>
+The size of the angular grid can be chosen as function of the radius of the
+shell. This way the amount of computation can be reduced without a significant
+loss of precision. This radius dependent pruning of the angular grid can be 
+performed in the following ways
+<UL>
+<LI>The Murray, Handy and Laming angular pruning
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+<LI>The SG1 angular pruning
+    [<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>]
+<LI>The CRYSTAL angular pruning
+    [<A HREF="dft_ref.html#CRYSTAL95">CRYSTAL95</A>]
+<LI>No angular pruning
+</UL>
+</P><P>
+The atomic grids mentioned can be combined to molecular grids through different
+weighting schemes. The supported weighting schemes are
+<UL>
+<LI>The Becke scheme 
+    [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]
+<LI>The Murray, Handy and Laming scheme (MHL)
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+<LI>The Stratmann, Scuseria and Frisch scheme (SSF)
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+</UL>
+Some particular combinations of all the above options have acquired a name of
+their own like
+<UL>
+<LI>The Standard Grid number 1 (SG1)
+    [<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>]
+</UL>
+
+<A NAME="API_specification">
+<H2>Specification of the application interface (API)</H2>
+</A>
+
+<P>
+The CCP1 DFT code was designed to be as modular as possible. In this context a 
+number of subroutines and functions were designed to allow users of the code
+to access the module's functionality. Users are strongly encouraged to use the
+code only through this application interface (API) to maintain the modularity
+as much as possible. 
+</P><P>
+In short the collection of routines specifying the API is:
+<DL>
+<DT><A NAME="main_functions">
+    <H3>Main functions</H3></A>
+<DD>
+    <DL>
+    <DT><A HREF="dft_api_spec.html#CD_defaults">
+        <CODE>integer function CD_defaults() [interface.f]</CODE></A>
+    <DD> Sets the internal flags in the DFT code to their default
+         values. Should be called before any other DFT function.
+    </DD>
+    <DT><A HREF="dft_api_spec.html#CD_init">
+        <CODE>integer function CD_init(REAL memory_fp(*)) [interface.f]</CODE>
+        </A>
+    <DD> Initialises the central DFT data structures according to the input of 
+         the host code. Therefore this routine must be called after the 
+         molecular geometry and AO basis set have been established, and after 
+         the control data has been provided.
+    </DD>
+    <DT><A HREF="dft_api_spec.html#CD_energy">
+        <CODE>integer function CD_energy(REAL coords(3,*),
+              REAL kma(*), REAL kmb(*), REAL adenm(*), REAL bdenm(*),
+              REAL energy, integer memory_int(*), REAL memory_fp(*),
+              logical extwr_sw) [global.f]</CODE></A>
+    <DD> Evaluates the DFT energy and forms the Kohn-Sham matrix using one of a
+         variety of methods.
+    </DD>
+    <DT><A HREF="dft_api_spec.html#CD_forces">
+        <CODE>integer function CD_forces(REAL coords(3,*), 
+              REAL adenm(*), REAL bdenm(*), 
+              integer memory_int(*), REAL memory_fp(*), REAL grad(3,*),
+              logical extwr_sw) [global.f]</CODE></A>
+    <DD> Computes the forces on the nuclei.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="global_switches">
+    <H3>Global switches</H3></A>
+<DD>
+    <DL>
+    <DT><CODE>integer function CD_set_2e() [interface.f]</CODE>
+    <DD> Switches the modifications to the two-electron integral routines on. 
+         See also CD_reset_2e.
+    </DD>
+    <DT><CODE>integer function CD_reset_2e() [interface.f]</CODE>
+    <DD> Switches the modifications to the two-electron integral routines off. 
+         See also CD_set_2e.
+    </DD>
+    <DT><CODE>integer function CD_request() [interface.f]</CODE>
+    <DD> Activates the DFT module.
+    </DD>
+    <DT><CODE>integer function CD_debug(character*(*) options) 
+              [interface.f]</CODE>
+    <DD> Raises the debug flags for all computation phases specified in
+         <CODE>options</CODE>. 
+         Valid phases are <CODE>all</CODE>, <CODE>ksmatrix</CODE>, 
+         <CODE>timing</CODE>, <CODE>density</CODE>, <CODE>forces</CODE>, 
+         <CODE>memory</CODE>, <CODE>tr</CODE>, <CODE>nr</CODE>, 
+         <CODE>jfit</CODE>, <CODE>norm</CODE>, <CODE>aobasis</CODE>, 
+         <CODE>jbasis</CODE>, <CODE>kbasis</CODE>, and <CODE>control</CODE>.
+    </DD>
+    <DT><CODE>integer function CD_set_print_level(integer level) 
+              [interface.f]</CODE>
+    <DD> Sets the current printing level to <CODE>level</CODE>. 
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="density_functional_specific_switches">
+    <H3>Density functional specific switches</H3>
+    </A>
+<DD>
+    <DL>
+    <DT><A HREF="#CD_becke88on">
+        <CODE>integer function CD_becke88on()</CODE></A>
+    <DD> Switches to using the Becke88 functional.
+    </DD>
+    <DT><A HREF="#CD_hfexon">
+        <CODE>integer function CD_hfexon()</CODE></A>
+    <DD> Switches to using the Hartree-Fock exchange terms.
+    </DD>
+    <DT><A HREF="#CD_corroff">
+        <CODE>integer function CD_corroff()</CODE></A>
+    <DD> Switches all correlation functionals off.
+    </DD>
+    <DT><A HREF="#CD_ldaon">
+        <CODE>integer function CD_ldaon()</CODE></A>
+    <DD> Switches to using the LDA functional.
+    </DD>
+    <DT><A HREF="#CD_vwnon">
+        <CODE>integer function CD_vwnon()</CODE></A>
+    <DD> Switches to using the VWN functional.
+    </DD>
+    <DT><A HREF="#CD_b3lypon">
+        <CODE>integer function CD_b3lypon()</CODE></A>
+    <DD> Switches to using the B3LYP functional.
+    </DD>
+    <DT><A HREF="#CD_mix">
+        <CODE>integer function CD_mix(REAL p1, p2, p3, p4, p5, p6)</CODE></A>
+    <DD> Switches the Hartree-Fock exchange, LDA, VWN, VWNRPA, LYP, and
+         Becke88 functionals on assigning each a weight from the values 
+         <CODE>p1</CODE>, ..., <CODE>p6</CODE>. 
+         This function is meant for debugging purposes and advanced 
+         experiments.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="quadrature_grid_specific_switches">
+    <H3>Quadrature grid specific switches</H3></A>
+<DD>
+    <DL>
+    <DT><A HREF="#CD_accuracy">
+              <CODE>integer function CD_accuracy(character*4 level)
+              [interface.f]</CODE></A>
+    <DD> Selects a predefined integration grid.
+    <DT><A HREF="#CD_conv_prune_on">
+              <CODE>integer function CD_conv_prune_on() 
+              [interface.f]</CODE></A>
+    <DD> Turns on the convergence dependent grid pruning scheme. 
+    </DD>
+    <DT><A HREF="#CD_set_weight">
+              <CODE>integer function CD_set_weight(character*(*) weight_scheme) 
+              [interface.f]</CODE></A>
+    <DD> Selects and activates a weigthing scheme for the quadrature grid.
+    </DD>
+    <DT><A HREF="#CD_screen">
+              <CODE>integer function CD_screen(logical oscr, REAL p1, p2, p3, 
+              p4) [interface.f]</CODE></A>
+    <DD> Enables or disables screening of grid points in the 
+         exchange-correlation quadrature.
+    </DD>
+    <DT><A HREF="#CD_psitol">
+              <CODE>integer function CD_psitol(integer gridtype, 
+              REAL psitol) [interface.f]</CODE></A>
+    <DD> Defines the tolerance for the basis functions of the grid 
+         <CODE>gridtype</CODE>.
+    </DD>
+    <DT><A HREF="#CD_radial_zones">
+              <CODE>integer function CD_radial_zones(integer Nzones, 
+              Nangular_pt(*), REAL boundaries(*)) [interface.f]</CODE></A>
+    <DD> Defines the radial zones and the corresponding number of angular grid
+         points for radius dependent pruning of the angular grid. 
+    </DD>
+    <DT><A HREF="#CD_lebedevon">
+              <CODE>integer function CD_lebedevon(integer gridtype, nang) 
+              [interface.f]</CODE></A>
+    <DD> Selects the Lebedev angular grid and sets the number of angular 
+         points to <CODE>nang</CODE>.
+    </DD>
+    <DT><A HREF="#CD_gausslon">
+              <CODE>integer function CD_gausslon(integer ntheta) 
+              [interface.f]</CODE></A>
+    <DD> Selects the Gauss-Legendre angular grid and sets the total number of 
+         angular points to <CODE>2*ntheta**2</CODE>.
+    </DD>
+    <DT><A HREF="#CD_euleron">
+              <CODE>integer function CD_euleron(integer nradial(7)) 
+              [interface.f]</CODE></A>
+    <DD> Selects the Euler-MacLaurin radial grid 
+         and sets the number of radial points for each row in the periodic
+         table to the corresponding value from <CODE>nradial</CODE>.
+    </DD>
+    <DT><A HREF="#CD_logon">
+              <CODE>integer function CD_logon(integer nradial(7)) 
+              [interface.f]</CODE></A>
+    <DD> Selects the logarithmic radial grid 
+         and sets the number of radial points for each row in the periodic
+         table to the corresponding value from <CODE>nradial</CODE>.
+    </DD>
+    <DT><A HREF="#CD_gridscale">
+              <CODE>integer function CD_gridscale(REAL factor) 
+              [interface.f]</CODE></A>
+    <DD> Sets the grid scaling factor to <CODE>factor</CODE>.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="coulomb_specific_switches">
+    <H3>Coulomb specific switches</H3></A>
+<DD>
+    <DL>
+    <DT><CODE>integer function CD_jmulton() [interface.f]</CODE> 
+    <DD> Switches the use of the multipole expansion for the Coulomb 
+         integrals on.
+    </DD> 
+    <DT><CODE>integer function CD_pener(integer itol) [interface.f]</CODE>
+    <DD> Sets the penetration tolerance for the multipole expansion of the 
+         Coulomb integrals. If the 2 overlap distribution penetrate each 
+         other to much the multipole expansion can not be used.
+    </DD>
+    <DT><CODE>integer function CD_over(integer itol) [interface.f]</CODE>
+    <DD> Sets the overlap tolerance. If the overlap of a pair of Gaussian is
+         too small they do not form a charge center.
+    </DD>
+    <DT><CODE>integer function CD_pole(integer ipol) [interface.f]</CODE>
+    <DD> Sets the maximum angular momentum in the multipole expansion. 
+         The highest value supported is 6.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="global_enquiry_functions">
+    <H3>Global enquiry functions</H3>
+    </A>
+<DD>
+    <DL>
+    <DT><CODE>logical function CD_active() [interface.f]</CODE>
+    <DD> Tests whether the DFT module is activated. It returns 
+         <CODE>.true.</CODE> if it is activated and <CODE>.false.</CODE> 
+         otherwise.
+    </DD>
+    <DT><CODE>subroutine CD_print_joboptions() [interface.f]</CODE>
+    <DD> Writes the current settings of the DFT options to standard output.
+    </DD>
+    <DT><CODE>logical function CD_check_print(integer level) 
+              [interface.f]</CODE>
+    <DD> Test whether output at the specified verbosity level has been 
+         activated.
+         It returns <CODE>.true.</CODE> if the verbosity level is equal to or 
+         larger than <CODE>level</CODE> and returns <CODE>.false.</CODE> 
+         otherwise.
+    </DD>
+    <DT><CODE>logical function CD_2e() [interface.f]</CODE>
+    <DD> Tests whether a modified Fock builder is in operation. It returns 
+         <CODE>.true.</CODE> if a modified Fock build is used and 
+         <CODE>.false.</CODE> otherwise.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="density_functional_specific_enquiry_functions">
+    <H3>Density functional specific enquiry functions</H3>
+    </A>
+<DD>
+    <DL>
+    <DT><CODE>logical function CD_HF_exchange() [interface.f]</CODE>
+    <DD> Tests whether the Hartree-Fock exchange is switched on. It returns 
+         <CODE>.true.</CODE> if the Hartree-Fock exchange is switched on and
+         <CODE>.false.</CODE> otherwise.
+    </DD>
+    <DT><CODE>real*8  function CD_HF_exchange_weight() [interface.f]</CODE>
+    <DD> Returns the weight of the Hartree-Fock exchange terms.
+    </DD>
+    <DT><CODE>logical function IL_test4(integer p1, p2, q1, q2, 
+              ip12_list(*)) [interface.f]</CODE>
+    <DD> Tests whether the integral generation for the shell quartet 
+         specified by <CODE>p1</CODE>, <CODE>p2</CODE>, <CODE>q1</CODE>, and
+         <CODE>q2</CODE> can be skipped. It returns <CODE>.true.</CODE> if 
+         these integrals can be skipped and <CODE>.false.</CODE> otherwise.
+    </DD>
+    <DT><CODE>logical function IL_test4c(integer q2x,
+              REAL fac1, fac2, integer ic(3)) [interface.f]</CODE>
+    <DD> <B>???</B> Should be used only when the multipole code is active 
+         because of efficiency reasons.
+    </DD>
+    <DT><CODE>logical function IL_list4(integer p1, p2, q1, q2,
+              logical bi_on(4)) [interface.f]</CODE>
+    <DD><B>???</B>
+    </DD>
+    <DT><CODE>logical function IL_Bielectronic(integer p1, p2, q1) 
+              [interface.f]</CODE>
+    <DD><B>???</B>
+    </DD>
+    <DT><CODE>logical function IL_Bielec2(integer p1, p2, q1, q2) 
+              [interface.f]</CODE>
+    <DD><B>???</B>
+    </DD>
+    <DT><CODE>REAL function exad_find(integer shell) [interface.f]</CODE>
+    <DD> Finds and returns the lowest exponent in the contraction for the 
+         shell specified by <CODE>shell</CODE>.
+    </DD>
+    <DT><CODE>REAL function IL_shlove_tol() [interface.f]</CODE>
+    <DD> Returns the shell over tolerance <B>???</B>.
+    </DD>
+    </DL>
+</DD>
+<DT><A NAME="coulomb_specific_enquiry_functions">
+    <H3>Coulomb specific enquiry functions</H3>
+    </A>
+<DD>
+    <DL>
+    <DT><CODE>logical function CD_HF_coulomb() [interface.f]</CODE>
+    <DD> Tests whether the host code should compute the full Coulomb energy
+         and Fock matrix using 2-electron integrals. It returns 
+         <CODE>.true.</CODE> if the Coulomb terms should be computed and 
+         <CODE>.false.</CODE> otherwise.
+    </DD>
+    <DT><CODE>logical function CD_HF_coulomb_deriv() [interface.f]</CODE>
+    <DD> Tests whether the host code should compute the full Coulomb 
+         integral derivatives using 2-electron integrals. It returns 
+         <CODE>.true.</CODE> if the Coulomb integral derivative terms should
+         be computed and <CODE>.false.</CODE> otherwise.
+    </DD>
+    <DT><CODE>logical function CD_request_multstate() [interface.f]</CODE>
+    <DD> Tests whether the DFT module will use the multipole expansion to 
+         compute the Coulomb integrals.
+    </DD>
+    </DL>
+</DD>
+</DL>
+
+<A NAME="implementation">
+<H2>Implementation of the module</H2>
+</A>
+
+The interface to the DFT module is constructed using a number of sub-interfaces.
+These sub-interfaces are used to access basic concepts within the DFT module 
+that also have a meaning standing alone. These sub-interfaces are
+<UL>
+<LI><A HREF="#basis_set_interface">
+    The basis set interface</A>
+<LI><A HREF="#molecular_system_interface">
+    The molecular system interface</A>
+<LI><A HREF="#coulomb_integral_interface">
+    The Coulomb integral interface</A>
+</UL>
+Besides the sub-interfaces there is the main part of the DFT module that 
+contains among control switches and query functions the main DFT drivers: 
+<UL>
+<LI><A HREF="#DFT_module">
+    The DFT module</A>
+</UL>
+
+<A NAME="basis_set_interface">
+<H3>The basis set interface</H3>
+</A>
+<P>
+The basis set interface is concerned with defining the molecular basis sets
+and fitting basis sets.
+A basis set is defined here as a collection of basis functions for 
+all centers in the system that are meant for one specific purpose.
+E.g. there is an atomic orbital basis set, and perhaps an auxilary basis set
+of some kind, etc.
+</P><P>
+In practical calculations there will always be an atomic basis set but fitting
+basis sets and other auxilary basis sets are optional. These basis sets are
+identified by basis set tags where the atomic orbital basis set is always
+tagged 1.
+</P><P>
+Based on the above considerations the basis set information is stored such
+that for every basis set and every center there is a pointer to the basis
+set definition. This way the basis sets can be stored efficiently as every
+unique set of functions is stored only once.
+</P><P>
+In ordinary DFT calculations all the centers present will be atoms and typically
+have basis functions. However, in the QM/MM arena there will be many point
+charges and their behaviour can be very different from normal atoms. So to cater
+for this we have to allow for centers without basis functions.
+</P><P>
+The basis set module can store segmented contracted basis sets and basis sets
+employing hybrid shells. However, generally contracted basis sets can not be
+stored.
+</P><P>
+The relevant data is stored in the common blocks:
+<UL>
+<LI><A HREF="#common_basis_cent_info">
+    <CODE>common /basis_cent_info/</CODE></A>
+<LI><A HREF="#common_basis_size_info">
+    <CODE>common /basis_size_info/</CODE></A>
+<LI><A HREF="#common_basis_cont_info">
+    <CODE>common /basis_cont_info/</CODE></A>
+<LI><A HREF="#common_basis_sets">
+    <CODE>common /basis_sets/</CODE></A>
+</UL>
+and can be accessed through the functions:
+<UL>
+<LI><A HREF="#BL_init">
+    <CODE>subroutine BL_init</CODE></A>
+<LI><A HREF="#BL_assign_type">
+    <CODE>integer function BL_assign_type</CODE></A>
+<LI><A HREF="#BL_assign_types_by_z">
+    <CODE>integer function BL_assign_types_by_z</CODE></A>
+<LI><A HREF="#BL_atomtyp_exist">
+    <CODE>logical function BL_atomtyp_exist</CODE></A>
+<LI><A HREF="#BL_basis_size">
+    <CODE>integer function BL_basis_size</CODE></A>
+<LI><A HREF="#BL_clear_basis_set">
+    <CODE>integer function BL_clear_basis_set</CODE></A>
+<LI><A HREF="#BL_create_atomtag">
+    <CODE>integer function BL_create_atomtag</CODE></A>
+<LI><A HREF="#BL_find_atomtag">
+    <CODE>integer function BL_find_atomtag</CODE></A>
+<LI><A HREF="#BL_get_atom_type">
+    <CODE>integer function BL_get_atom_type</CODE></A>
+<LI><A HREF="#BL_import_shell">
+    <CODE>integer function BL_import_shell</CODE></A>
+<LI><A HREF="#BL_max_shell_count">
+    <CODE>integer function BL_max_shell_count</CODE></A>
+<LI><A HREF="#BL_maxang_on_atom">
+    <CODE>integer function BL_maxang_on_atom</CODE></A>
+<LI><A HREF="#BL_num_sets">
+    <CODE>integer function BL_num_sets</CODE></A>
+<LI><A HREF="#BL_num_types">
+    <CODE>integer function BL_num_types</CODE></A>
+<LI><A HREF="#BL_summarise">
+    <CODE>integer function BL_summarise</CODE></A>
+<LI><A HREF="#BL_write_basis">
+    <CODE>integer function BL_write_basis</CODE></A>
+</UL>
+</P><P>
+Note that the current implementation of the interface has no provision to get
+data out of the module, only functions to put data in are defined. So for
+data retrieval direct access to the common blocks is required.
+
+<A NAME="common_basis_cent_info">
+<H4>common /basis_cent_info/ [common/dft_basis]</H4>
+</A>
+This common block contains
+<PRE>
+      integer num_types, atom_tag
+      common/basis_cent_info/num_types(max_tag),
+     &                       atom_tag(max_tag,max_atom)
+</PRE>
+where
+<DL>
+<DT><CODE>num_types</CODE>
+<DD> Holds for each basis set the number of atomic basis sets that are used.
+</DD>
+<DT><CODE>atom_tag</CODE>
+<DD> Holds an atom type number for each atom. Thus this is a mapping from the
+     atom identifiers in the geometry to the atom types in the basis set
+     data structures. In the current implementation there is room for a 
+     different mapping for each basis set.<br>
+     Valid values are:
+     <DL>
+     <DT>0
+     <DD>A center without a basis set.
+     <DT>1 &lt;= <CODE>atom_tag</CODE> &lt;= <CODE>num_types(basis_tag)</CODE>
+     <DD>The number of a atomic basis set.
+     </DL>
+     All other values mean that the basis has not been defined. This should
+     trigger an error.
+<DD>
+</DL>
+
+<A NAME="common_basis_size_info">
+<H4>common /basis_size_info/ [common/dft_basis]</H4>
+</A>
+This common block contains all information related to the total size of the
+basis sets:
+<PRE>
+      integer Ashl, Aprm, Abfn
+      integer totshl, totprm, totbfn
+      integer size_shlA, size_basA, size_primA
+      integer maxi_shlA, maxi_basA, maxi_primA
+      common/basis_size_info/Ashl(max_tag,max_atype),
+     &                       Aprm(max_tag,max_atype),
+     &                       Abfn(max_tag,max_atype),
+     &                       totshl(max_tag),
+     &                       totprm(max_tag),
+     &                       totbfn(max_tag),
+     &                       size_shlA,maxi_shlA,
+     &                       size_basA,maxi_basA,
+     &                       size_primA,maxi_primA
+</PRE>
+where
+<DL>
+<DT><CODE>Ashl</CODE>
+<DD> The number of shells for each basis set and element.
+<DT><CODE>Aprm</CODE>
+<DD> The number of primitive Gaussians for each basis set and element.
+<DT><CODE>Abfn</CODE>
+<DD> The number of basis functions for each basis set and element.
+<DT><CODE>totshl</CODE>
+<DD> The total number of shells in a basis set.
+<DT><CODE>totprm</CODE>
+<DD> The total number of primitive Gaussians in a basis set.
+<DT><CODE>totbfn</CODE>
+<DD> The total number of basis functions in a basis set.
+</DL>
+
+<A NAME="common_basis_cont_info">
+<H4>common /basis_cont_info/ [common/dft_basis]</H4>
+</A>
+This common block contains the administration of the contractions. The actual
+contractions are stored in 
+<A HREF="#common_basis_sets"><CODE>common /basis_sets/</CODE></A>.
+The administrative data is:
+<PRE>
+      integer num_shl, atm_typ, nprim, angmom, hybrid, pstart
+      common/basis_cont_info/num_shl(max_tag,max_atype),
+     &                       atm_typ(max_tag,max_atype),
+     &                       nprim(max_tag,max_atype,max_shel),
+     &                       angmom(max_tag,max_atype,max_shel),
+     &                       hybrid(max_tag,max_atype,max_shel),
+     &                       pstart(max_tag,max_atype,max_shel)
+</PRE>
+where
+<DL>
+<DT><CODE>num_shl</CODE>
+<DD> The number of shells for an element in a specific basis set.
+<DT><CODE>atm_typ</CODE>
+<DD> The atomic number per basis set and sequential number.
+<DT><CODE>nprim</CODE>
+<DD> The number of primitive Gaussians per basis set, element and shell.
+<DT><CODE>angmom</CODE>
+<DD> The maximum angular momentum for basis functions within a shell stored 
+     as <I>l+1</I>.
+<DT><CODE>hybrid</CODE>
+<DD> The minimum angular momentum for basis functions within a shell also 
+     stored as <I>l+1</I>. This information is used to specify all angular
+     momenta of basis functions in a hybrid shell. 
+     I.e. for non-hybrid shells <CODE>hybrid</CODE> is equal to 
+     <CODE>angmom</CODE>, but for a <I>sp</I>-shell <CODE>hybrid</CODE> would
+     be 1 whereas <CODE>angmom</CODE> would be 2.
+<A NAME="common_basis_cont_info_pstart">
+<DT><CODE>pstart</CODE></A>
+<DD> Holds an index for each shell specifying where the exponents and 
+     contractions start in 
+     <A HREF="#common_basis_sets"><CODE>common /basis_sets/</CODE></A>
+</DL>
+
+<A NAME="common_basis_sets">
+<H4>common /basis_sets/ [common/dft_basis]</H4>
+</A>
+This common block contains the actual exponents and contraction coefficients
+defining the basis:
+<PRE>
+      REAL  alpha
+      REAL  cont_coeff
+      integer num_bset,bset_tags
+      common/basis_sets/alpha(max_tag,max_atype,max_prm),
+     &                  cont_coeff(max_tag,max_atype,max_prm,max_ang),
+     &                  num_bset,bset_tags(max_tag)
+</PRE>
+where
+<DL>
+<DT><CODE>alpha</CODE>
+<DD> The exponents of the primitive Gaussians. For a given basis set and element
+     all exponents of all shells are listed one after the other. To associate
+     an exponent with a shell 
+     <A HREF="#common_basis_cont_info_pstart">pstart</A> 
+     is needed.
+<DT><CODE>cont_coeff</CODE>
+<DD> The contraction coefficients of the primitive Gaussians. They are listed
+     in the same way as the exponents. However to store hybrid shells a number
+     of coefficients is needed per exponent. 
+<DT><CODE>num_bset</CODE>
+<DD> The number of basis sets stored.
+<DT><CODE>bset_tags</CODE>
+<DD> <B>???</B>
+</DL>
+
+<A NAME="BL_init">
+<H4>subroutine BL_init [basis.f]</H4>
+</A>
+This subroutine fills the basis sets data structures with values that can 
+easily be recognised as undefined. Thus enabling runtime error checking on
+the basis set data.
+
+<A NAME="BL_assign_type">
+<H4>integer function BL_assign_type(integer basis_tag, atom_number, atom_type) 
+    [basis.f]</H4>
+</A>
+This function sets links the set of basis functions identified by 
+<CODE>atom_type</CODE> to the basis set specified by <CODE>basis_tag</CODE>
+and atom number <CODE>atom_number</CODE> in the geometry. In fact the 
+information is stored in <CODE>/basis_cent_info/atom_tag</CODE>.
+<p>
+Valid inputs are:
+<UL>
+<LI>1 &lt;= <CODE>basis_tag</CODE> &lt;= <CODE>max_tag</CODE>
+<LI>1 &lt;= <CODE>atom_number</CODE> &lt;= Number of atoms
+<LI>0 &lt;= <CODE>atom_type</CODE> &lt;= Number of types
+</UL>
+all other inputs will result in an error being triggered.
+
+<A NAME="BL_assign_types_by_z">
+<H4>integer function BL_assign_types_by_z(integer basis_tag) 
+    [basis.f]</H4>
+</A>
+This function builds the table of pointers for atoms to basis set definitions
+for the basis set specified by <CODE>basis_tag</CODE>. The assumption is that
+all atoms with the same atomic number have the same basis set. Because
+of this limitation the use of this function is strongly discouraged.
+<p>
+Valid inputs are:
+<UL>
+<LI>1 &lt;= <CODE>basis_tag</CODE> &lt;= <CODE>max_tag</CODE>
+</UL>
+all other inputs will result in an error being triggered.
+
+<A NAME="BL_atomtyp_exist">
+<H4>logical function BL_atomtyp_exist(integer basis_tag, atomic_number) 
+    [basis.f]</H4>
+</A>
+<P>
+This function test whether the basis set specified by <CODE>basis_tag</CODE> 
+contains an atomic basis set for the element specified by 
+<CODE>atomic_number</CODE>. If so it returns <CODE>.true.</CODE>, otherwise
+it returns <CODE>.false.</CODE>.
+</P><P>
+The use of the information obtained from this function is limited as it is 
+possible to have more than 1 basis set for the same element. However, it is 
+not possible to check which basis set definitions there are for a given element.
+</P>
+
+<A NAME="BL_basis_size">
+<H4>integer function BL_basis_size(integer basis_tag) [basis.f]</H4>
+</A>
+<P>
+This function returns the total number of basis functions in the basis set
+specified by <CODE>basis_tag</CODE>.
+</P>
+
+<A NAME="BL_clear_basis_set">
+<H4>integer function BL_clear_basis_set(integer basis_tag) [basis.f]</H4>
+</A>
+This function clears the definition of the basis set corresponding to a specific
+tag. 
+
+<A NAME="BL_create_atomtag">
+<H4>integer function BL_create_atomtag(integer basis_tag, atomic_number) 
+    [basis.f]</H4>
+</A>
+This function adds a new atom type specified by <CODE>atomic_number</CODE>
+to the basis set specified by <CODE>basis_tag</CODE>. The corresponding atomic 
+basis set is initialised to being empty.
+
+<A NAME="BL_find_atomtag">
+<H4>integer function BL_find_atomtag(integer basis_tag, atomic_number) 
+    [basis.f]</H4>
+</A>
+<P>
+This function returns the first atom type number in the basis set specified
+by <CODE>basis_tag</CODE> for which the nuclear charge is equal to 
+<CODE>atomic_number</CODE>. The value of this function is limited as there may
+be more than 1 atom type for an atom with charge <CODE>atomic_number</CODE>.
+</P>
+
+<A NAME="BL_get_atom_type">
+<H4>integer function BL_get_atom_type(integer basis_tag, atom_number) 
+    [basis.f]</H4>
+</A>
+<P>
+This function returns the basis set definition identifier of the atom identified
+by <CODE>atom_number</CODE> in the geometry and the basis set specified by 
+<CODE>basis_tag</CODE>.
+<P>
+Valid return values are: 0 &lt;= <CODE>BL_get_atom_type</CODE> &lt;=
+Number of atom types. If any other value is found an error condition is
+triggered.
+</P>
+
+<A NAME="BL_import_shell">
+<H4>integer function BL_import_shell(integer basistag, atomtag, nprim, ang, hyb,
+    REAL expo(*), ccs(*), ccp(*), ccd(*), ccf(*), ccg(*)) 
+    [basis.f]</H4>
+</A>
+This function stores the atomic basis set for the atom specified by it tag
+<CODE>atomtag</CODE> in the basis set specified by <CODE>basistag</CODE>.
+All data structures should be delivered even if they are not being used in the
+atomic basis set. 
+
+<A NAME="BL_max_shell_count">
+<H4>integer function BL_max_shell_count()
+    [basis.f]</H4>
+</A>
+<P>
+This function returns the maximum number of shells in any basis set.
+</P>
+
+<A NAME="BL_maxang_on_atom">
+<H4>integer function BL_maxang_on_atom(integer basistag, atom_number) 
+    [basis.f]</H4>
+</A>
+This function returns the maximum angular momentum of the shells on an atom
+specified by its number <CODE>atom_number</CODE> in basis set 
+<CODE>basistag</CODE>.
+
+<A NAME="BL_num_sets">
+<H4>integer function BL_num_sets()
+    [basis.f]</H4>
+</A>
+Returns the number of basis sets.
+
+<A NAME="BL_num_types">
+<H4>integer function BL_num_types(integer basis_tag)
+    [basis.f]</H4>
+</A>
+Returns the number of atom types for the basis set specified by 
+<CODE>basis_tag</CODE>.
+
+<A NAME="BL_summarise">
+<H4>integer function BL_summarise()
+    [basis.f]</H4>
+</A>
+Writes a table containing the basis set specifications to the standard output.
+
+<A NAME="BL_write_basis">
+<H4>integer function BL_write_basis(integer basistag) [basis.f]</H4>
+</A>
+Writes the basis set associated with the specified tag to the standard output
+file.
+
+<A NAME="molecular_system_interface">
+<H3>The molecular system interface</H3>
+</A>
+This interface is concerned with defining the molecular structure information 
+used within the DFT module. In fact it just provides an interface to enter the 
+molecular structure data. These data are store in 
+<UL>
+<LI><A HREF="#common_sysinf">
+    <CODE>common /sysinf/</CODE></A>
+</UL>
+through a call to
+<UL>
+<LI><A HREF="#CD_import_geom">
+    <CODE>subroutine CD_import_geom</CODE></A>
+</UL>
+
+<A NAME="common_sysinf">
+<H4>common /sysinf/ [common/dft_mol_info]</H4>
+</A>
+This common block specifies the molecular system in the current calculation.
+<PRE>
+       integer natoms,nelectrons,ian
+       REAL  atom_c
+       common/sysinf/natoms,nelectrons,ian(max_atom),atom_c(max_atom,3)
+</PRE>
+where
+<DL>
+<DT><CODE>natoms</CODE>
+<DD> Is the number of atoms in the molecule.
+<DT><CODE>nelectrons</CODE>
+<DD> Is the number of electrons in the system.
+<DT><CODE>ian</CODE>
+<DD> Is the atomic number of the atoms.
+<DT><CODE>atom_c</CODE>
+<DD> Are the nuclear coordinates.
+</DL>
+
+<A NAME="CD_import_geom">
+<H4>subroutine CD_import_geom(integer natom, nelec, REAL coords(3,*),
+               integer atomicno(*)) [interface.f]</H4>
+</A>
+This subroutine copies the molecular structure information entered into 
+<A HREF="#common_sysinf">common /sysinf/</A>.
+
+<A NAME="coulomb_integral_interface">
+<H3>The Coulomb integral interface</H3>
+</A>
+<P>
+The DFT module facilitates a few options to improve the performance of the
+Coulomb integral evaluation. Although these options are not specific to DFT they
+will be important in calculations on larger molecules, which is the target area
+of the current module.
+</P><P>
+The Coulomb integral options include the usage of auxilary basis functions
+with the Dunlap fitting procedure and multipole expansions.
+</P><P>
+The Coulomb integral part uses the common blocks
+<UL>
+<LI><A HREF="#common_j_switch">
+    <CODE>common /j_switch/</CODE></A>
+<LI><A HREF="#common_pole_options">
+    <CODE>common /pole_options/</CODE></A>
+</UL>
+The fit options can be set through the functions
+<UL>
+<LI><A HREF="#CD_4c2eon">
+    <CODE>integer function CD_4c2eon</CODE></A>
+<LI><A HREF="#CD_jfiton">
+    <CODE>integer function CD_jfiton</CODE></A>
+<LI><A HREF="#CD_jfitgon">
+    <CODE>integer function CD_jfitgon</CODE></A>
+</UL>
+but no specific enquiry functions are implemented.
+The various multipole expansion options can be set through the functions
+<UL>
+<LI><A HREF="#CD_jmulton">
+    <CODE>integer function CD_jmulton</CODE></A>
+<LI><A HREF="#CD_pener">
+    <CODE>integer function CD_pener</CODE></A>
+<LI><A HREF="#CD_over">
+    <CODE>integer function CD_over</CODE></A>
+<LI><A HREF="#CD_pole">
+    <CODE>integer function CD_pole</CODE></A>
+</UL>
+and the current settings can be queried through
+<UL>
+<LI><A HREF="#CD_HF_coulomb">
+    <CODE>logical function CD_HF_coulomb</CODE></A>
+<LI><A HREF="#CD_HF_coulomb_deriv">
+    <CODE>logical function CD_HF_coulomb_deriv</CODE></A>
+<LI><A HREF="#CD_request_multstat">
+    <CODE>logical function CD_request_multstat</CODE></A>
+</UL>
+General enquiry functions for the Coulomb part are
+<UL>
+<LI><A HREF="#CD_2e">
+    <CODE>locigal function CD_2e</CODE></A>
+</UL>
+</P>
+
+<A NAME="common_j_switch">
+<H4><CODE>common /j_switch/ [common/dft_module_comm]</CODE></H4>
+</A>
+This common block contains the Coulomb integral related switches. They are
+<PRE>
+      logical jfit_sw, jfitg_sw, cmm_sw, mult_sw
+      logical dunlap_sw, potential_sw, dft2e_sw
+      common/j_switch/jfit_sw,jfitg_sw,cmm_sw,mult_sw,
+     &                dunlap_sw,potential_sw,dft2e_sw
+</PRE>
+where
+<DL>
+<DT><CODE>jfit_sw</CODE>
+<DD> Switch specifying whether the Coulomb potential fitting is on.
+<DT><CODE>jfitg_sw</CODE>
+<DD> Switch specifying whether the fitting of the Coulomb potential gradient
+     is on.
+<DT><CODE>cmm_sw</CODE>
+<DD> ???
+<DT><CODE>mult_sw</CODE>
+<DD> Switch specifying whether the multi pole expansion of the Coulomb integrals
+     should be used.
+<DT><CODE>dunlap_sw</CODE>
+<DD> Switch specifying whether the Dunlap fitting procedure should be used.
+<DT><CODE>potential_sw</CODE>
+<DD> Switch specifying whether 3 center overlap integrals are to be used
+     <B>???</B>
+<DT><CODE>dft2e_sw</CODE>
+<DD> Switch specifying whether the module generates modified Coulomb integrals.
+</DL>
+
+<A NAME="common_pole_options">
+<H4><CODE>common /pole_options/ [common/dft_module_comm]</CODE></H4>
+</A>
+This common block contains the parameters to complete the specification of the
+Coulomb integral multipole expansion. They
+<PRE>
+      integer poleexp_num,over_tol,pener_tol
+      REAL  tttt2
+      common/pole_options/tttt2,poleexp_num,over_tol,pener_tol
+</PRE>
+where
+<DL>
+<DT><CODE>tttt2</CODE>
+<DD> An intermediate result used for the actual test on the charge density
+     penetration. It is defined as 
+     <CODE>log(0.1d0) * dble(pener_tol) - 1.5d0 * log(2.0d0)</CODE>.
+<DT><CODE>poleexp_num</CODE>
+<DD> The number of terms in the multipole expansion of the Coulomb integrals.
+<DT><CODE>over_tol</CODE>
+<DD> The negated 10-base logarithm of the overlap tolerance (I.e. the higher
+     the value, the smaller the tolerance). Overlap distributions with 
+     prefactors less than this tolerance will be considered not to generate
+     a charge center.
+<DT><CODE>pener_tol</CODE>
+<DD> The negated 10-base logarithm of the charge density penetration tolerance 
+     (I.e. the higher the value, the smaller the tolerance).
+     If the penetration of the 2 charge densities of a 2-electron integral 
+     exceeds this tolerance the multipole expansion will not be used.
+</DL>
+
+<A NAME="CD_4c2eon">
+<H4><CODE>integer function CD_4c2eon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function explicitly switches on the normal evaluation of the 4-center 
+2-electron integrals.
+</P>
+
+<A NAME="CD_jfiton">
+<H4><CODE>integer function CD_jfiton() [interface.f]</CODE></H4>
+</A>
+<P>
+Switches the fitting of the Coulomb integrals on.
+</P>
+
+<A NAME="CD_jfitgon">
+<H4><CODE>integer function CD_jfitgon() [interface.f]</CODE></H4>
+</A>
+<P>
+Switches the fitting of the Coulomb integral gradients on.
+</P>
+
+<A NAME="CD_jmulton">
+<H4><CODE>integer function CD_jmulton() [interface.f]</CODE></H4>
+</A>
+<P>
+Switches the use of the multipole expansion on.
+</P>
+
+<A NAME="CD_pener">
+<H4><CODE>integer function CD_pener(integer itol) [interface.f]</CODE></H4>
+</A>
+<P>
+Sets the penetration tolerance for the multipole expansion of the Coulomb
+integrals. If the charge densities of the 2 electrons penetrate each other too
+much the multipole expansion becomes inaccurate.
+</P>
+
+<A NAME="CD_over">
+<H4><CODE>integer function CD_over(integer itol) [interface.f]</CODE></H4>
+</A>
+<P>
+Sets the overlap tolerance in the multipole expansion of the Coulomb
+integrals. If the overlap of the a pair of Gaussians is too small they do not
+form a charge center.
+</P>
+
+<A NAME="CD_pole">
+<H4><CODE>integer function CD_pole(integer itol) [interface.f]</CODE></H4>
+</A>
+<P>
+Sets the maximum angular momentum in the multipole expansion. The highest
+value supported is 6. 
+</P>
+
+<A NAME="CD_HF_coulomb">
+<H4><CODE>logical function CD_HF_coulomb() [interface.f]</CODE></H4>
+</A>
+<P>
+Tests whether the host code should compute the full Coulomb energy and Fock
+matrix using 2-electron integrals. It returns .true. if the Coulomb terms
+should be computed and .false. otherwise. Essentially it returns 
+<CODE>.not.jfit_sw</CODE>.
+</P>
+
+<A NAME="CD_HF_coulomb_deriv">
+<H4><CODE>logical function CD_HF_coulomb_deriv() [interface.f]</CODE></H4>
+</A>
+<P>
+Tests whether the host code should compute the full Coulomb integral 
+derivatives using 2-electron integrals. It returns .true. if the Coulomb 
+integral derivatives should be computed and .false. otherwise. 
+Essentially it returns <CODE>.not.jfitg_sw</CODE>.
+</P>
+
+<A NAME="CD_request_multstat">
+<H4><CODE>logical function CD_request_multstat() [interface.f]</CODE></H4>
+</A>
+<P>
+Tests whether the DFT module will use the multipole expansion to compute
+the Coulomb integrals.
+</P>
+
+<A NAME="CD_2e">
+<H4><CODE>logical function CD_2e() [interface.f]</CODE></H4>
+</A>
+<P>
+Tests whether the DFT module will any of the modification to compute the 
+Coulomb integrals.
+</P>
+
+<A NAME="density_functionals">
+<H3>The density functionals</H3>
+</A>
+<P>
+The module supports a number of density functionals. These functionals are 
+programmed such that they can be evaluated for densities (and density gradients)
+at a particular point is coordinate space.
+</P><P>
+The interface functions for selecting the density functionals discriminate
+<UL>
+<LI>exchange functionals, 
+<LI>correlation functionals, and 
+<LI>composite (exchange-correlation) functionals. 
+</UL>
+The interface functions are specified such that 
+<UL>
+<LI>If an exchange functional is selected all other exchange functionals
+    and all composite functionals are switched off.
+    The settings for the correlation functionals remain untouched.
+<LI>If a correlation functional is selected all other correlation functionals
+    and all composite functionals are switched off.
+    The settings for the exchange functionals remain untouched.
+<LI>If a composite functional is selected all settings are adjusted in 
+    accordance with the specification of the this functional.
+</UL>
+</P><P>
+The data structures involved in evaluating the functionals are in
+<UL>
+<LI><A HREF="#common_xc_func">
+    <CODE>common /xc_func/</CODE></A>
+</UL>
+The subroutines involved in selecting and evaluating the functionals are
+<UL>
+<LI><A HREF="#CD_b3lypon">
+    <CODE>integer function CD_b3lypon</CODE></A>
+<LI><A HREF="#CD_becke88on">
+    <CODE>integer function CD_becke88on</CODE></A>
+<LI><A HREF="#CD_bp86on">
+    <CODE>integer function CD_bp86on</CODE></A>
+<LI><A HREF="#CD_corroff">
+    <CODE>integer function CD_corroff</CODE></A>
+<LI><A HREF="#CD_hfexon">
+    <CODE>integer function CD_hfexon</CODE></A>
+<LI><A HREF="#CD_ldaon">
+    <CODE>integer function CD_ldaon</CODE></A>
+<LI><A HREF="#CD_lypon">
+    <CODE>integer function CD_lypon</CODE></A>
+<LI><A HREF="#CD_mix">
+    <CODE>integer function CD_mix</CODE></A>
+<LI><A HREF="#CD_p86on">
+    <CODE>integer function CD_p86on</CODE></A>
+<LI><A HREF="#CD_pz81on">
+    <CODE>integer function CD_pz81on</CODE></A>
+<LI><A HREF="#CD_vwnon">
+    <CODE>integer function CD_vwnon</CODE></A>
+<LI><A HREF="#CD_vwnrpaon">
+    <CODE>integer function CD_vwnrpaon</CODE></A>
+<LI><A HREF="#becke88">
+    <CODE>subroutine becke88</CODE></A>
+<LI><A HREF="#ecfunc">
+    <CODE>subroutine ecfunc</CODE></A>
+<LI><A HREF="#ueg">
+    <CODE>subroutine ueg</CODE></A>
+<LI><A HREF="#xc_lyp">
+    <CODE>subroutine xc_lyp</CODE></A>
+<LI><A HREF="#xc_p86">
+    <CODE>subroutine xc_p86</CODE></A>
+<LI><A HREF="#xc_pz81">
+    <CODE>subroutine xc_pz81</CODE></A>
+<LI><A HREF="#xc_vwn">
+    <CODE>subroutine xc_vwn</CODE></A>
+<LI><A HREF="#xc_vwnrpa">
+    <CODE>subroutine xc_vwnrpa</CODE></A>
+</UL>
+</P><P>
+
+<A NAME="common_xc_func">
+<H4><CODE>common /xc_func/ [common/dft_module_comm]</CODE></H4>
+</A>
+This common block contains the switches that define which functionals are
+active. Furthermore it contains weights specifying how the functional terms
+should be summed to obtain the final exchange-correlation functional. The
+common block is defined as
+<PRE>
+      REAL    hf_exch_wght, lda_wght, becke88_wght
+      REAL    lyp_wght, vwn_wght, vwnrpa_wght, pz81_wght, p86_wght
+      logical hf_exch_sw, lda_sw, becke88_sw, vwn_sw, vwnrpa_sw
+      logical lyp_sw, b3lyp_sw, becke88_lda_sw, gradcorr_sw
+      logical pz81_sw, p86_sw
+      common/xc_func/ hf_exch_wght, lda_wght, becke88_wght,
+     &     lyp_wght, vwn_wght, vwnrpa_wght, pz81_wght, p86_wght,
+     &     hf_exch_sw, lda_sw, becke88_sw, vwn_sw, vwnrpa_sw,
+     &     lyp_sw, b3lyp_sw, becke88_lda_sw, gradcorr_sw
+     &     pz81_sw, p86_sw
+</PRE>
+where
+<DL>
+<DT><CODE>hf_exch_wght</CODE>
+<DD> The fraction the Hartree-Fock exchange functional contributes to the
+     total functional.
+</DD>
+<DT><CODE>lda_wght</CODE>
+<DD> The fraction the LDA functional contributes.
+</DD>
+<DT><CODE>becke88_wght</CODE>
+<DD> The weight the Becke88 functional 
+     [<A HREF="dft_ref.html#Becke:1988">Becke:1988</A>]
+     has in the total functional.
+</DD>
+<DT><CODE>lyp_wght</CODE>
+<DD> The weight of the LYP functional 
+     [<A HREF="dft_ref.html#Lee:1988">Lee:1988</A>].
+</DD>
+<DT><CODE>vwn_wght</CODE>
+<DD> The weight of the VWN functional 
+     [<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>].
+</DD>
+<DT><CODE>vwnrpa_wght</CODE>
+<DD> The weight of the VWN functional fitted to RPA data.
+</DD>
+<DT><CODE>pz81_wght</CODE>
+<DD> The weight of the PZ81 functional 
+     [<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>].
+</DD>
+<DT><CODE>p86_wght</CODE>
+<DD> The weight of the P86 functional 
+     [<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>].
+</DD>
+<DT><CODE>hf_exch_sw</CODE>
+<DD> A switch telling whether the Hartree-Fock exchange should be used.
+<DT><CODE>lda_sw</CODE>
+<DD> A switch telling whether the LDA functional should be used.
+<DT><CODE>becke88_sw</CODE>
+<DD> A switch telling whether the Becke88 functional should be used.
+<DT><CODE>vwn_sw</CODE>
+<DD> A switch telling whether the VWN functional should be used.
+<DT><CODE>vwnrpa_sw</CODE>
+<DD> A switch telling whether the VWN-RPA functional should be used.
+<DT><CODE>lyp_sw</CODE>
+<DD> A switch telling whether the LYP functional should be used.
+<DT><CODE>b3lyp_sw</CODE>
+<DD> A switch telling whether the B3LYP functional should be used.
+     In fact this switch is used only for printing the active functional.
+<DT><CODE>becke88_lda_sw</CODE>
+<DD> A switch telling whether the Becke88 together with LDA
+     functional should be used.
+<DT><CODE>gradcorr_sw</CODE>
+<DD> A switch telling whether the gradient corrections should be included.
+<DT><CODE>pz81_sw</CODE>
+<DD> A switch telling whether the PZ81 functional 
+     [<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>]
+     should be used.
+<DT><CODE>p86_sw</CODE>
+<DD> A switch telling whether the P86 functional 
+     [<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>]
+     should be used.
+</DL>
+</P>
+
+<A NAME="CD_b3lypon">
+<H4><CODE>integer function CD_b3lypon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the B3LYP exchange-correlation functional on. This 
+implies switching on the following functionals with the corresponding weights
+<CENTER>
+<TABLE>
+<TR><TD>Becke88              </TD><TD> 0.72</TD></TR>
+<TR><TD>Hartree-Fock exchange</TD><TD> 0.20</TD></TR>
+<TR><TD>LDA                  </TD><TD> 0.80</TD></TR>
+<TR><TD>LYP                  </TD><TD> 0.81</TD></TR>
+<TR><TD>VWNRPA               </TD><TD> 0.19</TD></TR>
+</TABLE>
+</CENTER>
+All other functionals are switched off.
+</P>
+
+<A NAME="CD_becke88on">
+<H4><CODE>integer function CD_becke88on() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the Becke88 exchange functional
+[<A HREF="dft_ref.html#Becke:1988">Becke:1988</A>]
+on and all other exchange functionals off.
+</P>
+
+<A NAME="CD_bp86on">
+<H4><CODE>integer function CD_bp86on() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches a composite functional, Becke88 exchange functional
+[<A HREF="dft_ref.html#Becke:1988">Becke:1988</A>]
+plus P86 correlation functional
+[<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>],
+on and all other functionals off.
+</P>
+
+<A NAME="CD_corroff">
+<H4><CODE>integer function CD_corroff() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the all correlation functionals LYP and VWN off. 
+</P>
+
+<A NAME="CD_hfexon">
+<H4><CODE>integer function CD_hfexon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the Hartree-Fock exchange functional on and all other
+exchange functionals off.
+</P>
+
+<A NAME="CD_ldaon">
+<H4><CODE>integer function CD_ldaon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the LDA exchange functional on and all other 
+exchange functionals off.
+</P>
+
+<A NAME="CD_lypon">
+<H4><CODE>integer function CD_lypon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the LYP correlation functional 
+[<A HREF="dft_ref.html#Lee:1988">Lee:1988</A>]
+on and all other correlation functionals off.
+</P>
+
+<A NAME="CD_mix">
+<H4><CODE>integer function CD_mix(REAL whfex, wlda, wvwn, wvwnrpa, wlyp, 
+          wbecke88, wpz81, wp86) [interface.f]</CODE></H4>
+</A>
+<P>
+This function defines a composite functional that is an arbitrary linear 
+combination of the Hartree-Fock exchange, LDA exchange, Becke88 
+(without the LDA part) exchange, VWN correlation, VWNRPA correlation, 
+LYP correlation, PZ81 correlation, and P86 correlation functionals. If the
+weight for a functional is 0 the functional is switched off.
+</P><P>
+Note that the PZ81 functional is the local part of the gradient corrected
+P86 functional. So using PZ81 is implicit in using P86!
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>whfex</CODE>
+<DD> The weight for the Hartree-Fock exchange functional.
+<DT><CODE>wlda</CODE>
+<DD> The weight for the LDA exchange functional.
+<DT><CODE>wvwn</CODE>
+<DD> The weight for the VWN correlation functional
+     [<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>].
+<DT><CODE>wvwnrpa</CODE>
+<DD> The weight for the VWNRPA correlation functional
+     [<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>].
+<DT><CODE>wlyp</CODE>
+<DD> The weight for the LYP correlation functional
+     [<A HREF="dft_ref.html#Lee:1988">Lee:1988</A>].
+<DT><CODE>wbecke88</CODE>
+<DD> The weight for the Becke88 exchange functional
+     [<A HREF="dft_ref.html#Becke:1988">Becke:1988</A>].
+<DT><CODE>wpz81</CODE>
+<DD> The weight for the PZ81 correlation functional
+     [<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>].
+<DT><CODE>wp86</CODE>
+<DD> The weight for the P86 correlation functional
+     [<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>].
+</DL>
+</P>
+
+<A NAME="CD_p86on">
+<H4><CODE>integer function CD_p86on() [interface.f]</CODE></H4>
+</A>
+This function switches the Perdew86 gradient corrected correlation functional 
+[<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>]
+on an all other correlation functionals off. 
+</P><P>
+Note that the PZ81 functional 
+[<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>]
+is used as the local part of the P86 functional. So using PZ81 is implicit in
+using P86.
+</P>
+
+<A NAME="CD_pz81on">
+<H4><CODE>integer function CD_pz81on() [interface.f]</CODE></H4>
+</A>
+This function switches the Perdew-Zunger correlation functional 
+[<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>]
+on an all other correlation functionals off. 
+</P>
+
+<A NAME="CD_vwnon">
+<H4><CODE>integer function CD_vwnon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the VWN correlation functional 
+[<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>]
+on and all other correlation functionals off.
+</P>
+
+<A NAME="CD_vwnrpaon">
+<H4><CODE>integer function CD_vwnrpaon() [interface.f]</CODE></H4>
+</A>
+<P>
+This function switches the VWN-RPA correlation functional on 
+[<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>]
+and all other correlation functionals off.
+</P>
+
+<A NAME="becke88">
+<H4><CODE>subroutine becke88(logical spintyp_sw, REAL rho(2), grho(3,2), 
+          gama, gamb, xc_ept, xc_vpt(2), xc_vdpt(3,2), scale, lda_sw) 
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the Becke 
+<A HREF="dft_ref.html#Becke:1988">[Becke:1988]</A>
+exchange potential energy for a given electron density and density gradient.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>grho</CODE>
+<DD>The gradient of <CODE>rho</CODE>.
+<DT><CODE>gama</CODE>
+<DD>The square of the 2-norm of the alpha density gradient.
+<DT><CODE>gamb</CODE>
+<DD>The square of the 2-norm of the beta density gradient.
+<DT><CODE>xc_ept</CODE>
+<DD>On entry the total exchange energy sofar.<BR>
+    On return the original energy plus the total exchange energy corresponding 
+    to the current density.
+<DT><CODE>xc_vpt</CODE>
+<DD>On entry the total exchange energy in the closed shell case, otherwise the
+    alpha and beta exchange energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density and density gradient.
+<DT><CODE>xc_vdpt</CODE>
+<DD>On entry the gradient of <CODE>xc_vdpt</CODE> sofar.
+    On return the original gradient plus the result for the current 
+    density and density gradient.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+<DT><CODE>lda_sw</CODE>
+<DD>A switch to indicate whether this functional is used together with the
+    <A HREF="#ueg">LDA functional</A>.
+</DL>
+</P>
+
+<A NAME="ecfunc">
+<H4><CODE>subroutine ecfunc(REAL rho(mxp,2), grho(mxp,2,3), wt(npts), xc_ept,
+          xc_vpt(mxp,2), xc_dvpt(mxp,2,3), integer npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine takes a batch of quadrature points and evaluates the 
+exchange-correlation functional at each point. On the fly the total 
+exchange-correlation energy for the current batch of points is computed also.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>npts</CODE>
+<DD> The number of points in the current batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of points in a batch.
+<DT><CODE>rho</CODE>
+<DD> Contains for each point the density of the alpha and the beta electrons.
+<DT><CODE>grho</CODE>
+<DD> Contains for each point gradient of the density for alpha and beta spin
+     electrons.
+<DT><CODE>wt</CODE>
+<DD> The quadrature weight for each point.
+<DT><CODE>xc_ept</CODE>
+<DD> On return it contains the total exchange-correlation energy for this
+     batch of points.
+<DT><CODE>xc_vpt</CODE>
+<DD> On return it contains the exchange-correlation energy for each point.
+<DT><CODE>xc_dvpt</CODE>
+<DD> On return it contains the exchange-correlation energy gradient for each 
+     point.
+</DL>
+</P>
+
+<A NAME="ueg">
+<H4><CODE>subroutine ueg(logical spintyp_sw, REAL rho(2), xc_ept, xc_vpt(2), 
+          scale) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the exchange potential energy for the uniform electron
+gas (ueg) 
+<A HREF="dft_ref.html#Bloch:1929">[Bloch:1929]</A>, 
+(often referred to as the Dirac functional 
+<A HREF="dft_ref.html#Dirac:1930">[Dirac:1930]</A>
+or Local Density Approximation (LDA))
+for a given electron density.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>xc_ept</CODE>
+<DD>On entry the total exchange energy sofar.<BR>
+    On return the original energy plus the total exchange energy corresponding 
+    to the current density.
+<DT><CODE>xc_vpt</CODE>
+<DD>On entry the total exchange energy in the closed shell case, otherwise the
+    alpha and beta exchange energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="xc_lyp">
+<H4><CODE>subroutine xc_lyp(logical spintyp_sw, REAL rho(2), grho(3,2), 
+          gama, gamb, xc_ecorr, xc_vcorr(2), xc_vdcorr(3,2), scale) 
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the Lee, Yang and Parr
+<A HREF="dft_ref.html#Lee:1988">[Lee:1988]</A>
+correlation potential energy for a given electron density and density gradient.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>grho</CODE>
+<DD>The gradient of <CODE>rho</CODE>.
+<DT><CODE>gama</CODE>
+<DD>The square of the 2-norm of the alpha density gradient.
+<DT><CODE>gamb</CODE>
+<DD>The square of the 2-norm of the beta density gradient.
+<DT><CODE>xc_ecorr</CODE>
+<DD>On entry the total correlation energy sofar.<BR>
+    On return the original energy plus the total correlation energy 
+    corresponding to the current density and density gradient.
+<DT><CODE>xc_vcorr</CODE>
+<DD>On entry the total correlation energy in the closed shell case, otherwise 
+    the alpha and beta correlation energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density and density gradient.
+<DT><CODE>xc_vdcorr</CODE>
+<DD>On entry the gradient of <CODE>xc_vdcorr</CODE> sofar.
+    On return the original gradient plus the result for the current 
+    density and density gradient.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="xc_p86">
+<H4><CODE>subroutine xc_p86(logical spintyp_sw, REAL rho(2), grho(3,2), 
+          gama, gamb, xc_ecorr, xc_vcorr(2), xc_vdcorr(3,2), scale) 
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the gradient correction for correlation functionals 
+proposed by Perdew in 1986
+[<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>]
+for a given density and density gradient. I.e. from the paper
+[<A HREF="dft_ref.html#Perdew:1986">Perdew:1986</A>]
+it implements 
+<UL>
+<LI> The 2nd term from equation (8)
+<LI> The 2nd term from equation (10)
+<LI> The gradient of the 2nd term from equation (10)
+</UL>
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>grho</CODE>
+<DD>The gradient of <CODE>rho</CODE>.
+<DT><CODE>gama</CODE>
+<DD>The square of the 2-norm of the alpha density gradient.
+<DT><CODE>gamb</CODE>
+<DD>The square of the 2-norm of the beta density gradient.
+<DT><CODE>xc_ecorr</CODE>
+<DD>On entry the total correlation energy sofar.<BR>
+    On return the original energy plus the total correlation energy 
+    corresponding to the current density and density gradient.
+<DT><CODE>xc_vcorr</CODE>
+<DD>On entry the total correlation energy in the closed shell case, otherwise 
+    the alpha and beta correlation energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density and density gradient.
+<DT><CODE>xc_vdcorr</CODE>
+<DD>On entry the gradient of <CODE>xc_vdcorr</CODE> sofar.
+    On return the original gradient plus the result for the current 
+    density and density gradient.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="xc_pz81">
+<H4><CODE>subroutine xc_pz81(logical spintyp_sw, REAL rho(2), 
+          xc_ecorr, xc_vcorr(2), scale) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the correlation functional proposed by Perdew and Zunger
+in 1981
+[<A HREF="dft_ref.html#Perdew:1981">Perdew:1981</A>]
+for a given electron density.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>xc_ecorr</CODE>
+<DD>On entry the total correlation energy sofar.<BR>
+    On return the original energy plus the total correlation energy 
+    corresponding to the current density.
+<DT><CODE>xc_vcorr</CODE>
+<DD>On entry the total correlation energy in the closed shell case, otherwise 
+    the alpha and beta correlation energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="xc_vwn">
+<H4><CODE>subroutine xc_vwn(logical spintyp_sw, REAL rho(2), 
+          xc_ecorr, xc_vcorr(2), scale) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the Vosko, Wilk and Nusair
+[<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>]
+correlation potential energy for a given electron density.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>xc_ecorr</CODE>
+<DD>On entry the total correlation energy sofar.<BR>
+    On return the original energy plus the total correlation energy 
+    corresponding to the current density.
+<DT><CODE>xc_vcorr</CODE>
+<DD>On entry the total correlation energy in the closed shell case, otherwise 
+    the alpha and beta correlation energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="xc_vwnrpa">
+<H4><CODE>subroutine xc_vwnrpa(logical spintyp_sw, REAL rho(2), 
+          xc_ecorr, xc_vcorr(2), scale) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the Vosko, Wilk and Nusair
+[<A HREF="dft_ref.html#Vosko:1980">Vosko:1980</A>]
+RPA fitted correlation potential energy for a given electron density.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD>A switch specifying whether the density is corresponds to a closed shell
+    wavefunction or not. 
+<DT><CODE>rho</CODE>
+<DD>In the closed shell case the total density, otherwise the alpha and beta
+    density respectively.
+<DT><CODE>xc_ecorr</CODE>
+<DD>On entry the total correlation energy sofar.<BR>
+    On return the original energy plus the total correlation energy 
+    corresponding to the current density.
+<DT><CODE>xc_vcorr</CODE>
+<DD>On entry the total correlation energy in the closed shell case, otherwise 
+    the alpha and beta correlation energy.<BR>
+    On return the original energ(y/ies) plus the result for the current 
+    density.
+<DT><CODE>scale</CODE>
+<DD>The weight of this functional in the total density functional.
+</DL>
+</P>
+
+<A NAME="quadrature_grids">
+<H3>The quadrature grids</H3>
+</A>
+<P>
+Due to the nature of the density functionals numerical integration is required
+within density functional calculations. Therefore quadrature grids are a common
+concept in DFT codes. In principle these grids have to probe the whole 3 
+dimensional coordinate space. Because of the molecular nature of the problems
+of interest these grids could be build up the following way:
+</P><P>
+First a atomic grid is build. This contains a radial part and an angular part
+which are constructed separately. In practice it is even more efficient to 
+select different angular grids for different zones in the radial grid (see e.g.
+[<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>]).
+The Cartesian product of the radial grid and the angular grid yields the 
+atomic grid.
+</P><P>
+Second having obtained the atomic grids they have to be merged to obtain the
+final molecular grid. The merging procedure must contain some smoothing to 
+avoid to abrupt grid changes with geometry changes. This is achieved through
+so called weighting schemes 
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>].
+</P><P>
+At various stages in this construction process pruning may take place.
+<A NAME="pruning_definition"><B>Pruning</B></A> 
+encompasses all operations that are applied to the grid to lower the number of 
+grid points. This includes simply removing grid points because no significant
+contributions from that location are expected but also replacing 2 or more 
+points by 1 to sample a part of space with a lower density of points. 
+Especially in the latter case the quadrature weights of the points have to be
+adjusted.
+</P><P>
+Basis pruning stategies are
+<UL>
+<LI> <A NAME="radius_dependent_angular_grid_pruning">
+     Radius dependent angular grid pruning: </A>
+     This strategy is based on the notion that close to the nucleus the charge
+     density is more nearly spherical symmetric. Therefore less angular grid
+     points are needed for small radii. An approach to exploit this has been
+     proposed in 
+     [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>].
+<LI> <A NAME="convergence_dependent_grid_pruning">
+     Convergence dependent grid pruning: </A>
+     Here the idea is that it doesn't make much sense to compute the integrals
+     over the density very accurately if the density itself is not yet converged
+     and therefore inaccurate. This implies that one could use smaller 
+     quadrature grids in the early iterations, improving the quadrature as 
+     the calculation converges.
+</UL>
+Both the above strategies have been implemented.
+</P><P>
+The data structures involved with constructing the quadrature grids are
+<UL>
+<LI><A HREF="#common_dft_grid_parameters">
+    <CODE>common /dft_grid_parameters/</CODE></A>
+<LI><A HREF="#common_xc_parms">
+    <CODE>common /xc_parms/</CODE></A>
+</UL>
+and the subroutines are 
+<UL>
+<LI><A HREF="#CD_accuracy">
+    <CODE>integer function CD_accuracy</CODE></A>
+<LI><A HREF="#CD_conv_prune_on">
+    <CODE>integer function CD_conv_prune_on</CODE></A>
+<LI><A HREF="#CD_euleron">
+    <CODE>integer function CD_euleron</CODE></A>
+<LI><A HREF="#CD_gausslon">
+    <CODE>integer function CD_gausslon</CODE></A>
+<LI><A HREF="#CD_gridscale">
+    <CODE>integer function CD_gridscale</CODE></A>
+<LI><A HREF="#CD_lebedev">
+    <CODE>integer function CD_lebedevon</CODE></A>
+<LI><A HREF="#CD_logon">
+    <CODE>integer function CD_logon</CODE></A>
+<LI><A HREF="#CD_MHL_ang_prune">
+    <CODE>integer function CD_MHL_ang_prune</CODE></A>
+<LI><A HREF="#CD_radial_zones">
+    <CODE>integer function CD_radial_zones</CODE></A>
+<LI><A HREF="#CD_screen">
+    <CODE>integer function CD_screen</CODE></A>
+<LI><A HREF="#CD_set_weight">
+    <CODE>integer function CD_set_weight</CODE></A>
+<LI><A HREF="#ang_select">
+    <CODE>subroutine ang_select</CODE></A>
+<LI><A HREF="#beckewt">
+    <CODE>subroutine beckewt</CODE></A>
+<LI><A HREF="#beckewt_scr">
+    <CODE>subroutine beckewt_scr</CODE></A>
+<LI><A HREF="#glegend">
+    <CODE>subroutine glegend</CODE></A>
+<LI><A HREF="#lebedev">
+    <CODE>subroutine lebedev</CODE></A>
+<LI><A HREF="#lograd">
+    <CODE>subroutine lograd</CODE></A>
+<LI><A HREF="#mhl_select">
+    <CODE>subroutine mhl_select</CODE></A>
+<LI><A HREF="#mhl4ssfwt_scr">
+    <CODE>subroutine mhl4ssfwt_scr</CODE></A>
+<LI><A HREF="#mhl8ssfwt_scr">
+    <CODE>subroutine mhl8ssfwt_scr</CODE></A>
+<LI><A HREF="#mhlwt">
+    <CODE>subroutine mhlwt</CODE></A>
+<LI><A HREF="#npoints_by_accuracy">
+    <CODE>subroutine npoints_by_accuracy</CODE></A>
+<LI><A HREF="#prelog">
+    <CODE>subroutine prelog</CODE></A>
+<LI><A HREF="#premac">
+    <CODE>subroutine premac</CODE></A>
+<LI><A HREF="#screen_radial">
+    <CODE>subroutine screen_radial</CODE></A>
+<LI><A HREF="#SG1_select">
+    <CODE>subroutine SG1_select</CODE></A>
+<LI><A HREF="#SG1rad">
+    <CODE>subroutine SG1rad</CODE></A>
+<LI><A HREF="#srad">
+    <CODE>subroutine srad</CODE></A>
+<LI><A HREF="#ssfwt">
+    <CODE>subroutine ssfwt</CODE></A>
+<LI><A HREF="#ssfwt_scr">
+    <CODE>subroutine ssfwt_scr</CODE></A>
+</UL>
+</P><P>
+In practice the molecular grid is never stored explicitly. In fact it is 
+generated on the fly in 
+<A HREF="#exquad"><CODE>subroutine exquad</CODE></A>
+while integrating the functionals.
+
+
+<A NAME="common_dft_grid_parameters">
+<H4><CODE>common /dft_grid_parameters/ [common/dft_module_comm]</CODE></H4>
+</A>
+<P>
+This common block contains all data that specifies the molecular quadrature
+grid. Many of the data structures start at index <CODE>0</CODE> instead of 
+<CODE>1</CODE>. The index <CODE>0</CODE> entry is used for input purposes 
+only. This entry holds the specification of the global default grid parameters,
+i.e. these parameters will be used for all atoms unless stated otherwise.
+After the input phase these default values are propagated to the specific
+grid settings where needed by <CODE>CD_init</CODE>. Beyond that point the
+<CODE>0</CODE> index entries should not be accessed anymore. In particular 
+during the quadrature calculation centers will have <CODE>gtype_num</CODE>
+equalling <CODE>0</CODE> to indicate that the center does not have a grid at 
+all.
+<P>
+The common block is defined as
+<PRE>
+      integer radpt_num
+      integer weight_scheme, radzones_num, angpt_radzn_num
+      integer thetpt_radzn_num, phipt_radzn_num
+      integer ang_prune_scheme
+      integer rad_grid_scheme, ang_grid_scheme
+      integer gtype_num, ngtypes, gaccu_num
+      integer iauto_cnt
+      REAL grid_scale, radm_num, bnd_radzn
+      REAL grid_atom_radius, weight_atom_radius
+      REAL psitol
+      logical conv_prune_sw, gradwght_sw
+      common/dft_grid_parameters/
+     &     psitol(0:max_gtype),
+     &     radm_num(0:max_gtype),
+     &     grid_scale(0:max_gtype),
+     &     grid_atom_radius(0:max_gtype),
+     &     weight_atom_radius(0:max_gtype),
+     &     bnd_radzn(maxradzn-1,0:max_gtype),
+     &     angpt_radzn_num(maxradzn,0:max_gtype),
+     &     thetpt_radzn_num(maxradzn,0:max_gtype),
+     &     phipt_radzn_num(maxradzn,0:max_gtype),
+     &     radzones_num(0:max_gtype),
+     &     ang_prune_scheme(0:max_gtype),
+     &     rad_grid_scheme(0:max_gtype),
+     &     ang_grid_scheme(0:max_gtype),
+     &     radpt_num(0:max_gtype),
+     &     gaccu_num(0:max_gtype),
+     &     gtype_num(max_atom),
+     &     ngtypes,iauto_cnt,
+     &     weight_scheme,
+     &     conv_prune_sw,
+     &     gradwght_sw
+
+</PRE>
+where
+<DL>
+<DT><CODE>psitol(0:max_gtype)</CODE>
+<DD> This contains the basis function cut-off for each grid type.
+</DD>
+<DT><CODE>radm_num(0:max_gtype)</CODE>
+<DD> This contains the parameters <CODE>m</CODE> for the logarithmic radial
+     quadrature grid as defined by Mura and Knowles
+     [<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>].
+     There is a value <CODE>m</CODE> for every grid type.
+     If another radial grid is selected it should be 0.0d0.
+</DD>
+<DT><CODE>grid_scale(0:max_gtype)</CODE>
+<DD> This contains a scaling factor for the radial grids. After the radial grids
+     for all atom types have be generated this factor will be applied to the
+     radial points to adjust the range of the grid.
+</DD>
+<DT><CODE>grid_atom_radius(0:max_gtype)</CODE>
+<DD> The scaling parameter used in calculating the radial grids is typically
+     based on some definition of the size of an atom. For each grid type this 
+     size will be stored in this variable.
+</DD>
+<DT><CODE>weight_atom_radius(0:max_gtype)</CODE>
+<DD> This stores the atom size that will be used in the atomic size adjustments
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]
+     in the weighting schemes. 
+</DD>
+<DT><CODE>bnd_radzn(maxradzn-1,0:max_gtype)</CODE>
+<DD> This array contains the boundaries of the radial zones. The radial zones
+     are used for radius dependent pruning of the angular grid. The idea is 
+     very similar to the pruning used with the SG1 grid
+     [<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>].
+</DD>
+<DT><CODE>angpt_radzn_num(maxradzn,0:max_gtype)</CODE>
+<DD> This array contains for each radial zone the number of angular grid points
+     requested. 
+</DD>
+<DT><CODE>thetpt_radzn_num(maxradzn,0:max_gtype)</CODE>
+<DD> The number of angular grid points in the theta coordinate for each
+     radial zone.
+     This is used only with the Gauss-Legendre angular grid, if another grid
+     is selected it should be 0.
+</DD>
+<DT><CODE>phipt_radzn_num(maxradzn,0:max_gtype)</CODE>
+<DD> The number of angular grid points in the phi coordinate for each radial 
+     zone.
+     This is used only with the Gauss-Legendre angular grid, if another grid
+     is selected it should be 0.
+</DD>
+<DT><CODE>radzones_num(0:max_gtype)</CODE>
+<DD> The number of radial zones defined.
+</DD>
+<DT><CODE>ang_prune_scheme(0:max_gtype)</CODE>
+<DD> The scheme to be used for radius dependent pruning of the angular grid.
+</DD>
+<DT><CODE>rad_grid_scheme(0:max_gtype)</CODE>
+<DD> The scheme to be used for the radial grid.
+</DD>
+<DT><CODE>ang_grid_scheme(0:max_gtype)</CODE>
+<DD> The scheme to be used for the angular grid.
+</DD>
+<DT><CODE>radpt_num(0:max_gtype)</CODE>
+<DD> The number of radial grid points requested.
+     There is a number of radial points for each row in the periodic table.
+</DD>
+<DT><CODE>gaccu_num(0:max_gtype)</CODE>
+<DD> The accuracy setting for each grid type (i.e. LOW, MEDIUM, HIGH, etc.).
+</DD>
+<DT><CODE>gtype_num(max_atom)</CODE>
+<DD> Stores for each atom which of the grid specifications to use.
+</DD>
+<DT><CODE>ngtypes</CODE>
+<DD> The number of different grid types currently defined.
+</DD>
+<DT><CODE>iauto_cnt</CODE>
+<DD> A counter used in the convergence dependent pruning scheme.
+</DD>
+<DT><CODE>weight_scheme</CODE>
+<DD> The requested weighting scheme.
+</DD>
+<DT><CODE>conv_prune_sw</CODE>
+<DD> A switch to toggle the convergence dependent grid pruning. 
+</DD>
+<DT><CODE>gradwght_sw</CODE>
+<DD> A switch indicating whether the gradients of the weights should be used
+     or not.
+</DD>
+</DL>
+</P>
+
+<A NAME="common_xc_parms">
+<H4><CODE>common /xc_parms/ [common/dft_xc]</CODE></H4>
+</A>
+<P>
+This common block contains the settings for the global quadrature screening 
+options (<CODE>psitol</CODE> is stored in 
+<A HREF="#common_dft_grid_parameters">common /dft_grid_parameters/</CODE></A>).
+<PRE>
+        REAL  dentol, rhotol
+        logical screen_sw
+        common/xc_parms/dentol, rhotol, screen_sw
+</PRE>
+where
+<DL>
+<DT><CODE>psitol</CODE>
+<DD> The tolerance for the basis functions. If the basis function at a point
+     is smaller than this value it is assummed to be zero.
+<!-- <DT><CODE>exptol</CODE> -->
+<!-- <DD> The tolerance for the exponential factors in the basis functions. However, -->
+<!--      this tolerance is not used in the current implementation. -->
+<DT><CODE>dentol</CODE>
+<DD> The tolerance for the density matrix elements. All density matrix elements
+     smaller than this tolerance will be skipped in building the electron 
+     density at a grid point.
+<DT><CODE>rhotol</CODE>
+<DD> The tolerance on the maximum density in a batch of grid points. If the
+     maximum density in a batch is smaller than the tolerance the whole batch
+     will be skipped in the functional evaluation and the integration.
+<DT><CODE>screen_sw</CODE>
+<DD> The switch which specifying whether screening is to be applied in the
+     quadrature.
+</DL>
+</P>
+
+<A NAME="CD_accuracy">
+<H4><CODE>integer function CD_accuracy(integer gridtype, character*4 level) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+This function set the grid parameters according to the predefined grid 
+specified by <CODE>level</CODE>. There are 4 such predefined grids each with 
+its own integration accuracy, named "low", "medium", "high", and "veryhigh".
+The parameters for these grids are all set through calls to other API routines.
+All these grids use
+<UL>
+<LI>Logarithmic radial grids
+    [<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>]
+<LI>Lebedev angular grids
+    [<A HREF="dft_ref.html#Lebedev:1975">Lebedev:1975</A>,
+     <A HREF="dft_ref.html#Lebedev:1976">Lebedev:1976</A>,
+     <A HREF="dft_ref.html#Lebedev:1977">Lebedev:1977</A>,
+     <A HREF="dft_ref.html#Lebedev:1992">Lebedev:1992</A>,
+     <A HREF="dft_ref.html#Lebedev:1995">Lebedev:1995</A>,
+     <A HREF="dft_ref.html#Lebedev:1999">Lebedev:1999</A>]
+<LI>MHL radius dependent pruning of the angular grids
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+<LI>A MHL-SSF weighting scheme (i.e. a cell function by MHL
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+    and the screening as in SSF
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>])
+<LI>Screening
+</UL>
+If the function is successful it returns 1 otherwise it returns 0.
+</P>
+
+<A NAME="CD_conv_prune_on">
+<H4><CODE>integer function CD_conv_prune_on() [interface.f]</CODE></H4>
+</A>
+<P>
+Turns on the convergence dependent grid pruning scheme. In this scheme the
+accuracy of the SCF energy at some level of convergence is used to estimate
+the required integration precision. Accordingly, the number of grid points is
+adjusted. See 
+<A HREF="#npoints_by_accuracy"><CODE>subroutine npoints_by_accuracy</CODE></A>
+for more details.
+</P>
+
+<A NAME="CD_euleron">
+<H4><CODE>integer function CD_euleron(integer gridtype, nradial) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects the Euler-MacLaurin radial grid 
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+and sets the number of radial points for the grid specified by 
+<CODE>gridtype</CODE>
+to the corresponding value from <CODE>nradial</CODE>.
+See 
+<A HREF="#premac"><CODE>subroutine premac</CODE></A>
+for more details.
+</P>
+
+<A NAME="CD_gausslon">
+<H4><CODE>integer function CD_gausslon(integer gridtype, nzones, 
+          ntheta(nzones), nphi(nzones), REAL boundaries(nzones-1)) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects the Gauss-Legendre angular grid and sets its parameters for
+the grid specified by <CODE>gridtype</CODE>. The parameters are; the number of 
+points in the theta coordinate to <CODE>ntheta</CODE> 
+and in the phi coordinate to <CODE>nphi</CODE> for each radial zone yielding a 
+total number of angular points of <CODE>ntheta*nphi</CODE>.
+The radial zone boundaries are specified in <CODE>boundaries</CODE>
+</P>
+
+<A NAME="CD_gridscale">
+<H4><CODE>integer function CD_gridscale(integer gridtype, REAL factor) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Sets the grid scaling factor to <CODE>factor</CODE>. This means that the
+radii of all radial grid points will be scaled by <CODE>factor</CODE>. 
+The default value is 1.0.
+</P>
+
+<A NAME="CD_lebedevon">
+<H4><CODE>integer function CD_lebedevon(integer gridtype, nzones, 
+          nang_pt(nzones), REAL boundaries(nzones-1)) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects the Lebedev angular grid
+[<A HREF="dft_ref.html#Lebedev:1975">Lebedev:1975</A>,
+ <A HREF="dft_ref.html#Lebedev:1976">Lebedev:1976</A>,
+ <A HREF="dft_ref.html#Lebedev:1977">Lebedev:1977</A>,
+ <A HREF="dft_ref.html#Lebedev:1992">Lebedev:1992</A>,
+ <A HREF="dft_ref.html#Lebedev:1995">Lebedev:1995</A>,
+ <A HREF="dft_ref.html#Lebedev:1999">Lebedev:1999</A>]
+for the grid specified by <CODE>gridtype</CODE>.
+The number of angular grid points for each radial zone is specified by
+<CODE>nang_pt</CODE> whereas the zone boundaries are specified by 
+<CODE>boundaries</CODE>.
+The Lebedev grid are actually generated by
+<A HREF="#lebedev"><CODE>subroutine LebedevLaikov</CODE></A>.
+</P>
+
+<A NAME="CD_logon">
+<H4><CODE>integer function CD_logon(integer gridtype, nradial) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects the logarithmic radial grid 
+[<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>]
+and sets the number of radial points for the grid specified by 
+<CODE>gridtype</CODE>
+to the corresponding value from <CODE>nradial</CODE>.
+For more details see
+<A HREF="#prelog"><CODE>subroutine prelog</CODE></A>.
+</P>
+
+<A NAME="CD_MHL_ang_prune">
+<H4><CODE>integer function CD_MHL_ang_prune(integer gridtype) 
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects the radius dependent angular grid pruning scheme as proposed by Murray,
+Handy and Laming
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+for the grid specified by <CODE>gridtype</CODE>.
+</P>
+
+<A NAME="CD_psitol">
+<H4><CODE>integer function CD_psitol(integer gridtype, REAL psitol, rhotol)
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Defines the tolerance on basis function values for the grid specified by
+<CODE>gridtype</CODE>.
+</P>
+
+<!--
+<A NAME="CD_radial_zones">
+<H4><CODE>integer function CD_radial_zones(integer Nzones, Nangular_pt(Nzones), 
+          REAL boundaries(Nzones-1)) [interface.f]</CODE></H4>
+</A>
+<P>
+Defines the radial zones and the corresponding number of angular grid
+points for radius dependent pruning of the angular grid. 
+The zone boundaries must be ordered increasingly. The lower boundary <I>0.0</I>
+and the higher boundary <I>infinity</I> are assumed implicitly and should not 
+be specified.
+The information entered is used in 
+<A HREF="#ang_select"><CODE>subroutine ang_select</CODE></A>.
+</P>
+-->
+
+<A NAME="CD_screen">
+<H4><CODE>integer function CD_screen(logical oscr, REAL dentol, rhotol)
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Switches the use of screening on or off depending on the value of 
+<CODE>oscr</CODE>, and set the screening tolerances to the values of
+<CODE>dentol</CODE> and <CODE>rhotol</CODE> if the corresponding value is
+larger than 0.0d0.
+</P>
+
+<A NAME="CD_set_weight">
+<H4><CODE>integer function CD_set_weight(character*(*) weight_scheme)
+          [interface.f]</CODE></H4>
+</A>
+<P>
+Selects and activates a weigthing scheme for the quadrature grid.
+The weighting schemes available are
+<DL>
+<DT><CODE>"becke"</CODE>
+<DD>The Becke weighting scheme 
+    [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>],
+<DT><CODE>"beckescr"</CODE>
+<DD>The screened Becke weighting scheme
+    [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>] 
+    (screening by Paul Sherwood),
+<DT><CODE>"mhl"</CODE>
+<DD>The Murray, Handy, and Laming weighting scheme
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>] 
+    which is essentially the Becke weighting scheme with a different cell 
+    function,
+<DT><CODE>"ssf"</CODE>
+<DD>The Stratmann, Scuseria, and Frisch weighting scheme (without screening)
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>],
+<DT><CODE>"ssfscr"</CODE>
+<DD>The Stratmann, Scuseria, and Frisch weighting scheme 
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>],
+<DT><CODE>"mhl4ssf"</CODE>
+<DD>The Stratmann, Scuseria, and Frisch weighting scheme 
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+    using the cell function by Murray, Handy, and Laming with 
+    <I>m<SUB>u</SUB></I> equals 4
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>],
+<DT><CODE>"mhl8ssf"</CODE>
+<DD>The Stratmann, Scuseria, and Frisch weighting scheme 
+    [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+    using a cell function by Murray, Handy, and Laming with
+    <I>m<SUB>u</SUB></I> equals 8
+    [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>].
+</DL>
+</P>
+
+<A NAME="ang_select">
+<H4><CODE>subroutine ang_select(REAL rpt, bigR, integer nang, ntheta, nphi,
+          nomega, REAL apts(3,*), awts(*), logical extwr_sw) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine selects the number of angular grid points as a function of the
+current radial grid point, the size of the atom and depending on the definition
+of a number of radial zones. The number of grid points is limited by the values
+of <I>ntheta</I>, <I>nphi</I> or <I>nomega</I>. These latter parameters are used
+to control the integration accuracy as function of the SCF-convergence.
+</P><P>
+The idea is very similar to that proposed by Gill et al.
+[<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>].
+Assume that the size of the atom is <I>R</I> and given 2 boundaries
+<I>r<SUB>i</SUB></I> and <I>r<SUB>i+1</SUB></I> the subroutine checks whether
+<I>r<SUB>i</SUB></I> &lt; <CODE>rpt</CODE> &lt; <I>r<SUB>i+1</SUB></I> and if so
+it selects the corresponding number of angular points and calls the appropriate
+subroutine to calculate the grid.
+</P><P>
+A limitation is that there can be only 1 definition of the zones for all atoms.
+This contrast with the SG1 grid proposed by Gill et al. were there different
+difinitions of the zones for different classes of atoms.
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>rpt</CODE>
+<DD> The radius for the current radial grid point.
+<DT><CODE>bigR</CODE>
+<DD> The "atomic radius" of the current element.
+<DT><CODE>nang</CODE>
+<DD> On entry the current size of the angular grid. I.e. the one used for the
+     previous radial grid point.<BR>
+     On return the current size of the angular grid. I.e. the one to be used
+     for the current radial point.
+<DT><CODE>ntheta</CODE>
+<DD> The maximum number of grid points in the theta coordinate. 
+<DT><CODE>nphi</CODE>
+<DD> The maximum number of grid points in the phi coordinate. 
+<DT><CODE>nomega</CODE>
+<DD> The maximum number of grid points on the sphere.
+<DT><CODE>apts</CODE>
+<DD> On entry the angular grid points of the grid for the previous point.<BR>
+     On return the angular grid points of the grid for the current point.
+<DT><CODE>awts</CODE>
+<DD> On entry the angular grid weights of the grid for the previous point.<BR>
+     On return the angular grid weights of the grid for the current point.
+<DT><CODE>extwr_sw</CODE>
+<DD> A print flag for printing extra information used in the Gauss-Legendre
+     grid generator.
+</DL>
+</P>
+
+<A NAME="beckewt">
+<H4><CODE>subroutine beckewt(REAL dij(max_atom,max_atom), 
+          ra2_val(mxp,max_atom,2), integer latm, REAL wt(npts), sk(npts), 
+          awt(npts), totwt(npts), integer npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine applies the Becke weighting scheme 
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1998a</A>]
+to a set of quadrature points.
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms. 
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points 
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equation (21)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of 
+     <I>P<SUB>i</SUB></I> during the calculation (see equation (13)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of 
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation (see equation (22)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+</DL>
+</P>
+
+<A NAME="beckewt_scr">
+<H4><CODE>subroutine beckewt_scr(REAL dij(max_atom,max_atom), 
+          ra2_val(mxp,max_atom,2), integer latm, REAL wt(npts), sk(npts), 
+          awt(npts), totwt(npts), integer npts, mxp, REAL rtol) 
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine applies the Becke weighting scheme 
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1998a</A>]
+to a set of quadrature points with screening of the cell functions 
+<I>P<SUB>m</SUB></I>.
+In the Becke weighting scheme the nuclear weights for a point should be 
+normalised 
+such that (for this point) the sum of the nuclear weights over all nuclei 
+amounts to 1 (see equations (3) and (22)
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1998a</A>]). 
+However, if a point is far from a nucleus <I>m</I> then <I>P<SUB>m</SUB></I>
+will be approximately 0 and there is no need to add it to the normalisation 
+constant. 
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms. 
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points 
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equation (21)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of 
+     <I>P<SUB>i</SUB></I> during the calculation (see equation (13)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of 
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation (see equation (22)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+<DT><CODE>rtol</CODE>
+<DD> The cutoff radius. If a point if beyond <CODE>rtol</CODE> from a nucleus
+     <I>m</I> then the cell function <I>P<SUB>m</SUB></I> is considered to be
+     0.
+</DL>
+</P>
+
+<A NAME="glegend">
+<H4><CODE>subroutine glegend(integer nthet, nphi, nang, REAL apts(3,*), awpt(*),
+          logical extwr_sw) [xc.f]</CODE></H4>
+</A>
+<P>
+The subroutine computes the Gauss-Legendre angular quadrature grid.
+The algorithm is set up such that all the sines and cosines are computed only
+once. Also just a quarter of the grid is computed and copied while adding the
+required minus signs.
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>nthet</CODE>
+<DD> The number of points in the theta coordinate.
+<DT><CODE>nphi</CODE>
+<DD> The number of points in the phi coordinate.
+<DT><CODE>nang</CODE>
+<DD> The total number of angular quadrature grid points.
+<DT><CODE>apts(3,*)</CODE>
+<DD> On return the grid points in Cartesian coordinates. The coordinates
+     are labeled (P<SUB>1</SUB>,P<SUB>2</SUB>,P<SUB>3</SUB>) =
+     (P<SUB>x</SUB>,P<SUB>y</SUB>,P<SUB>z</SUB>).
+<DT><CODE>awpt(*)</CODE>
+<DD> On return the quadrature weights.
+<DT><CODE>extwr_sw</CODE>
+<DD> Switch to select whether the number of points should be written to the
+     output file.
+</DL>
+</P>
+
+<A NAME="lebedev">
+<H4><CODE>subroutine LebedevLaikov(integer nang, REAL apts(3,*), awpt(*)) 
+          [Lebedev-Laikov.f]</CODE></H4>
+</A>
+<P>
+The subroutine computes the Lebedev angular quadrature grid
+[<A HREF="dft_ref.html#Lebedev:1999">Lebedev:1999</A>].
+Currently available are grids of the sizes 6, 14, 26, 38, 50, 74, 86, 110, 146,
+170, 194, 230, 266, 302, 350, 434, 590, 770, 974, and 1202 points.
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>nang</CODE>
+<DD> The number of angular quadrature grid points.
+<DT><CODE>apts(3,*)</CODE>
+<DD> On return the grid points in Cartesian coordinates. The coordinates
+     are labeled (P<SUB>1</SUB>,P<SUB>2</SUB>,P<SUB>3</SUB>) =
+     (P<SUB>x</SUB>,P<SUB>y</SUB>,P<SUB>z</SUB>).
+<DT><CODE>awpt(*)</CODE>
+<DD> On return the quadrature weights.
+</DL>
+</P>
+
+<A NAME="lograd">
+<H4><CODE>REAL function lograd(integer natomic, logical extwr_sw)
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine returns the "atomic radius" for the atomic element
+<CODE>natomic</CODE> to be used as scale factor with the logarithmic radial grid
+[<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>].
+However only the radii of the elements 1 through 36 are really optimised.
+</P><P>
+The optimisation was performed in 2 steps. First the atomic radii were optimised
+on the atoms to integrate the LDA-VWN functional to within a relative error of
+10<SUP>-10</SUP> using as little grid points as possible. In this optimisation
+the power <I>m</I> was varied also encompassing the values 2, 3, 4, and 5.
+The optimal values of <I>m</I> turned out to be 3 for H through Ne and 4 for
+Na through Kr.
+</P><P>
+The second step involved calculating the potential energy surface (PES) of
+N<SUB>2</SUB>. The criterion was that the total number of electrons should be
+computed with constant accuracy along the PES. It was found that the optimal
+"radius" had to be multiplied by 5 to achieve this. Therefore all "radii" stored
+are the optimal radii times 5 for all atoms upto Kr.
+</P><P>
+The parameters for the elements beyond Kr were simply obtained by assuming that
+they would be identical to their 4th row counter parts. For the F-shell metals
+the value used is merely a guess.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>natomic</CODE>
+<DD> The atomic number of the atom for which the radius is requested.
+<DT><CODE>extwr_sw</CODE>
+<DD> A print flag for printing a warning if the atomic number exceeds 36.
+</DL>
+</P>
+
+<A NAME="mhl_select">
+<H4><CODE>subroutine mhl_select(REAL rpt, bigR, integer mxl, nang, ntheta, nphi,
+          nomega, REAL apts(3,*), awts(*), extwr_sw) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine selects the current angular grid as a function of the current
+radial point, the size of the atom, and some maximum grid sizes. The selection
+scheme is the one proposed by Murray, Handy, and Laming
+<A HREF="dft_ref.html#Murray:1993">Murray:1993</A> (see page 1009).
+</P><P>
+The scheme as proposed by Murray et al. was modified to include a minimum 
+angular grid size also. It was found in atomic calculations that it is essential
+that the angular grids are at least large enough to integrate the square of the
+highest angular momentum functions exactly. 
+</P><P>
+E.g. if the atom has got only <I>s</I> and <I>p</I> functions than a 6 point 
+Lebedev grid is sufficient as the smallest grid. However if there are <I>d</I>
+or <I>f</I> functions present then the smallest grid should have at least 
+18 points.
+</P><P>
+The maximal grid sizes passed to the subroutine are mainly used to control the
+integration precision as a function of the SCF-convergence.
+</P><P>
+<DL>
+<DT><CODE>rpt</CODE>
+<DD> The radius for the current radial grid point.
+<DT><CODE>bigR</CODE>
+<DD> The "atomic radius" of the current element.
+<DT><CODE>mxl</CODE>
+<DD> The maximal angular momentum of basis functions on the current atom.
+<DT><CODE>nang</CODE>
+<DD> On entry the current size of the angular grid. I.e. the one used for the
+     previous radial grid point.<BR>
+     On return the current size of the angular grid. I.e. the one to be used
+     for the current radial point.
+<DT><CODE>ntheta</CODE>
+<DD> The maximum number of grid points in the theta coordinate.
+<DT><CODE>nphi</CODE>
+<DD> The maximum number of grid points in the phi coordinate.
+<DT><CODE>nomega</CODE>
+<DD> The maximum number of grid points on the sphere.
+<DT><CODE>apts</CODE>
+<DD> On entry the angular grid points of the grid for the previous point.<BR>
+     On return the angular grid points of the grid for the current point.
+<DT><CODE>awts</CODE>
+<DD> On entry the angular grid weights of the grid for the previous point.<BR>
+     On return the angular grid weights of the grid for the current point.
+<DT><CODE>extwr_sw</CODE>
+<DD> A print flag for printing extra information used in the Gauss-Legendre
+     grid generator.
+</DL>
+</P>
+
+<A NAME="mhl4ssfwt_scr">
+<H4><CODE>subroutine mhl4ssfwt_scr(REAL dij(max_atom,max_atom), 
+          ra2_val(mxp,max_atom,2), integer latm, REAL wt(npts), sk(npts), 
+          awt(npts), totwt(npts), integer npts, mxp, 
+          integer near_atom_list(num_near_atoms), num_near_atoms, 
+          REAL rshell, rnear, integer ibuff(npts))</CODE></H4>
+</A>
+<P>
+This subroutine applies the weighting scheme due to Stratmann, Scuseria, and
+Frisch
+[<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+to obtain the molecular weights. However, in stead of using the cell function
+suggested by Stratmann et al. we use the cell function suggested by Murray
+et al. 
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+with <I>m<SUB>u</SUB></I> equals 4 and the function parameter <I>u</I> scaled 
+such that the gradient at <I>u</I> equals 0 is equal to the gradient of the
+function obtained with <I>m<SUB>u</SUB></I> equals 10.
+</P><P>
+This weighting scheme has approximately the same efficiency as the original one
+by Stratmann et al. but the integrals were found to be more accurate.
+</P><P>
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms.
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equations (11)-(14)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>P<SUB>i</SUB></I> during the calculation.
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation.
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+<DT><CODE>rshell</CODE>
+<DD> The radius of the current shell of angular grid points.
+<DT><CODE>rnear</CODE>
+<DD> The radius around the atom that defines which grid points are "near" to
+     the nucleus. The atomic weights of "near" grid points remain untouched by
+     the weighting scheme (see equation (15)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+<DT><CODE>ibuff(npts)</CODE>
+<DD> Some workspace to keep track of the points that have a non-zero cell
+     function.
+</DL>
+</P>
+
+<A NAME="mhl8ssfwt_scr">
+<H4><CODE>subroutine mhl8ssfwt_scr(REAL dij(max_atom,max_atom), 
+          ra2_val(mxp,max_atom,2), integer latm, REAL wt(npts), sk(npts), 
+          awt(npts), totwt(npts), integer npts, mxp, 
+          integer near_atom_list(num_near_atoms), num_near_atoms, 
+          REAL rshell, rnear, integer ibuff(npts))</CODE></H4>
+</A>
+<P>
+This subroutine applies the weighting scheme due to Stratmann, Scuseria, and
+Frisch
+[<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+to obtain the molecular weights. However, in stead of using the cell function
+suggested by Stratmann et al. we use the cell function suggested by Murray
+et al. 
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+with <I>m<SUB>u</SUB></I> equals 8 and the function parameter <I>u</I> scaled 
+such that the gradient at <I>u</I> equals 0 is equal to the gradient of the
+function obtained with <I>m<SUB>u</SUB></I> equals 10.
+</P><P>
+This weighting scheme is significant less efficient for large molecules than
+the scheme
+by Stratmann et al. but the integrals were found to be much more accurate.
+</P><P>
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms.
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equations (11)-(14)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>P<SUB>i</SUB></I> during the calculation.
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation.
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+<DT><CODE>rshell</CODE>
+<DD> The radius of the current shell of angular grid points.
+<DT><CODE>rnear</CODE>
+<DD> The radius around the atom that defines which grid points are "near" to
+     the nucleus. The atomic weights of "near" grid points remain untouched by
+     the weighting scheme (see equation (15)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+<DT><CODE>ibuff(npts)</CODE>
+<DD> Some workspace to keep track of the points that have a non-zero cell
+     function.
+</DL>
+</P>
+
+<A NAME="mhlwt">
+<H4><CODE>subroutine mhlwt(REAL dij(max_atom,max_atom), ra2_val(mxp,max_atom,2),
+          integer latm, REAL wt(npts), sk(npts), awt(npts), totwt(npts), 
+          integer npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine applies the weighting scheme proposed by Murray, Handy and
+Laming 
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>] (see pages 1003 and 1007)
+to obtain the molecular grid. This weighting scheme is essentially the same as
+the Becke weighting scheme 
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]
+but using a different cell function. The function used by Murray et al. differs
+in that it has a number of higher derivatives equal zero at the end points.
+Thus yielding a higher integration accuracy. 
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms.
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equation (24)
+     [<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>P<SUB>i</SUB></I> during the calculation (see equation (13)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation (see equation (22)
+     [<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>]).
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+</DL>
+</P>
+
+<A NAME="npoints_by_accuracy">
+<H4><CODE>subroutine npoints_by_accuracy(REAL accuracy, integer nrad, ntheta, 
+          nphi, nomega) [xc.f]</CODE></H4>
+</A>
+<P>
+Given the current achieved accuracy in the SCF-calculation this subroutine 
+computes the appropriate atomic grid sizes for the current iteration. These
+grid sizes are capped by the maximal grid sizes as input.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>accuracy</CODE>
+<DD>The currently achieved accuracy in the SCF-calculation.
+<DT><CODE>nrad</CODE>
+<DD>On return the number of radial points in this iteration.
+<DT><CODE>ntheta</CODE>
+<DD>On return the number of grid points in the theta coordinate for this 
+    iteration.
+<DT><CODE>nphi</CODE>
+<DD>On return the number of grid points in the phi coordinate for this 
+    iteration.
+<DT><CODE>nomega</CODE>
+<DD>On return the number of grid points on the sphere for this iteration.
+</DL>
+</P>
+
+<A NAME="prelog">
+<H4><CODE>subroutine prelog(integer natyp, ntrad(7), narad(10), REAL radm(7),
+          prpt(natyp,*), prwt(natyp,*)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine implements the Logarithmic radial grid by Mura and Knowles
+[<A HREF="dft_ref.html#Mura:1996">Mura:1996</A>]. This grid is defined as
+<PRE><I>
+       r<SUB>i</SUB> = - A </I>log<I><SUB>e</SUB>(1-x<SUB>i</SUB><SUP>m</SUP>)
+
+                 x<SUB>i</SUB><SUP>m-1</SUP>
+       w<SUB>i</SUB> = m r<SUB>i</SUB><SUP>2</SUP> ----
+                 1-x<SUB>i</SUB><SUP>m</SUP>
+</I></PRE>
+where the <I>x<SUB>i</SUB></I> are chosen equidistantly
+<PRE><I>
+            2i+1
+       x<SUB>i</SUB> = ----,  i = 0, 1, ..., N-1
+             2N
+</I></PRE>
+The number of grid points and the value for <CODE>m</CODE> are taken from 
+<CODE>ntrad</CODE> and <CODE>radm</CODE> respectively according to the row in
+the periodic table of the elements on which the element currently considered
+appears.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>natyp</CODE>
+<DD> The number of atoms types.
+<DT><CODE>ntrad(7)</CODE>
+<DD> The number of radial quadrature points for each row in the periodic table.
+<DT><CODE>narad(10)</CODE>
+<DD> On return the number of radial quadrature points for each atom type.
+<DT><CODE>radm(7)</CODE>
+<DD> The powers <CODE>m</CODE> for each row in the periodic table.
+<DT><CODE>prpt(natyp,*)</CODE>
+<DD> On return the quadrature grid points along the radial coordinate for each
+     atom type.
+<DT><CODE>prwt(natyp,*)</CODE>
+<DD> On return the quadrature grid weights for each atom type.
+</DL>
+</P>
+
+<A NAME="premac">
+<H4><CODE>subroutine premac(integer natyp, ntrad(7), narad(10), 
+          REAL prpt(natyp,*), prwt(natyp,*)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the radial quadrature grid for all atom types using
+the Euler-MacLaurin equations (6) and (7) in
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>],
+with <I>m = 2</I>.
+</P><P>
+In stead of using the
+suggested grid on the interval [0,1] the <I>q</I>'s were chosen as
+<I>q<SUB>i</SUB> = i/(n+1), i=1,n</I> with the weights
+<I>w<SUB>i</SUB> = 1/(n+1), i=2,n-1</I> and
+<I>w<SUB>1</SUB> = w<SUB>n</SUB> = 0.5*(1-(n-2)/(n+1))</I>.
+This leads to slightly better results for low <I>n</I> with no additional
+cost. The improvement is due to the smaller spacing of <I>1/(n+1)</I> in stead
+of <I>1/n</I> in the important middle region of the interval. The only
+disadvantage is that the weights used are formally not correct for the case
+<I>n = 1</I>, but for a single point grid no reasonable results may be
+expected anyway.
+</P><P>
+The final weights were derived from equation (6) and (7) in
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>]
+as <I>W<SUB>i</SUB> = w<SUB>i</SUB> r<SUB>i</SUB><SUP>2</SUP>
+      (</I>d<I>r/</I>d<I>q)<SUB>i</SUB></I>.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>natyp</CODE>
+<DD> The number of atoms types.
+<DT><CODE>ntrad(7)</CODE>
+<DD> The number of radial quadrature points for each row in the periodic table.
+<DT><CODE>narad(10)</CODE>
+<DD> On return the number of radial quadrature points for each atom type.
+<DT><CODE>prpt(natyp,*)</CODE>
+<DD> On return the quadrature grid points along the radial coordinate for each
+     atom type.
+<DT><CODE>prwt(natyp,*)</CODE>
+<DD> On return the quadrature grid weights for each atom type.
+</DL>
+</P>
+
+<A NAME="screen_radial">
+<H4><CODE>subroutine screen_radial(integer natyp, narad(natyp), 
+          REAL prpt(natyp,*), arad(*)) [xc.f]</CODE></H4>
+</A>
+<P>
+The subroutines the build the radial grid always build all grid points. 
+Some grid points may end up so far from the nucleus that they will not lead 
+to significant contributions to the integrals. This subroutine discards al those
+grid points. The criterion is the radius beyond which the most diffuse basis
+function on the atom can be assumed 0. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>natyp</CODE>
+<DD> The number of atom types in the molecule.
+<DT><CODE>narad(natyp)</CODE>
+<DD> On entry the number of radial grid points per atom type as generated by
+     the grid builders.<BR>
+     On return the truncated number of radial grid points per atom type.
+<DT><CODE>prpt(natyp,*)</CODE>
+<DD> The radial grid points per atom type.
+<DT><CODE>arad(*)</CODE>
+<DD> The radii within which the basis functions on an atom are non-zero. 
+     There is an entry for each atom in the molecule.
+</DL>
+</P>
+
+<A NAME="SG1_select">
+<H4><CODE>subroutine SG1_select(REAL rpt, bigR, integer atom_num, nang,
+          REAL apts(3,*), awts(*)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the Lebedev angular grid to go with the specified
+radius according to the SG1 "grid pruning" strategy of Gill et al.
+[<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>].
+Basically, the subroutine selects the grid size based on the radial grid point,
+the radius of the atom, and some parameters dependent of the row in the periodic
+table the element appears on.
+Once the grid size is selected a call to the Lebedev grid generator
+<A HREF="#lebedev"><CODE>subroutine lebedev</CODE></A>
+constructs the grid.
+</P><P>
+The parameters are
+<DL>
+<DT><CODE>rpt</CODE>
+<DD> The radius for the current radial grid point.
+<DT><CODE>bigR</CODE>
+<DD> The "atomic radius" of the current element.
+<DT><CODE>atom_num</CODE>
+<DD> The atomic number of the current element.
+<DT><CODE>nang</CODE>
+<DD> On entry the current size of the angular grid. I.e. the one used for the
+     previous radial grid point.<BR>
+     On return the current size of the angular grid. I.e. the one to be used
+     for the current radial point.
+<DT><CODE>apts</CODE>
+<DD> On entry the angular grid points of the grid for the previous point.<BR>
+     On return the angular grid points of the grid for the current point.
+<DT><CODE>awts</CODE>
+<DD> On entry the angular grid weights of the grid for the previous point.<BR>
+     On return the angular grid weights of the grid for the current point.
+</DL>
+</P>
+
+<A NAME="SG1rad">
+<H4><CODE>REAL function SG1rad(integer natomic, logical extwr_sw)
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine returns the "atomic radius" for the atomic element
+<CODE>natomic</CODE> to be used as scale factor for the SG1 radial grid
+[<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>].
+However only the radii published by Gill et al. are currently implemented,
+i.e. the elements 1 through 18. For all other elements (19 and up) simply the 
+value 5.0 is returned.
+However if <CODE>natomic</CODE> equals <CODE>0</CODE> then it is assumed that
+the center is a BQ center and the radius of Carbon is returned.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>natomic</CODE>
+<DD> The atomic number of the atom for which the radius is requested.
+<DT><CODE>extwr_sw</CODE>
+<DD> A print flag for printing a warning if the atomic number exceeds 18.
+</DL>
+</P>
+
+<A NAME="srad">
+<H4><CODE>REAL function srad(integer natomic) [xc.f]</CODE></H4>
+</A>
+<P>
+Given the atomic number this function returns the Bragg-Slater radius 
+[<A HREF="dft_ref.html#Slater:1964">Slater:1964</A>]
+of the atom. All atomic numbers between 1 and 103 are supported. For atoms where
+the Bragg-Slater radius is not available the Clementi radius 
+[<A HREF="dft_ref.html#Clementi:1967">Clementi:1967</A>]
+is returned.
+If <CODE>natomic</CODE> equals <CODE>0</CODE> it is assumed that the center
+is a BQ center and the Carbon radius is returned.
+</P>
+
+<A NAME="ssfwt">
+<H4><CODE>subroutine ssfwt(REAL dij(max_atom,max_atom), ra2_val(mxp,max_atom),
+          integer latm, REAL wt(npts), sk(npts), awt(npts), totwt(npts), 
+          integer npts, mxp, REAL rshell, rnear) [xc.f]</H4></CODE>
+</A>
+<P>
+This subroutine applies the weighting scheme due to Stratmann, Scuseria, and
+Frisch
+[<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+to obtain the molecular weights. 
+</P><P>
+This weighting scheme is very similar to the one proposed by Becke
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>] 
+and by Murray et al.
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>].
+The important difference is that the particular choice of the cell function 
+allows for considerable savings as a lot of factors are known to be 0 or 1
+before hand. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms.
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equations (11)-(14)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>P<SUB>i</SUB></I> during the calculation.
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation.
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+<DT><CODE>rshell</CODE>
+<DD> The radius of the current shell of angular grid points.
+<DT><CODE>rnear</CODE>
+<DD> The radius around the atom that defines which grid points are "near" to 
+     the nucleus. The atomic weights of "near" grid points remain untouched by 
+     the weighting scheme (see equation (15)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+</DL>
+</P>
+
+
+<A NAME="ssfwt_scr">
+<H4><CODE>subroutine ssfwt_scr(REAL dij(max_atom,max_atom), 
+          ra2_val(mxp,max_atom), integer latm, REAL wt(npts), sk(npts), 
+          awt(npts), totwt(npts), integer npts, mxp, REAL rshell, rnear, ibuff)
+          [xc.f]</H4></CODE>
+</A>
+<P>
+This subroutine applies the weighting scheme due to Stratmann, Scuseria, and
+Frisch
+[<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]
+to obtain the molecular weights. 
+</P><P>
+This weighting scheme is very similar to the one proposed by Becke
+[<A HREF="dft_ref.html#Becke:1988a">Becke:1988a</A>] 
+and by Murray et al.
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>].
+The important difference is that the particular choice of the cell function 
+allows for considerable savings as a lot of factors are known to be 0 or 1
+before hand. 
+</P><P>
+This version of the subroutine uses a list of near atoms which will probably
+yield values of the cell function different from 0 or 1. Checking only the atoms
+on the list reduces the amount of work done per point.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The interatomic distances in the current molecule.
+</DD>
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> For each quadrature point this holds the distances to all atoms.
+     Actually, <CODE>ra2_val(*,*,1)</CODE> holds the distances squared,
+     whereas <CODE>ra2_val(*,*,2)</CODE> holds the true distances.
+</DD>
+<DT><CODE>latm</CODE>
+<DD> This is the atom the current set of grid points belongs to and for which
+     the nuclear weights are being calculated.
+</DD>
+<DT><CODE>wt(npts)</CODE>
+<DD> On entry these are the quadrature weights for the grid points as computed
+     for the atomic quadrature grid.<BR>
+     On return this array holds the quadrature weights for the grid points
+     adjusted for use in the molecular grid.
+</DD>
+<DT><CODE>sk(npts)</CODE>
+<DD> This array is workspace to hold the function values of <I>s<SUB>k</SUB></I>
+     during the calculation (see equations (11)-(14)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+</DD>
+<DT><CODE>awt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>P<SUB>i</SUB></I> during the calculation.
+</DD>
+<DT><CODE>totwt(npts)</CODE>
+<DD> This array is workspace to hold the function values of
+     <I>sum(m) P<SUB>m</SUB></I> during the calculation.
+</DD>
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximal number of grid points in a batch.
+<DT><CODE>rshell</CODE>
+<DD> The radius of the current shell of angular grid points.
+<DT><CODE>rnear</CODE>
+<DD> The radius around the atom that defines which grid points are "near" to 
+     the nucleus. The atomic weights of "near" grid points remain untouched by 
+     the weighting scheme (see equation (15)
+     [<A HREF="dft_ref.html#Stratmann:1996">Stratmann:1996</A>]).
+<DT><CODE>ibuff(npts)</CODE>
+<DD> Some workspace to keep track of the points that have a non-zero cell 
+     function.
+</DL>
+</P>
+
+<A NAME="numerical_integration">
+<H3>The numerical integration</H3>
+</A>
+<P>
+Due to the nature of the density functionals numerical integration is required
+with density functional calculations. Therefore the density, the density 
+gradients, and the functionals have to represented on a 
+<A HREF="#quadrature_grids">quadrature grid</A>
+described in detail in a previous section.
+In this section it is assumed that the quadrature grid is available and the 
+focus is on executing the actual integration.
+</P><P>
+The data structures involved are 
+<UL>
+<LI><A HREF="#basis_set_interface">
+    the basis set common blocks</A>
+<LI><A HREF="#molecular_system_interface">
+    the molecular system common block</A>
+<LI><A HREF="#density_functionals">
+    the density functionals common block</A>
+<LI><A HREF="#quadrature_grids">
+    the quadrature grid common block</A>
+<LI><A HREF="#common_results_api">
+    <CODE>common /results_api/</CODE></A>
+</UL>
+The subroutines involved in performing the numerical integration are
+<UL>
+<LI><A HREF="#quadrature_grids">
+    the quadrature grid routines</A>
+<LI><A HREF="#density_functionals">
+    the density functional routines</A>
+<LI><A HREF="#atombf">
+    <CODE>subroutine atombf</CODE></A>
+<LI><A HREF="#bas_val">
+    <CODE>subroutine bas_val</CODE></A>
+<LI><A HREF="#bld_near_atm">
+    <CODE>subroutine bld_near_atm</CODE></A>
+<LI><A HREF="#calc_bfn_radii">
+    <CODE>subroutine calc_bfn_radii</CODE></A>
+<LI><A HREF="#den_val">
+    <CODE>subroutine den_val</CODE></A>
+<LI><A HREF="#den_val_screened">
+    <CODE>subroutine den_val_screened</CODE></A>
+<LI><A HREF="#dijcalc">
+    <CODE>subroutine dijcalc</CODE></A>
+<LI><A HREF="#exquad">
+    <CODE>subroutine exquad</CODE></A>
+<LI><A HREF="#gather_mu">
+    <CODE>subroutine gather_mu</CODE></A>
+<LI><A HREF="#gather_mu_scr">
+    <CODE>subroutine gather_mu_scr</CODE></A>
+<LI><A HREF="#kmaddcs">
+    <CODE>subroutine kmaddcs</CODE></A>
+<LI><A HREF="#kmaddcs_screen">
+    <CODE>subroutine kmaddcs_screen</CODE></A>
+<LI><A HREF="#xc_forces">
+    <CODE>subroutine xc_forces</CODE></A>
+<LI><A HREF="#xc_forces_scr">
+    <CODE>subroutine xc_forces_scr</CODE></A>
+</UL>
+</P>
+
+<A NAME="common_results_api">
+<H4><CODE>common /results_api/ [common/dft_api]</CODE></H4>
+</A>
+<P>
+This common block contains the most important results from the DFT module. It is used
+to move the results around in the DFT module.
+</P><P>
+The common block is defined as
+<PRE>
+      REAL    alpha_Den, beta_Den, J_energy, lmult, totDen, XC_energy
+      integer totPts
+      common/results_api/
+     &    alpha_Den, beta_Den, J_energy, lmult, totDen, XC_energy,
+     &    totpts
+</PRE>
+where
+<DL>
+<DT><CODE>alpha_Den</CODE>
+<DD> Is the number of alpha electrons resulting from the integration of the 
+     alpha-electron density.
+<DT><CODE>beta_Den</CODE>
+<DD> Is the number of beta electrons resulting from the integration of the 
+     beta-electron density.
+<DT><CODE>J_energy</CODE>
+<DD> The coulomb energy computed by the DFT module.
+<DT><CODE>lmult</CODE>
+<DD> The expectation value of <I>S<SUP>2</SUP></I>.
+<DT><CODE>totDen</CODE>
+<DD> The total number of electrons resulting from the intergration of the electron
+     density.
+<DT><CODE>XC_energy</CODE>
+<DD> The exchange-correlation energy.
+<DT><CODE>totpts</CODE>
+<DD> The total number of grid points used in the numerical integration.
+</DL>
+</P>
+
+<A NAME="atombf">
+<H4><CODE>subroutine atombf(integer active_bfn_list(n_active_bfn), n_active_bfn,
+          bstart, bend, ixf, ixl) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine returns the subdomain of the active basis function list that 
+contains the basis functions with labels between <CODE>bstart</CODE> and 
+<CODE>bend</CODE>. This subdomain is returned through a starting index stored in
+<CODE>ixf</CODE> and a ending index in <CODE>ixl</CODE>.
+</P><P>
+The subroutine was written to select all basis functions belonging to 1 atom 
+from the list of active basis functions.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>active_bfn_list(n_active_bfn)</CODE>
+<DD> The labels of the active basis functions at the current of grid points.
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>bstart</CODE>
+<DD> The lowest value label of a basis function of interest.
+<DT><CODE>bend</CODE>
+<DD> The highest value label of a basis function of interest.
+<DT><CODE>ixf</CODE>
+<DD> On return the index in the active basis function list at which the first
+     function between <CODE>bstart</CODE> and <CODE>bend</CODE> occurs. If no
+     such function was found on the active basis function list the value of 
+     <CODE>ixf</CODE> will be very high.
+<DT><CODE>ixl</CODE>
+<DD> On return the index in the active basis function list at which the last
+     function between <CODE>bstart</CODE> and <CODE>bend</CODE> occurs. If no
+     such function was found on the active basis function list the value of 
+     <CODE>ixf</CODE> will be <CODE>-1</CODE>.
+</DL>
+</P>
+
+<A NAME="bas_val">
+<H4><CODE>subroutine bas_val(integer tag, nao, REAL ra2_comp(mxp,max_atom,3),
+          ra2_val(mxp,max_atom,2), wt(mxp), bfn_val(mxp,nao), 
+          bfng_val(mxp,nao,3), bfn_hess(mxp,nao,6), integer npts, mxp, 
+          logical screen_sw,
+          integer active_bfn_list(nao), n_active_bfn, REAL psitol, del_psi, 
+          bfn_radii(*), integer ider, logical odb) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the values of the basis functions, their gradients and
+their second derivatives at a set of points. The computational cost can be 
+reduced through screening, and the number of derivatives computed can be changed
+through settings of the formal parameters.
+</P><P>
+The formal parameters are:
+<DL>
+<DT><CODE>tag</CODE>
+<DD> The basis set identifier (see also 
+     <A HREF="#common_basis_sets"><CODE>common /basis_sets/</CODE></A>
+     on how basis sets are stored).
+<DT><CODE>nao</CODE>
+<DD> The number of atomic basis functions that are currently active.
+<DT><CODE>ra2_comp(mxp,max_atom,3)</CODE>
+<DD> The differences of the coordinates of the points and the atoms. 
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> The distance between the points and the atoms, I.e.
+     <CODE>ra2_val(i,j,2)</CODE> is the distance and
+     <CODE>ra2_val(i,j,1)</CODE> is the distance squared.
+<DT><CODE>wt(mxp)</CODE>
+<DD> The quadrature weights for all points.
+<DT><CODE>npts</CODE>
+<DD> The number of points in this batch.
+<DT><CODE>maxp</CODE>
+<DD> The maximum number of points that can stored in a batch.
+<DT><CODE>screen_sw</CODE>
+<DD> The switch which indicates whether screening should be used.
+<DT><CODE>active_bfn_list(nao)</CODE>
+<DD> Contains the numbers of all basis functions for which non-zero 
+     contributions were computed.
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions, I.e. the number of basis functions
+     with non-zero contributions.
+<DT><CODE>bfn_val(mxp,nao)<CODE>
+<DD> On return the value of the <CODE>nao</CODE> basis functions at the current
+     <CODE>mxp</CODE> points.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> On return the value of the gradients of the basis functions if 
+     <CODE>ider &gt;= 1</CODE> otherwise the data structure is zeroed.
+<DT><CODE>bfn_hess(mxp,nao,6)</CODE>
+<DD> On return it contains the second derivatives of the basis functions
+     if <CODE>ider = 2</CODE> otherwise the data structure is zeroed.
+<DT><CODE>psitol</CODE>
+<DD> Unused !!!
+<DT><CODE>del_psi</CODE>
+<DD> The number of basis functions for which no non-zero contributions were
+     computed. Used for statistics <B>???</B>.
+<DT><CODE>bfn_radii(*)</CODE>
+<DD> The radii of the basis functions within which the basis function value
+     is non-neglegible.
+<DT><CODE>ider</CODE>
+<DD> The maximal order derivative to be calculated for the basis functions.
+<DT><CODE>odb</CODE>
+<DD> Unused !!!
+</DL>
+In the above list the coordinates are labeled 
+<I>P = (p<SUB>1</SUB>, p<SUB>2</SUB>, p<SUB>3</SUB>)<SUP>T</SUP> 
+     = (p<SUB>x</SUB>, p<SUB>y</SUB>, p<SUB>z</SUB>)<SUP>T</SUP></I>.
+</P><P>
+The basic algorithm is
+<OL>
+<LI>Do for each atom
+    <OL>
+    <LI>Do for each shell
+        <OL>
+        <LI>If the minimal distance between the grid points and the atom is too large
+            then this shell yields only zero contributions so skip to the next 
+            shell
+        <LI>Do for each point
+            <OL>
+            <LI>If this point if too far from the atom then skip to next point
+            <LI>Compute some stuff useful for higher angular momenta
+            <LI>Do for each primitive Gaussian
+                <OL>
+                <LI>Do for each angular momentum
+                    <OL>
+                    <LI>Compute the function values
+                    <LI>Compute the function gradient values (if needed)
+                    <LI>Compute the function hessian values (if needed)
+                    </OL>
+                    Enddo angular momentum
+                </OL>
+                Enddo primitive Gaussian
+            </OL>
+            Enddo point
+        <LI>Add the functions in this shell to the list of active functions
+        </OL>
+        Enddo shell
+    </OL>
+    Enddo atom
+</OL>
+</P>
+
+<A NAME="bld_near_atm">
+<H4><CODE>subroutine bld_near_atm(integer num_near_atoms, near_atom_list(natoms), latm,
+          REAL ri, arad(natoms), dij(max_atom,max_atom), rnear, integer natoms) 
+          [xc.f]</CODE></H4>
+</A>
+<P>
+For the atom that corresponds to the atomic grid currently being integrated over, this
+subroutine constructs the list of neighbouring atoms. The purpose of this list is to
+reduce the amount of work done in the weighting schemes. 
+</P><P>
+While constructing the neighbouring atom list the distance to the closest neighbouring
+atom is obtained also.
+</P><P>
+Directly following the neighbouring atom list the label of the current atom is stored.
+Although this data element resides on the same array it should not be considered as
+part of the list.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>num_near_atoms</CODE>
+<DD> On return the number of atoms on the near atom list.
+<DT><CODE>near_atom_list(natoms)</CODE>
+<DD> On return the first <CODE>num_near_atoms</CODE> atom labels will refer to the
+     nearest neighbours. The label at <CODE>num_near_atoms+1</CODE> is the label of
+     the current atom.
+<DT><CODE>latm</CODE>
+<DD> The current atom.
+<DT><CODE>ri</CODE>
+<DD> The radius of the current angular shell.
+<DT><CODE>arad(natoms)</CODE>
+<DD> The "atomic radii". The atomic radii are defined based on the basis functions
+     on the atom. It is assumed that beyond the atomic radius all basis functions are
+     0.
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> The distance matrix of the current molecular system.
+<DT><CODE>rnear</CODE>
+<DD> On return the distance to the closest neighbouring atom.
+<DT><CODE>natoms</CODE>
+<DD> The number of atoms in the molecular system.
+</DL>
+</P>
+
+<A NAME="calc_bfn_radii">
+<H4><CODE>subroutine calc_bfn_radii(REAL bfn_radii(nao), integer ao_tag, nao,
+          REAL arad(natoms), integer first_bf(*), REAL psitol) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes for each basis function the radius beyond which the basis 
+function is assumed to be 0. Also, for each center this radius of the most diffuse
+basis function is stored. 
+</P><P>
+The information obtained is used for screening purposes in the numerical integration.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>bfn_radii(nao)</CODE>
+<DD> On return this contains the radii of all basis functions beyond which they can 
+     be assumed to be 0.
+<DT><CODE>ao_tag</CODE>
+<DD> The basis set tag of the basis set for which the analysis should be performed.
+     See also 
+     <A HREF="#basis_set_interface">the basis set common blocks</A>.
+<DT><CODE>nao</CODE>
+<DD> The number of atomic basis functions.
+<DT><CODE>arad(natoms)</CODE>
+<DD> On return the radii of the most diffuse basis functions of each atom.
+<DT><CODE>first_bf(*)</CODE>
+<DD> On return the number of the first atomic orbital for each atom in the total basis
+     set.
+<DT><CODE>psitol</CODE>
+<DD> The tolerance for the basis function values. All basis function values closer
+     to 0 than this tolerance will be assumed 0.
+</DL>
+</P>
+
+<A NAME="den_val">
+<H4><CODE>subroutine den_val(logical spintyp_sw, hessian_sw, REAL adens(*), bdens(*),
+          integer tag, nao, 
+          REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3), bfn_hess(mxp,nao,6), 
+          rho(mxp,2), grho(mxp,2,3), 
+          integer npts, mxp, logical screen_sw, 
+          integer active_bfn_list(*), n_active_bfn, ider) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the density and if desired the gradient of the density
+at a number of grid points given the values of the basis functions, the gradients of
+the basis functions and possibly the second derivatives of the basis functions at the
+grid points.
+</P><P>
+The subroutine can handle both closed shell singlet cases as well as spin polarised
+cases. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD> If this switch is set to <CODE>.true.</CODE> the subroutine should deal with a
+     spin polarised case. Otherwise a closed shell case is assumed.
+<DT><CODE>hessian_sw</CODE>
+<DD> Unused !!!
+<DT><CODE>adens(*)</CODE>
+<DD> The alpha electron density matrix in the spin polarised case (in the closed
+     shell case the total electron density matrix) stored in triangular form.
+<DT><CODE>bdens(*)</CODE>
+<DD> The beta electron density matrix in the spin polarised case stored in triangular 
+     form.
+<DT><CODE>tag</CODE>
+<DD> Unused !!!
+<DT><CODE>nao</CODE>
+<DD> The number of atomic basis functions.
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at each point.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at each point.
+<DT><CODE>bfn_hess(mxp,nao,6)</CODE>
+<DD> The values of the second derivative of the atomic basis functions at each point.
+     This is not used at the moment but reserved for future use.
+<DT><CODE>rho(mxp,2)</CODE>
+<DD> On return this is the density at each grid point.
+     Where <CODE>rho(i,1)</CODE> is the alpha-electron density in the spin-polarised 
+     case and the total electron density in the closed shell case, and
+     <CODE>rho(i,2)</CODE> is the beta-electron density in the spin-polarised case.
+<DT><CODE>grho(mxp,2,3)</CODE>
+<DD> On return this is the gradient of the density at each grid point.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid points in a batch. I.e. the leading dimension of 
+     some of the arrays.
+<DT><CODE>screen_sw</CODE>
+<DD> A switch whether screening should be used. Not used in this version of the 
+     subroutine !!!
+<DT><CODE>active_bfn_list(*)</CODE>
+<DD> A list of "active" basis functions. I.e. those basis functions that generate
+     non-zero contributions to the density in the current batch of grid points.
+     Not used in this version of the subroutine !!!
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>ider</CODE>
+<DD> The maximum level of derivatives of the density requested.
+     Currently only the values 0 and 1 are supported.
+</DL>
+
+<A NAME="den_val_screened">
+<H4><CODE>subroutine den_val_screened(logical spintyp_sw, hessian_sw, 
+          REAL adens(*), bdens(*),
+          integer tag, nao, 
+          REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3), bfn_hess(mxp,nao,6), 
+          rho(mxp,2), grho(mxp,2,3), 
+          integer npts, mxp, logical screen_sw, 
+          integer active_bfn_list(*), n_active_bfn, 
+          REAL dentol, integer ider) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the density and if desired the gradient of the density
+at a number of grid points given the values of the basis functions, the gradients of
+the basis functions and possibly the second derivatives of the basis functions at the
+grid points.
+</P><P>
+The subroutine can handle both closed shell singlet cases as well as spin polarised
+cases. 
+</P><P>
+For efficiency reasons a number of screening techniques are applied: 
+<UL>
+<LI> Only the values of basis functions that have a significant contribution to the
+     density at the current grid points are processed.
+<LI> Only density matrix elements significantly different from 0 are processed.
+</UL>
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>spintyp_sw</CODE>
+<DD> If this switch is set to <CODE>.true.</CODE> the subroutine should deal with a
+     spin polarised case. Otherwise a closed shell case is assumed.
+<DT><CODE>hessian_sw</CODE>
+<DD> Unused !!!
+<DT><CODE>adens(*)</CODE>
+<DD> The alpha electron density matrix in the spin polarised case (in the closed
+     shell case the total electron density matrix) stored in triangular form.
+<DT><CODE>bdens(*)</CODE>
+<DD> The beta electron density matrix in the spin polarised case stored in triangular 
+     form.
+<DT><CODE>tag</CODE>
+<DD> Unused !!!
+<DT><CODE>nao</CODE>
+<DD> The number of atomic basis functions.
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at each point.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at each point.
+<DT><CODE>bfn_hess(mxp,nao,6)</CODE>
+<DD> The values of the second derivative of the atomic basis functions at each point.
+     This is not used at the moment but reserved for future use.
+<DT><CODE>rho(mxp,2)</CODE>
+<DD> On return this is the density at each grid point.
+     Where <CODE>rho(i,1)</CODE> is the alpha-electron density in the spin-polarised 
+     case and the total electron density in the closed shell case, and
+     <CODE>rho(i,2)</CODE> is the beta-electron density in the spin-polarised case.
+<DT><CODE>grho(mxp,2,3)</CODE>
+<DD> On return this is the gradient of the density at each grid point.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid points in a batch. I.e. the leading dimension of 
+     some of the arrays.
+<DT><CODE>screen_sw</CODE>
+<DD> A switch whether screening should be used. Not used in this version of the 
+     subroutine !!!
+<DT><CODE>active_bfn_list(*)</CODE>
+<DD> A list of "active" basis functions. I.e. those basis functions that generate
+     non-zero contributions to the density in the current batch of grid points.
+     Not used in this version of the subroutine !!!
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>dentol</CODE>
+<DD> The tolerance for the density matrix elements. All elements smaller in absolute
+     value than <CODE>dentol</CODE> are assumed to be 0.
+<DT><CODE>ider</CODE>
+<DD> The maximum level of derivatives of the density requested.
+     Currently only the values 0 and 1 are supported.
+</DL>
+
+<A NAME="dijcalc">
+<H4><CODE>subroutine dijcalc(REAL dij(max_atom,max_atom)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine computes the distance matrix for the molecular system in hand.
+The molecular system is described by 
+<A HREF="#molecular_system_interface">the molecular system common blocks</A>.
+</P><P>
+The parameter is:
+<DL>
+<DT><CODE>dij(max_atom,max_atom)</CODE>
+<DD> On return the distance matrix.
+</DL>
+</P>
+
+<A NAME="exquad">
+<H4><CODE>subroutine exquad(REAL memory_fp(*), integer memory_int(*), 
+          ao_tag, natyp, nao, 
+          REAL apts(3,angupt_num), awpt(angupt_num), 
+          prpt(radpt_num,num_types(ao_tag)), prwt(radpt_num,num_types(ao_tag)), 
+          bfn_val(mxp,2), bfng_val(mxp,2,3), bfn_hess(mxp,2,6), 
+          adens(*), bdens(*), kma(*), kmb(*), grad(3,natoms), 
+          ra2_val(mxp,max_atom,2), ra2_comp(mxp,max_atom,3), wt(mxp), 
+          xc_vpt(mxp,2), xc_dvpt(mxp,2,3), rho(mxp,2), grho(mxp,2,3), 
+          logical ks_sw, grad_sw, integer mxp, logical extwr_sw, REAL accuracy)
+          [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine is the main driver of the numerical integration. It can 
+compute the exchange-correlation energy and the contributions to the Kohn-Sham
+matrices, or it can compute the exchange-correlation contributions to the
+forces on the nuclei, or both. 
+</P><P>
+Essentially the way the subroutine works can be viewed as a pipeline. At the
+beginning there are the grid specification and the functional specification, at
+the there are the exchange-correlation energy and the Kohn-Sham matrix 
+contributions or the forces. At various stages in the pipeline data can 
+be screened or pruned to save work. 
+</P><P>
+The stages processed are:
+<OL>
+<LI>Computing the radial grids for all atoms.
+    The number of grid points is selected as a function of the desired 
+    integration accuracy.
+    Grid points to far away from the nucleus will be removed.
+<LI>The angular grid points are computed.
+    The number of grid points is selected as function of the radius of the
+    angular shell and as function of the desired integration precision.
+<LI>The quadrature weights for atomic grids are adjusted by the weighting
+    scheme to account for the presence of other atoms.
+    The effect of remote atoms on the weighting scheme is known a priori,
+    so only near atoms have to be treated explicitly. 
+    Grid points that get neglegible weights are discarded.
+<LI>The values of the basis functions at the grid points are evaluated.
+    Remote basis functions have 0 contributions are the grid points and
+    can be skipped.
+<LI>The density and the density gradient are evaluated at the grid points. 
+    Density matrix elements that are nearly 0 can be skipped. 
+<LI>The density functionals are evaluated at the grid points.
+    Batches of grid points where the density is nearly 0 can be skipped.
+<LI>The Kohn-Sham matrix contributions or the forces are evaluated.
+    The integration of the exchange-correlation functionals is only performed
+    with the basis functions that yield a significant contribution.
+</OL>
+</P><P>
+In practice the quadrature grid is never generated explicitly to improve 
+memory efficiency. In stead the grid is generated and processed batch wise.
+However, this does not change the conceptual picture of the stages involved.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>memory_fp(*)</CODE>
+<DD> The main memory array in floating point representation.
+<DT><CODE>memory_int(*)</CODE>
+<DD> The main memory array in integer representation.
+<DT><CODE>ao_tag</CODE>
+<DD> The tag of the current basis set.
+<DT><CODE>natyp</CODE>
+<DD> The number of different atoms.
+<DT><CODE>nao</CODE>
+<DD> The number of atomic orbitals.
+<DT><CODE>apts(3,angupt_num), awpt(angupt_num)</CODE>
+<DD> Workspace for the angular grid points and weights.
+<DT><CODE>prpt(radpt_num,num_types(ao_tag)), 
+          prwt(radpt_num,num_types(ao_tag))</CODE>
+<DD> Workspace for the radial grid points and weights.
+<DT><CODE>bfn_val(mxp,2), bfng_val(mxp,2,3), bfn_hess(mxp,2,6)</CODE>
+<DD> Workspace for the basis function value, basis function gradient and 
+     basis function hessian evaluated at the grid points.
+<DT><CODE>adens(*), bdens(*)</CODE>
+<DD> The alpha- and beta-electron density matrix stored in triangular form. 
+     For closed shell calculations <CODE>adens</CODE> is assumed to hold the
+     total density matrix.
+<DT><CODE>kma(*), kmb(*)</CODE>
+<DD> The alpha- and beta-electron Kohn-Sham matrix stored in triangular form. 
+     For closed shell calculations <CODE>kma</CODE> is assumed to hold the
+     total Kohn-Sham matrix. 
+<DT><CODE>grad(3,natoms)</CODE>
+<DD> The gradients of the energy.
+<DT><CODE>ra2_val(mxp,max_atom,2)</CODE>
+<DD> Workspace to hold the distances and squares of distances between grid
+     points and atoms.
+<DT><CODE>ra2_comp(mxp,max_atom,3)</CODE>
+<DD> Workspace to store the difference vectors between grid points and atoms.
+<DT><CODE>wt(mxp)</CODE>
+<DD> Workspace to store the final weights of the molecular grid points.
+<DT><CODE>xc_vpt(mxp,2), xc_dvpt(mxp,2,3)</CODE>
+<DD> Workspace to store the exchange-correlation potential and its gradient
+     at the grid points.
+<DT><CODE>rho(mxp,2), grho(mxp,2,3)</CODE>
+<DD> Workspace to store the density and its gradient at the grid points.
+<DT><CODE>ks_sw</CODE>
+<DD> This switch tells whether the contributions to the Kohn-Sham matrix should
+     be calculated.
+<DT><CODE>grad_sw</CODE>
+<DD> This switch tells whether the contributions to the forces should be 
+     calculated.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid points in a batch.
+<DT><CODE>extwr_sw</CODE>
+<DD> This switch tells whether extra output from the Gauss-Legendre angular
+     grid generated is desired.
+<DT><CODE>accuracy</CODE>
+<DD> The accuracy to which the Kohn-Sham orbitals have been converged. It
+     is used to estimate the desired integration accuracy.
+</DL>
+</P>
+
+<A NAME="gather_mu">
+<H4><CODE>subroutine gather_mu(REAL dens(*), integer mu, 
+          nao, REAL out(nao)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine collects a row from the density matrix. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>dens(*)</CODE>
+<DD> The density matrix stored in triangular form.
+<DT><CODE>mu</CODE>
+<DD> The number of the row that is to be collected.
+<DT><CODE>nao</CODE>
+<DD> The number of density matrix elements that occurr on a row.
+<DT><CODE>out(nao)</CODE>
+<DD> On return the <I>mu</I>th row of the density matrix.
+</DL>
+</P>
+
+<A NAME="gather_mu_scr">
+<H4><CODE>subroutine gather_mu_scr(REAL dens(*), integer n, 
+          active_bfn_list(n_active_bfn), n_active_bfn, i, 
+          REAL out(n_active_bfn)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine selects a row of the density matrix from the active basis
+function list. Next it collects all elements of this row that correspond to 
+the active basis functions.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>dens(*)</CODE>
+<DD> The density matrix stored in triangular form.
+<DT><CODE>n</CODE>
+<DD> Unused !!!
+<DT><CODE>active_bfn_list(n_active_bfn)</CODE>
+<DD> The list of active basis functions.
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>i</CODE>
+<DD> The index of the active basis function for which the row of density 
+     matrix elements should be collected.
+<DT><CODE>out(n_active_bfn)
+<DD> On return the active density matrix elements for the row corresponding
+     to the <I>i</I>th function of the active basis function list.
+</DL>
+</P>
+
+<A NAME="kmaddcs">
+<H4><CODE>subroutine kmaddcs(REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3),
+          xc_vpt(mxp,2), xc_dvpt(mxp,2,3), gama(mxp,2,3), 
+          logical local_sw, gradient_sw,
+          REAL kma(*), kmb(*), logical spintyp_sw,
+          REAL om_scr(nao), integer nao, npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the contributions of the current set of grid points to the
+Kohn-Sham matrices. Essentially it computes the integrals of the exchange-correlation
+potential with the basis functions. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at the grid points in the current batch.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at the grid points in 
+     the current batch.
+<DT><CODE>xc_vpt(mxp,2)</CODE>
+<DD> The values of the exchange-correlation potential at the current set of grid 
+     points. In the spin polarised case both <CODE>xc_vpt(i,1)</CODE> and 
+     <CODE>xc_vpt(i,2)</CODE> are used.
+<DT><CODE>xc_dvpt(mxp,2,3)</CODE>
+<DD> The values of the exchange-correlation potential gradient at the current set of 
+     grid points. In the spin polarised case both <CODE>xc_dvpt(i,1,j)</CODE> and 
+     <CODE>xc_dvpt(i,2,j)</CODE> are used.
+<DT><CODE>gama(mxp,2,3)</CODE>
+<DD> Unused !!! (at present ?)
+<DT><CODE>local_sw</CODE>
+<DD> This switch tells whether the functional used is local only. I.e. 
+     <CODE>xc_dvpt</CODE> is 0.
+<DT><CODE>gradient_sw</CODE>
+<DD> This switch tells whether the functional used has gradient corrections. I.e. 
+     <CODE>xc_dvpt</CODE> is non-zero.
+<DT><CODE>kma(*), kmb(*)</CODE>
+<DD> The Kohn-Sham matrices stored in triangular form. In the spin polarised case both
+     matrices are used, otherwise only <CODE>kma</CODE> is used.<BR>
+     On return the contributions from the current set of grid points will have been
+     added.
+<DT><CODE>spintyp_sw</CODE>
+<DD> This switch tells whether the current problem is a closed shell case. If
+     <CODE>.false.</CODE> the current case is assumed to be spin polarised.
+<DT><CODE>om_scr(nao)</CODE>
+<DD> Workspace.
+<DT><CODE>nao</CODE>
+<DD> The number of atomic orbitals.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid point in a batch. I.e. the leading dimension of some
+     arrays.
+</DL>
+</P>
+
+<A NAME="kmaddcs_screen">
+<H4><CODE>subroutine kmaddcs_screen(REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3),
+          xc_vpt(mxp,2), xc_dvpt(mxp,2,3), gama(mxp,2,3), 
+          logical local_sw, gradient_sw,
+          REAL kma(*), kmb(*), logical spintyp_sw,
+          integer nao, npts, mxp,
+          integer active_bfn_list(*), n_active_bfn,
+          REAL om_scr(nao), t(mxp)) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the contributions of the current set of grid points to the
+Kohn-Sham matrices. Essentially it computes the integrals of the exchange-correlation
+potential with the basis functions. 
+</P><P>
+To improve the efficiency this routine integrates only over those basis functions
+that yield significant contributions.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at the grid points in the current batch.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at the grid points in 
+     the current batch.
+<DT><CODE>xc_vpt(mxp,2)</CODE>
+<DD> The values of the exchange-correlation potential at the current set of grid 
+     points. In the spin polarised case both <CODE>xc_vpt(i,1)</CODE> and 
+     <CODE>xc_vpt(i,2)</CODE> are used.
+<DT><CODE>xc_dvpt(mxp,2,3)</CODE>
+<DD> The values of the exchange-correlation potential gradient at the current set of 
+     grid points. In the spin polarised case both <CODE>xc_dvpt(i,1,j)</CODE> and 
+     <CODE>xc_dvpt(i,2,j)</CODE> are used.
+<DT><CODE>gama(mxp,2,3)</CODE>
+<DD> Unused !!! (at present ?)
+<DT><CODE>local_sw</CODE>
+<DD> This switch tells whether the functional used is local only. I.e. 
+     <CODE>xc_dvpt</CODE> is 0.
+<DT><CODE>gradient_sw</CODE>
+<DD> This switch tells whether the functional used has gradient corrections. I.e. 
+     <CODE>xc_dvpt</CODE> is non-zero.
+<DT><CODE>kma(*), kmb(*)</CODE>
+<DD> The Kohn-Sham matrices stored in triangular form. In the spin polarised case both
+     matrices are used, otherwise only <CODE>kma</CODE> is used.<BR>
+     On return the contributions from the current set of grid points will have been
+     added.
+<DT><CODE>spintyp_sw</CODE>
+<DD> This switch tells whether the current problem is a closed shell case. If
+     <CODE>.false.</CODE> the current case is assumed to be spin polarised.
+<DT><CODE>nao</CODE>
+<DD> The number of atomic orbitals.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in this batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid point in a batch. I.e. the leading dimension of some
+     arrays.
+<DT><CODE>active_bfn_list(*)</CODE>
+<DD> A list of "active" basis functions. I.e. those basis functions that
+     generate non-zero contributions to the exchange-correlation potential in the 
+     current batch of grid points.
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>om_scr(nao)</CODE>
+<DD> Workspace.
+<DT><CODE>t(mxp)</CODE>
+<DD> Workspace.
+</DL>
+</P>
+
+<A NAME="xc_forces">
+<H4><CODE>subroutine xc_forces(integer ao_tag, nao, logical hessian_sw, 
+          REAL adens(*), bdens(*), logical spintyp_sw, 
+          REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3), bfn_hess(mxp,nao,6), 
+          xc_vpt(mxp,2), xc_vdpt(mxp,2,3), scr2(3,nao), scr3(nao), 
+          grad(3,natoms), integer npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the contribution to the forces on the atoms corresponding 
+to the current set of grid points. 
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>ao_tag</CODE>
+<DD> The tag of the basis set currently being used.
+     See also <A HREF="#basis_set_interface">the basis set common blocks</A>.
+<DT><CODE>nao</CODE>
+<DD> The number of basis functions.
+<DT><CODE>hessian_sw</CODE>
+<DD> This switch tells whether the basis function second derivatives are 
+     available.
+<DT><CODE>adens(*)</CODE>
+<DD> The alpha electron density matrix in the spin polarised case (in the closed
+     shell case the total electron density matrix) stored in triangular form.
+<DT><CODE>bdens(*)</CODE>
+<DD> The beta electron density matrix in the spin polarised case stored in 
+     triangular form.
+<DT><CODE>spintyp_sw</CODE>
+<DD> This switch tells whether the calculation concerns a closed shell case.
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at each point.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at each point.
+<DT><CODE>bfn_hess(mxp,nao,6)</CODE>
+<DD> The values of the second derivative of the atomic basis functions at each 
+     point.
+<DT><CODE>xc_vpt(mxp,2)</CODE>
+<DD> The values of the exchange-correlation potential at the current set of grid
+     points. In the spin polarised case both <CODE>xc_vpt(i,1)</CODE> and
+     <CODE>xc_vpt(i,2)</CODE> are used.
+<DT><CODE>xc_dvpt(mxp,2,3)</CODE>
+<DD> The values of the exchange-correlation potential gradient at the current 
+     set of grid points. In the spin polarised case both 
+     <CODE>xc_dvpt(i,1,j)</CODE> and <CODE>xc_dvpt(i,2,j)</CODE> are used.
+<DT><CODE>scr2(3,nao)</CODE>
+<DD> Workspace.
+<DT><CODE>scr3(nao)</CODE>
+<DD> Workspace.
+<DT><CODE>grad(3,natoms)</CODE>
+<DD> The gradient of the energy for each atom. On return the density functional
+     contributions related to the current set of grid points will have been 
+     added.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in the current batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid point in a batch. I.e. the leading dimension
+     of some arrays.
+</DL>
+</P>
+
+<A NAME="xc_forces_scr">
+<H4><CODE>subroutine xc_forces_scr(integer ao_tag, nao, logical hessian_sw, 
+          REAL adens(*), bdens(*), logical spintyp_sw, 
+          REAL bfn_val(mxp,nao), bfng_val(mxp,nao,3), bfn_hess(mxp,nao,6), 
+          xc_vpt(mxp,2), xc_vdpt(mxp,2,3), scr2(3,nao), scr3(nao), 
+          integer near_atom_list(num_near_atoms+1), num_near_atoms,
+          first_bf(natoms), active_bfn_list(n_active_bfn), n_active_bfn,
+          grad(3,natoms), integer npts, mxp) [xc.f]</CODE></H4>
+</A>
+<P>
+This subroutine adds the contribution to the forces on the atoms corresponding 
+to the current set of grid points. To improve performance it uses the screening
+techniques:
+<UL>
+<LI> Using a list of near atoms only those atoms leading to a significant
+     contribution have to be considered.
+<LI> Using a list of active basis functions only those basis functions leading
+     to a significant contribution will be considered.
+</UL>
+The screening techniques used at moment are redundant as they use similar
+information. However, because the information is available anyway it is simpler
+to use it straight away than to remove the redundancy.
+</P><P>
+The parameters are:
+<DL>
+<DT><CODE>ao_tag</CODE>
+<DD> Unused !!!
+<DT><CODE>nao</CODE>
+<DD> The number of basis functions.
+<DT><CODE>hessian_sw</CODE>
+<DD> This switch tells whether the basis function second derivatives are 
+     available.
+<DT><CODE>adens(*)</CODE>
+<DD> The alpha electron density matrix in the spin polarised case (in the closed
+     shell case the total electron density matrix) stored in triangular form.
+<DT><CODE>bdens(*)</CODE>
+<DD> The beta electron density matrix in the spin polarised case stored in 
+     triangular form.
+<DT><CODE>spintyp_sw</CODE>
+<DD> This switch tells whether the calculation concerns a closed shell case.
+<DT><CODE>bfn_val(mxp,nao)</CODE>
+<DD> The values of the atomic basis functions at each point.
+<DT><CODE>bfng_val(mxp,nao,3)</CODE>
+<DD> The values of the gradients of the atomic basis functions at each point.
+<DT><CODE>bfn_hess(mxp,nao,6)</CODE>
+<DD> The values of the second derivative of the atomic basis functions at each 
+     point.
+<DT><CODE>xc_vpt(mxp,2)</CODE>
+<DD> The values of the exchange-correlation potential at the current set of grid
+     points. In the spin polarised case both <CODE>xc_vpt(i,1)</CODE> and
+     <CODE>xc_vpt(i,2)</CODE> are used.
+<DT><CODE>xc_dvpt(mxp,2,3)</CODE>
+<DD> The values of the exchange-correlation potential gradient at the current 
+     set of grid points. In the spin polarised case both 
+     <CODE>xc_dvpt(i,1,j)</CODE> and <CODE>xc_dvpt(i,2,j)</CODE> are used.
+<DT><CODE>scr2(3,nao)</CODE>
+<DD> Workspace.
+<DT><CODE>scr3(nao)</CODE>
+<DD> Workspace.
+<DT><CODE>near_atom_list(natoms)</CODE>
+<DD> On return the first <CODE>num_near_atoms</CODE> atom labels will refer to 
+     the nearest neighbours. The label at <CODE>num_near_atoms+1</CODE> is the 
+     label of the current atom.
+<DT><CODE>num_near_atoms</CODE>
+<DD> On return the number of atoms on the near atom list.
+<DT><CODE>first_bf(*)</CODE>
+<DD> On return the number of the first atomic orbital for each atom in the total
+     basis set.
+<DT><CODE>active_bfn_list(*)</CODE>
+<DD> A list of "active" basis functions. I.e. those basis functions that 
+     generate non-zero contributions to the density in the current batch of grid
+     points.
+<DT><CODE>n_active_bfn</CODE>
+<DD> The number of active basis functions.
+<DT><CODE>grad(3,natoms)</CODE>
+<DD> The gradient of the energy for each atom. On return the density functional
+     contributions related to the current set of grid points will have been 
+     added.
+<DT><CODE>npts</CODE>
+<DD> The number of grid points in the current batch.
+<DT><CODE>mxp</CODE>
+<DD> The maximum number of grid point in a batch. I.e. the leading dimension
+     of some arrays.
+</DL>
+</P>
+
+<A NAME="utilities">
+<H3>The utilities routines</H3>
+</A>
+
+<A NAME="atom_num_by_tag">
+<H4><CODE>integer function atom_num_by_tag(integer atm_tag) [xc.f]</CODE></H4>
+</A>
+<P>
+<B>Obsolete ???</B>
+<P>
+This function returns the atomic number or nuclear charge given the atoms tag
+as registered in the basis set data structures.
+</P><P>
+The parameter is:
+<DL>
+<DT><CODE>atm_tag</CODE>
+<DD> The tag of the atom.
+</DL>
+</P>
+
+<A NAME="print_angangpt">
+<H4><CODE>subroutine print_angangpt</CODE></H4>
+</A>
+<P>
+This subroutine prints a table giving for each element in the molecule the
+radial zones and the corresponding number of angular points as defined 
+through the 
+<A HREF="#CD_radial_zones"><CODE>CD_radial_zones</CODE></A>
+function.
+</P>
+
+<A NAME="print_SG1angpt">
+<H4><CODE>subroutine print_SG1angpt</CODE></H4>
+</A>
+<P>
+This subroutine prints a table giving for each element in the molecule the
+radial zones and the corresponding number of angular points as defined in the
+SG1 grid 
+[<A HREF="dft_ref.html#Gill:1993">Gill:1993</A>].
+</P>
+
+<A NAME="print_mhlangpt">
+<H4><CODE>subroutine print_mhlangpt</CODE></H4>
+</A>
+<P>
+This subroutine prints a table giving for each element in the molecule the
+radial zones and the corresponding number of angular points as defined in the
+grid pruning scheme by Murray et al.
+[<A HREF="dft_ref.html#Murray:1993">Murray:1993</A>].
+</P>
+
+<A NAME="ztoname">
+<H4><CODE>subroutine ztoname(integer z, character*4 name) [global.f]</CODE></H4>
+</A>
+<P>
+Returns the chemical symbol of an atom in <CODE>name</CODE> given the nuclear
+charge in <CODE>z</CODE>. All chemical elements from 1 to 118 are supported. 
+If a nuclear charge of <CODE>0</CODE> is specified the routine returns the
+name "BQ".
+</P>
+
+<A NAME="DFT_module">
+<H3>The DFT module</H3>
+</A>
+
+The DFT module contains a few central data structures which hold essential 
+information. These data structures are related to concepts like the molecular
+basis set, auxilary basis set, and molecular geometry and to implementation
+dependent things like storage administration. These data structures are all 
+grouped in include files. Therefore they'll be discussed per include file.
+
+<H4>common/dft_physical_constants</H4>
+<PRE>
+      REAL  pi,atob
+      parameter(pi=3.141592653589793238462643d0,atob=0.529117249d0)
+</PRE>
+<DL>
+<DT><CODE>atob</CODE>
+<DD> Conversion factor from &Aring;ngstrom to Bohr.
+</DL>
+
+<H4>common/dft_parameters</H4>
+This file mostly contains parameters restricting the implementation. 
+They can be changed if molecular system sizes require to do so.
+<PRE>
+c
+c     Memory related parameters:
+c
+      integer max_block
+      parameter(max_block=20)
+c
+c     Basis set related parameters:
+c
+      integer max_tag,max_atype,max_shel,max_prm,max_ang
+      parameter(max_tag=3,max_atype=5,max_shel=50,max_prm=100)
+      parameter(max_ang=5)
+c
+c     Geometry related parameters:
+c
+      integer max_atom
+      parameter(max_atom=500)
+c
+c     Accuracy related parameters:
+c
+      REAL  global_accuracy
+      parameter(global_accuracy=1.0d-14)
+c
+c     Grid related parameters:
+c
+      integer maxgpt,maxrad,maxfpt,maxang,maxradzns
+      parameter(maxgpt=2900,maxrad=50,maxang=302,maxfpt=100)
+      parameter(maxradzns = 15)
+</PRE>
+<DL>
+<DT><CODE>max_atom</CODE>
+<DD>The maximum number of atoms that is allowed in a molecular system.
+<DT><CODE>maxgpt</CODE>
+<DD>The maximum number of grid points on an atom.
+<DT><CODE>maxrad</CODE>
+<DD>The maximum number of radial points on an atom.
+<DT><CODE>maxang</CODE>
+<DD>The maximum number angular points on an atom.
+<DT><CODE>maxradzns</CODE>
+<DD>The maximum number of radial zones.
+</DL>
+
+
+<H4>common/dft_dshlnf</H4>
+<PRE>
+      REAL ag,csa,cpa,cda,cfa,cga,bg,csb,cpb,cdb,cfb,cgb
+      REAL cgg,csc,cpc,cdc,cfc,cgc,dg,csd,cpd,cdd,cfd,cgd
+      REAL xi,yi,zi,xj,yj,zj,rri,xk,yk,zk,xl,yl,zl,rrk
+      REAL exij,rsmall
+      integer nga,ngb,ngc,ngd
+      common/dshlnf/ag(mxprms),csa(mxprms),cpa(mxprms),cda(mxprms),
+     +              cfa(mxprms),cga(mxprms),
+     +              bg(mxprms),csb(mxprms),cpb(mxprms),cdb(mxprms),
+     +              cfb(mxprms),cgb(mxprms),
+     +              cgg(mxprms),csc(mxprms),cpc(mxprms),cdc(mxprms),
+     +              cfc(mxprms),cgc(mxprms),
+     +              dg(mxprms),csd(mxprms),cpd(mxprms),cdd(mxprms),
+     +              cfd(mxprms),cgd(mxprms),
+     +              xi,yi,zi,xj,yj,zj,rri,xk,yk,zk,xl,yl,zl,rrk,
+     +              nga,ngb,ngc,ngd,exij(mxprms*mxprms),rsmall
+</PRE>
+
+<H4>common/dft_dshlno</H4>
+<PRE>
+      REAL q4
+      integer lit,ljt,lkt,llt,loci,locj,lock,locl
+      integer mini,minj,mink,minl,maxi,maxj,maxk,maxl
+      integer nij,ijd,kld,ijkld,ncontr
+      common/dft_dshlno/q4,lit,ljt,lkt,llt,loci,locj,lock,locl,
+     + mini,minj,mink,minl,maxi,maxj,maxk,maxl,
+     + nij,ijd,kld,ijkld,ncontr
+</PRE>
+
+<H4>common/dft_shlinf</H4>
+<PRE>
+      REAL ag, csa, cpa, cda, cfa, cga
+      REAL bg, csb, cpb, cdb, cfb, cgb
+      REAL cgg, csc, cpc, cdc, cfc, cgc
+      REAL dg, csd, cpd ,cdd, cfd, cgd
+      REAL pi, qi, ri, pj, qj, rj, rri, pk, qk, rk, pl, ql, rl, rrk
+      integer nga, ngb, ngc, ngd
+      common /shlinfx/ag(mxprms),csa(mxprms),cpa(mxprms),cda(mxprms),
+     +                cfa(mxprms),cga(mxprms),
+     +                bg(mxprms),csb(mxprms),cpb(mxprms),cdb(mxprms),
+     +                cfb(mxprms),cgb(mxprms),
+     +                cgg(mxprms),csc(mxprms),cpc(mxprms),cdc(mxprms),
+     +                cfc(mxprms),cgc(mxprms),
+     +                dg(mxprms),csd(mxprms),cpd(mxprms),cdd(mxprms),
+     +                cfd(mxprms),cgd(mxprms),
+     +                pi,qi,ri,pj,qj,rj,rri,pk,qk,rk,pl,ql,rl,rrk,
+     +                nga,ngb,ngc,ngd
+</PRE>
+
+<H4>common/dft_shlnos</H4>
+<PRE>
+      REAL qq4
+      integer lit, ljt, lkt, llt, loci, locj, lock, locl
+      integer mini, minj, mink, minl, maxi, maxj, maxk, maxl
+      integer nij, ij, kl, ijkl, ncontr
+      common /shlnosx/ qq4,lit,ljt,lkt,llt,loci,locj,lock,locl,
+     + mini,minj,mink,minl,maxi,maxj,maxk,maxl,
+     + nij,ij,kl,ijkl,ncontr
+</PRE>
+
+<H4>common/dft_mbasis</H4>
+<PRE>
+      integer mxbas,maxiprm,maxishl
+      parameter(mxbas=4,maxiprm=5000,maxishl=1000)
+c
+      real*8 ex_m, cs, cp, cd, cf, cg
+      integer kstart, katom, ktype, kng, kloc, kmin, kmax
+      integer nshell, non, numorb, ndumm, nbasfn
+      common /mbasis/ex_m(mxbas,maxiprm),cs(mxbas,maxiprm),
+     +               cp(mxbas,maxiprm),cd(mxbas,maxiprm),
+     +               cf(mxbas,maxiprm),cg(mxbas,maxiprm),
+     +               kstart(mxbas,maxishl),katom(mxbas,maxishl),
+     +               ktype(mxbas,maxishl),kng(mxbas,maxishl),
+     +               kloc(mxbas,maxishl),kmin(mxbas,maxishl),
+     +               kmax(mxbas,maxishl),
+     +               nshell(mxbas),non(mxbas),numorb(mxbas),
+     +               ndumm(mxbas),nbasfn(mxbas)
+</PRE>
+
+<H4>common/dft_denss</H4>
+<PRE>
+      REAL dij, dkl
+      common /denssx /dij(225),dkl(225)
+</PRE>
+
+<H4>common/dft_grad2</H4>
+<PRE>
+      REAL de
+      common /dft_grad2/ de(3,maxat)
+</PRE>
+
+<H4>common/dft_intctl</H4>
+<PRE>
+      integer icut_dft,  itol_dft, icutd_dft, itold_dft,
+     &     icut_2c,  itol_2c, icutd_2c, itold_2c,
+     &     icut_3c,  itol_3c, icutd_3c, itold_3c,
+     &     icut_4c,  itol_4c, icutd_4c, itold_4c
+
+      common/dft_intctl/ icut_dft,  itol_dft, icutd_dft, itold_dft,
+     &     icut_2c,  itol_2c, icutd_2c, itold_2c,
+     &     icut_3c,  itol_3c, icutd_3c, itold_3c,
+     &     icut_4c,  itol_4c, icutd_4c, itold_4c
+</PRE>
+
+<H4>common/dft_memory</H4>
+<PRE>
+      integer maxalloc
+      Parameter(maxalloc=50)
+c
+      REAL  mem_dp
+      integer mem_int
+      integer dp_offset,int_offset
+      character*6 dp_name,int_name
+      character*1 dp_loc,int_loc
+      common/memory/mem_dp(maxalloc),dp_offset(maxalloc),
+     &              dp_name(maxalloc),dp_loc(maxalloc),
+     &              mem_int(maxalloc),int_offset(maxalloc),
+     &              int_name(maxalloc),int_loc(maxalloc)
+</PRE>
+
+<H4>common/dft_memory_info</H4>
+<PRE>
+      integer iblock_info,start_ifreemem,inum_issued,iblock_amt
+      integer dblock_info,start_dfreemem,dnum_issued,dblock_amt
+      integer last_block
+      common/memory_info/iblock_info(max_block),start_ifreemem,
+     &                   inum_issued,iblock_amt(max_block),
+     &                   dblock_info(max_block),start_dfreemem,
+     &                   dnum_issued,dblock_amt(max_block),
+     &                   last_block
+</PRE>
+
+<H4>common/dft_module_comm</H4>
+<PRE>
+      integer out_ch,in_ch
+      common/io_channels/out_ch,in_ch
+
+      logical debug_sw
+      common/global_switches/debug_sw
+
+      logical optim_sw,triangle_sw
+      common/scf_control_switch/optim_sw,triangle_sw
+
+      logical jfit_sw,jfitg_sw,cmm_sw,dunlap_sw,potential_sw
+      logical kqua_sw,kfit_sw
+      logical spintyp_sw
+      logical lebe_sw,lege_sw,sg1_sw,ludm_sw,svdm_sw
+      logical hf_exch_sw,lda_sw,becke88_sw,vwn_sw,vwnrpa_sw
+      logical lyp_sw,gradcorr_sw,becke88_lda_sw
+      logical jown_sw,dega_sw,kown_sw,b3lyp_sw
+      logical mult_sw, dft2e_sw
+      common/scftype/spintyp_sw
+      common/j_switch/jfit_sw,jfitg_sw,cmm_sw,mult_sw,
+     &                dunlap_sw,potential_sw,dft2e_sw
+
+      common/xc_switch/kqua_sw,kfit_sw,
+     &     lebe_sw,lege_sw,sg1_sw,ludm_sw,svdm_sw,
+     &     hf_exch_sw,lda_sw,becke88_sw,vwn_sw,vwnrpa_sw,
+     &     lyp_sw,gradcorr_sw,
+     &     jown_sw,dega_sw,kown_sw,b3lyp_sw,becke88_lda_sw
+
+      REAL  hf_exch_wght,lda_wght, becke88_wght
+      REAL  lyp_wght,vwn_wght,vwnrpa_wght
+      common/xc_wghts/hf_exch_wght,lda_wght, becke88_wght,
+     &     lyp_wght,vwn_wght,vwnrpa_wght
+
+      integer angupt_num,thetpt_num,phipt_num,radpt_num
+      integer weight_scheme, radzones_num, angpt_radzn_num
+      logical conv_prune_sw
+      REAL radm_num, grid_scale, bnd_radzn
+      common/dft_grid_parameters/radm_num,grid_scale,
+     &     bnd_radzn(maxradzn-1),angpt_radzn_num(maxradzn),
+     &     radzones_num,angupt_num,thetpt_num,phipt_num,
+     &     radpt_num,weight_scheme,conv_prune_sw
+
+      integer poleexp_num,over_tol,pener_tol
+      REAL  tttt2
+      common/pole_options/tttt2,poleexp_num,over_tol,pener_tol
+
+      integer MAX_DEBUG
+      parameter (MAX_DEBUG=20)
+
+      logical print_sw(MAX_DEBUG)
+      common/debugpr/print_sw
+
+      integer DEBUG_KSMATRIX
+      parameter (DEBUG_KSMATRIX=1)
+      integer DEBUG_TR
+      parameter (DEBUG_TR=2)
+      integer DEBUG_NORM
+      parameter (DEBUG_NORM=3)
+      integer DEBUG_DENSITY
+      parameter (DEBUG_DENSITY=4)
+      integer DEBUG_JFIT
+      parameter (DEBUG_JFIT=5)
+      integer DEBUG_NR
+      parameter (DEBUG_NR=6)
+
+      integer DEBUG_JBAS
+      parameter (DEBUG_JBAS=7)
+      integer DEBUG_KBAS
+      parameter (DEBUG_KBAS=8)
+      integer DEBUG_AOBAS
+      parameter (DEBUG_AOBAS=9)
+
+      integer DEBUG_FORCES
+      parameter (DEBUG_FORCES=10)
+
+      integer DEBUG_TIMING
+      parameter (DEBUG_TIMING=11)
+
+      integer DEBUG_CONTROL
+      parameter (DEBUG_CONTROL=12)
+
+      integer DEBUG_MEMORY
+      parameter (DEBUG_MEMORY=13)
+
+      integer DEBUG_QUAD
+      parameter (DEBUG_QUAD=14)
+
+      integer DEBUG_PARALLEL
+      parameter (DEBUG_PARALLEL=15)
+
+      logical active_sw
+      logical ccpdft_sw
+      logical abort_sw
+      integer print_stack_depth
+      integer MAX_PRINT_STACK
+      parameter (MAX_PRINT_STACK=10)
+      integer current_print_level(MAX_PRINT_STACK)
+      common/pauls/
+     &     current_print_level,
+     &     print_stack_depth,
+     &     active_sw, ccpdft_sw, abort_sw
+
+      integer WT_BECKE, WT_BECKESCR, WT_SSF, WT_SSFSCR
+      parameter (WT_BECKE=1)
+      parameter (WT_BECKESCR=2)
+      parameter (WT_SSF=3)
+      parameter (WT_SSFSCR=4)
+</PRE>
+
+<H4>common/dft_mol_info</H4>
+<PRE>
+       integer natoms,nelectrons,ian
+       REAL  atom_c
+       common/sysinf/natoms,nelectrons,ian(max_atom),atom_c(max_atom,3)
+</PRE>
+
+<H3>Subroutines and functions</H3>
+
+
+
+
+<HR>
+<ADDRESS>
+Huub van Dam,
+$Date: 2002-08-13 13:23:20 $
+(Created 1998-08-05)
+</ADDRESS>
+
+</BODY>
+</HTML>
+

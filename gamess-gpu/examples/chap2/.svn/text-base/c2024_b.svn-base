@@ -1,0 +1,34 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  scf prior to tda calculation
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+thresh 7
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g  tda calculation
+super off nosym
+bypass scf
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype tda
+active\3 to 22 end\core\1 to 2\end
+i.p.
+band 3 to 8 end
+enter
+EOF

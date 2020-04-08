@@ -1,0 +1,45 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - tzvp + f basis - potential test
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype direct
+enter
+runtype analy
+punch coor conn grid 100 101
+graphics
+gdef
+x 1.0 0.0 0.0
+y 0.0 1.0 0.0
+points 20
+size 15
+calc 
+section 100
+type pote
+gdef
+x 0.0 0.0 1.0
+y 0.0 1.0 0.0
+points 20
+size 15
+calc
+section 101
+type pote
+vectors 1
+enter
+EOF

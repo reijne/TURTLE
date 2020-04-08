@@ -1,0 +1,48 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+zora
+title
+h2co - 3-21g - closed shell SCF
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter 1
+EOF
+../../bin/gamess << EOF
+restart
+zora restore
+title
+h2co direct-GVB/1-PP  (1b1->2b1*) zora
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype gvb 1 
+swap
+7 8
+end
+enter 2 3
+EOF
+../../bin/gamess << EOF
+restart
+zora restore
+title
+h2co direct-GVB/1-PP  (1b1->2b1*) zora
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype direct gvb 1 
+swap
+7 8
+end
+enter 2 3
+EOF

@@ -1,0 +1,1460 @@
+#include "HMatElements.h"
+
+#include <stdlib.h>
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::Mult(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	const DiffConf<MOType> & diffConf,
+	const TableCase<MOType> & tc) const
+{
+IntegralType	Cb, Ex;
+
+	switch ( this->P ) {
+	case 1:
+		int4Container->get(tc.getCbExIndex(), Cb, Ex);
+		CbExMult(CIy, CIx, SAFStartA, SAFStartB, Cb, Ex);
+	
+		break;
+		
+	case 3:
+		CaseP3Mult(CIy, CIx, SAFStartA, SAFStartB, diffConf, tc);
+		break;
+		
+	case 2:
+	case 4:
+		CbMult(CIy, CIx, SAFStartA, SAFStartB, 
+			(*int4Container)[tc.getCbExIndex()]);
+		break;
+		
+	case 5:
+		Case14Mult(CIy, CIx, SAFStartA,
+			diffConf.getSame());
+		break;
+	}
+}
+	
+
+
+//	coding of sparse matrices:
+//	==========================
+//
+//	code	matrix type
+//	-----------------------
+//	0		unity
+//	1		diagonal
+//	2		tridiagonal
+//	3		sparse
+//	4		full
+//
+//
+//	for coulomb and exchange RepMats the following fully
+//	optimized multiplication routines exist:
+//
+//	Cb		Ex
+//	-------------
+//	0		0
+//	0		1
+//	0		2
+//	0		4
+//	1		0
+//	1		1
+//	1		2
+//	1		4
+//	2		0
+//	2		1
+//	2		2
+//	2		4
+//	3		3
+//	4		0
+//	4		1
+//	4		2
+//	4		4
+
+
+
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_00(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+IntegralType	h = Cb + Ex;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{	*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_01(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatEx;
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatEx = this->ExP3Mat->getP();
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = (Cb  +  Ex * *pMatEx++);
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_02(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatEx;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatEx = this->ExP3Mat->getP();
+		
+		h = (Cb  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_03(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->ExP3Mat->getMPosP();
+		for ( INT i=0 ; i<this->ExP3Mat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Ex * *pMatEx++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{	*py1++ += Cb * *px1++;
+			*py2++ += Cb * *px2++;
+		}
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_04(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatEx;
+
+//	Perform y = A*x
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h = (i==j)*Cb  +  Ex * *pMatEx++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_10(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = (Cb * *pMatCb++  +  Ex);
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_11(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_12(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_13(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->ExP3Mat->getMPosP();
+		for ( INT i=0 ; i<this->ExP3Mat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Ex * *pMatEx++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_14(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+//	Perform y = A*x
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h = Ex * *pMatEx++;
+				if ( i==j )
+					h += Cb * *pMatCb++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_20(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		
+		h = (Cb * *pMatCb++  +  Ex);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb * *pMatCb++  +  Ex);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb * *pMatCb++  +  Ex);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_21(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_22(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_23(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->ExP3Mat->getMPosP();
+		for ( INT i=0 ; i<this->ExP3Mat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Ex * *pMatEx++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+
+//----
+
+	MatrixType	h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_24(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+//	Perform y = A*x
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h =  Ex * *pMatEx++;
+				if ( abs(i-j)<=1 )
+					h += Cb * *pMatCb++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_30(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{	*py1++ += Ex * *px1++;
+			*py2++ += Ex * *px2++;
+		}
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_31(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = Ex * *pMatEx++;
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_32(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+
+//----
+
+	MatrixType	h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Ex * *pMatEx++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Ex * *pMatEx++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_33(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Cb * pMatCb[i];
+		INT	r = pmpos[i].r;
+		INT	c = pmpos[i].c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+		pmpos = this->ExP3Mat->getMPosP();
+		for ( INT i=0 ; i<this->ExP3Mat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Ex * pMatEx[i];
+		INT	r = pmpos[i].r;
+		INT	c = pmpos[i].c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_55(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = (Cb * pMatCb[i]  +  Ex * pMatEx[i]);
+		INT	r = pmpos[i].r;
+		INT	c = pmpos[i].c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];	
+		}
+	}
+}
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_34(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h = Ex * *pMatEx++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_40(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+//	Perform y = A*x
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h =  Cb * *pMatCb++  +  (i==j)*Ex;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_41(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+//	Perform y = A*x
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h =  Cb * *pMatCb++;
+				if ( i==j )
+					h += Ex * *pMatEx++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_42(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+//	Perform y = A*x
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h =  Cb * *pMatCb++;
+				if ( abs(i-j)<=1 )
+					h += Ex * *pMatEx++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_43(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->ExP3Mat->getMPosP();
+		for ( INT i=0 ; i<this->ExP3Mat->getNSparse() ; i++ )
+		{
+		MatrixType	h = Ex * *pMatEx++;
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h = Cb * *pMatCb++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbExMult_44(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb, IntegralType Ex) const
+//	full, full
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatEx;
+
+//	Perform y = A*x
+	
+/*	pMatCb = getMatCoulombStart();
+	pMatEx = getMatExchangeStart();
+	*py1 = &y(SAFStartA, k);
+	*px2 = &x(SAFStartA, k);
+	for ( INT i=0 ; i<this->matDim.rows ; i++ )
+	{	*py2 = &y(SAFStartB, k);
+		*px1 = &x(SAFStartB, k);
+
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{	h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+			for ( INT k=0 ; k<x.getN() ; k++ )
+			{	*py1 += h * *px1;
+				*py2 += h * *px2;
+			}
+		}
+		py1++;
+		px2++;
+	}
+*/	
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatEx = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{	
+			MatrixType	h = (Cb * *pMatCb++  +  Ex * *pMatEx++);
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbMult_0(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{	*py1++ += Cb * *px1++;
+			*py2++ += Cb * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbMult_1(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		for ( INT j=0 ; j<this->matDim.cols ; j++ )
+		{
+		MatrixType	h = Cb * *pMatCb++;
+			*py1++ += h * *px1++;
+			*py2++ += h * *px2++;
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbMult_2(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+MatrixType	h;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+
+		pMatCb = this->CbMat->getP();
+		
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		py1++;
+		py2 -= 2;
+		px1 -= 2;
+		px2++;
+		
+		
+		for ( INT j=1 ; j<this->matDim.cols-1 ; j++ )
+		{	h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			h = Cb * *pMatCb++;
+			*py1 += h * *px1++;
+			*py2++ += h * *px2;
+			py1++;
+			py2 -= 2;
+			px1 -= 2;
+			px2++;
+		}
+
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+		h = Cb * *pMatCb++;
+		*py1 += h * *px1++;
+		*py2++ += h * *px2;
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbMult_3(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		py2 = &CIy(SAFStartB, k);
+		px1 = &CIx(SAFStartB, k);
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+
+	const typename RepresentationMatrix<MatrixType>::TMPos	*pmpos = this->CbMat->getMPosP();
+		for ( INT i=0 ; i<this->CbMat->getNSparse() ; i++ )
+		{
+		INT	r = pmpos->r;
+		INT	c = pmpos++->c;
+		MatrixType	h = Cb * *pMatCb++;
+			py1[r] += h * px1[c];
+			py2[c] += h * px2[r];
+		}
+	}
+}
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::CbMult_4(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	IntegralType Cb) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb;
+
+//	Perform y = A*x
+
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{
+			MatrixType	h = Cb * *pMatCb++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::P3Mult(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStartA, INT SAFStartB,
+	MatrixType U, MOType a, MOType b, const MOType *mos) const
+{
+VectorType	*px1, *px2, *py1, *py2;
+const MatrixType	*pMatCb, *pMatP3;
+TwoElectronIntegralIndex<MOType>	ind;
+TwoElectronIntegralTriadeIndex triadeIndex;
+IntegralType	intBuf[MAXOPENSHELLS];
+
+//	Perform y = A*x
+
+//	cout << "Start" << endl;
+
+	ind.setI(a);
+	ind.setL(b);
+	for ( INT i=0 ; i<this->P3Mats ; i++ )
+	{	ind.setJ(mos[i]);
+		ind.setK(mos[i]);
+//		cout << ind << endl;
+		triadeIndex.set(ind);
+//		cout << triadeIndex << endl;
+		intBuf[i] = (*int4Container)[triadeIndex];
+	}
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatCb = this->CbMat->getP();
+		pMatP3 = this->ExP3Mat->getP();
+		py1 = &CIy(SAFStartA, k);
+		px2 = &CIx(SAFStartA, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStartB, k);
+			px1 = &CIx(SAFStartB, k);
+
+			for ( INT j=0 ; j<this->matDim.cols ; j++ )
+			{
+			MatrixType	h = 0;
+				for ( INT l=0 ; l<this->P3Mats ; l++ )
+				{	
+//					cout << "i=" << i << ", j=" << j << ", l=" << l <<
+//						", pmos=" << pmos << ", *pmos=" << *pmos << endl;
+					h += intBuf[l] * *pMatP3++;
+//					*py1 += h * *px1;
+//					*py2 += h * *px2;
+				}
+//				px1++;
+//				py2++;
+	
+			
+				h += U * *pMatCb++;
+				*py1 += h * *px1++;
+				*py2++ += h * *px2;
+
+			}
+			py1++;
+			px2++;
+		}
+	}
+//	cout << "Ende" << endl;
+}
+
+
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+
+
+template <class MatrixType, class VectorType>
+void	HMatElements<MatrixType, VectorType>::Case14Mult(
+	CIVectors<VectorType> & CIy, CIVectors<VectorType> & CIx,
+	INT SAFStart,
+	const Configuration<MOType> & same) const
+{
+TwoElectronIntegralIndex<MOType>	ind1;
+TwoElectronIntegralTriadeIndex	triadeIndex;
+VectorType	*px1, *px2, *py1, *py2;
+MOType	moi, moj;
+const MatrixType	*pMatP5;
+
+MatrixType	diag = getCase14DiagTeil(same);
+
+//	Perform y = A*x
+
+IntegralType	intBuf[MAXOPENSHELLS*(MAXOPENSHELLS+1)/2];
+INT	l = 0;
+	for ( INT i=1 ; i<same.getNumberOfOpenShells() ; i++ )
+	{	moi = same.getOpenShell(i);
+		for ( INT j=0 ; j<i ; j++ )
+		{	moj = same.getOpenShell(j);
+			ind1.set(moi, moj, moj, moi);
+			triadeIndex.set(ind1);
+			intBuf[l++] = (*int4Container)[triadeIndex];
+//			cout << "II. Ex= " << intBuf[l-1] << endl;
+		}
+	}
+
+	for ( INT k=0 ; k<CIx.getN() ; k++ )
+	{	pMatP5 = this->CbMat->getP();
+		py1 = &CIy(SAFStart, k);
+		px2 = &CIx(SAFStart, k);
+		for ( INT i=0 ; i<this->matDim.rows ; i++ )
+		{	py2 = &CIy(SAFStart, k);
+			px1 = &CIx(SAFStart, k);
+			for ( INT j=0 ; j<=i ; j++ )
+			{
+			MatrixType	h = 0;
+				for ( INT ll=0 ; ll<l ; ll++ )
+				{	h += intBuf[ll] * *pMatP5++;
+//					cout << "ll= " << ll << ", intBuf[ll] = " << intBuf[ll] 
+//						<< ", *pMatP5 = " << *pMatP5 << endl;
+				}
+				if ( i==j )
+					h += diag;
+				else
+					*py2 += h * *px2;
+				*py1 += h * *px1++;
+				py2++;
+			}
+			py1++;
+			px2++;
+		}
+	}
+}
+
+
+

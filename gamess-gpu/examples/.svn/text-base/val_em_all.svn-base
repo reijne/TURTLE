@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Validate all of the serial examples and put the result in validate.log
+#
+export PATH=$PATH:.
+date
+
+val_log=$PWD/val_em_all.log
+
+echo > $val_log
+
+for dir in `cat ./testdirs | grep -v "#"`
+do
+    cd $dir
+    echo "**** $dir" >> $val_log
+    date >> $val_log
+    if [ "$dir" = "benchmark" ]
+    then
+       val_bench >> $val_log 2>&1
+    elif [ "$dir" = "benchmark_99" -o "$dir" = "chap2" -o "$dir" = "chap11" -o "$dir" = "drf" ]
+    then
+       val_$dir.sh -o >> $val_log 2>&1
+    else
+       val_$dir >> $val_log 2>&1
+    fi
+    cd ..
+done
+

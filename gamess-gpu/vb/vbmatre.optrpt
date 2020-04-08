@@ -1,0 +1,5256 @@
+
+Begin optimization report for: MEEN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(367,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: HAMILTT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3307,10) inlined into vbmatre.f(3550,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3550,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3550,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3550,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3307,10) inlined into vbmatre.f(3576,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3576,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3576,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13) inlined into vbmatre.f(3576,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16) inlined into vbmatre.f(3588,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16) inlined into vbmatre.f(3588,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16) inlined into vbmatre.f(3588,18)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16) inlined into vbmatre.f(3588,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3592,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(3593,17)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3593,17)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3593,17)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3593,17)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3593,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16) inlined into vbmatre.f(3690,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16) inlined into vbmatre.f(3690,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16) inlined into vbmatre.f(3690,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16) inlined into vbmatre.f(3690,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3694,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(3695,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3695,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3695,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3695,14)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3695,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7444,10) inlined into vbmatre.f(3716,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7444,10) inlined into vbmatre.f(3716,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10) inlined into vbmatre.f(3716,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10) inlined into vbmatre.f(3716,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10) inlined into vbmatre.f(3716,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7469,10) inlined into vbmatre.f(3716,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7471 and  line 7471
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7487,10) inlined into vbmatre.f(3716,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7487 and  line 7487
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7488,10) inlined into vbmatre.f(3716,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7488 and  line 7488
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7489,10) inlined into vbmatre.f(3716,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7489 and  line 7489
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7494,13) inlined into vbmatre.f(3716,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7494,13) inlined into vbmatre.f(3716,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13) inlined into vbmatre.f(3716,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13) inlined into vbmatre.f(3716,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13) inlined into vbmatre.f(3716,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7501,13) inlined into vbmatre.f(3716,14)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7501 and  line 7501
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7507,7) inlined into vbmatre.f(3716,14)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7508,9) inlined into vbmatre.f(3716,14)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 7513 and  line 7514
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3530,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3538,21) ]
+
+   LOOP BEGIN at vbmatre.f(3561,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3575,15) ]
+
+      LOOP BEGIN at vbmatre.f(4204,10) inlined into vbmatre.f(3588,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4211,40) ]
+
+         LOOP BEGIN at vbmatre.f(4209,13) inlined into vbmatre.f(3588,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4211,40) ]
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(4125,10) inlined into vbmatre.f(3690,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4132,40) ]
+
+      LOOP BEGIN at vbmatre.f(4130,13) inlined into vbmatre.f(3690,15)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4132,40) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7441,10) inlined into vbmatre.f(3716,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7443,15) ]
+
+   LOOP BEGIN at vbmatre.f(7492,13) inlined into vbmatre.f(3716,14)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7500,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYMBLO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7148,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7152,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7154 and  line 7154
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7161,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7162,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7273,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7274,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7292,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7294 and  line 7294
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(7178,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7182,18) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7240,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: MATRE3
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4433,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4433,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4433,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4433,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4433,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4511,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4511,21)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4511,21)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4511,21)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4511,21)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4531,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4531,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4531,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4531,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4531,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6251,10) inlined into vbmatre.f(4533,21)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6251,10) inlined into vbmatre.f(4533,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4568,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4568,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4568,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4588,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4588,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4588,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4588,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4588,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6696,10) inlined into vbmatre.f(4590,21)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6696,10) inlined into vbmatre.f(4590,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4636,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4636,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4636,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4637,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4637,18)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4637,18)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4637,18)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(4637,18)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4638,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4638,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4638,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4638,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4638,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4647,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4647,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4647,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4647,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4647,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4657,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4657,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4657,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4657,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4657,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4671,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4671,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4671,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4671,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4671,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5988,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5988,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5988,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5989,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5989,18)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5989,18)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5989,18)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5989,18)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5991,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5991,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5991,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5992,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5992,18)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5992,18)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5992,18)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5992,18)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5690,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5690,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5690,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5690,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5690,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5691,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5691,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5691,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5691,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5691,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5692,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5692,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5692,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5692,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5692,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5694,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5694,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5694,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5694,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5694,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5723,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5723,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5723,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5724,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5724,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5724,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5725,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5725,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5725,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5725,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5725,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5820,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5820,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5820,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5821,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5821,21)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5821,21)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5821,21)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5821,21)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5822,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5822,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5822,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5822,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5822,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5823,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5823,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5823,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5824,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5824,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5824,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5824,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5824,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5919,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5919,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5919,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5920,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5920,21)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5920,21)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5920,21)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5920,21)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5921,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5921,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5921,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5921,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5921,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5922,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5922,21)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5922,21)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5922,21)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5922,21)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5923,21)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5923,21)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5923,21)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5923,21)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5923,21)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5520,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5520,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5520,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5521,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5521,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5521,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5521,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5521,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5522,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5522,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5522,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5522,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5522,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5549,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5549,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5549,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5550,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5550,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5550,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5551,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5551,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5551,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5551,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5551,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5580,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5580,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5580,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5580,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5580,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5581,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5581,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5581,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5581,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5581,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5582,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5582,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5582,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5582,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5582,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5242,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5242,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5242,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5243,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5243,18)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5243,18)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5243,18)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5243,18)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5244,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5244,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5244,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5244,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5244,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5246,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5246,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5246,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5246,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5246,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5173,27)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5173,27)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5173,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5174,27)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5174,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5174,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5174,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5174,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5204,27)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5204,27)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5204,27)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5204,27)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5204,27)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5205,27)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5205,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5205,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5205,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5205,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5293,30)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5293,30)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5293,30)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5293,30)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5293,30)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5326,25)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5326,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5326,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5327,25)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5327,25)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5327,25)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5327,25)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5327,25)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5328,25)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5328,25)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5328,25)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5328,25)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5328,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5366,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5366,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5366,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5367,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5367,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5367,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5368,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5368,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5368,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5368,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5368,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5395,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5395,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5395,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5395,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5395,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5396,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5396,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5396,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5396,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5396,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5397,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5397,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5397,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5397,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5397,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5432,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5432,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5432,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5432,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5432,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5433,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5433,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5433,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5433,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5433,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5471,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5471,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(5471,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5472,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5472,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5472,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5472,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5472,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4922,27)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4922,27)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4922,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4924,27)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4924,27)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4924,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4924,27)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4924,27)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4960,27)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4960,27)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10) inlined into vbmatre.f(4960,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5003,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5003,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5003,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5003,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5003,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(5005,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5005,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5005,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5005,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(5005,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5043,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5043,24)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5043,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5043,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10) inlined into vbmatre.f(5043,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7324,10) inlined into vbmatre.f(4720,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4720,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4720,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4720,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13) inlined into vbmatre.f(4720,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(4356,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4357,18) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4364,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4365,18) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4427,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4429,27) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4474,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4475,24) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4525,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4527,27) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4582,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4584,27) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4665,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4667,24) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: CIK
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2741,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2741,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2749,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2750,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2750,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2750,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2759,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2760,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2762,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2762,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2762,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CIKJL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2778,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2779,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2780,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbmatre.f(2781,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2781,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2781,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2781,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CI0JL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2674,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2674,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2681,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2682,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2683,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2683,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2683,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2683,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2683,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2689,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2690,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2691,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2691,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2691,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2691,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SILLYY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7078,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7085
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7084
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7085
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7083
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7083
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7085
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7082 and  line 7083
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7079,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7089,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7090,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7090 and  line 7090
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABCB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6602,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6607,30) ]
+
+   LOOP BEGIN at vbmatre.f(6603,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6607,30) ]
+
+      LOOP BEGIN at vbmatre.f(6604,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6607,30) ]
+
+         LOOP BEGIN at vbmatre.f(6605,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6607,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WMIX0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7324,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7325,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7325,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PAB0C
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6501,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6505,30) ]
+
+   LOOP BEGIN at vbmatre.f(6502,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6505,30) ]
+
+      LOOP BEGIN at vbmatre.f(6503,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6505,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6511,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6515,30) ]
+
+   LOOP BEGIN at vbmatre.f(6512,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6515,30) ]
+
+      LOOP BEGIN at vbmatre.f(6513,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6515,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA0BC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6454,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6458,30) ]
+
+   LOOP BEGIN at vbmatre.f(6455,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6458,30) ]
+
+      LOOP BEGIN at vbmatre.f(6456,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6458,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6464,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6468,30) ]
+
+   LOOP BEGIN at vbmatre.f(6465,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6468,30) ]
+
+      LOOP BEGIN at vbmatre.f(6466,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6468,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABAC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6582,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6587,30) ]
+
+   LOOP BEGIN at vbmatre.f(6583,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6587,30) ]
+
+      LOOP BEGIN at vbmatre.f(6584,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6587,30) ]
+
+         LOOP BEGIN at vbmatre.f(6585,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6587,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0A0B..0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6208,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+
+   LOOP BEGIN at vbmatre.f(6209,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6216,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+
+   LOOP BEGIN at vbmatre.f(6217,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0ABB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6233,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6237,27) ]
+
+   LOOP BEGIN at vbmatre.f(6234,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6237,27) ]
+
+      LOOP BEGIN at vbmatre.f(6235,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6237,27) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA0AB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6405,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6409,27) ]
+
+   LOOP BEGIN at vbmatre.f(6406,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6409,27) ]
+
+      LOOP BEGIN at vbmatre.f(6407,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6409,27) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0A0B..1
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6208,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+
+   LOOP BEGIN at vbmatre.f(6209,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6216,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+
+   LOOP BEGIN at vbmatre.f(6217,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA0B0..0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6427,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+
+   LOOP BEGIN at vbmatre.f(6428,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6435,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+
+   LOOP BEGIN at vbmatre.f(6436,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P00AB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6180,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6183,27) ]
+
+   LOOP BEGIN at vbmatre.f(6181,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6183,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6188,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6191,27) ]
+
+   LOOP BEGIN at vbmatre.f(6189,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6191,27) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABAB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6562,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6567,30) ]
+
+   LOOP BEGIN at vbmatre.f(6563,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6567,30) ]
+
+      LOOP BEGIN at vbmatre.f(6564,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6567,30) ]
+
+         LOOP BEGIN at vbmatre.f(6565,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6567,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABCD
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6624,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6629,33) ]
+
+   LOOP BEGIN at vbmatre.f(6625,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6629,33) ]
+
+      LOOP BEGIN at vbmatre.f(6626,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6629,33) ]
+
+         LOOP BEGIN at vbmatre.f(6627,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6629,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6636,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6641,33) ]
+
+   LOOP BEGIN at vbmatre.f(6637,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6641,33) ]
+
+      LOOP BEGIN at vbmatre.f(6638,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6641,33) ]
+
+         LOOP BEGIN at vbmatre.f(6639,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6641,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PBABB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6676,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6681,30) ]
+
+   LOOP BEGIN at vbmatre.f(6677,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6681,30) ]
+
+      LOOP BEGIN at vbmatre.f(6678,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6681,30) ]
+
+         LOOP BEGIN at vbmatre.f(6679,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6681,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABBB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6656,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6661,30) ]
+
+   LOOP BEGIN at vbmatre.f(6657,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6661,30) ]
+
+      LOOP BEGIN at vbmatre.f(6658,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6661,30) ]
+
+         LOOP BEGIN at vbmatre.f(6659,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6661,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PI00L
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6735,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6738,24) ]
+
+   LOOP BEGIN at vbmatre.f(6736,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6738,24) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA0B0..1
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6427,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+
+   LOOP BEGIN at vbmatre.f(6428,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6435,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+
+   LOOP BEGIN at vbmatre.f(6436,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0K0L
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6290,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6293,24) ]
+
+   LOOP BEGIN at vbmatre.f(6291,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6293,24) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: C0K0L
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2524,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2524,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2524,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2524,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2533,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2534,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2534,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2534,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2534,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CI2JL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2707,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2707,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2707,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2712,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2711,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2711,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2711,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2711,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2711,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2718,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2719,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2720,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2720,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2720,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2720,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: C2KJL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2613,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2613,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2613,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2613,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2613,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2618,13)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2617,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2617,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2617,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2617,10)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2617,10)
+   <Distributed chunk2>
+      remark #15301: PARTIAL LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2617,10)
+   <Remainder, Distributed chunk2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2624,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2625,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2626,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2626,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2626,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2626,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0K00
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6268,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6270,24) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6274,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6276,23) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIXF0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3100,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3104,30) ]
+
+   LOOP BEGIN at vbmatre.f(3101,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3104,30) ]
+
+      LOOP BEGIN at vbmatre.f(3102,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3104,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3110,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3114,30) ]
+
+   LOOP BEGIN at vbmatre.f(3111,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3114,30) ]
+
+      LOOP BEGIN at vbmatre.f(3112,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3114,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PI000
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6713,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6715,24) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6719,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6721,23) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIX0F
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2953,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2957,30) ]
+
+   LOOP BEGIN at vbmatre.f(2954,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2957,30) ]
+
+      LOOP BEGIN at vbmatre.f(2955,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2957,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2963,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2967,30) ]
+
+   LOOP BEGIN at vbmatre.f(2964,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2967,30) ]
+
+      LOOP BEGIN at vbmatre.f(2965,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2967,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CI0J0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2650,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2650,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2650,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2650,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2659,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2660,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2660,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2660,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2660,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA00B
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6388,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6391,24) ]
+
+   LOOP BEGIN at vbmatre.f(6389,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6391,24) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: C2222
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2581,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2580,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2580,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2580,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2587,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2586,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2586,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2586,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2592,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2593,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2594,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbmatre.f(2595,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2595,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2595,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2595,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P2222
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6324,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6329,30) ]
+
+   LOOP BEGIN at vbmatre.f(6325,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6329,30) ]
+
+      LOOP BEGIN at vbmatre.f(6326,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6329,30) ]
+
+         LOOP BEGIN at vbmatre.f(6327,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6329,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIX00
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2919,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2924,33) ]
+
+   LOOP BEGIN at vbmatre.f(2920,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2924,33) ]
+
+      LOOP BEGIN at vbmatre.f(2921,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2924,33) ]
+
+         LOOP BEGIN at vbmatre.f(2922,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2924,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2931,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2936,32) ]
+
+   LOOP BEGIN at vbmatre.f(2932,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2936,32) ]
+
+      LOOP BEGIN at vbmatre.f(2933,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2936,32) ]
+
+         LOOP BEGIN at vbmatre.f(2934,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2936,32) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: G0FF
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3246,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3249,27) ]
+
+   LOOP BEGIN at vbmatre.f(3247,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3249,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3254,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3257,26) ]
+
+   LOOP BEGIN at vbmatre.f(3255,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3257,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIXAB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3037,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3044,35) ]
+
+   LOOP BEGIN at vbmatre.f(3038,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3044,35) ]
+
+      LOOP BEGIN at vbmatre.f(3039,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3044,35) ]
+
+         LOOP BEGIN at vbmatre.f(3041,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3044,35) ]
+
+            LOOP BEGIN at vbmatre.f(3042,25)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3044,35) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3056,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3063,40) ]
+
+   LOOP BEGIN at vbmatre.f(3057,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3063,40) ]
+
+      LOOP BEGIN at vbmatre.f(3058,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3063,40) ]
+
+         LOOP BEGIN at vbmatre.f(3060,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3063,40) ]
+
+            LOOP BEGIN at vbmatre.f(3061,28)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3063,40) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3073,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3081,40) ]
+
+   LOOP BEGIN at vbmatre.f(3074,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3081,40) ]
+
+      LOOP BEGIN at vbmatre.f(3076,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3081,40) ]
+
+         LOOP BEGIN at vbmatre.f(3078,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3081,40) ]
+
+            LOOP BEGIN at vbmatre.f(3079,28)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3081,40) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PABAA
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6531,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6536,30) ]
+
+   LOOP BEGIN at vbmatre.f(6532,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6536,30) ]
+
+      LOOP BEGIN at vbmatre.f(6533,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6536,30) ]
+
+         LOOP BEGIN at vbmatre.f(6534,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6536,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6542,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6547,30) ]
+
+   LOOP BEGIN at vbmatre.f(6543,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6547,30) ]
+
+      LOOP BEGIN at vbmatre.f(6544,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6547,30) ]
+
+         LOOP BEGIN at vbmatre.f(6545,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6547,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PAB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6483,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6484,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6484,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PI0JL
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6750,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6754,28) ]
+
+   LOOP BEGIN at vbmatre.f(6751,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6754,28) ]
+
+      LOOP BEGIN at vbmatre.f(6752,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6754,28) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIXI0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3129,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3135,33) ]
+
+   LOOP BEGIN at vbmatre.f(3130,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3135,33) ]
+
+      LOOP BEGIN at vbmatre.f(3132,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3135,33) ]
+
+         LOOP BEGIN at vbmatre.f(3133,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3135,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3146,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3152,37) ]
+
+   LOOP BEGIN at vbmatre.f(3147,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3152,37) ]
+
+      LOOP BEGIN at vbmatre.f(3149,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3152,37) ]
+
+         LOOP BEGIN at vbmatre.f(3150,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3152,37) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3161,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3168,37) ]
+
+   LOOP BEGIN at vbmatre.f(3163,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3168,37) ]
+
+      LOOP BEGIN at vbmatre.f(3165,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3168,37) ]
+
+         LOOP BEGIN at vbmatre.f(3166,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3168,37) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: C0KJL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2548,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2548,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2555,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2556,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2557,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2557,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2557,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2557,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2557,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2563,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2564,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2565,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2565,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2565,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2565,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0KJL
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6306,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6310,28) ]
+
+   LOOP BEGIN at vbmatre.f(6307,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6310,28) ]
+
+      LOOP BEGIN at vbmatre.f(6308,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6310,28) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIX0K
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2982,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2988,33) ]
+
+   LOOP BEGIN at vbmatre.f(2983,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2988,33) ]
+
+      LOOP BEGIN at vbmatre.f(2985,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2988,33) ]
+
+         LOOP BEGIN at vbmatre.f(2986,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2988,33) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2999,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3005,37) ]
+
+   LOOP BEGIN at vbmatre.f(3000,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3005,37) ]
+
+      LOOP BEGIN at vbmatre.f(3002,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3005,37) ]
+
+         LOOP BEGIN at vbmatre.f(3003,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3005,37) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3014,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3021,37) ]
+
+   LOOP BEGIN at vbmatre.f(3016,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3021,37) ]
+
+      LOOP BEGIN at vbmatre.f(3018,22)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3021,37) ]
+
+         LOOP BEGIN at vbmatre.f(3019,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3021,37) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIK00
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6786,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6790,26) ]
+
+   LOOP BEGIN at vbmatre.f(6787,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6790,26) ]
+
+      LOOP BEGIN at vbmatre.f(6788,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6790,26) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6798,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6802,30) ]
+
+   LOOP BEGIN at vbmatre.f(6799,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6802,30) ]
+
+      LOOP BEGIN at vbmatre.f(6800,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6802,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6810,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6814,30) ]
+
+   LOOP BEGIN at vbmatre.f(6811,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6814,30) ]
+
+      LOOP BEGIN at vbmatre.f(6812,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6814,30) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: C00
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2452,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2453,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2453,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2453,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2460,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2460,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2460,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: C0000
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2477,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2477,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2482,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2481,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2481,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2481,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2487,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2488,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2489,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2489,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2489,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2489,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2489,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2495,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2496,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2497,16)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at vbmatre.f(2498,19)
+         <Peeled>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2498,19)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2498,19)
+         <Alternate Alignment Vectorized Loop>
+         LOOP END
+
+         LOOP BEGIN at vbmatre.f(2498,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P00
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6141,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6142,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6142,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0000
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6156,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6161,30) ]
+
+   LOOP BEGIN at vbmatre.f(6157,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6161,30) ]
+
+      LOOP BEGIN at vbmatre.f(6158,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6161,30) ]
+
+         LOOP BEGIN at vbmatre.f(6159,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6161,30) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIX0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2856,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2863,35) ]
+
+   LOOP BEGIN at vbmatre.f(2857,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2863,35) ]
+
+      LOOP BEGIN at vbmatre.f(2858,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2863,35) ]
+
+         LOOP BEGIN at vbmatre.f(2860,22)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2863,35) ]
+
+            LOOP BEGIN at vbmatre.f(2861,25)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2863,35) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2875,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2882,40) ]
+
+   LOOP BEGIN at vbmatre.f(2876,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2882,40) ]
+
+      LOOP BEGIN at vbmatre.f(2877,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2882,40) ]
+
+         LOOP BEGIN at vbmatre.f(2879,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2882,40) ]
+
+            LOOP BEGIN at vbmatre.f(2880,28)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2882,40) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2892,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2900,40) ]
+
+   LOOP BEGIN at vbmatre.f(2893,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2900,40) ]
+
+      LOOP BEGIN at vbmatre.f(2895,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2900,40) ]
+
+         LOOP BEGIN at vbmatre.f(2897,25)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2900,40) ]
+
+            LOOP BEGIN at vbmatre.f(2898,28)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2900,40) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GMIX
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2799,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+
+   LOOP BEGIN at vbmatre.f(2800,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+
+      LOOP BEGIN at vbmatre.f(2801,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+
+         LOOP BEGIN at vbmatre.f(2802,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+
+            LOOP BEGIN at vbmatre.f(2803,22)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+
+               LOOP BEGIN at vbmatre.f(2804,25)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2806,36) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2817,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+
+   LOOP BEGIN at vbmatre.f(2818,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+
+      LOOP BEGIN at vbmatre.f(2819,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+
+         LOOP BEGIN at vbmatre.f(2820,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+
+            LOOP BEGIN at vbmatre.f(2821,22)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+
+               LOOP BEGIN at vbmatre.f(2822,25)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2824,37) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2833,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+
+   LOOP BEGIN at vbmatre.f(2834,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+
+      LOOP BEGIN at vbmatre.f(2835,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+
+         LOOP BEGIN at vbmatre.f(2836,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+
+            LOOP BEGIN at vbmatre.f(2837,22)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+
+               LOOP BEGIN at vbmatre.f(2838,25)
+                  remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2840,37) ]
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIKJL
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6828,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6836,33) ]
+
+   LOOP BEGIN at vbmatre.f(6831,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6836,33) ]
+
+      LOOP BEGIN at vbmatre.f(6832,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6836,33) ]
+
+         LOOP BEGIN at vbmatre.f(6833,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6836,33) ]
+
+            LOOP BEGIN at vbmatre.f(6834,22)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6836,33) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIK
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6769,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6770,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbmatre.f(6771,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(6771,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: WMIX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7306,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7307,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(7309,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7309,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7309,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7309,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MTYPE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6083,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10)
+<Distributed chunk2>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6086 and  line 6085
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6106,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6106,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6120,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6121,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6122,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6123,52)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6124,52)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6126,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6126 and  line 6126
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6114,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbmatre.f(6118,13)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: HSMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(367,7) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10) inlined into vbmatre.f(742,12)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10) inlined into vbmatre.f(742,12)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10) inlined into vbmatre.f(742,12)
+<Distributed chunk2>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 6086 and  line 6085
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6083,10) inlined into vbmatre.f(742,12)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6106,10) inlined into vbmatre.f(742,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6106,10) inlined into vbmatre.f(742,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6120,13) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6121,13) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6122,13) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6123,52) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6124,52) inlined into vbmatre.f(742,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6126,10) inlined into vbmatre.f(742,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6126 and  line 6126
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6114,10) inlined into vbmatre.f(742,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbmatre.f(6118,13) inlined into vbmatre.f(742,12)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BAMILT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2180,7) inlined into vbmatre.f(1098,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2181,10) inlined into vbmatre.f(1098,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2202,13) inlined into vbmatre.f(1098,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2202,13) inlined into vbmatre.f(1098,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2291,26) inlined into vbmatre.f(1098,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2291 and  line 2291
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2302,17) inlined into vbmatre.f(1098,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2304 and  line 2304
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1184,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1184,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1184,21)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1184,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7148,10) inlined into vbmatre.f(1184,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7152,10) inlined into vbmatre.f(1184,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7154 and  line 7154
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7161,10) inlined into vbmatre.f(1184,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7162,10) inlined into vbmatre.f(1184,21)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7273,16) inlined into vbmatre.f(1184,21)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7274,19) inlined into vbmatre.f(1184,21)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7292,13) inlined into vbmatre.f(1184,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7294 and  line 7294
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1199,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1199,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1199,21)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1199,21)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2186,10) inlined into vbmatre.f(1098,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2190,30) ]
+
+   LOOP BEGIN at vbmatre.f(2188,13) inlined into vbmatre.f(1098,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2190,30) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2288,13) inlined into vbmatre.f(1098,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2299,22) ]
+
+   LOOP BEGIN at vbmatre.f(2289,16) inlined into vbmatre.f(1098,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2299,22) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1115,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(1125,15) ]
+
+   LOOP BEGIN at vbmatre.f(1142,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(1152,18) ]
+
+      LOOP BEGIN at vbmatre.f(4009,10) inlined into vbmatre.f(1184,21)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+         LOOP BEGIN at vbmatre.f(4014,13) inlined into vbmatre.f(1184,21)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+            LOOP BEGIN at vbmatre.f(7178,10) inlined into vbmatre.f(1184,21)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7182,18) ]
+            LOOP END
+
+            LOOP BEGIN at vbmatre.f(7240,10) inlined into vbmatre.f(1184,21)
+               remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(3933,10) inlined into vbmatre.f(1199,21)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+
+         LOOP BEGIN at vbmatre.f(3938,13) inlined into vbmatre.f(1199,21)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: HATHAB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3768,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3768,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3768,19)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3768,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3788,25)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3793,25)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3796,25)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3754,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3762,40) ]
+
+   LOOP BEGIN at vbmatre.f(3760,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3762,40) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GRHSDIAG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(1665,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(1667,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(1667,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(1673,14)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(1684,14)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1756,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1756,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1756,24)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1756,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7148,10) inlined into vbmatre.f(1756,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7152,10) inlined into vbmatre.f(1756,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7154 and  line 7154
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7161,10) inlined into vbmatre.f(1756,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7162,10) inlined into vbmatre.f(1756,24)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7273,16) inlined into vbmatre.f(1756,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7274,19) inlined into vbmatre.f(1756,24)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7292,13) inlined into vbmatre.f(1756,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7294 and  line 7294
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1779,23)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1779,23)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1779,23)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16) inlined into vbmatre.f(1779,23)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1799,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1799,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1799,19)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16) inlined into vbmatre.f(1799,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7148,10) inlined into vbmatre.f(1799,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7152,10) inlined into vbmatre.f(1799,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7154 and  line 7154
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7161,10) inlined into vbmatre.f(1799,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7162,10) inlined into vbmatre.f(1799,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7273,16) inlined into vbmatre.f(1799,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7274,19) inlined into vbmatre.f(1799,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7292,13) inlined into vbmatre.f(1799,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7294 and  line 7294
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16) inlined into vbmatre.f(1818,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16) inlined into vbmatre.f(1818,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16) inlined into vbmatre.f(1818,18)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16) inlined into vbmatre.f(1818,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1862,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1862,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1862,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1862,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1862,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1877,9)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(1878,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1881 and  line 1880
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(1878,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(1889,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(1890,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(1890,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(1846,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(1711,15) ]
+
+   LOOP BEGIN at vbmatre.f(1842,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(1711,15) ]
+
+      LOOP BEGIN at vbmatre.f(4009,10) inlined into vbmatre.f(1756,24)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+         LOOP BEGIN at vbmatre.f(4014,13) inlined into vbmatre.f(1756,24)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+            LOOP BEGIN at vbmatre.f(7178,10) inlined into vbmatre.f(1756,24)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7182,18) ]
+            LOOP END
+
+            LOOP BEGIN at vbmatre.f(7240,10) inlined into vbmatre.f(1756,24)
+               remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(3933,10) inlined into vbmatre.f(1779,23)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+
+         LOOP BEGIN at vbmatre.f(3938,13) inlined into vbmatre.f(1779,23)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(4009,10) inlined into vbmatre.f(1799,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+         LOOP BEGIN at vbmatre.f(4014,13) inlined into vbmatre.f(1799,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+            LOOP BEGIN at vbmatre.f(7178,10) inlined into vbmatre.f(1799,19)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7182,18) ]
+            LOOP END
+
+            LOOP BEGIN at vbmatre.f(7240,10) inlined into vbmatre.f(1799,19)
+               remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(3848,10) inlined into vbmatre.f(1818,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3855,40) ]
+
+         LOOP BEGIN at vbmatre.f(3853,13) inlined into vbmatre.f(1818,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3855,40) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BIOR
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6929,10) inlined into vbmatre.f(2359,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6930,13) inlined into vbmatre.f(2359,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6931 and  line 6932
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6930,13) inlined into vbmatre.f(2359,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13) inlined into vbmatre.f(2359,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13) inlined into vbmatre.f(2359,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2359,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2359,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2359,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2359,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2370,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2378,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 2379 and  line 2379
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2378,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2384,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2384,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2384,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2384,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6929,10) inlined into vbmatre.f(2388,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6930,13) inlined into vbmatre.f(2388,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6931 and  line 6932
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6930,13) inlined into vbmatre.f(2388,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13) inlined into vbmatre.f(2388,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13) inlined into vbmatre.f(2388,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2388,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2388,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2388,15)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13) inlined into vbmatre.f(2388,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2398,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2403,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2403,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2403,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2410,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(2411,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2411,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(2411,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2423,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2430,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2368,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2422,13)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2429,13)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: HATHAM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3946,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3946,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3933,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+
+   LOOP BEGIN at vbmatre.f(3938,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3940,40) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ONLYS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(4022,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4022,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7148,10) inlined into vbmatre.f(4029,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7150 and  line 7150
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7152,10) inlined into vbmatre.f(4029,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 7154 and  line 7154
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7161,10) inlined into vbmatre.f(4029,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7162,10) inlined into vbmatre.f(4029,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7273,16) inlined into vbmatre.f(4029,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7274,19) inlined into vbmatre.f(4029,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7292,13) inlined into vbmatre.f(4029,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7294 and  line 7294
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(4009,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+   LOOP BEGIN at vbmatre.f(4014,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4016,40) ]
+
+      LOOP BEGIN at vbmatre.f(7178,10) inlined into vbmatre.f(4029,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7182,18) ]
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7240,10) inlined into vbmatre.f(4029,18)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CLASSIFY_BRILL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2180,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2181,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2202,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2202,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2291,26)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2291 and  line 2291
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2302,17)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2304 and  line 2304
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(2186,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2190,30) ]
+
+   LOOP BEGIN at vbmatre.f(2188,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2190,30) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2288,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2299,22) ]
+
+   LOOP BEGIN at vbmatre.f(2289,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(2299,22) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: HATHAD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3863,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3863,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3848,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3855,40) ]
+
+   LOOP BEGIN at vbmatre.f(3853,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3855,40) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIVOT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6929,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6930,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6931 and  line 6932
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6930,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6943,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6958,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: C0K
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2513,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(2513,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(2513,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CI0T
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(2639,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(2639,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETDET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3307,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(3308,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(3308,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETPAC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3357,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3357,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3357,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3372,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details   [ vbmatre.f(3373,30) ]
+   remark #15346: vector dependence: assumed ANTI dependence between  line 3373 and  line 3373   [ vbmatre.f(3373,30) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3372,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3384,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3385,67) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: GETPA2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(3431,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3431,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(3431,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(3454,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(3456,25) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DETBASIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7444,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7444,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7447,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7469,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 7471 and  line 7471
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7487,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7487 and  line 7487
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7488,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7488 and  line 7488
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7489,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7489 and  line 7489
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7494,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7494,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7497,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7501,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 7501 and  line 7501
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7507,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7508,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 7513 and  line 7514
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(7441,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7443,15) ]
+
+   LOOP BEGIN at vbmatre.f(7492,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7500,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MATHAD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(4141,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4141,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(4125,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4132,40) ]
+
+   LOOP BEGIN at vbmatre.f(4130,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4132,40) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MATHAM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(4220,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4220,16)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(4204,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4211,40) ]
+
+   LOOP BEGIN at vbmatre.f(4209,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4211,40) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IGINI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(4053,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: MATCH
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(4076,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbmatre.f(4080,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4081,20) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0A0B
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6208,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+
+   LOOP BEGIN at vbmatre.f(6209,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6211,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6216,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+
+   LOOP BEGIN at vbmatre.f(6217,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6219,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PA0B0
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(6427,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+
+   LOOP BEGIN at vbmatre.f(6428,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6430,27) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6435,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+
+   LOOP BEGIN at vbmatre.f(6436,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(6438,26) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PI0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6696,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6696,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: P0K
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6251,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6251,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ICASEPRINT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6027,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6029 and  line 6029
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6857,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(6858,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 6859 and  line 6860
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(6858,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6871,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6871,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6883,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6883,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6883,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6883,13)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PIVTRI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(6979,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6979,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6992,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 6998 and  line 7000
+LOOP END
+
+LOOP BEGIN at vbmatre.f(6992,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 6998 and  line 7000
+LOOP END
+===========================================================================
+
+Begin optimization report for: PSI0DET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7592,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbmatre.f(7596,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 7598 and  line 7598
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7596,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7691,7) inlined into vbmatre.f(7607,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7691,7) inlined into vbmatre.f(7607,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7) inlined into vbmatre.f(7607,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7) inlined into vbmatre.f(7607,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7) inlined into vbmatre.f(7607,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7711,13) inlined into vbmatre.f(7607,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7711,13) inlined into vbmatre.f(7607,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13) inlined into vbmatre.f(7607,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13) inlined into vbmatre.f(7607,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13) inlined into vbmatre.f(7607,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7609,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7611,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbmatre.f(7611,10)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7611,10)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7611,10)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbmatre.f(7611,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(7586,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7587,15) ]
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7721,7) inlined into vbmatre.f(7607,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7699,21) ]
+
+   LOOP BEGIN at vbmatre.f(7706,10) inlined into vbmatre.f(7607,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7699,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(4076,10) inlined into vbmatre.f(7659,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbmatre.f(4080,13) inlined into vbmatre.f(7659,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(4081,20) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: CHECKPSI0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbmatre.f(7691,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7691,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7691,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbmatre.f(7711,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbmatre.f(7711,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbmatre.f(7711,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbmatre.f(7721,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7699,21) ]
+
+   LOOP BEGIN at vbmatre.f(7706,10)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbmatre.f(7699,21) ]
+   LOOP END
+LOOP END
+===========================================================================

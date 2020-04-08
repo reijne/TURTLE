@@ -1,0 +1,45 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+title
+h2co - tzvp + f + g  basis - energy = -113.914518396 au
+super off nosym
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzvp o
+tzvp c
+tzvp h
+f c
+1 1.0
+f o
+1.0 1.0
+g c 
+1.0 1.0
+g o
+1.0 1.0
+end
+runtype ci
+mrdci
+adapt 
+tran 
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  46  67 68
+roots 1
+thresh 30 10
+ci
+diag
+extrap 2
+enter
+EOF

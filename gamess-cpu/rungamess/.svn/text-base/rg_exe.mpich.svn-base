@@ -1,0 +1,116 @@
+#!/bin/sh
+#
+# Rungamess execution script - MPICH Version
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+mpirun=/opt/mpich2/bin/mpiexec 
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+executable=${GAMESS_PAREXE}
+
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir/$jobname
+
+
+#
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=Interactive
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+echo rungamess : MPICH job environment is $job_environment
+
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+
+case $job_environment in 
+
+PBS)    
+       echo Start at `date`
+       echo  $executable $myargs  $datain
+       case $datain in
+        0) cat $homedir/$jobname.in |\
+           $mpirun -np $nprocs -machinefile $PBS_NODEFILE $executable ;;
+            
+        1) cp  $homedir/$jobname.in datain
+           $mpirun -np $nprocs -machinefile $PBS_NODEFILE $executable
+           rm -f datain
+           ;;
+        esac
+        stat=$?
+        echo End at `date`
+    ;;
+
+  Interactive)  # Take hosts from GAMESS_HOSTS
+        echo rungamess: interactive MPICH job dir=`pwd` procs=$nprocs hostlist=$GAMESS_HOSTS
+        rm -f gamess.hosts
+        i=0
+        lasthost=none
+        for host in ${GAMESS_HOSTS}
+        do
+           if test $i -lt $nnodes
+           then
+              if test $host != $lasthost
+              then
+                 echo $host >> gamess.hosts
+              fi
+           fi
+           i=`expr $i + 1`
+        done
+
+       case $datain in
+        0) cat $homedir/$jobname.in | \
+           $mpirun -np $nprocs -machinefile gamess.hosts $executable
+           ;;            
+        1) cp  $homedir/$jobname.in datain
+           $mpirun -np $nprocs -machinefile gamess.hosts $executable
+           rm -f datain
+           ;;
+        esac
+        rm -f gamess.hosts
+        ;;
+
+*)  echo "Unsupported job environment for mpich : $job_environment"
+    exit -1;;
+
+esac
+
+case $stat in
+   0) echo ${IDENT}: MPICH gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

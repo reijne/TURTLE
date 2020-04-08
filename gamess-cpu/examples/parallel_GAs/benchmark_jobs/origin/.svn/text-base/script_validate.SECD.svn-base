@@ -1,0 +1,31 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 360
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin
+
+rm -rf /scratch/local/gamess/benchmark
+mkdir /scratch/local/gamess/benchmark
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/benchmark
+
+cp ../../input_files_benchmarks/SECD.TFMtoluene.6-31G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/SECD.chlorotriazine.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/SECD.morphine.6-31G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/SECD_B3LYP.TFMtoluene.6-31G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/SECD_HCTH.TFMtoluene.6-31G.in /scratch/local/gamess/benchmark
+ 
+cd /scratch/local/gamess/benchmark
+
+mpirun -np 128 gamess-uk < SECD.TFMtoluene.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/SECD.TFMtoluene.6-31G.out
+
+mpirun -np 128 gamess-uk < SECD.chlorotriazine.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/SECD.chlorotriazine.out
+
+mpirun -np 128 gamess-uk < SECD_B3LYP.TFMtoluene.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/SECD_B3LYP.TFMtoluene.6-31G.out
+
+mpirun -np 128 gamess-uk < SECD_HCTH.TFMtoluene.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/SECD_HCTH.TFMtoluene.6-31G.out
+
+mpirun -np 128 gamess-uk < SECD.morphine.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/SECD.morphine.6-31G.out

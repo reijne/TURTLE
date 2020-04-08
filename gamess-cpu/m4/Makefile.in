@@ -1,0 +1,1475 @@
+#
+#  $Author: jmht $
+#  $Date: 2008-01-21 15:20:37 $
+#  $Revision: 1.316 $
+#  $Source: /c/qcg/cvs/psh/GAMESS-UK/m4/Makefile.in,v $
+#  $State: Exp $
+#
+#   makefile for GAMESS Version 8.0 direct from M4 
+#
+#startdoc
+#
+#   issue ./configure and then follow the instructions. This will generate
+#   a file configure.dat containing a set of m4 keywords which control
+#   pre-processing of the M4 source, listed below.
+#   Please be aware that there is *not* a direct correspondence between 
+#   configure keywords and the resulting M4 keywords.
+#
+# restricted builds: base         - mimimal SCF/DFT 
+#                    mp2          - SCF, DFT, MP2, SCF Hessian (not qm/mm)
+#                    ci           - SCF, DFT, MP2, SCF Hessian (not qm/mm), direct-CI, GF
+#
+# compile keywords:  debug
+#                    profile
+#                    protect-source   chmod o-w on fortran/C files
+#                    timings  Detailed timing breakdown
+#                    f77      Build without f90 stuff
+#                    f90test  Use F90 Test features (developmental)
+#                    i8       Request 64 bit integer variables
+#                    blas     use blas libraries
+#                    veclib   use veclib libraries on HP (advised)
+#
+# optional modules:  diesel   include diesel CI code 
+#                             [requires code in ../diesel]
+#                    drf      include DRF code
+#                             [requires code in ../drf]
+#                    mopac
+#                 or mopac7   include mopac version 7 code
+#                             [requires code in ../mopac]
+#                    mopac6   include mopac version 6 code
+#                    zora     include developmental ZORA code
+#                    newscf   include developmental SCF code (F90 version)
+#                             [requires code in ../newscf]
+#                    dl-find  include DL-FIND interface
+#                    vb       include developmental VB code
+#                    vdw      include developmental Van der Waals code
+#                    sysmo    include developmental sysmo code
+#                    masscf   include developmental parallel mcscf code
+#
+# parallel keywords: tcgmsg   parallel code (no GA)
+#                             (available for base build only)
+#                    mpi      parallel code (no GA) using MPI
+#                             (available for base (+VB) build only)
+#                    ga       link GA tools
+#                             (available for base + mp2 + ci builds only)
+#                    peigs    PeIGS Parallel diagonaliser 
+#                    scalapack ScaLAPACK Parallel diagonalisers
+#
+# keywords determining the system size limits:
+#
+#                    demo     200  basis functions static (macosx)
+#                    small    1024 basis functions
+#                    medium   2048 basis functions
+#                    large    4096 basis functions
+#                    huge     8192 basis functions   2000 atoms
+#                    giga     16384 basis functions  4000 atoms
+#                    tera     19900 basis functions  5000 atoms
+#                    qmmm     3000 nuclear centres 
+#                             also suppresses some large (eg NAT*NAT)
+#                             memory arrays
+#
+# Additional options
+#
+#                    nbo      Activate NBO code
+#                    mrdci    Activate new MRDCI code
+#                    old-dft  Activate old post-HF DFT code
+#                    rpagrad  RPA excited state gradients
+#
+#enddoc
+#
+#   WARNING - make clean also deletes fortran and C source 
+#             leaving only .m files
+#
+#  Most processing is controlled by the machine file in directory 
+#  ../machines, supplemented by extra M4 control flags  (see PAR_M4_OPTS
+#  PEIGS_M4_OPTS, DFT_M4_OPTS, DRF_M4_OPTS, MOPAC_M4_OPTS, NEWSCF_M4_OPTS
+#  settings below) which  are passed to m4 on the command line
+#
+# ----------------------- CONVENTIONS ------------------------------
+#
+# some of the current variable usage:
+#
+#  GA_F77_DEFS   cpp defines and flags for GA codes
+#  GA_F77_INC    cpp include directory for GA codes (F77)
+#  GA_C_INC      cpp includes for GA codes (C)
+#  PAR_LIBS      non-mpi libraries (GA, TCGMSG etc) (-L and -l flags)
+#  LIBMPI        -l settings for MPI libraries
+#  MPI_LIBS      holds -L and -l flags for MPI libraries
+#  MPI_LIB       directory for MPI libraries
+#
+# ----------------------- PATHNAMES ------------------------------
+#
+# target names for executables
+#
+#if ga mpi mpi2 tcgmsg#
+#--#if taskfarm#
+EXE= ../bin/gamess-uk.taskfarm
+#--#else#
+EXE= ../bin/gamess-uk
+#--#endif taskfarm#
+#else#
+EXE= ../bin/gamess
+#endif#
+#
+# ----------------------- DEFAULT MAKE TARGET ---------------------
+#
+#if charmm chemshell gromacs#
+GAMESS_TARGET=gmslib
+#else#
+GAMESS_TARGET=exe
+#endif#
+#
+# ----------------------- DEFAULT DEFINITIONS ---------------------
+#
+.SUFFIXES:
+.SUFFIXES:	.m .o .s .c .f .f90
+SHELL=/bin/sh
+M4 = m4
+#
+FC = f77
+FC90 = f90
+CC = cc
+CC = cc
+CXX = cc
+AS = as
+LD = f77
+#Need seperate LDNAME as windows doesn't take -o flag
+LDNAME = -o 
+CPP = cpp
+FFLAGSV = -c
+FFLAGSS = -c
+FFLAGSN = -c
+FFLAGSV90 = $(FFLAGSV)
+FFLAGSS90 = $(FFLAGSS)
+FFLAGSN90 = $(FFLAGSN)
+FFLAGS_CPP =
+CFLAGS = -c
+CXXFLAGS = -c
+GMAKE  = gmake
+ARCHIVE  =  ar rcv
+ARCHIVE_NOREPLACE  =  ar qcv
+UNARCHIVE = ar xo
+RANLIB   =  ar ts
+# should be set to the same flags as used to build fortran code
+
+# whoami used in vb Makefile, but not found in path on some machines (e.g. sparc at lomond)
+WHOAMI=whoami
+
+# M4 Stuff
+INCLUDE=_INCLUDE($$1)
+MACHINE_KEY=G
+IAND32=and($$1,$$2)
+IOR32=or($$1,$$2)
+IXOR32=xor($$1,$$2)
+IAND64=iand($$1,$$2)
+IOR64=or($$1,$$2)
+IXOR64=xor($$1,$$2)
+SHIFT=shift($$1,$$2)
+COMPLEX=complex*16
+REAL=real*8
+MPIINT=integer*4
+MPILOG=logical*4
+DFLOAT=dble($$1)
+EXTRA_M4_DEFINITIONS=
+# --------------------------- LINEAR ALGEBRA LIBRARY --------------------------
+# required for all builds
+MAKE_LINALG=check_linalg
+LINALG_LIB =   ../linalg/liblinalg.a
+# ---------------------------- GLOBAL ARRAY OPTIONS ---------------------------
+# set to make_ga if GA tools need to be built
+GA_INTEGER_DECL=integer
+GA_LOGICAL_DECL=logical
+#--#if ga ma#
+MAKE_GA=make_ga
+GA_DIR=../g
+GA_F77_DEFS =
+GA_CC = ${CC} ${CFLAGS}
+GA_F77_INC= -I$(GA_DIR)/include 
+GA_C_INC= -I$(GA_DIR)/include 
+GA_TARGET=You_must_provide_a_GA_TARGET_setting
+GA_TARGET_CPU_PAR=
+GA_VERSION_PAR=
+#--#if scalapack#
+GA_SCALAPACK= USE_SCALAPACK=yes
+#--#else#
+GA_SCALAPACK=
+#--#endif#
+#
+# NB - assumption is here is that we are always running with
+# mpi, we can add tcgmsg into the mix if we need to run with i8
+#
+#--#if tcgmsg#
+GA_MPI=USE_MPI=yes
+#--#else#
+# GA build using MPI directly for communications
+#----#if i8#
+GA_MPI=MSG_COMMS=MPI
+#----#else#
+GA_MPI=MSG_COMMS=MPI USE_INTEGER4=yes
+#----#endif#
+#--#endif#
+GA_LIBS=\
+#--#if ga#
+	${GA_DIR}/lib/${GA_TARGET}/libglobal.a \
+        ${GA_DIR}/lib/${GA_TARGET}/libarmci.a \
+#--#endif ga#
+#--#if tcgmsg#
+#----#if mpi mpi2#
+        ${GA_DIR}/lib/${GA_TARGET}/libtcgmsg-mpi.a \
+#----#else#
+        ${GA_DIR}/lib/${GA_TARGET}/libtcgmsg.a \
+#----#endif mpi mpi2#
+#--#endif tcgmsg#
+        ${GA_DIR}/lib/${GA_TARGET}/libma.a
+#--#endif#
+#
+# -------------------------- PEIGS definitions  ------------------
+#--#if peigs#
+PEIGS_TARGET=${GA_TARGET}
+PEIGS_DIR=../peigs
+PEIGS_TARGET=${GA_TARGET}
+PEIGS_LIB=${PEIGS_DIR}/lib/${PEIGS_TARGET}/libpeigs.a
+PEIGS_INC=-I${PEIGS_DIR}/h
+PEIGS_M4_OPTS=,peigs
+PEIGS_TARGET_CPU_PAR=
+#--#if tcgmsg#
+#----#if i8#
+PEIGS_VERSION_PAR=
+#----#else#
+PEIGS_VERSION_PAR=USE_INTEGER4=yes
+#----#endif i8#
+#--#else#
+# PeIGS using MPI instead of tcgmsg
+#----#if i8#
+PEIGS_VERSION_PAR=USE_MPI=yes
+#----#else#
+PEIGS_VERSION_PAR=USE_MPI=yes USE_INTEGER4=yes
+#----#endif i8#
+#--#endif tcgmsg#
+# Below was for t3d/t3e
+#PEIGS_OBJ=peigs_interface.o blas_d_to_s.o
+PEIGS_OBJ=peigs_interface.o
+MAKE_PEIGS=make_peigs
+#--#endif#
+#
+#
+#--#if ma#
+#
+# -------------------------- MA definitions  --------------------
+#
+# for building the Memory Allocator library
+#
+MAKE_MA=make_ma
+MA_M4_OPTS=,ma
+MA_LIB=${GA_DIR}/lib/${GA_TARGET}/libma.a
+# bit of a hack - null out the GA_LIBRARY
+GA_LIBS=
+#--#endif ma#
+#
+# ---------------------------- F90 OPTIONS ---------------------------
+#
+# Use the f90test keyword to switch on the use of F90 test code in analc
+#         f77 to switch off F90 production code
+#
+#--#if f77#
+F90_M4_OPTS =,f77
+#--#endif#
+#--#if f90test#
+F90_M4_OPTS =,f90test
+#--#endif#
+#
+# ----------------------- CCPDFT OPTIONS ------------------------------------
+#--#if !nodft#
+MAKE_DFT=check_dft
+DFT_M4_OPTS=,ccpdft
+DFT_LIB =   ../dft/libdft.a
+#--#endif#
+#
+# ----------------------- DIESEL OPTIONS -----------------------------------
+#--#if diesel#
+MAKE_DIESEL=check_diesel
+DIESEL_APPS = ../diesel/app/CI/Selector/sel
+DIESEL_M4_OPTS=,diesel
+#--#endif#
+# ----------------------- DRF OPTIONS --------------------------------------
+#--#if drf#
+#---#if base#
+# Hijack HONDO_OBJ to add integd for qmint & qmsint
+# Needed when using drf with base build
+HONDO_OBJ=gamess_hondo.o integd.o
+#---#else#
+HONDO_OBJ=gamess_hondo.o
+#---#endif#
+MAKE_DRF=check_drf
+DRF_M4_OPTS=,drf
+DRF_LIB =   ../drf/libdrf.a
+#--#endif#
+# ----------------------- MOPAC and MOPAC7 OPTIONS --------------------------
+#--#if mopac mopac6 mopac7#
+MAKE_MOPAC=check_mopac
+MOPAC_M4_OPTS=,mopac
+MOPAC_LIB =   ../mopac/libmopac.a
+#--#endif#
+#
+#------------------------ ZORA OPTIONS --------------------------------------
+#--#if zora#
+MAKE_ZORA=check_zora
+ZORA_M4_OPTS=,zora
+ZORA_LIB = ./zora.o
+#--#endif#
+#
+#------------------------ NMR OPTIONS --------------------------------------
+#--#if nmr#
+HONDO_OBJ=gamess_hondo.o
+MAKE_NMR=check_nmr
+NMR_M4_OPTS=,nmr
+NMR_LIB = ../nmr/libnmr.a
+#--#endif#
+#
+#------------------------ VB OPTIONS ----------------------------------------
+#--#if vb#
+MAKE_VB=check_vb
+VB_M4_OPTS=,vb
+VB_LIB = ../vb/libvb.a 
+# Specify a default for MPI_INCLUDE as it is needed in vb/Makefile for sendrecv
+MPI_INCLUDE=../g/include
+#---#if base #
+VB_EXTRA=casa.o casb.o util4.o util5.o machci.o mainci.o integd.o 
+#---#elseif mp2 ci #
+VB_EXTRA=casa.o casb.o  
+#---#else #
+VB_EXTRA=
+#---#endif#
+#--#else#
+VB_EXTRA=
+#--#endif#
+# ----------------------- Van der Waals Options -----------------------------
+#--#if vdw#
+VDW_M4_OPTS=,vdw
+VDW_EXTRA=vdwaals_corr.o inter_vdwaals.o
+#--#else#
+VDW_M4_OPTS=
+VDW_EXTRA=
+#--#endif#
+# ----------------------- Sysmo Options -----------------------------
+#--#if sysmo#
+SYSMO_M4_OPTS=,sysmo
+SYSMO_EXTRA=sysmo.o
+#--#else#
+SYSMO_M4_OPTS=
+SYSMO_EXTRA=
+#--#endif#
+# ----------------------- Parallel MSCSF (MASSCF) Options -----------------------------
+#--#if masscf#
+MASSCF_M4_OPTS=,masscf
+MASSCF_EXTRA=masscf.o ormas1.o ormas2.o
+#--#else#
+MASSCF_M4_OPTS=
+MASSCF_EXTRA=
+#--#endif#
+# ----------------------- NEWSCF OPTIONS ----------------------
+#
+#--#if newscf#
+MAKE_NEWSCF=check_newscf
+NEWSCF_M4_OPTS=,newscf
+NEWSCF_LIB =   ../newscf/libnewscf.a
+#--#endif#
+#
+#--------------------------- XML Options ----------------------
+#
+#--#if xml#
+MAKE_XML=make_xml
+XML_M4_OPTS=,xml
+XML_LIB = ../xml/libxml.a
+AGENTX_SRC=../AgentX
+AGENTXDIR=$(AGENTX_SRC)/local
+# AGENTX_LIB = `$(AGENTXDIR)/bin/agentx-config --static-libs`
+# Need to use shared as a static libagentx.a isn't built
+AGENTX_LIB = `$(AGENTXDIR)/bin/agentx-config --libs`
+#--#endif#
+#
+# ----------------------- DL_FIND OPTIONS ----------------------
+#
+#--#if dl-find#
+MAKE_DLFIND=check_dlf
+DLFIND_M4_OPTS=,dl-find
+DLFIND_LIB =   ../dl-find/libdlf.a
+#--#endif#
+#
+#--#if datain#
+#
+# ----------------------- datain fix ----------------------------
+#
+# FLAG forces read from file called datain (not stdin)
+# Needed when mpirun is broken
+#
+DATAIN_M4_OPTS=,datain
+#--#endif datain#
+#
+#--#if dataout#
+#
+# Force GAMESS-UK to write output to named ouptut file (gamess.out) rather 
+# than stdout. See mains.m for implementation
+#
+DATAOUT_M4_OPTS=,dataout
+#--#endif dataout#
+#
+# ----------------------- TASKFARM OPTIONS ------------------------------------
+#
+#--#if taskfarm#
+TASKFARM_OBJ=taskfarm.o
+TASKFARM_M4_OPTS=,taskfarm
+#--#endif#
+#
+#--#if charmm#
+# ----------------------- CHARMM LIBRARY NAME ----------------------------------
+#
+#--#include ../m4/chmhost.mk#
+#--#endinclude ../m4/chmhost.mk#
+#
+GMSLIB = ../../../../lib/$(CHMHOST)/gamessuk.a
+#
+#--#endif#
+#
+#--#if chemshell#
+# ----------------------- CHEMSHELL LIBRARY NAME -------------------------------
+GMSLIB = libgamess.a
+#--#endif#
+#
+#--#if gromacs#
+# ----------------------- GROMACS LIBRARY NAME ---------------------------------
+GMSLIB = ../libgamess.a
+GROMACS_OBJ = gromacs.o
+#--#endif#
+#--------------------------- PARALLEL M4 Options -----------------------------
+#
+# These options define the M4 options that determine which parallel 
+# functionality is included in the various builds.
+#
+#
+#--#if parallel#
+#
+#---#if scalapack#
+SCALAPACK_M4_OPTS=,scalapack
+#---#else#
+SCALAPACK_M4_OPTS=
+#---#endif#
+#
+#
+#---#if peigs scalapack#
+PDIAG_M4_OPTS=,diag_parallel
+#---#else#
+PDIAG_M4_OPTS=
+#---#endif#
+#
+# Sort out the functionality we are including to set PAR_M4_BUILD
+#
+#---#if mp2 ci#
+#----#if qmmm chemshell charmm#
+# exclude parallel hessian because this requires 1-e deriv integrals to be done on
+# every node, not suitable for QM/MM
+PAR_M4_BUILD=,mp2_parallel
+#----#else#
+PAR_M4_BUILD=,mp2_parallel,secd_parallel
+#----#endif#
+#---#elseif base#
+PAR_M4_BUILD=
+#---#endif#
+#
+#
+# Now determine the parallel library options
+#---#if ga#
+#----#if mpi mpi2#
+#-----#if tcgmsg#
+# No mpi keyword as tcgmsg & mpi => tcgmsg-mpi which cannot coexist
+# with the GAMESS-UK mpi code
+PAR_M4_OPTS=parallel,ma,ga,tcgmsg,tcgmsg-mpi${PAR_M4_BUILD}
+#-----#else#
+PAR_M4_OPTS=parallel,ma,ga,mpi${PAR_M4_BUILD}
+#-----#endif tcgmsg#
+#----#elseif tcgmsg#
+PAR_M4_OPTS=parallel,ma,ga,tcgmsg${PAR_M4_BUILD}
+#----#endif mpi#
+# End of GA options
+#
+#---#elseif mpi mpi2#
+#
+# No GAs, just MPI
+#----#if charmm chemshell taskfarm#
+#    Static load balancing only
+PAR_M4_OPTS=parallel,mpi${PAR_M4_BUILD}
+#----#elseif newscf#
+#------#if static_lb#
+#      Static load-balancing requested
+PAR_M4_OPTS=parallel,mpi${PAR_M4_BUILD}
+#------#elseif mpi2#
+#      Use MPI2 shared counter for dynamic load-balancing
+PAR_M4_OPTS=parallel,mpi,dynamic_mpi2${PAR_M4_BUILD}
+#------#else#
+#      Cannot use MPI1 nxtval server so fall back to static load-balancing
+PAR_M4_OPTS=parallel,mpi${PAR_M4_BUILD}
+#------#endif#
+#----#else#
+#------#if static_lb#
+#      Static load-balancing requested
+PAR_M4_OPTS=parallel,mpi${PAR_M4_BUILD}
+#------#elseif mpi2#
+#      Use MPI2 shared counter for dynamic load-balancing
+PAR_M4_OPTS=parallel,mpi,dynamic_mpi2${PAR_M4_BUILD}
+#------#else#
+#      Use MPI1 nxtval server for dynamic load-balancing
+PAR_M4_OPTS=parallel,mpi,dynamic${PAR_M4_BUILD}
+#------#endif#
+#----#endif#
+#
+#---#elseif tcgmsg#
+#
+# No GA or MPI, just pure simple tcgmsg message passing
+# This will only work for a base build
+PAR_M4_OPTS=parallel,tcgmsg${PAR_M4_BUILD}
+#
+#--#elseif charmmpar#
+#
+# Building in parallel with CHARMM and using it's parallel toolkit
+PAR_M4_OPTS=parallel,charmmpar${PAR_M4_BUILD}
+#
+#---#endif#
+# End of various parallel options - now just serial
+#
+#--#elseif vector#
+#
+PAR_M4_OPTS=vector
+#
+#--#else#
+#
+# Default case
+PAR_M4_OPTS=serial
+#
+#--#endif parallel#
+#
+# ----------------------- SYSTEM SIZE OPTIONS --------------------------------
+# defaults ( currently the same as small )
+#
+#
+MAXORB	=	1024
+MXSHEL	=	600
+MXPRIM	=	2000
+MXGRPS	=	560
+MXGAUS	=	5600
+MAXAT   =       750
+MAXNZ   =       700
+MAXVAR  =       2000
+# VB turtleparam
+MXORBVB =       255
+MAXEXVB =       20000
+
+# modifications requested by configure options
+
+#--#if charmm#
+MAXAT	=	50000
+#--#elseif chemshell qmmm#
+MAXAT	=	30000
+#--#endif#
+
+
+#--#if demo#
+#  about 1/4 of default
+MAXAT   =       200
+MAXORB  =       200
+MAXVAR  =       300
+MAXNZ   =       200
+MXSHELL =       200
+MXPRIM  =       600
+MXGRPS  =       150
+MXGAUS  =      1500
+#--#elseif small#
+# These are the same as if no size option is specified
+MAXORB	=	1024
+MXSHEL	=	600
+MXPRIM	=	2000
+MXGRPS	=	560
+MXGAUS	=	5600
+MAXAT   =    750
+MAXNZ   =    700
+MAXVAR  =   2000
+#--#elseif medium#
+MAXORB	=	2048
+MXSHEL	=	1024
+MXPRIM	=	4096
+#--#elseif large#
+MAXORB	=	4096
+MXORBVB =    1000
+MXSHEL	=	2048
+MXPRIM	=	8192
+MXGAUS	=	11600
+#--#elseif huge#
+MAXORB	=	8192
+MXSHEL	=	4096
+MXPRIM	=	16384
+MXGAUS	=	23200
+MAXAT   =    2000
+MAXNZ   =    2000
+MAXVAR  =    4500
+MXORBVB =    1000
+MAXEXVB =   20000
+#--#elseif giga#
+MAXORB	=	16384
+MXSHEL	=	12288
+MXPRIM	=	32768
+MXGAUS	=	46400
+MAXAT   =    4000
+MAXNZ   =    4000
+MAXVAR  =    7500
+MXORBVB =    1000
+MAXEXVB =   20000
+#--#elseif tera#
+# CMR: tera= Experimental Bio-molecule dimensioning
+# Type 1: Wet peptide-like (light - lots of hydrogen) 50%H 30%C 10%O 8%N 2%S
+# sto3g MXSHEL=1.52*MAXAT, MXPRIM= 4.56*MAXAT, MAXORB=3.98*MAXAT
+# 6-31g MXSHEL=2.02*MAXAT, MXPRIM= 7.12*MAXAT, MAXORB=3.98*MAXAT
+# tzvp  MXSHEL=6.56*MAXAT, MXPRIM=12.12*MAXAT, MAXORB=3.98*MAXAT
+# Type 2: Dry DNA-like (heavy - lots of oxygen and phosphorous) 35%H 30%C 20%O 12%N 3%P
+# sto3g MXSHEL=1.60*MAXAT, MXPRIM= 5.04*MAXAT, MAXORB=5.04*MAXAT
+# 6-31g MXSHEL=2.33*MAXAT, MXPRIM= 8.20*MAXAT, MAXORB=5.04*MAXAT
+# tzvp  MXSHEL=7.39*MAXAT, MXPRIM=13.98*MAXAT, MAXORB=5.04*MAXAT
+## To be tested... MXGAUS for analysis: MXPRIM or MXPRIM+2*MXSHEL??? (3 p's instead of 1 per shell?)
+## MAXNZ is a dummy; peptide as Z-matrix is not supported...
+## Current selection should suffice for: 5000 atoms - wet peptide - 6-31g
+## Note: This allocates 14.5Gb memory
+MAXORB	=	50000
+MXSHEL	=	30000
+MXPRIM	=	150000
+MXGAUS	=	150000
+MAXAT   =       7500
+MAXVAR  =       4500
+MAXNZ   =       2000
+#--#elseif dfttest#
+MAXAT   =        500
+MAXORB	=	2200
+MXSHEL	=	1200
+MXPRIM	=	2500
+MXGRPS  =        560
+MXGAUS  =       5600
+#--#endif#
+#
+#--#if qmmm#
+# Add qmmm here to restrict memory use for large number of qm centres
+QMMM_M4_OPTS =,qmmm
+#--#endif#
+#
+# ----------------------- QM/MM INTERFACE OPTIONS --------------------
+#
+# Add qmmm here to restrict memory use for large number of qm centres
+#
+#--#if chemshell#
+QMMM_M4_OPTS=,qmmm,chemshell
+#--#elseif gromacs#
+# Drive the GROMACS integration off the Chemshell one
+QMMM_M4_OPTS=,qmmm,chemshell
+#--#elseif charmm#
+#--#if charmm_if4#
+VOPT=,charmm_if4
+#--#else#
+VOPT=
+#--#endif#
+#--#if flucq#
+QMMM_M4_OPTS =,qmmm,charmm,flucq${VOPT}
+#--#else#
+QMMM_M4_OPTS =,qmmm,charmm${VOPT}
+#--#endif#
+#--#elseif qmmm#
+QMMM_M4_OPTS =,qmmm
+#--#endif#
+#
+# ------------------ DEVELOPMENT OPTIONS --------------------------
+#--#if nbo#
+D1=,nbo
+#--#endif#
+#--#if zora#
+D2=,zora
+#--#endif#
+#--#if timings#
+D3=,timings
+#--#endif#
+#--#if mrdci#
+D4=,mrdci
+#--#endif#
+#--#if old-dft#
+D5=,old-dft
+#--#endif#
+#--#if vb#
+D6=,vb
+#--#endif#
+#--#if rpagrad#
+D7=,rpagrad
+#--#endif#
+#--#if newints#
+D8=,newints
+#--#endif#
+#--#if GIGA_DUMP#
+D9=,GIGA_DUMP
+#--#endif#
+#--#if nmr#
+D10=,nmr
+#--#endif#
+#--#if vdw#
+D11=,vdw
+#--#endif#
+#--#if sysmo#
+D12=,sysmo
+#--#endif#
+DEV_M4_OPTS=$(D1)$(D2)$(D3)$(D4)$(D5)$(D6)$(D7)$(D8)$(D9)$(D10)$(D11)$(D12)
+#
+#--------------------------- Debugging & Profiling -------------------
+#
+#--#if debug#
+DEBUG_M4_OPTS=,debug
+#--#endif#
+#--#if profile#
+PROF_M4_OPTS=,profile
+#--#endif#
+#
+#
+#--------------------------- Target ----------------------------------
+#
+#--#if linalg_makefile dft_makefile mopac_makefile drf_makefile newscf_makefile dl-find_makefile vb_makefile xml_makefile#
+all:	
+	@(cd ../m4;make)
+#--#else#
+all:	errchk utilities $(GAMESS_TARGET)
+#--#endif#
+
+utilities:
+	(cd ../utilities; make)
+#
+# Dummy target to force an object to be rebuilt each time
+FORCE:
+#
+# ======================= Machine options =============================
+#
+#--#include ../m4/machine.mk#
+#--#endinclude ../m4/machine.mk#
+#
+# ======================= End of machine options =============================
+#
+
+check_linalg:
+	(cd ../linalg; make linalg)
+$(LINALG_LIB):
+	make check_linalg
+
+#--#if !nodft#
+check_dft:
+	(cd ../dft; make dftlib )
+$(DFT_LIB):
+	make check_dft
+#--#endif#
+
+#--#if diesel#
+check_diesel: libdiesel.a
+	(cd ../diesel; make diesel )
+$(DIESEL_APPS):
+	make check_diesel
+libdiesel.a: $(NUMERIC_OBJ) gdiesel2.o
+	$(ARCHIVE) libdiesel.a $(NUMERIC_OBJ) gdiesel2.o
+	$(RANLIB) libdiesel.a
+#--#endif#
+
+#--#if drf#
+check_drf:
+	(cd ../drf; make drflib )
+$(DRF_LIB):
+	make check_drf
+#--#endif#
+
+#--#if mopac mopac6 mopac7#
+check_mopac:
+	(cd ../mopac; make libmopac.a )
+$(MOPAC_LIB):
+	make check_mopac
+#--#endif#
+
+#--#if zora#
+check_zora:
+	(cd ../m4; make zora.o )
+#--#endif#
+
+#--#if nmr#
+check_nmr:
+	(cd ../nmr; make libnmr.a )
+$(NMR_LIB):
+	make check_nmr
+#--#endif#
+
+#--#if vb#
+check_vb:
+	(cd ../vb; make vb )
+$(VB_LIB):
+	make check_vb
+#--#endif#
+
+#--#if newscf#
+check_newscf:
+	(cd ../newscf; make newscflib )
+$(NEWSCF_LIB):
+	make check_newscf
+#--#endif#
+
+#--#if xml#
+#
+# Link in AgentX to Read/Write XML files
+#
+make_xml: check_agentx check_xml
+
+check_xml:
+	(cd ../xml; make libxml.a )
+
+check_agentx:
+	@(if test -f $(AGENTXDIR)/bin/agentx-config; then \
+	echo Checking for AGENTX  - file $(AGENTXDIR)/bin/agentx-config seems OK .. ;\
+	else \
+	echo $(AGENTXDIR)/bin/agentx-config not found so making Agentx;\
+	make ax_install;fi)
+
+ax_install: ax_make
+	@echo "Installing AgentX into $(AGENTXDIR)"
+	(cd $(AGENTX_SRC); make install )
+
+ax_make: ax_configure
+	@echo "Building AgentX into $(AGENTXDIR)"
+	(cd $(AGENTX_SRC); make)
+
+# Need to strip out the -c as it causes problems with 
+# the configure
+AXCFLAGS=`echo $(CFLAGS) | sed 's/-c//'`
+AXFFLAGS=`echo $(FFLAGSV90) | sed 's/-c//'`
+
+ax_configure:
+	(cd $(AGENTX_SRC);\
+./configure \
+FC="$(FC)" \
+CC="$(CC)" \
+CFLAGS="$(AXCFLAGS)" \
+FCFLAGS="$(AXFFLAGSV90)" \
+--prefix=`pwd`/local \
+--with-python \
+--with-libxml2 \
+--disable-static \
+--with-fortran )
+
+$(XML_LIB): make_xml
+#--#endif#
+
+#--#if dl-find#
+check_dlf:
+	(cd ../dl-find; $(GMAKE) libdlf.a )
+$(DLFINDLIB):
+	make check_dlf
+#--#endif#
+
+#--#if f90#
+#
+# Additional source files for the f90 version. In general
+# these compile to produce module files (exact filenames will
+# be machine dependent)
+# When adding more module files, be sure to add dependencies
+# (see section "F90 Dependencies" below)
+#
+#MODF90 = vdwaals_corr.o
+#--#endif#
+#
+#--#if f90test#
+MODF90TEST = junk_dma.o 
+#--#endif#
+MODOBJ = $(MODF90) $(MODF90TEST) 
+#
+# for qmmm work, additionally remove optef 
+# delete common/small from mains (scratch in util1 - but check)
+#
+#--#if qmmm charmm#
+OPTEF = 
+#--#else#
+OPTEF = optef.o
+#--#endif#
+
+#
+# combine library requirements
+#
+LDLIBS	= 	$(DFT_LIB) $(DRF_LIB) $(MOPAC_LIB) $(ZORA_LIB) $(VB_LIB) $(NEWSCF_LIB) $(NEWSCF_LIB_F90) $(DLFIND_LIB) $(NMR_LIB) $(XML_LIB) $(AGENTX_LIB) $(GA_LIBS) $(PEIGS_LIB) $(MA_LIB) $(BL_LIB) $(LINALG_LIB)
+
+MISC	=	$(PEIGS_OBJ) $(TASKFARM_OBJ) $(GROMACS_OBJ)
+#
+
+#
+# ------------- Processing of build selection --------------
+#
+#
+# This target is overridden by a fatal one if the build
+# cannot proceed because of incompatible choices
+#
+errchk:
+#if base#
+	@echo Building base code
+#elseif mp2#
+	@echo Building MP2 code
+#elseif ci#
+	@echo Building CI code
+#else#
+	@echo Building full code
+#endif#
+
+OBJ_VERSION = gms_version.o
+
+OBJ_BASE = mains.o anala.o analb.o analc.o analf.o analg.o basis.o basis1.o basis2.o basis3.o \
+	dft.o input.o intega.o \
+	machscf.o  drv2e.o drv80.o integs.o scf.o server.o optim.o ${OPTEF} \
+	integb.o integb_nl.o integb_lib.o integc.o guess.o master.o  util1.o util2.o util3.o \
+	parallel.o  mass.o drv1e.o c.o  $(MODOBJ) \
+	morokuma.o nbo.o $(MISC) omit.o ${EXTRA_BASE} $(VB_EXTRA) $(VDW_EXTRA) $(SYSMO_EXTRA) $(HONDO_OBJ) $(EXTRA) \
+	gdiesel.o glue_uk_us.o $(OBJ_VERSION)
+
+# Additional files for GA case
+OBJ_GA_SCF = ga.o
+
+# These files appear in all MP2+second derivative builds
+OBJ_MP2_COMMON = \
+	mainci.o anald.o anale.o \
+	cphf.o derdrv.o \
+	drvmp.o inpci.o  \
+	integd.o intege.o machci.o \
+	tran4.o index4.o \
+	util4.o util5.o util6.o util7.o util8.o \
+	sec1e.o sec2e.o ${EXTRA_MP2}
+
+# files to get MP2 and SCF second derivatives (serial case)
+OBJ_MP2 = $(OBJ_MP2_COMMON) mp2a.o mp2b.o mp2c.o mp2d.o mp3.o \
+	secmp2.o
+
+#----#if qmmm chemshell charmm#
+OBJ_GA_MP2 = $(OBJ_MP2_COMMON) mp2_parallel.o
+#----#else#
+OBJ_GA_MP2 = $(OBJ_MP2_COMMON) mp2_parallel.o \
+	secd_parallel.o secdchf.o dirrpa.o rpa.o direct.o 
+#----#endif#
+
+# files for Direct-CI, GFF (additional parallel CI modules here)
+OBJ_CI = dircta.o dirctb.o dirctc.o dirctd.o gff.o ${EXTRA_CI}
+
+# Remaining object files (post-HF etc)
+# Supported for serial code only
+OBJ_SERIAL =   tdaf.o model.o \
+	newmrd1.o \
+#----#if mrdci#
+	newmrd2.o newmrd3.o newmrd4.o newmrd5.o newmrd6.o \
+#----#endif mrdci#
+	mcscfa.o mcscfb.o mcscfc.o \
+        mrdci1.o mrdci2.o mrdci3.o mrdci4.o mrdci5.o mrdci6.o mrdci7.o fullci.o \
+        direct.o casa.o casb.o \
+        ccsd.o dirrpa.o mclr.o nvccsd.o rpa.o rpagrad.o tsort.o \
+	tsortc.o 
+
+# Construct list of object files
+
+#--#if base#
+#
+#  BASE code ...
+#
+#----#if ga#
+TOBJ = ${OBJ_BASE} ${OBJ_GA_SCF} 
+OMIT = ,base_build
+#----#else#
+# Serial base code (also mpi, tcgmsg)
+TOBJ = ${OBJ_BASE}
+OMIT = ,base_build
+#----#endif#
+#--#elseif mp2#
+#
+#  MP2 + SCF Seconds...
+#
+#----#if ga#
+TOBJ = ${OBJ_BASE} ${OBJ_GA_MP2} ${OBJ_GA_SCF} $(MASSCF_EXTRA)
+OMIT = ,ga_mp2_build
+#----#elseif mpi mpi2 tcgmsg#
+errchk:
+	@echo Error - cant build parallel MP2 code without GAs
+	@exit 1
+#----#else#
+TOBJ = ${OBJ_BASE} ${OBJ_MP2}
+OMIT = ,mp2_build
+#----#endif#
+#--#elseif ci#
+#
+#  MP2 + SCF Seconds + direct-CI + GF
+#
+#----#if ga#
+TOBJ = ${OBJ_BASE} ${OBJ_GA_MP2} ${OBJ_GA_SCF} ${OBJ_CI} $(MASSCF_EXTRA)
+OMIT = ,ga_ci_build
+#----#elseif mpi mpi2 tcgmsg#
+errchk:
+	@echo Error - cant build parallel MP2 / CI code without GAs
+	@exit 1
+#----#else#
+TOBJ = ${OBJ_BASE} ${OBJ_MP2} ${OBJ_CI}
+OMIT = ,ci_build
+#----#endif#
+#--#else#
+#
+#   Complete code (only valid for the serial case
+#
+#----#if ga tcgmsg mpi mpi2#
+errchk:
+	@echo Error - cant build full code in parallel, choose base or mp2
+	@exit 1
+#----#else#
+TOBJ = ${OBJ_BASE} ${OBJ_MP2} ${OBJ_SERIAL} ${OBJ_CI}
+OMIT = ,full_build
+#----#endif#
+#--#endif#
+
+
+exe:	$(EXE)
+
+$(EXE):	 $(MAKE_LINALG) $(MAKE_GA) $(MAKE_PEIGS) $(MAKE_MA) $(MAKE_DFT) $(MAKE_MOPAC) $(MAKE_DIESEL) $(MAKE_DRF) $(MAKE_NEWSCF) $(MAKE_DLFIND) $(MAKE_VB) $(MAKE_ZORA) $(MAKE_NMR) $(MAKE_XML) $(MAKE_DIESEL) $(TOBJ) 
+	$(LD) $(LDNAME)$(EXE) $(LDFLAGS) $(TOBJ) $(ASOBJ) $(LDLIBS) 
+	@echo ----- made $(EXE) -----
+
+
+
+#--#if chemshell gromacs#
+gmslib: $(MAKE_LINALG) $(MAKE_GA) $(MAKE_PEIGS) $(MAKE_MA) $(MAKE_DFT) $(MAKE_MOPAC) $(MAKE_DIESEL) $(MAKE_DRF) $(MAKE_NEWSCF) $(MAKE_DLFIND) $(MAKE_VB) $(MAKE_ZORA) $(MAKE_NMR) $(MAKE_XML) $(MAKE_DIESEL) $(TOBJ) 
+#----#if gromacs#
+#----#else#
+	rm -f $(GMSLIB)
+#----#endif#
+	$(ARCHIVE) $(GMSLIB) $(TOBJ) $(ZORA_LIB)
+	$(RANLIB) $(GMSLIB)
+#--#elseif charmm#
+#
+# For charmm case don't delete the archive before building as it will have already 
+# been created by e.g. the dft and linalg build processes
+#
+# The build currently includes a dirty hack to shove the GA & Peigs objects into the library
+gmslib: gmsbase
+	@echo "Repacking GA_LIBS and PEIGS_LIB"
+	rm -rf ./chm_tmp_pack
+	mkdir ./chm_tmp_pack
+	(cd ./chm_tmp_pack;\
+	for l in $(GA_LIBS) $(PEIGS_LIB);\
+	do $(UNARCHIVE) ../"$$l";\
+	$(ARCHIVE_NOREPLACE) ../$(GMSLIB) *.o;\
+	rm -f *.o;\
+	done;\
+	$(RANLIB) ../$(GMSLIB) )
+	rm -rf ./chm_tmp_pack
+
+
+gmsbase: rm_gmslib $(MAKE_LINALG) $(MAKE_GA) $(MAKE_PEIGS) $(MAKE_MA) $(MAKE_DFT) $(MAKE_MOPAC) $(MAKE_DIESEL) $(MAKE_DRF) $(MAKE_NEWSCF) $(MAKE_DLFIND) $(MAKE_VB) $(MAKE_ZORA) $(MAKE_NMR) $(MAKE_XML) $(MAKE_DIESEL) $(TOBJ)
+	$(ARCHIVE) $(GMSLIB) $(TOBJ) $(ZORA_LIB)
+	$(RANLIB) $(GMSLIB)
+
+rm_gmslib:
+	@echo "Removing old GAMESS-UK library $(GMSLIB)"
+	rm -f $(GMSLIB)
+#--#endif#
+
+# Combine M4 processing options together
+
+M4STUFF= 
+
+M4OPTS	= -DGEN_OPTIONS=${OPTIONS} -DGEN_MACHINE=${MACHINE_KEY} \
+		-DREAL='${REAL}' -DCOMPLEX='${COMPLEX}' -DINCLUDE='${INCLUDE}' \
+		-Ddfloat='${DFLOAT}' -DMPIINT='${MPIINT}' -DMPILOG='${MPILOG}' \
+		-DIAND32='${IAND32}' -DIOR32='${IOR32}' -DIXOR32='${IXOR32}' \
+		-DIAND64='${IAND64}' -DIOR64='${IOR64}' -DIXOR64='${IXOR64}' \
+		-DSHIFT='${SHIFT}' -DQ='qq(ivoff+$$1)' ${EXTRA_M4_DEFINITIONS} \
+		-DM4_OPTIONS=$(PAR_M4_OPTS)$(MACH_M4_OPTS)$(PEIGS_M4_OPTS)$(PDIAG_M4_OPTS)$(DFT_M4_OPTS)$(DIESEL_M4_OPTS)$(DRF_M4_OPTS)$(MOPAC_M4_OPTS)$(VDW_M4_OPTS)$(SYSMO_M4_OPTS)$(MASSCF_M4_OPTS)$(DLFIND_M4_OPTS)$(XML_M4_OPTS)$(QMMM_M4_OPTS)$(NEWSCF_M4_OPTS)$(TASKFARM_M4_OPTS)$(DEV_M4_OPTS)$(F90_M4_OPTS)${OMIT}$(DATAIN_M4_OPTS)$(PROF_M4_OPTS)$(DEBUG_M4_OPTS)$(PLATFORM_M4_OPTS)${MA_M4_OPTS}${SCALAPACK_M4_OPTS} \
+		-DMA_LOGICAL=${GA_LOGICAL_DECL} \
+		-DMA_INTEGER=${GA_INTEGER_DECL} \
+		-DMAXAT=$(MAXAT)   -DMAXORB=$(MAXORB) \
+		-DMAXVAR=$(MAXVAR) -DMAXNZ=$(MAXNZ)   \
+		-DMXSHEL=$(MXSHEL) -DMXPRIM=$(MXPRIM) \
+		-DMXGRPS=$(MXGRPS) -DMXGAUS=$(MXGAUS) \
+		-DMXORBVB=$(MXORBVB) -DMAXEXVB=$(MAXEXVB) -
+#
+# ======================== Rules to build object code =========================
+#
+.m.o:
+	rm -f $*.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > $*.f
+	echo "c       DO  NOT  HAND  EDIT  " >> $*.f
+#--#endif#
+	cat ../utilities/gener.m $*.m | $(M4) $(M4OPTS)  >> $*.f
+	$(FC) $(FFLAGSV) $(OBJNAME) $*.f
+#
+#--#if protect-source#
+#--	chmod u-w $*.f
+#--#endif#
+#
+#  default rules
+#
+.f.o:
+	$(FC) $(FFLAGSV) $(OBJNAME) $*.f
+.f90.o:
+	$(FC90) $(FFLAGSV90) $(OBJNAME) $*.f90
+#
+#  explicit rules so that .m->.o conversion goes by .c (not .f)
+#
+c.o:	c.c
+	$(CC) $(CFLAGS) $(OBJNAME) c.c
+#
+cmpi.o:	cmpi.c
+	$(CC) $(CFLAGS) $(OBJNAME) cmpi.c
+#
+tsortc.o:	tsortc.c
+	$(CC) $(CFLAGS) $(OBJNAME) tsortc.c
+#
+#if peigs#
+peigs_interface.o:	peigs_interface.c
+	$(CC) $(CFLAGS) $(GA_C_INC) $(PEIGS_INC) peigs_interface.c
+#endif#
+
+#
+#  parallel.m is the first source file that needs CPP processing
+#  for GA tools etc
+#
+parallel.o:	parallel.m
+	rm -f parallel.GUK parallel.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > parallel.f
+	echo "c       DO  NOT  HAND  EDIT  " >> parallel.f
+#--#endif#
+#--#if ga ma#
+	cat  ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  > parallel.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < parallel.GUK | sed '/^#/D' >> parallel.f
+	rm -f parallel.GUK
+#--#else#
+	cat  ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  >> parallel.f
+#--#endif#
+	$(FC) $(FFLAGSS) $(OBJNAME) parallel.f
+#--#if protect-source#
+	chmod u-w parallel.f
+#--#endif#
+
+#  glue_uk_us.m is the second...
+glue_uk_us.o:	glue_uk_us.m
+	rm -f glue_uk_us.GUK glue_uk_us.f
+	$(CPP) -traditional $(GA_F77_INC) $(GA_F77_DEFS)  < glue_uk_us.m | sed '/^#/D' >> glue_uk_us.GUK
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > glue_uk_us.GUK
+	echo "c       DO  NOT  HAND  EDIT  " >> glue_uk_us.GUK
+#--#endif#
+	cat  ../utilities/gener.m glue_uk_us.GUK | $(M4) $(M4OPTS)  > glue_uk_us.f
+	rm -f glue_uk_us.GUK
+	$(FC) $(FFLAGSS) $(OBJNAME) glue_uk_us.f
+#--#if protect-source#
+	chmod u-w glue_uk_us.f
+#--#endif#
+
+#
+# ======================== Rules to build source code =========================
+#
+.m.f:	
+	rm -f $*.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > $*.f
+	echo "c       DO  NOT  HAND  EDIT  " >> $*.f
+#--#endif#
+	cat ../utilities/gener.m $*.m | $(M4) $(M4OPTS)  >> $*.f
+#--#if protect-source#
+	chmod u-w $*.f
+#--#endif#
+#
+# special rule to include CPP
+#
+parallel.f:	parallel.m
+	rm -f parallel.GUK parallel.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > parallel.f
+	echo "c       DO  NOT  HAND  EDIT  " >> parallel.f
+#--#endif#
+#--#if ga#
+	cat ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  > parallel.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < parallel.GUK | sed '/^#/D' >> parallel.f
+	rm -f parallel.GUK
+#--#else#
+	cat ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  >> parallel.f
+#--#endif#
+#--#if protect-source#
+	chmod u-w parallel.f
+#--#endif#
+#
+.m.c:
+	rm -f $*.c
+#--#if protect-source#
+	echo "/* This file has been generated from a .m file */" > $*.c
+	echo "/*c       DO  NOT  HAND  EDIT  */" >> $*.c
+#--#endif#
+	cat ../utilities/gener.m $*.m | $(M4) $(M4OPTS) >> $*.c
+.m.s:
+	cat ../utilities/gener.m $*.m | $(M4) $(M4OPTS)> $*.s
+#--#if protect-source#
+	chmod u-w $*.c
+#--#endif#
+#
+#--#if f90test#
+# ============================= F90 Dependencies  ===========================
+#
+# An entry is required here when a source file contains "use <module>"
+# Note that the dependency is not (for most platforms) actually on the .o
+# file but on a module file (eg .mod suffix) but since the name of this file
+# is machine dependent, we can't write the makefile to reference it.
+#
+analc.o:	junk_dma.o
+#--#endif#
+#
+# ============================= Common Block Dependencies  ===========================
+#
+# After adding new code, this list can be regenerated using the 
+# makedeps script in ../utilities
+#
+#--#include dependencies.txt#
+#--#endinclude dependencies.txt#
+#
+# ============================ NON-COMPILED TARGETS ===========================
+#
+#if dft_makefile#
+#elseif linalg_makefile#
+#elseif drf_makefile#
+#elseif mopac_makefile#
+#elseif newscf_makefile#
+#elseif dl-find_makefile#
+#elseif vb_makefile#
+#elseif xml_makefile#
+#else#
+clean:
+#if charmm chemshell#
+	touch x.c x.o x~ x.f \#x
+	rm -f *.c *.o *.f *.mod *~ \#* $(GMSLIB)
+#else#
+	touch x.c x.o x~ x.f \#x
+	rm -f *.c *.o *.f *.mod *~ \#* $(EXE) *.exe *.lib
+#endif#
+#if coverage#
+	find .. -name "*.gcda" -exec rm {} \;  
+	find .. -name "*.gcno" -exec rm {} \;  
+#endif#
+	rm -f gms_version.m
+	rm -f notes.stamp
+	rm -f ../libs/TABLE ../libs/ecplib
+	@(if test -d ../dft; then \
+	cd ../dft; make clean; fi)
+	@(if test -d ../drf; then \
+	cd ../drf; make clean; fi)
+	@(if test -d ../linalg; then \
+	cd ../linalg; make clean; fi)
+#--#if mopac mopac6 mopac7#
+	@(if test -d ../mopac; then \
+	cd ../mopac; make clean; fi)
+#--#endif#
+#--#if newscf#
+	@(if test -d ../newscf; then \
+	cd ../newscf; make clean; fi)
+#--#endif#
+#--#if dl-find#
+	@(if test -d ../dl-find; then \
+	cd ../dl-find; $(GMAKE) clean; fi)
+#--#endif#
+#--#if nmr#
+	@(if test -d ../nmr; then \
+	cd ../nmr; make clean; fi)
+#--#endif#
+#--#if vb#
+	@(if test -d ../vb; then \
+	cd ../vb; make clean; fi)
+#--#endif#
+#--#if xml#
+	@(if test -d ../xml; then \
+	cd ../xml; make clean; fi)
+#--#endif#
+#--#if diesel#
+	rm -f libdiesel.a
+	@(if test -d ../diesel; then \
+	cd ../diesel; make dieselclean; fi)
+#--#endif#
+	@(cd ../utilities; make clean)
+#endif#
+#
+#if linalg_makefile dft_makefile  drf_makefile mopac_makefile newscf_makefile dl-find_makefile xml_makefile vb_makefile#
+#else#
+realclean:
+	make clean
+#if peigs#
+	make peigs_clean
+#endif#
+#if ga ma#
+	make ga_clean
+#endif#
+#if xml#
+	make agentx_clean
+#endif#
+#endif#
+
+
+#if peigs#
+peigs_clean:
+	@(if test -d $(PEIGS_DIR); then \
+	cd $(PEIGS_DIR); $(GMAKE) peigs_DIR=`pwd` TARGET=${PEIGS_TARGET} realclean; fi)
+#endif#
+
+
+#if ga ma#
+ga_clean:
+	@(if test -d ${GA_DIR}; then \
+	cd ${GA_DIR}; $(GMAKE) TARGET=$(GA_TARGET) clean; fi)
+	\rm -f ../bin/parallel
+#endif#
+
+#if xml#
+agentx_clean:
+	@(if test -d ${AGENTX_SRC}; then \
+	cd ${AGENTX_SRC}; \
+	rm -rf ${AGENTX_SRC}/local/*; \
+	make clean; fi)
+#endif#
+
+#if linalg_makefile dft_makefile  drf_makefile mopac_makefile newscf_makefile dl-find_makefile nmr_makefile vb_makefile#
+depend:
+	../utilities/makedeps
+#else#
+depend:
+	../utilities/makedeps
+	@(if test -d ../dft; then \
+	cd ../dft; make depend; fi)
+	@(if test -d ../drf; then \
+	cd ../drf; make depend; fi)
+	@(if test -d ../mopac; then \
+	cd ../mopac; make depend; fi)
+	@(if test -d ../newscf; then \
+	cd ../newscf; make depend; fi)
+	@(if test -d ../nmr; then \
+	cd ../nmr; make depend; fi)
+	@(if test -d ../vb; then \
+	cd ../vb; make depend; fi)
+#endif#
+#
+qa:
+	@cat ../utilities/gener.m ../qa/testdirs.txt.in | $(M4) $(M4OPTS) > ../qa/testdirs.txt
+keys:
+	@echo KEYS GEN_OPTIONS M4_OPTIONS | ${M4} $(M4OPTS)|  sed 's/,/ /g'
+#
+scfsrc:	
+	@make ` echo $(SCFOBJ) | sed 's/\.o/\.f/g' `
+	@make c.c
+#
+src:
+	@$(MAKE) ` echo $(OBJF) | sed 's/\.o/\.f/g' `
+	@$(MAKE) ` echo $(OBJC) | sed 's/\.o/\.c/g' `
+	@$(MAKE) makefile_f
+#
+makefile_f:
+	cat ../utilities/gener.m  makefile.m | $(M4) $(M4OPTS) > makefile_f
+#
+#if ma#
+make_ma: check_ga $(MA_LIB)
+
+$(MA_LIB):
+	@(echo Making ma library)
+	(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) ${MA_OPTIONS} FC="$(FC)" CC="$(CC)" $(GA_MPI) ma)
+#endif ma#
+#
+#if peigs#
+make_peigs:	check_peigs $(PEIGS_LIB)
+
+$(PEIGS_LIB):
+	@(echo Making PEIGS)
+	(cd $(PEIGS_DIR); $(GMAKE) TARGET=$(PEIGS_TARGET) PEIGS_TARGET_CPU=$(PEIGS_TARGET_CPU_PAR) $(PEIGS_VERSION_PAR) peigs_AR="$(ARCHIVE)" peigs_RANLIB="$(RANLIB)" peigs_DIR=`cd $(PEIGS_DIR); pwd` MPI_INCLUDE="$(MPI_INCLUDE)" FC="$(FC)" FOPTIONS="$(FFLAGSV)" CC="$(CC)" COPTIONS="$(CFLAGS)" )
+
+check_peigs:	check_gmake
+	@(if test -d $(PEIGS_DIR); then \
+	echo Checking for PEIGS  - directory $(PEIGS_DIR) seems OK .. ;\
+	else \
+	echo '      ================================================='; \
+	echo '      === THE PEIGS LIBRARY IS NEEDED TO BUILD THIS ==='; \
+	echo '      ===     VERSION OF GAMESS-UK                  ==='; \
+	echo '      ================================================='; \
+	exit -1 ;fi)
+#endif#
+#
+#if ga ma#
+make_gatest:	check_ga make_ga $(GA_DIR)/global/testing/test.x
+	ls -l $(GA_DIR)/global/testing/test.x
+
+make_ga:	check_ga $(GA_LIBS)
+	@(if test -f $(GA_DIR)/tcgmsg/ipcv4.0/parallel; then \
+	cp $(GA_DIR)/tcgmsg/ipcv4.0/parallel ../bin ; fi )
+#
+#if peigs#
+GA_DIAG_FLAG=PAR
+#else#
+GA_DIAG_FLAG=
+#endif#
+
+#if peigs#
+$(GA_LIBS): $(PEIGS_LIB)
+#else#
+$(GA_LIBS):
+#endif#
+	@(echo Making Global Array Tools)
+#--#if vampir#
+	@(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) FC="$(FC)" CC="$(GA_CC)" DIAG=$(GA_DIAG_FLAG) $(GA_TARGET_CPU_PAR) $(GA_VERSION_PAR) $(GA_MPI) $(GA_SCALAPACK) ma)
+	cp $(INCVT)/VT.h $(GA_DIR)/include/.
+#--#endif#
+	(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) FC="$(FC)" CC="$(GA_CC)" DIAG=$(GA_DIAG_FLAG) $(GA_TARGET_CPU_PAR) $(GA_VERSION_PAR) $(GA_MPI) $(GA_SCALAPACK))
+
+$(GA_DIR)/global/testing/test.x:
+	@(echo Making Global Array Test)
+	@(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) FC="$(FC)" CC="$(GA_CC)" DIAG=$(GA_DIAG_FLAG) $(GA_TARGET_CPU_PAR) $(GA_VERSION_PAR))
+
+#
+check_ga:	check_gmake
+	@(if test -d $(GA_DIR); then \
+	echo Checking for GA Tools - directory $(GA_DIR) seems OK .. ;\
+	else \
+	echo '      ================================================='; \
+	echo '      === GA TOOLS ARE NEEDED TO BUILD THIS VERSION ==='; \
+	echo '      ===             OF GAMESS-UK                  ==='; \
+	echo '      ================================================='; \
+	exit -1 ;fi)
+#endif#
+#if ga peigs ma#
+check_gmake:
+	@(if $(GMAKE) -v > /dev/null; then \
+	echo Checking for gmake - seems to be installed OK .. ;\
+	else \
+	echo '      ==============================================================='; \
+	echo '      === ERROR:  gmake IS NEEDED TO BUILD THE GA TOOLS and PEIGS ==='; \
+	echo '      ==============================================================='; \
+	exit -1; fi)
+#endif#
+
+gms_version.m:  FORCE
+		which svnversion > ./m4_svnversion; chmod +x ./m4_svnversion
+		echo "      subroutine gms_version(cdate,ctime,cname,cversion)" > gms_version.m
+		echo "      character*10 cdate,cname,cversion" >> gms_version.m
+		echo "      character*5 ctime" >> gms_version.m
+		echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> gms_version.m
+		echo "      ctime=\""`date '+%H:%M'`"\"" >> gms_version.m
+		echo "      cname=\""`${WHOAMI}`"\"" >> gms_version.m
+		echo "      cversion=\""`./m4_svnversion ..`"\"" >> gms_version.m
+		echo "      return" >> gms_version.m
+		echo "      end" >> gms_version.m
+		echo "      subroutine getm4keys(m4keys)" >> gms_version.m
+		echo "      implicit none" >> gms_version.m
+		echo "      character*(*) m4keys" >> gms_version.m
+		make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 |awk 'BEGIN {i=0} {if (i==0) {printf "       m4keys=\"%s\"\n",$$0} else {printf "     &//\"%s \"\n", $$0} i++}' >> gms_version.m
+		echo "      return" >> gms_version.m
+		echo "      end" >> gms_version.m
+		echo "      subroutine wrtkeys(iwr)" >> gms_version.m
+		make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 | awk '{printf "      write(iwr,*)\n     &\"M4-Keys: %s \"\n", $$0}'  >> gms_version.m
+		echo "      return" >> gms_version.m
+		echo "      end" >> gms_version.m
+
+#
+config:
+	echo there is no config target - Use ./configure

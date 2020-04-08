@@ -1,0 +1,12 @@
+c
+      integer loc, ngauss, ns, ks
+      common/defpar0/loc,ngauss,ns(maxat),ks(maxat)
+c
+      logical extra
+      common/defpar1/extra
+c
+      REAL ambel, elec, effchr, chargx, cords
+      common /defpar2/ ambel,elec,effchr,chargx,cords(3)
+c
+      character*16 namei
+      common /defpar3/ namei

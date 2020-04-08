@@ -1,0 +1,28 @@
+#!/bin/csh
+#
+# validation for chap5
+#
+setenv GAMESS_VTAB ./chap5.vtab
+set path=(../../utilities $path)
+validate c5000  LOG/c5000.log
+validate c5001  LOG/c5001.log
+validate c5001a  LOG/c5001a.log
+validate c5002  LOG/c5002.log
+validate c5002a  LOG/c5002a.log
+validate c5003  LOG/c5003.log
+validate c5003a LOG/c5003a.log
+validate c5004  LOG/c5004.log
+validate c5004a  LOG/c5004a.log
+validate c5005  LOG/c5005.log
+validate c5006  LOG/c5006.log
+validate c5006a  LOG/c5006a.log
+#validate c5006b  LOG/c5006b.log
+validate c5007  LOG/c5007.log
+validate c5007a  LOG/c5007a.log
+validate c5008  LOG/c5008.log
+validate c5008a LOG/c5008a.log
+validate c5009  LOG/c5009.log
+validate c5009a LOG/c5009a.log
+validate c5010  LOG/c5010.log
+validate c5011a  LOG/c5011a.log
+validate c5011b  LOG/c5011b.log

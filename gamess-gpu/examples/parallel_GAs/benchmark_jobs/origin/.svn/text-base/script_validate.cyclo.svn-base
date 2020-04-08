@@ -1,0 +1,39 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 360
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin
+
+rm -rf /scratch/local/gamess/benchmark
+mkdir /scratch/local/gamess/benchmark
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/benchmark
+
+cp ../../input_files_benchmarks/HF.cyclo.3-21G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G-d.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.6-31G-dp.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/HF.cyclo.DZP.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.cyclo.6-31G.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.cyclo.6-31G-dp.in /scratch/local/gamess/benchmark
+ 
+cd /scratch/local/gamess/benchmark
+
+mpirun -np 128 gamess-uk < HF.cyclo.3-21G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.cyclo.3-21G.out
+
+mpirun -np 128 gamess-uk < HF.cyclo.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.cyclo.6-31G.out
+
+mpirun -np 128 gamess-uk < HF.cyclo.6-31G-d.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.cyclo.6-31G-d.out
+
+mpirun -np 128 gamess-uk < HF.cyclo.6-31G-dp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.cyclo.6-31G-dp.out
+
+mpirun -np 128 gamess-uk < HF.cyclo.DZP.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/HF.cyclo.DZP.out
+
+mpirun -np 128 gamess-uk < DFT.cyclo.6-31G.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.cyclo.6-31G.out
+
+mpirun -np 128 gamess-uk < DFT.cyclo.6-31G-dp.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.cyclo.6-31G-dp.out
+
+

@@ -1,0 +1,97 @@
+#!@BASH@
+grep error $1
+@AWK@ 'BEGIN { 
+	while ( getline <"sel.out.all" )
+	{
+		if ( $2=="<---" && $3=="selected" )
+			{ root = root + 1; refdiag[root] = $1; }
+	} 
+	i = 1 }
+	$1=="Threshold:" { thres=$2 }
+	$1=="root" && $2=="#" && $4==":" { refdiag[$3] = $5; }
+	$1=="--------------------------------------------------------------------------------" \
+	{\
+		s = " ";\
+		r = 0;\
+		getline; \
+		while ( s>"" )\
+		{\
+			r++;\
+			out[r,i,1] = thres;\
+			out[r,i,2] = $2;\
+			out[r,i,3] = $3;\
+			out[r,i,4] = $4;\
+			out[r,i,5] = $5;\
+			out[r,i,6] = $6;\
+			getline; \
+			s = $1;\
+		}\
+		i++;\
+	}\
+	END \
+	{\
+		if ( refdiag[1] == 0 )
+		{
+			print "!!!!! warning no reference energy ==> incorrect Davidson-Extrapololation"
+		}
+		for ( ii=1 ; ii<i ; ii++ )
+		{
+			file = "diag.out."out[1,ii,1];
+			nooverlap = 0;
+			do {
+				if ( !(getline <file) )
+				{
+					print file " contains no eigenvector overlap information,"
+					print "    resuming to non weighted extrapolation"
+					nooverlap = 1;
+					break;
+				}
+			} while ( $0!="renormalized eigenvector overlap with reference space:" )
+			if ( nooverlap )
+			{
+				for ( rr1=1 ; rr1<=r ; rr1++ )
+					for ( rr2=1 ; rr2<=r ; rr2++ )
+						overlap[rr1,rr2,ii] = (rr1==rr2);
+			}
+			else
+			{
+				getline <file;
+
+				for ( rr1=1 ; rr1<=r ; rr1++ )
+				{
+					getline <file;
+					split($0, v);
+					for ( rr2=1 ; rr2<=r ; rr2++ )
+						overlap[rr1,rr2,ii] = v[rr2];
+				}
+			}
+		}
+
+		for ( rr1=1 ; rr1<=r ; rr1++ )
+			for ( rr2=1 ; rr2<=r ; rr2++ )
+				for ( ii=1 ; ii<i ; ii++ )
+				{
+					dE[rr1,ii] += overlap[rr1,rr2,ii]*overlap[rr1,rr2,ii]*out[rr2,ii,4];
+				}
+		for ( rr=1 ; rr<=r ; rr++ )\
+		{\
+			print "root #",rr,":";\
+			printf("Thresh   # confs.     # CSFs     sum dE        E(CI)     ref ci^2       lambda  extp. MR-CI       Dav. I      Dav. II\n");\
+			for ( ii=1 ; ii<i ; ii++ )\
+			{
+				if ( ii==1 )
+					printf("%6s %10d %10d %10.3f %12.5f %12.5f\n",\
+					out[rr,ii,1],out[rr,ii,2],out[rr,ii,3],dE[rr,ii],out[rr,ii,5],out[rr,ii,6]);
+				else
+				{
+					lambda = 1000*(out[rr,ii,5]-out[rr,ii-1,5])/(dE[rr,ii]-dE[rr,ii-1]);
+					extpol = out[rr,ii,5]-lambda*dE[rr,ii]/1000;
+					dav1 = extpol - (1-out[rr,ii,6])*(refdiag[rr]-extpol);
+					dav2 = extpol - (1-out[rr,ii,6])*(refdiag[rr]-extpol)/out[rr,ii,6];
+					printf("%6s %10d %10d %10.3f %12.5f %12.5f %12.5f %12.5f %12.5f %12.5f\n",\
+					out[rr,ii,1],out[rr,ii,2],out[rr,ii,3],dE[rr,ii],out[rr,ii,5],out[rr,ii,6],\
+					 lambda, extpol, dav1, dav2);\
+				}
+			}
+		}\
+	} ' $1

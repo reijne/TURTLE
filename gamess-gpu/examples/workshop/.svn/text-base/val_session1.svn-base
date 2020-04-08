@@ -1,0 +1,44 @@
+#!/bin/csh
+#
+# validation for session1 examples
+#
+setenv GAMESS_VTAB ./session1.vtab
+set path=(../../utilities $path)
+validate input0 input0.out
+validate input1 input1.out
+validate geom0  geom0.out
+validate zmat1  zmat1.out
+validate zmat2  zmat2.out
+validate zmat3  zmat3.out
+validate zmat4a  zmat4a.out
+validate zmat4b  zmat4b.out
+validate zmat5  zmat5.out
+validate zmat6  zmat6.out
+validate symmetry1a symmetry1a.out
+validate symmetry1b symmetry1b.out
+validate basis0  basis0.out
+validate basis1a  basis1a.out
+validate basis1b  basis1b.out
+validate basis2a  basis2a.out
+validate basis2b  basis2b.out
+validate scf1  scf1.out
+validate scf2a  scf2a.out
+validate scf2b  scf2b.out
+validate scf2c  scf2c.out
+validate scf3a  scf3a.out
+validate scf3b  scf3b.out
+validate scf4a  scf4a.out
+validate scf4b  scf4b.out
+validate scf4c  scf4c.out
+validate scf4d  scf4d.out
+validate dft1a dft1a.out
+validate dft1b dft1b.out
+validate dft2 dft2.out
+validate dft3 dft3.out
+validate geom.opt.1 geom.opt.1.out
+validate geom.opt.2 geom.opt.2.out
+validate geom.opt.3 geom.opt.3.out
+validate files1 files1.out
+validate files2 files2.out
+validate restart1a restart1a.out
+validate restart1b restart1b.out

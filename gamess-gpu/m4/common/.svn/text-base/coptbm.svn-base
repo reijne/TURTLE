@@ -1,0 +1,13 @@
+c
+c label: element symbol
+c angul: angular momentum 
+c ntot: total number of parameters to optimize (ntot=nshbas for ofull=F)
+c nshbas: number of shells to optimize (for ofull=T)
+c psize: hard paramenter in mainbm()
+c
+       character*8 label(20)
+       character*4 angl(20)
+       integer ntot,nshbas,ipm
+       logical oprbm,ofullf
+       common/coptbm/label,angl,oprbm,ofullf,ntot,nshbas,ipm
+c

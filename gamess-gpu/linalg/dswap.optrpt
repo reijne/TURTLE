@@ -1,0 +1,23 @@
+
+Begin optimization report for: DSWAP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dswap.f(51,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dswap.f(51,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dswap.f(58,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dswap.f(35,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 36 and  line 37
+LOOP END
+===========================================================================

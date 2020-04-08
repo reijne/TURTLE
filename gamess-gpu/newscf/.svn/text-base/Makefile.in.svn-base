@@ -1,0 +1,140 @@
+#
+# This is an extra section designed to be
+# appended to a copy of the GAMESS-UK/m4 Makefile
+# 
+# Use the configure script in ../config to generate the Makefile
+#
+NEWSCFOBJ = newscf_numbers.o allocation.o comms_data.o matrix_ijb.o newscf_modules.o vectors_ijb.o newscf_ijb.o newscf_prepare.o scfp.o analysis.o \
+#--#if mpi2#
+counter.o nxtval_mpi2.o threadc.o \
+#--#endif#
+#--#if mpi mpi2#
+#--#else#
+mpi_stubs.o \
+#--#endif#
+#--#if scalapack#
+scalapack_avail.o \
+#--#else#
+scalapack_stubs.o \
+#--#endif#
+pdiag.o f90_io_data.o
+
+#if charmm#
+## NEWSCFLIB_OLD is a hack to keep older versions of CHARMM happy
+NEWSCFLIB_OLD = ../../../../lib/$(CHMHOST)/libnewscf.a
+NEWSCFLIB = $(GMSLIB)
+#else#
+NEWSCFLIB = libnewscf.a
+#endif#
+
+#--#if serial#
+$(NEWSCFOBJ):	mpif.h
+
+mpif.h:	mpif.h.dummy
+	cp mpif.h.dummy mpif.h
+#--#endif#
+
+newscflib:	$(NEWSCFLIB)
+
+
+#if charmm#
+## Always remake NEWSCFLIB - required for charmm as otherwise the objects
+## aren't copied into the GAMESS-UK library
+FORCE:
+
+$(NEWSCFLIB):	$(NEWSCFOBJ) FORCE
+#else#
+$(NEWSCFLIB):	$(NEWSCFOBJ)
+#endif#
+
+		$(ARCHIVE) $(NEWSCFLIB)  $(NEWSCFOBJ) 
+		$(RANLIB) $(NEWSCFLIB)
+#if charmm#
+		touch $(NEWSCFLIB_OLD)
+#endif#
+
+clean:
+	touch x.mod x.c x.o x~ x.f \#x 
+	rm -f *.mod *.c *.o *.f *~ \#* mpif.h $(NEWSCFLIB) 
+#if charmm#
+	rm -f $(NEWSCFLIB_OLD)
+#endif#
+
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+#
+#  newscf_modules allows access to GAMESS-UK commons from F90
+#  need special rule as f77 compiler is sometimes used for 
+#  .m.o compilation
+#
+threadc.o:	threadc.c
+	$(CC) $(CFLAGS) threadc.c
+
+newscf_modules.o:	newscf_modules.m
+	rm -f newscf_modules.GUK newscf_modules.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > newscf_modules.f
+	echo "c       DO  NOT  HAND  EDIT  " >> newscf_modules.f
+#--#endif#
+#--#if ga#
+	cat  ../utilities/gener.m newscf_modules.m | $(M4) $(M4OPTS)  > newscf_modules.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < newscf_modules.GUK | sed '/^#/D' >> newscf_modules.f
+	rm -f newscf_modules.GUK
+#--#else#
+	cat  ../utilities/gener.m newscf_modules.m | $(M4) $(M4OPTS)  >> newscf_modules.f
+#--#endif#
+	$(FC) $(FFLAGSS) $(OBJNAME) newscf_modules.f
+#--#if protect-source#
+	chmod u-w newscf_modules.f
+#--#endif#
+
+
+newscf_prepare.o:	newscf_prepare.m
+	rm -f newscf_prepare.GUK newscf_prepare.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > newscf_prepare.f
+	echo "c       DO  NOT  HAND  EDIT  " >> newscf_prepare.f
+#--#endif#
+#--#if ga#
+	cat  ../utilities/gener.m newscf_prepare.m | $(M4) $(M4OPTS)  > newscf_prepare.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < newscf_prepare.GUK | sed '/^#/D' >> newscf_prepare.f
+	rm -f newscf_prepare.GUK
+#--#else#
+	cat  ../utilities/gener.m newscf_prepare.m | $(M4) $(M4OPTS)  >> newscf_prepare.f
+#--#endif#
+	$(FC) $(FFLAGSS) $(OBJNAME) newscf_prepare.f
+#--#if protect-source#
+	chmod u-w newscf_prepare.f
+#--#endif#
+
+scfp.o:	scfp.m
+	rm -f scfp.GUK scfp.f
+#--#if protect-source#
+	echo "c  This file has been generated from a .m file " > scfp.f
+	echo "c       DO  NOT  HAND  EDIT  " >> scfp.f
+#--#endif#
+#--#if ga#
+	cat  ../utilities/gener.m scfp.m | $(M4) $(M4OPTS)  > scfp.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < scfp.GUK | sed '/^#/D' >> scfp.f
+	rm -f scfp.GUK
+#--#else#
+	cat  ../utilities/gener.m scfp.m | $(M4) $(M4OPTS)  >> scfp.f
+#--#endif#
+	$(FC) $(FFLAGSS) $(OBJNAME) scfp.f
+#--#if protect-source#
+	chmod u-w scfp.f
+#--#endif#
+
+
+comms_data.o:		allocation.o newscf_modules.o 
+counter.o:		newscf_modules.o
+matrix_ijb.o:		newscf_numbers.o allocation.o comms_data.o
+vectors_ijb.o:		newscf_numbers.o allocation.o matrix_ijb.o newscf_modules.o
+newscf_ijb.o:		newscf_numbers.o allocation.o matrix_ijb.o newscf_modules.o vectors_ijb.o
+newscf_prepare.o:	newscf_numbers.o matrix_ijb.o newscf_modules.o newscf_ijb.o f90_io_data.o
+scfp.o:			newscf_numbers.o newscf_ijb.o
+nxtval_mpi2.o:		counter.o
+pdiag.o:		newscf_numbers.o matrix_ijb.o newscf_modules.o
+analysis.o:		newscf_numbers.o matrix_ijb.o newscf_modules.o allocation.o

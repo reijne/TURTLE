@@ -1,0 +1,178 @@
+
+Begin optimization report for: DGEMM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dgemm.f(206,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(207,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(207,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(207,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemm.f(212,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(213,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(213,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(213,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemm.f(228,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(230,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(230,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(230,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(234,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(234,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(234,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(238,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(241,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(241,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(241,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(241,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemm.f(251,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(252,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(254,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(254,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(254,26)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(254,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemm.f(270,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(272,26)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(272,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(272,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(276,26)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(276,26)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(276,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dgemm.f(280,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(283,30)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(283,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(283,30)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(283,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dgemm.f(293,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dgemm.f(294,22)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dgemm.f(296,26)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(296,26)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dgemm.f(296,26)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

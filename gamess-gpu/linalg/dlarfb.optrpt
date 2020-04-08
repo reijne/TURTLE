@@ -1,0 +1,186 @@
+
+Begin optimization report for: DLARFB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlarfb.f(177,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(176,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(176,19)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(176,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(230,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(231,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(231,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(231,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(231,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(291,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(290,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(290,19)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(290,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(342,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(343,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(343,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(343,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(343,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(407,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(406,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(406,19)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(406,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(460,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(461,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(461,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(461,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(461,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(521,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(520,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(520,19)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(520,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlarfb.f(572,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlarfb.f(573,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(573,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(573,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlarfb.f(573,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlarfb.f(136,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(137,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(190,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(191,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(252,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(253,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(304,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(305,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(366,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(367,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(420,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(421,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(482,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(483,24) ]
+LOOP END
+
+LOOP BEGIN at dlarfb.f(534,19)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlarfb.f(535,24) ]
+LOOP END
+===========================================================================

@@ -1,0 +1,357 @@
+\section{Scripts}
+
+\subsubsection{Invocation}
+The script is run by {\tt DIESEL} followed by a list of thresholds.
+For example:
+
+{\tt DIESEL} {\tt [-p {\it n}]} {\it ThresholdList} {\tt >outputfile}.
+
+The argument {\tt -p {\it n}} is optional with {\it n} the number of
+processors to be used.
+
+In order to generate an MR-CI space the script needs to get a set
+of start configurations. These may be chosen automatically
+by setting {\tt RefConfs = auto} or they can be extracted from a former
+CAS or SCF calculation. 
+
+\subsubsection{Input files}
+The script expects two regular input files. All calculation specific details are
+given in these files:
+\begin{enumerate}
+\item selector input ("sel.in.1"):
+
+It should contain the statement {\tt RefConfs = auto} or
+properly chosen references.
+Furthermore it sets the selection threshold of the selector that is going
+to be used in following space generation process.
+Empirical values for this threshold are in the range
+1e-3$\ldots$1e-5.
+
+{\bf Note:} This threshold does not affect the size of the
+generated reference space. To modify the size of the generated
+reference space change {\tt ReferenceThreshold} and {\tt PTReferenceThreshold}.
+
+
+For a more detailed description of this file see \ref{SelectorKeywords}.
+
+This file is used as a template for all selector
+invocations with the statements {\tt RefConfs=} and 
+{\tt SelectionThresholds=} being adapted.
+
+\item diagonalisator input ("diag.in*", optional)
+
+\begin{itemize}
+\item "diag.in.RefGen": used in reference space generation
+\item "diag.in": used in ordinary calculations on arbitrary threholds
+\item "diag.in.{\it threshold}": used in ordinarys calculation on 
+threshold {\it threshold}
+\end{itemize}
+
+As these files are optional they contain input that is used to change
+default values only. The most often to be changed values are
+\begin{itemize}
+\item {\tt ReferenceThreshold}, {\tt PTReferenceThreshold}: to control the size
+of the generated reference space (default: 0.004)
+
+This statement is useful in diag.in.RefGen.
+
+\item {\tt MaxIters}: the number of maximum davidson iterations (default: 20)
+
+\item {\tt ConvergenceEnergyChange}: the energy convergence criterion in 
+the davidson iteration (default: 1e-5)
+
+This statement is mostly used in diag.in and diag.in.{\it threshold}.
+
+\item {\tt ConvergenceEigenvectorChange}: the eigenvector convergence criterion in 
+the davidson iteration (default: 1 ($\Rightarrow$ not active)), useful
+for successive wave function processing (e.g. density matrices)
+
+This statement is mostly used in diag.in and especially
+diag.in.{\it threshold} as a special calculation may be made more
+precisely.
+
+\end{itemize}
+For a more detailed description of this file see \ref{DiagonalisatorKeywords}.
+
+\end{enumerate}
+
+\subsubsection{Execution}
+Running the DIESEL-script will result in an iterative generation of
+a corresponding MR-CI space (see figure \ref{FlowScript},
+Box "Reference Space Generation", for details see figure \ref{GenSpace}).
+Every iteration consists of the execution of
+the selector and the diagonalisator. Configurations that are found to have
+a CI coefficient greater than {\it ReferenceThreshold}
+will be included in the reference space of the following
+iteration. This procedure is repeated until there is no change in the
+reference configurations or if a maximum of 6 iterations has been processed.
+In the latter case it is likely that there is some error in the input or
+that the chosen start configurations are some kind of weird.
+
+\begin{figure}[h]
+\begin{center}
+\ \psfig{file=GenCalc.ps}
+\end{center}
+\caption{Flow diagram of the DIESEL script}
+\label{FlowScript}
+\end{figure}
+
+The checks in figure \ref{FlowScript} depend on the following:
+\begin{itemize}
+\item space generated: existence of the file "sel.in.space"
+\item reference convergence: no change in selected references
+\item main selection done: existence of the file "sel.out.all"
+\end{itemize}
+
+\begin{figure}[h]
+\begin{center}
+\ \psfig{file=GenSpace.ps}
+\end{center}
+\caption{one iteration in generation of space}
+\label{GenSpace}
+\end{figure}
+
+The output from the iteration $i$ is written to files named "genspace.$i$" and
+the newly created input for the selector is named "sel.in.$i+1$".
+
+As a result of the completed generation of space a file "sel.in.space" is created.
+This file is a copy of the file "sel.in.1" except for the references which are
+substituted by the generated ones.
+
+In the following the selector performs the selection for all thresholds
+simultaneously and is succeeded by several runs of the diagonalisator. To
+decrease the number of necessary iterations, every
+run of a diagonalisator uses the eigenvectors from a previous calculation
+as start vectors.
+
+
+{\bf Note:}
+If there is an another run of the DIESEL-script with additional
+thresholds the script looks for files named "sel.in.space" and "sel.out.all". 
+\begin{enumerate}
+\item If "sel.in.space" exists
+the script will skip the generation of space and will start the
+calculation on the given thresholds immediately.
+In other words if there is a file
+named "sel.in.space" there will be no generation of space regardless what
+kind of bogus data it contains. 
+
+\item If "sel.out.all" exists the script will skip the final run
+of the selector.
+
+\item To start a new calculation with additional thresholds you must delete
+or better rename the file "sel.out.all".
+\end{enumerate}
+
+This might be a trap. So if you get strange
+results you should check if the space has been properly generated and if
+not delete the file "sel.in.space" and "sel.out.all" respectively. 
+Especially in case of an error it might be
+that the script has created a weird "sel.in.space" or there is a
+dummy "sel.out.all" file.
+
+
+The script will move the raw program output 
+(namely "ConfTree.dat" and "Eigenvectors.dat") 
+of a calculation at a specific threshold to \linebreak "ConfTree.dat.\key{threshold}" and
+"Eigenvectors.dat.\key{threshold}"
+
+The output from the script is written to the standard output. It contains
+a protocol of the generation of space and the values of the selected roots 
+within the reference space. This is useful to perform further extrapolations
+as for example the Davidson extrapolation. The results are grouped by
+thresholds and contain the threshold, number of selected configurations,
+number of selected CSFs, perturbation theory energy sum, CI-energy, fraction
+of CI-coefficients of the references in the whole wavefunction.
+
+As it is most often preferred to list the results grouped by
+roots there is another script called "grepDIESEL" doing so.
+
+\bigskip
+
+{\bf Example:}
+
+Suppose you create the following files in your working directory:
+
+\begin{itemize}
+\item "sel.in.1"
+\begin{footnotesize}
+\begin{verbatim}
+Multiplicity            = 1
+SelectionThresholds     = { 0.0001 }
+NumberOfElectrons       = 28
+Irrep                   = 0
+RefConfs                = auto
+\end{verbatim}
+\end{footnotesize}
+
+\medskip
+
+\item "job"
+\begin{footnotesize}
+\begin{verbatim}
+#!/bin/sh
+export DIESEL_EXE_DIR=yourBinPath
+cd yourWorkDir 
+$DIESEL_EXE_DIR/DIESEL 1e-4 1e-5 1e-6 >DIESEL.out
+\end{verbatim}
+\end{footnotesize}
+\medskip
+
+\item "fort.31"
+
+\end{itemize}
+
+So an "ls" produces the following output:
+\begin{footnotesize}
+\begin{verbatim}
+fort.31         sel.in.1        job
+\end{verbatim}
+\end{footnotesize}
+
+Running the job and thereby the DIESEL-script will result
+in the following files:
+\begin{footnotesize}
+\begin{verbatim}
+ConfTree.dat.1e-4       fort.31                 diag.out.1e-6
+ConfTree.dat.1e-5       genspace.1              sel.in.1
+ConfTree.dat.1e-6       genspace.2              sel.in.1e-4
+DIESEL.out              genspace.3              sel.in.1e-5
+Eigenvectors.dat.1e-4   job                     sel.in.1e-6
+Eigenvectors.dat.1e-5   diag.out.1e-4           sel.in.2
+Eigenvectors.dat.1e-6   diag.out.1e-5           sel.in.space
+\end{verbatim}
+\end{footnotesize}
+
+and the file "DIESEL.out" contains
+\begin{footnotesize}
+\begin{verbatim}
+generating reference space
+        running selector pass #1
+        selector finished
+        running diagonalisator pass #1
+        diagonalisator finished
+
+        running selector pass #2
+        selector finished
+        running diagonalisator pass #2
+        diagonalisator finished
+
+        running selector pass #3
+        selector finished
+        running diagonalisator pass #3
+        diagonalisator finished
+
+reference space generated
+
+
+11 reference configurations,
+dimension of reference ci-space:  14
+
+root # 1 :  -229.476602
+
+total generated configurations/CSFs:
+
+                confs.        CSFs
+intern-0:         4268       11324
+intern-1:        95411      369810
+intern-2:       730693     3260853
+          --------------------------
+total   :       830372     3641987
+
+
+performing calculations on given thresholds
+
+Threshold:  1e-4
+
+root #   sel. confs      sel. CSFs      sum PT dE      CI energy   ci^2 of ref.
+--------------------------------------------------------------------------------
+   1            417            705       -550.713  -229.63223498   0.9178247357
+
+=======
+
+
+Threshold:  1e-5
+
+root #   sel. confs      sel. CSFs      sum PT dE      CI energy   ci^2 of ref.
+--------------------------------------------------------------------------------
+   1           7287          12957       -236.164  -229.87698596   0.8685195589
+
+=======
+
+
+Threshold:  1e-6
+
+root #   sel. confs      sel. CSFs      sum PT dE      CI energy   ci^2 of ref.
+--------------------------------------------------------------------------------
+   1          35507          64954       -65.0852  -230.00690287   0.8489473636
+
+=======
+
+\end{verbatim}
+\end{footnotesize}
+
+
+Note: The CI energy is given in Hartree and sum over perturbational
+estimation in milli Hartree.
+
+
+
+\subsection{grepDIESEL}
+This script transforms the output produced by the DIESEL-script in a
+form that is grouped by roots. Individual columns are separated by tabulators
+making it easy to import it in any kind of spread sheet.
+
+The script gets its input file from the command line and writes to the standard
+output.
+
+The use of "grepDIESEL" on the output "DIESEL.out" from the former
+example will result in:
+
+\begin{footnotesize}
+\begin{verbatim}
+root # 1 :
+1e-4   417   705 -550.713 -229.63223498 0.9178247357
+1e-5  7287 12957 -236.164 -229.87698596 0.8685195589 -0.778101 -230.060745 \
+    -230.137549 -230.149176
+1e-6 35507 64954 -65.0852 -230.00690287 0.8489473636 -0.759398 -230.056328 \
+    -230.143898 -230.159479
+\end{verbatim}
+\end{footnotesize}
+
+These number are from the left to the right:
+selection threshold, \# selected configurations, \# selected CSFs,
+energy from perturbational estimation, CI energy, $c^2$ of the references
+within the wave function, gradient $\lambda$,  extrapolation to
+full MR-CI\footnote{R.J. Buenker and S.D. Peyerimhoff, Theo.Chim.Acta {\bf 1975} {\it 39} 217;
+  R.J. Buenker, S.D. Peyerimhoff and W. Butscher,
+  Mol.Phys. {\bf 1978} {\it 35} 771;
+  R.J. Buenker and R.A. Phillips,
+  J.Mol.Struct.THEOCHEM {\bf 1985} {\it 123} 291
+  and references therein.} , extrapolation to
+full CI\footnote{J. E. Del Bene, E. A. Stahlberg, I. Shaviatt, Int.J.Quantum. Chem. Symp.,}, method I and II. The calculation of
+$lambda$ and the extrapolation is based on the respectively
+predecessing threshold. As a result there is no $\lambda$ and
+extrapolation for the first threshold.
+
+
+\subsection{grepResults}
+This script is called by the DIESEL-script and greps the results from
+the detailed selector and diagonalisator output. If the program package
+is run without the DIESEL-script this script might still be quite
+useful.
+
+The script reads its input from standard input and writes to the standard
+output.
+
+The use of "grepResults" on the output "out.1e-4" from the former
+example will result in:
+\begin{footnotesize}
+\begin{verbatim}
+root #   sel. confs      sel. CSFs      sum PT dE      CI energy   ci^2 of ref.
+--------------------------------------------------------------------------------
+   1            417            705       -550.713  -229.63223498   0.9178247357
+\end{verbatim}
+\end{footnotesize}
+
+

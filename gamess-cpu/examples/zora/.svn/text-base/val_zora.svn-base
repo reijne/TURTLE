@@ -1,0 +1,11 @@
+#!/bin/csh -f
+#
+# validation for zora
+#
+setenv GAMESS_VTAB ./zora.vtab
+set path=(../../utilities $path)
+validate Ag2_rhf_none LOG/Ag2_rhf_none.log
+validate Ag_rohf      LOG/Ag_rohf.log
+validate Ag_uhf       LOG/Ag_uhf.log
+validate Ne2_cepa_R60 LOG/Ne2_cepa_R60.log
+validate Ne-so LOG/Ne-so.log

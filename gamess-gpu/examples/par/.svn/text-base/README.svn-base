@@ -1,0 +1,24 @@
+
+                     Guide to the Parallel Examples Directory
+                     ========================================
+
+  Due to the variability in the way GAMESS-UK is invoked on the different parallel 
+machines the test cases are not stored as executable scripts (as in the other
+example, but as bare input files.
+
+  par_*.in :    Input files
+
+  par_*.out :   Output files
+
+  run_par:      Master script which may be modified to reflect the characteristics of 
+                the parallel machine.
+          
+  *_inter:      Scripts to run a single job interactively, to be invoked from run_par.
+
+  *_submit:     Scripts to submit a single job to a batch queue, to be invoked from
+                run_par
+
+  val_par       Validation script.
+
+  par.vtab:     Reference data to be used by val_par
+

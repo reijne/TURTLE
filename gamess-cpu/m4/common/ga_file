@@ -1,0 +1,210 @@
+************************************************************************
+*
+*  Include file for the files mapped into GA tools
+*
+*
+*  Parameter for the `file' blocking. Chosen to be consistent
+* with the disk based system.
+*
+      Integer    ga_file_block
+      Parameter( ga_file_block = 511 )
+*
+*  Maximum number of files mapped into GA tools.
+*
+_IF(ga_ci_build)
+      Integer    max_ga_files
+      Parameter( max_ga_files = 3 )
+_ELSE
+      Integer    max_ga_files
+      Parameter( max_ga_files = 2 )
+_ENDIF
+*
+*  The maximum number of writes performed to a GA file 
+* This is required so that the `file ' can be dumped
+* to disk if required.
+*
+      Integer    max_ga_calls
+_IF(ga_ci_build)
+      Parameter( max_ga_calls = 90000 / max_ga_files )
+_ELSE
+      Parameter( max_ga_calls = 60000 / max_ga_files )
+_ENDIF
+*
+*  The largest unit number that the code will use in a call
+* to the IO subystem.
+*
+      Integer    max_unit_number
+      Parameter( max_unit_number = 99 )
+*
+*  The smallest unit number that the code will use in a call
+* to the IO subystem.
+*
+      Integer    min_unit_number
+      Parameter( min_unit_number = 0 )
+*
+*  A flag value to indicate when something is not being used.
+*
+      Integer    not_in_use
+      Parameter( not_in_use = -999 )
+*
+*  Couple of Parameters to make the mode variable more comprehensible.
+*
+      Logical    SINGLE_NODE          , COLLECTIVE
+      Parameter( SINGLE_NODE = .False., COLLECTIVE = .True. )
+*
+*  Flag to tell if GA tools has been initialized.
+*
+      Logical ga_file_initialized
+*
+*  The next three integers set limits on how much memory the
+* GA file system will use. These are NOT parameters to allow the
+* user to tune them to their requirements. However there is a default
+* value for the amount of memory per processor. This is set in the
+* Block Data ga_file_initialize.
+*
+*  The amount of memory ( in terms of 64 bit quantities )
+* that we are going to allow each processor to use for the virtual
+* file system. 
+*
+      Integer ga_file_proc_mem
+*
+*  The total amount of memory across the whole machine
+*  that may be used.
+*
+      Integer ga_file_total_mem
+*
+*  The total space used at present by the virtual file system
+* and how much left we have got.
+*
+      Integer ga_file_total, ga_file_unused
+*
+*  The total number of processes used by the GA tools
+*
+      Integer ga_file_processes
+*
+*  The id of this process
+*
+      Integer ga_file_proc_id
+*
+*  Flag to indicate if this is the `root' node. This is used to ensure
+* coherency during `writes'
+*
+      Logical ga_file_root
+*
+*  The descriptor for each file. Oh for derived data types !
+* But anyway they are:
+* GA_FILE_HANDLE   :  The GA handle for the array
+* GA_FILE_OPEN     :  Flag to tell if the file is open
+* GA_FILE_SIZE     :  How much memory used internally by GA tools
+*                     for this file. 
+* GA_FILE_NEXT     :  Next block that will be written to in this file
+* GA_FILE_MODE     :  Looks after file consistency when  OSWED3
+*                     in GAMESS's nodeio common block changes.
+* GA_FILE_KEEP     :  If set dump `file' to disk at the end of the job.
+* GA_FILE_DUMP_MODE:  Controls whether only the node0 dumps its version
+*                     of the `file' or all nodes dump versions.
+* GA_FILE_ACCESSED :  If false indicates that this is the first read
+*                     from write to a file. Used in determining if
+*                     this isa restart file.
+* GA_FILE_LENG1    :  Length of the first block. Used for restarts.
+*
+      Integer      ga_file_handle   ( 1:max_ga_files )
+      Logical      ga_file_open     ( 1:max_ga_files )
+      Integer      ga_file_size     ( 1:max_ga_files )
+      Integer      ga_file_next     ( 1:max_ga_files )
+      Logical      ga_file_mode     ( 1:max_ga_files )
+      Logical      ga_file_keep     ( 1:max_ga_files )
+      Integer      ga_file_dump_mode( 1:max_ga_files )
+      Logical      ga_file_accessed ( 1:max_ga_files )
+      Integer      ga_file_leng1    ( 1:max_ga_files )
+*
+*  The next two look after the history of the ga_file. This
+* is used if the file needs to be dumped to disk.
+* GA_FILE_HISTORY  :  The history of writes to the files. These are
+*                     required so that the
+*                     `file' can be dumped to disk if required.
+* GA_FILE_HIST_NEXT:  The next entry in the history array
+*
+      Integer ga_file_history  ( 1:3, 1:max_ga_calls, 1:max_ga_files )
+      Integer ga_file_hist_next( 1:max_ga_files )
+*
+*  An array to map from the unit number used by the code to the
+* `unit number' used internally by these routines.
+*
+      Integer ga_file_unit_to_ga( min_unit_number:max_unit_number )
+*
+*  The common blocks for the above
+*      
+      Common / ga_file_status     / ga_file_initialized 
+      Common / ga_file_mem_limits / ga_file_total_mem,
+     +                              ga_file_proc_mem
+      Common / ga_file_mem_used   / ga_file_total, ga_file_unused
+      Common / ga_file_parallel   / ga_file_processes,
+     +                              ga_file_proc_id, 
+     +                              ga_file_root
+      Common / ga_file_descriptor / ga_file_handle,
+     +                              ga_file_open,
+     +                              ga_file_size,
+     +                              ga_file_next,
+     +                              ga_file_mode,
+     +                              ga_file_keep,
+     +                              ga_file_dump_mode,
+     +                              ga_file_accessed,
+     +                              ga_file_leng1
+      Common / ga_file_lifestory  / ga_file_history,
+     +                              ga_file_hist_next
+      Common / ga_file_units      / ga_file_unit_to_ga
+*
+*  Some buffers used for storing integers in double precisions and a 
+* horrible equivalence. The length of this buffer is chosen to give 
+* decent transfers rates on the T3D. NOTE THE LENGTH MUST BE A
+* MULTIPLE 
+* OF GA_FILE_BLOCK to ensure internal consistency of the files.
+*
+      Integer    ga_file_buf_len
+      Parameter( ga_file_buf_len = 32 * ga_file_block )
+*
+      Integer          ga_file_integer_buf( 1:ga_file_buf_len )
+      Double Precision ga_file_double_buf ( 1:ga_file_buf_len )
+*
+      Equivalence ( ga_file_integer_buf, ga_file_double_buf )
+*
+*  And stick em in common so that one space is globally accessible,
+* rather than lots of different buffers building up. Use the double
+* precision version as it is likely to be the longer.
+*
+      Common / ga_file_horror / ga_file_double_buf
+*
+*  This works out the biggest number of disk blocks we can
+* fit in the internal buffer. Note there is a potential
+* bug here if ga_file_buf_len > ga_file_block ** 2.
+*
+      Integer    blocks_wanted
+      Parameter( blocks_wanted = ga_file_buf_len / 
+     +                         ( ga_file_block + 1 ) )
+*
+*  The maximum number of processors is required when trying to find
+* out if this processor has some part of the global array locally. 
+*
+      Integer    max_processes
+      Parameter( max_processes = mxproc )
+*
+*  A couple of parameters and a `safety' value used internally to avoid
+* excessive calls to the sychronization routine.
+*
+      Integer    ga_file_safe    , ga_file_risky
+      Parameter( ga_file_safe = 1, ga_file_risky = 2 )
+*
+      Integer ga_file_safety_mode
+*
+      Common / ga_file_safety / ga_file_safety_mode
+*
+*  This is required if the GA files are accessed by the low level
+* GET/PUT calls. See comments in the routines search_ga, put_ga 
+* and get_ga about this.
+*
+      Integer ga_file_last_unit
+      Common / ga_file_low_level / ga_file_last_unit
+*
+***********************************************************************
+

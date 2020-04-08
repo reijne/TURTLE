@@ -1,0 +1,105 @@
+
+Begin optimization report for: TQL2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at tql2.f(66,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tql2.f(66,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at tql2.f(66,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tql2.f(66,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at tql2.f(78,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at tql2.f(100,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at tql2.f(100,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tql2.f(100,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at tql2.f(126,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at tql2.f(126,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tql2.f(126,16)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at tql2.f(126,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at tql2.f(126,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at tql2.f(142,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at tql2.f(147,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 148 and  line 150
+   LOOP END
+
+   LOOP BEGIN at tql2.f(147,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at tql2.f(157,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at tql2.f(157,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at tql2.f(157,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at tql2.f(157,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at tql2.f(73,10)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at tql2.f(138,19)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at tql2.f(112,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ tql2.f(119,17) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

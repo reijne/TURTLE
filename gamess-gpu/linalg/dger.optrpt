@@ -1,0 +1,42 @@
+
+Begin optimization report for: DGER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dger.f(127,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dger.f(130,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dger.f(130,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dger.f(130,22)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dger.f(130,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dger.f(142,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dger.f(146,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dger.f(146,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dger.f(146,22)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================

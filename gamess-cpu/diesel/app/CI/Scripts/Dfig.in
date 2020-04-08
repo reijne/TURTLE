@@ -1,0 +1,61 @@
+#!@BASH@
+echo "#FIG 2.1"
+echo "80 2"
+ifile=1
+for i; 
+do
+	awk -v ifile=$ifile '
+	BEGIN{
+	startx = 30
+	barlength = 40
+	skip = 30
+	starty = 500
+	scaley = 20
+	columns = 4
+	scalestart = 0
+	scaleend = 20
+	scalesteps = 20
+	scalelinewidth = 10
+	textheight=20
+	nth=7
+	column=10
+	subtract=-1032.601184
+	H2eV=27.211
+	if ( ifile==1 )
+	{
+		print "2 1 0 1 -1 0 0 0 0.000 -1 0 0"
+		x = 30
+		print "\t", x, starty - scalestart*scaley, x, starty - scaleend*scaley, " 9999 9999" 
+		for ( i=0 ; i<=scalesteps ; i++ )
+		{
+			print "2 1 0 1 -1 0 0 0 0.000 -1 0 0"
+			yw = i*(scaleend-scalestart)/scalesteps
+			y = starty - scaley*yw
+			printf("%d %d %d %d 9999 9999\n", x, y, x+scalelinewidth, y)
+
+			printf("4 2 0 %d 0 -1 0 0.00000 4 15 49 %d %d %1.0f%c\n", textheight, x-6, y+textheight/2-2, yw, 1)
+		}
+	}
+	while ( getline>0 )
+	{
+	
+		if ( $1=="root" && $2=="#" )
+		{
+			for ( i=1 ; i<=nth ; i++ )
+				getline;
+			yvalue = $column
+			yvalue = (yvalue-subtract)*H2eV
+#			print yvalue
+			if ( yvalue<=scaleend && yvalue>=scalestart )
+			{
+				print "2 1 0 1",0, "0 0 0 0.000 -1 0 0"
+				x = startx + ifile*(barlength+skip)
+				y = starty - int(scaley*yvalue)
+				print "\t", x, y, x+barlength, y " 9999 9999" 
+			}
+		}
+	}
+	}
+	' <$i 
+	ifile=`expr $ifile + 1`
+done

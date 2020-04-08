@@ -1,0 +1,137 @@
+#!/bin/csh
+setenv ed2 namgmain
+setenv ed3 namgdump
+../../bin/gamess << EOF
+title
+namg7+ local LANL ecp /closed shell singlet/ energy -1.959635 au
+charge 1
+super off
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis 
+ecpdz na 
+ecpdz mg
+d mg
+1.0 0.175
+end
+ecp
+na na
+mg mg
+level  1.0
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+namg7+ ecp /singlet rhf energy -1.920203 au
+mult 1
+charge 1
+super off
+bypass
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis 
+ecpdz na
+ecpdz mg
+d mg
+1.0 0.175
+end
+ecp
+na na
+mg mg
+runtype scf
+open 1 1 1 1
+level  0.3 1.0
+maxcyc 30
+enter
+EOF
+../../bin/gamess << EOF
+title
+namg7+ local LANL2 ecp /closed shell singlet/ energy -1.959635 au
+charge 1
+super off
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis 
+ecp na lanl2
+ecp mg lanl2
+d mg
+1.0 0.175
+end
+ecp
+na lanl2 na
+mg lanl2 mg
+level  1.0
+enter
+EOF
+#
+../../bin/gamess << EOF
+restart
+title
+namg7+ ecp /singlet rhf energy -1.920203 au
+mult 1
+charge 1
+super off
+bypass
+zmat angs
+mg
+na 1 r1 
+na 1 r2 2 90.
+na 1 r2 2 90. 3 72.
+na 1 r2 2 90. 4 72.
+na 1 r2 2 90. 5 72.
+na 1 r2 2 90. 6 72.
+na 1 r1 3 90. 2 180.
+variables
+r1 3.0286740
+r2 3.194799
+end
+basis 
+ecp na lanl2 
+ecp mg lanl2
+d mg
+1.0 0.175
+end
+ecp
+na lanl2 na
+mg lanl2 mg
+runtype scf
+open 1 1 1 1
+level  0.3 1.0
+maxcyc 30
+enter
+EOF

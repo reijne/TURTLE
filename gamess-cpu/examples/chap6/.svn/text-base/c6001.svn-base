@@ -1,0 +1,21 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+TITLE\CUCL .. 3-21G extrapolated energy = -2088.4416955
+ZMAT ANGSTROM\CU\CL 1 CUCL
+VARIABLES\CUCL 2.093 \END 
+BASIS 3-21G
+RUNTYPE CI
+MRDCI
+TRAN CORE
+8 3 3 0
+1 TO 8  1 TO 3  1 TO 3
+SELECT 
+SINGLES 1
+CONF
+0 1 2 3 4  15 16  21 22  27
+NATORB
+ENTER
+EOF

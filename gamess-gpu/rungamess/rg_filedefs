@@ -1,0 +1,92 @@
+#!/bin/ksh
+# --------------------------------------------------------------
+#  parse flist for file definitions
+# --------------------------------------------------------------
+#
+IDENT=rungamess
+
+if test $debug = 1 
+then echo rg_filedefs tempdir= $tempdir flist= $flist
+fi
+
+for word in $flist
+do
+    case  $word in
+        -k) opt="-k";;
+        -t) opt="-t";;
+        -s) opt="-s";;
+        -r) opt="-r";;
+        -l) opt="-l";;
+         *)case $opt in
+              -k) list=$word; def=$homedir;; 
+              -t) list=$word; def=$tempdir;;
+              -s) list=""; echo -scratch not supported;;
+              -l) case $word in 
+                       ed0)    list="ed0=ecplib";;
+                       table) list="table=TABLE";;
+                       *) echo -l argument not recognised: $word;  exit 104;;
+                  esac
+                  def=$libdir;;
+              -r) case $word in 
+                       hf)     list="ed2 ed3";;
+                       casscf) list="ed1 ed2 ed3 ed4 ed6 ed9 ed10 ed11";;
+                       mcscf)  list="ed2 ed3 ed4 ed6 ed13";;
+                       mrdci)  list="ed2 ed3 ftn031 ftn033 ftn034 ftn035 ftn036";;
+                       ci)     list="ed1 ed2 ed3 ed4 ed6 ed9 ed10";;
+                       fullci) list="ed2 ed3 ed4 ed6 ftn008";;
+                       *) echo -r argument not recognised: $word;  exit 105;;
+                  esac
+                  def=$tempdir;;
+              esac
+
+              # append slash if def is non-blank
+              case "$def" in "") ;; *) def=$def/;; esac
+
+              for file in $list
+              do
+                 case $file in
+                    *=/*) # absolute
+                          dest=`echo $file | awk -F= '{print $2}'`
+                          from=`echo $file | awk -F= '{print $1}'`;;
+                    *=*)  # relative - only prepend def it is nonblank
+                          dest=$def`echo $file | awk -F= '{print $2}'`
+                          from=`echo $file | awk -F= '{print $1}'`
+                     ;;
+                    *)    # default
+                          from=$file
+                          dest=$def$root.$file;;
+                 esac
+
+                 case $from in
+                     ed0);;ed1);;ed2);;ed3);;ed4);;ed5);;ed6);;ed7);;ed8);;ed9);;
+                     ed10);;ed11);;ed12);;ed13);;ed14);;
+                     table);;
+                     ftn001);;ftn002);;ftn007);;ftn008);;
+                     ftn015);;ftn016);;ftn017);;ftn018);;
+                     ftn031);;ftn032);;ftn033);;ftn034);;
+                     ftn035);;ftn036);;ftn058);;
+                     *) echo ${IDENT}: warning - unknown logical filename $from;;
+                 esac
+
+#
+# note sg wont accept  eval export $cmd;;
+#
+
+                 if test $debug = 1 
+                     then echo use_file_directives $use_file_directives
+                 fi
+
+                 case $use_file_directives in 
+                    1) echo file $from $dest >> $spool_in_file;;
+
+                    0) cmd=$from'='\"$dest\"
+                       echo ${IDENT}: setting $cmd
+
+                       eval "$cmd"
+                       eval export $from;;
+                 esac
+
+            done
+      esac
+done
+

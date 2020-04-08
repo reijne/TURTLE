@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# This script converts the GAMESS-UK Latex documentation into
+# html
+
+# Make sure we can find latex2html
+which latex2html > /dev/null
+if [ $? -ne 0 ]
+then
+    echo " Error: latex2html needs to be installed to generate"
+    echo " the GAMESS-UK manual."
+    exit 1
+fi
+
+# Sort out which files we are processing
+if [ $# -eq 1 ] 
+then
+    chapters="$*"
+elif [ $# -ne 0 ]
+    then
+    echo " Usage is $0 [ name or number of the chapter(s)_to_process ]"
+    exit 1
+else
+    chapters="part1 part2 part3 part4 part5 part6 part7 part8 part9 \
+part10 part11 part12 part13 part14 turtle mopac"
+fi
+
+# Directory - make if it does not exist
+directory=html
+if [ ! -d $directory ]; then
+    mkdir $directory
+fi
+
+gen_html(){
+# Function to convert the latex to html
+# first arg is Title of the page
+# second is the tex file
+
+latex2html  \
+-address " " \
+-t "GAMESS-UK $1" \
+-info 0 \
+-split +1 \
+-no_math -html_version 3.2,math \
+-show_section_numbers \
+-auto_navigation \
+-local_icons \
+-dir $directory/$1 \
+$2
+}
+
+#old gener_html directives that don't work:
+#-no_math -html_version 3.2 \
+
+for chap in $chapters
+do
+  # For part14 generate p14_fig1.eps before doing the latex stuff
+  if [ ${chap:4:5} = "14" ]
+  then
+     inkscape p14_fig1.svg --export-eps=p14_fig1.eps
+  fi
+
+  latex $chap.tex
+  latex $chap.tex
+  latex $chap.tex
+  mkdir -p $directory/$chap
+  gen_html  $chap $chap.tex
+  rm -f $chap.dvi $chap.aux $chap.toc $chap.log $chap.out WARNINGS
+done

@@ -1,0 +1,22 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ftn002 file2
+setenv ftn003 file3
+setenv ftn004 file4
+../../bin/gamess << EOF
+title
+h2co+ - 2b2 - 3-21g  valence full-ci
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype ci
+fullci 18 4 3
+symmetry 3
+enter
+EOF

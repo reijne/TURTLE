@@ -1,0 +1,26 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE      
+FCN/FNC TS SEARCH . STO3G. energy = -188.9778968
+ZMAT ANGS               
+C          
+N 1 L1     
+F 1 L2 2 A1
+VARIABLES  
+L1 1.2   TYPE 3
+L2 1.3   TYPE 3
+A1 135.0 TYPE 3
+END           
+BASIS  STO3G
+RUNTYPE SADDLE JORGENSEN 
+POWELL
+MAXJOR 55
+RECALC OFF
+RFO OFF
+CUTOFFS
+OPTPRINT ON
+XTOL 0.0018
+ENTER 
+EOF

@@ -1,0 +1,101 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed1 mfged1
+../../bin/gamess << EOF
+title
+h2co - dzp + f
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - CASSCF (10e in 9 m.o.)
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co  - CASSCF (10e in 9 m.o.) direct-MRDCI from casscf MOs
+super off nosym
+bypass scf
+zmat angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+dzp o
+dzp c
+dzp h
+f c
+1 1.0
+f o
+1.0 1.0
+end
+scftype casscf
+config print
+fzc 1 to 3
+doc 4 to 8
+uoc 9 to 12
+end
+runtype ci
+mrdci direct
+table
+select
+symmetry 1
+spin 1
+cntrl 16
+singles 1
+conf
+0 1 2 3 4 5  29  42 43
+0 1 2 3 4 5  30  42 43
+0 1 2 3 4 5  29  42 44
+end
+roots 1
+thresh 2 2
+ci
+natorb
+enter
+EOF

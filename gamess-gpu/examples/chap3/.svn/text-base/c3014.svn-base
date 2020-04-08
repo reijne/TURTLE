@@ -1,0 +1,26 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+ni(ph3)2  SCF  energy -2180.685242
+zmat angstrom
+x
+ni   1  1.0
+p    2  nip     1   pnix
+p    2  nip     1   pnix     3 180.0
+h    3  ph      2   hpni     1 180.0
+h    3  ph      2   hpni     1 -60.0
+h    3  ph      2   hpni     1  60.0
+h    4  ph      2   hpni     1   0.
+h    4  ph      2   hpni     1 120.
+h    4  ph      2   hpni     1 240.
+variables
+nip  2.1801684 hessian 2.178 
+pnix 90.0 hessian 0.1
+hpni 120.6751816 hessian 1.824
+ph 1.4353437 hessian 1.787
+end
+runtype scf
+enter
+EOF

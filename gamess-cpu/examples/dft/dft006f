@@ -1,0 +1,114 @@
+#!/bin/csh
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+title
+h2co+ - 6-31g -  direct-DFT/B3LYP -  energy =  -114.0641081575 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+scftype direct uhf
+dft b3lyp
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart new
+title
+h2co+ - 6-31g -  conv. DFT/B3LYP geometry opt. -  energy = -114.065006446906 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+runtype optimize
+scftype direct uhf
+dft b3lyp
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart new
+title
+h2co+ - 6-31g -  conv. DFT/HCTH geometry opt. -  energy = -114.038496114955 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+runtype optimize
+scftype direct uhf
+dft hcth
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart new
+title
+h2co+ - 6-31g -  conv. DFT/B97 geometry opt. -  energy = -114.027668530472 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+runtype optimize
+scftype direct uhf
+dft b97
+enter
+EOF
+../../bin/gamess << EOF
+file ed3 mfged3 keep
+restart new
+title
+h2co+ - 6-31g -  conv. DFT/B97-1 geometry opt. -  energy = -114.031635332755 au
+mult 2
+charge 1
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 6-31g
+runtype optimize
+scftype direct uhf
+dft b97-1
+enter
+EOF

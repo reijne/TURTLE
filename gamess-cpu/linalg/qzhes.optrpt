@@ -1,0 +1,241 @@
+
+Begin optimization report for: QZHES
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at qzhes.f(54,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzhes.f(56,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at qzhes.f(56,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(56,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at qzhes.f(66,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzhes.f(70,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(70,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(70,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(70,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(78,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(78,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(78,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(78,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(87,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at qzhes.f(90,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(90,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(90,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(90,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(96,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(96,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(96,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(96,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(102,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at qzhes.f(105,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(105,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(105,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(105,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(111,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(111,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(111,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(111,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(119,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(119,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at qzhes.f(119,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at qzhes.f(129,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at qzhes.f(132,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at qzhes.f(145,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(145,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(145,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(153,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(153,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(153,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(168,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(168,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(168,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(168,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(168,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(176,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(176,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(176,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(176,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(176,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(184,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(184,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(184,16)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(184,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at qzhes.f(184,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

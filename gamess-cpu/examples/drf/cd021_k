@@ -1,0 +1,55 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2o surrounded by 4 class water and dielectric, duhf pk 
+nosymm
+super on
+integral high
+geom au
+  0.0              0.0           0.0  8.0  O
+  1.1031           1.4325        0.0  1.0  H
+  1.1031          -1.4325        0.0  1.0  H
+end
+basis sv 4-31g
+runtype scf 
+maxcyc 100
+scftype direct uhf
+thresh 8 
+diis on
+adapt off
+vectors hcore 
+react
+ field stat scf reac scf      
+ gamdrf 0.5
+ qmradi conepol
+ clasradi conepol
+ clasdisp grouppol
+ hbond on
+ external
+o   w1      -0.796       3.459378         4.492394     0.0                 
+h   w1       0.398       3.459378         5.595494    +1.4325       
+h   w1       0.398       3.459378         5.595494    -1.4325       
+group    anal 1
+o   w2      -0.796       3.459378        -4.492394     0.0                 
+h   w2       0.398       3.459378        -5.595494    +1.4325        
+h   w2       0.398       3.459378        -5.595494    -1.4325        
+group    anal 2
+o   w3      -0.796      -4.492394         0.0         -3.459378      
+h   w3       0.398      -3.059894         0.0         -2.356278      
+h   w3       0.398      -5.924894         0.0         -2.356278      
+group    anal 3
+o   w4      -0.796      -4.492394         0.0          3.459378      
+h   w4       0.398      -3.059894         0.0          2.356278      
+h   w4       0.398      -3.791924         0.0          5.126180      
+group    anal 4
+ end
+ dielectr
+  solvent water
+  dieltyp stat opt
+  connolly  mxsurpts 100  rprobe 3.64
+ end
+end
+enter 1 2
+EOF

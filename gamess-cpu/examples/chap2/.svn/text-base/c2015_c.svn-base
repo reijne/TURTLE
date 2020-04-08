@@ -1,0 +1,64 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  - SCF startup for MCSCF geom. optimisation
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - MCSCF geom opt. (10e in 9 m.o.)
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype optimize
+xtol 0.0005
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter 
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21G - MCSCF force constants (10e in 9 m.o.)
+# freq. 1187.2 1290.9 1544.9 1709.4 2822.0 2866.0
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+runtype force
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1
+end
+enter 
+EOF

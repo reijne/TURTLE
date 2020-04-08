@@ -1,0 +1,33 @@
+
+#undef FC_FUNC
+
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
+#undef AXFORTINT
+
+#undef AXFORTINTC
+
+typedef AXFORTINT fortint;
+
+typedef AXFORTINTC fortintc;
+
+#define axcwrapselect FC_FUNC(axwrapselect,AXWRAPSELECT)
+#define axcwrapdeselect FC_FUNC(axwrapdeselect,AXWRAPDESELECT)
+#define axcwraprefine FC_FUNC(axwraprefine,AXWRAPREFINE)
+#define axcwrapformat FC_FUNC(axwrapformat,AXWRAPFORMAT)
+#define axcwrapcurrent FC_FUNC(axwrapcurrent,AXWRAPCURRENT)
+#define axcwraplen FC_FUNC(axwraplen,AXWRAPLEN)
+#define axcwrapvalue FC_FUNC(axwrapvalue,AXWRAPVALUE)
+#define axcwrapbuffer FC_FUNC(axwrapbuffer,AXWRAPBUFFER)
+#define axcwrapnamespace FC_FUNC(axwrapnamespace,AXWRAPNAMESPACE)
+#define axcwrapgeturi FC_FUNC(axwrapgeturi,AXWRAPGETURI)
+#define axcwrapdatageturi FC_FUNC(axwrapdatageturi,AXWRAPDATAGETURI)
+#define axcwrapselectnext FC_FUNC(axwrapselectnext,AXWRAPSELECTNEXT)
+#define axcwrapbaseuri FC_FUNC(axwrapbaseuri,AXWRAPBASEURI)
+#define axcwrapparserfinish FC_FUNC(axwrapparserfinish,AXWRAPPARSERFINISH)
+#define axcwrapparserstart FC_FUNC(axwrapparserstart,AXWRAPPARSERSTART)
+#define axcwrapcache FC_FUNC(axwrapcache,AXWRAPCACHE)
+#define axcwrapselectno FC_FUNC(axwrapselectno,AXWRAPSELECTNO)
+#define axcwrapproxy FC_FUNC(axwrapproxy,AXWRAPPROXY)

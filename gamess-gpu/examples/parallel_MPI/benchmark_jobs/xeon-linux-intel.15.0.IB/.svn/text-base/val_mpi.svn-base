@@ -1,0 +1,32 @@
+#!/bin/csh
+#
+# validation for GMESS-UK MPI parallel tests
+#
+#  $1 - LOG file holding the output files
+#
+echo "################################## "
+echo "validate output files in directory " $1
+echo "################################## "
+#
+(cd ../../../../utilities;make validate)
+setenv GAMESS_VTAB ./mpi.vtab
+set path=(../../../../utilities $path)
+#
+validate HF.cyclo.6-31G-dp      $1/HF.cyclo.6-31G-dp.*
+validate HF.cyclo.DZP           $1/HF.cyclo.DZP.*
+validate HF_grad.CAG.1291       $1/HF_grad.CAG.1291.*
+validate HF.valino.6-31G-dp     $1/HF.valino.6-31G-dp.*
+validate HF.hf12z-shell4        $1/HF.hf12z-shell4.*
+validate HF.siosi7.3975         $1/HF.siosi7.3975.*
+#
+validate DFT.cyclo.6-31G-dp     $1/DFT.cyclo.6-31G-dp.*
+validate DFT.cyclo.6-31G        $1/DFT.cyclo.6-31G.*
+validate DFT_opt.exti4a1.3-21G  $1/DFT_opt.exti4a1.3-21G.*
+validate DFT.pcfe.814           $1/DFT.pcfe.814.*
+validate DFT.siosi6.1687        $1/DFT.siosi6.1687.*
+validate DFT.valino.A2.DZVP2    $1/DFT.valino.A2.DZVP2.*
+validate DFT.valino.A2.DZVP     $1/DFT.valino.A2.DZVP.*
+validate UKS.pyridine           $1/UKS.pyridine.*
+validate DFT.hf12z-shell4       $1/DFT.hf12z-shell4.*
+validate DFT.siosi7.3975        $1/DFT.siosi7.3975.*
+#

@@ -1,0 +1,90 @@
+#!/bin/csh
+setenv ed3 ed3
+../../bin/gamess << EOF
+time 9999999
+adapt off
+harmonic
+super off nosym
+title
+  H2O   FULLCI
+zmat angs
+ O
+ H 1 r 
+ H 1 r 2 t
+variables
+ r    0.9584
+ t  104.4500
+end
+basis sto3g
+runtype ci 
+core 
+ 1
+end
+active 
+ 2 to 7
+end
+direct 8 6 0
+casgen norb 6
+prconf 1
+trial diag select 50
+thresh 1 6
+enter 1
+EOF
+
+../../bin/gamess << EOF
+time 9999999
+adapt off
+harmonic
+title
+  H2O   SCF
+zmat angs
+ O
+ H 1 r 
+ H 1 r 2 t
+variables
+ r    0.9584
+ t  104.4500
+end
+basis sto3g
+vectors atorb diff ground sect 99
+end
+enter 1
+EOF
+
+../../bin/gamess << EOF
+time 9999999
+core 40000000 
+restart new
+adapt off
+title
+ H2O  FULL VB
+zmat angs
+ O
+ H 1 r 
+ H 1 r 2 t
+variables
+ r    0.9584
+ t  104.4500
+end
+basis sto3g
+crestr
+ core 1
+ conf
+   all 6 8 allcovalent allionic
+ end
+end
+vb
+ vbvectors combine
+ section  1  1  end
+ section 99  2 to 7  end
+ end
+ active print
+  1 to 7
+ end
+ max 500 davidson
+ max 500 expansion
+end vb
+scftype vb
+enter 2
+EOF
+\rm ed3

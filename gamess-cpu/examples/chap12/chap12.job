@@ -1,0 +1,114 @@
+# QSUB-A ccp1 
+# QSUB-eo
+# QSUB-lM 8Mw
+# QSUB-lT 2000
+#
+cd GAMESS-UK/examples/chap12
+#
+#   chapter 12 examples using rungamess script
+#
+time rungamess -t ed3 -t ed2 -n water water_scf
+time rungamess -t ed3 -t ed2 -n water water_opt
+time rungamess -t ed3 -t ed2 -n water water_restopt
+time rungamess -t ed3 -t ed2 -n water water_orhf
+time rungamess -t ed3 -t ed2 -n water water_loc
+time rungamess -t ed3 -t ed2 -n water water_gvb
+#
+time rungamess -t ed3 -t ed2 -n hcl hcl_scf
+time rungamess -t ed3 -t ed2 -n hcl hclplus
+#
+time rungamess cubane
+time rungamess mg10
+time rungamess nitrobenzene
+time rungamess tnt
+#
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_rhf
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_orhf
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_uhf
+#
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_ext
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_ext_orhf
+#
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_ecp
+time rungamess -t ed3 -t ed2 -n na7mg na7mg_ecp_orhf
+#
+time rungamess -t ed3=nico4.ed3 nico4_scf
+time rungamess -t ed3=nico4.ed3 nico4_grid
+#
+time rungamess -t ed3 -t ed2 -n imino imino_rhf
+time rungamess -t ed3 -t ed2 -n imino imino_gvb
+#
+time rungamess direct_scf
+time rungamess berylocene_opt 
+#
+time rungamess hcn_tr
+time rungamess hcn_st
+time rungamess hcn_js
+#
+time rungamess -t ed3=hsip.ed3 hsip_scf
+time rungamess -t ed3=hsip.ed3 hsip_ts
+time rungamess -t ed3=hsip.ed3 hsip_fc
+#
+time rungamess -t ed3=hsip.ed3 hsip_fcm1
+time rungamess -t ed3=hsip.ed3 hsip_tsfcm
+time rungamess -t ed3=hsip.ed3 hsip_fcm2
+#
+time rungamess hcn_bf
+#
+time rungamess -t ed3=ethene.ed3 ethene_opt
+time rungamess -t ed3=ethene.ed3 ethene_fcm
+#
+time rungamess -t ed3=ethene.ed3 ethene_mp2opt
+time rungamess -t ed3=ethene.ed3 ethene_mp2fcm
+#
+time rungamess -t ed3=ethene.ed3 ethene_mp2opt
+time rungamess -t ed3=ethene.ed3 ethene_mp2pol
+#
+time rungamess -t ed3 pyridine
+#
+time rungamess -n water -t ed3 water_scf
+time rungamess -n water -t ed3 water_cas
+#
+time rungamess -n water -r casscf -t ed3 water_cas
+time rungamess -n water -r casscf -t ed3 water_cas_rest
+time rungamess -n water -r casscf water_cas_opt
+#
+time rungamess -k ed3 -n beo beo_rhf
+time rungamess -k ed3 -n beo beo_casscf_ci
+#
+time rungamess -k ed3 -n beo beo_rhf
+time rungamess -k ed3 -n beo beo_mcscf
+#
+time rungamess -r mcscf -k ed3 -n beo beo_mcscf
+time rungamess -r mcscf -k ed3 -n beo beo_mcscf_rest
+time rungamess -k ed3 -n beo beo_mcscf_ci
+#
+rungamess -n nh3 -t ed2 -k ed3 nh3_rohf
+rungamess -n nh3 -k ed3 -t ed2 -l table nh3_mrdci
+#
+time rungamess -r mrdci -n nh3 -k ed3 -l table nh3_sa_tran
+time rungamess -r mrdci -n nh3 -k ed3 -l table nh3_select
+time rungamess -r mrdci -n nh3 -k ed3 -l table nh3_hamil
+time rungamess -r mrdci -n nh3 -k ed3 -l table nh3_diag
+time rungamess -r mrdci -n nh3 -k ed3 -l table nh3_analy
+#
+time rungamess -n nicch2 -k ed3 -t ed2 -l ed0 nicch2_rhf
+time rungamess -n nicch2 -k ed3 -t ed2 -l ed0 nicch2_swap
+time rungamess -n nicch2 -k ed3 -t ed2 -l ed0 nicch2_orhf
+time rungamess -n nicch2 -k ed3 -t ed2 -t ed4 -t ed6 -l ed0 nicch2_cas
+time rungamess -n nicch2 -k ed3 -t ed2 -t ed5 -t ed6 -l ed0 nicch2_ci
+#
+time rungamess -t ed3 -t ed2 -n pyridine2 pyridine2_rhf
+time rungamess -r mrdci -l table -n pyridine2 pyridine2_1m1r
+time rungamess -r mrdci -l table -n pyridine2 pyridine2_6m1r
+time rungamess -r mrdci -l table -n pyridine2 pyridine2_21m10r
+time rungamess -r mrdci -l table -n pyridine2 pyridine2_19m10r
+#
+time rungamess -n h2o_fullci -r fullci fullci_all
+time rungamess -n h2o_fullci -r fullci fullci_val
+#
+#
+# cleanup
+#
+rm -rf *.ed*
+rm -rf *.ftn*

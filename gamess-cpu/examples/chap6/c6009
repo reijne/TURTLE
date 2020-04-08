@@ -1,0 +1,277 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+setenv ftn022 ci.adapt
+setenv ftn031 ci.tran
+setenv ftn036 vb.36
+../../bin/gamess << EOF
+title
+ethylene ground state scf
+super off nosym
+zmatrix angstrom
+bq
+x 1 1.0
+c 1 rcbq 2 90.0
+c 1 rcbq 2 90.0 3 180.0
+h 3 rch  1 cch  2   0.0
+h 3 rch  1 cch  2 180.0
+h 4 rch  1 cch  2   0.0
+h 4 rch  1 cch  2 180.0
+variables
+rcbq 0.675
+rch  1.071
+cch 121.5
+end
+basis
+dz c
+s h
+1.0 2.2956
+2.47509 0.6517
+0.03154 64.78692
+0.22826  9.91954
+s h
+1.89710 0.20594
+d c
+1.0 0.35
+d c
+1.0 1.20
+p h
+1.0 1.20
+s bq
+1.0 0.02
+s bq
+1.0 0.01
+p bq
+1.0 0.017
+p bq
+1.0 0.009
+d bq
+1.0 0.022
+d bq
+1.0 0.015
+end
+runtype scf
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+ethylene MRDCI 7M/3R V(pi,pi*) singlet
+bypass scf
+super off nosym
+zmatrix angstrom
+bq
+x 1 1.0
+c 1 rcbq 2 90.0
+c 1 rcbq 2 90.0 3 180.0
+h 3 rch  1 cch  2   0.0
+h 3 rch  1 cch  2 180.0
+h 4 rch  1 cch  2   0.0
+h 4 rch  1 cch  2 180.0
+variables
+rcbq 0.675
+rch  1.071
+cch 121.5
+end
+basis
+dz c
+s h
+1.0 2.2956
+2.47509 0.6517
+0.03154 64.78692
+0.22826  9.91954
+s h
+1.89710 0.20594
+d c
+1.0 0.35
+d c
+1.0 1.20
+p h
+1.0 1.20
+s bq
+1.0 0.02
+s bq
+1.0 0.01
+p bq
+1.0 0.017
+p bq
+1.0 0.009
+d bq
+1.0 0.022
+d bq
+1.0 0.015
+end
+runtype ci
+mrdci
+adapt
+tran core discard
+1 0 0 0 1 0 0 0
+1 1
+1 0 0 0 1 0 0 0
+24 18
+select
+symmetry 5
+spin 1
+singles 1
+cntrl 12
+conf
+2 23 61 1 2 30 45 68
+2 23 62 1 2 30 45 68
+2 23 63 1 2 30 45 68
+2 23 64 1 2 30 45 68
+2 23 65 1 2 30 45 68
+2 23 66 1 2 30 45 68
+2 23 67 1 2 30 45 68
+roots 3
+thresh 100 10
+natorb iprint
+putq sabf 200
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+ethylene INO 7M3R V(pi,pi*) singlet
+bypass scf
+super off nosym
+zmatrix angstrom
+bq
+x 1 1.0
+c 1 rcbq 2 90.0
+c 1 rcbq 2 90.0 3 180.0
+h 3 rch  1 cch  2   0.0
+h 3 rch  1 cch  2 180.0
+h 4 rch  1 cch  2   0.0
+h 4 rch  1 cch  2 180.0
+variables
+rcbq 0.675
+rch  1.071
+cch 121.5
+end
+basis
+dz c
+s h
+1.0 2.2956
+2.47509 0.6517
+0.03154 64.78692
+0.22826  9.91954
+s h
+1.89710 0.20594
+d c
+1.0 0.35
+d c
+1.0 1.20
+p h
+1.0 1.20
+s bq
+1.0 0.02
+s bq
+1.0 0.01
+p bq
+1.0 0.017
+p bq
+1.0 0.009
+d bq
+1.0 0.022
+d bq
+1.0 0.015
+end
+runtype ci
+mrdci
+adapt bypass
+tran 200 core 
+1 0 0 0 1 0 0 0
+1 1
+select
+symmetry 5
+spin 1
+singles 1
+cntrl 12
+conf
+2 23 61 1 2 30 45 68
+2 23 62 1 2 30 45 68
+2 23 63 1 2 30 45 68
+2 23 64 1 2 30 45 68
+2 23 65 1 2 30 45 68
+2 23 66 1 2 30 45 68
+2 23 67 1 2 30 45 68
+roots 3
+thresh 30 10
+natorb iprint
+putq sabf 210
+enter
+EOF
+setenv ftn036 gs.36
+setenv ftn037 vb.36
+../../bin/gamess << EOF
+core 4000000
+restart new
+title
+ethylene TM calc for GS/V(pi,pi*)
+bypass scf
+super off nosym
+zmatrix angstrom
+bq
+x 1 1.0
+c 1 rcbq 2 90.0
+c 1 rcbq 2 90.0 3 180.0
+h 3 rch  1 cch  2   0.0
+h 3 rch  1 cch  2 180.0
+h 4 rch  1 cch  2   0.0
+h 4 rch  1 cch  2 180.0
+variables
+rcbq 0.675
+rch  1.071
+cch 121.5
+end
+basis
+dz c
+s h
+1.0 2.2956
+2.47509 0.6517
+0.03154 64.78692
+0.22826  9.91954
+s h
+1.89710 0.20594
+d c
+1.0 0.35
+d c
+1.0 1.20
+p h
+1.0 1.20
+s bq
+1.0 0.02
+s bq
+1.0 0.01
+p bq
+1.0 0.017
+p bq
+1.0 0.009
+d bq
+1.0 0.022
+d bq
+1.0 0.015
+end
+runtype ci
+mrdci
+adapt bypass
+tran 200 core 
+1 0 0 0 1 0 0 0
+1 1
+select
+spin 1
+singles 1
+cntrl 12
+conf
+0 1 2 23 30 45 68
+0 1 2 30 45 61 68
+2 61 62 1 2 30 45 68
+roots 1
+thresh 20 10
+natorb iprint
+putq sabf 210
+moment
+36 1 37 1 1
+enter
+EOF

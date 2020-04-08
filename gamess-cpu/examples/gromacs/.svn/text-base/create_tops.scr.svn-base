@@ -1,0 +1,162 @@
+#!/bin/csh -f
+
+set begin = $1
+set end   = $2
+set steps = $3
+
+set i = 0
+
+while ($i <= $steps )
+
+if ( ! -d step_{$i} ) then
+mkdir step_{$i}
+endif
+
+cd step_{$i}
+
+cp ../../topol.top .
+
+cat >! topol_A.itp <<EOF
+[ moleculetype ]
+; Name            nrexcl
+Protein_A           3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+     1          C      1    DAT     CA      1       -0.2     12.011   ; qtot -0.2
+     2         CL      1    DAT    CLA      1        0.2     35.453   ; qtot 0
+     3          C      1    DAT     CB      1          0     12.011   ; qtot 0
+     4         CL      1    DAT    CLB      1          0     35.453   ; qtot 0
+     5          C      1    DAT     CC      1          0     12.011   ; qtot 0
+     6         CL      1    DAT    CLC      1          0     35.453   ; qtot 0
+     7          C      1    DAT     CD      1       -0.2     12.011   ; qtot -0.2
+     8         CL      1    DAT    CLD      1        0.2     35.453   ; qtot 0
+     9          S      1    DAT     SE      1        0.4      32.06   ; qtot 0.4
+    10          O      1    DAT    OE1      1       -0.2    15.9994   ; qtot 0.2
+    11          O      1    DAT    OE2      1       -0.2    15.9994   ; qtot 0
+    12          C      1    DAT     C1      2        0.6     12.011   ; qtot 0.6
+    13          O      1    DAT     O1      2       -0.5    15.9994   ; qtot 0.1
+    14          C      1    DAT     C2      2       -0.2     12.011   ; qtot -0.1
+    15         HC      1    DAT     H2      2        0.2      1.008   ; qtot 0.1
+    16          C      1    DAT     C3      2       -0.2     12.011   ; qtot -0.1
+    17         HC      1    DAT     H3      2        0.2      1.008   ; qtot 0.1
+    18          C      1    DAT     C4      2        0.6     12.011   ; qtot 0.7
+    19          O      1    DAT     O4      2       -0.5    15.9994   ; qtot 0.2
+    20         NR      1    DAT     N5      2       -0.2    14.0067   ; qtot 0
+    21        CH2      1    DAT     C6      2          0     14.027   ; qtot 0
+    22          H      1    DAT    H61      2          0      1.008   ; qtot 0
+    23          H      1    DAT    H62      2          0      1.008   ; qtot 0
+    24         LA      1    DAT     LA      2          0          0   ; qtot 0
+    25        CH2      1    DAT     C7      3          0     14.027   ; qtot 0
+    26        CH2      1    DAT     C8      3          0     14.027   ; qtot 0
+    27        CH2      1    DAT     C9      3          0     14.027   ; qtot 0
+    28        CH2      1    DAT    C10      3          0     14.027   ; qtot 0
+    29          C      1    DAT    C11      4       0.27     12.011   ; qtot 0.27
+    30         OM      1    DAT    O12      4     -0.635    15.9994   ; qtot -0.365
+    31         OM      1    DAT    O13      4     -0.635    15.9994   ; qtot -1
+    32         XX      1    DAT     D1      5        0.0     0.0000   ;
+    33         XX      1    DAT     D2      5        0.0     0.0000   ;
+
+[ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+    1     2     5 
+    1     3     5 
+    1     9     5 
+    3     4     5 
+    3     5     5 
+    5     6     5 
+    5     7     5 
+    7     8     5 
+    7     9     5 
+    9    10     5 
+    9    11     5 
+   12    13     5 
+   12    14     5 
+   12    20     5 
+   14    15     5 
+   14    16     5 
+   16    17     5 
+   16    18     5 
+   18    19     5 
+   18    20     5 
+   20    21     5 
+   21    22     5 
+   21    23     5 
+   21    25     2    gb_26
+   25    26     2    gb_26
+   26    27     2    gb_26
+   27    28     2    gb_26
+   28    29     2    gb_26
+   29    30     2    gb_5
+   29    31     2    gb_5
+
+[ pairs ]
+;  ai    aj funct            c0            c1            c2            c3
+   12    25     1 
+   13    15     1 
+   13    16     1 
+   13    18     1 
+   13    21     1 
+   14    19     1 
+   14    21     1 
+   15    18     1 
+   15    20     1 
+   16    21     1 
+   17    19     1 
+   17    20     1 
+   18    22     1 
+   18    23     1 
+   18    25     1 
+   19    21     1 
+   20    26     1 
+   21    27     1 
+   22    26     1 
+   23    26     1 
+   25    28     1 
+   26    29     1 
+   27    30     1 
+   27    31     1 
+
+[ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+   21    25    26     2    ga_14
+   25    26    27     2    ga_14
+   26    27    28     2    ga_14
+   27    28    29     2    ga_14
+   28    29    30     2    ga_21
+   28    29    31     2    ga_21
+   30    29    31     2    ga_37
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+   20    21    25    26     1    gd_17
+   21    25    26    27     1    gd_17
+   25    26    27    28     1    gd_17
+   26    27    28    29     1    gd_17
+   27    28    29    30     1    gd_20
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3
+   28    31    30    29     2    gi_1
+
+[ dummies2 ]
+24  21  25  1  0.65
+32  7    1  1  0.50
+33  16  14  1  0.50
+
+
+[ constraints ]
+21  25   2 0.1530 ;QM/MM bond
+1   14   2 `echo 1 | awk '{printf("%f",${begin}+(${end}-${begin})/${steps}*$i); }'`
+7   16   2 `echo 1 | awk '{printf("%f",${begin}+(${end}-${begin})/${steps}*$i); }'`
+EOF
+@ i++
+# original constraint, does not work because GROMACS does not allow constraints
+# between dummy centres (yet)
+# 32  33   2 `echo 1 | awk '{printf("%f",${begin}+(${end}-${begin})/${steps}*$i); }'`
+
+cd ..
+
+
+end
+

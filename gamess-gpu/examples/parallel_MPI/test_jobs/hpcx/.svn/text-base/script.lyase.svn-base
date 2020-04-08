@@ -1,0 +1,36 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = z001
+#@ job_name = LYASE
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI/test_jobs/hpcx/hf12.err
+#@ wall_clock_limit = 02:00:00
+#@ tasks_per_node = 32
+#@ cpus = 256
+#@ network.MPI = csss,shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export MP_EAGER_LIMIT=65536
+export MP_SHARED_MEMORY=yes
+export MP_USE_BULK_XFER=yes
+export MEMORY_AFFINITY=MCM
+export MP_EUILIB=us
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK.mpi/examples/parallel_MPI
+
+cp input_files/HF.hf12z-shell4.in datain
+time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/HF.hf12z-shell4.out
+
+#cp input_files/DFT.hf12z-shell4.in datain
+#time /usr/bin/poe ../../bin/gamess-uk > test_jobs/hpcx/DFT.hf12z-shell4.out
+

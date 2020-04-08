@@ -1,0 +1,11 @@
+      integer numdu, iblkdu, maxb, iblkla
+      logical orevis
+_IF(GIGA_DUMP)
+      integer*8 apos
+      common/sector/numdu,iblkdu,orevis(2),
+     + apos(3,508),maxb,iblkla
+_ELSE
+      REAL apos
+      common/sector/numdu,iblkdu,orevis(2),
+     + apos(508),maxb,iblkla
+_ENDIF

@@ -1,0 +1,21 @@
+c
+      integer npes0, nonorm, idomod
+      common /pesinf/ npes0,nonorm,idomod(384)
+c
+      REAL scalf
+      integer mxpes
+      parameter (mxpes=50)
+      common /pesmod1/ scalf(mxpes)
+c
+      REAL cnormod
+      common /pesmod2/ cnormod(384,384)
+c
+      integer intpes, nfrag, nstp
+      common /pesmod3/ intpes,nfrag(2),nstp(4)
+c
+      REAL vecstp, angstp, vec, xcent2
+      common /pesmod4/ vecstp,angstp(3),vec(3),xcent2(3)
+c
+      REAL pmom2
+      common /pesmod5/ pmom2(3,3)
+c

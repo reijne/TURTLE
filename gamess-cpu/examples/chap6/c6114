@@ -1,0 +1,46 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE  
+H2O  TZVP + DIFFUSE S,P,D (5D) TABLE-CI 6M/5R
+MULT 3
+HARMONIC
+ZMAT ANGSTROM
+O
+H 1 0.951
+H 1 0.951 2 104.5
+END
+BASIS 
+TZVP O
+TZVP H
+S O
+1.0 0.02
+P O
+1.0 0.02
+D O
+1.0 0.02
+END
+OPEN 1 1 1 1
+RUNTYPE CI
+CORE
+1 END
+ACTIVE
+2 TO 40 END
+MRDCI DIRECT
+SELECT
+CNTRL 8
+SPIN 3
+SYMMETRY 2
+CONF
+2   3  19   1   2     26
+2   4  19   1   2     26
+2   5  19   1   2     26
+2   6  19   1   2     26
+2   2  20   1     19  26
+2   2  21   1     19  26
+END
+ROOTS 5
+NATORB 
+ENTER 
+EOF

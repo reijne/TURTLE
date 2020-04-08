@@ -1,0 +1,21 @@
+title
+h2o  - masscf   - 3-21g basis
+zmatrix angstrom
+o
+h 1 oh
+h 1 oh 2 hoh
+variables
+oh  0.956
+hoh 104.5 
+end
+scftype masscf
+masscf
+  ncore  1
+  nact   8
+  nels   8
+  nspace 1
+  norb   8
+  mine   8
+  maxe   8
+end
+enter

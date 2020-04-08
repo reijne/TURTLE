@@ -1,0 +1,60 @@
+file ed3 benzcrco3.ed3 keep
+restart
+title
+(c6h6)cr(co)3+ TZVP ROHF 2A1 state from X1A1 Energy = -1611.8919226366 au
+charge 1
+mult 2
+zmatrix angstrom
+cr
+x  1  crx
+c  2  cx  1  90.0
+c  2  cx  1  90.0  3  60.0
+c  2  cx  1  90.0  3  120.0
+c  2  cx  1  90.0  3  180.0
+c  2  cx  1  90.0  3  -120.0
+c  2  cx  1  90.0  3  -60.0
+x  3  1.0  2  90.0  1  180.0
+h  3  ch  9  r  2  180.0
+x  4  1.0  2  90.0  1  180.0
+h  4  ch  11  r  2  180.0
+x  5  1.0  2  90.0  1  180.0
+h  5  ch  13  r  2  180.0
+x  6  1.0  2  90.0  1  180.0
+h  6  ch  15  r  2  180.0
+x  7  1.0  2  90.0  1  180.0
+h  7  ch  17  r  2  180.0
+x  8  1.0  2  90.0  1  180.0
+h  8  ch  19  r  2  180.0
+c  1  crc  2  xcrc  3  0.0
+x 21  1.0  1  90.0  2  0.0
+o 21  co  22  90.0  1  180.0
+c  1  crc  2  xcrc 21  120.0
+x 24  1.0  1  90.0  2  0.0
+o 24  co  25  90.0  1  180.0
+c  1  crc  2  xcrc 21 -120.0
+x 27  1.0  1  90.0  2  0.0
+o 27  co  28  90.0  1  180.0
+variables
+crx            1.6562898 hess     .228424
+cx             1.4216234 hess    3.069981
+ch             1.0890479 hess    2.780431
+crc            1.7764444 hess     .898205
+co             1.1882500 hess    2.617821
+r             93.6845362 hess     .662115
+xcrc         130.5898172 hess    1.903249
+end
+basis 
+tzvp cr
+dzp c
+dzp o
+dz h
+end
+scftype direct gvb
+open 1 1
+level 0.05 2
+vectors 1
+maxcyc 50
+swap
+52 54
+end
+enter

@@ -1,0 +1,27 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+TITLE
+SIH4 - 6-31G* harmonic VALENCE-CI 1M/1R - CI energy -291.3242737
+HARMONIC
+ZMAT 
+SI
+H 1 SIH
+H 1 SIH 2 109.471
+H 1 SIH 2 109.471 3 120.0
+H 1 SIH 2 109.471 4 120.0
+VARIABLES
+SIH 2.80   
+END
+BASIS 6-31G*
+RUNTYPE CI
+CORE
+1 TO 5 END
+ACTIVE
+6 TO 26 END
+DIRECT 8 4 17
+CONF
+2 2 2 2
+ENTER
+EOF

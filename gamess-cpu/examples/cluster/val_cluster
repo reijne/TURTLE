@@ -1,0 +1,104 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../utilities;make validate)
+setenv GAMESS_VTAB ./cluster.vtab
+set path=(../../utilities $path)
+#
+date
+#validate h2co_direct_rhf  LOGS/h2co_direct_rhf.out
+#validate h2co_conv_rhf  LOGS/h2co_conv_rhf.out
+#validate h2co_direct_uhf  LOGS/h2co_direct_uhf.out
+#validate h2co_mp2_opt  LOGS/h2co_mp2_opt.out
+#validate h2co_direct_gvb  LOGS/h2co_direct_gvb.out
+#validate h2co_secd  LOGS/h2co_secd.out
+#validate h2co_dft  LOGS/h2co_dft.out
+#
+validate par_1  LOGS/par_1.out
+validate par_1a LOGS/par_1a.out
+validate par_1b LOGS/par_1b.out
+validate par_1c LOGS/par_1c.out
+validate par_2  LOGS/par_2.out
+validate par_2a LOGS/par_2a.out
+validate par_3  LOGS/par_3.out
+validate par_4  LOGS/par_4.out
+validate par_4_geom  LOGS/par_4_geom.out
+validate par_4a  LOGS/par_4a.out
+validate par_5  LOGS/par_5.out
+validate par_5a LOGS/par_5a.out
+validate par_5b LOGS/par_5b.out
+validate par_6  LOGS/par_6.out
+validate par_6b LOGS/par_6b.out
+validate par_7  LOGS/par_7.out
+validate par_8  LOGS/par_8.out
+#
+validate par_9  LOGS/par_9.out
+validate par_10  LOGS/par_10.out
+validate par_11  LOGS/par_11.out
+validate par_12  LOGS/par_12.out
+# validate par_13  LOGS/par_13.out
+validate par_14  LOGS/par_14.out
+validate par_15  LOGS/par_15.out
+#
+validate par_16  LOGS/par_16.out
+validate par_17  LOGS/par_17.out
+validate par_18  LOGS/par_18.out
+validate par_19  LOGS/par_19.out
+validate par_19_uhf  LOGS/par_19_uhf.out
+validate par_20  LOGS/par_20.out
+#
+validate par_21  LOGS/par_21.out
+validate par_22  LOGS/par_22.out
+validate par_23  LOGS/par_23.out
+validate par_24  LOGS/par_24.out
+validate par_25  LOGS/par_25.out
+validate par_26  LOGS/par_26.out
+validate par_27  LOGS/par_27.out
+validate par_28  LOGS/par_28.out
+validate par_29  LOGS/par_29.out
+validate par_30  LOGS/par_30.out
+validate par_34  LOGS/par_34.out
+validate par_35  LOGS/par_35.out
+validate par_36  LOGS/par_36.out
+validate par_37  LOGS/par_37.out
+validate par_38  LOGS/par_38.out
+validate par_35.jfit  LOGS/par_35.jfit.out
+validate par_36.jfit  LOGS/par_36.jfit.out
+validate par_37.jfit  LOGS/par_37.jfit.out
+validate par_38.jfit  LOGS/par_38.jfit.out
+#
+validate par_40  LOGS/par_40.out
+validate par_40a LOGS/par_40a.out
+validate par_41  LOGS/par_41.out
+validate par_42  LOGS/par_42.out
+validate par_44  LOGS/par_44.out
+#
+validate par_51  LOGS/par_51.out
+validate par_52  LOGS/par_52.out
+validate par_54  LOGS/par_54.out
+validate par_55  LOGS/par_55.out
+validate par_54.dft.hcth LOGS/par_54.dft.hcth.out
+validate par_54.dft.b3lyp LOGS/par_54.dft.b3lyp.out
+validate par_61  LOGS/par_61.out
+validate par_63  LOGS/par_63.out
+validate par_65  LOGS/par_65.out
+#
+validate par_70  LOGS/par_70.out
+validate par_71  LOGS/par_71.out
+#
+validate crno4.start LOGS/crno4.start.out
+validate crno4.restart LOGS/crno4.restart.out
+validate crno4.tzvp LOGS/crno4.tzvp.out
+#
+validate morphine_A2 LOGS/morphine_A2.out
+validate morphine_jfitA2 LOGS/morphine_jfitA2.out
+#
+validate valino LOGS/valino.out
+validate valino.dzvp2 LOGS/valino.dzvp2.out
+validate valino_jfit LOGS/valino_jfit.out
+#
+validate siosi3 LOGS/siosi3.out
+validate siosi4 LOGS/siosi4.out
+validate siosi5 LOGS/siosi5.out
+validate siosi6 LOGS/siosi6.out

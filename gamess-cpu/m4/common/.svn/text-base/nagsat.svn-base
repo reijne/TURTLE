@@ -1,0 +1,5 @@
+      parameter (maxf=10)
+      character*20 fail(maxf)
+      integer nfail(maxf),ifails(maxf)
+      common/nagsat/ fail
+      common/nagsav/ nfail,nf,ifails

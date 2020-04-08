@@ -1,0 +1,40 @@
+#!/bin/sh
+#BSUB -n 128
+#BSUB -W 360
+#BSUB -o benchmark.o%J
+#BSUB -e benchmark.e%J
+#BSUB -J benchmark
+
+cd /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin
+
+rm -rf /scratch/local/gamess/benchmark
+mkdir /scratch/local/gamess/benchmark
+ 
+cp /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/benchmark
+
+cp ../../input_files_benchmarks/DFT.siosi3.347.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.siosi4.617.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.siosi5.1199.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT.siosi6.1687.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfit.siosi3.347.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfit.siosi4.617.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfit.siosi5.1199.in /scratch/local/gamess/benchmark
+cp ../../input_files_benchmarks/DFT_jfit.siosi6.1687.in /scratch/local/gamess/benchmark
+ 
+cd /scratch/local/gamess/benchmark
+
+mpirun -np 128 gamess-uk < DFT.siosi3.347.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.siosi3.347.out
+
+mpirun -np 128 gamess-uk < DFT.siosi4.617.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.siosi4.617.out
+
+mpirun -np 128 gamess-uk < DFT.siosi5.1199.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.siosi5.1199.out
+
+mpirun -np 128 gamess-uk < DFT.siosi6.1687.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT.siosi6.1687.out
+
+mpirun -np 128 gamess-uk < DFT_jfit.siosi3.347.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfit.siosi3.347.out
+
+mpirun -np 128 gamess-uk < DFT_jfit.siosi4.617.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfit.siosi4.617.out
+
+mpirun -np 128 gamess-uk < DFT_jfit.siosi5.1199.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfit.siosi5.1199.out
+
+mpirun -np 128 gamess-uk < DFT_jfit.siosi6.1687.in > /cxfs/HOME2/teras/gamess/MFG/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/origin/DFT_jfit.siosi6.1687.out

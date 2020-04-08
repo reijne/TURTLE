@@ -1,0 +1,64 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ftn003 c2026.exparm
+setenv ftn002 c2026.restart
+setenv ftn001 c2026.coord
+../../bin/gamess << EOF
+title
+formamide (qm+mm peptide/comb onee,diel dist) 
+zmat angs
+c1
+n2 1 r1
+h3 2 r2 1 a1
+h4 2 r3 1 a2 3 d1
+o5 1 r4 2 a3 3 d2
+h6 1 r5 2 a4 3 d3
+variables            
+r1   1. 
+r2   1. 
+r4   1. 
+a1 110. 
+a2 110. 
+a3 110. 
+a4 110. 
+d1 180. 
+d2 180. 
+d3   1. 
+constants
+r3   1.0000
+r5   1.0000
+end                     
+basis  sto3g
+mapping
+1  17 0.0 
+2  19 0.0 
+3  20 0.0 
+4 -21 0.0
+5  18 0.0
+6  -9 0.0
+end
+combined onee
+model
+substitute
+cycles 9999
+mechanics 1
+topology formatted
+nonbonded atoms atoms
+dielectric distance
+force all
+pairlist 200
+vscale 2.0
+escale 2.0
+cuttol 14.0 angs
+initial formatted
+final formatted
+change off
+stepmax 0.2
+minmax 52 52
+xtol 0.002
+runtype optimise hybrid
+threshold 5
+enter
+EOF
+/bin/rm c2026.restart

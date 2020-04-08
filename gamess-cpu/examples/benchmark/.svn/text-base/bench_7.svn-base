@@ -1,0 +1,49 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed4 mfged4
+setenv ed5 mfged5
+setenv ed6 mfged6
+../../bin/gamess << EOF
+time 180
+title
+h2co <-> h2 + co 1a' ts /tzvp+f//6-31g CI energy -114.13905598 au
+zmat angs
+o
+c 1 co
+x 2 1.0 1 90.0
+x 2 chh 3 ang1 1 180.0
+x 4 1.0 2 90.0 3 0.0
+x 4 1.0 5 ang2 3 0.0
+h 4 xh 6 90.0 2 180.0
+h 4 xh 6 90.0 2 0.0
+variables
+co             1.1567647 
+chh            1.2933382 
+xh             0.6560768 
+ang1          42.5856325 
+ang2          57.8963721 
+end
+basis
+tzv c
+tzv o
+tzvp h
+d c
+1.0 1.2
+d c
+1.0 0.4
+d o
+1.0 1.5
+d o
+1.0 0.5
+end
+runtype ci
+direct 16 10 54
+conf
+2 2 2 2 2 2 2 2 0 0
+2 2 2 2 2 2 0 2 2 0
+2 2 2 2 2 0 2 2 0 2
+natorb 10 0 print
+enter
+EOF
+/bin/rm mfg*

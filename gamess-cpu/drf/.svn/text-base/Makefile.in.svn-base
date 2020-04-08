@@ -1,0 +1,57 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+# 
+# Use the configure script in ../m4
+#
+#
+DRFOBJ = drfctl.o \
+	drfsub.o \
+	neqpot.o \
+	radius.o \
+	drfsolv.o \
+	drfscf.o \
+	surfsub.o \
+	hondext.o \
+	dppop.o \
+	fld.o \
+	missing.o \
+	mcsub.o \
+	drfextra.o \
+	rfin.o \
+	mscon.o \
+	drfgrad.o \
+	extgrad.o \
+	drfder.o 
+
+#if charmm gromacs#
+DRFLIB = $(GMSLIB)
+## DRFLIB_OLD is a hack to keep older versions of CHARMM happy
+DRFLIB_OLD = ../../../../lib/$(CHMHOST)/drf.a
+#else#
+DRFLIB = libdrf.a
+#endif#
+
+drflib:	$(DRFLIB)
+
+$(DRFLIB):	$(DRFOBJ)
+		$(ARCHIVE) $(DRFLIB)  $(DRFOBJ) 
+		$(RANLIB) $(DRFLIB)
+#if charmm#
+		touch $(DRFLIB_OLD)
+#endif#
+
+clean:
+	touch x.o x~ x.f \#x
+	rm -f *.o *.f *~ \#* $(DRFLIB) 
+#if charmm#
+	rm -f $(DRFLIB_OLD)
+#endif#
+#if coverage#
+	rm -f *.gcda *.gcno *.html
+#endif#
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+#

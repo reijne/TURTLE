@@ -1,0 +1,10 @@
+c
+_IF(cray,ksr,i8)
+      integer mms,ms,nd32,n32m,mmms
+_ELSEIF(convex,i8drct)
+      integer *8 mms,ms,nd32,n32m,mmms
+_ELSE
+      REAL mms,ms,nd32,n32m,mmms
+_ENDIF
+      common /cdcryz/ mms,ms,nd32,n32m,mmms
+c

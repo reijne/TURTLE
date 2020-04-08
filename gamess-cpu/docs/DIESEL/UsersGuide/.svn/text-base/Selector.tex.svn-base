@@ -1,0 +1,193 @@
+\subsection{Selector}
+
+
+
+
+\subsubsection{Invocation}
+{\tt sel} {\it arguments}
+
+\subsubsection{Command Line Arguments}
+\begin{itemize}
+\item {\tt -r }: recalculation mode: perform the perturbation estimation
+on a given MR-CI tree (useful after an applied merge operation).
+\end{itemize}
+
+
+
+
+
+\subsubsection{Files}
+
+
+\begin{tabular}{r|r|r|p{7cm}}
+status &name &type &content \cr
+\TspaceII
+\noalign{\hrule}
+\TspaceII
+in & stdin & ASCII & user input 
+(reference configurations, selection thresholds, etc.), see \ref{SelInput}\cr
+\TspaceII
+in & "fort.31"%\footnote{or whatever has been 
+%specified in the "MOIntegralFilename"-assignment} 
+&binary&integrals in MO basis (AO$\to$MO transformation performed),
+point symmetry,
+number of orbitals in certain irreducible representation\cr
+\TspaceII
+\TspaceII
+out & stdout & ASCII &program output\cr
+&&& (containing protocol, eigenvalues, statistics, etc.,\cr
+&&& depending on verbosity level)\cr
+out& "ConfTree.dat" & ASCII &tree of selected configurations\cr
+\end{tabular}
+
+
+
+
+\subsubsection{User Input and Keywords}
+\label{SelInput}
+\label{SelectorKeywords}
+\begin{supertabular}{p{3cm}|c|p{1.5cm}|p{1.5cm}|p{5cm}}
+&sta- &de-&argument &\\
+keyword	&tus&fault&type &description\\[5pt]
+\hline&&&&\\[-9pt]
+{\tt Multiplicity}	&req. &-- &\key{num} &
+multiplicity of state ($=2S+1$, $S$: spin quantum number) \tnl
+{\tt Selection\-Thresholds}	&req. &-- &\key{floatSet} &
+a set of thresholds in Hartree for selection procedure\tnl
+{\tt RefConfs}	&req. &-- &\key{confSet} &
+set of configurations spanning the multi reference space
+(used as basis for excitations)\tnl
+{\tt NumberOf\-Electrons}	&opt. & conf. input&\key{num} & \tnl
+{\tt ExcitationLevel}	&opt. & 2 &\key{num} &
+maximum excitation level used in MR-CI\tnl
+{\tt selectInternal}	&opt. & no &\key{bool} &
+completely select internal space\tnl
+{\tt selectNth\-Excitation}	&opt. &\{\} &\key{numSet} &
+set of excitation levels to be completely selected\tnl
+{\tt AnnihilatorSpace}	&opt. &inactive &\key{numSet} &
+orbitals from which electrons may be excited\tnl
+{\tt CreatorSpace}	&opt. &inactive &\key{numSet} &
+orbitals to which electrons may be excited\tnl
+{\tt ActiveSpace\-ExcitationLevel}	&opt. &1 &\key{num} &
+excitation level to generate references\tnl
+{\tt maxRefOpenShells}	&opt. &4 &\key{num} &
+maximum number of open shells for references\tnl
+{\tt FirstGuessConfs}	&opt. &3 &\key{num} &
+number of configurations increased by the number of ordered roots
+to be used from the first guess\tnl
+{\tt MORestrictions}	&opt. &none &\key{MO\-Restrict} &
+restrictions on the MO occupation pattern to be applied
+on the generated configuration space\tnl
+{\tt MOEquivalence}	&opt. &none &\key{MOEqui\-valence} &
+equivalent (degenerated) MO list; 
+if a selected configuration contains an equivalent MO
+the same configuration with equivalent MOs substituted is
+selected also\tnl
+{\tt MOStatistics}	&opt. &no &\key{boolean} &
+print out MO statistics\tnl
+{\tt EstimationMode}	&opt. &Epstein\-Nesbet &\key{Estima\-tionMode} &
+determines the method to estimate the energy contribution of a certain
+configuration\tnl
+{\tt StorePTEnergy}	&opt. &no &\key{bool} &
+flag if perturbational energies are stored in configuration tree\tnl
+{\tt StorePTCoef}	&opt. &no &\key{bool} &
+flag if perturbational CI coefficients are stored in configuration tree\tnl
+{\tt PTRefConfs}	&opt. &{\tt RefConfs} &\key{confSet} &
+set of configurations to be used as zero order
+wave function by perturbation theory\tnl
+\end{supertabular}
+
+\bigskip
+
+If the reference configurations are given explicitly they are checked for
+consistency among each other and the {\tt IrRep}-keyword becomes optional. Any
+specified number of electrons or irreducible representation is checked against
+the given references.
+
+
+\subsubsection{Automatic Initial Reference Space Guess}
+Figure \ref{SpaceGuess} shows the procedure that is used to generate
+a first reference configuration guess. It works pretty well for different
+irreducible representations and several roots.
+This feature is very useful as it saves
+one from the error intensive handling with the MO numbers.
+This procedure is quite reliable. There may be problems if many roots
+are ordered and the wave function is "diffuse". In that case
+the selection due to the diagonal element may be not really optimal.
+\begin{figure}[h]
+\begin{center}
+\input XFig/SpaceGuess.pstex
+\end{center}
+\caption{steps to generate first reference space guess}
+\label{SpaceGuess}
+\end{figure}
+
+
+\subsubsection{Input Examples}
+
+\begin{description}
+\item[first example:]
+\ 
+
+\begin{footnotesize}
+\begin{verbatim}
+# this is a comment
+VerbosityLevel          = { RefGuess RefMatEigenValues IterationBlocks WaveFunction }
+MORestrictions          = { 21-24>0 30,31=1 25<2 50,51,52<=2 }
+MOIntegralFilename      = fort.31
+MOIntegralFileFormat    = auto
+NumberOfElectrons       = 19
+Multiplicity            = 2
+IrRep                   = 2
+ExcitationLevel         = 2
+SelectionThresholds     = { 0.5 }
+Roots                   = { 1 2 5 }
+selectInternal          = no
+selectNthExcitation     = { }
+RefConfs                = {
+1 20 1 2 3 4 5 6 7 8 9
+# another comment
+1 21 1 2 3 4 5 6 7 8 9
+3 10 15 25 1 2 3 4 5 6 7 8
+}
+\end{verbatim}
+\end{footnotesize}
+
+\item[second example:]
+\ 
+
+\begin{footnotesize}
+\begin{verbatim}
+#this works too!
+MULTIPLICITY = 2;excitationlevel=2
+NumberOfElectrons       = 19
+ SelectionThresholds= { 0.5 }
+RefConfs                = auto
+\end{verbatim}
+\end{footnotesize}
+Note that the starting configurations are generated automatically so there
+is no need to worry about the sophisticated process of MO-renumbering.
+
+The reference configuration guess is performed by the following scheme:
+\begin{enumerate}
+\item The closed shell ground state occupation pattern is calculated.
+This is done by calculating the diagonal elements of the Hamilton Matrix
+whith any possible occupation pattern matching the irreducible representations
+and the given number of electrons. The configuration lowest in energy is
+selected as a base for the following step. If the number of given electrons is
+odd the calculation is done with the positive ion.
+\item A certain set of MOs is chosen to be active. This set consists of
+the HOMO$\ldots$HOMO$-$3 and the LUMO$\ldots$LUMO$+$5 in every irreducible
+representation.
+\item Within the active space single, double, triple, and quadruple
+excitations are performed and the diagonal hamilton matrix elements are
+calculated. The 3+{\it number of roots} configurations lowest in energy
+are chosen to be the reference configuration set.
+\end{enumerate}
+
+This scheme is rather reliable especially for ground state occupation patterns.
+There may be problems if there are many roots ordered which can be described
+properly by several configurations only. Usually the following
+iterative space generation process is able to handle this problem.
+
+\end{description}

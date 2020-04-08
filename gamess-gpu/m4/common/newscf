@@ -1,0 +1,113 @@
+      logical onews,oscfprint(20), hardfail
+      common/paultest/onews, oscfprint, hardfail
+c
+c function declarations
+c
+_IF(newscf_f77)
+      external nuclear_energy
+      REAL nuclear_energy
+_ENDIF(newscf_f77)
+c
+c print control
+c
+      integer PR_VECTORS
+      parameter(PR_VECTORS=1)
+      integer PR_FOCK
+      parameter(PR_FOCK=2)
+      integer PR_DENSITY
+      parameter(PR_DENSITY=3)
+      integer PR_GUESS
+      parameter(PR_GUESS=4)
+      integer PR_FULL
+      parameter(PR_FULL=5)
+      integer PR_FRONTIER
+      parameter(PR_FRONTIER=6)
+      integer PR_DIIS
+      parameter(PR_DIIS=7)
+      integer PR_TIMINGS
+      parameter(PR_TIMINGS=8)
+
+      integer PRINT_FRONT_DEFAULT
+      parameter( print_front_default = 12 )
+c
+c Convergence control
+c
+      integer maxphase
+      parameter(maxphase=16)
+
+      logical lock_vec(0:maxphase)
+      logical restore_vec(maxphase)
+      logical new_diis(maxphase)
+      logical diis(0:maxphase)
+      logical new_extrap(0:maxphase)
+      logical extrap(0:maxphase)
+
+      integer smear(0:maxphase)
+
+      REAL shift(0:maxphase,2)
+      REAL new_esmear_start(0:maxphase)
+      REAL new_esmear_final(0:maxphase)
+      REAL egap_scale(0:maxphase)
+      
+      integer nphase
+cjens nnext stores the number of phases a particular phase references
+      integer nnext(maxphase)
+cjens nextphase holds next phase for a give phase: indexed by nnext
+      integer nextphase(maxphase,maxphase)
+
+      REAL tester_val(0:maxphase,maxphase)
+      integer tester_chk(maxphase,maxphase)
+
+      integer ncyc_val(0:maxphase,maxphase)
+      integer ncyc_chk(maxphase,maxphase)
+
+cjens     
+      integer ntotcyc_chk(maxphase,maxphase)
+      integer ntotcyc_val(0:maxphase,maxphase)
+      character*132 phase_info(maxphase,maxphase)
+      character*132 pchange_info
+
+      REAL dele_val(0:maxphase,maxphase)
+      integer dele_chk(maxphase,maxphase)
+
+      REAL abs_dele_val(0:maxphase,maxphase)
+      integer abs_dele_chk(maxphase,maxphase)
+
+      integer maxcycp
+
+      REAL extrap_coef(0:maxphase)
+      REAL extrap_tol(0:maxphase)
+
+      common/paulconv/shift,tester_val,dele_val,abs_dele_val,
+     & extrap_tol, extrap_coef
+
+      common/paulconv2/lock_vec,diis,
+     &     nnext, ncyc_val, ncyc_chk,
+     &     nextphase, tester_chk, dele_chk,abs_dele_chk,nphase,
+     &     maxcycp, restore_vec, new_diis, extrap, new_extrap,
+     &     ntotcyc_val, ntotcyc_chk
+
+cjens block to hold character data     
+      common/paulconvc/phase_info, pchange_info
+
+      common /ianfermi/ egap_scale, new_esmear_start, new_esmear_final, 
+     +     smear
+
+      integer front_print_evals
+      common/ianprfront/ front_print_evals
+
+
+      integer CONV_INACTIVE
+      parameter(CONV_INACTIVE=1)
+      integer CONV_ABOVE
+      parameter(CONV_ABOVE=2)
+      integer CONV_BELOW
+      parameter(CONV_BELOW=3)
+
+      integer SMEAR_OFF
+      parameter(SMEAR_OFF=0)
+      integer SMEAR_ENERGY
+      parameter(SMEAR_ENERGY=1)
+      integer SMEAR_GAP
+      parameter(SMEAR_GAP=2)
+

@@ -1,0 +1,11 @@
+c
+      REAL  vg, gxp, gyp, gzp, d2, valmo, occa, occb
+      REAL  rij, timat, denat, encoat, eltot
+      integer idenfu,nangpr, ncorxx, ndeg, nomo
+      logical odenfu, osymm, osc
+      common /dnfnw/ odenfu, osymm, osc, idenfu, nangpr, ncorxx,
+     +               vg(200),gxp(200),gyp(200),gzp(200),d2(200),
+     +               valmo(200),occa(200),occb(200),
+     +               rij(1275),timat(50),denat(50),encoat(50),ndeg(50),
+     +               eltot,nomo
+c

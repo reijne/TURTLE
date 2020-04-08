@@ -1,0 +1,4 @@
+#!/bin/csh
+cd /scratch/mguest/GAMESS-UK/examples/hpux
+cp save_2.in datain
+time mpirun -np 4 ../../bin/gamess-uk > save_2.out

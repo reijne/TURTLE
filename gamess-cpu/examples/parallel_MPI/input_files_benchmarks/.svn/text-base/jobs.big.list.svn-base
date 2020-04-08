@@ -1,0 +1,14 @@
+# These are the list of jobs that may to be run to benchmark the
+# MPI/ScaLAPACK version of GAMESS-UK. The jobs are split up into 
+# groups depending on their functionality. If you don't need/want
+# to run a particular job, just comment out the job by placing a
+# hash symbol (#) at the start of the line
+
+# HF SCF
+## The following 2 jobs may require 128 CPUs
+HF.hf12z-shell4
+HF.siosi7.3975
+## DFT jobs
+# The following 2 jobs may require 128 CPUs
+DFT.hf12z-shell4
+DFT.siosi7.3975

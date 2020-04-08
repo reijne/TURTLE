@@ -1,0 +1,39 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2o dimer (expt. monomer geoms.) 6-31g* DIRECT-scf nbo (deletions test)
+nosym
+zmatrix angstrom
+O
+O  1  R
+X  2  1.0  1  A1
+H  2  ROH  3  HALF  1   90.
+H  2  ROH  3  HALF  1  270.
+X  1  1.0  2  A2    3  180.
+H  1  ROH  6  HALF  2    0.
+H  1  ROH  6  HALF  2  180.
+variables
+R       2.974
+A1    119.0
+A2     56.85
+ROH     0.957
+HALF   52.25
+end
+basis 6-31g*
+scftype direct
+vectors atoms
+enter 1
+runtype analyse
+scftype direct
+nbo
+vectors 1
+enter 1
+\$nbo  \$end
+ \$del
+  nostar
+  zero 1 deloc    from 1 to 2
+  zero 1 deloc    from 2 to 1
+  zero 2 deloc    from 1 to 2
+                  from 2 to 1
+ \$end
+EOF

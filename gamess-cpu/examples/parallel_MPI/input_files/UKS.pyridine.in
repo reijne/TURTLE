@@ -1,0 +1,53 @@
+title
+pyridine cation tzvp DFT B3LYP  -248.0077243942 au
+charge 1
+mult 2
+zmat angstrom
+n
+x 1 1.0
+x 1 1.0 2 90.
+x 1 1.0 2 90. 3 90.
+c 1 c4n 3 90. 2 180.
+x 5 1.0 1 90. 3 0.0
+x 5 1.0 1 90. 4 0.0
+h 5 ch4 6 90. 1 180.
+c 1 c2n 2 c2nz 3 180.
+c 1 c2n 2 c2nz 3 0.0
+c 9 c2c3 1 ccn 2 180.
+c 10 c2c3 1 ccn 2 180.
+h 9 c2h6 1 nch2 2 0.0
+h 10 c2h6 1 nch2 2 0.0
+h 11 c3h5 9 c2c3h 1 180.
+h 12 c3h5 10 c2c3h 1 180.
+variables
+c4n            2.7684290
+ch4            1.0726534
+c2n            1.3322093
+c2c3           1.3863150
+c2h6           1.0705170
+c3h5           1.0715859
+c2nz         120.5740998
+ccn          122.5507912
+nch2         116.3517522
+c2c3h        120.2853386
+end
+basis tzvp
+scftype direct uhf
+newscf
+print full
+Phase  1
+Level  1.000000000000000000
+DIIS
+#  Switch to phase  2
+next  2
+Tester below  0.015
+Phase  2
+Level  0.000000000000000000E+00
+DIIS
+#  Converge calculation
+next  0
+Tester below  1.0e-5
+maxcyc 40
+end
+dft b3lyp
+enter

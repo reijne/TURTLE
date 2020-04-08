@@ -1,0 +1,28 @@
+c
+c...  rpade       : the gradients of the excitation energies.
+c...  rpad_nstates: the number of excited states for which the gradients
+c...                should be calculated.
+c...  rpad_istates: the states for which the gradients should be
+c...                calculated.
+c...  max_rpad_states: the maximum number of excited states.
+c...  ipzsu       : the address of the Z vector in AO basis
+c...                (needed to pass Z vectors around in derivative
+c...                 integral code)
+c...  ipysu       : the address of the Y vector in AO basis
+c...                (needed to pass Y vectors around in derivative
+c...                 integral code)
+c...  isizegij    : the number of no-zeros in the Gamma_ij matrix
+c...  isizegab    : the number of no-zeros in the Gamma_ab matrix
+c...  orpagrad    : logical signalling whether we want RPA gradients
+c...                or not.
+c
+      REAL rpade
+      integer rpad_nstates, rpad_istates, max_rpad_states
+      integer ipzsu, ipysu, nrpastate, isizegij, isizegab
+      logical orpagrad
+      parameter(max_rpad_states=10)
+      common/rpadcom/rpade(3,maxat,max_rpad_states),
+     +   rpad_nstates(8), rpad_istates(max_rpad_states,8),
+     +   ipzsu, ipysu, nrpastate, isizegij, isizegab, 
+     +   orpagrad
+c

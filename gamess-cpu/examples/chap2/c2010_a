@@ -1,0 +1,210 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 3-21g  -  SCF 
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g default basis - 1-e properties
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+property
+4 c
+4 o
+end
+vectors 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g default basis - boys valence lmos
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+local
+3 to 8 end
+vectors 1
+enter 20
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g default basis - pipek valence lmos
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+local overlap 
+3 to 8 end
+vectors 1
+enter 20
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g default basis - dma analysis
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+dma
+vectors 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g default basis - graphical analysis (new module)
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+graphics
+gdef
+type 2d
+points 99
+title
+square 2d grid (99*99) 
+calc
+type atom
+title
+h2co -atom difference
+section 150
+plot
+type line
+title
+atom difference density lineprinter plot
+calc
+type dens
+section 151
+title
+h2co - total density
+plot
+type line
+title
+density lineprinter plot
+calc
+type mo 2
+title
+h2co mo 2 amplitude
+section 152
+plot
+type line
+title
+mo 2 lineprinter plot
+gdef
+type 2d
+points 25
+title 
+square 2d grid (25*25)
+calc
+type pote
+title
+h2co - potential
+section 153
+plot
+type line
+title
+potential lineprinter plot (with wrong contours)
+vectors 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g basis - analysis of valence mos
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+mulliken atom orbital 3 to 8 end
+vectors 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 3-21g basis - analysis of valence mos - defined groups
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+mulliken group 3 to 8 end
+Cs 1 2 6
+Cp 3 to 5 7 to 9
+Os 10 11 15
+Op 12 to 14 16 to 18
+Hs 19 to 22
+end
+vectors 1
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co+ - 3-21g basis - analysis of valence mos
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+scftype uhf
+natorb 10 print
+enter
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co+ - 3-21g basis - analysis of valence mos
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+runtype analyse
+scftype uhf
+mulliken atom unpa orbital 3 to 8 end
+vectors 10
+enter
+EOF

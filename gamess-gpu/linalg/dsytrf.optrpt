@@ -1,0 +1,30 @@
+
+Begin optimization report for: DSYTRF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsytrf.f(266,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dsytrf.f(266,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dsytrf.f(266,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsytrf.f(225,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dsytrf.f(276,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsytrf.f(255,18) ]
+LOOP END
+===========================================================================

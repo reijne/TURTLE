@@ -1,0 +1,12 @@
+c
+      character*80 textrf
+      common /texneq/ textrf
+c
+      character*80 textneq
+      common /neqtex/ textneq(mxneq+1)
+c
+      integer index, ineqix
+      common /indxneq/ index,ineqix(mxneq+1)
+c
+      REAL realneq
+      common /bufb/ realneq(mxneq*10)

@@ -1,0 +1,312 @@
+
+Begin optimization report for: TNORM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(28,10)
+<Peeled, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at inverm.F(28,10)
+<Distributed chunk1>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(28,10)
+<Remainder, Distributed chunk1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(28,10)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at inverm.F(28,10)
+<Distributed chunk2>
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 29 and  line 31
+LOOP END
+
+LOOP BEGIN at inverm.F(28,10)
+<Remainder, Distributed chunk2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: LUMP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(103,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 107 and  line 106
+LOOP END
+
+LOOP BEGIN at inverm.F(103,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(130,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(130,10)
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ inverm.F(131,28) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(130,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at inverm.F(130,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at inverm.F(121,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at inverm.F(117,21)
+      remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ISOEV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(197,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(197,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(197,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(209,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 214 and  line 224
+LOOP END
+
+LOOP BEGIN at inverm.F(209,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRTEST
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(277,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 278 and  line 278
+LOOP END
+
+LOOP BEGIN at inverm.F(306,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 311 and  line 307
+LOOP END
+
+LOOP BEGIN at inverm.F(330,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 335 and  line 331
+LOOP END
+
+LOOP BEGIN at inverm.F(352,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(365,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at inverm.F(386,36)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at inverm.F(375,19)
+      remark #15522: loop was not vectorized: loop control flow is too complex. Try using canonical loop form.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: STURMI
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(469,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: INVERM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(567,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(567,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(567,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at inverm.F(567,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(575,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(575,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(575,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(575,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(580,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(580,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(580,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at inverm.F(580,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(594,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 610 and  line 607
+LOOP END
+
+LOOP BEGIN at inverm.F(625,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 633 and  line 629
+LOOP END
+
+LOOP BEGIN at inverm.F(641,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(641,10)
+   remark #15301: REVERSED LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(641,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(641,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(654,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(654,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(654,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(666,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at inverm.F(666,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(666,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at inverm.F(674,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(674,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at inverm.F(674,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at inverm.F(654,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: LBISEC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(760,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 765 and  line 761
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at inverm.F(729,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: CINPRD
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at inverm.F(796,10)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+===========================================================================

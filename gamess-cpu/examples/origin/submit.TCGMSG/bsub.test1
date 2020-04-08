@@ -1,0 +1,15 @@
+#!/bin/csh
+#BSUB -W 0:15
+#BSUB -M 262144
+#BSUB -n 4
+#BSUB -J crno4
+#BSUB -o crno4.o%J
+#BSUB -e crno4.e%J
+#BSUB -s /bin/csh
+#
+hostname
+cd /scratch/local/gamess
+/bin/cp /home/u3/gamess/GAMESS-UK/examples/origin/crno4.dat .
+/bin/cp /home/u3/gamess/GAMESS-UK/examples/origin/gamess.p .
+/home/u3/gamess/GAMESS-UK/bin/parallel gamess < crno4.dat > /home/u3/gamess/GAMESS-UK/examples/origin/crno4.out
+#

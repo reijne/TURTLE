@@ -1,0 +1,152 @@
+
+Begin optimization report for: ZHERK
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zherk.f(183,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(184,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(184,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(189,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(190,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(190,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(198,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(199,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(199,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(204,22)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(206,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(206,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(222,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(224,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(224,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at zherk.f(228,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(235,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zherk.f(238,30)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zherk.f(238,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zherk.f(228,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(246,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(248,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(248,26)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at zherk.f(253,26)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zherk.f(259,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zherk.f(263,30)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zherk.f(263,30)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zherk.f(253,26)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(275,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(276,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zherk.f(278,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at zherk.f(288,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 289 and  line 289
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zherk.f(298,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zherk.f(300,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 301 and  line 301
+   LOOP END
+
+   LOOP BEGIN at zherk.f(308,22)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zherk.f(310,26)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

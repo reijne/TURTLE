@@ -1,0 +1,18 @@
+#!/bin/sh
+#BSUB -n 64
+#BSUB -W 60
+#BSUB -o par20.o%J
+#BSUB -e par20.e%J
+#BSUB -J par20
+
+cd /home/u3/gamess/GAMESS-UK/examples/origin
+
+rm -rf /scratch/local/gamess/par_20
+mkdir /scratch/local/gamess/par_20
+ 
+cp /home/u3/gamess/GAMESS-UK/bin/gamess-uk /scratch/local/gamess/par_20
+cp par_20.in /scratch/local/gamess/par_20
+ 
+cd /scratch/local/gamess/par_20
+
+mpirun -np 64 gamess-uk < par_20.in > /home/u3/gamess/GAMESS-UK/examples/origin/par_20.out.64

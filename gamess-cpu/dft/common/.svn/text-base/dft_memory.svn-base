@@ -1,0 +1,14 @@
+C *Contains pointers and information about issued memory. 
+c  Used for general    *
+C *book keeping of memory.
+      integer maxalloc
+      Parameter(maxalloc=50)
+      REAL  mem_dp
+      integer mem_int
+      integer dp_offset,int_offset
+      character*6 dp_name,int_name
+      character*1 dp_loc,int_loc
+      common/memory/mem_dp(maxalloc),dp_offset(maxalloc),
+     &              dp_name(maxalloc),dp_loc(maxalloc),
+     &              mem_int(maxalloc),int_offset(maxalloc),
+     &              int_name(maxalloc),int_loc(maxalloc)

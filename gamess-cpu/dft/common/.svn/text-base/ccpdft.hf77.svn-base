@@ -1,0 +1,122 @@
+c
+c flag specifying if we are doing a dft calc
+c
+      logical occpdft
+      common/ccpdft/occpdft
+c
+c  CCPDFT API declarations
+c
+      logical CD_2e
+      integer CD_4c2eon
+      integer CD_abort
+      integer CD_accuracy
+      logical CD_active
+      integer CD_assign_grid
+      integer CD_ang_npoints_row
+      integer CD_auto_ang_prune
+      logical CD_check_print
+      integer CD_chf_dksm_ao
+      integer CD_chf_dksm_mo
+      integer CD_chf_lhs_ao
+      integer CD_chf_lhs_mo
+      integer CD_chf_rhs_ao
+      integer CD_chf_rhs_mo
+      integer CD_clone_grid
+      integer CD_conv_prune_on
+      integer CD_create_grid
+      integer CD_debug
+      integer CD_defaults
+      integer CD_defaults_old
+      integer CD_dksm_exp_ao
+      integer CD_dksm_exp_mo
+      integer CD_euleron
+      integer CD_gausslon
+      integer CD_generation
+      logical CD_gradcorr
+      integer CD_gradquad
+      integer CD_gridatomradius
+      integer CD_gridscale
+      integer CD_hess_ao
+      integer CD_hess_mo
+      logical CD_HF_coulomb
+      logical CD_HF_coulomb_deriv
+      logical CD_has_HF_exchange
+      REAL    CD_has_HF_exchange_weight
+      logical CD_HF_exchange
+      REAL    CD_HF_exchange_weight
+      logical CD_ignore_accuracy
+      integer CD_init
+      integer CD_inttol
+      logical CD_is_rks
+      logical CD_is_jfiton
+      logical CD_is_jfitmem
+      integer CD_jfit_clean1
+      integer CD_jfit_clean2
+      logical CD_jfit_incore
+      integer CD_jfit_init1
+      integer CD_jfit_init2
+      integer CD_jfitoff
+      integer CD_jfiton
+      integer CD_jfitgon
+      integer CD_jmulton
+      integer CD_lebedevon
+      integer CD_logon
+      integer CD_memreq_chf_dksm_mo
+      integer CD_memreq_chf_lhs_mo
+      integer CD_memreq_chf_rhs_ao
+      integer CD_memreq_chf_rhs_mo
+      integer CD_memreq_energy
+      integer CD_memreq_energy_ao
+      integer CD_memreq_energy_mo
+      integer CD_MHL_ang_prune
+      integer CD_over
+      integer CD_pener
+      integer CD_pole
+      integer CD_pruneatomradius
+      integer CD_psitol
+      integer CD_rad_npoints_row
+      integer CD_radscale_scheme
+      integer CD_request
+      logical CD_request_multstate
+      integer CD_reset_2e
+      integer CD_rks
+      integer CD_schwarz
+      integer CD_screen
+      integer CD_screenatomradius
+      integer CD_set_2e
+      integer CD_set_functional
+      integer CD_set_ignore_accuracy
+      integer CD_set_print_level
+      integer CD_set_weight
+      integer CD_sortpoints
+      integer CD_energy
+      integer CD_energy_ao
+      integer CD_energy_mo
+      integer CD_forces_ao
+      integer CD_uks
+      integer CD_xcfiton
+      integer CD_import_geom
+      integer CD_update_geom
+      integer CD_warn
+      integer CD_weightatomradius
+c
+      integer gden_init
+      integer gden_energy
+      integer gden_forces
+c
+c print control
+c
+      integer PRINT_NONE
+      parameter(PRINT_NONE=0)
+
+      integer PRINT_LOW
+      parameter(PRINT_LOW=2)
+
+      integer PRINT_DEFAULT
+      parameter(PRINT_DEFAULT=5)
+
+      integer PRINT_HIGH
+      parameter(PRINT_HIGH=7)
+
+      integer PRINT_ALL
+      parameter(PRINT_ALL=10)

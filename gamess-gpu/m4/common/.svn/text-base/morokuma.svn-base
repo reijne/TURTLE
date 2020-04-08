@@ -1,0 +1,37 @@
+c
+c  control parameters for morokuma energy decomposition
+c  analysis
+c
+      logical omorok, oifc, oife, oifh
+      integer imode, ifrag, ifocc, imoro
+      REAL emorok
+      common/morok1/emorok(0:4,2),imode,ifrag(maxorb),
+     &     ifocc(maxorb),imoro, omorok, 
+     &     oifc, oife, oifh
+      character*20 fragname
+      common/morokc/fragname(3)
+
+c
+c  settings
+c
+      integer ALL_BLOCKS
+      parameter (ALL_BLOCKS=0)
+      
+      integer ESX
+      parameter (ESX=1)
+
+      integer ESX_PLX
+      parameter (ESX_PLX=2)
+
+      integer ESX_CTT
+      parameter (ESX_CTT=3)
+
+      integer ESX_EX
+      parameter (ESX_EX=4)
+
+      integer YES_K
+      parameter (YES_K=1)
+
+      integer NO_K
+      parameter (NO_K=2)
+

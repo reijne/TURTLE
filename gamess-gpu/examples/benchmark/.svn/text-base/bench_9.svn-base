@@ -1,0 +1,38 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ed11 mfged11
+setenv ed16 mfged16
+setenv ed18 mfged18
+setenv ed0 mfged0
+../../bin/gamess << EOF
+time 180
+title
+h3si-n=c=o mp2/6-31g*   energy (mp2) -458.43411929 au
+zmat angs
+n
+c 1 nc
+si 1 sin 2 sinc
+o 2 co 1 nco 3 180.
+x 3 1.0 1 alp 2 0.0
+h 3 hsi 5 hsix 1 180.
+h 3 hsi 5 hsix 1 60.
+h 3 hsi 5 hsix 1 -60.
+variables
+nc             1.2045590 hess        1.382807
+sin            1.7331177 hess        0.360475
+co             1.1776327 hess        1.187815
+hsi            1.4706653 hess        0.785899
+sinc         156.2821200 hess        0.206895
+nco          177.3059131 hess        0.232947
+alp            0.7181812 hess        0.234634
+hsix         108.5490148 hess        0.747454
+end
+basis 6-31g*
+runtype optimize
+xtol 0.016
+scftype mp2
+enter
+EOF
+/bin/rm mfg*

@@ -1,0 +1,13 @@
+#@ executable = /usr/bin/poe
+#@ min_processors =  4
+#@ max_processors =  4
+#@ output =  /h/wab/GAMESS-UK/examples/sp2/neon_20_uhf.out
+#@ error =  /h/wab/GAMESS-UK/examples/sp2/par.err
+#@ job_type = parallel
+#@ requirements = (Adapter == "hps_user") && (Pool == 1)
+#@ arguments = /h/wab/GAMESS-UK/bin/gamess_mp2 -euilib us
+#@ input =  /h/wab/GAMESS-UK/examples/sp2/neon.in
+#@ initialdir = /scratch/wab
+#@ class = medium
+#@ environment = MP_CSS_INTERRUPT=yes
+#@ queue

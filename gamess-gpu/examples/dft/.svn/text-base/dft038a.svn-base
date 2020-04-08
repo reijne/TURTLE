@@ -1,0 +1,28 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+h2co - 6-31G - DFT/B88B95 default quad. / energy = -114.4345149242 au
+charge 1
+mult 2
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hch
+h 1 ch 2 hch 3 180.0
+variables
+co 1.2
+ch 1.1
+hch 120.0
+end
+basis 6-31g
+runtype optimise
+scftype uhf
+dft b88_x b95_c
+dft gradquad on
+enter
+runtype force
+scftype uhf
+dft b88_x b95_c
+dft gradquad on
+enter
+EOF

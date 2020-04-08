@@ -1,0 +1,60 @@
+#!/bin/csh
+#
+#BSUB -n 32
+#BSUB -W 120
+#BSUB -o validate-HF.o%J
+#BSUB -e validate-HF.o%J
+#BSUB -J validate-HF
+#
+
+set origin=$cwd/LOGS
+#set scratch=/scratch/local/gamess/validate
+set scratch=$TMPDIR/tmp$$
+
+rm -rf $scratch
+mkdir $scratch
+mkdir $origin
+echo $origin
+echo $scratch
+ 
+cp ../../../../bin/gamess-uk $scratch
+
+cp ../../input_files/HF.crno4.in $scratch
+cp ../../input_files/HF_2e.crno4.in $scratch
+cp ../../input_files/ROHF.pyridine.in $scratch
+cp ../../input_files/ROHF_incore.pyridine.in $scratch
+cp ../../input_files/ROHF_opt.pyridine.in $scratch
+cp ../../input_files/UHF.morphine.6-31G-d.in $scratch
+cp ../../input_files/UHF_incore.pyridine.in $scratch
+cp ../../input_files/UHF_opt.pyridine.in $scratch
+cp ../../input_files/HF.Bz_crco3.TZVP.in $scratch
+cp ../../input_files/ROHF.Bz_crco3.TZVP.in $scratch
+cp ../../input_files/ECP_opt.crno4.in $scratch
+ 
+cd $scratch
+
+mpirun -np 32 gamess-uk < HF.crno4.in > $origin/HF.crno4.out
+
+mpirun -np 32 gamess-uk < HF_2e.crno4.in > $origin/HF_2e.crno4.out
+
+mpirun -np 32 gamess-uk < ROHF.pyridine.in > $origin/ROHF.pyridine.out
+
+mpirun -np 32 gamess-uk < ROHF_incore.pyridine.in > $origin/ROHF_incore.pyridine.out
+
+mpirun -np 32 gamess-uk < ROHF_opt.pyridine.in > $origin/ROHF_opt.pyridine.out
+
+mpirun -np 32 gamess-uk < UHF.morphine.6-31G-d.in > $origin/UHF.morphine.6-31G-d.out
+
+mpirun -np 32 gamess-uk < UHF_incore.pyridine.in > $origin/UHF_incore.pyridine.out
+
+mpirun -np 32 gamess-uk < UHF_opt.pyridine.in > $origin/UHF_opt.pyridine.out
+
+mpirun -np 32 gamess-uk < HF.Bz_crco3.TZVP.in > $origin/HF.Bz_crco3.TZVP.out
+
+mpirun -np 32 gamess-uk < ROHF.Bz_crco3.TZVP.in > $origin/ROHF.Bz_crco3.TZVP.out
+
+mpirun -np 32 gamess-uk < ECP_opt.crno4.in > $origin/ECP_opt.crno4.out
+
+cd $origin 
+rm -rf $scratch
+

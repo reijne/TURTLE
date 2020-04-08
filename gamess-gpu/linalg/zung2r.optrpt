@@ -1,0 +1,42 @@
+
+Begin optimization report for: ZUNG2R
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zung2r.f(100,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zung2r.f(101,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at zung2r.f(101,13)
+         remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+      LOOP END
+
+      LOOP BEGIN at zung2r.f(101,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zung2r.f(122,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at zung2r.f(122,13)
+      remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+   LOOP END
+
+   LOOP BEGIN at zung2r.f(122,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zung2r.f(107,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zung2r.f(113,18) ]
+LOOP END
+===========================================================================

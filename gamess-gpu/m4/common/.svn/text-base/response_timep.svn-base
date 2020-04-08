@@ -1,0 +1,14 @@
+c
+c     A common block to pass the actual time periods around in the
+c     response theory code. This is needed because in subroutine 
+c     such as rpmuld and rpbody the time periods that are used 
+c     should be different for RPA and TDA calculations. Hence the
+c     usual parameters cannot be used directly.
+c
+      integer TP_RESP_MO2AO
+      integer TP_RESP_INT
+      integer TP_RESP_CNTRCT
+      integer TP_RESP_AO2MO
+      common/response_timep/TP_RESP_MO2AO,TP_RESP_INT,TP_RESP_CNTRCT,
+     +                      TP_RESP_AO2MO
+c

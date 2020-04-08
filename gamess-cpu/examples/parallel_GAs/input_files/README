@@ -1,0 +1,48 @@
+Input files for Validating and Testing the GA-based code
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The list below provides a brief description of all the data sets used
+in validating the parallel GA-based GAMESS-UK code.  These examples are
+taken from the various machine-specific chapters of the GAMESS-UK
+manual.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Set                             Calculation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+HF.crno4.in                        Direct-SCF Calculation of Chromium Tetranitrosyl
+HF_2e.crno4.in                     Conventional-SCF Calculation of Chromium Tetranitrosyl
+ROHF.pyridine.in                   Open Shell Direct-ROHF of the Pyridine cation
+ROHF_incore.pyridine.in            In-core ROHF Calculations of the Pyridine cation
+ROHF_opt.pyridine.in               Direct ROHF geometry optimisation of the Pyridine cation
+UHF.morphine.6-31G-d.in            Direct-UHF 6-31G* Calculation of the Morphine cation
+UHF_incore.pyridine.in             In-core UHF Calculations of the Pyridine cation
+UHF_opt.pyridine.in                Direct UHF geometry optimisation of the Pyridine cation
+HF.Bz_crco3.TZVP.in                Direct-SCF Calculation of (C6H6)Cr(CO)3
+ROHF.Bz_crco3.TZVP.in              Open Shell Direct-ROHF of the (C6H6)Cr(CO)3 cation
+ECP_opt.crno4.in                   Direct-SCF ECP geometry optimisation of Chromium Tetranitrosyl
+DFT.morphine.6-31G-dp.in           DFT B3LYP Calculation of morphine 6-31G** basis (410 GTOs)
+DFT.morphine.6-31G-dp_harmonic.in  DFT B3LYP Calculation of morphine 6-31G** harmonic basis
+DFT.morphine.A2.DZVP.in            DFT HCTH Calculation of morphine using the DZBP A2 DFT basis
+UKS.pyridine.in                    Open Shell UKS DFT B3LYP of the Pyridine cation
+DFT.siosi4.617.in                  DFT SVWN Calculation of the siosi4 zeolite fragment (617 GTOs)
+DFT.siosi5.1199.in                 DFT SVWN Calculation of the siosi5 zeolite fragment (1199 GTOs)
+DFT.cyclo.6-31G.in                 DFT B3LYP Calculation of cyclosporin 6-31G basis (1000 GTOs)
+DFT_jfit.morphine.A2.in            DFT HCTH calc. of morphine using the DZBP A2 basis with coulomb fitting
+DFT_jfitA.siosi5.1199.in           DFT SVWN Ahlrichs Jfit Calculation of siosi5 fragment (1199 GTOs)
+DFT_opt.exti4a1.3-21G.in           DFT BLYP geometry optimisation of exti4a1 with 3-21G* basis (446 GTOs)
+MP2_opt.crno4.in                   Direct-MP2 geometry optimisation of Chromium Tetranitrosyl
+MP2_ECP_opt.crno4.in               Direct-MP2 ECP geometry optimisation of Chromium Tetranitrosyl
+MP2_forces.scf3.in                 Direct-MP2 numerical force constants of Scandium Trifluoride
+MP2_opt.mnco5h.in                  Direct-MP2 TZVP/DZP geometry optimisation of Mn(CO)5H (217 GTOs)
+MP2_opt_props.brncs.in             Direct-MP2 CC-PVTZ geometry optimisation of Br-N=C=S
+RPA.pyridine.in                    Direct-RPA Calculation of Pyridine
+SECD_opt.pyridine.6-31G-dp.in      Direct-SCF geometry optimisation of pyridine 6-31G** + Frequencies
+SECD.TFMtoluene.6-31G.in           Analytic Frequencies for ((C6H4(CF3))2 in 6-31G basis (196 GTOs)
+SECD_ECP_opt.crco6.in              ECP Analtyic Frequencies for Cr(CO)6
+SECD_HCTH.TFMtoluene.6-31G.in      DFT HCTH Analtyic Frequencies for ((C6H4(CF3))2 in 6-31G basis (196 GTOs)
+DCI.cf2.cc-pvtz.in                 Direct-CI Calculation of CF2 in CC-pvtz basis
+DCI.pyridine.tzvp.in               Direct-CI Calculation of pyridine in TZVP basis
+
+
+July 2005

@@ -1,0 +1,215 @@
+#!/bin/sh
+# --------------------------------------------------------------
+#
+#  The file rg_defaults is generated from rg_defaults.in
+#  when configure is run in the GAMESS-UK/m4 directory
+#
+#  DO NOT EDIT
+#  If you edit rg_site_defaults you risk losing your changes
+#  when configure is next run.
+#
+#  You can over-ride these automatically chosen choices by 
+#  adding definitions at the end of the rg_site_defaults.in
+#  file, or by setting the environment variables yourself
+#  before running rungamess.
+#
+# --------------------------------------------------------------
+#
+root=`echo $RUNGAMESS_DIR | sed 's@/rungamess$@@'`
+#
+# These should be OK if the directory structure is not modified
+#
+GAMESS_EXE=${GAMESS_EXE:=$root/bin/gamess}
+export GAMESS_EXE
+#
+GAMESS_LIB=${GAMESS_LIB:=$root/libs}
+export GAMESS_LIB
+#
+GAMESS_PAREXE=${GAMESS_PAREXE:=$root/bin/gamess-uk}
+export GAMESS_PAREXE
+#
+# These are not satisfactory defaults, but they should at least
+# allow test jobs to run
+#
+GAMESS_TMP=${GAMESS_TMP:=.}
+export GAMESS_TMP
+#
+GAMESS_SCR=${GAMESS_SCR:=.}
+export GAMESS_SCR
+#
+#---#if sp3 sp4#
+#
+# ======================================== IBM SP installations ============
+# 
+GAMESS_PARMODE=${GAMESS_PARMODE:=poe}
+export GAMESS_PARMODE
+#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=ll}
+export GAMESS_SUBMODE
+#
+#---#elseif regatta#
+#
+# ============================= IBM SP installations (no LAPI) ============
+# 
+GAMESS_PARMODE=${GAMESS_PARMODE:=mpipoe}
+export GAMESS_PARMODE
+#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=ll}
+export GAMESS_SUBMODE
+#
+#---#elseif ia64-sgialtix-linux-gnu# 
+#
+# ======================================== SGI Altix  ======================
+#
+#---#if tcgmsg-mpi#
+GAMESS_PARMODE=${GAMESS_PARMODE:=sgimpi}
+export GAMESS_PARMODE
+#---#elseif tcgmsg ga#
+# tcgmsg using parallel 
+GAMESS_PARMODE=${GAMESS_PARMODE:=tcgmsg}
+export GAMESS_PARMODE
+GAMESS_HOSTS=${GAMESS_HOSTS:=`hostname`}
+export GAMESS_HOSTS
+#---#endif#
+
+# Assume use of SGI version of NQS unless lsf is specified
+
+#--#if lsf#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=lsf}
+export GAMESS_SUBMODE
+#---#else#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=sginqs}
+export GAMESS_SUBMODE
+#---#endif#
+#
+#---#elseif t3e#
+#
+# ======================================== Cray T3E ========================
+#
+GAMESS_PARMODE=${GAMESS_PARMODE:=t3e}
+export GAMESS_PARMODE
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=nqs}
+export GAMESS_SUBMODE
+#
+#---#elseif tru64#
+# 
+# ======================================== AlphaServer SC and ES40 =========
+#
+#-----#if quadrics#
+# Using prun
+GAMESS_PARMODE=${GAMESS_PARMODE:=quadrics}
+export GAMESS_PARMODE
+#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=rms}
+export GAMESS_SUBMODE
+#-----#elseif tcgmsg-mpi#
+# running Compaq MPI on a single ES40 or similar (dmpirun)
+GAMESS_PARMODE=${GAMESS_PARMODE:=dmpi}
+export GAMESS_PARMODE
+#
+#-----#elseif tcgmsg ga#
+# tcgmsg using parallel 
+GAMESS_PARMODE=${GAMESS_PARMODE:=tcgmsg}
+export GAMESS_PARMODE
+GAMESS_HOSTS=${GAMESS_HOSTS:=`hostname`}
+export GAMESS_HOSTS
+#-----#endif#
+#
+#---#elseif axpev6#
+#
+# ======================================== Linux Alpha =================
+#
+#-----#if quadrics#
+# Using prun
+GAMESS_PARMODE=${GAMESS_PARMODE:=quadrics}
+export GAMESS_PARMODE
+#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=rms}
+export GAMESS_SUBMODE
+#
+#-----#elseif tcgmsg-mpi#
+# running MPI on a single ES40 or similar (mpirun) - may need to customise
+GAMESS_PARMODE=${GAMESS_PARMODE:=mpi}
+export GAMESS_PARMODE
+#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=pbs}
+export GAMESS_SUBMODE
+#
+#-----#elseif tcgmsg ga#
+# tcgmsg using parallel
+GAMESS_PARMODE=${GAMESS_PARMODE:=tcgmsg}
+export GAMESS_PARMODE
+GAMESS_HOSTS=${GAMESS_HOSTS:=`hostname`}
+export GAMESS_HOSTS
+#-----#endif#
+#
+# Assume dual alpha (e.g. loki)
+GAMESS_PROCSPERNODE=${GAMESS_PROCSPERNODE:=2}
+export GAMESS_PROCSPERNODE
+#
+#---#elseif linux#
+#
+# ======================================== Linux Clusters ==================
+#
+#---#if lam#
+GAMESS_PARMODE=${GAMESS_PARMODE:=lam}
+export GAMESS_PARMODE
+#
+#---#elseif mpich#
+GAMESS_PARMODE=${GAMESS_PARMODE:=mpich}
+export GAMESS_PARMODE
+#
+#---#elseif scali#
+GAMESS_PARMODE=${GAMESS_PARMODE:=scali}
+export GAMESS_PARMODE
+#
+#---#elseif score#
+GAMESS_PARMODE=${GAMESS_PARMODE:=score}
+export GAMESS_PARMODE
+#
+#---#elseif myrinet#
+GAMESS_PARMODE=${GAMESS_PARMODE:=gm}
+export GAMESS_PARMODE
+#
+#---#elseif tcgmsg#
+GAMESS_PARMODE=${GAMESS_PARMODE:=tcgmsg}
+export GAMESS_PARMODE
+#
+#---#elseif tcgmsg-mpi#
+GAMESS_PARMODE=${GAMESS_PARMODE:=mpi}
+export GAMESS_PARMODE
+#
+#---#elseif mpi#
+GAMESS_PARMODE=${GAMESS_PARMODE:=mpi}
+export GAMESS_PARMODE
+#-----#if dynamic#
+# This will add an extra process for loadbalancing
+GAMESS_MPIDYN=${GAMESS_MPIDYN:=1}
+export GAMESS_MPIDYN
+#-----#endif#
+#
+#---#endif#
+#
+# Assume linux users are running PBS unless the lsf keyword 
+# or gridengine is presented
+#
+#---#if lsf#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=lsf}
+export GAMESS_SUBMODE
+#---#elseif gridengine#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=gridengine}
+export GAMESS_SUBMODE
+#---#else#
+GAMESS_SUBMODE=${GAMESS_SUBMODE:=pbs}
+export GAMESS_SUBMODE
+#---#endif#
+#
+#---#endif#
+#
+#---#if datain#
+# may need this for some broken mpi implementations
+# (see also machscf.m)
+GAMESS_DATAIN=${GAMESS_DATAIN:=1}
+export GAMESS_DATAIN
+#---#endif#
+#

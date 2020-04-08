@@ -1,0 +1,35 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+nh4+ optimized energy  =  -56.2338557197
+charge 1
+zmat angstrom
+n
+h 1 r
+h 1 r 2 109.471
+h 1 r 2 109.471 3 120.0
+h 1 r 2 109.471 4 120.0
+variables
+r 1.16 hessian 2.0
+end
+runtype optimize
+enter
+EOF
+../../bin/gamess << EOF
+title
+nh4+ zmat comma separators, energy  =  -56.2338557197
+charge 1
+zmat angstrom
+n
+h,1,r
+h,1,r,2,109.471
+h,1,r,2,109.471,3,120.0
+h,1,r,2,109.471,4,120.0
+variables
+r 1.16 hessian 2.0
+end
+runtype optimize
+enter
+EOF

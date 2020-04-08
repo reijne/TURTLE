@@ -1,0 +1,18 @@
+#!/bin/csh
+#
+# validation for chap4
+#
+setenv GAMESS_VTAB ./chap4.vtab
+set path=(../../utilities $path)
+validate c4000  LOG/c4000.log
+validate c4000a LOG/c4000a.log
+validate c4001  LOG/c4001.log
+validate c4002  LOG/c4002.log
+validate c4003  LOG/c4003.log
+validate c4004  LOG/c4004.log
+validate c4005  LOG/c4005.log
+validate c4006  LOG/c4006.log
+validate c4007  LOG/c4007.log
+validate c4008  LOG/c4008.log
+validate c4009  LOG/c4009.log
+validate c4010  LOG/c4010.log

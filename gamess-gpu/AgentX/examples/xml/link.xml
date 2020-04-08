@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<eccp xmlns="http://www.grids.ac.uk/eccp/ns#" xmlns:eccp="http://www.grids.ac.uk/eccp/ns#" xmlns:cml="http://www.xml-cml.org/schema" xmlns:vtk="http://www.grids.ac.uk/eccp/vtk#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<link xlink:role="http://www.grids.ac.uk/eccp/assignment/basisAssignment">
+<locator xlink:label="atom1" xlink:href="xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule[@id='mol1']//cml:atom[@elementType='C'])"/>
+<locator xlink:label="atom2" xlink:href="xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule[@id='mol1']//cml:atom[@elementType='H'])"/>
+<locator xlink:label="basis1" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet[@elementType='C'])"/>
+<locator xlink:label="basis2" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet[@elementType='H'])"/>
+<arc xlink:from="atom1" xlink:to="basis1"/>
+<arc xlink:from="atom2" xlink:to="basis2"/>
+</link>
+
+</eccp>

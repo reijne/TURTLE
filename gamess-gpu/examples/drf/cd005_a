@@ -1,0 +1,30 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+ 2 classical TIP4P water molecules
+geom au
+  0.0              0.0           0.0  0.0  BQ
+end
+basis
+s bq
+1.0 1.0
+end
+maxcyc 0
+react
+ field stat pert reac none
+ damping off
+ external
+o   w1    0.000       3.459378         4.492394     0.0     8.340  3.345
+qq  w1   -1.040       3.459378         4.775853     0.0     
+qq  w1    0.520       3.459378         5.595494    +1.430429     
+qq  w1    0.520       3.459378         5.595494    -1.430429     
+o   w2    0.000       0.000000         0.000000     0.0     8.340  3.345
+qq  w2   -1.040       0.283459         0.000000     0.0     
+qq  w2    0.520       1.107157         1.430429     0.0          
+qq  w2    0.520       1.107157        -1.430429     0.0          
+ end
+end
+enter 1 
+EOF

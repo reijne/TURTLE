@@ -1,0 +1,27 @@
+#!/bin/sh
+# 
+# listsub will list subroutines in a .m file including the M4 control
+# structures that determine whether the routines will appear for 
+# a given machine 
+#
+cat $1 | awk ' BEGIN {line=1; nest=0;pad[0]="";\
+		pad[1]="   ";\
+		pad[2]="      ";\
+		pad[3]="         ";\
+		pad[4]="            ";\
+		pad[5]="               "; \
+		pad[6]="                  "; \
+		pad[7]="                     "} \
+                /      subroutine/{printf  "%6d %1d %s %s\n", line,nest, pad[nest],$0} \
+                /      SUBROUTINE/{printf  "%6d %1d %s %s\n", line,nest, pad[nest],$0} \
+                / function /{printf  "%6d %1d %s %s\n", line,nest, pad[nest],$0} \
+                / FUNCTION /{printf  "%6d %1d %s %s\n", line,nest, pad[nest],$0} \
+                /      entry/{print line,nest, $0} \
+                /      ENTRY/{print line,nest, $0} \
+		/_IF\(/{printf "%6d %1d %s %s\n",line,nest, pad[nest],$0; nest=nest+1} \
+		/_IFN\(/{printf "%6d %1d %s %s\n", line,nest, pad[nest],$0;nest=nest+1} \
+		/_ELSEIF\(/{printf  "%6d %1d %s %s\n", line,nest, pad[nest-1],$0} \
+		/_ELSEIFN\(/{printf  "%6d %1d %s %s\n", line,nest, pad[nest-1],$0} \
+		/_ELSE$/{printf "%6d %1d %s %s\n", line,nest, pad[nest-1],$0} \
+		/_ENDIF/{nest=nest-1;printf  "%6d %1d %s %s\n", line,nest, pad[nest],$0} \
+		{line = line + 1} '

@@ -1,0 +1,46 @@
+c
+c     The parameters defined here label the 1st, 2nd and 3rd derivative
+c     components of the basis functions.
+c
+c     2nd derivatives:
+c
+      integer hxx, hyy, hzz, hxy, hxz, hyz
+c
+      parameter (hxx = 1)
+      parameter (hyy = 2)
+      parameter (hzz = 3)
+      parameter (hxy = 4)
+      parameter (hxz = 5)
+      parameter (hyz = 6)
+c
+      integer hcc(3,3)
+      data hcc/hxx,hxy,hxz,
+     &         hxy,hyy,hyz,
+     &         hxz,hyz,hzz/
+c
+c     3rd derivatives:
+c
+      integer txxx, txxy, txxz, txyy, txyz
+      integer txzz, tyyy, tyyz, tyzz, tzzz
+c
+      parameter (txxx =  1)
+      parameter (txxy =  2)
+      parameter (txxz =  3)
+      parameter (txyy =  4)
+      parameter (txyz =  5)
+      parameter (txzz =  6)
+      parameter (tyyy =  7)
+      parameter (tyyz =  8)
+      parameter (tyzz =  9)
+      parameter (tzzz = 10)
+c
+      integer tc3(3,3,3)
+      data tc3/txxx,txxy,txxz,
+     &         txxy,txyy,txyz,
+     &         txxz,txyz,txzz,
+     &         txxy,txyy,txyz,
+     &         txyy,tyyy,tyyz,
+     &         txyz,tyyz,tyzz,
+     &         txxz,txyz,txzz,
+     &         txyz,tyyz,tyzz,
+     &         txzz,tyzz,tzzz/

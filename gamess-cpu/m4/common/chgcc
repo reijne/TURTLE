@@ -1,0 +1,32 @@
+c---------
+c  omtchg - omit 1e- integrals involving the specified charges
+c
+c   integrals of the form  < bf(a) | q(b) | bf (a) > are deleted
+c
+c   where a and b are centres indicated as follows
+c
+c  ztagcc - list of centre names a
+c  ztagcq - for each a in ztagcc, the list of centres b
+c
+c  omtslf - omit self-energy of point charge array (applied to all
+c           atoms with centre label of form bq* )
+c      CHECK
+c      parameter (mxombq=20,mxomat=50)
+c---------
+
+c
+c obqf  - special treatment of forces .. skip force contributions
+c         on non-bq centres
+c         for use in qm/mm optimisations of surrounding
+c         assumption is that bq's in this case don't have basis
+c         functions or ecps
+c
+c omitted charge specifications
+c
+
+      integer mxombq, mxomat
+      parameter (mxombq=50,mxomat=20)
+      character*8 ztagcc, ztagcq
+      logical omtchg, omtslf, obqf
+      common /chgcc/ ztagcc(mxomat),ztagcq(mxomat,mxombq),omtchg,
+     &     omtslf,obqf

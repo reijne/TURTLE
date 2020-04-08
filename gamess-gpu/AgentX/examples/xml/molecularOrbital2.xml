@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<!--root element contains namespace declarations-->
+ 
+<eccp xmlns="http://www.grids.ac.uk/eccp/ns#" xmlns:eccp="http://www.grids.ac.uk/eccp/ns#" xmlns:cml="http://www.xml-cml.org/schema" xmlns:vtk="http://www.grids.ac.uk/eccp/vtk#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<!--molecule-->
+
+<molecule xmlns="http://www.xml-cml.org/schema" id="mol1">
+<atomArray>
+<atom id="a1" elementType="C" xyz3="0.0003482 0.9443707 0.0000000" />
+<atom id="a2" elementType="C" xyz3="-1.7820833 1.5720639 0.0000000" />
+<atom id="a3" elementType="H" xyz3="0.0003482 -0.9453544 0.0000000" />
+<atom id="a4" elementType="H" xyz3="0.8884300 1.5764903 -1.5436310" />
+<atom id="a5" elementType="H" xyz3="0.8884300 1.5764903 1.5436310" />
+<atom id="a6" elementType="H" xyz3="-1.7820833 -1.5730476 0.0000000" />
+<atom id="a7" elementType="H" xyz3="0.8915640 -1.5730476 -1.5436310" />
+<atom id="a8" elementType="H" xyz3="0.8915640 -1.5730476 1.5436310" />
+</atomArray>
+</molecule>
+
+<!--carbon basis set-->
+
+<atomicBasisSet id="basis1" name="6-31G" angular="spherical" type="Gaussian" elementType="C" normalized="yes">
+<basisGroup minL="0" maxL="0" nprim="6">
+<exponents>3047.524880 457.369518 103.948685 29.210155 9.286663 3.163927</exponents>
+<contraction>0.001835 0.014037 0.068843 0.232184 0.467941 0.362312</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="1" nprim="3">
+<exponents>7.868272 1.881289 0.544249</exponents>
+<contraction>-0.119332 -0.160854 1.143456</contraction>
+<contraction>0.068999 0.316424 0.744308</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="1" nprim="1">
+<exponents>0.168714</exponents>
+<contraction>1.000000</contraction>
+<contraction>1.000000</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<!--hydrogen basis set-->
+
+<atomicBasisSet id="basis2" name="3-21G" angular="spherical" type="Gaussian" elementType="H" normalized="yes">
+<basisGroup minL="0" maxL="0" nprim="2">
+<exponents>5.447178 0.824547</exponents>
+<contraction>0.156285 0.904691</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="0" nprim="1">
+<exponents>0.183192</exponents>
+<contraction>1.000000</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<!--carbon basis set 2-->
+
+<atomicBasisSet id="basis3" name="6-31G" angular="spherical" type="Gaussian" elementType="C" normalized="yes">
+<basisGroup minL="0" maxL="0" nprim="6">
+<exponents>3047.524880 457.369518 103.948685 29.210155 9.286663 3.163927</exponents>
+<contraction>0.001835 0.014037 0.068843 0.232184 0.467941 0.362312</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="1" nprim="3">
+<exponents>7.868272 1.881289 0.544249</exponents>
+<contraction>-0.119332 -0.160854 1.143456</contraction>
+<contraction>0.068999 0.316424 0.744308</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="1" nprim="1">
+<exponents>0.168714</exponents>
+<contraction>1.000000</contraction>
+<contraction>1.000000</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<!--hydrogen basis set 2-->
+
+<atomicBasisSet id="basis4" name="3-21G" angular="spherical" type="Gaussian" elementType="H" normalized="yes">
+<basisGroup minL="0" maxL="0" nprim="2">
+<exponents>5.447178 0.824547</exponents>
+<contraction>0.156285 0.904691</contraction>
+</basisGroup>
+<basisGroup minL="0" maxL="0" nprim="1">
+<exponents>0.183192</exponents>
+<contraction>1.000000</contraction>
+</basisGroup>
+</atomicBasisSet>
+
+<!--association of datasets-->
+
+<associate id="associate1">
+<from>
+<cml:array dictRef="eccp:MOCoefficients" id="array1">0.848220 0.021731 -0.000014 -0.000116 0.000014 -0.013400 0.000056 0.000586 -0.000056 0.522335 0.013073 -0.000003 0.000123 0.000003 -0.005840 0.000004 -0.001584 -0.000004 -0.000052 0.002821 -0.000069 0.002782 -0.000069 0.002782 -0.000128 0.001707 -0.000136 0.001730 -0.000136 0.001730</cml:array>
+</from>
+<to>
+<cml:scalar dictRef="eccp:MOOccupation" id="scalar1">2</cml:scalar>
+</to>
+</associate>
+
+<associate id="associate2">
+<from>
+<cml:array dictRef="eccp:MOCoefficients" id="array2">0.848220 0.021731 -0.000014 -0.000116 0.000014 -0.013400 0.000056 0.000586 -0.000056 0.522335 0.013073 -0.000003 0.000123 0.000003 -0.005840 0.000004 -0.001584 -0.000004 -0.000052 0.002821 -0.000069 0.002782 -0.000069 0.002782 -0.000128 0.001707 -0.000136 0.001730 -0.000136 0.001730</cml:array>
+</from>
+<to>
+<cml:scalar dictRef="eccp:MOOccupation" id="scalar2">1</cml:scalar>
+</to>
+</associate>
+
+<!--basis set assignments-->
+
+<link id="link||$1||" xlink:role="http://www.grids.ac.uk/eccp/owl-ontologies#BasisSetAssignment" instances="2">
+<locator xlink:label="atom1" xlink:href="xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule[@id='mol1']//cml:atom[@elementType='C'])"/>
+<locator xlink:label="atom2" xlink:href="xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule[@id='mol1']//cml:atom[@elementType='H'])"/>
+<locator xlink:label="basis1" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet[@id='basis||2*$1-1||'])"/>
+<locator xlink:label="basis2" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet[@id='basis||2*$1||'])"/>
+<arc xlink:from="atom1" xlink:to="basis1"/>
+<arc xlink:from="atom2" xlink:to="basis2"/>
+</link>
+
+<!--define corelex objects (molecular orbitals)-->
+
+<corelex id="corelex||$1||" xlink:role="http://www.grids.ac.uk/eccp/owl-ontologies#MolecularOrbital" instances="2">
+<locator xlink:label="associate" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:associate[@id='associate||$1||'])"/>
+<locator xlink:label="molecule" xlink:href="xmlns(cml=http://www.xml-cml.org/schema)xpointer(//cml:molecule[@id='mol1'])"/>
+<locator xlink:label="link" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:link[@id='link||$1||'])"/>
+<locator xlink:label="basis" xlink:href="xmlns(eccp=http://www.grids.ac.uk/eccp/ns#)xpointer(//eccp:atomicBasisSet)"/>
+</corelex>
+
+</eccp>

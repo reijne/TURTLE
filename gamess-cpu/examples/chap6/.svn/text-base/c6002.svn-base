@@ -1,0 +1,29 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+TITLE
+SIH4 6-31G* MRDCI VAL-CI 1M/1R extrapolated energy -291.3252720
+ZMAT 
+SI
+H 1 SIH
+H 1 SIH 2 109.471
+H 1 SIH 2 109.471 3 120.0
+H 1 SIH 2 109.471 4 120.0
+VARIABLES
+SIH 2.80   
+END
+BASIS 6-31G*
+RUNTYPE CI
+MRDCI
+TRAN CORE
+2 1 1 1
+1 2 1 1 1
+SELECT
+CONF
+0 1 8 13 18
+SINGLES 1
+NATORB
+ENTER
+EOF

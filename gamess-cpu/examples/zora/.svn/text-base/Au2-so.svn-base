@@ -1,0 +1,101 @@
+#!/bin/csh
+scratch
+$wdscr/../../bin/gamess <<EOF
+Core 120000000
+super off nosym
+zora spin
+? zora atom scale atom spin
+mult 1
+maxcyc 200
+zmat angstrom
+ Au
+ Au 1 hhh
+ variables
+ hhh 3.00
+end
+harmonic
+basis
+S Au
+1.0 27813030.0
+S Au
+1.0 4196832.2
+S Au
+1.0 633278.98
+S Au
+1.0 95558.328
+S Au
+1.0 14419.228
+S Au
+1.0 3280.7604
+S Au
+1.0 1103.5666
+S Au
+1.0 145.06349
+S Au
+1.0 69.039045
+S Au
+1.0 26.195737
+S Au
+1.0 5.632849
+S Au
+1.0 0.878486
+S Au
+1.0 0.096823
+S Au
+1.0 0.035095
+P Au
+1.0 85375.367
+P Au
+1.0 20169.152
+P Au
+1.0 4764.7782
+P Au
+1.0 1125.6354
+P Au
+1.0 356.888530
+P Au
+1.0 127.001670
+P Au
+1.0 55.661224
+P Au
+1.0 22.973672
+P Au
+1.0 10.492947
+P Au
+1.0 4.426710
+P Au
+1.0 1.682279
+P Au
+1.0 0.631655
+D Au
+1.0 675.518890
+D Au
+1.0 200.517300
+D Au
+1.0 73.639418
+D Au
+1.0 28.159241
+D Au
+1.0 16.093281
+D Au
+1.0 5.508833
+D Au
+1.0 2.543233
+D Au
+1.0 0.902809
+D Au
+1.0 0.286601
+F Au
+1.0 52.146641
+F Au
+1.0 15.625591
+F Au
+1.0 4.735448
+F Au
+1.0 1.755700
+end
+? runtype optimise
+scftype UHF
+enter
+EOF
+clean

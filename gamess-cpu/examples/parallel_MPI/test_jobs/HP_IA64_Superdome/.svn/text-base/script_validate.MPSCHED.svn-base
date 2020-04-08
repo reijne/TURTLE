@@ -1,0 +1,19 @@
+code=../../../../bin/gamess-uk
+
+
+TESTS="HF.cyclo.3-21G HF.cyclo.6-31G HF.cyclo.6-31G-d HF.cyclo.6-31G-dp HF.cyclo.DZP"
+#TESTS="HF.cyclo.sto3G HF_ECP_opt.crco6 HF_grad.CAG.1291 HF.hf12z-shell4"
+#TESTS="HF.morphine.6-31G-d HF.morphine.6-31G-dp HF_opt.fluro_furan.6-311G++2pd HF_prop.morphine.6-31G-d"
+
+NNNS="32 64"
+REPEAT="0" 
+
+for t in $TESTS; do
+  for n in $NNNS; do
+    for i in $REPEAT; do
+    mpsched -P RR -T RR mpirun -np $n $code < ../../input_files/${t}.in > ${t}.out.n${n}.${i}
+    done
+  done
+done
+
+

@@ -1,0 +1,29 @@
+#!/bin/csh -f
+
+set begin = $1
+set end   = $2
+set steps = $3
+
+set i = 0
+set j = -1
+
+while ($i <= $steps )
+
+cd step_{$i}
+
+if ( $i > 0 ) then
+
+$GROMACS_DIR/src/kernel/grompp -maxwarn 2 -f ../../LT.mdp -c ../step_{$j}/confout.gro -n ../../index.ndx -p topol.top
+else
+$GROMACS_DIR/src/kernel/grompp -maxwarn 2 -f ../../LT.mdp -c ../../confin.gro -n ../../index.ndx -p topol.top
+endif
+
+$GROMACS_DIR/src/kernel/mdrun -v
+
+@ i++
+@ j++
+cd ..
+
+
+end
+

@@ -1,0 +1,31 @@
+c
+c  atomic mass vectors
+c  - stored as integer arrays (number of nucleons)
+c   0 signifies the most abundant isotope
+c  -1 negative value denotes the average of natural abundance
+c  -2 signifies a user input mass (for compatibility with old weights directive)
+c
+      integer maxmassv
+      parameter (maxmassv=10)
+      integer nmassv, imassv(maxmassv,maxat)
+      common/massv/nmassv, imassv
+
+      integer maxiso, maxznum
+c
+c maxiso is the maximum number of entries in the isotope mass
+c table
+c
+      parameter (maxiso = 460)
+c
+c maxznum = highest Z for which data is tabulated.
+c default masses and average masses are stored up to the z
+c (currently Rn)
+c
+      parameter (maxznum =86)
+
+      REAL wisotp, wave
+      integer mapmas, isotpz, abundant, niso
+c
+      common/isotopes/wisotp(maxiso),
+     &     wave(maxznum),abundant(maxznum),
+     &     isotpz(maxiso),mapmas(maxat),niso

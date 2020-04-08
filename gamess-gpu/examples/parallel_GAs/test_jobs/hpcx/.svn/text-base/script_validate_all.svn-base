@@ -1,0 +1,62 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = c01-chem
+#@ job_name = VALIDATE
+#@ output = VALIDATE.log
+#@ error = VALIDATE.err
+#@ wall_clock_limit = 01:00:00
+#@ tasks_per_node = 16
+#@ cpus = 64
+#@ network.LAPI = csss,not_shared,US
+#@ network.MPI = csss,not_shared,US
+#@ node_usage=not_shared
+#@ queue
+
+
+# Change the below for the system you are working with
+# The directory to work in
+workdir=/hpcx/home/c01/c01/jmht/GAMESS-UK_ga_mpi/examples/parallel_GAs/test_jobs/hpcx
+
+# The binary to validate
+binary=/hpcx/home/c01/c01/jmht/GAMESS-UK_ga_mpi/bin/gamess-uk
+
+export LAPI_USE_SHM=yes
+export MP_SHARED_MEMORY=yes
+export MP_EUILIB=us
+export MP_EUIDEVICE=csss
+export MP_MSG_API=mpi,lapi
+export MP_CSS_INTERRUPT=yes
+export AIXTHREAD_SCOPE=S
+export MP_POLLING_INTERVAL=25000
+export RT_GRQ=ON
+#
+export MP_PULSE=0
+export MP_INTRDELAY=100
+export MP_SINGLE_THREAD=yes
+export VT_ROOT=/usr/local/packages/vampir
+#
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+# cd to the workdir
+cd $workdir
+
+# Where the input files can be found
+inputdir=../../input_files
+
+# The name of the file holding the list of jobs
+jobs_list=$inputdir/jobs.list
+
+# Loop over all the jobs listed in the jobs_list file and submit them:
+for job in `cat $jobs_list | grep -v "#"`
+do
+time poe $binary < $inputdir/${job}.in  > $workdir/${job}.out
+done

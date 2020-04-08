@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# This script converts the GAMESS-UK Latex documentation into
+# pdfs
+
+
+# Make sure we can find latex2html
+which pdflatex > /dev/null
+if [ $? -ne 0 ]
+then
+    echo " Error: pdflatex needs to be installed to generate"
+    echo " the GAMESS-UK manual as pdf files."
+    exit 1
+fi
+
+
+# Sort out which files we are processing
+if [ $# -eq 1 ] 
+then
+    parts="$*"
+elif [ $# -ne 0 ]
+    then
+    echo " Usage is $0 [ name of the chapter(s)_to_process ]"
+    exit 1
+else
+    parts="part1 part2 part3 part4 part5 part6 part7 part8 part9 \
+part10 part11 part12 part13 part14 turtle mopac"
+fi
+
+# Directory - make if it does not exist
+directory=pdf
+if [ ! -d $directory ]; then
+mkdir $directory    
+fi
+
+# Create the pdf files
+for part in $parts;
+  do
+    # For part14 generate p14_fig1.pdf before doing the latex stuff
+    if [ ${part:4:5} = "14" ]
+    then
+       inkscape p14_fig1.svg --export-pdf=p14_fig1.pdf
+    fi
+     
+    pdflatex $part.tex
+    pdflatex $part.tex
+    pdflatex $part.tex
+    pdflatex $part.tex
+    
+    # Move into the directory
+    if [ ${part:0:4} = "part" ]
+	then
+	num=${part:4:2}
+	mv part${num}.pdf ${directory}/chap${num}.pdf
+    else
+	mv ${part}.pdf ${directory}
+    fi
+done
+
+# Clean up
+rm -f *.dvi *.aux *.toc *.log *.out mopac.idx

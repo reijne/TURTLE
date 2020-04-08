@@ -1,0 +1,22 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv table ../../libs/TABLE
+../../bin/gamess << EOF
+TITLE\CAH2 .. 3-21G extrapolated energy =  -674.5311580
+SUPER OFF NOSYM
+ZMAT ANGS\CA\X 1 1.0\ H 1 CAH 2 90.0\H 1 CAH 2 90.0 3 THETA
+VARIABLES\CAH 2.148 \THETA 180.0 \END
+BASIS 3-21G
+RUNTYPE CI
+MRDCI
+TRAN CORE
+3 2 2  2 
+1 2 3  1 2  1 2  1 2
+SELECT 
+SINGLES 1
+CONF
+0 1 9
+NATORB IPRIN
+ENTER
+EOF

@@ -1,0 +1,297 @@
+﻿1. Introductory Notes
+=====================
+
+The following notes provide an overview of the installation of the
+GAMESS-UK Electronic Structure Code.
+
+Note that more details on GAMESS-UK, including on-line versions of the
+manual are available on the web at the URL:
+ 
+             http://www.cfs.dl.ac.uk
+
+
+1.1 Tar file and Directory Structure
+====================================
+
+The code will generally be supplied as a UNIX tar file, which
+will need uncompressing using the gunzip utility (.gz suffix) or
+uncompress (.Z suffix)
+
+It can be unpacked using the tar command:
+
+tar xvf GAMESS-UK.tar
+
+Alternatively, both the unzipping and untarring commands may be
+performed in one step if your tar command supports this usage:
+
+tar xvzf GAMESS-UK.tar.gz
+
+The archive will unpack to give the following directory structure:
+
+
+             |--benchmark/
+             |--bin/
+             |--config/
+             |--configure
+             |--dft/
+             |--diesel/
+             |--dl-find/
+             |--docs/
+             |--drf/
+             |--g/
+GAMESS-UK/---|--libs/
+             |--linalg/
+             |--m4/
+	     |--Makefile
+	     |--mopac/
+	     |--newscf/
+	     |--newscf_f77/
+	     |--nmr/
+	     |--peigs/
+	     |--qa/
+	     |--rungamess/
+	     |--utilities/
+	     |--vb/
+	     |--xml/
+             |
+             |            |-- benchmark
+             |            |-- benchmark_99
+             |            |-- chap2
+             |            |-- chap3
+             |--examples/-|-- chap4
+                          |-- chap5
+                          |-- chap6
+                          |-- chap7
+                          |-- chap10
+                          |-- chap11, chap12
+			  |-- dft
+			  |-- drf
+			  |-- mopac
+			  |-- newscf
+			  |-- nbo
+			  |-- parallel_GAs
+			  |-- parallel_MPI
+			  |-- run_em_all.sh
+			  |-- run_par_auto.sh
+			  |-- workshop
+			  |-- zora
+
+
+It will require approximately 250 MBytes of disk storage.  The
+subdirectories have the following contents. 
+
+benchmark/   Benchmark cases and sample outputs for both MPI and GA versions
+
+bin/         Compiled GAMESS-UK binaries ( gamess for serial code and
+	     gamess-uk for parallel code )
+
+config/      The machine-specific build files and a couple of helper
+             scripts to configure GAMESS-UK on supported platforms.
+
+configure    The script to configure the Makefile for GAMESS-UK.
+
+dft/         Source code for the DFT module.
+
+docs/        Program documentation as LaTeX source, including scripts to run LaTeX
+             and latex2html.
+
+drf/         Source code the DRF module.
+
+examples/    Example jobs organised according to the structure of the User
+	     Manual.  The directories chap* are for use with the serial
+	     code.  A set of parallel test cases are provided in the two
+	     directories: parallel_GAs and parallel_MPI
+
+g/           Global array tools source
+             See http://www.emsl.pnl.gov/docs/global
+
+INSTALL      This file.
+
+
+libs/        Input files to create GAMESS-UK binary library files [ecplib
+	     (ECP library) and TABLE (MRDCI Table-CI data file)]. The
+	     directory also holds the library files after they have been
+	     generated.
+
+linalg/      The source code for the linear algebra routines needed by GAMESS-UK.
+
+m4/          Main source code and primary build directory.
+
+mopac/       Source code for the MOPAC module ( see:
+             http://www.ccl.net/cca/software/LINUX/mopac7/index.shtml
+	                           or
+	     http://www.webmo.net/support/mopac_linux.html
+
+Makefile     Dummy Makefile ( basically just cd's to m4 )  
+
+newscf/      Source code for the newscf FORTRAN 90 module.
+
+newscf_f77/  Source code for the old newscf FORTRAN 77 module.
+
+peigs/       PeIGS parallel Eigensolver
+             See http://www.emsl.pnl.gov/docs/nwchem/doc/peigs/docs/peigs3.html
+
+qa/          The new and QA directory ( WORK IN PROGRESS ).
+
+rungamess/   Version 3.0 of the rungamess script for running GAMESS under control 
+             of a variety of system resource managers e.g. NQS. See Chapter 13 of 
+             the User Manual and Reference Guide for usage instructions.
+
+utilities/   Scripts and program for code processing, validation and other
+             maintenance operations.
+
+vb/	     Source code for the Valence Bond module.
+
+xml/	     Source code for the XML output module.
+
+
+2. Instructions for building GAMESS-UK on supported platforms
+=============================================================
+
+2.1 - Instructions for the impatient.
+-------------------------------------
+
+1. Run the configure script in the main directory GAMESS-UK:
+
+./configure
+
+2. When prompted, select a build type from serial or parallel.
+
+   If you are just running on one processor and want to take advantage
+   of the full functionality of GAMESS-UK, then the serial build is
+   recommended.
+
+   If you would like to use GAMESS-UK on more than one processor then
+   select the parallel build. Not all of the functionality of
+   GAMESS-UK is available in parallel, and different modules of
+   GAMESS-UK have been parallelised in different ways and support
+   different functionality. For a more detailed explanation of the
+   different parallel functionality please see chapter 14 of the
+   manual either in the docs directory or on the web at:
+
+   http://www.cfs.dl.ac.uk/docs/gamess_manual/chap14/chap14.html
+
+
+3. Select a compiler type for the Fortran/C compiler you have on your system,
+   e.g. if you have the Intel Fortran and C compilers version 8.1
+   installed then you would select the "intel81" option if it was available.
+
+4. Information on the MK file to be included in the build will be
+   displayed, together with the path to the file. If the paths to any
+   directories on your installation differ from that displayed in the
+   information about the MK file, then make a note of the path to the
+   MK file and quit the configure script by typing "q" or "Ctrl C" and
+   read the instructions in 4a, otherwise enter "y" and carry on
+   reading at point 5.
+
+   4a. Open the MK file for the build-type / compiler option you will
+       be using ( as noted above ) with your favourite editor and make
+       any changes required. You can either just save the file
+       directly, in which case return to the GAMESS-UK directory and
+       re-run the configure script. Alternatively, save the file with
+       an alternate name and then return to the GAMESS-UK directory
+       and re-run the configure script as:
+
+       ./configure -f <path_to_your_saved_file>
+
+
+5. Select the build options. In general you should stick with the
+   defaults by hitting return. The only likely exception is if you
+   have the numerical libraries that the build may offer to use, in
+   which case you should type in the relevant keyword (e.g. "mkl").
+   To remove an option from the build, prefix the option with a minus
+   sign, e.g to remove the nbo option, you would type "-nbo".
+
+6. Hit enter to select the default build size when prompted.
+
+7. Hit enter if the summary of the build looks o.k.
+
+8. Type "make > make.log 2>&1 &" under Bourne shell or "make >& make.log &"
+   under C-type shell, or "make 2>&1 > make.log &" under Bash shell to start
+   the build and then run "tail -f make.log" to follow the progress of the
+   build.
+   Alternatively you can use the "tee" program which records the output in a
+   file as well as echoing it to the screen. The corresponding incantations
+   are:
+   - "make      |  tee make.log 2>&1" - Bourne shell
+   - "make      |& tee make.log"      - C-shell
+   - "make 2>&1 |  tee make.log"      - Bash shell
+   Obviously as tee echoes output to the screen there is no point putting it in
+   the background.
+
+If you encounter any problems, please join the gamess_uk_users mailing
+list at:
+
+http://ccpforge.cse.rl.ac.uk/mailman/listinfo/gamess-uk-users
+
+and then send an email to the list, including as much information on
+your problem as possible (e.g. the log of the make from above).
+
+
+2.2 Additional Information
+--------------------------
+
+The following instructions provide some additional information on
+building and testing GAMESS-UK, however for a full explanation of the
+build procedure, please see the file INSTALL_advanced.txt in the
+config directory.
+
+2.2.1 Setting the rungamess environment variable
+------------------------------------------------
+
+Both serial and parallel versions of GAMESS-UK may be run under
+control of the rungamess script. If you wish to use rungamess to run
+GAMESS-UK you should now add the path to rungamess to your default
+file path. Rungamess is a unix script that sets all of the environment
+variables required to run GAMESS-UK on both serial and parallel
+platforms. For more information on Rungamess, see the README file in
+the GAMESS-UK/rungamess directory.
+
+Adding rungamess to your path is usually done by editing the file
+.bashrc or .cshrc (for bash or c-type shells respectively) in your
+home directory to contain a line similar to the following:
+
+export PATH=/home/jmht/GAMESS-UK/rungamess:$PATH
+
+( for Bourne-type shells ) or
+
+set path=( /home/jmht/GAMESS-UK/rungamess $path)
+
+for C-type shells.
+
+
+2.2.2 Testing the code
+----------------------
+
+There are example input files in the subdirectories of the examples
+directory. These can be used as templates for your own inputs, and are
+also used to test the code.
+
+The directory GAMESS-UK/examples/chap2 contains examples of most of
+the different job types as a collection of different unix scripts. For
+a more detailed explanation of these different jobs, see chap2 in the
+docs directory or on the web at:
+
+   http://www.cfs.dl.ac.uk/docs/gamess_manual/chap2/chap2.html
+
+To run a quick test that the code has been built correctly, use the
+script:
+
+GAMESS-UK/examples/chap2/run_chap2.sh
+
+this will run and then test all of the examples in chap2 (this may
+take up to an hour depending on your machine).
+
+If you wish to run this to test the parallel code, you will need to
+create a file called "gamess" in the GAMESS-UK/bin directory that is
+executable and contains the command to invoke the parallel binary. An
+example would be something like the below:
+
+   #!/bin/bash
+   mpiexec -np 4 /home/jmht/GAMESS-UK/bin/gamess-uk $*
+
+To run a more extensive test of the code and to test the different
+modules of the code, please run the script:
+
+GAMESS-UK/examples/run_em_all.sh
+

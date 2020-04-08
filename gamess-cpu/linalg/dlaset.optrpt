@@ -1,0 +1,62 @@
+
+Begin optimization report for: DLASET
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlaset.f(76,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlaset.f(77,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(77,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(77,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaset.f(87,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlaset.f(88,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(88,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(88,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaset.f(97,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlaset.f(98,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(98,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlaset.f(98,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlaset.f(106,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlaset.f(106,10)
+<Remainder>
+LOOP END
+===========================================================================

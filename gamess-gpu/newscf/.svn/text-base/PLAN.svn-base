@@ -1,0 +1,408 @@
+
+Plan for introducing distrubted matrix algebra into GAMESS-UK
+=============================================================
+
+0) Design issues, how best to handle matrix objects using
+   features of F90. Correct interfaces etc
+
+1) Recast matrix.m into a module, including a simple
+   serial implementations using F90 memory allocation
+
+2) Similar process for vectors.m
+
+3) Get the serial code working (should be partially
+   parallelised already)
+
+4) Introduce shared counters (e.g. TCGMSG/LAPI, MPI-2)
+
+5) Introduce scalapack routines into matrix layer
+
+6) Introduce basis set transformations (symmetry 
+   adaption and harmonic basis functions). 
+
+7) Explore different diagonalisers (Peigs, BFG)
+
+
+Summary of files and routines
+=============================
+
+
+
+scfp.m
+======
+
+subroutine scfp(q)
+   high level driver, will need recoding eventually
+   but for now can be left as is.
+
+
+newscf.m
+========
+
+Main SCF program and 
+
+subroutine mem_newscf(l1,l2,l3,uhf,direct,imemnew)
+
+  memory prediction
+
+subroutine newscf(core,uhf,direct,
+
+  main driver   
+
+  some direct reads into matrix
+
+
+subroutine fock_build(AlphaDensity,BetaDensity,
+
+  interface to GAMESS-UK fock builders
+
+subroutine reset_diis
+
+subroutine diis_initialise(ndim,beta)
+subroutine deallocate_diis_scratch (uhf)
+subroutine solve_diis(AlphaFock,BetaFock,Vectors,Overlap,
+subroutine solve_diis0(AlphaFock,AlphaVmat,AlphaOcc,
+
+  DIIS solver
+
+subroutine level_shift(AlphaTFock,BetaTFock,
+
+  Modifications to fock matrix  **
+
+subroutine save_orbitals(Vectors, AlphaDensity, BetaDensity)
+
+  Interface to gamess routine scfsav **
+
+subroutine default_conv(uhf)
+subroutine print_conv(uhf)
+
+  Sets defaults and print for the convergence scheme
+
+subroutine pg_error(text,code)
+
+   Error handler 
+
+subroutine overlap_check(NewVec, OldVec)
+
+  debug only (forget)
+
+subroutine make_rdmat(rdmat,uhf,AlphaDensity,BetaDensity)
+
+  interface to gamess routine mkrdmt 
+  (Builds reduced density matrix)
+
+
+
+vectors.m
+=========
+
+Handling vector objects (comprising eigenvectors, eigenvalues
+and occupations).
+
+
+integer function allocate_vectors(nbas,uhf)
+integer function destroy_vectors(Vectors)
+integer function copy_vectors(From,To)
+integer function print_vectors(Vect)
+
+logical function vec_unrestricted(Vect)
+
+  returns true if UHF 
+
+integer function vec_alpha_coefficients(Vect)
+integer function vec_alpha_occupations(Vect)
+integer function vec_alpha_eigenvalues(Vect)
+integer function vec_beta_coefficients(Vect)
+integer function vec_beta_occupations(Vect)
+integer function vec_beta_eigenvalues(Vect)
+
+  Simply return handles of component matrices
+
+integer function orthogonalise_vectors(Vectors,
+
+** Interface to gamess routine orfog  
+
+subroutine make_density(AlphaDensity,BetaDensity,Vectors)
+subroutine dmtx3(d,v,p,ia,m,n,ndim)
+
+**  Density builder
+
+subroutine assign_occupations_by_energy(Vectors,nalpha,nbeta)
+subroutine assign_occupations_by_overlap(Vectors,OldVectors,
+subroutine assign0(l0,l1,v,oldv,occ,oldocc,
+
+** Occupation assigmnent
+
+subroutine summarise_frontier_orbitals(Vectors)
+  
+** Concise printing
+
+
+matrix.m
+========
+
+integer function matrix_create(rows,columns,tag,type)
+integer function matrix_destroy(matrix)
+integer function matrix_add(ic,ia,ib)
+integer function matrix_assign_unit(matrix)
+integer function matrix_assign_zero(matrix)
+integer function matrix_set(matrix, data)
+integer function matrix_set_element(matrix, data, row, col)
+integer function matrix_get(matrix, data)
+integer function matrix_get_element(matrix, data, row, col)
+integer function matrix_set_column(matrix, data,col)
+integer function matrix_set_row(matrix, data,row)
+integer function matrix_get_row(matrix, data,row)
+integer function matrix_get_column(matrix, data,col)
+integer function matrix_print(matrix)
+integer function matrix_print_titled(matrix,title)
+double precision function matrix_length(matrix)
+double precision function matrix_dot_product(x,y)
+integer function matrix_daxpy(a,x,y)
+integer function matrix_copy(x,y)
+integer function matrix_scale(x,a)
+integer function matrix_dimension(x,index)
+integer function matrix_multiply(alpha,a,b,beta,c)
+integer function matrix_combine(alpha,a,beta,b,c)
+double precision function matrix_absmax(x)
+integer function matrix_transpose(x)
+integer function matrix_set_random(itag)
+integer function matrix_to_array(itag)
+integer function matrix_diagonalise
+double precision function matrix_symmetrise(itag)
+integer function matrix_invert(itag,d)
+subroutine prmat(v,m,n,ndim,ohi)
+subroutine minvs(m,r,n,ipvt,dd,work,job)
+subroutine dgedi(a,lda,n,ipvt,det,work,job)
+subroutine dgefa(a,lda,n,ipvt,info)
+subroutine matrix_list
+subroutine dlc_error(s1,s2)
+
+
+
+matrix_extra.m
+==============
+
+integer function matrix_set_from_triangle(matrix, data)
+integer function matrix_get_to_triangle(matrix, data)
+integer function matrix_dgemm(x1,x2,
+integer function matrix_mult2(Operator,Vectors,
+integer function matrix_mult2t(Operator,Vectors,
+
+
+
+Listing of routines with line numbers and conditional compilation
+flags
+
+
+newscf.m:
+========
+
+     1 0  _IF(ma)
+     3 0  _ENDIF
+    27 0  _IF(ccpdft)
+    28 1           subroutine mem_newscf(l1,l2,l3,uhf,direct,imemnew)
+    60 1     _IF(ma)
+    63 1     _ENDIF
+    73 1     _IF(ma)
+    75 2     _ELSEIF(dynamic_memory)
+    77 2     _ELSE
+    79 1     _ENDIF
+   224 0  _ENDIF
+   228 0        subroutine newscf(core,uhf,direct,
+   237 0  _IFN(ma)
+   239 0  _ENDIF
+   330 0  _IF(ccpdft)
+   334 0  _ENDIF
+   541 0  _IF(ccpdft)
+   561 0  _ENDIF
+  1024 0  _IF(ccpdft)
+  1031 0  _ENDIF
+
+  1096 0        REAL function nuclear_energy()
+
+  1111 0        subroutine fock_build(AlphaDensity,BetaDensity,
+  1223 0  _IF(debug_S)
+  1225 0  _ENDIF
+  1286 0  _IF(ccpdft)
+  1293 0  _ENDIF
+  1375 0  _IF(cray,convex,titan)
+  1378 1  _ELSE
+  1381 0  _ENDIF
+  1386 0  _IF(ccpdft)
+  1391 0  _ENDIF
+  1449 0  _IF(ccpdft)
+  1488 1     _IF(debug_S)
+  1492 1     _ENDIF
+  1496 1     _IF(debug_S)
+  1498 1     _ENDIF
+  1501 1     _IF(debug_S)
+  1505 1     _ENDIF
+  1531 1  _ELSE
+  1541 0  _ENDIF
+  1555 0        subroutine reset_diis
+  1583 0        subroutine diis_initialise(ndim,beta)
+  1661 0        subroutine deallocate_diis_scratch (uhf)
+  1716 0        subroutine solve_diis(AlphaFock,BetaFock,Vectors,Overlap,
+  1780 0        subroutine solve_diis0(AlphaFock,AlphaVmat,AlphaOcc,
+  2183 0        REAL function check_ov(AlphaTFock,BetaTFock,Vectors)
+  2263 0        subroutine level_shift(AlphaTFock,BetaTFock,
+  2326 0        subroutine save_orbitals(Vectors, AlphaDensity, BetaDensity)
+  2343 0  _IFN(ma)
+  2345 0  _ENDIF
+  2379 0  c      subroutine scfsav(q,p,e,pop,ndaf,l1,l2,iblkp,iblke)
+  2410 0        subroutine default_conv(uhf)
+  2455 0        subroutine print_conv(uhf)
+  2541 0        integer function check_conv(uhf,iphase,tester,dele,niter,
+  2601 0  _IFN(ga)
+  2602 1           subroutine pg_error(text,code)
+  2607 0  _ENDIF
+  2608 0        subroutine overlap_check(NewVec, OldVec)
+  2660 0        subroutine make_rdmat(rdmat,uhf,AlphaDensity,BetaDensity)
+
+
+matrix.m
+========
+
+     1 0  _IF(ma)
+     3 0  _ENDIF
+    32 0        integer function matrix_create(rows,columns,tag,type)
+    39 0  _IFN(ma)
+    41 0  _ENDIF
+   128 0        integer function matrix_destroy(matrix)
+   144 0        integer function matrix_add(ic,ia,ib)
+   172 0        integer function matrix_assign_unit(matrix)
+   192 0        integer function matrix_assign_zero(matrix)
+   214 0        integer function matrix_set(matrix, data)
+   235 0        integer function matrix_set_element(matrix, data, row, col)
+   250 0        integer function matrix_get(matrix, data)
+   273 0        integer function matrix_get_element(matrix, data, row, col)
+   292 0        integer function matrix_set_column(matrix, data,col)
+   312 0        integer function matrix_set_row(matrix, data,row)
+   334 0        integer function matrix_get_row(matrix, data,row)
+   356 0        integer function matrix_get_column(matrix, data,col)
+   379 0        integer function matrix_print(matrix)
+   404 0        integer function matrix_print_titled(matrix,title)
+   440 0        subroutine prmat(v,m,n,ndim,ohi)
+   485 0        double precision function matrix_length(matrix)
+
+   513 0        double precision function matrix_dot_product(x,y)
+   522 0  _IF(t3e,cray)
+   524 1  _ELSE
+   526 0  _ENDIF
+   539 0        integer function matrix_daxpy(a,x,y)
+   564 0        integer function matrix_copy(x,y)
+   586 0        integer function matrix_scale(x,a)
+   605 0        integer function matrix_dimension(x,index)
+   620 0        integer function matrix_multiply(alpha,a,b,beta,c)
+   667 0        integer function matrix_combine(alpha,a,beta,b,c)
+   692 0        double precision function matrix_absmax(x)
+   718 0        integer function matrix_transpose(x)
+   821 0        integer function matrix_set_random(itag)
+   846 0        integer function matrix_to_array(itag)
+   913 0  c     Driver function interfaces rsp with Quasi environemt     
+   916 0        integer function matrix_diagonalise
+   987 0        double precision function matrix_symmetrise(itag)
+  1046 0        integer function matrix_invert(itag,d)
+  1110 0        subroutine minvs(m,r,n,ipvt,dd,work,job)
+  1136 0        subroutine dgedi(a,lda,n,ipvt,det,work,job)
+  1264 0        subroutine dgefa(a,lda,n,ipvt,info)
+  1362 0        subroutine matrix_list
+  1377 0        subroutine dlc_error(s1,s2)
+
+matrix_extra.m
+==============
+
+     1 0  _IF(ma)
+     3 0  _ENDIF
+     8 0        integer function matrix_set_from_triangle(matrix, data)
+    33 0        integer function matrix_get_to_triangle(matrix, data)
+    64 0  c      integer function matrix_multiply(alpha,a,b,beta,c)
+    66 0        integer function matrix_dgemm(x1,x2,
+   125 0        integer function matrix_mult2(Operator,Vectors,
+   148 0        integer function matrix_mult2t(Operator,Vectors,
+
+
+vectors.m
+=========
+
+     1 0  _IF(ma)
+     3 0  _ENDIF
+     5 0        integer function allocate_vectors(nbas,uhf)
+    18 0  _IFN(ma)
+    20 0  _ENDIF
+    75 0        integer function destroy_vectors(Vectors)
+    85 0  _IFN(ma)
+    87 0  _ENDIF
+   119 0        integer function copy_vectors(From,To)
+   152 0        integer function print_vectors(Vect)
+   189 0        logical function vec_unrestricted(Vect)
+   201 0        integer function vec_alpha_coefficients(Vect)
+   213 0        integer function vec_alpha_occupations(Vect)
+   225 0        integer function vec_alpha_eigenvalues(Vect)
+   237 0        integer function vec_beta_coefficients(Vect)
+   250 0        integer function vec_beta_occupations(Vect)
+   263 0        integer function vec_beta_eigenvalues(Vect)
+   277 0        integer function orthogonalise_vectors(Vectors,
+   295 0  _IFN(ma)
+   297 0  _ENDIF
+   340 0  c      subroutine orfog(q,qp,b,c,iky,ilifq,newbas,nrow,iop)
+   386 0        subroutine make_density(AlphaDensity,BetaDensity,Vectors)
+   398 0  _IFN(ma)
+   400 0  _ENDIF
+   449 0        subroutine dmtx3(d,v,p,ia,m,n,ndim)
+   472 0        subroutine assign_occupations_by_energy(Vectors,nalpha,nbeta)
+   531 0        subroutine assign_occupations_by_overlap(Vectors,OldVectors,
+   539 0  _IFN(ma)
+   541 0  _ENDIF
+   590 0  _IF(unicos)
+   592 1  _ELSE
+   594 0  _ENDIF
+   641 0        subroutine assign0(l0,l1,v,oldv,occ,oldocc,
+   732 0        subroutine summarise_frontier_orbitals(Vectors)
+   740 0  _IFN(ma)
+   742 0  _ENDIF
+   837 0        SUBROUTINE SORTIT(N,D,IX)
+
+memory.m
+========
+
+A heap-based memory allocated (not needed for F90 version)
+
+    11 0  _IF(ma)
+    13 1           subroutine memory_create()
+    31 1           integer function stack_alloc(bytes)
+    43 1           integer function stack_free(addr)
+    56 1           integer function handle_alloc(bytes)
+    74 1     _IF(64bitpointers)
+    77 1     _ENDIF
+   115 1     _IF(64bitpointers)
+   121 2     _ELSE
+   123 1     _ENDIF
+   155 1           integer function handle_free(handle)
+   186 1  _ELSE
+   309 1           subroutine memory_create()
+   347 1           integer function fmalloc(size)
+   422 1           subroutine ffree(point)
+   490 1           subroutine fcopy(in,out)
+   518 1           subroutine finitialise(in,value)
+   541 1           subroutine fcompress()
+   639 1           subroutine fmemory_error(size)
+   663 1           subroutine memory_dump(name)
+   725 1           subroutine memory_undump(name)
+   804 1           integer function handle_alloc(in)
+   840 1           subroutine handle_free(handle)
+   857 1           subroutine handle_copy(in,out)
+   880 1           subroutine handle_initialise(handle,value)
+   901 1           subroutine handle_compress()
+   908 1           subroutine handle_print()
+   925 1     _IFN(t3e,cray)
+   927 1     _ENDIF
+   930 1     _IFN(t3e,cray)
+   932 1     _ENDIF
+   950 1           integer function stack_alloc(in)
+   996 1           integer function stack_free(point)
+  1024 0  _ENDIF
+
+
+

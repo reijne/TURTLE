@@ -1,0 +1,58 @@
+
+Begin optimization report for: DSYTF2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dsytf2.f(311,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsytf2.f(314,25)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(314,25)
+      remark #15301: REVERSED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(314,25)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(314,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dsytf2.f(481,22)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dsytf2.f(486,25)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(486,25)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(486,25)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dsytf2.f(486,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dsytf2.f(338,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsytf2.f(198,20) ]
+LOOP END
+
+LOOP BEGIN at dsytf2.f(510,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dsytf2.f(366,24) ]
+LOOP END
+===========================================================================

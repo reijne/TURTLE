@@ -1,0 +1,100 @@
+README Build Options
+====================
+
+As described in the INSTALL_advanced.txt document during the
+installation process GAMESS-UK is configured by specifying a number of
+build options. Idealy all these options would be independent of
+eachother but in a complex code like GAMESS-UK this cannot be achieved.
+Hence there can be interference between various options and it becomes
+important to know exactly what is implied when a particular option is
+specified. In an attempt to keep on top of all this a list of options
+in alphabetical order is given below. Each option is accompanied by 
+a description of its meaning. Note that this list is not complete and
+the descriptions are to some extend best guesses for options introduced
+a long time ago. However, if used conscientiously this list should
+help make the configuration options more reliable and predictable.
+
+charmm
+    Build GAMESS-UK as a subroutine to serve as the QM engine in CHARMm.
+    Mutually exclusive with charmmpar, chemshell, taskfarm.
+
+charmmpar
+    Build GAMESS-UK as a subroutine to serve as the QM engine in the
+    parallel version of CHARMm.
+    Mutually exclusive with charmm, chemshell, taskfarm.
+
+chemshell
+    Build GAMESS-UK as a subroutine to serve as the QM engine in
+    Chemshell. Mutually exclusive with charmm, charmmpar, taskfarm.
+
+datain
+    Build GAMESS-UK to read the input from the file "datain" in the
+    current working directory rather than from standard input.
+
+debug
+    Build GAMESS-UK with the compilers debug options to obtain an
+    executable that can be used with the debugger.
+
+ga
+    Build with the Global Arrays for distributed data support.
+    Requires mpi, tcgmsg, or tcgmsg-mpi for message passing communiction
+    support.
+
+i4
+    Build the code with 32-bit integers. 
+    Mutually exclusive with i8.
+
+i8
+    Build the code with 64-bit integers.
+    Mutually exclusive with i4, mpi, newscf, scalapack.
+
+mp2_parallel
+    Build the parallel MP2 gradients.
+    Requires ga.
+
+mpi
+    Use MPI for message passing communications.
+    Mutually exclusive with i8.
+
+newscf
+    Include the newscf driver implemented by Ian Bush.
+    Mutually exclusive with i8.
+    Requires in parallel scalapack.
+
+peigs
+    Include the PEiGS parallel eigensolver.
+    Requires mpi, tcgmsg, or tcgmsg-mpi.
+
+qmmm
+    Build the code for QM/MM calculations which involve many centres.
+    This requires some data structures to be replaced with functions
+    such as tables of interatomic distances. 
+    Mutually exclusive with secd_parallel.
+
+scalapack
+    Include the ScaLAPACK parallel linear algebra library.
+    Mutually exclusive with i8.
+    Requires mpi.
+
+secd_parallel
+    Build the parallel second derivative (Hessian) capability.
+    Mutually exclusive with qmmm.
+    Requires ga.
+
+static_lb
+    Use static load-balancing to distribute work over the processors.
+    All processors can do useful work.
+
+taskfarm
+    Build GAMESS-UK to work within a taskfarm harness. This is an MPI
+    based framework in which the total set of processors is split into
+    smaller groups each of which can run independent GAMESS-UK
+    calculations. 
+    Mutually exclusive with charmm, charmmpar, chemshell.
+
+tcgmsg
+    Use the TCGMSG library for message passing communications.
+
+tcgmsg-mpi
+    Use the TCGMSG library implemented on top of MPI for message passing
+    communications. 

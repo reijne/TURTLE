@@ -1,0 +1,75 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed1 mfged1
+setenv ed4 mfged4
+setenv ed6 mfged6
+setenv ed12 mfged12
+setenv ed13 mfged13
+../../bin/gamess << EOF
+title
+h2co - tzv+2d1p+1f(o) SCF energy  -113.9153942 au
+super off nosym
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzv o
+tzv c
+tzvp h
+d c
+1.0 1.2
+d c
+1.0 0.4
+d o
+1.0 1.5
+d o
+1.0 0.5
+f o
+1.0 1.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+time 180
+restart
+title
+h2co /tzv+2d1p+1f(o)/10e in 10 mo) MCSCF energy -114.0595529415 au
+super off nosym
+noprint
+bypass
+zmatrix angstrom
+c
+o 1 1.203
+h 1 1.099 2 121.8
+h 1 1.099 2 121.8 3 180.0
+end
+basis 
+tzv o
+tzv c
+tzvp h
+d c
+1.0 1.2
+d c
+1.0 0.4
+d o
+1.0 1.5
+d o
+1.0 0.5
+f o
+1.0 1.0
+end
+scftype mcscf
+thresh 4
+mcscf
+orbital
+fzc1 fzc1 fzc1 doc1 doc3 doc1 doc2 doc3 uoc2 uoc1 uoc3 uoc1 uoc3 
+end
+print orbitals virtuals natorb
+canonical 10 fock density fock
+enter
+EOF
+/bin/rm mfg*

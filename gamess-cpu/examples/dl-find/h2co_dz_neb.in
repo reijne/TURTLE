@@ -1,0 +1,21 @@
+title
+h2co - dz - dl-find neb energy = -113.6497325
+zmatrix angstrom
+c
+o 1 co
+h 1 l2 2 a1
+h 1 l3 2 a2 3 0.0
+variables
+co 1.25
+l2 1.5
+l3 1.1
+a1 120.0
+a2 170.0
+end
+basis dz
+runtype optimize
+dlfind
+  neb 6 0.01
+  geometry h2co_neb_endpoint.xyz
+end
+enter

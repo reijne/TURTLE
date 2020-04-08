@@ -1,0 +1,32 @@
+c Parameter settings for the Molecular Surface program mscon
+c
+c maxatm     maximum number of atoms
+c maxtyp     maximum number of atom types
+c maxnbr     maximum number of neighbors an atom may have
+c maxsph     maximum number of surface points on a sphere
+c maxcir     maximum number of surface points on a circle
+c maxarc     maximum number of surface points on an arc
+c maxppp     maximum number of surface points per probe
+c maxyon     maximum number of yon probes
+c maxvic     maximum number of victim probes
+c maxeat     maximum number of eaters of a probe's surface
+c maxcub     maximum number of cubes in one direction
+c mxconpts   maximum number of surface points
+c
+c maxatm must be greater than or equal to maxyon
+c because they share the same cubing arrays
+c
+      parameter (maxatm=2000)
+      parameter (maxrfa2=12000)
+      parameter (maxtyp=100)
+      parameter (maxnbr=200)
+      parameter (maxsph=1000)
+      parameter (maxcir=1000)
+      parameter (maxarc=1000)
+      parameter (maxppp=1000)
+      parameter (maxyon=1000)
+      parameter (maxvic=6000)
+      parameter (maxeat=1000)
+      parameter (maxcub=40)
+      parameter (mxconpts=4000)
+

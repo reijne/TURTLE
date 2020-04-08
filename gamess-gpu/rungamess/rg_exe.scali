@@ -1,0 +1,115 @@
+#!/bin/sh
+#
+# Rungamess execution script - SCALI MPI version
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# Note that job mode is inherited from master, but 
+# name of binary is not
+# --------------------------------------------------------------
+#
+scratchtopdir=${GAMESS_SCR}
+libdir=${GAMESS_LIB}
+tempdir=${GAMESS_TMP}
+app=${GAMESS_PAREXE_lam:=${GAMESS_PAREXE}}
+
+mode=master-slave
+#
+# --------------------------------------------------------------
+# Parse file definitions to the environment
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# --------------------------------------------------------------
+#
+mkdir -p $scratchtopdir/$jobname
+cd $scratchtopdir/$jobname
+
+
+#
+#
+# --------------------------------------------------------------
+# Try and establish the environment for this job
+# --------------------------------------------------------------
+#
+
+job_environment=INTER
+
+case ${PBS_NODEFILE:=null} in
+null) ;;
+   *) job_environment=PBS;;
+esac
+
+case ${NODE0:=null} in
+null) ;;
+   *)  job_environment=LOBOSQ;;
+esac
+
+echo rungamess : scali job environment is $job_environment
+
+#
+# --------------------------------------------------------------
+# Build list of hosts 
+# --------------------------------------------------------------
+#
+myargs=""
+case $job_environment in 
+
+PBS)    nodes=`cat $PBS_NODEFILE`
+        echo $nodes
+        for i in $nodes
+        do
+           echo $i $procspernode
+           myargs="$myargs $i $procspernode"
+        done;;
+
+INTER)  # Take hosts from GAMESS_HOSTS
+        echo rungamess: interactive LAM job dir=`pwd` procs=$nprocs hostlist=$GAMESS_HOSTS
+        rm -f gamess.lamhosts
+        i=0
+        lasthost=none
+        for host in ${GAMESS_HOSTS}
+        do
+           if test $i -lt $nnodes
+           then
+              if test $host != $lasthost
+              then
+                 myargs = "$myargs $host $procspernode"
+              fi
+           fi
+           i=`expr $i + 1`
+        done;;
+
+*)  echo "Unsupported jon environment for scali : $job_environment"
+    exit -1;;
+
+esac
+
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+echo Start at `date`
+echo  $executable $myargs  $datain
+case $datain in
+  0) cat $homedir/$jobname.in | mpimon $executable -- $myargs;;
+  1) cp  $homedir/$jobname.in datain
+     mpimon $executable -- $myargs;;
+esac
+stat=$?
+echo End at `date`
+
+case $stat in
+   0) echo ${IDENT}: SCALI MPI gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+

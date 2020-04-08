@@ -1,0 +1,78 @@
+#!/bin/csh
+setenv ed0 ../../libs/ecplib
+../../bin/gamess << EOF
+title
+hooh - nonlocal ECP / SCF  energy -32.23032888
+zmat angstrom
+h 
+o 1 1.1 
+o 2 1.4 1 109.0 
+h 3 1.1 2 109.0 1 90.0 
+end
+basis ecpdz
+pseudo nonlocal
+o o
+enter
+EOF
+../../bin/gamess << EOF
+title
+hooh  - local ECP / SCF energy -32.35726385
+zmat angstrom
+h 
+o 1 1.1 
+o 2 1.4 1 109.0 
+h 3 1.1 2 109.0 1 90.0 
+end
+basis ecpdz
+pseudo 
+o o
+enter
+EOF
+../../bin/gamess << EOF
+title
+hooh  - local ECP (revised format) / SCF energy -32.357263972 au
+zmat angstrom
+h 
+o 1 1.1 
+o 2 1.4 1 109.0 
+h 3 1.1 2 109.0 1 90.0 
+end
+basis ecp lanl
+pseudo 
+o lanl o
+enter
+EOF
+../../bin/gamess << EOF
+title
+hooh  - CRENBL ECP / SCF energy -32.414308682 au
+zmat angstrom
+h 
+o 1 1.1 
+o 2 1.4 1 109.0 
+h 3 1.1 2 109.0 1 90.0 
+end
+basis 
+ecp o crenbl
+dz  h
+end
+pseudo 
+o crenbl o
+enter
+EOF
+../../bin/gamess << EOF
+title
+hooh  - Stuttgart RLC ECP / SCF energy -32.493558072 au
+zmat angstrom
+h 
+o 1 1.1 
+o 2 1.4 1 109.0 
+h 3 1.1 2 109.0 1 90.0 
+end
+basis 
+ecp o strlc
+dz  h
+end
+pseudo 
+o strlc o
+enter
+EOF

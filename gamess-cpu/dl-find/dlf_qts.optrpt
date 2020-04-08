@@ -1,0 +1,7141 @@
+
+Begin optimization report for: READ_QTS_COORDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3621,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3621,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3621,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3622,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3622,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3622,3)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3622,3)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3654,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3654,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3654,31)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3654,31)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_TAU_FROM_PATH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(472,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(476,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_TRANS_FORCE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1306,3) inlined into dlf_qts_d.F90(580,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3) inlined into dlf_qts_d.F90(580,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3) inlined into dlf_qts_d.F90(580,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3) inlined into dlf_qts_d.F90(580,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3) inlined into dlf_qts_d.F90(580,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1310,3) inlined into dlf_qts_d.F90(580,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3) inlined into dlf_qts_d.F90(580,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3) inlined into dlf_qts_d.F90(580,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3) inlined into dlf_qts_d.F90(580,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3) inlined into dlf_qts_d.F90(580,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3) inlined into dlf_qts_d.F90(580,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3) inlined into dlf_qts_d.F90(580,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3) inlined into dlf_qts_d.F90(580,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3) inlined into dlf_qts_d.F90(580,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8) inlined into dlf_qts_d.F90(589,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1361,35) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1361,35) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13) inlined into dlf_qts_d.F90(589,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11) inlined into dlf_qts_d.F90(589,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5) inlined into dlf_qts_d.F90(589,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5) inlined into dlf_qts_d.F90(589,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5) inlined into dlf_qts_d.F90(589,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5) inlined into dlf_qts_d.F90(589,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5) inlined into dlf_qts_d.F90(589,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1408,5) inlined into dlf_qts_d.F90(589,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5) inlined into dlf_qts_d.F90(589,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5) inlined into dlf_qts_d.F90(589,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5) inlined into dlf_qts_d.F90(589,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5) inlined into dlf_qts_d.F90(589,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7) inlined into dlf_qts_d.F90(594,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18) inlined into dlf_qts_d.F90(594,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3) inlined into dlf_qts_d.F90(594,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5) inlined into dlf_qts_d.F90(594,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5) inlined into dlf_qts_d.F90(594,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5) inlined into dlf_qts_d.F90(594,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5) inlined into dlf_qts_d.F90(594,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1516,5) inlined into dlf_qts_d.F90(594,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5) inlined into dlf_qts_d.F90(594,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5) inlined into dlf_qts_d.F90(594,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5) inlined into dlf_qts_d.F90(594,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5) inlined into dlf_qts_d.F90(594,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5) inlined into dlf_qts_d.F90(564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5) inlined into dlf_qts_d.F90(564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5) inlined into dlf_qts_d.F90(564,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(472,5) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(476,5) inlined into dlf_qts_d.F90(564,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7) inlined into dlf_qts_d.F90(564,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7) inlined into dlf_qts_d.F90(564,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7) inlined into dlf_qts_d.F90(564,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(477,7) inlined into dlf_qts_d.F90(564,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5) inlined into dlf_qts_d.F90(564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5) inlined into dlf_qts_d.F90(564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5) inlined into dlf_qts_d.F90(564,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(484,5) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13) inlined into dlf_qts_d.F90(564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13) inlined into dlf_qts_d.F90(564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(499,13) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3) inlined into dlf_qts_d.F90(564,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3) inlined into dlf_qts_d.F90(564,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(498,3) inlined into dlf_qts_d.F90(564,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(568,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(568,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(568,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(568,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(568,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(609,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(609,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(611,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(611,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(611,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(612,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(612,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(612,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(614,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(614,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(618,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(618,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(621,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(621,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(621,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(622,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(622,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(622,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(624,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(624,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(629,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(630,46)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(630,46)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(630,46)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(630,46)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(653,23)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(653,23)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(653,23)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(653,23)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(653,23)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(654,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(654,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(654,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(654,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(654,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,45)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,45)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,45)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,45)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(642,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(683,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 689 and  line 689
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(683,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 689 and  line 689
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(709,45)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(709,45)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(709,45)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(709,45)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(709,45)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(709,45)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(709,45)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(716,49)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(716,49)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(716,49)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(716,49)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(716,49)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(716,49)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(716,49)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(729,47)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(729,47)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(729,47)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(729,47)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(729,47)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(729,47)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(729,47)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(732,47)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(732,47)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(732,47)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(732,47)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(732,47)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(732,47)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(732,47)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(717,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(709,12) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(730,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(729,14) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(733,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(732,14) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_GRADIENT_ETOS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1117,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1117,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1117,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1131,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1131,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1131,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1131,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1131,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1131,7)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1131,7)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1131,7)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1131,7)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1140,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1141,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1141,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1141,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1141,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1141,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1148,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1149,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1149,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1149,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1149,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1164,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1164,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1164,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1164,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1164,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1171,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1171,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1171,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1171,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1171,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1178,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1178,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1178,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1178,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1178,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1188,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1188,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1188,22)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1188,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1198,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1198,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1198,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1198,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1198,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1198,3)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1198,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1203,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1203,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1203,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1206,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1206,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1206,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1213,17)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1213,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1213,17)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1213,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1232,54)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1232,54)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1232,54)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1235,6)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1235,6)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1235,6)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1244,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1244,18)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1244,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1248,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1251,20)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1251,20)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1251,20)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1259,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1262,20)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1262,20)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1262,20)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1273,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1274,20)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1274,20)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1274,20)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1282,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1282,18)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1282,18)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(1193,3)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_MIN_PHI_PART2
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1434,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1440,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1482,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,33)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1483,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1500,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1516,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1516,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_MIN_PHI_PART1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1341,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1352,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1361,35)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1361,35)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,29)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1364,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1367,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1376,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1396,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,39)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1397,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1399,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1408,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1408,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_PHI_1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1306,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1306,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1310,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1310,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1313,3)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_GET_DTAU
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(783,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(783,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(783,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(784,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(785,23)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(785,23)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(785,23)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(785,23)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(791,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(791,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(791,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(792,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(792,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(792,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(795,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(795,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(797,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(797,17)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(797,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(799,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(799,9)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(799,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(800,27)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(800,27)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(804,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(804,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(806,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(806,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(806,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(808,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(808,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(810,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(810,17)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(810,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(812,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(812,9)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(812,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(813,26)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(813,26)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(816,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(816,17)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(816,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(818,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(818,9)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(818,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(819,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(819,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(822,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(822,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(823,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(823,19)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(823,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(825,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(825,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(825,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(826,28)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(826,28)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(847,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(847,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(847,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(862,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(862,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(873,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(873,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(873,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(910,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(910,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,25)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,25)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(919,25)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(935,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 936 and  line 937
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(945,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(945,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(945,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(992,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1002 and  line 1002
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1015,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1015,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1015,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1016,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1016,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1024,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1033 and  line 1033
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1036,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1036,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,20)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,20)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,20)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1043,20)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1046,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1046,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1046,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1046,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1007,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1008 and  line 1008
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1071,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1071,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1071,3)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1071,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(839,3)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1057,3)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlf_qts_d.F90(1021,5)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_GET_HESSIAN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1579,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1579,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1579,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1584,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1588 and  line 1588
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,72)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,72)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,72)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,87)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,87)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,87)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,93)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1595,93)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1595,93)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1702,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1702,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1702,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1702,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1710,37)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1721,51)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1721,51)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1721,51)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1721,51)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1740,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1740,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1740,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1740,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1741,5)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1741,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1759,38)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1807,37)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1809,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1810,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1845,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1867,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1867,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1867,3)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1867,3)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1867,3)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1867,3)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1875,67)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1876,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,35)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1875,67)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1875,67)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1876,21)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1883,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1883,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1883,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1883,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1883,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1883,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1883,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1883,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1883,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1639,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1639,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1639,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1639,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1639,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1639,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1645,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1641,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1642,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1643,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1644,15)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1645,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1645,15)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1656,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1656,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1656,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1656,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1656,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1657,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1657,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1657,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1657,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1657,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9) inlined into dlf_qts_d.F90(1676,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2002,7) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7) inlined into dlf_qts_d.F90(1676,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2003,7) inlined into dlf_qts_d.F90(1676,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7) inlined into dlf_qts_d.F90(1676,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7) inlined into dlf_qts_d.F90(1676,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7) inlined into dlf_qts_d.F90(1676,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7) inlined into dlf_qts_d.F90(1676,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(1596,9)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(1595,16) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1663,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_qts_d.F90(1661,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(1640,16) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2018,3) inlined into dlf_qts_d.F90(1676,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(1990,10) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_UPDATE_HESSIAN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1995,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1991,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1992,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1993,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(1994,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(1995,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(1995,9)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2002,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2002,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2003,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2003,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(2018,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(1990,10) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_HESSIAN_ETOS_HALFPATH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(2056,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2059,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2059,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(2059,5)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2059,5)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2059,5)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2059,5)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2064,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2065,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2066,7)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2066,7)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2066,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2076,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2076,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2075,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2076,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2076,5)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2076,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2076,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2106,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2106,3)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2106,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2106,3)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2106,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3744,3) inlined into dlf_qts_d.F90(2111,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5) inlined into dlf_qts_d.F90(2111,8)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3756,3) inlined into dlf_qts_d.F90(2111,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3756,3) inlined into dlf_qts_d.F90(2111,8)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: REPORT_QTS_PATHLENGTH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(2502,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2502,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2502,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2503,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2504,5)
+      remark #15300: LOOP WAS VECTORIZED
+
+      LOOP BEGIN at dlf_qts_d.F90(2505,40)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2504,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2511,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2513 and  line 2513
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_RATE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(2587,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2587,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2589,7)
+   remark #15301: BLOCK WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2589,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2502,3) inlined into dlf_qts_d.F90(2596,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2502,3) inlined into dlf_qts_d.F90(2596,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2502,3) inlined into dlf_qts_d.F90(2596,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2503,3) inlined into dlf_qts_d.F90(2596,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2504,5) inlined into dlf_qts_d.F90(2596,10)
+      remark #15300: LOOP WAS VECTORIZED
+
+      LOOP BEGIN at dlf_qts_d.F90(2505,40) inlined into dlf_qts_d.F90(2596,10)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2504,5) inlined into dlf_qts_d.F90(2596,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2511,3) inlined into dlf_qts_d.F90(2596,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2513 and  line 2513
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2620,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2620,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2620,8)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2620,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2622,60)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2629,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2629,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2629,3)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2629,3)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2632,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2636,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2636,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(2636,5)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2636,5)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2636,5)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2636,5)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2639,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2639,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(2639,5)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2639,5)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2639,5)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2639,5)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2664,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2665 and  line 2665
+
+   LOOP BEGIN at dlf_qts_d.F90(2665,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2664,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2665 and  line 2665
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2671,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2671,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2671,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2672,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2677,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2677,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2677,5)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2677,5)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2677,5)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2682,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2682,5)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2682,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2682,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2682,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2682,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,3)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2685,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2686,61)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2686,61)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2686,61)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2686,61)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2686,61)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2686,61)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2686,52)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2686,52)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2712,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2722,41)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2722,41)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2722,41)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2722,41)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2725,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2725,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2725,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2725,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2747,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2747,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2747,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2758,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2785,59)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2785,59)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2785,59)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2789,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2790,20)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2790,20)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2790,20)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2790,20)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2796,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2796,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2796,12)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2796,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2798,72)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2798,72)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2798,72)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2798,72)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2813,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2813,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2813,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2819,11)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2824,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2825 and  line 2829
+
+   LOOP BEGIN at dlf_qts_d.F90(2825,14)
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2829,16)
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(2624,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(2622,10) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2763,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(2757,14) ]
+
+   LOOP BEGIN at dlf_qts_d.F90(2761,7)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(2757,14) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2775,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(2772,12) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2806,5)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2846,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(2818,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ROTATIONAL_PARTITION_FUNCTION
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(4943,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4943,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4944,3)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+
+   LOOP BEGIN at dlf_qts_d.F90(4945,5)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4944,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4947,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4949,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 4950 and  line 4950
+
+   LOOP BEGIN at dlf_qts_d.F90(4950,5)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4954,23)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4954,63)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4961,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(4961,3)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4961,3)
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4961,3)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4962,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4962,3)
+   remark #15300: LOOP WAS VECTORIZED
+
+   LOOP BEGIN at dlf_qts_d.F90(4964,5)
+
+      LOOP BEGIN at dlf_qts_d.F90(4965,7)
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(4965,7)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4962,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4980,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(4981,5)
+      remark #15315: loop was not vectorized: low trip count
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4981,5)
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_DET_TSPLITTING
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(2263,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2263,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2263,3)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2263,3)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2264,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2264,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2264,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2266,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2266,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2269,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2270,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2271,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2271,9)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2271,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2282,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2282,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2281,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2282,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2282,7)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2282,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2282,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2311,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2312,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2315,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2315,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2315,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2321,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2322,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2325,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2325,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2325,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2325,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2353,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2354 and  line 2354
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2359,21)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2359,21)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2359,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3) inlined into dlf_qts_d.F90(2368,8)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31) inlined into dlf_qts_d.F90(2368,8)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3842,3) inlined into dlf_qts_d.F90(2368,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3842,3) inlined into dlf_qts_d.F90(2368,8)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3842,3) inlined into dlf_qts_d.F90(2368,8)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5) inlined into dlf_qts_d.F90(2368,8)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33) inlined into dlf_qts_d.F90(2368,8)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3853,5) inlined into dlf_qts_d.F90(2368,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3860,5) inlined into dlf_qts_d.F90(2368,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3860,5) inlined into dlf_qts_d.F90(2368,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2376,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2376,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2376,3)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2376,3)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2378,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2379,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2379,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(2379,5)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2379,5)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2379,5)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(2379,5)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2386,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2387,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2388,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2388,9)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2388,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2400,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2400,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2399,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2400,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2400,7)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2400,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(2400,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2432,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2433,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2436,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2436,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2436,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2442,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2443,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2446,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2446,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2446,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2446,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2470,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2471 and  line 2471
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2476,32)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2476,32)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2476,32)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(3845,3) inlined into dlf_qts_d.F90(2368,8)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_HESSIAN_ETOS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(2155,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2156,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2157,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2157,9)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2157,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2171,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(2172,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2178 and  line 2189
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2198,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2199,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2202,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2202,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2202,11)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2205,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2205,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2205,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(2208,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(2209,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(2212,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2212,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2212,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2212,11)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2215,11)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2215,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2215,11)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(2215,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: QTS_REACTANT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3126,20)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,20)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,20)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,37)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,37)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,37)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,68)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,68)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3126,68)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3178,20)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3178,20)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3178,20)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3178,20)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3201,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3201,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3201,14)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3201,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3225,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3225,9)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3225,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3225,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3225,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3241,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3241,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3241,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3260,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3260,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3260,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3264,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 3268 and  line 3268
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,78)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,78)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,78)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,93)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,93)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3275,93)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3296,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3296,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3296,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3309,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3310,5)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3310,5)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3310,5)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3391,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3391,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3391,7)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3391,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3420,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(3421,9)
+   <Distributed chunk1>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3421,9)
+   <Distributed chunk2>
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 3423 and  line 3423
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3436,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3436,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3436,12)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_CONVERGENCE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3502,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3502,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3502,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3503,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3503,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3503,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3507,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3510,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(3521,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(3506,10) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_HTST_RATE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(4353,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(4353,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4353,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4395,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4395,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4395,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4397,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4397,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4397,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4397,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4400,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4404 and  line 4404
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4461,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4461,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4461,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4461,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4504,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4504,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4504,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4504,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4514,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(4514,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4514,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4514,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4514,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4529,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(4529,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4529,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4529,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4529,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4530,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(4530,5)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4530,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4530,5)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4530,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4586,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4586,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4586,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4588,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4588,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4588,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4588,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4591,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4595 and  line 4595
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4654,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4660 and  line 4667
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4681,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4681,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4684,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4684,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4798,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4798,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5015,3) inlined into dlf_qts_d.F90(4825,10)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4885,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4887 and  line 4888
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(4747,26)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4871,3)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: READ_QTS_REACTANT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(4081,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(4081,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(4081,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(4098,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4102 and  line 4102
+LOOP END
+===========================================================================
+
+Begin optimization report for: WRITE_QTS_HESSIAN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3744,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3745,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3745,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(3745,5)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3756,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3756,3)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: READ_QTS_HESSIAN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3839,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3839,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,3)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3839,31)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3839,31)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3839,31)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3842,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3842,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3842,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3844,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3844,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3844,33)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3844,33)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3844,33)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3853,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3853,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3853,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3860,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3860,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3860,5)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(3845,3)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: KAPPA_ECKART
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(5015,3)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_DEFINEPATH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(5117,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5117,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5117,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5118,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5118,3)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5118,3)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5120,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5120,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5120,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5120,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5121,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5121,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5121,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5121,5)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5123,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5123,3)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5146,8)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5146,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5146,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5151,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5155 and  line 5155
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,72)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,72)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,72)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,87)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,87)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,87)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,93)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5162,93)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5162,93)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5181,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(5181,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5181,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5182,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5182,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5182,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5203,73)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,28)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5204,48)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5207,9)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5209,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5209,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5209,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5209,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5209,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5208,11)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5207,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5208,11)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(5208,11)
+         <Peeled, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(5208,11)
+         <Multiversioned v2>
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(5208,11)
+         <Alternate Alignment Vectorized Loop, Multiversioned v2>
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(5208,11)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5211,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5211,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5211,9)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5211,9)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5253,69)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,24)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5254,50)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5257,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5257,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5257,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5257,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5257,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5262,17)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5262,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5262,17)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5262,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5315,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5316 and  line 5316
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5327,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5327,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5327,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5327,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5327,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5327,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5367,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5367,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5443,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5443,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5443,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5443,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5444,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5444,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5444,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5444,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5450,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5450,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5450,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5450,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5453,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5453,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5453,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5459,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5460 and  line 5460
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5476,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5476,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5476,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5485,51)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5485,51)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5485,51)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5486,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5486,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5486,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5493,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5493,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5493,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5494,32)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5494,32)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5497,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5497,15)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5497,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5499,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5499,5)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5499,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5506,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5506,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5506,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5510,71)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,26)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5511,52)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5514,5)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5514,5)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5514,5)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5515,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5515,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5515,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5515,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5515,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5515,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5515,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5515,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5515,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5525,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5527 and  line 5527
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5537,6)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5537,6)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5537,6)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5538,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5538,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5538,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5538,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5538,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5538,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5538,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5538,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5538,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5542,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5545,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5545,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5545,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5545,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5545,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5546,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5546,11)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5546,11)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5567,6)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5567,6)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5567,6)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5572,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5572,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5572,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5591,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5591,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5629,9)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlf_qts_d.F90(5629,9)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5629,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5632,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5632,9)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5632,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5632,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5632,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5639,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5639,11)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5639,11)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5639,11)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5639,11)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5639,11)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5641,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5641,13)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5641,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5641,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5641,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5654,7)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 5656 and  line 5658
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5669,7)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5683,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5683,9)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5683,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5683,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5683,9)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5683,9)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5683,9)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5688,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5688,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5688,9)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5688,9)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5688,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5693,11)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5693,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5693,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5693,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5693,11)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5693,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5696,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5696,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5696,13)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5696,13)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5696,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5710,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5710,5)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(5710,5)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5710,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(5710,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(5710,5)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5710,5)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5710,5)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(5710,5)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(5163,9)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5162,16) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5248,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5253,10) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5414,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5370,27) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5513,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5510,12) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5573,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5582,16) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5587,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(5622,16) ]
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(5666,5)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at dlf_qts_d.F90(5705,7)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_QTS_INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlf_qts_d.F90(3621,3) inlined into dlf_qts_d.F90(212,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3621,3) inlined into dlf_qts_d.F90(212,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(3621,3) inlined into dlf_qts_d.F90(212,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3622,3) inlined into dlf_qts_d.F90(212,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3622,3) inlined into dlf_qts_d.F90(212,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3622,3) inlined into dlf_qts_d.F90(212,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3622,3) inlined into dlf_qts_d.F90(212,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,3) inlined into dlf_qts_d.F90(212,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(3654,31) inlined into dlf_qts_d.F90(212,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5) inlined into dlf_qts_d.F90(212,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5) inlined into dlf_qts_d.F90(212,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3663,5) inlined into dlf_qts_d.F90(212,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5) inlined into dlf_qts_d.F90(212,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5) inlined into dlf_qts_d.F90(212,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(3665,5) inlined into dlf_qts_d.F90(212,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(230,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(230,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(230,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(236,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(236,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(236,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(237,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(237,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(237,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(238,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(238,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(238,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(236,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(236,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(236,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(236,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(237,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(237,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(237,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(237,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(238,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(238,13)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(238,13)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(238,13)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(242,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(242,7)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(242,7)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(244,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(245,24)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(245,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(245,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(245,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(254,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(254,5)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(254,5)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at dlf_qts_d.F90(254,5)
+            remark #15300: LOOP WAS VECTORIZED
+         LOOP END
+
+         LOOP BEGIN at dlf_qts_d.F90(254,5)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(275,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(275,3)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlf_qts_d.F90(275,3)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlf_qts_d.F90(275,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlf_qts_d.F90(275,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at dlf_qts_d.F90(275,3)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(275,3)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(275,3)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at dlf_qts_d.F90(275,3)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlf_qts_d.F90(239,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlf_qts_d.F90(235,14) ]
+LOOP END
+===========================================================================

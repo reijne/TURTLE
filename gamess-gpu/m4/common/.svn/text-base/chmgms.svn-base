@@ -1,0 +1,35 @@
+c
+      logical qinigm, ochmdbg
+      integer nucchg, charmm_cycle
+      logical onoatpr
+      logical oapp
+      logical oqmewd
+      REAL eoff
+      common/chmgms2/eoff, qinigm, nucchg, ochmdbg, onoatpr,
+     +charmm_cycle,oapp,oqmewd
+
+c
+c eventually this could be replaced by an on-the-fly mulliken
+c analysis
+c
+
+      REAL qatch(maxat)
+      integer natqm,ichchty
+
+      character*8 zchmlab
+      integer ichmlab,nchmlab
+      dimension zchmlab(100)
+      dimension ichmlab(100)      
+ 
+      common/chmgms3/ qatch, natqm, ichchty, ichmlab, nchmlab
+
+c initial implementation is mulliken only
+      integer CHM_MULLIKEN
+      parameter(CHM_MULLIKEN=1)
+      integer CHM_LOWDIN
+      parameter(CHM_LOWDIN=2)
+      integer CHM_ESP
+      parameter(CHM_ESP=3)
+
+
+      common/chmgms4/zchmlab

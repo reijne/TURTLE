@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# Rungamess execution script - Serial version
+#
+#
+
+#
+# --------------------------------------------------------------
+# Replace variables that might have different values on
+# the execution host
+# --------------------------------------------------------------
+#
+
+#
+# --------------------------------------------------------------
+# Parse file definitions to environment variables
+# --------------------------------------------------------------
+#
+use_file_directives=0
+. $RUNGAMESS_DIR/rg_filedefs
+
+#
+# --------------------------------------------------------------
+# Create scratch directory
+# In server mode the directory may already be created
+# and in use
+# --------------------------------------------------------------
+#
+
+if test -d $jobworkdir
+then
+  echo re-using scratch directory
+else
+  mkdir -p $jobworkdir
+fi
+cd $jobworkdir
+#
+# --------------------------------------------------------------
+# Execute GAMESS-UK
+# --------------------------------------------------------------
+#
+
+$executable < $homedir/$jobname.in 
+stat=$?
+case $stat in
+   0) echo ${IDENT}: gamess completed;;
+   *) echo ${IDENT}: failure code is $stat;  exit $stat ;;
+esac
+
+#
+# --------------------------------------------------------------
+# Delete scratch directory. The test on contents is applied in 
+# case of core files,  user-added file directives, + the
+# save command
+# --------------------------------------------------------------
+#
+
+cd ..
+
+list=`/bin/ls -1 $jobworkdir`
+
+case X$list in
+  X) rmdir $jobworkdir;;
+  *) echo "rungamess: scratch directory has not been deleted as it is not empty"
+     #echo Directory $jobworkdir on `hostname` contains the following:
+     #/bin/ls -l $jobworkdir
+  ;;
+esac
+

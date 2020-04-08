@@ -1,0 +1,74 @@
+************************************************************************
+*   ==========  parameters defining the maximum system size =========
+*
+*   there are eight    parameters that the programmer need set:
+*     maxorb = maximum number of basis functions
+*     maxat  = maximum number of atoms (including point charges)
+*     maxvar = maximum number of z-matrix variables
+*     maxnz  = maximum number of z-matrix cards
+*     mxshel = maximum number of shells
+*
+*     mxprim = maximum number of shell primitives
+      parameter (maxorb= 256, maxat=1000)
+      parameter (maxvar=1200, maxnz= 400)
+      parameter (mxshel= 120, mxprim=440)
+*
+*   following parameters refer to analysis modules
+*     mxgaus = maximum number of orbital primitives
+*     mxgrps = maximum number of shells
+      parameter ( mxgrps = 480, mxgaus = 4800)
+*
+*   following parameters refer to graphics module
+      parameter (mxgrid=10, mxcalc=10, mxplot=10, mxrest=10)
+      parameter (mxstp=mxcalc+mxgrid+mxplot+mxrest)
+*
+*   following parameters refer to I/O system
+*   parameters control no. of ed/mt files+ buffers
+*
+*     maxlfn *  no. of ed/mt streams
+*     maxfrt *  no. of fortran data sets
+*     maxbuf *  no. of fortran store buffers
+*     maxblo *  no. of blocks in 1 buffer
+      parameter (maxlfn = 40, maxfrt = 60)
+*
+      parameter (maxbuf = 9, maxblo=32)
+*
+*   following parameters refer to direct-CI module
+*   parameters control canonical set size
+*
+*     mxcan1 *  default setting 2508 : high-spin 19606
+*     mxcan2 *  default setting 5016 : high-spin 39212
+      parameter (mxcan1  = 2508, mxcan2 = 5016)
+*
+*   following parameters refer to full-CI module
+*
+*     lenci *  default setting 500000
+      parameter (lenci = 500000)
+************************************************************************
+*
+*   the following values should not be altered
+*
+************************************************************************
+      parameter (mxorb3=maxorb*3)
+      parameter (maxat3=maxat+3)
+************************************************************************
+* The following are needed for DIRECT
+*
+      parameter (numspl=50)
+      parameter (nbrkmx=20)
+************************************************************************
+* The following are needed for MRD-CI
+*
+      parameter (mxcsf=100)
+      parameter (mxnshl=30)
+      parameter (mxroot=20)
+      parameter (mxconf=30000)
+      parameter (maxig=50000)
+      parameter (mxtrm=200000)
+************************************************************************
+* The following are used in the TDA module
+*
+      parameter (mxtda1=3600)
+      parameter (mxtda2=50)
+      parameter (mxtda3=20)
+************************************************************************

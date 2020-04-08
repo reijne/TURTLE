@@ -1,0 +1,9 @@
+C *Shell order information include file
+      integer max_func,maxL
+      parameter(max_func=60,maxL=5)
+      integer bf_order
+      integer bf_start,bf_end,bf_num
+      REAL  bf_norm
+      common/order_info/bf_norm(max_func),
+     &     bf_order(max_func,3),
+     &     bf_start(maxL),bf_end(maxL),bf_num(maxL)

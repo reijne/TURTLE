@@ -1,0 +1,11 @@
+#!/bin/csh
+#
+# validation for mopac
+#
+setenv GAMESS_VTAB ./mopac.vtab
+set path=(../../utilities $path)
+validate mopac_1  LOG/mopac_1.log
+validate mopac_2  LOG/mopac_2.log
+validate mopac_3  LOG/mopac_3.log
+validate mopac_4  LOG/mopac_4.log
+validate mopac_5  LOG/mopac_5.log

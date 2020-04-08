@@ -1,0 +1,111 @@
+#! /bin/sh
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+includedir=@includedir@
+libdir=@libdir@
+
+usage()
+{
+    cat <<EOF
+Usage: agentx-config [OPTION]
+
+Known values for OPTION are:
+
+  --prefix=DIR		change AgentX prefix [default $prefix]
+  --exec-prefix=DIR	change AgentX exec prefix [default $exec_prefix]
+  --libs		print library linking information
+  --libtool-libs        print linking information for use with libtool
+  --cflags		print pre-processor and compiler flags for C
+  --fflags              print pre-processor and compiler flags for Fortran
+  --help		display this help and exit
+  --version		output version information
+  --env                 print environment setting script
+  --static-libs         print compiler flags for static linking
+
+EOF
+
+    exit $1
+}
+
+if test $# -eq 0; then
+    usage 1
+fi
+
+cflags=false
+libs=false
+
+while test $# -gt 0; do
+    case "$1" in
+    -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+    *) optarg= ;;
+    esac
+
+    case "$1" in
+    --prefix=*)
+	prefix=$optarg
+	includedir=$prefix/include
+	libdir=$prefix/lib
+	;;
+
+    --prefix)
+	echo $prefix
+	;;
+
+    --exec-prefix=*)
+      exec_prefix=$optarg
+      libdir=$exec_prefix/lib
+      ;;
+
+    --exec-prefix)
+      echo $exec_prefix
+      ;;
+
+    --version)
+	echo @PACKAGE_VERSION@
+	exit 0
+	;;
+
+    --help)
+	usage 0
+	;;
+
+    --cflags)
+       	echo -n " @AGENTX_INCLUDEDIR@ @AGENTX_CFLAGS@ "
+       	;;
+
+    --fflags)
+	echo -n " @AGENTX_INCLUDEDIR@ @AGENTX_MODULE_DIR@ @AGENTX_CFLAGS@ "
+       	;;   
+
+    --libtool-libs)
+	echo -n " ${libdir}/@AGENTX_LIBTOOLLIBS@ "
+        ;;
+
+    --libs)
+        deplibs=`cat ${libdir}/libagentx.la | grep "dependency_libs=" | sed -e "s/dependency_libs=//g" -e "s/'//g"`
+	echo "@AGENTX_LIBS@ `echo $deplibs | sed -e 's/^\/\S*\/lib/ -l/g' -e 's/\s\+\/\S*\/lib/ -l/g' -e 's/\.la//g'`"
+	;;
+
+    --static-libs)
+	echo -n " -Xlinker -Bstatic `$0 --libs` -Xlinker -Bdynamic " 
+	;;
+
+    --env)
+	usershell=`echo ${SHELL} | grep 'csh'`
+	if test -z "${usershell}" ; then
+	    echo ${prefix}/bin/axbashenv
+	else
+	    echo ${prefix}/bin/axcshenv
+	fi
+	;;
+
+    *)
+	usage
+	exit 1
+	;;
+    esac
+    shift
+done
+
+exit 0

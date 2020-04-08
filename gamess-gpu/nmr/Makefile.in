@@ -1,0 +1,30 @@
+#
+# This is an extra section designed to be
+# appended to a copy the GAMESS-UK Makefile
+# 
+# Use the configure script in ../m4
+#
+#
+NMROBJ = \
+	giaodrv.o \
+	giao.o \
+	gia2.o \
+	giaoextra.o \
+	rysd.o
+
+NMRLIB = libnmr.a
+
+nmr:	$(NMRLIB)
+
+$(NMRLIB):	$(NMROBJ)
+		$(ARCHIVE) $(NMRLIB)  $(NMROBJ) 
+		$(RANLIB) $(NMRLIB)
+
+clean:
+	touch x.o x~ x.f \#x
+	rm -f *.o *.f *~ \#* $(NMRLIB) 
+
+.DEFAULT:
+	(cd ../m4; make $@)
+
+#

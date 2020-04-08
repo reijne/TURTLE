@@ -1,0 +1,53 @@
+
+Begin optimization report for: DCOPY
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dcopy.f(48,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dcopy.f(48,10)
+   <Multiversioned v2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at dcopy.f(48,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dcopy.f(53,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dcopy.f(54,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at dcopy.f(54,11)
+      remark #15301: BLOCK WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dcopy.f(54,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dcopy.f(34,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dcopy.f(34,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at dcopy.f(34,10)
+<Multiversioned v2>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dcopy.f(34,10)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================

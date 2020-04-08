@@ -1,0 +1,233 @@
+
+Begin optimization report for: DLFIND_GAMESS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlfind_gamess.f(301,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_GET_PARAMS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlfind_gamess.f(590,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlfind_gamess.f(590,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(590,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(590,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlfind_gamess.f(590,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(590,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(590,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(613,9)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(613,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(613,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(650,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(650,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(650,14)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(650,14)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlfind_gamess.f(598,7)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(620,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ dlfind_gamess.f(619,13) ]
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1472,16) inlined into dlfind_gamess.f(650,14)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlfind_gamess.f(1454,13) inlined into dlfind_gamess.f(650,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(1462,13) inlined into dlfind_gamess.f(650,14)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(657,9)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(663,9)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: READ_XYZ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlfind_gamess.f(1488,7)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlfind_gamess.f(1472,16)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlfind_gamess.f(1454,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(1462,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_GET_GRADIENT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlfind_gamess.f(942,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlfind_gamess.f(942,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(942,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(942,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at dlfind_gamess.f(942,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(949,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at dlfind_gamess.f(949,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(949,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(949,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(949,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: DLF_GEOM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(1360,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(1360,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(1360,12)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at dlfind_gamess.f(1488,7) inlined into dlfind_gamess.f(1360,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at dlfind_gamess.f(1472,16) inlined into dlfind_gamess.f(1360,12)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at dlfind_gamess.f(1454,13) inlined into dlfind_gamess.f(1360,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at dlfind_gamess.f(1462,13) inlined into dlfind_gamess.f(1360,12)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================

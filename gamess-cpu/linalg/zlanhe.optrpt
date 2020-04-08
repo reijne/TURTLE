@@ -1,0 +1,129 @@
+
+Begin optimization report for: ZLANHE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zlanhe.f(105,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at zlanhe.f(106,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(106,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(106,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(106,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlanhe.f(112,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at zlanhe.f(114,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(114,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(114,19)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(114,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlanhe.f(168,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 172 and  line 175
+LOOP END
+
+LOOP BEGIN at zlanhe.f(126,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at zlanhe.f(128,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(128,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(128,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(128,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlanhe.f(135,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at zlanhe.f(135,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at zlanhe.f(135,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zlanhe.f(139,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at zlanhe.f(139,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(139,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at zlanhe.f(142,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at zlanhe.f(144,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(144,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(144,19)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at zlanhe.f(144,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at zlanhe.f(159,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlanhe.f(160,21) ]
+LOOP END
+
+LOOP BEGIN at zlanhe.f(163,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ zlanhe.f(164,21) ]
+LOOP END
+===========================================================================

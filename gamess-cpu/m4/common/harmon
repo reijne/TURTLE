@@ -1,0 +1,8 @@
+c...   common for harmonic option
+      logical  oharm,opharm,odepen
+      integer newbas0, newbas1, nsym0, ilifq0, ielimh
+      integer newbash,nsymh
+      common/harmon/ oharm,opharm,newbas0,newbas1,nsym0(8),
+     1               ilifq0(maxorb),ielimh(maxorb),
+     2               newbash,nsymh(8),odepen
+c

@@ -1,0 +1,53 @@
+                        Global Arrays on Windows NT
+
+Requirements
+------------
+
+This code requires an implementation of MPI that works on a single PC.
+It was tested with WMPI, an NT implementation derived from MPICH
+in Portugal. 
+
+Compilers:
+
+MS Power Fortran 4 or DEC Visual Fortran 5, 6
+MS Visual C 4, 5, 6
+
+Building GA
+-----------
+
+To build the GA software, you need to do
+
+1. Select Environemt tab under System ( & Advanced on w2k) from Control Panel.
+2. Set two environment variables (described in the Unix documentation for GA)
+   that point to a location of MPI, for example for WMPI on disk D:
+
+   set MPI_INCLUDE as d:\Wmpi\Include 
+   set MPI_LIB as d:\Wmpi\Console 
+
+3. Make sure that the dynamic link libraries required by the particular
+   implementation of MPI is copied to the appropriate location for
+   the system DLLs. For WMPI, copy VWMPI.dll to \winnt
+
+4. In the top directory do,
+
+   nmake
+
+The GA test.exe program can be built in g\global\testing directory:
+
+   nmake test.exe
+
+The GA programs are run as any other MPI application. For, WMPI you need
+to create the .pg file.
+
+Example:
+
+R:\nt\g\global\testing> start /b test.exe
+
+
+Addtional Notes
+---------------
+
+You can make this code on Windows 95. However, due to the DOS shell
+limitations, the top level NTmakefile will not work. Therefore, each 
+library has to be made separately in its own directory. The environment
+variables referring to MPI can be hardcoded in NT makefiles.

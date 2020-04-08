@@ -1,0 +1,552 @@
+
+Begin optimization report for: READ_AIVB_INPUT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbaivb.f(400,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 401 and  line 403
+LOOP END
+
+LOOP BEGIN at vbaivb.f(416,28)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 416 and  line 416
+LOOP END
+
+LOOP BEGIN at vbaivb.f(490,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 493 and  line 493
+LOOP END
+
+LOOP BEGIN at vbaivb.f(517,17)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 520 and  line 520
+LOOP END
+
+LOOP BEGIN at vbaivb.f(574,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 574 and  line 574
+LOOP END
+
+LOOP BEGIN at vbaivb.f(606,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 606 and  line 606
+LOOP END
+
+LOOP BEGIN at vbaivb.f(608,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 608 and  line 608
+LOOP END
+
+LOOP BEGIN at vbaivb.f(610,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 610 and  line 610
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbaivb.f(584,14)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbaivb.f(324,26)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbaivb.f(564,30)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: GENERATE_AIVB_DRV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbaivb.f(994,7)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbaivb.f(994,7)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1019,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1037,7)
+<Distributed chunk1>
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1037,7)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1037,7)
+<Distributed chunk2>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbaivb.f(1040,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1040,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1040,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1040,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1070,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1071 and  line 1071
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1077,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(1078,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1082 and  line 1089
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1078,9)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1078,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1099,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1100 and  line 1100
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1115,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(1120,9)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbaivb.f(1135,11)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 1146 and  line 1146
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1135,11)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1135,11)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 1146 and  line 1146
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1135,11)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1166,9)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(1167,11)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbaivb.f(1170,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed OUTPUT dependence between  line 1170 and  line 1170
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1190,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbaivb.f(1189,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbaivb.f(1189,7)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1189,7)
+      <Multiversioned v2>
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1189,7)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbaivb.f(1189,7)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1195,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1196 and  line 1196
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1226,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1226,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1237,9)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(1245,11)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1255 and  line 1267
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1245,11)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 1255 and  line 1267
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1278,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1279 and  line 1279
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1306,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1307 and  line 1307
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1311,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1312 and  line 1312
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1330,9)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1330,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1419,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1420 and  line 1420
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1430,9)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1439,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbaivb.f(1441,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1441,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1441,9)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1441,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1533,11)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1673,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbaivb.f(1673,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1673,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1695,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1698 and  line 1700
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1695,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1704 and  line 1706
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1695,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1813,9)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1813,9)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1819,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 1841 and  line 1841
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1875,15)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1877 and  line 1884
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1875,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1875,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1914,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(1915,15)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1966 and  line 1966
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1966 and  line 1966
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1970 and  line 1970
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 1968 and  line 1968
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1963,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1975,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1979 and  line 1988
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2004,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2006 and  line 2006
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2199,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2200 and  line 2200
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2240,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbaivb.f(2242,11)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(2242,11)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(2242,11)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(2242,11)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2264,11)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbaivb.f(2266,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2266 and  line 2266
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2286,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 2289 and  line 2297
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2306,11)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15410: vectorization support: conversion from int to float will be emulated   [ vbaivb.f(2309,13) ]
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2306,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2349,11)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2350 and  line 2350
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2385,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2386 and  line 2386
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbaivb.f(1290,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(1232,14) ]
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1417,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbaivb.f(1408,9)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbaivb.f(1397,11)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1436,7)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at vbaivb.f(1455,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(1451,18) ]
+
+   LOOP BEGIN at vbaivb.f(1454,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(1451,18) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2356,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(1629,18) ]
+
+   LOOP BEGIN at vbaivb.f(1783,9)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbaivb.f(1765,11)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(1891,9)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+      LOOP BEGIN at vbaivb.f(1890,11)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(2000,11)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(1962,18) ]
+   LOOP END
+
+   LOOP BEGIN at vbaivb.f(2038,11)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GEN_AIVB_DESCR
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbaivb.f(2678,7)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+   LOOP BEGIN at vbaivb.f(2666,9)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbaivb.f(2821,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(2706,16) ]
+
+   LOOP BEGIN at vbaivb.f(2723,11)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbaivb.f(2712,18) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GEN_AIVBCONF_DRV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbaivb.f(3153,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3154 and  line 3154
+LOOP END
+===========================================================================
+
+Begin optimization report for: IFACT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbaivb.f(3173,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbaivb.f(3173,7)
+<Remainder>
+LOOP END
+===========================================================================

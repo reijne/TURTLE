@@ -1,0 +1,145 @@
+#!/bin/csh
+setenv ed3 mfged3
+../../bin/gamess << EOF
+title
+h2co - 1a1 - HW ECPs - Energy  -22.26356411
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis ecp lanl
+pseudo 
+o lanl o
+c lanl c
+runtype optimize
+xtol 0.0005
+enter 
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 1a1 - HW ECPs - Energy  -22.26356411
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis ecp lanl
+pseudo 
+o lanl o
+c lanl c
+runtype hessian
+enter 
+EOF
+../../bin/gamess << EOF
+title
+h2co - 1a1 - CRENBL ECPs/ Energy  -22.3031098 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+ecp o crenbl
+ecp c crenbl
+dz h
+end
+pseudo 
+o crenbl o
+c crenbl c
+runtype optimize
+xtol 0.0005
+enter 
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 1a1 - CRENBL ECPs/ Energy  -22.3031098 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+ecp o crenbl
+ecp c crenbl
+dz h
+end
+pseudo 
+o crenbl o
+c crenbl c
+runtype hessian
+enter 
+EOF
+../../bin/gamess << EOF
+title
+h2co - 1a1 - Stuttgart RLC ECPs/Energy  -22.35990367 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+dz h
+ecp o strlc
+ecp c strlc
+end
+pseudo 
+o strlc o
+c strlc c
+runtype optimize
+xtol 0.0005
+enter 
+EOF
+../../bin/gamess << EOF
+restart
+title
+h2co - 1a1 - Stuttgart RLC ECPs/Energy  -22.35990367 au
+zmatrix angstrom
+c
+o 1 co
+h 1 ch 2 hco
+h 1 ch 2 hco 3 180.0
+variables
+co 1.203
+ch 1.099
+hco 121.8
+end
+basis 
+dz h
+ecp o strlc
+ecp c strlc
+end
+pseudo 
+o strlc o
+c strlc c
+runtype hessian
+enter 
+EOF
+/bin/rm -rf mfged3

@@ -1,0 +1,73 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+setenv ed6 mfged6
+setenv ed12 mfged12
+../../bin/gamess << EOF
+title
+h2co - 3-21g - SCF at 3a'' geometry  
+zmatrix angstrom
+c
+o 1 co
+x 1 1.0 2 90.0
+h 1 ch 2 hco 3 di1
+h 1 ch 2 hco 3 di2
+variables
+co 1.203
+ch 1.099
+hco 121.8
+di1 15.0
+di2 164.0
+end
+enter
+EOF
+../../bin/gamess << EOF
+restart new
+title
+h2co - 3-21g basis - 3a'' state optimised 
+mult 3
+zmatrix angstrom
+c
+o 1 co
+x 1 1.0 2 90.0
+h 1 ch 2 hco 3 di1
+h 1 ch 2 hco 3 di2
+variables
+co 1.203
+ch 1.099
+hco 121.8
+di1 15.0
+di2 164.0
+end
+runtype optimize
+scftype gvb
+open 2 2
+level .3 1.0
+xtol 0.0001
+enter 
+EOF
+../../bin/gamess << EOF
+restart 
+title
+h2co - 3-21g basis - 3a'' state - hessian
+# SCF freq. 857.4, 1049.2, 1124.6, 1550.1, 3270.1, 3397.8
+mult 3
+zmatrix angstrom
+c
+o 1 co
+x 1 1.0 2 90.0
+h 1 ch 2 hco 3 di1
+h 1 ch 2 hco 3 di2
+variables
+co 1.203
+ch 1.099
+hco 121.8
+di1 15.0
+di2 164.0
+end
+runtype hessian
+scftype gvb
+open 2 2
+level .3 1.0
+enter 
+EOF

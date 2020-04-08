@@ -1,0 +1,44 @@
+
+Begin optimization report for: SUMDV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at sum.F(60,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at sum.F(60,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at sum.F(60,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at sum.F(60,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: SUMIV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at sum.F(72,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at sum.F(72,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at sum.F(72,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at sum.F(72,10)
+<Remainder>
+LOOP END
+===========================================================================

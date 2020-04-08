@@ -1,0 +1,5241 @@
+
+Begin optimization report for: VBSCF
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8303,10) inlined into vbscf.f(1817,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8303,10) inlined into vbscf.f(1817,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8310,10) inlined into vbscf.f(1817,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(8311,13) inlined into vbscf.f(1817,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(8313,16) inlined into vbscf.f(1817,15)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8315,16) inlined into vbscf.f(1817,15)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8317,16) inlined into vbscf.f(1817,15)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8320,10) inlined into vbscf.f(1817,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 8320 and  line 8320
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(1829,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(1829,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(1829,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13850,10) inlined into vbscf.f(1831,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13) inlined into vbscf.f(1831,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(1831,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(1831,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13850,10) inlined into vbscf.f(1862,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13) inlined into vbscf.f(1862,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(1862,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(1862,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(12016,7) inlined into vbscf.f(1891,17)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(12017,10) inlined into vbscf.f(1891,17)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12017,10) inlined into vbscf.f(1891,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(2007,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2007 and  line 2007
+LOOP END
+
+LOOP BEGIN at vbscf.f(2008,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2008 and  line 2008
+LOOP END
+
+LOOP BEGIN at vbscf.f(2010,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2010 and  line 2010
+LOOP END
+
+LOOP BEGIN at vbscf.f(2022,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(2023,29)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 2023 and  line 2023
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(2030,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(2031,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(2032,16)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2032,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2032,16)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2032,16)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(2057,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2057 and  line 2057
+LOOP END
+
+LOOP BEGIN at vbscf.f(2064,25)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 2064 and  line 2064
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10) inlined into vbscf.f(2214,17)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10) inlined into vbscf.f(2214,17)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9255,10) inlined into vbscf.f(2214,17)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 9257 and  line 9257
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5464,10) inlined into vbscf.f(1829,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5465,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(13882,10) inlined into vbscf.f(1831,18)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(2253,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(1858,10) ]
+
+   LOOP BEGIN at vbscf.f(13882,10) inlined into vbscf.f(1862,18)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(1871,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12028,12) inlined into vbscf.f(1891,17)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(12032,17) ]
+
+      LOOP BEGIN at vbscf.f(12034,17) inlined into vbscf.f(1891,17)
+         remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2062,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2052,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4794,10) inlined into vbscf.f(2305,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4795,15) ]
+
+   LOOP BEGIN at vbscf.f(4797,13) inlined into vbscf.f(2305,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4798,23) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBCANON..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(10501,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10501,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10501,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10504,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(10504,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11708,7) inlined into vbscf.f(10537,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8175,13) inlined into vbscf.f(10577,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13798,7) inlined into vbscf.f(10652,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13800,9) inlined into vbscf.f(10652,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13802 and  line 13804
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13800,9) inlined into vbscf.f(10652,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9) inlined into vbscf.f(10652,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 13809 and  line 13809
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9) inlined into vbscf.f(10652,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(12344,7) inlined into vbscf.f(10668,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(12346,10) inlined into vbscf.f(10668,14)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 12347 and  line 12348
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12346,10) inlined into vbscf.f(10668,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8171,10) inlined into vbscf.f(10577,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8173,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(8188,10) inlined into vbscf.f(10577,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8189,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(13797,7) inlined into vbscf.f(10652,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+
+   LOOP BEGIN at vbscf.f(13796,9) inlined into vbscf.f(10652,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: POPORB_VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(11249,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(11248,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11248,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11262,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(11263,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(11265,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbscf.f(11267,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 11271 and  line 11272
+         LOOP END
+
+         LOOP BEGIN at vbscf.f(11267,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11279,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11282,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11282,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11295,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(11295,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11306,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(11306,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11310,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 11313 and  line 11314
+LOOP END
+
+LOOP BEGIN at vbscf.f(11343,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 11344 and  line 11344
+LOOP END
+
+LOOP BEGIN at vbscf.f(11359,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(11359,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11401,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(11405,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 11409 and  line 11412
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11405,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 11409 and  line 11412
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11463,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(11464,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(11466,16)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at vbscf.f(11468,19)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+            remark #15346: vector dependence: assumed OUTPUT dependence between  line 11472 and  line 11473
+         LOOP END
+
+         LOOP BEGIN at vbscf.f(11468,19)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11480,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11483,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11483,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(11425,25)
+   remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+   LOOP BEGIN at vbscf.f(11327,10)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbscf.f(11336,10)
+         remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+         LOOP BEGIN at vbscf.f(11374,7)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11440,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(11441,15) ]
+
+   LOOP BEGIN at vbscf.f(11442,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(11444,15) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(11451,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(11452,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACOBT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5208,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5208,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5218,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5246,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 5249 and  line 5250
+LOOP END
+
+LOOP BEGIN at vbscf.f(5246,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5226,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5227,18) ]
+
+   LOOP BEGIN at vbscf.f(5226,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5227,18) ]
+
+      LOOP BEGIN at vbscf.f(5230,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5242,24) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5293,10) inlined into vbscf.f(5268,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbscf.f(5293,10) inlined into vbscf.f(5272,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORBOPT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5847,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 5848 and  line 5848
+LOOP END
+
+LOOP BEGIN at vbscf.f(5847,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5908,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5908,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(5927,54)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4984,7) inlined into vbscf.f(5927,54)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(5927,54)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(5927,54)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(5927,54)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4985,7) inlined into vbscf.f(5927,54)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(5927,54)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13850,10) inlined into vbscf.f(5942,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13) inlined into vbscf.f(5942,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(5942,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(5942,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5996,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5996,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5996,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5997,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5997,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13) inlined into vbscf.f(5997,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13850,10) inlined into vbscf.f(6008,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13) inlined into vbscf.f(6008,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(6008,18)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+LOOP END
+
+LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(6008,18)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5915,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+
+   LOOP BEGIN at vbscf.f(5924,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13882,10) inlined into vbscf.f(5942,18)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(5464,10) inlined into vbscf.f(5996,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5465,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(5464,10) inlined into vbscf.f(5997,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5465,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(13882,10) inlined into vbscf.f(6008,18)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BSMAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(3662,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(3662,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3665,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3666,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3666,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3666,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3665,10)
+<Distributed chunk2>
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(3665,10)
+<Remainder, Distributed chunk2>
+LOOP END
+
+LOOP BEGIN at vbscf.f(2767,7) inlined into vbscf.f(3811,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: OLDNEW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5519,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(5520,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5520,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3899,13) inlined into vbscf.f(5527,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3907,16) inlined into vbscf.f(5527,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3908 and  line 3908
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3907,16) inlined into vbscf.f(5527,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5527,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5527,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5527,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5527,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5529,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(5530,19)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5530,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3899,13) inlined into vbscf.f(5537,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3907,16) inlined into vbscf.f(5537,18)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3908 and  line 3908
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3907,16) inlined into vbscf.f(5537,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5537,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5537,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5537,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16) inlined into vbscf.f(5537,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5513,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(3890,12) ]
+
+   LOOP BEGIN at vbscf.f(5516,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(3890,12) ]
+
+      LOOP BEGIN at vbscf.f(3897,10) inlined into vbscf.f(5527,18)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(3897,10) inlined into vbscf.f(5537,18)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BRIGEN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(2417,10) inlined into vbscf.f(3211,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(2419,16) inlined into vbscf.f(3211,24)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2422,16) inlined into vbscf.f(3211,24)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(2422,16) inlined into vbscf.f(3211,24)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16) inlined into vbscf.f(3211,24)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16) inlined into vbscf.f(3211,24)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16) inlined into vbscf.f(3211,24)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(2432,10) inlined into vbscf.f(3211,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(2434,16) inlined into vbscf.f(3211,24)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2437,16) inlined into vbscf.f(3211,24)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(2437,16) inlined into vbscf.f(3211,24)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16) inlined into vbscf.f(3211,24)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16) inlined into vbscf.f(3211,24)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16) inlined into vbscf.f(3211,24)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3324,10) inlined into vbscf.f(3221,34)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3324,10) inlined into vbscf.f(3221,34)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3329,10) inlined into vbscf.f(3221,34)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3329,10) inlined into vbscf.f(3221,34)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3335,10) inlined into vbscf.f(3221,34)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3335,10) inlined into vbscf.f(3221,34)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10) inlined into vbscf.f(3221,34)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10) inlined into vbscf.f(3221,34)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10) inlined into vbscf.f(3221,34)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3340,13) inlined into vbscf.f(3221,34)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(3355,13) inlined into vbscf.f(3221,34)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(3227,59)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4984,7) inlined into vbscf.f(3227,59)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(3227,59)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3227,59)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3227,59)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4985,7) inlined into vbscf.f(3227,59)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3227,59)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3234,34)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3234,34)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3234,34)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3234,34)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3234,34)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(3242,47)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4984,7) inlined into vbscf.f(3242,47)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10) inlined into vbscf.f(3242,47)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3242,47)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3242,47)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4985,7) inlined into vbscf.f(3242,47)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10) inlined into vbscf.f(3242,47)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3258,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3258,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(3258,16)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(3258,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3269,16)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 3269 and  line 3269
+LOOP END
+
+LOOP BEGIN at vbscf.f(3279,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3280,19)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3280,19)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3280,19)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(3190,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+
+   LOOP BEGIN at vbscf.f(3197,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+
+      LOOP BEGIN at vbscf.f(3203,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+
+         LOOP BEGIN at vbscf.f(3252,19)
+            remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+            LOOP BEGIN at vbscf.f(3210,19)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4992,15) ]
+
+               LOOP BEGIN at vbscf.f(3216,24)
+                  remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+
+                  LOOP BEGIN at vbscf.f(3219,25)
+                     remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+                     LOOP BEGIN at vbscf.f(3337,10) inlined into vbscf.f(3221,34)
+                        remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+                     LOOP END
+
+                     LOOP BEGIN at vbscf.f(3352,10) inlined into vbscf.f(3221,34)
+                        remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+                     LOOP END
+                  LOOP END
+               LOOP END
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2860,7) inlined into vbscf.f(3296,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+
+         LOOP BEGIN at vbscf.f(2838,13) inlined into vbscf.f(3296,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+
+            LOOP BEGIN at vbscf.f(2836,10) inlined into vbscf.f(3296,18)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at vbscf.f(2857,13) inlined into vbscf.f(3296,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2844,43) ]
+
+            LOOP BEGIN at vbscf.f(2855,10) inlined into vbscf.f(3296,18)
+               remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2844,43) ]
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SYM1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8498,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8503,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(8509,22)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8509,22)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8509,22)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8534,19)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(8536,22)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 8538 and  line 8538
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8536,22)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VIRTUAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(9700,8)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(9700,8)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(9837,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(9837,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9881,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(9881,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10958,7) inlined into vbscf.f(9917,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10959,10) inlined into vbscf.f(9917,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10959,10) inlined into vbscf.f(9917,24)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10959,10) inlined into vbscf.f(9917,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10972,7) inlined into vbscf.f(9917,24)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(10973,10) inlined into vbscf.f(9917,24)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 10974 and  line 10974
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10973,10) inlined into vbscf.f(9917,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10984,7) inlined into vbscf.f(9917,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10985,10) inlined into vbscf.f(9917,24)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(10987,13) inlined into vbscf.f(9917,24)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10987,13) inlined into vbscf.f(9917,24)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(9917,24)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(9917,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11018,7) inlined into vbscf.f(9917,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11019,10) inlined into vbscf.f(9917,24)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11019,10) inlined into vbscf.f(9917,24)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13850,10) inlined into vbscf.f(9928,25)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13) inlined into vbscf.f(9928,25)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13876,13) inlined into vbscf.f(9928,25)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(9928,25)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13878,16) inlined into vbscf.f(9928,25)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(9966,26)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(9972,29)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(9972,29)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(9989,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(9993,21)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 9995 and  line 9995
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10007,24)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10010,27)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10010,27)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10015,27)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(10018,30)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10018,30)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10018,30)
+      <Peeled>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10010,27)
+   <Peeled>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10035,21)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 10038 and  line 10041
+LOOP END
+
+LOOP BEGIN at vbscf.f(10035,21)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10052,24)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10052,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(10052,24)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10065,16)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10066,19)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(10073,25)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10073,25)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10073,25)
+      <Peeled>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10102,16)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(9817,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9804,26) ]
+
+   LOOP BEGIN at vbscf.f(9816,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9804,26) ]
+
+      LOOP BEGIN at vbscf.f(9815,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9804,26) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(9933,24)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9913,19) ]
+
+   LOOP BEGIN at vbscf.f(13882,10) inlined into vbscf.f(9928,25)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(9983,24)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9960,31) ]
+
+   LOOP BEGIN at vbscf.f(9980,20)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9960,31) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10060,16)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(10057,28) ]
+
+   LOOP BEGIN at vbscf.f(10058,22)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(10057,28) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10112,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(10108,24) ]
+
+   LOOP BEGIN at vbscf.f(10109,16)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(10108,24) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10131,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(10130,17) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBCANON
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(10458,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(10456,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(10501,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10501,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10501,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10504,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(10504,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbscf.f(10507,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11708,7) inlined into vbscf.f(10537,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9) inlined into vbscf.f(10537,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8175,13) inlined into vbscf.f(10577,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(10577,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(10577,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(10577,14)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13798,7) inlined into vbscf.f(10652,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13800,9) inlined into vbscf.f(10652,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13802 and  line 13804
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13800,9) inlined into vbscf.f(10652,15)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9) inlined into vbscf.f(10652,15)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 13809 and  line 13809
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9) inlined into vbscf.f(10652,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(12344,7) inlined into vbscf.f(10668,14)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(12346,10) inlined into vbscf.f(10668,14)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 12347 and  line 12348
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12346,10) inlined into vbscf.f(10668,14)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13) inlined into vbscf.f(10668,14)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8171,10) inlined into vbscf.f(10577,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8173,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(8188,10) inlined into vbscf.f(10577,14)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8189,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(13797,7) inlined into vbscf.f(10652,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+
+   LOOP BEGIN at vbscf.f(13796,9) inlined into vbscf.f(10652,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACOBT..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5218,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5220,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5246,22)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 5249 and  line 5250
+LOOP END
+
+LOOP BEGIN at vbscf.f(5246,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5268,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10) inlined into vbscf.f(5272,15)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5226,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5227,18) ]
+
+   LOOP BEGIN at vbscf.f(5226,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5227,18) ]
+
+      LOOP BEGIN at vbscf.f(5230,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5242,24) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5293,10) inlined into vbscf.f(5268,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbscf.f(5293,10) inlined into vbscf.f(5272,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCHMIDT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8239,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8242,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8242,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8242,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8242,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8245,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 8246 and  line 8246
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8250,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8250,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8250,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8233,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBDIIS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4114,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4114,15)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4114,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10) inlined into vbscf.f(4114,15)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10) inlined into vbscf.f(4114,15)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4630,25) inlined into vbscf.f(4114,15)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4114,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5096,7) inlined into vbscf.f(4114,15)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Multiversioned v3>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4114,15)
+      <Remainder, Multiversioned v3>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10) inlined into vbscf.f(4114,15)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5141 and  line 5144
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10) inlined into vbscf.f(4114,15)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10) inlined into vbscf.f(4114,15)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5153 and  line 5156
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10) inlined into vbscf.f(4114,15)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4114,15)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4114,15)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4114,15)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4114,15)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4114,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4114,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4114,15)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4114,15)
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4437,16) inlined into vbscf.f(4204,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4439,18) inlined into vbscf.f(4204,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(4439,18) inlined into vbscf.f(4204,12)
+      <Multiversioned v2>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(4439,18) inlined into vbscf.f(4204,12)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4335,10) inlined into vbscf.f(4224,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(4335,10) inlined into vbscf.f(4224,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4349,10) inlined into vbscf.f(4224,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(4351,13) inlined into vbscf.f(4224,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4351,13) inlined into vbscf.f(4224,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4357,13) inlined into vbscf.f(4224,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4357,13) inlined into vbscf.f(4224,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4360,10) inlined into vbscf.f(4224,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4360,10) inlined into vbscf.f(4224,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4688,13) inlined into vbscf.f(4224,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4690,13) inlined into vbscf.f(4224,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 4695 and  line 4696
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4690,13) inlined into vbscf.f(4224,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4703,13) inlined into vbscf.f(4224,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4705 and  line 4708
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13) inlined into vbscf.f(4224,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13) inlined into vbscf.f(4224,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4726,13) inlined into vbscf.f(4224,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4729,13) inlined into vbscf.f(4224,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4734 and  line 4734
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4737,13) inlined into vbscf.f(4224,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4740 and  line 4740
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4224,12)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4761,10) inlined into vbscf.f(4224,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4763 and  line 4766
+LOOP END
+
+LOOP BEGIN at vbscf.f(4368,10) inlined into vbscf.f(4224,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(4368,10) inlined into vbscf.f(4224,12)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10) inlined into vbscf.f(4224,12)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10) inlined into vbscf.f(4224,12)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10) inlined into vbscf.f(4224,12)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4231,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4231,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4231,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4241,24)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4241 and  line 4241
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4637,10) inlined into vbscf.f(4114,15)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4651,10) inlined into vbscf.f(4114,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4654,18) ]
+
+   LOOP BEGIN at vbscf.f(4653,13) inlined into vbscf.f(4114,15)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4451,10) inlined into vbscf.f(4204,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4454,17) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(4682,10) inlined into vbscf.f(4224,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4747,11) inlined into vbscf.f(4224,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4586,10) inlined into vbscf.f(4250,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4587,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIISPH
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4500,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4502,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: OSINV_VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(4688,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4690,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 4695 and  line 4696
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4690,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4703,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4705 and  line 4708
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4726,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4729,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4734 and  line 4734
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4737,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4740 and  line 4740
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4761,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4763 and  line 4766
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4682,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4747,11)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: MAKEPSI0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(13327,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(13429,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13429,7)
+   <Multiversioned v2>
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13429,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(13485,11)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(13625,7) inlined into vbscf.f(13366,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13624,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: REDORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(6277,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(6278,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(6278,10)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6278,10)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6302,17)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6302,17)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6311,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6311,15)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6328,46)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6328,46)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6330,31)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6330,31)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6331,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6331 and  line 6331
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6332,24)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6332,24)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6333,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6333 and  line 6333
+LOOP END
+
+LOOP BEGIN at vbscf.f(6350,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(6352,13)
+   <Distributed chunk1>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Peeled, Multiversioned v2, Distributed chunk1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Multiversioned v2, Distributed chunk1>
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2, Distributed chunk1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Remainder, Multiversioned v2, Distributed chunk1>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6354,13)
+   <Distributed chunk2>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6352,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6352,13)
+   <Distributed chunk3>
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(6360,19)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between  line 6362 and  line 6361
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6360,19)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7801,22) inlined into vbscf.f(6374,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(7801,22) inlined into vbscf.f(6374,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(7801,22) inlined into vbscf.f(6374,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(7822,19) inlined into vbscf.f(6374,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(7823,22) inlined into vbscf.f(6374,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22) inlined into vbscf.f(6374,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22) inlined into vbscf.f(6374,18)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22) inlined into vbscf.f(6374,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8175,13) inlined into vbscf.f(6382,18)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(6382,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(6382,18)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(6382,18)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(6382,18)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(6382,18)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(6382,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(6382,18)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(6382,18)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(6382,18)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8044,10) inlined into vbscf.f(6434,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(6434,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(6434,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(6434,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(6434,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13) inlined into vbscf.f(6434,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13) inlined into vbscf.f(6434,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6450,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(6450,7)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6450,7)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6450,7)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6450,7)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6482,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6482,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(6482,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6518,19)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6518,19)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6524,19)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6524,19)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(6524,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6535,16)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6535,16)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(6535,16)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6544,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6544,21)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6550,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6550,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(6550,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6570,34)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6570,34)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6922,13) inlined into vbscf.f(6597,26)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13) inlined into vbscf.f(6597,26)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6598,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 6598 and  line 6598
+LOOP END
+
+LOOP BEGIN at vbscf.f(6604,10)
+<Distributed chunk1>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(6606,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(6605,13)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6605,13)
+      <Remainder>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6605,13)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(6605,13)
+      <Peeled>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6619,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(6619,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(6629,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(6635,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 6635 and  line 6635
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6655,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(6655,19)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6655,19)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6655,19)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(6307,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+
+   LOOP BEGIN at vbscf.f(6843,10) inlined into vbscf.f(6303,17)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6844,26) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6313,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6328,26)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6330,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6332,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6368,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7782,16) ]
+
+   LOOP BEGIN at vbscf.f(6369,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7782,16) ]
+
+      LOOP BEGIN at vbscf.f(7791,10) inlined into vbscf.f(6374,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7811,25) ]
+
+         LOOP BEGIN at vbscf.f(7795,13) inlined into vbscf.f(6374,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7811,25) ]
+
+            LOOP BEGIN at vbscf.f(7798,19) inlined into vbscf.f(6374,18)
+               remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(7833,10) inlined into vbscf.f(6374,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7836,25) ]
+
+         LOOP BEGIN at vbscf.f(7834,13) inlined into vbscf.f(6374,18)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7836,25) ]
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9273,10) inlined into vbscf.f(6378,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9274,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9273,10) inlined into vbscf.f(6379,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9274,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9273,10) inlined into vbscf.f(6380,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9274,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8171,10) inlined into vbscf.f(6382,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8173,15) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8188,10) inlined into vbscf.f(6382,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8189,15) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9282,10) inlined into vbscf.f(6415,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9283,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9282,10) inlined into vbscf.f(6416,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9283,12) ]
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(9282,10) inlined into vbscf.f(6417,18)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9283,12) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8022,10) inlined into vbscf.f(6434,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8030,22) ]
+
+   LOOP BEGIN at vbscf.f(8029,13) inlined into vbscf.f(6434,12)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8030,22) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6459,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6461,12) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6486,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6478,34) ]
+
+   LOOP BEGIN at vbscf.f(6480,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6478,34) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6502,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6507,22) ]
+
+   LOOP BEGIN at vbscf.f(6504,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6507,22) ]
+
+      LOOP BEGIN at vbscf.f(6505,16)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6507,22) ]
+
+         LOOP BEGIN at vbscf.f(6506,19)
+            remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6507,22) ]
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6516,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+
+   LOOP BEGIN at vbscf.f(6517,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6532,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6533,18) ]
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(6542,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6565,13)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+
+   LOOP BEGIN at vbscf.f(6566,15)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+
+      LOOP BEGIN at vbscf.f(6567,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(6583,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6585,19) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6597,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6938,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6615,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6616,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(6661,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6649,22) ]
+
+   LOOP BEGIN at vbscf.f(6655,19)
+      remark #15536: loop was not vectorized: inner loop throttling prevents vectorization of this outer loop. Refer to inner loop message for more details.
+
+      LOOP BEGIN at vbscf.f(6660,13)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6651,25) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORTCHE..1
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(6994,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6995,15) ]
+
+   LOOP BEGIN at vbscf.f(7002,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7006,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7019,15)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7040,18)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORTCHE..0
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(6994,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6995,15) ]
+
+   LOOP BEGIN at vbscf.f(7002,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7006,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7019,15)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7040,18)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: TOETOE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8859,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(8860,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8860,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8876,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8876,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8894,22)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(8894,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8900,19)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(8900,19)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8943,19)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 8944 and  line 8944
+LOOP END
+
+LOOP BEGIN at vbscf.f(8994,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8994,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9000,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(9000,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8934,15)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8907,22) ]
+
+   LOOP BEGIN at vbscf.f(8887,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8907,22) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8958,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8967,23) ]
+
+   LOOP BEGIN at vbscf.f(8966,16)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8972,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: REEXC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7467,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7468,10)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7468,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7502,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(7502,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(7513,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7515,16)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7525,13)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(7591,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7592,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 7592 and  line 7592
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7606,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(7607,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(7609,16)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(7609,16)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(7609,16)
+      <Peeled>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(7507,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7535,21) ]
+
+   LOOP BEGIN at vbscf.f(7533,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7535,21) ]
+
+      LOOP BEGIN at vbscf.f(7547,19)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7552,26) ]
+
+         LOOP BEGIN at vbscf.f(7565,31)
+            remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: FMOS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4794,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4795,15) ]
+
+   LOOP BEGIN at vbscf.f(4797,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4798,23) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VBPER
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(9247,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10)
+<Alternate Alignment Vectorized Loop>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(9247,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(9255,10)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 9257 and  line 9257
+LOOP END
+===========================================================================
+
+Begin optimization report for: FOCKVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(12016,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(12017,10)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12017,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12017,10)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12017,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(12028,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(12032,17) ]
+
+   LOOP BEGIN at vbscf.f(12034,17)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: PRIMEQUIV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(13850,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13851,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13852 and  line 13859
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(13876,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(13878,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 13879 and  line 13879
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13878,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(13882,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13875,13) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: NORMT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5473,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5473,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5464,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(5465,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SIGORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8303,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8303,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8310,10)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(8311,13)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(8313,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8315,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(8317,16)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8320,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between  line 8320 and  line 8320
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BCREAT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(2417,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(2419,16)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2422,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(2422,16)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2422,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(2432,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(2434,16)
+      remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2437,16)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(2437,16)
+      <Peeled, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16)
+      <Multiversioned v2>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16)
+      <Alternate Alignment Vectorized Loop, Multiversioned v2>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(2437,16)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BMAIN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(2767,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================
+
+Begin optimization report for: BREORB
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(2860,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+
+   LOOP BEGIN at vbscf.f(2838,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+
+      LOOP BEGIN at vbscf.f(2836,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2824,43) ]
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(2857,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2844,43) ]
+
+      LOOP BEGIN at vbscf.f(2855,10)
+         remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(2844,43) ]
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IFLIP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(4986,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4984,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4986,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4985,7)
+   remark #25460: No loop optimizations reported
+LOOP END
+
+LOOP BEGIN at vbscf.f(4995,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ISAME
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(3324,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3324,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3329,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3329,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3335,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3335,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3335,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3340,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(3355,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(3337,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at vbscf.f(3352,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: ISAMEB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(3394,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3394,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3399,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(3399,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(3405,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3405,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3405,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3405,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3405,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3407,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3407,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3407,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3407,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3407,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(3412,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(3427,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(3409,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+LOOP BEGIN at vbscf.f(3424,10)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+===========================================================================
+
+Begin optimization report for: DETERM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(3899,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(3907,16)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 3908 and  line 3908
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3907,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(3913,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(3897,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIISRS
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4586,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4587,16) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIISEQ
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(4335,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(4335,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4349,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(4351,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4351,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4357,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4357,13)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4360,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4360,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4688,13) inlined into vbscf.f(4364,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4690,13) inlined into vbscf.f(4364,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 4695 and  line 4696
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4690,13) inlined into vbscf.f(4364,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4703,13) inlined into vbscf.f(4364,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4705 and  line 4708
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4712,13) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13) inlined into vbscf.f(4364,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(4721,13) inlined into vbscf.f(4364,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4726,13) inlined into vbscf.f(4364,12)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4729,13) inlined into vbscf.f(4364,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 4734 and  line 4734
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(4737,13) inlined into vbscf.f(4364,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between  line 4740 and  line 4740
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Peeled, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Multiversioned v1>
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Alternate Alignment Vectorized Loop, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Multiversioned v3>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at vbscf.f(4752,10) inlined into vbscf.f(4364,12)
+<Remainder, Multiversioned v3>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4761,10) inlined into vbscf.f(4364,12)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 4763 and  line 4766
+LOOP END
+
+LOOP BEGIN at vbscf.f(4368,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(4368,10)
+   <Peeled, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10)
+   <Multiversioned v2>
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10)
+   <Alternate Alignment Vectorized Loop, Multiversioned v2>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(4368,10)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4682,10) inlined into vbscf.f(4364,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4747,11) inlined into vbscf.f(4364,12)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: DIISM_VB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(4437,16)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(4439,18)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(4439,18)
+      <Multiversioned v2>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(4439,18)
+      <Remainder, Multiversioned v2>
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4451,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4454,17) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SMINH
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4630,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4630,12)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5075,10) inlined into vbscf.f(4630,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10) inlined into vbscf.f(4630,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10) inlined into vbscf.f(4630,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(4630,25)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4630,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5096,7) inlined into vbscf.f(4630,12)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Multiversioned v3>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10) inlined into vbscf.f(4630,12)
+      <Remainder, Multiversioned v3>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10) inlined into vbscf.f(4630,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5141 and  line 5144
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10) inlined into vbscf.f(4630,12)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10) inlined into vbscf.f(4630,12)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5153 and  line 5156
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10) inlined into vbscf.f(4630,12)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4630,12)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4630,12)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4630,12)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10) inlined into vbscf.f(4630,12)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4630,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4630,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10) inlined into vbscf.f(4630,12)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10) inlined into vbscf.f(4630,12)
+      LOOP END
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(4637,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+
+LOOP BEGIN at vbscf.f(4651,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(4654,18) ]
+
+   LOOP BEGIN at vbscf.f(4653,13)
+      remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACLOW
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5075,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5075,10)
+      remark #15301: PERMUTED LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5075,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5077,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5090,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(5082,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5096,7)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Peeled, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Multiversioned v1>
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Remainder, Multiversioned v1>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Multiversioned v3>
+         remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5126,10)
+      <Remainder, Multiversioned v3>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5141 and  line 5144
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5140,10)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed ANTI dependence between  line 5153 and  line 5156
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5152,10)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10)
+      <Peeled>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10)
+      <Alternate Alignment Vectorized Loop>
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5160,10)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10)
+         remark #15315: loop was not vectorized: low trip count
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(5082,10)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at vbscf.f(5083,10)
+         remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(5083,10)
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: IOCCUP
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5017,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5017,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5017,10)
+<Remainder>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5017,10)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: JACCOV
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5041,7)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7)
+<Remainder>
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORDERT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(5289,10)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(5289,10)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(5293,10)
+   remark #15523: loop was not vectorized: cannot compute loop iteration count before executing the loop.
+LOOP END
+===========================================================================
+
+Begin optimization report for: ZERONO
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8044,10) inlined into vbscf.f(8023,17)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(8023,17)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(8023,17)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(8023,17)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13) inlined into vbscf.f(8023,17)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13) inlined into vbscf.f(8023,17)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13) inlined into vbscf.f(8023,17)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8022,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8030,22) ]
+
+   LOOP BEGIN at vbscf.f(8029,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8030,22) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VECSCA
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(9282,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9283,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: ORTCHE
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7019,15)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7019,15)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7019,15)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7112,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16) inlined into vbscf.f(7040,18)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13) inlined into vbscf.f(7040,18)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(7129,16) inlined into vbscf.f(7040,18)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(6994,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6995,15) ]
+
+   LOOP BEGIN at vbscf.f(7002,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7006,21) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7019,15)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+
+LOOP BEGIN at vbscf.f(7106,10) inlined into vbscf.f(7040,18)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: PROORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8175,13) inlined into vbscf.f(7210,12)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(7210,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(7210,12)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(7210,12)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(7210,12)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16) inlined into vbscf.f(7210,12)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16) inlined into vbscf.f(7210,12)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(7210,12)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(7210,12)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13) inlined into vbscf.f(7210,12)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8171,10) inlined into vbscf.f(7210,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8173,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(8188,10) inlined into vbscf.f(7210,12)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8189,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VECGAT
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(9273,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(9274,12) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: SUBEX
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7801,22)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(7801,22)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(7801,22)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(7822,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(7823,22)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22)
+   <Remainder>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7823,22)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(7791,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7811,25) ]
+
+   LOOP BEGIN at vbscf.f(7795,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7811,25) ]
+
+      LOOP BEGIN at vbscf.f(7798,19)
+         remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7833,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7836,25) ]
+
+   LOOP BEGIN at vbscf.f(7834,13)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(7836,25) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: MVOCVI
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(6843,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(6844,26) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: IOCOC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(6922,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+
+LOOP BEGIN at vbscf.f(6928,13)
+   remark #15520: loop was not vectorized: loop with early exits cannot be vectorized unless it meets search loop idiom criteria
+LOOP END
+===========================================================================
+
+Begin optimization report for: IDEPEN
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(7112,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(7115,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7115,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(7126,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(7129,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7129,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(7129,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(7106,10)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================
+
+Begin optimization report for: SCHMIDS
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8175,13)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8178,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8178,16)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8180,16)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vbscf.f(8197,13)
+<Remainder>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8171,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8173,15) ]
+LOOP END
+
+LOOP BEGIN at vbscf.f(8188,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8189,15) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: VNORMVB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8044,10)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(8047,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8047,13)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8049,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: REORB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(8101,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 8102 and  line 8105
+LOOP END
+
+LOOP BEGIN at vbscf.f(8101,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8121,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed ANTI dependence between  line 8122 and  line 8125
+LOOP END
+
+LOOP BEGIN at vbscf.f(8121,13)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(8145,13)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(8144,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 8146 and  line 8146
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8144,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(8097,10)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(8113,21) ]
+
+   LOOP BEGIN at vbscf.f(8112,22)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(8132,22)
+      remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VIRTHYB
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(10958,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10959,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10959,10)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10959,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10972,7)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at vbscf.f(10973,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 10974 and  line 10974
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(10973,10)
+   <Remainder>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(10984,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(10985,10)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at vbscf.f(10987,13)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at vbscf.f(10987,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(11005,12)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+
+LOOP BEGIN at vbscf.f(5041,7) inlined into vbscf.f(11005,12)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at vbscf.f(11018,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11019,10)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11019,10)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: VIRSIG
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(12344,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(12346,10)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 12347 and  line 12348
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12346,10)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(12352,13)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: REORDERC
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(13798,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(13800,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed ANTI dependence between  line 13802 and  line 13804
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13800,9)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9)
+   <Alternate Alignment Vectorized Loop>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(13808,9)
+   <Remainder>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(13797,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+
+   LOOP BEGIN at vbscf.f(13796,9)
+      remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13795,19) ]
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: GEN_IOROT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vbscf.f(11708,7)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vbscf.f(11709,9)
+   <Peeled>
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9)
+      remark #15300: LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at vbscf.f(11709,9)
+   <Remainder>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: SWAPVEC
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at vbscf.f(13625,7)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ vbscf.f(13624,15) ]
+LOOP END
+===========================================================================

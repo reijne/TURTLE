@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# This script is a simple wrapper for the GNU autoconf config.guess script.
+# The output of config.guess is often too simple (i.e. doesn't spot when it's on
+# an SGI Altix) or too complex (it gives the detailed version number of the OS, which
+# has little or no impact on GAMESS-UK). So this wrapper it designed to smooth these
+# glitches out
+
+case $0 in
+  config.wrap)util=.;;
+  *) util=`echo $0 | sed 's@/config.wrap$@@'` ;;
+esac
+
+guess=`$util/config.guess`
+
+case $guess in
+
+    hppa2.0w-hp-hpux11*  )
+        # Ignore release number for hpux 11
+        echo "hppa2.0w-hp-hpux11"
+         ;;
+  
+    i?86-pc-linux-gnulibc1 )
+        # Ignore additional C-library specification (the libc1 bit)
+	echo `echo $guess | sed 's/libc1//'`
+         ;;
+
+    i386-apple-darwin* )
+	# Ignore the minor number of the OSX OSX and the major one
+	echo i386-apple-darwin9
+	;;
+
+    ia64-hp-hpux11* )
+        # Ignore release number for hpux 11
+        echo "ia64-hp-hpux11"
+         ;;
+
+    ia64-unknown-linux-gnu )
+        # Need a sensible check to see if we are on on sgi
+        [ -f "/etc/sgi-release" ] && echo ia64-sgialtix-linux-gnu || echo $guess
+         ;;
+
+    powerpc-apple-darwin* )
+    # for darwin, ignore the release number
+        echo "powerpc-apple-darwin"
+        ;;
+
+    powerpc-ibm-aix* )
+    # for AIX, ignore the release number
+        echo "powerpc-ibm-aix"
+        ;;
+
+    x86_64-unknown-linux-gnu* )
+    # Check for existence of aprun binary to determine if we are on a cray
+        [ -f "/usr/bin/aprun" ] && echo x86_64-cray-linux-gnu  || echo $guess
+        ;;
+
+# There isn't enough difference between Opterons and em64T to warrant separate mk files
+#    x86_64-unknown-linux-gnu* )
+#    # Need to check if we are a Nacona (EM64T) or not (signified by the model name being Xeon).
+#        cat /proc/cpuinfo | grep Xeon 2>&1 >/dev/null
+#        if [ $? -eq 0 ]; then
+#            echo "em64t-unknown-linux-gnu"
+#        else
+#            echo "x86_64-unknown-linux-gnu"
+#        fi
+#        ;;
+    
+    * ) echo $guess ;;
+esac
+

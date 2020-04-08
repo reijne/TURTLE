@@ -1,0 +1,10 @@
+c
+c core-core repulsion parameters (see integb_lib for input)
+c
+      REAL eta, d
+      integer ichgat, indx, jndx
+      logical indi
+      integer mxpairs
+      parameter(mxpairs=10)
+      common/repp/eta(mxpairs),d(mxpairs),ichgat(MAXAT),npairs,
+     +            indx(mxpairs),jndx(mxpairs),indi

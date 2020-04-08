@@ -1,0 +1,62 @@
+#!/bin/csh
+../../bin/gamess << EOF
+title
+hcn 4-31G saddle point / optimised energy = -92.62501904
+zmat angs
+c
+x 1 1.0
+n 1 cn 2 90.0
+h 1 ch 2 90.0 3 hcn
+variables
+cn 1.1484 type 3
+ch 1.5960 type 3
+hcn 90.0 type 3
+end
+basis 4-31g
+runtype saddle
+enter
+EOF
+#
+../../bin/gamess << EOF
+title
+hcn TS- synchronous transit/optimised energy = -92.62501911
+zmat angs
+c
+x 1 1.0
+n 1 cn 2 90.0
+h 1 ch 2 90.0 3 hcn
+variables
+cn 1.1484 minima 1.1371 1.1597
+ch 1.5960 minima 1.0502 2.1429
+hcn 90.0   minima 180.0  0.0
+end
+basis 4-31g
+runtype saddle
+lsearch 0 4
+enter
+EOF
+#
+../../bin/gamess << EOF
+title                
+hcn/hnc ts. jorgensen-simons/optimised energy = -92.62501904
+zmat angs
+c
+x 1 1.0
+n 1 cn 2 90.0
+h 1 ch 2 90.0 3 hcn
+variables
+cn 1.1484 type 3
+ch 1.5960 type 3
+hcn 90.0   type 3
+end
+basis 4-31g
+runtype saddle jorgensen 
+powell
+maxjor 55
+recalc off
+rfo off
+cutoffs
+optprint on
+xtol 0.0018
+enter
+EOF

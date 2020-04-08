@@ -1,0 +1,57 @@
+#!/bin/csh
+#
+# validation for parallel tests
+#
+(cd ../../../../utilities;make validate)
+setenv GAMESS_VTAB ../validate.vtab
+set path=(../../../../utilities $path)
+#
+date
+#
+validate HF.Bz_crco3.TZVP               HF.Bz_crco3.TZVP.out.64
+validate HF_props.pyridine              HF_props.pyridine.out.64
+validate HF.cyclo.sto3G                 HF.cyclo.sto3G.out.64
+validate HF.cyclo.3-21G                 HF.cyclo.3-21G.out.64
+validate HF.cyclo.6-31G                 HF.cyclo.6-31G.out.64
+validate HF.cyclo.6-31G-d               HF.cyclo.6-31G-d.out.64
+validate HF.cyclo.6-31G-dp              HF.cyclo.6-31G-dp.out.64
+validate HF.cyclo.DZP                   HF.cyclo.DZP.out.64
+validate HF.valino.sto3G                HF.valino.sto3G.out.64
+validate HF.valino.3-21G                HF.valino.3-21G.out.64
+validate HF.valino.6-31G                HF.valino.6-31G.out.64
+validate HF.valino.6-31G-d              HF.valino.6-31G-d.out.64
+validate HF.valino.6-31G-dp             HF.valino.6-31G-dp.out.64
+validate HF.hf12z-shell4                HF.hf12z-shell4.out.64
+validate HF.siosi7.3975                 HF.siosi7.3975.out.128
+validate HF_grad.CAG.1291               HF_grad.CAG.1291.out.64
+validate HF_opt.fluro_furan.6-311G++2pd HF_opt.fluro_furan.6-311G++2pd.out.64
+validate HF.morphine.6-31G-d            HF.morphine.6-31G-d.out.64
+validate ECP_opt.crno4                  ECP_opt.crno4.out.32
+validate ECP_SBKJC.crno4                ECP_SBKJC.crno4.out.32
+validate HF.morphine.start              HF.morphine.start.out.32
+validate HF.morphine.restart            HF.morphine.restart.out.32
+#
+validate DFT.morphine.6-31G-dp         DFT.morphine.6-31G-dp.out.64
+validate DFT.morphine.6-31G-dp_harmonic DFT.morphine.6-31G-dp_harmonic.out.64
+validate DFT.morphine.A2.DZVP          DFT.morphine.A2.DZVP.out.64
+validate DFT.cyclo.6-31G               DFT.cyclo.6-31G.out.64
+validate DFT.cyclo.6-31G-dp            DFT.cyclo.6-31G-dp.out.64
+validate DFT.valino.6-31G              DFT.valino.6-31G.out.64
+validate DFT.valino.A2.DZVP            DFT.valino.A2.DZVP.out.64
+validate DFT.valino.A2.DZVP2           DFT.valino.A2.DZVP2.out.64
+validate DFT.siosi3.347                DFT.siosi3.347.out.64
+validate DFT.siosi4.617                DFT.siosi4.617.out.64
+validate DFT.siosi5.1199               DFT.siosi5.1199.out.64
+validate DFT.siosi6.1687               DFT.siosi6.1687.out.64
+validate DFT.siosi7.3975               DFT.siosi7.3975.out.128
+validate DFT_opt.exti4a1.3-21G         DFT_opt.exti4a1.3-21G.out.64
+validate DFT.Alpha-pinene.6-311g-3dfp  DFT.Alpha-pinene.6-311g-3dfp.out.64
+validate DFT.c20h42.6-31G-d            DFT.c20h42.6-31G-d.out.64
+validate DFT.hf12z-shell4              DFT.hf12z-shell4.out.64
+validate DFT.pcfe.814                  DFT.pcfe.814.out.64
+#
+validate UHF.pyridine           UHF.pyridine.out.64
+validate UHF_opt.pyridine       UHF_opt.pyridine.out.64
+validate UHF.morphine.6-31G-d   UHF.morphine.6-31G-d.out.64
+validate UHF.Bz_crco3.TZVP      UHF.Bz_crco3.TZVP.out.64
+validate UKS.pyridine           UKS.pyridine.out.64

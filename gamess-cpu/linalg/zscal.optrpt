@@ -1,0 +1,18 @@
+
+Begin optimization report for: ZSCAL
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at zscal.f(36,10)
+   remark #15516: loop was not vectorized: cost model has chosen vectorlength of 1 -- maybe possible to override via pragma/directive with vectorlength clause
+LOOP END
+
+LOOP BEGIN at zscal.f(36,10)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at zscal.f(28,10)
+   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+LOOP END
+===========================================================================

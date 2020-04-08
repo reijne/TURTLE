@@ -1,0 +1,19 @@
+c
+      REAL alphas,chargat,spinat
+      integer nswapa, nswapb, nswap, next,isecat
+      integer natconf,nnatconf,iatcon,iatstates,natdiff
+      parameter (nnatconf=20)
+      logical odiff,oexc,oground,oatdo,oalway,uhfatom,nonrel,forcat
+      character*8 zatconf,atmode,zatdiff
+      character*60 string_ch
+      character*2 zatstate
+c
+      common /datgue/ alphas(maxorb),nswapa,nswapb,nswap(80),
+     +                next(maxorb),oground,oatdo,isecat,oalway,
+     +                odiff,oexc
+      common /datgue2/ chargat(nnatconf),spinat(2,4,nnatconf),
+     +                 natconf,uhfatom,iatcon,nonrel(nnatconf),
+     +                 forcat(nnatconf),iatstates(nnatconf),
+     +                 natdiff
+      common /datgue3/ string_ch(2,nnatconf),zatconf(nnatconf),atmode,
+     +                 zatstate(nnatconf),zatdiff(nnatconf)

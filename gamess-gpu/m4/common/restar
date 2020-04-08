@@ -1,0 +1,37 @@
+c
+      integer nprint, itol, icut, normf, normp, nopk, irest
+      integer nrec, ist, jst, kst, lst 
+      integer nintmx, nindmx, intg76
+      integer mfilep, mainp, mblp, iblkmp
+      integer m2file, m2tape, m2blk, m2last
+      integer m4file, m4tape, m4blk, m4last
+      integer m6file, m6tape, m6blk, m6last
+      integer m5file, m5tape, m5blk, m5last
+      integer m9file, m9tape, m9blk, m9last
+      integer mtfile, mttape, mtblk, mtlast
+      integer m1file, m1tape, m1blk, m1last
+      integer m11fil, m11tap, m11bl, m11lst
+      integer m12fil, m12tap, m12bl, m12lst
+      integer m13fil, m13tap, m13bl, m13lst
+      integer local, mtask 
+      integer itask, irest2, irest3, irest4, irest5, intloc
+      integer iblkl, ifill, iblkd, ifild, iblks, ifils, iblkf, ifockf 
+      integer nopkr, iofsym, iofrst, idurie, imaxb_ic
+      logical omaxb, ognore
+      common/restar/nprint,itol,icut,normf,normp,nopk,
+     + irest,nrec,omaxb,ist,jst,kst,lst,nintmx,nindmx,intg76,
+     + mfilep,mainp,mblp,iblkmp,
+     + m2file,m2tape(20),m2blk(20),m2last(20),
+     + m4file,m4tape(20),m4blk(20),m4last(20),
+     + m6file,m6tape(20),m6blk(20),m6last(20),
+     + m5file,m5tape(20),m5blk(20),m5last(20),
+     + m9file,m9tape(20),m9blk(20),m9last(20),
+     + mtfile,mttape(20),mtblk(20),mtlast(20),
+     + m1file,m1tape(20),m1blk(20),m1last(20),
+     + m11fil,m11tap(20),m11bl(20),m11lst(20),
+     + m12fil,m12tap(20),m12bl(20),m12lst(20),
+     + m13fil,m13tap(20),m13bl(20),m13lst(20),
+     + local,mtask,itask(50),
+     + irest2,irest3,irest4,irest5,intloc,
+     + iblkl,ifill,iblkd,ifild,iblks,ifils,iblkf,ifockf,
+     + nopkr,iofsym,iofrst,idurie(2),ognore,imaxb_ic

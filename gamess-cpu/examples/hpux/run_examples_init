@@ -1,0 +1,16 @@
+#!/bin/csh
+#
+# run initial parallel validation jobs for GAMESS-UK
+# on HPUX PA8000 N4000 (4 cpus)
+#
+date
+#
+./run1 h2co_direct_rhf
+./run1 h2co_conv_rhf
+./run1 h2co_direct_uhf_opt
+./run1 h2co_mp2_opt
+./run1 h2co_direct_gvb
+./run1 h2co_dft
+./run1 h2co_secd
+#
+date

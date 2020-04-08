@@ -1,0 +1,56 @@
+time 60
+title
+mg10 td, (linear dependency wth adapt) energy -1992.9641145
+adapt off
+mult 1
+charge 0
+zmat angs
+x
+mg   1 r1
+mg   1 r1 2 a1
+mg   1 r1 2 a1 3 -120.
+mg   1 r1 2 a1 3 120.
+mg   1 r2 2 a2 3 180.
+mg   1 r2 2 a3 3 -120.
+mg   1 r2 2 a3 3 0.
+mg   1 r2 2 a3 3 120.
+mg   1 r2 2 a2 3 -60.
+mg   1 r2 2 a2 3 60.
+variables
+r1 3.84
+r2 2.22
+constants
+a1 109.47122063449069174
+a2 125.26438968275465413
+a3 54.735610317245345868
+end
+basis
+s mg
+  .005004   5609.67
+  .037083   841.969
+  .171495   191.263
+  .444597   53.2621
+  .480060   16.6003
+s mg
+  .352170   2.97082
+  .692921   1.00728
+s mg
+  1.00000   .113641
+s mg
+  1.000000  .044678
+p mg
+  .039884   50.9665
+  .223321   11.4364
+  .514536   3.21935
+p mg
+  1.00000   0.914433
+p mg
+  1.00000   0.16
+p mg
+  1.0 0.03
+end
+runtype scf
+scftype rhf
+level 1.2 30 0.6 200
+maxcyc 25
+enter

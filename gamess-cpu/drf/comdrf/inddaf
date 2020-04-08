@@ -1,0 +1,28 @@
+c
+       integer idafinf, navinf, iodainf
+       common /infdaf/ idafinf,navinf,iodainf(2,mxneq+1)
+c
+       integer idafsta, navsta, iodasta
+       common /stadaf/ idafsta,navsta,iodasta(2,mxneq+1)
+c
+       integer idafcst, navcst, iodacst
+       common /cstdaf/ idafcst,navcst,iodacst(2,mxneq+1)
+c
+       integer idafind, navind, iodaind
+       common /inddaf/ idafind,navind,iodaind(2,mxneq+1)
+c
+       integer idafino, navino, iodaino
+       common /inodaf/ idafino,navino,iodaino(2,mxneq+1)
+c
+       integer idafpol, navpol, iodapol
+       common /poldaf/ idafpol,navpol,iodapol(2,mxneq+1)
+c
+       integer idafdis, navdis, iodadis
+       common /disdaf/ idafdis,navdis,iodadis(2,mxneq+1)
+c
+       integer idafrep, navrep, iodarep
+       common /repdaf/ idafrep,navrep,iodarep(2,mxneq+1)
+c
+       integer idafrqm, navrqm, iodarqm
+       common /rqmdaf/ idafrqm,navrqm,iodarqm(2,mxneq+1)
+c

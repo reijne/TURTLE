@@ -1,0 +1,84 @@
+
+ Found a Makefile in m4, using this to build GAMESS-UK.
+
+ The build will take place in the m4 directory.
+
+make[1]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Building full code
+(cd ../utilities; make)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/utilities'
+(cd ../linalg; make linalg)
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+make[2]: Nothing to be done for 'linalg'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/linalg'
+(cd ../dft; make dftlib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+make[2]: Nothing to be done for 'dftlib'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/dft'
+(cd ../mopac; make libmopac.a )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/mopac'
+make[2]: 'libmopac.a' is up to date.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/mopac'
+(cd ../drf; make drflib )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+make[2]: Nothing to be done for 'drflib'.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/drf'
+(cd ../vb; make vb )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+rm -f vbtran.f
+cat ../utilities/gener.m vbtran.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> vbtran.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   vbtran.f
+ar rcv libvb.a  vbaivb.o vbci.o vbdebug.o vbin.o vbscf.o vbqcscf.o vbutil.o vbcrestr.o vbgamess.o vbmatre.o vbtran.o vbdens.o vbprop.o vbversion.o servec.o sendrecv.o  
+r - vbaivb.o
+r - vbci.o
+r - vbdebug.o
+r - vbin.o
+r - vbscf.o
+r - vbqcscf.o
+r - vbutil.o
+r - vbcrestr.o
+r - vbgamess.o
+r - vbmatre.o
+r - vbtran.o
+r - vbdens.o
+r - vbprop.o
+r - vbversion.o
+r - servec.o
+r - sendrecv.o
+ar -s libvb.a
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/vb'
+(cd ../m4; make zora.o )
+make[2]: Entering directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+make[2]: 'zora.o' is up to date.
+make[2]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+which svnversion > ./m4_svnversion; chmod +x ./m4_svnversion
+echo "      subroutine gms_version(cdate,ctime,cname,cversion)" > gms_version.m
+echo "      character*10 cdate,cname,cversion" >> gms_version.m
+echo "      character*5 ctime" >> gms_version.m
+echo "      cdate=\""`date '+%d-%m-%Y'`"\"" >> gms_version.m
+echo "      ctime=\""`date '+%H:%M'`"\"" >> gms_version.m
+echo "      cname=\""`whoami`"\"" >> gms_version.m
+echo "      cversion=\""`./m4_svnversion ..`"\"" >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine getm4keys(m4keys)" >> gms_version.m
+echo "      implicit none" >> gms_version.m
+echo "      character*(*) m4keys" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 |awk 'BEGIN {i=0} {if (i==0) {printf "       m4keys=\"%s\"\n",$0} else {printf "     &//\"%s \"\n", $0} i++}' >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+echo "      subroutine wrtkeys(iwr)" >> gms_version.m
+make keys | grep KEYS | sed 's/KEYS//' | fmt -w50 | awk '{printf "      write(iwr,*)\n     &\"M4-Keys: %s \"\n", $0}'  >> gms_version.m
+echo "      return" >> gms_version.m
+echo "      end" >> gms_version.m
+rm -f gms_version.f
+cat ../utilities/gener.m gms_version.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> gms_version.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   gms_version.f
+rm -f mainci.f
+cat ../utilities/gener.m mainci.m | m4 -DGEN_OPTIONS=opteron,linux,littleendian,cio,unix,upck-equiv,GFS,glibc,i8 -DGEN_MACHINE=G -DREAL='real*8' -DCOMPLEX='complex*16' -DINCLUDE='_INCLUDE($1)' -Ddfloat='dble($1)' -DMPIINT='integer*4' -DMPILOG='logical*4' -DIAND32='and($1,$2)' -DIOR32='or($1,$2)' -DIXOR32='ieor($1,$2)' -DIAND64='iand($1,$2)' -DIOR64='ior($1,$2)' -DIXOR64='ieor($1,$2)' -DSHIFT='shift($1,$2)' -DQ='qq(ivoff+$1)'  -DM4_OPTIONS=serial,ccpdft,drf,mopac,vdw,sysmo,nbo,zora,mrdci,vb,vdw,sysmo,full_build -DMA_LOGICAL=logical -DMA_INTEGER=integer -DMAXAT=200   -DMAXORB=200 -DMAXVAR=300 -DMAXNZ=200 -DMXSHEL=600 -DMXPRIM=600 -DMXGRPS=150 -DMXGAUS=1500 -DMXORBVB=255 -DMAXEXVB=20000 -  >> mainci.f
+gfortran -c -fno-second-underscore -fdefault-integer-8 -fd-lines-as-comments   -O0   mainci.f
+Makefile:561: recipe for target 'mainci.o' failed
+make[1]: Leaving directory '/mnt/d/School/Scriptie/Fortran/framework/Das/gamess-cpu/m4'
+Makefile:4: recipe for target 'all' failed

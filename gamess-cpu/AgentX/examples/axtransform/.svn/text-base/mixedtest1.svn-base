@@ -1,0 +1,10 @@
+
+Lattice Vectors:
+<axLoop id="latVec" concept="Module.LatticeVector">Vector: <axSubstitute id="latVec" property="value"/>
+</axLoop>
+
+No of atoms in Basis = <axSubstitute property="Molecule.Atom.count"/>
+
+Basis:
+<axLoop id="atoms" concept="Molecule.Atom">Atom <axSubstitute id="atoms" property="position"/>: <axSubstitute id="atoms" property="elementType"/>
+</axLoop>

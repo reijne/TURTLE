@@ -1,0 +1,41 @@
+#!/bin/sh
+# --------------------------------------------------------------
+#
+#  The file rg_defaults is generated from rg_defaults.in
+#  when configure is run in the GAMESS-UK/m4 directory
+#
+#  DO NOT EDIT
+#  If you edit rg_site_defaults you risk losing your changes
+#  when configure is next run.
+#
+#  You can over-ride these automatically chosen choices by 
+#  adding definitions at the end of the rg_site_defaults.in
+#  file, or by setting the environment variables yourself
+#  before running rungamess.
+#
+# --------------------------------------------------------------
+#
+root=`echo $RUNGAMESS_DIR | sed 's@/rungamess$@@'`
+#
+# These should be OK if the directory structure is not modified
+#
+GAMESS_EXE=${GAMESS_EXE:=$root/bin/gamess}
+export GAMESS_EXE
+#
+GAMESS_LIB=${GAMESS_LIB:=$root/libs}
+export GAMESS_LIB
+#
+GAMESS_PAREXE=${GAMESS_PAREXE:=$root/bin/gamess-uk}
+export GAMESS_PAREXE
+#
+# These are not satisfactory defaults, but they should at least
+# allow test jobs to run
+#
+GAMESS_TMP=${GAMESS_TMP:=.}
+export GAMESS_TMP
+#
+GAMESS_SCR=${GAMESS_SCR:=.}
+export GAMESS_SCR
+#
+#
+#

@@ -1,0 +1,44 @@
+function x = ConjGrad(A, b)
+
+
+	x = inv(eye(size(A,1)).*A)*b
+	
+	r = b - A*x;
+	
+	p = r;
+	i = 0;
+	alpha = 1;
+	while ( i<200 && abs(max(alpha*p))>1e-5 )
+
+		y = A*p;
+
+		alpha = r'*r / (p'*y);
+		r1 = r - alpha*y;
+
+		beta = r1'*r1/(r'*r);
+
+		p1 = r + beta*p;
+
+		x = x + alpha*p;
+
+		x
+		p = p1;
+		r = r1;
+		max(alpha*p)
+		i++;
+
+	endwhile
+	
+	ConjGrad = x;
+endfunction
+
+dim = 3
+A=rand(dim);
+A=A+A';
+A= A - (5*rand(dim) + 5).*eye(dim);
+A
+b=rand(dim, 1);
+b
+x=inv(A)*b
+xs=ConjGrad(A, b)
+x-xs

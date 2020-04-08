@@ -1,0 +1,53 @@
+#!/bin/sh
+#@ shell = /bin/sh
+#@ job_type = parallel
+#@ account_no = c01-chem
+#@ job_name = BENCHMARK
+#@ error = /hpcx/work/z001/z001/wab/GAMESS-UK/examples/parallel_GAs/benchmark_jobs/hpcx/BENCHMARK.err
+#@ wall_clock_limit = 02:00:00
+#@ tasks_per_node = 32
+#@ cpus = 128
+#@ network.LAPI = csss,not_shared,US
+#@ node_usage=not_shared
+#@ queue
+
+export LAPI_USE_SHM=yes
+export MP_SHARED_MEMORY=yes
+export MP_EUILIB=us
+export MP_EUIDEVICE=csss
+export MP_MSG_API=lapi
+export MP_CSS_INTERRUPT=yes
+export AIXTHREAD_SCOPE=S
+export MP_POLLING_INTERVAL=25000
+export RT_GRQ=ON
+#
+export MP_PULSE=0
+export MP_INTRDELAY=100
+export MP_SINGLE_THREAD=yes
+#
+
+echo ========== Env Vars ============
+env | grep MP_
+env | grep LAPI_
+env | grep RT_
+env | grep AIX
+env | grep LOADL
+env | grep PATH
+echo ================================
+
+cd /hpcx/work/z001/z001/wab/GAMESS-UK/examples/parallel_GAs
+
+cp input_files_benchmarks/MP2.c20h42.6-31G-d.in .
+cp input_files_benchmarks/MP2.n3pdme.in .
+cp input_files_benchmarks/MP2_opt.Bz_crco3.TZVP.in .
+cp input_files_benchmarks/MP2_opt.c2h4s.cc-pvtz.in .
+cp input_files_benchmarks/MP2_opt.furan.6-311G-2pd.in .
+cp input_files_benchmarks/MP2_opt.mnco5h.in .
+
+
+time /usr/bin/poe ../../bin/gamess-uk < MP2.c20h42.6-31G-d.in   > benchmark_jobs/hpcx/MP2.c20h42.6-31G-d.out
+time /usr/bin/poe ../../bin/gamess-uk < MP2.n3pdme.in           > benchmark_jobs/hpcx/MP2.n3pdme.out
+time /usr/bin/poe ../../bin/gamess-uk < MP2_opt.Bz_crco3.TZVP.in > benchmark_jobs/hpcx/MP2_opt.Bz_crco3.TZVP.out
+time /usr/bin/poe ../../bin/gamess-uk < MP2_opt.c2h4s.cc-pvtz.in > benchmark_jobs/hpcx/MP2_opt.c2h4s.cc-pvtz.out
+time /usr/bin/poe ../../bin/gamess-uk < MP2_opt.furan.6-311G-2pd.in > benchmark_jobs/hpcx/MP2_opt.furan.6-311G-2pd.out
+time /usr/bin/poe ../../bin/gamess-uk < MP2_opt.mnco5h.in  > benchmark_jobs/hpcx/MP2_opt.mnco5h.out

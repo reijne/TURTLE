@@ -1,0 +1,46 @@
+#!/bin/csh
+setenv ed2 mfged2
+setenv ed3 mfged3
+../../bin/gamess << EOF
+#
+# 1. generate initial guess orbitals for MCSCF
+title
+h2 + co <-> h2co 1a' 3-21g basis SCF // MCSCF 
+zmat angs
+o
+c 1 co
+x 2 1.0 1 90.0
+x 2 chh 3 ang1 1 180.0
+x 4 1.0 2 90.0 3 0.0
+x 4 1.0 5 ang2 3 0.0
+h 4 xh 6 90.0 2 180.0
+h 4 xh 6 90.0 2 0.0
+variables
+co             1.2034717 
+chh            1.3040659 
+xh             0.7415189 
+ang1          41.4927811 
+ang2          56.6325324 
+end
+enter
+# 2. perform single point mcscf calculation, using SCF MOs
+title
+h2 + co <-> h2co 1a' 3-21g MCSCF at opt. TS geometry
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc1 doc1 doc2 doc1 uoc2 uoc1 uoc1 uoc1
+end
+enter 
+# 3. compute numerical force constants
+title
+h2 + co <-> h2co 1a' ts 3-21g MCSCF force constants
+# freq. -1825.4 767.8  900.3 1259.4 1720.5 3185.4
+runtype force
+scftype mcscf
+mcscf
+orbital
+cor1 cor1 cor1 doc1 doc1 doc1 doc2 doc1 uoc2 uoc1 uoc1 uoc1
+end
+enter
+EOF
