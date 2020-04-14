@@ -28,3 +28,4 @@ M4OPTS=-DM4_OPTIONS=beta
 test:
 	cat ../machines/$(MACH) ../utilities/gener.m test.m | $(M4) $(M4OPTS) - 
 
+# DO NOT DELETE

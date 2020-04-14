@@ -36,9 +36,9 @@ IMPI_INCLUDE  =
 MPI_LIB      = 
 LIBMPI       = 
 #--#else#
-MPI_INCLUDE  = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/include
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
 IMPI_INCLUDE= -I${MPI_INCLUDE}
-MPI_LIB      = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/lib
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
 LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
 #--#endif mpiwrap#
 
@@ -60,15 +60,15 @@ LIBGM =
 #
 
 #--#if score#
-FC = /opt/score/bin/mpif90 -compiler pgi
-FC90 = /opt/score/bin/mpif90 -compiler pgi
-LD = /opt/score/bin/mpif90 -compiler pgi
-CC = /opt/score/bin/mpicc -compiler pgi
+FC = mpif90 -compiler pgi
+FC90 = mpif90 -compiler pgi
+LD = mpif90 -compiler pgi
+CC = mpicc -compiler pgi
 #--#elseif mpiwrap#
-FC =  /cm/shared/apps/pgi/19.4/linux86-64/2019/mpi/openmpi-3.1.3/bin/mpif90
-FC90 =  /cm/shared/apps/pgi/19.4/linux86-64/2019/mpi/openmpi-3.1.3/bin/mpif90
-LD =  /cm/shared/apps/pgi/19.4/linux86-64/2019/mpi/openmpi-3.1.3/bin/mpif90
-CC =  /cm/shared/apps/pgi/19.4/linux86-64/2019/mpi/openmpi-3.1.3/bin/mpicc
+FC =  mpif90
+FC90 =  mpif90
+LD =  mpif90
+CC =  mpicc
 #--#else#
 FC = pgf90
 FC90 = pgf90

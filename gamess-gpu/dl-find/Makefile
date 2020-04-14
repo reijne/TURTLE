@@ -360,10 +360,10 @@ IXOR64=ieor($$1,$$2)
 RANLIB=ranlib
 CPP=/lib/cpp
 
-MPI_INCLUDE  =
-IMPI_INCLUDE  =
-MPI_LIB      = 
-LIBMPI       = 
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
+IMPI_INCLUDE= -I${MPI_INCLUDE}
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
+LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
 
 GM_INCLUDE =
 IGM_INCLUDE =
@@ -374,10 +374,10 @@ LIBGM =
 # ===============  Compiler Options
 #
 
-FC =  mpif90
-FC90 = mpif90
-LD =  mpif90
-CC =  mpicc
+FC = pgf90
+FC90 = pgf90
+LD = pgf90
+CC = pgcc
 
 #Default compilation Flags
 
@@ -385,18 +385,18 @@ FFLAGSI8 = -i8
 CFLAGSI8 = -DLONG_INTEGER -DEXT_INT
 I8_M4_OPT=,i8
 
-FFLAGSD = -c -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
-CFLAGSD= -c ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
+FFLAGSD = -c -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
+CFLAGSD= -c -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
 
-LDFLAGSD= 
+LDFLAGSD= -tp=k8-64 
 #
 
-FFLAGSV =  ${FFLAGSD}  -O2 -acc -Minfo=accel
-FFLAGSS =  ${FFLAGSD}  -O  -acc -Minfo=accel
-FFLAGSN =  ${FFLAGSD}  -O1 -acc -Minfo=accel
-FFLAGSN0 = ${FFLAGSD}   -acc -Minfo=accel
-CFLAGS  = -D_REENTRANT ${CFLAGSD}  -acc -Minfo=accel
-LDFLAGS = ${LDFLAGSD}  -acc -Minfo=accel
+FFLAGSV =  ${FFLAGSD}  -O2
+FFLAGSS =  ${FFLAGSD}  -O
+FFLAGSN =  ${FFLAGSD}  -O1
+FFLAGSN0 = ${FFLAGSD}
+CFLAGS  = -D_REENTRANT ${CFLAGSD}
+LDFLAGS = ${LDFLAGSD}
 #
 #
 
@@ -669,19 +669,6 @@ parallel.f:	parallel.m
 # After adding new code, this list can be regenerated using the 
 # makedeps script in ../utilities
 #
-dlfind_gamess.o:		../m4/common/cndx41
-dlfind_gamess.o:		../m4/common/dlfind
-dlfind_gamess.o:		../m4/common/dump3
-dlfind_gamess.o:		../m4/common/errcodes
-dlfind_gamess.o:		../m4/common/funct
-dlfind_gamess.o:		../m4/common/infoa
-dlfind_gamess.o:		../m4/common/machin
-dlfind_gamess.o:		../m4/common/misc
-dlfind_gamess.o:		../m4/common/restar
-dlfind_gamess.o:		../m4/common/restri
-dlfind_gamess.o:		../m4/common/runlab
-dlfind_gamess.o:		../m4/common/seerch
-dlfind_gamess.o:		../m4/common/sizes
 #
 # ============================ NON-COMPILED TARGETS ===========================
 #

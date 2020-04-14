@@ -1959,6 +1959,7 @@ c.....
 40    continue
       return
       end
+c     ============================================================
       subroutine gmix(ipos,ipose,ir,ic,ig,nblock,ialfa)
 c
       implicit REAL  (a-h,o-z) , integer   (i-n)
@@ -1966,6 +1967,7 @@ c
       logical equal
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "GMIXCALLED"
       it = 0
       do 60 m=1,nblock-1
          do 50 l=ig(4,m),ig(4,m+1)-1
@@ -1981,6 +1983,7 @@ c
 40          continue
 50       continue
 60    continue
+
       call izero(it,ipose,1)
       na    = ig(5,ialfa) + ig(1,ialfa) * ig(2,ialfa) - 1
       nb    = ig(5,nblock) + ig(1,nblock) * ig(2,nblock) - na - 1
@@ -2017,6 +2020,7 @@ c
 180   continue
       return
       end
+c     ============================================================
       subroutine gmix0(ipos,ipose,ir,ic,ig,nblock,is1,ialfa)
 c
       implicit REAL  (a-h,o-z) , integer   (i-n)

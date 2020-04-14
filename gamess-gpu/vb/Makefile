@@ -360,10 +360,10 @@ IXOR64=ieor($$1,$$2)
 RANLIB=ranlib
 CPP=/lib/cpp
 
-MPI_INCLUDE  =
-IMPI_INCLUDE  =
-MPI_LIB      = 
-LIBMPI       = 
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
+IMPI_INCLUDE= -I${MPI_INCLUDE}
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
+LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
 
 GM_INCLUDE =
 IGM_INCLUDE =
@@ -374,10 +374,10 @@ LIBGM =
 # ===============  Compiler Options
 #
 
-FC =  mpif90
-FC90 = mpif90
-LD =  mpif90
-CC =  mpicc
+FC = pgf90
+FC90 = pgf90
+LD = pgf90
+CC = pgcc
 
 #Default compilation Flags
 
@@ -385,21 +385,18 @@ FFLAGSI8 = -i8
 CFLAGSI8 = -DLONG_INTEGER -DEXT_INT
 I8_M4_OPT=,i8
 
-FFLAGSD = -c -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
-CFLAGSD= -c ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
+FFLAGSD = -c -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
+CFLAGSD= -c -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
 
-LDFLAGSD= 
+LDFLAGSD= -tp=k8-64 
 #
 
-FFLAGSV =  ${FFLAGSD}  -O2 -acc -Minfo=accel  -fast -fastsse -ta=tesla:llvm
-#-ta=multicore
-#-ta=tesla:managed
-FFLAGSS =  ${FFLAGSD}  -O  -acc -Minfo=accel  
-FFLAGSN =  ${FFLAGSD}  -O1 -acc -Minfo=accel  
-FFLAGSN0 = ${FFLAGSD}   -acc -Minfo=accel  
-CFLAGS  = -D_REENTRANT ${CFLAGSD}  -acc -Minfo=accel -fast -fastsse
-LDFLAGS = ${LDFLAGSD}  -acc -Minfo=accel  -ta=tesla:llvm
-#-ta=tesla:managed
+FFLAGSV =  ${FFLAGSD}  -O2
+FFLAGSS =  ${FFLAGSD}  -O
+FFLAGSN =  ${FFLAGSD}  -O1
+FFLAGSN0 = ${FFLAGSD}
+CFLAGS  = -D_REENTRANT ${CFLAGSD}
+LDFLAGS = ${LDFLAGSD}
 #
 #
 
@@ -672,6 +669,7 @@ parallel.f:	parallel.m
 # After adding new code, this list can be regenerated using the 
 # makedeps script in ../utilities
 #
+gwmix.o:		common/tractlt
 servec.o:		../m4/common/blkorbs
 servec.o:		../m4/common/discc
 servec.o:		../m4/common/dump3
@@ -837,6 +835,48 @@ vbin.o:		common/vbproper
 vbin.o:		common/vbqc
 vbin.o:		common/vbtimess
 vbin.o:		common/vbvirt
+vbmatre.1.o:		../m4/common/gmemdata
+vbmatre.1.o:		../m4/common/gmempara
+vbmatre.1.o:		../m4/common/iofile
+vbmatre.1.o:		../m4/common/iofile
+vbmatre.1.o:		../m4/common/qice
+vbmatre.1.o:		../m4/common/restri
+vbmatre.1.o:		../m4/common/sizes
+vbmatre.1.o:		common/brill
+vbmatre.1.o:		common/c8_16vb
+vbmatre.1.o:		common/ffile
+vbmatre.1.o:		common/gainfo
+vbmatre.1.o:		common/hsinfo
+vbmatre.1.o:		common/parinf
+vbmatre.1.o:		common/scftvb
+vbmatre.1.o:		common/splice
+vbmatre.1.o:		common/tractlt
+vbmatre.1.o:		common/turtleparam
+vbmatre.1.o:		common/twice
+vbmatre.1.o:		common/vbcri
+vbmatre.1.o:		common/vblimit
+vbmatre.1.o:		common/vbpert
+vbmatre.gpu.o:		../m4/common/gmemdata
+vbmatre.gpu.o:		../m4/common/gmempara
+vbmatre.gpu.o:		../m4/common/iofile
+vbmatre.gpu.o:		../m4/common/iofile
+vbmatre.gpu.o:		../m4/common/qice
+vbmatre.gpu.o:		../m4/common/restri
+vbmatre.gpu.o:		../m4/common/sizes
+vbmatre.gpu.o:		common/brill
+vbmatre.gpu.o:		common/c8_16vb
+vbmatre.gpu.o:		common/ffile
+vbmatre.gpu.o:		common/gainfo
+vbmatre.gpu.o:		common/hsinfo
+vbmatre.gpu.o:		common/parinf
+vbmatre.gpu.o:		common/scftvb
+vbmatre.gpu.o:		common/splice
+vbmatre.gpu.o:		common/tractlt
+vbmatre.gpu.o:		common/turtleparam
+vbmatre.gpu.o:		common/twice
+vbmatre.gpu.o:		common/vbcri
+vbmatre.gpu.o:		common/vblimit
+vbmatre.gpu.o:		common/vbpert
 vbmatre.o:		../m4/common/gmemdata
 vbmatre.o:		../m4/common/gmempara
 vbmatre.o:		../m4/common/iofile
@@ -858,6 +898,69 @@ vbmatre.o:		common/twice
 vbmatre.o:		common/vbcri
 vbmatre.o:		common/vblimit
 vbmatre.o:		common/vbpert
+vbmatre.orig.o:		../m4/common/gmemdata
+vbmatre.orig.o:		../m4/common/gmempara
+vbmatre.orig.o:		../m4/common/iofile
+vbmatre.orig.o:		../m4/common/iofile
+vbmatre.orig.o:		../m4/common/qice
+vbmatre.orig.o:		../m4/common/restri
+vbmatre.orig.o:		../m4/common/sizes
+vbmatre.orig.o:		common/brill
+vbmatre.orig.o:		common/c8_16vb
+vbmatre.orig.o:		common/ffile
+vbmatre.orig.o:		common/gainfo
+vbmatre.orig.o:		common/hsinfo
+vbmatre.orig.o:		common/parinf
+vbmatre.orig.o:		common/scftvb
+vbmatre.orig.o:		common/splice
+vbmatre.orig.o:		common/tractlt
+vbmatre.orig.o:		common/turtleparam
+vbmatre.orig.o:		common/twice
+vbmatre.orig.o:		common/vbcri
+vbmatre.orig.o:		common/vblimit
+vbmatre.orig.o:		common/vbpert
+vbmatre.v1.o:		../m4/common/gmemdata
+vbmatre.v1.o:		../m4/common/gmempara
+vbmatre.v1.o:		../m4/common/iofile
+vbmatre.v1.o:		../m4/common/iofile
+vbmatre.v1.o:		../m4/common/qice
+vbmatre.v1.o:		../m4/common/restri
+vbmatre.v1.o:		../m4/common/sizes
+vbmatre.v1.o:		common/brill
+vbmatre.v1.o:		common/c8_16vb
+vbmatre.v1.o:		common/ffile
+vbmatre.v1.o:		common/gainfo
+vbmatre.v1.o:		common/hsinfo
+vbmatre.v1.o:		common/parinf
+vbmatre.v1.o:		common/scftvb
+vbmatre.v1.o:		common/splice
+vbmatre.v1.o:		common/tractlt
+vbmatre.v1.o:		common/turtleparam
+vbmatre.v1.o:		common/twice
+vbmatre.v1.o:		common/vbcri
+vbmatre.v1.o:		common/vblimit
+vbmatre.v1.o:		common/vbpert
+vbmatre.v2.o:		../m4/common/gmemdata
+vbmatre.v2.o:		../m4/common/gmempara
+vbmatre.v2.o:		../m4/common/iofile
+vbmatre.v2.o:		../m4/common/iofile
+vbmatre.v2.o:		../m4/common/qice
+vbmatre.v2.o:		../m4/common/restri
+vbmatre.v2.o:		../m4/common/sizes
+vbmatre.v2.o:		common/brill
+vbmatre.v2.o:		common/c8_16vb
+vbmatre.v2.o:		common/ffile
+vbmatre.v2.o:		common/gainfo
+vbmatre.v2.o:		common/hsinfo
+vbmatre.v2.o:		common/parinf
+vbmatre.v2.o:		common/scftvb
+vbmatre.v2.o:		common/splice
+vbmatre.v2.o:		common/tractlt
+vbmatre.v2.o:		common/turtleparam
+vbmatre.v2.o:		common/twice
+vbmatre.v2.o:		common/vbcri
+vbmatre.v2.o:		common/vblimit
+vbmatre.v2.o:		common/vbpert
 vbprop.o:		../m4/common/iofile
 vbprop.o:		../m4/common/iofile
 vbprop.o:		../m4/common/mapper
@@ -973,6 +1076,7 @@ vbtran.o:		common/tractlt
 vbtran.o:		common/turtleparam
 vbtran.o:		common/vbcri
 vbtran.o:		common/vbparr
+vbtran.o:		ikyg.o
 vbutil.o:		../m4/common/iofile
 vbutil.o:		../m4/common/vcore
 vbutil.o:		common/ffile
@@ -1100,7 +1204,6 @@ VBOBJ = vbaivb.o\
 	vbprop.o\
 	vbversion.o\
 	servec.o\
-	gwmix.o\
 	sendrecv.o
 
 VBLIB = libvb.a
