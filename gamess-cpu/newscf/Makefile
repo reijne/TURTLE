@@ -101,7 +101,7 @@
 #
 # target names for executables
 #
-EXE= ../bin/gamess
+EXE= ../bin/gamess-uk
 #
 # ----------------------- DEFAULT MAKE TARGET ---------------------
 #
@@ -167,6 +167,26 @@ LINALG_LIB =   ../linalg/liblinalg.a
 # set to make_ga if GA tools need to be built
 GA_INTEGER_DECL=integer
 GA_LOGICAL_DECL=logical
+MAKE_GA=make_ga
+GA_DIR=../g
+GA_F77_DEFS =
+GA_CC = ${CC} ${CFLAGS}
+GA_F77_INC= -I$(GA_DIR)/include 
+GA_C_INC= -I$(GA_DIR)/include 
+GA_TARGET=You_must_provide_a_GA_TARGET_setting
+GA_TARGET_CPU_PAR=
+GA_VERSION_PAR=
+GA_SCALAPACK=
+#
+# NB - assumption is here is that we are always running with
+# mpi, we can add tcgmsg into the mix if we need to run with i8
+#
+# GA build using MPI directly for communications
+GA_MPI=MSG_COMMS=MPI
+GA_LIBS=\
+	${GA_DIR}/lib/${GA_TARGET}/libglobal.a \
+        ${GA_DIR}/lib/${GA_TARGET}/libarmci.a \
+        ${GA_DIR}/lib/${GA_TARGET}/libma.a
 #
 # -------------------------- PEIGS definitions  ------------------
 #
@@ -185,10 +205,6 @@ DFT_LIB =   ../dft/libdft.a
 #
 # ----------------------- DIESEL OPTIONS -----------------------------------
 # ----------------------- DRF OPTIONS --------------------------------------
-HONDO_OBJ=gamess_hondo.o
-MAKE_DRF=check_drf
-DRF_M4_OPTS=,drf
-DRF_LIB =   ../drf/libdrf.a
 # ----------------------- MOPAC and MOPAC7 OPTIONS --------------------------
 #
 #------------------------ ZORA OPTIONS --------------------------------------
@@ -204,16 +220,16 @@ VB_M4_OPTS=,vb
 VB_LIB = ../vb/libvb.a 
 # Specify a default for MPI_INCLUDE as it is needed in vb/Makefile for sendrecv
 MPI_INCLUDE=../g/include
-VB_EXTRA=
+VB_EXTRA=casa.o casb.o  
 # ----------------------- Van der Waals Options -----------------------------
 VDW_M4_OPTS=,vdw
 VDW_EXTRA=vdwaals_corr.o inter_vdwaals.o
 # ----------------------- Sysmo Options -----------------------------
-SYSMO_M4_OPTS=,sysmo
-SYSMO_EXTRA=sysmo.o
+SYSMO_M4_OPTS=
+SYSMO_EXTRA=
 # ----------------------- Parallel MSCSF (MASSCF) Options -----------------------------
-MASSCF_M4_OPTS=
-MASSCF_EXTRA=
+MASSCF_M4_OPTS=,masscf
+MASSCF_EXTRA=masscf.o ormas1.o ormas2.o
 # ----------------------- NEWSCF OPTIONS ----------------------
 #
 #
@@ -240,8 +256,21 @@ DLFIND_LIB =   ../dl-find/libdlf.a
 #
 #
 #
-# Default case
-PAR_M4_OPTS=serial
+SCALAPACK_M4_OPTS=
+#
+#
+PDIAG_M4_OPTS=
+#
+# Sort out the functionality we are including to set PAR_M4_BUILD
+#
+PAR_M4_BUILD=,mp2_parallel,secd_parallel
+#
+#
+# Now determine the parallel library options
+PAR_M4_OPTS=parallel,ma,ga,mpi${PAR_M4_BUILD}
+# End of GA options
+#
+# End of various parallel options - now just serial
 #
 #
 # ----------------------- SYSTEM SIZE OPTIONS --------------------------------
@@ -277,12 +306,9 @@ MXGAUS	=	11600
 #
 #
 # ------------------ DEVELOPMENT OPTIONS --------------------------
-D1=,nbo
 D2=,zora
-D4=,mrdci
 D6=,vb
 D11=,vdw
-D12=,sysmo
 DEV_M4_OPTS=$(D1)$(D2)$(D3)$(D4)$(D5)$(D6)$(D7)$(D8)$(D9)$(D10)$(D11)$(D12)
 #
 #--------------------------- Debugging & Profiling -------------------
@@ -302,154 +328,135 @@ FORCE:
 #
 # ======================= Machine options =============================
 #
-#doc  MK file for the serial build of GAMESS-UK on an Opteron processor with
-#doc  PGI compilers (tested with 5.2, 6.0 and 6.1)
-#doc 
-#doc  Options:
-#doc  blas - build against blas (expected in: /usr/pgi/linux86-64/6.1/lib/libacml.a)
-#doc  i8   - build with 8-byte integers.
-##
+#doc This is the machine-specific file for the GLOBAL ARRAY based parallel version
+#doc of GAMESS-UK on Linux running on Opteron processors with PGI compilers (tested with 5.2.)
+#doc
+#doc Options:
+#doc datain - force GAMESS-UK to read it's input from a file called datain instead of standard input
+#doc score  - build on an SCORE system (WARNING - this build only works on SCORE 5.8.4 & above)
+#doc mpiwrap - use mpi wrappers scripts to locate mpi libraries and headers
+#doc newscf - include distributed data scf module
+#doc scalapack - include scalapack interface if the library is available
+#doc blas   - inlclude external blas libraries.
+#doc myrinet - build against MX drivers on a Myrinet switch (GM not supported yet)
+#doc static_lb - statically load-balanced version (no processor set aside as nxtval server)
+#
 # Default options:
-#dopt vb nbo mrdci zora drf vdw sysmo dl-find
-#opt blas static i8 mopac
+#dopt ga mpi ci peigs newscf dl-find vdw masscf mpiwrap
+#opt score blas myrinet datain i8 scalapack static_lb vb zora
 #
 #
 # ================ M4 Processing options
 #
 MACHINE_KEY=G
-MACHOPT=opteron,linux,pclinux,littleendian,cio,unix,doublebackslash,upck-equiv
+MACHOPT=opteron,linux,littleendian,cio,unix,doublebackslash,upck-equiv,extpopcnt,extleadz
 
 # Bitwise operators that differ from the defaults.
 IXOR32=ieor($$1,$$2)
 IOR64=ior($$1,$$2)
 IXOR64=ieor($$1,$$2)
-# 
 #
-RANLIB=ar -s
+#
+RANLIB=ranlib
 CPP=/lib/cpp
-GA_F77_DEFS = -traditional
+
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
+IMPI_INCLUDE= -I${MPI_INCLUDE}
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
+LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
+
+GM_INCLUDE =
+IGM_INCLUDE =
+GM_LIB =
+LIBGM =
+
 #
 # ===============  Compiler Options
 #
-#ensure 64bit compilers invoked
+
 FC = pgf90
 FC90 = pgf90
 LD = pgf90
 CC = pgcc
 
-FFLAGSI8=-i8
-CFLAGSI8=-DLONG_INTEGER
-M4_I8_OPT=,i8
+#Default compilation Flags
 
-# Default compilation flags
-FFLAGSD = -c ${FFLAGSI8}
-CFLAGSD= -c ${CFLAGSI8}
+FFLAGSI8 = -i8
+CFLAGSI8 = -DLONG_INTEGER -DEXT_INT
+I8_M4_OPT=,i8
 
-FFLAGSV =  ${FFLAGSD} -tp=k8-64 -Mcache_align -O2
-FFLAGSS =  ${FFLAGSD} -tp=k8-64 -Mcache_align -O
-FFLAGSN =  ${FFLAGSD} -tp=k8-64 -Mcache_align -O1
+FFLAGSD = -c -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
+CFLAGSD= -c -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
+
+LDFLAGSD= -tp=k8-64 
+#
+
+FFLAGSV =  ${FFLAGSD}  -O2
+FFLAGSS =  ${FFLAGSD}  -O
+FFLAGSN =  ${FFLAGSD}  -O1
 FFLAGSN0 = ${FFLAGSD}
-CFLAGS  = ${CFLAGSD} -tp=k8-64 -D_REENTRANT
-LDTMP = -tp=k8-64
-#
-LDFLAGS=${LDTMP}
+CFLAGS  = -D_REENTRANT ${CFLAGSD}
+LDFLAGS = ${LDFLAGSD}
 #
 #
+
+
+
+
+# PEIGS definitions
+PEIGS_TARGET_CPU_PAR=x86_64
+
+# Global Array definitions
+GA_F77_DEFS = -traditional
+GA_TARGET=LINUX64
+# May need to use GCC for compiling the GAs
+#GA_CC = gcc
+# Default MPI/TCP/IP socket code
+GA_VERSION_PAR= GA_VERSION=SHMEM MPI_INCLUDE=${MPI_INCLUDE} MPI_LIB=${MPI_LIB} LIBMPI=" ${LIBMPI} "
+
+
+# Bring all the options together
+OPTIONS=${MACHOPT}${BLASOPT}${I8_M4_OPT}
+
+BL_LIB = ${LIB_SCALAPACK} ${LIBBLAS} ${LIBMPI} ${LIBGM}
+
 #
-OPTIONS=${MACHOPT}${BLASOPT}${M4_I8_OPT}
-BL_LIB=${LIBBLAS}
+# ===============  Additional Files
 #
-# ===============  Additional Files 
-#
-EXTRA=gethes.o
-EXTRA_MP2= mkmakw.o mpmakw.o umpe3a.o umpe3b.o check0a.o
+EXTRA=
+EXTRA_MP2= check0a.o aprq34d.o mcdab_ga.o
 EXTRA_DFT = jkint_dft.o jkder_dft.o
 #
-# ===============  Compiler Exceptions 
+# ===============  Compiler Exceptions
 #
-rpa.o:	rpa.f
-	$(FC) $(FFLAGSN) $*.f
 
-eispack.o:	eispack.f
-	$(FC) $(FFLAGSN) $*.f
-
-mrdci5.o:	mrdci5.f
-	$(FC) $(FFLAGSN) $*.f
-
-gethes.o:	casb.m
-	cat  ../utilities/gener.m casb.m | $(M4) -DGEN_EXTRACTFILE=gethes $(M4OPTS) > gethes.f
-	$(FC) $(FFLAGSN) gethes.f
-
-mkmakw.o:	drvmp.m
-	cat  ../utilities/gener.m drvmp.m | $(M4) -DGEN_EXTRACTFILE=mkmakw $(M4OPTS) > mkmakw.f
-	$(FC) $(FFLAGSS) mkmakw.f
-
-mpmakw.o:	secmp2.m
-	cat  ../utilities/gener.m secmp2.m | $(M4) -DGEN_EXTRACTFILE=mpmakw $(M4OPTS) > mpmakw.f
-	$(FC) $(FFLAGSS) mpmakw.f
-
-umpe3a.o:	mp3.m
-	cat  ../utilities/gener.m mp3.m | $(M4) -DGEN_EXTRACTFILE=umpe3a $(M4OPTS) > umpe3a.f
-	$(FC) $(FFLAGSS) umpe3a.f
-
-umpe3b.o:	mp3.m
-	cat  ../utilities/gener.m mp3.m | $(M4) -DGEN_EXTRACTFILE=umpe3b $(M4OPTS) > umpe3b.f
-	$(FC) $(FFLAGSS) umpe3b.f
-
-check0a.o:	newmrd5.m
+check0a.o: newmrd5.m
 	cat ../utilities/gener.m newmrd5.m | $(M4) -DGEN_EXTRACTFILE=check0a $(M4OPTS) > check0a.f
 	$(FC) $(FFLAGSN) check0a.f
+
+# The below are extracted by the linux keyword and are probably not required for this compiler
+#
+aprq34d.o: mp2_parallel.m
+	cat ../utilities/gener.m mp2_parallel.m | $(M4) -DGEN_EXTRACTFILE=aprq34d $(M4OPTS) > aprq34d.f
+	$(FC) $(FFLAGSS) aprq34d.f
+
+mcdab_ga.o: mp2_parallel.m
+	cat ../utilities/gener.m mp2_parallel.m | $(M4) -DGEN_EXTRACTFILE=mcdab_ga $(M4OPTS) > mcdab_ga.f
+	$(FC) $(FFLAGSS) mcdab_ga.f
+
 #
 #  ========== DFT Exceptions (PGF) ===============
 #
-jkint_dft.o:	integ2e.m
-	cat ../machines/$(MACH) ../utilities/gener.m  integ2e.m | $(M4) -DGEN_EXTRACTFILE=jkint_dft $(M4OPTS) $(SNGL) > jkint_dft.f
+# The below are extracted by the opteron adn em64t keywords and are probably not required for this compiler
+#
+jkint_dft.o:    integ2e.m
+	cat ../utilities/gener.m  integ2e.m | $(M4) -DGEN_EXTRACTFILE=jkint_dft $(M4OPTS) $(SNGL) > jkint_dft.f
 	$(FC) $(FFLAGSN) jkint_dft.f
 #
-jkder_dft.o:	deriv2e.m
-	cat ../machines/$(MACH) ../utilities/gener.m  deriv2e.m | $(M4) -DGEN_EXTRACTFILE=jkder_dft $(M4OPTS) $(SNGL) > jkder_dft.f
+jkder_dft.o: deriv2e.m
+	cat ../utilities/gener.m  deriv2e.m | $(M4) -DGEN_EXTRACTFILE=jkder_dft $(M4OPTS) $(SNGL) > jkder_dft.f
 	$(FC) $(FFLAGSN) jkder_dft.f
 
-## Build Documentation
-#
-# Output of uname -a
-# Linux scarf 2.4.21-27.0.2.ELsmp #1 SMP Wed Jan 12 23:25:44 EST 2005 x86_64 x86_64 x86_64 GNU/Linux
-# 
-# Output of cat /proc/cpuinfo
-# processor	: 0
-# vendor_id	: AuthenticAMD
-# cpu family	: 15
-# model		: 5
-# model name	: AMD Opteron(tm) Processor 248
-# physical id	: 0
-# siblings	: 1
-# stepping	: 10
-# cpu MHz		: 2193.497
-# cache size	: 1024 KB
-# fpu		: yes
-# fpu_exception	: yes
-# cpuid level	: 1
-# wp		: yes
-# flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext lm 3dnowext 3dnow
-# bogomips	: 4377.80
-# TLB size	: 1088 4K pages
-# clflush size	: 64
-# address sizes	: 40 bits physical, 48 bits virtual
-# power management: ts fid vid ttp
-# 
-# Output of cat /etc/issue
-# Red Hat Enterprise Linux AS release 3 (Taroon Update 4)
-# 
-# Output of /usr/pgi/linux86-64/5.2/bin/pgf77 -V
-# pgf77 5.2-4
-# Copyright 1989-2000, The Portland Group, Inc.  All Rights Reserved.
-# Copyright 2000-2004, STMicroelectronics, Inc.  All Rights Reserved.
-# 
-# Output of /usr/pgi/linux86-64/5.2/bin/pgfcc -V
-# pgcc 5.2-4
-# Copyright 1989-2000, The Portland Group, Inc.  All Rights Reserved.
-# Copyright 2000-2004, STMicroelectronics, Inc.  All Rights Reserved.
-#
 #
 # ======================= End of machine options =============================
 #
@@ -465,10 +472,6 @@ $(DFT_LIB):
 	make check_dft
 
 
-check_drf:
-	(cd ../drf; make drflib )
-$(DRF_LIB):
-	make check_drf
 
 
 check_zora:
@@ -511,7 +514,7 @@ MISC	=	$(PEIGS_OBJ) $(TASKFARM_OBJ) $(GROMACS_OBJ)
 # cannot proceed because of incompatible choices
 #
 errchk:
-	@echo Building full code
+	@echo Building CI code
 
 OBJ_VERSION = gms_version.o
 
@@ -550,7 +553,6 @@ OBJ_CI = dircta.o dirctb.o dirctc.o dirctd.o gff.o ${EXTRA_CI}
 # Supported for serial code only
 OBJ_SERIAL =   tdaf.o model.o \
 	newmrd1.o \
-	newmrd2.o newmrd3.o newmrd4.o newmrd5.o newmrd6.o \
 	mcscfa.o mcscfb.o mcscfc.o \
         mrdci1.o mrdci2.o mrdci3.o mrdci4.o mrdci5.o mrdci6.o mrdci7.o fullci.o \
         direct.o casa.o casb.o \
@@ -560,10 +562,10 @@ OBJ_SERIAL =   tdaf.o model.o \
 # Construct list of object files
 
 #
-#   Complete code (only valid for the serial case
+#  MP2 + SCF Seconds + direct-CI + GF
 #
-TOBJ = ${OBJ_BASE} ${OBJ_MP2} ${OBJ_SERIAL} ${OBJ_CI}
-OMIT = ,full_build
+TOBJ = ${OBJ_BASE} ${OBJ_GA_MP2} ${OBJ_GA_SCF} ${OBJ_CI} $(MASSCF_EXTRA)
+OMIT = ,ga_ci_build
 
 
 exe:	$(EXE)
@@ -627,7 +629,9 @@ tsortc.o:	tsortc.c
 #
 parallel.o:	parallel.m
 	rm -f parallel.GUK parallel.f
-	cat  ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  >> parallel.f
+	cat  ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  > parallel.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < parallel.GUK | sed '/^#/D' >> parallel.f
+	rm -f parallel.GUK
 	$(FC) $(FFLAGSS) $(OBJNAME) parallel.f
 
 #  glue_uk_us.m is the second...
@@ -649,7 +653,9 @@ glue_uk_us.o:	glue_uk_us.m
 #
 parallel.f:	parallel.m
 	rm -f parallel.GUK parallel.f
-	cat ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  >> parallel.f
+	cat ../utilities/gener.m parallel.m | $(M4) $(M4OPTS)  > parallel.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < parallel.GUK | sed '/^#/D' >> parallel.f
+	rm -f parallel.GUK
 #
 .m.c:
 	rm -f $*.c
@@ -742,6 +748,10 @@ scfp.o:		newscf_routines.o
 
 
 
+ga_clean:
+	@(if test -d ${GA_DIR}; then \
+	cd ${GA_DIR}; $(GMAKE) TARGET=$(GA_TARGET) clean; fi)
+	\rm -f ../bin/parallel
 
 
 depend:
@@ -766,6 +776,41 @@ makefile_f:
 #
 #
 #
+make_gatest:	check_ga make_ga $(GA_DIR)/global/testing/test.x
+	ls -l $(GA_DIR)/global/testing/test.x
+
+make_ga:	check_ga $(GA_LIBS)
+	@(if test -f $(GA_DIR)/tcgmsg/ipcv4.0/parallel; then \
+	cp $(GA_DIR)/tcgmsg/ipcv4.0/parallel ../bin ; fi )
+
+GA_DIAG_FLAG=
+
+$(GA_LIBS):
+	@(echo Making Global Array Tools)
+	(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) FC="$(FC)" CC="$(GA_CC)" DIAG=$(GA_DIAG_FLAG) $(GA_TARGET_CPU_PAR) $(GA_VERSION_PAR) $(GA_MPI) $(GA_SCALAPACK))
+
+$(GA_DIR)/global/testing/test.x:
+	@(echo Making Global Array Test)
+	@(cd $(GA_DIR); $(GMAKE) TARGET=$(GA_TARGET) FC="$(FC)" CC="$(GA_CC)" DIAG=$(GA_DIAG_FLAG) $(GA_TARGET_CPU_PAR) $(GA_VERSION_PAR))
+
+#
+check_ga:	check_gmake
+	@(if test -d $(GA_DIR); then \
+	echo Checking for GA Tools - directory $(GA_DIR) seems OK .. ;\
+	else \
+	echo '      ================================================='; \
+	echo '      === GA TOOLS ARE NEEDED TO BUILD THIS VERSION ==='; \
+	echo '      ===             OF GAMESS-UK                  ==='; \
+	echo '      ================================================='; \
+	exit -1 ;fi)
+check_gmake:
+	@(if $(GMAKE) -v > /dev/null; then \
+	echo Checking for gmake - seems to be installed OK .. ;\
+	else \
+	echo '      ==============================================================='; \
+	echo '      === ERROR:  gmake IS NEEDED TO BUILD THE GA TOOLS and PEIGS ==='; \
+	echo '      ==============================================================='; \
+	exit -1; fi)
 
 gms_version.m:  FORCE
 		which svnversion > ./m4_svnversion; chmod +x ./m4_svnversion
@@ -799,16 +844,11 @@ config:
 # Use the configure script in ../config to generate the Makefile
 #
 NEWSCFOBJ = newscf_numbers.o allocation.o comms_data.o matrix_ijb.o newscf_modules.o vectors_ijb.o newscf_ijb.o newscf_prepare.o scfp.o analysis.o \
-mpi_stubs.o \
 scalapack_stubs.o \
 pdiag.o f90_io_data.o
 
 NEWSCFLIB = libnewscf.a
 
-$(NEWSCFOBJ):	mpif.h
-
-mpif.h:	mpif.h.dummy
-	cp mpif.h.dummy mpif.h
 
 newscflib:	$(NEWSCFLIB)
 
@@ -836,18 +876,24 @@ threadc.o:	threadc.c
 
 newscf_modules.o:	newscf_modules.m
 	rm -f newscf_modules.GUK newscf_modules.f
-	cat  ../utilities/gener.m newscf_modules.m | $(M4) $(M4OPTS)  >> newscf_modules.f
+	cat  ../utilities/gener.m newscf_modules.m | $(M4) $(M4OPTS)  > newscf_modules.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < newscf_modules.GUK | sed '/^#/D' >> newscf_modules.f
+	rm -f newscf_modules.GUK
 	$(FC) $(FFLAGSS) $(OBJNAME) newscf_modules.f
 
 
 newscf_prepare.o:	newscf_prepare.m
 	rm -f newscf_prepare.GUK newscf_prepare.f
-	cat  ../utilities/gener.m newscf_prepare.m | $(M4) $(M4OPTS)  >> newscf_prepare.f
+	cat  ../utilities/gener.m newscf_prepare.m | $(M4) $(M4OPTS)  > newscf_prepare.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < newscf_prepare.GUK | sed '/^#/D' >> newscf_prepare.f
+	rm -f newscf_prepare.GUK
 	$(FC) $(FFLAGSS) $(OBJNAME) newscf_prepare.f
 
 scfp.o:	scfp.m
 	rm -f scfp.GUK scfp.f
-	cat  ../utilities/gener.m scfp.m | $(M4) $(M4OPTS)  >> scfp.f
+	cat  ../utilities/gener.m scfp.m | $(M4) $(M4OPTS)  > scfp.GUK
+	$(CPP) $(GA_F77_INC) $(GA_F77_DEFS)  < scfp.GUK | sed '/^#/D' >> scfp.f
+	rm -f scfp.GUK
 	$(FC) $(FFLAGSS) $(OBJNAME) scfp.f
 
 
