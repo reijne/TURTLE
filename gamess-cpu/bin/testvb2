@@ -2,18 +2,20 @@
 #BSUB -P chm156
 #BSUB -J testvb2
 #BSUB -o testvb2.inp.o%J
-#BSUB -W 02:00
+#BSUB -W 00:05
 #BSUB -nnodes 1
 #BSUB -alloc_flags "gpumps"
 
+# cd /gpfs/alpine/chm156/proj-shared/gamess-ornl2/bin
 cd /mnt/d/School/Scriptie/Fortran/framework/gamess-cpu/bin
 
 export ed3=ed3.benz
 
-#export PGI_ACC_NOTIFY=16
+#export PGI_ACC_NOTIFY=2
 #export PGI_ACC_DEBUG=1
 
 #jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-cpu/bin/gamess-uk<<EOF
+#mpirun ./gamess-uk<<EOF
 ./gamess<<EOF
 # cat<<EOF>/dev/null
 harmon
@@ -44,6 +46,7 @@ enter 1
 EOF
 
 # jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-cpu/bin/gamess-uk<<EOF
+#mpirun ./gamess-uk<<EOF
 ./gamess<<EOF
 time 100000
 core 64000000
@@ -84,11 +87,14 @@ end
 active
 1 to 24 end
 scf
-#optimise kind
-#pert doc uoc
-#end
+optimise kind
+pert doc uoc
+end
 diis
+ortho off
 nosymm
+max 1 scf
+new2
 end scf
 end 9
 scftype vb

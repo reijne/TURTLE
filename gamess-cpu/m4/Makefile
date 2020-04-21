@@ -360,7 +360,7 @@ BL_LIB=${LIBBLAS}
 #
 # ===============  Additional Files 
 #
-EXTRA=gethes.o sp0011.o chfeq.o bmove.o
+EXTRA=gethes.o
 EXTRA_MP2= mkmakw.o mpmakw.o umpe3a.o umpe3b.o check0a.o
 EXTRA_DFT = jkint_dft.o jkder_dft.o
 #

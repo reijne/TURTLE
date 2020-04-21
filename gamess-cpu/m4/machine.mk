@@ -100,6 +100,18 @@ gethes.o:	casb.m
 	cat  ../utilities/gener.m casb.m | $(M4) -DGEN_EXTRACTFILE=gethes $(M4OPTS) > gethes.f
 	$(FC) $(FFLAGSN) gethes.f
 
+sp0011.o:	integs.m
+	cat  ../utilities/gener.m integs.m | $(M4) -DGEN_EXTRACTFILE=sp0011 $(M4OPTS) > sp0011.f
+	$(FC) $(FFLAGSN) sp0011.f
+
+chfeq.o:	cphf.m
+	cat  ../utilities/gener.m cphf.m | $(M4) -DGEN_EXTRACTFILE=chfeq $(M4OPTS) > chfeq.f
+	$(FC) $(FFLAGSN) chfeq.f
+
+bmove.o:	mclr.m
+	cat  ../utilities/gener.m mclr.m | $(M4) -DGEN_EXTRACTFILE=bmove $(M4OPTS) > bmove.f
+	$(FC) $(FFLAGSN) bmove.f
+
 mkmakw.o:	drvmp.m
 	cat  ../utilities/gener.m drvmp.m | $(M4) -DGEN_EXTRACTFILE=mkmakw $(M4OPTS) > mkmakw.f
 	$(FC) $(FFLAGSS) mkmakw.f

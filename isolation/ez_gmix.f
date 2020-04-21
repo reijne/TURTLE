@@ -109,7 +109,7 @@
 50        continue
 60      continue
 
-        print *, "Made it tkankerhrough" 
+        print *, "Made it through" 
         ! print *, "it = ", it
         print *, "index = ", index
         contains

@@ -36,9 +36,9 @@ IMPI_INCLUDE  =
 MPI_LIB      = 
 LIBMPI       = 
 #--#else#
-MPI_INCLUDE  = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/include
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
 IMPI_INCLUDE= -I${MPI_INCLUDE}
-MPI_LIB      = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/lib
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
 LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
 #--#endif mpiwrap#
 
@@ -60,13 +60,13 @@ LIBGM =
 #
 
 #--#if score#
-FC = /opt/score/bin/mpif90 -compiler pgi
-FC90 = /opt/score/bin/mpif90 -compiler pgi
-LD = /opt/score/bin/mpif90 -compiler pgi
-CC = /opt/score/bin/mpicc -compiler pgi
+FC = mpif90 -compiler pgi
+FC90 = mpif90 -compiler pgi
+LD = mpif90 -compiler pgi
+CC = mpicc -compiler pgi
 #--#elseif mpiwrap#
 FC =  mpif90
-FC90 = mpif90
+FC90 =  mpif90
 LD =  mpif90
 CC =  mpicc
 #--#else#
@@ -102,15 +102,15 @@ I8_M4_OPT=
 #---#endif#
 #--#endif#
 
-FFLAGSD = -c -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
-CFLAGSD= -c ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
+FFLAGSD = -c -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
+CFLAGSD= -c -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
 
 #--#if static#
-LDFLAGSD= -Bstatic
+LDFLAGSD= -tp=k8-64 -Bstatic
 #--#elseif score#
-LDFLAGSD= -no-static
+LDFLAGSD= -tp=k8-64 -no-static
 #--#else#
-LDFLAGSD= 
+LDFLAGSD= -tp=k8-64 
 #--#endif static#
 #
 
@@ -122,12 +122,12 @@ FFLAGSN0 = ${FFLAGSD} -g
 CFLAGS = ${CFLAGSD} -g
 LDFLAGS  = ${LDFLAGSD} -g 
 #--#else#
-FFLAGSV =  ${FFLAGSD}  -O2 -acc -Minfo=accel
-FFLAGSS =  ${FFLAGSD}  -O  -acc -Minfo=accel
-FFLAGSN =  ${FFLAGSD}  -O1 -acc -Minfo=accel
-FFLAGSN0 = ${FFLAGSD}   -acc -Minfo=accel
-CFLAGS  = -D_REENTRANT ${CFLAGSD}  -acc -Minfo=accel
-LDFLAGS = ${LDFLAGSD}  -acc -Minfo=accel
+FFLAGSV =  ${FFLAGSD}  -O2
+FFLAGSS =  ${FFLAGSD}  -O
+FFLAGSN =  ${FFLAGSD}  -O1
+FFLAGSN0 = ${FFLAGSD}
+CFLAGS  = -D_REENTRANT ${CFLAGSD}
+LDFLAGS = ${LDFLAGSD}
 #--#endif debug#
 #
 #
