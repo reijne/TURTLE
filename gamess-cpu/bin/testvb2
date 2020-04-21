@@ -6,7 +6,7 @@
 #BSUB -nnodes 1
 #BSUB -alloc_flags "gpumps"
 
-# cd /gpfs/alpine/chm156/proj-shared/gamess-cpu/bin
+cd /mnt/d/School/Scriptie/Fortran/framework/gamess-cpu/bin
 
 export ed3=ed3.benz
 
@@ -14,7 +14,7 @@ export ed3=ed3.benz
 #export PGI_ACC_DEBUG=1
 
 #jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-cpu/bin/gamess-uk<<EOF
-/mnt/d/School/Scriptie/Fortan/framework/Das/gamess-cpu/bin/gamess<<EOF
+./gamess<<EOF
 # cat<<EOF>/dev/null
 harmon
 adapt off
@@ -44,7 +44,7 @@ enter 1
 EOF
 
 # jsrun -n 4 -r 4 -c 1 -g 1 -a 1 /gpfs/alpine/chm156/proj-shared/gamess-cpu/bin/gamess-uk<<EOF
-/mnt/d/School/Scriptie/Fortan/framework/Das/gamess-cpu/bin/gamess<<EOF
+./gamess<<EOF
 time 100000
 core 64000000
 restart new
@@ -94,3 +94,4 @@ end 9
 scftype vb
 enter 5
 EOF
+

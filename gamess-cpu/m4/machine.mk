@@ -44,8 +44,8 @@ M4_I8_OPT=,64bitpointers
 #--#endif#
 
 # Default compilation flags
-FFLAGSD = -c ${FFLAGSI8}
-CFLAGSD= -c ${CFLAGSI8}
+FFLAGSD = -c -pg ${FFLAGSI8}
+CFLAGSD= -c -pg ${CFLAGSI8}
 
 #--#if debug#
 FFLAGSV = ${FFLAGSD} -g

@@ -26,7 +26,7 @@ sizes="demo small medium large huge giga tera qmmm" # supercalafragamegagiga? te
 allexpert="base bench charmm chemshell ci debug demo dfttest diesel drf f90 \
 flucq ga gromacs i8 ma masscf mopac mopac6 mopac7 mp2 mpi mrdci nbo newints newscf \
 dl-find nmr nodft old-dft peigs protect-source qmmm rpagrad static_lb sysmo \
-taskfarm tcgmsg tcgmsg-mpi timings vb vdw zora"
+taskfarm tcgmsg tcgmsg-mpi timings vb vdw zora pg"
 
 touch dft/dependencies.txt dl-find/dependencies.txt drf/dependencies.txt linalg/dependencies.txt newscf/dependencies.txt \
       nmr/dependencies.txt vb/dependencies.txt xml/dependencies.txt diesel/dependencies.txt docs/dependencies.txt \
@@ -646,6 +646,8 @@ if [ $expert -eq 0 ]; then
       question=\
 "   The recommended (default) options for this build are:\n  $defaultopt\n\n \
 In addition, the following options are available:\n  $extraopt\n\n \
+But really this is what you should do if you're a good boi and want to run parallel:\n
+-peigs -newscf -mpiwrap i8 vb zora\n\n
 Please enter any additional options from the list above that you would\n \
 like to include in this build or just hit enter to go with the defaults.\n \
 NB: to remove default options, prefix them with a minus sign."

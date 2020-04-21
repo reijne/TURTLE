@@ -36,9 +36,9 @@ IMPI_INCLUDE  =
 MPI_LIB      = 
 LIBMPI       = 
 #--#else#
-MPI_INCLUDE  = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/include
+MPI_INCLUDE  = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/include/
 IMPI_INCLUDE= -I${MPI_INCLUDE}
-MPI_LIB      = /cm/shared/apps/pgi/linux86-64/2016/mpi/openmpi/lib
+MPI_LIB      = /opt/pgi/linux86-64/2019/mpi/openmpi-3.1.3/lib/
 LIBMPI =  -L$(MPI_LIB) -lmpi -lmpi_mpifh
 #--#endif mpiwrap#
 
@@ -102,8 +102,8 @@ I8_M4_OPT=
 #---#endif#
 #--#endif#
 
-FFLAGSD = -c -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
-CFLAGSD= -c -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
+FFLAGSD = -c -pg -tp=k8-64 -Mcache_align ${FFLAGSI8} ${IMPI_INCLUDE} ${IGM_INCLUDE}
+CFLAGSD= -c -pg -tp=k8-64 ${CFLAGSI8}  ${IMPI_INCLUDE} ${IGM_INCLUDE}
 
 #--#if static#
 LDFLAGSD= -tp=k8-64 -Bstatic

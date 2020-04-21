@@ -1959,28 +1959,124 @@ c.....
 40    continue
       return
       end
+c     ============================================================
       subroutine gmix(ipos,ipose,ir,ic,ig,nblock,ialfa)
 c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
+      real start, stop
+      integer intermediate
+
       logical equal
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+
+c      print *, "Start of subroutine gmix"
+c      print *, "nblock=", nblock
+c      print *, "ialfa=", ialfa
+c      print *, ""
+
+      if (nblock /= 3 .and. nblock /= 2) then
+         print *, "@ nblock=", nblock
+      end if
+      if (ialfa /= 1 .and. ialfa /= 2) then
+         print *, "@ ialfa=", ialfa
+      end if
+
+      call cpu_time(start)
       it = 0
+      printer_inner = .false.
+      print_it = .false.
+c     Unroll m loops 
       do 60 m=1,nblock-1
+c        from here all start values are known, so parallelize from here down
          do 50 l=ig(4,m),ig(4,m+1)-1
             do 40 j=ig(3,m),ig(3,m+1)-1
+
                do 30 n=m+1,nblock
                   do 20 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
+c                       // start = defined
+c                       // diff = stop - start + 1
+c                       // it = cur - start
+                        ms = 1
+                        ls = ig(4,m)
+                        js = ig(3,m)
+                        ns = m+1
+                        ks = ig(4,n)
+                        is = ig(3,n)
+
+                        if (printer_inner) then
+                           print *, "start values:"
+                           print *, ms, ls, js, ns, ks, is
+                           print *, ""
+                        end if
+
+                        md = nblock-1           -  ms + 1
+                        ld = ig(4,m+1)-1        -  ls + 1
+                        jd = ig(3,m+1)-1        -  js + 1
+                        nd = nblock             -  ns + 1
+                        kd = ig(4,n)+ig(2,n)-1  -  ks + 1
+                        id = ig(3,n)+ig(1,n)-1  -  is + 1
+
+                        if (printer_inner) then
+                           print *, "differences:"
+                           print *, md, ld, jd, nd, kd, id
+                           print *, ""
+                        end if
+
+                        mi = m - ms
+                        li = l - ls
+                        ji = j - js
+                        ni = n - ns
+                        ki = k - ks
+                        ii = i - is
+
+                        if (print_it) then 
+                           print *, "iteration variables:"
+                           print *, m, l, j, n, k, i
+                        end if
+                        if (printer_inner) then
+                           print *, "iteration counters:"
+                           print *, mi, li, ji, ni, ki, ii
+                           print *, ""
+                           print *, ""
+                           print *, "ii + 1=", ii+1
+                           print *, "ki*id=", ki*id
+                           print *, "ni*kd*id=", ni*kd*id
+                           print *, "ji*nd*kd*id=", ji*nd*kd*id
+                           print *, "li*jd*nd*kd*id=", li*jd*nd*kd*id
+                           var = mi*ld*jd*nd*kd*id
+                           print*,"mi*ld*jd*nd*kd*id=", var
+                        end if
+
+                        ix = (ii + 1) + ki*id + ni*kd*id
+     a                    + ji*nd*kd*id + li*jd*nd*kd*id
+     a                    + mi*ld*jd*nd*kd*id
+
                         it = it + 1
+                        if (it /= ix) then
+                           if (nblock /= 3) then
+                              print*, "help pls mounir im gonna kill"
+                           end if
+c                          printer_inner = .true.  
+c                          print_it = .true.
+                        end if
                         ipos(it) = intpos(ir(i),ic(k),ir(j),ic(l))
 10                   continue
+c                  print *, ""
 20                continue
+c              print *, ""
 30             continue
+c            print *, ""
 40          continue
+c         print *, ""
 50       continue
+c      print *, ""
 60    continue
+
+c     print *, "First loop iterations:", it
+
       call izero(it,ipose,1)
       na    = ig(5,ialfa) + ig(1,ialfa) * ig(2,ialfa) - 1
       nb    = ig(5,nblock) + ig(1,nblock) * ig(2,nblock) - na - 1
@@ -2000,6 +2096,10 @@ c
 100         continue
 110      continue
 120   continue
+
+c      intermediate = it
+c      print *, "Second loop iterations:", it
+
       it = it + ig(1,ialfa)*ig(2,ialfa)*nb
       do 180 m=ialfa+1,nblock-1
          do 170 l=ig(4,m),ig(4,m+1)-1
@@ -2015,8 +2115,14 @@ c
 160         continue
 170      continue
 180   continue
+c      print *, "Third loop iterations:", it - intermediate
+      call cpu_time(stop)
+c      print *, start
+c      print *, stop 
+c      print *, ""
       return
       end
+c     ============================================================
       subroutine gmix0(ipos,ipose,ir,ic,ig,nblock,is1,ialfa)
 c
       implicit REAL  (a-h,o-z) , integer   (i-n)

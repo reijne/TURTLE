@@ -341,8 +341,8 @@ CFLAGSI8=-DLONG_INTEGER
 M4_I8_OPT=,i8
 
 # Default compilation flags
-FFLAGSD = -c ${FFLAGSI8}
-CFLAGSD= -c ${CFLAGSI8}
+FFLAGSD = -c -pg ${FFLAGSI8}
+CFLAGSD= -c -pg ${CFLAGSI8}
 
 FFLAGSV =  ${FFLAGSD} -tp=k8-64 -Mcache_align -O2
 FFLAGSS =  ${FFLAGSD} -tp=k8-64 -Mcache_align -O
