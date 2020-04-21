@@ -2075,11 +2075,8 @@ c         print *, ""
 c      print *, ""
 60    continue
 
-<<<<<<< HEAD
 c     print *, "First loop iterations:", it
 
-=======
->>>>>>> 4c875d3dc3ae1f03ea7e35868656213b7eb0ba0e
       call izero(it,ipose,1)
       na    = ig(5,ialfa) + ig(1,ialfa) * ig(2,ialfa) - 1
       nb    = ig(5,nblock) + ig(1,nblock) * ig(2,nblock) - na - 1
