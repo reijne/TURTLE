@@ -1,0 +1,82 @@
+#!/bin/bash
+#SBATCH --job-name=ph3.inp
+#SBATCH --output=ph3.inp.o%J
+#SBATCH --time=0:30:00
+#SBATCH --nodes=5
+#SBATCH --partition=short
+#SBATCH --ntasks-per-node=24
+
+cd /mnt/d/School/Scriptie/Fortran/framework/gamess-cpu/bin
+# module load 2019
+# module load intel/2018b
+#module load MPICH/3.2.1-GCC-7.3.0-2.30
+# module load OpenMPI/3.1.4-GCC-7.3.0-2.30 
+#module load OpenMPI/3.1.1-GCC-7.3.0-2.30
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/hpc/sw/pgi-18.3/linux86-64/2018/mpi/openmpi/lib:/hpc/sw/pgi-18.3/linux86-64/18.3/lib
+#export PATH=/hpc/sw/pgi-18.3/linux86-64/2018/mpi/openmpi/bin:$PATH
+
+export OMPI_MCA_shmem_mmap_enable_nfs_warning=0
+export OMPI_MCA_mpi_warn_on_fork=0
+
+# cp $SLURM_SUBMIT_DIR/ed3.ph3 ./ed3
+export ed3=ed3.ph3
+
+which mpirun
+
+#mpirun -n 120 /home/rhavepop/gamess-cpu/bin/gamess-uk<<EOF
+# srun  /home/rhavepop/gamess-cpu/bin/gamess-uk<<EOF
+./gamess<<EOF
+time 100000
+core 64000000
+restart new
+nosym
+title
+co
+geom au
+        0.0001246     -1.2851541     -0.0005844     6.0   c
+        2.7756559      0.1320787      0.0000594    15.0   p
+       -2.7751446      0.1321683     -0.0003250    15.0   p
+       -3.5931581      1.7418378      2.0457542     1.0   h
+       -3.6013853      1.7331404     -2.0482525     1.0   h
+       -4.8221686     -1.6037689      0.0104875     1.0   h
+        3.5813384      1.7642128     -2.0315709     1.0   h
+        3.6048436      1.7144147      2.0616414     1.0   h
+        4.8221133     -1.6026173     -0.0305698     1.0   h
+end
+basis cc-pvdz
+crestr
+conf
+core 17 18 18 21 21 22 22 24 24 rumer 1
+core 17 18 18 19 24 21 25 22 22 rumer 1
+core 17 18 18 20 22 21 23 24 24 rumer 1
+end
+end crestr
+vb
+vbvectors combine print
+section 9 1 to 17 20 18 19 21 22 23 25 26 end
+end
+active
+1 to 25 end
+scf
+optimise kind
+pert doc uoc
+end
+diis
+nosymm
+hybrid clear
+C
+1 18 19 20 21 end
+atom 1 end
+PH1
+2 3 4 5 6 7 8 9 22 23 end
+atom 2 7 8 9 end
+PH2
+10 11 12 13 14 15 16 17 24 25 end
+atom 3 4 5 6 end
+end
+end scf
+end 10
+scftype vb
+enter 7
+EOF
+
