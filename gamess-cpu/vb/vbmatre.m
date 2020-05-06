@@ -1963,9 +1963,10 @@ c     ============================================================
       subroutine gmix(ipos,ipose,ir,ic,ig,nblock,ialfa)
 c
       implicit REAL  (a-h,o-z) , integer   (i-n)
+      ! integer :: v
+      ! integer, dimension(nblock) :: ma
 c
-      real start, stop
-      integer intermediate
+c      real start, stop
 
       logical equal
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
@@ -1975,107 +1976,146 @@ c      print *, "Start of subroutine gmix"
 c      print *, "nblock=", nblock
 c      print *, "ialfa=", ialfa
 c      print *, ""
+!       ma(1) = 0
+!       do m=2, nblock-1
+! c         set value of m, 
+! c         max iterations times diff
+!          l = ig(4,m+1)-1
+!          j = ig(3,m+1)-1
+!          n = nblock
+!          k = ig(4,n)+ig(2,n)-1
+!          i = ig(3,n)+ig(1,n)-1
 
-      if (nblock /= 3 .and. nblock /= 2) then
-         print *, "@ nblock=", nblock
-      end if
-      if (ialfa /= 1 .and. ialfa /= 2) then
-         print *, "@ ialfa=", ialfa
-      end if
+!          ld = l - ig(4,m)
+!          jd = j - ig(3,m)
+!          nd = n - m + 1
+!          kd = k - ig(4,n)
+!          id = i - ig(3,n)
+!          ma(m) = id + k*id + n*kd*id
+!      a            + j*nd*kd*id + l*jd*nd*kd*id
+!          print *, "m:", m, "offset:", ma(m)
+!       end do
 
-      call cpu_time(start)
+c      if (nblock /= 3 .and. nblock /= 2) then
+c         print *, "@ nblock=", nblock
+c      end if
+c      if (ialfa /= 1 .and. ialfa /= 2) then
+c         print *, "@ ialfa=", ialfa
+c      end if
+      ! print *, "nblock:", nblock, "ialfa:", ialfa
+c      call cpu_time(start)
       it = 0
-      printer_inner = .false.
-      print_it = .false.
+c      printer_inner = .false.
+c      print_it = .false.
 c     Unroll m loops 
       do 60 m=1,nblock-1
-c        from here all start values are known, so parallelize from here down
+c        from here all values are known, so parallelize from here down
          do 50 l=ig(4,m),ig(4,m+1)-1
             do 40 j=ig(3,m),ig(3,m+1)-1
-
+c              maybe even from here 
                do 30 n=m+1,nblock
                   do 20 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
 c                       // start = defined
 c                       // diff = stop - start + 1
 c                       // it = cur - start
-                        ms = 1
-                        ls = ig(4,m)
-                        js = ig(3,m)
-                        ns = m+1
-                        ks = ig(4,n)
-                        is = ig(3,n)
+c                        ms = 1
+                     !   ls = ig(4,m)
+                     !   js = ig(3,m)
+                     !   ns = m+1
+                     !   ks = ig(4,n)
+                     !   is = ig(3,n)
 
-                        if (printer_inner) then
-                           print *, "start values:"
-                           print *, ms, ls, js, ns, ks, is
-                           print *, ""
-                        end if
+c                       if (printer_inner) then
+c                           print *, "start values:"
+c                           print *, ms, ls, js, ns, ks, is
+c                           print *, ""
+c                        end if
 
-                        md = nblock-1           -  ms + 1
-                        ld = ig(4,m+1)-1        -  ls + 1
-                        jd = ig(3,m+1)-1        -  js + 1
-                        nd = nblock             -  ns + 1
-                        kd = ig(4,n)+ig(2,n)-1  -  ks + 1
-                        id = ig(3,n)+ig(1,n)-1  -  is + 1
+c                        md = nblock-1           -  ms + 1
+                     !   ld = ig(4,m+1)-1        -  ls + 1
+                     !   jd = ig(3,m+1)-1        -  js + 1
+                     !   nd = nblock             -  ns + 1
+                     !   kd = ig(4,n)+ig(2,n)-1  -  ks + 1
+                     !   id = ig(3,n)+ig(1,n)-1  -  is + 1
 
-                        if (printer_inner) then
-                           print *, "differences:"
-                           print *, md, ld, jd, nd, kd, id
-                           print *, ""
-                        end if
+c                       if (printer_inner) then
+c                           print *, "differences:"
+c                           print *, md, ld, jd, nd, kd, id
+c                           print *, ""
+c                        end if
 
-                        mi = m - ms
-                        li = l - ls
-                        ji = j - js
-                        ni = n - ns
-                        ki = k - ks
-                        ii = i - is
+c                        mi = m - ms
+                        ! li = l - ls
+                        ! ji = j - js
+                        ! ni = n - ns
+                        ! ki = k - ks
+                        ! ii = i - is
 
-                        if (print_it) then 
-                           print *, "iteration variables:"
-                           print *, m, l, j, n, k, i
-                        end if
-                        if (printer_inner) then
-                           print *, "iteration counters:"
-                           print *, mi, li, ji, ni, ki, ii
-                           print *, ""
-                           print *, ""
-                           print *, "ii + 1=", ii+1
-                           print *, "ki*id=", ki*id
-                           print *, "ni*kd*id=", ni*kd*id
-                           print *, "ji*nd*kd*id=", ji*nd*kd*id
-                           print *, "li*jd*nd*kd*id=", li*jd*nd*kd*id
-                           var = mi*ld*jd*nd*kd*id
-                           print*,"mi*ld*jd*nd*kd*id=", var
-                        end if
+c                        if (print_it) then 
+c                           print *, "iteration variables:"
+c                           print *, m, l, j, n, k, i
+c                        end if
+c                        if (printer_inner) then
+c                           print *, "iteration counters:"
+c                           print *, mi, li, ji, ni, ki, ii
+c                           print *, ""
+c                           print *, ""
+                        !   print *, "ii + 1=", ii+1
+                        !   print *, "ki*id=", ki*id
+                        !   print *, "ni*kd*id=", ni*kd*id
+                        !   print *, "ji*nd*kd*id=", ji*nd*kd*id
+                        !   print *, "li*jd*nd*kd*id=", li*jd*nd*kd*id
+c                           var = mi*ld*jd*nd*kd*id
+c                           print*,"mi*ld*jd*nd*kd*id=", var
+c                        end if
 
-                        ix = (ii + 1) + ki*id + ni*kd*id
-     a                    + ji*nd*kd*id + li*jd*nd*kd*id
-     a                    + mi*ld*jd*nd*kd*id
+c                        ix = (ii + 1) + ki*id + ni*kd*id
+c     a                    + ji*nd*kd*id + li*jd*nd*kd*id
+c     a                    + mi*ld*jd*nd*kd*id
+c                          last plus must come from array
+
+   !                      ix = (ii + 1) + ki*id + ni*kd*id
+   !   b                    + ji*nd*kd*id + li*jd*nd*kd*id
+   !   b                    + ma(m)
 
                         it = it + 1
-                        if (it /= ix) then
-                           if (nblock /= 3) then
-                              print*, "help pls mounir im gonna kill"
-                           end if
+                        ! print *, "it:", it, "ix", ix
+c                        if (it /= ix) then
+c                           if (nblock /= 3) then
+c                              print*, "help pls"
+c                           end if
 c                          printer_inner = .true.  
 c                          print_it = .true.
-                        end if
+c                        end if
+                        ! print *, "i", "k", "j", "l"
+                        ! print *, i, k, j, l
+                        ! print *, "it:", it, "plus:", i+k+j+l
+                        
+                        ! v = 100000*m+10000*l+1000*j+100*n+10*k+i
+                        ! print *, "mljnki:", v
+                        ! print *,"it:",it,"ikjl:",1000*i+100*k+10*j+l
                         ipos(it) = intpos(ir(i),ic(k),ir(j),ic(l))
+                     ! print *, "i-loop"
 10                   continue
-c                  print *, ""
+                  ! print *, "k-loop"
 20                continue
-c              print *, ""
+               ! print *, "n-loop"
 30             continue
-c            print *, ""
+            ! print *, "j-loop"
 40          continue
-c         print *, ""
+         ! print *, "l"
 50       continue
-c      print *, ""
+      ! print *, "m-loop"
 60    continue
-
 c     print *, "First loop iterations:", it
+      ! if (it /= ix) then
+      ! stop
+      ! end if
+      print*, "nblock:", nblock, "ialfa:", ialfa 
+      print*, "it:", it, "ikjl:", 1000*i+100*k+10*j+l !End values
+      print *, "start:", 1000*ig(3,2)+100*ig(4,2)+10*ig(3,1)+ig(4,1)
+      print*,"======================================================="
 
       call izero(it,ipose,1)
       na    = ig(5,ialfa) + ig(1,ialfa) * ig(2,ialfa) - 1
@@ -2116,7 +2156,7 @@ c      print *, "Second loop iterations:", it
 170      continue
 180   continue
 c      print *, "Third loop iterations:", it - intermediate
-      call cpu_time(stop)
+c      call cpu_time(stop)
 c      print *, start
 c      print *, stop 
 c      print *, ""
@@ -3625,7 +3665,7 @@ c.....
 20       continue
          n2a = nt - n1  - 1
           ntw=nt
-         call wmix(w(nt),w,nblock,ig,n2b)
+         call wmix(w(nt),w,nblock,ig,n2b) !set cofactors in w at nt->
          nt  = nt  + n2b - 1
          n2  = n2a + n2b
 c.....
@@ -3639,8 +3679,10 @@ c.....   mixed contributions
 c.....
          n = n + n2a
          call gmix(ipos(n),ipos(n2+n),ir,ic,ig,nblock,ialfa)
+         ! ipos at (it) to g
          call gather(n1         ,g      ,superh,ipos      )
          call gather(2*(n2a+n2b),g(n1+1),superg,ipos(n1+1))
+         ! subtract
          call subvec(g(n1+1),g(n1+1),g(nt+1),nt-n1)
          value = ddot(nt,g,1,w,1) * dprod
 c.....
@@ -6478,11 +6520,13 @@ c
             scalar = w1(j)
             do 10 i=ig(5,k+1),igend
                it     = it + 1
-               w2(it) = scalar * w1(i)
+               w2(it) = scalar * w1(i) !calc 2nd order cofactor, w1 first order
+               ! print *, "kji", k, j, i
 10          continue
 20       continue
 30    continue
       n = it
+      ! stop
       return
       end
       subroutine wmix0(w2,wa,na,wb,nb,n)
