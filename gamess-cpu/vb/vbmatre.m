@@ -1976,33 +1976,6 @@ c      print *, "Start of subroutine gmix"
 c      print *, "nblock=", nblock
 c      print *, "ialfa=", ialfa
 c      print *, ""
-!       ma(1) = 0
-!       do m=2, nblock-1
-! c         set value of m, 
-! c         max iterations times diff
-!          l = ig(4,m+1)-1
-!          j = ig(3,m+1)-1
-!          n = nblock
-!          k = ig(4,n)+ig(2,n)-1
-!          i = ig(3,n)+ig(1,n)-1
-
-!          ld = l - ig(4,m)
-!          jd = j - ig(3,m)
-!          nd = n - m + 1
-!          kd = k - ig(4,n)
-!          id = i - ig(3,n)
-!          ma(m) = id + k*id + n*kd*id
-!      a            + j*nd*kd*id + l*jd*nd*kd*id
-!          print *, "m:", m, "offset:", ma(m)
-!       end do
-
-c      if (nblock /= 3 .and. nblock /= 2) then
-c         print *, "@ nblock=", nblock
-c      end if
-c      if (ialfa /= 1 .and. ialfa /= 2) then
-c         print *, "@ ialfa=", ialfa
-c      end if
-      ! print *, "nblock:", nblock, "ialfa:", ialfa
 c      call cpu_time(start)
       it = 0
 c      printer_inner = .false.
@@ -2016,106 +1989,29 @@ c              maybe even from here
                do 30 n=m+1,nblock
                   do 20 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
-c                       // start = defined
-c                       // diff = stop - start + 1
-c                       // it = cur - start
-c                        ms = 1
-                     !   ls = ig(4,m)
-                     !   js = ig(3,m)
-                     !   ns = m+1
-                     !   ks = ig(4,n)
-                     !   is = ig(3,n)
-
-c                       if (printer_inner) then
-c                           print *, "start values:"
-c                           print *, ms, ls, js, ns, ks, is
-c                           print *, ""
-c                        end if
-
-c                        md = nblock-1           -  ms + 1
-                     !   ld = ig(4,m+1)-1        -  ls + 1
-                     !   jd = ig(3,m+1)-1        -  js + 1
-                     !   nd = nblock             -  ns + 1
-                     !   kd = ig(4,n)+ig(2,n)-1  -  ks + 1
-                     !   id = ig(3,n)+ig(1,n)-1  -  is + 1
-
-c                       if (printer_inner) then
-c                           print *, "differences:"
-c                           print *, md, ld, jd, nd, kd, id
-c                           print *, ""
-c                        end if
-
-c                        mi = m - ms
-                        ! li = l - ls
-                        ! ji = j - js
-                        ! ni = n - ns
-                        ! ki = k - ks
-                        ! ii = i - is
-
-c                        if (print_it) then 
-c                           print *, "iteration variables:"
-c                           print *, m, l, j, n, k, i
-c                        end if
-c                        if (printer_inner) then
-c                           print *, "iteration counters:"
-c                           print *, mi, li, ji, ni, ki, ii
-c                           print *, ""
-c                           print *, ""
-                        !   print *, "ii + 1=", ii+1
-                        !   print *, "ki*id=", ki*id
-                        !   print *, "ni*kd*id=", ni*kd*id
-                        !   print *, "ji*nd*kd*id=", ji*nd*kd*id
-                        !   print *, "li*jd*nd*kd*id=", li*jd*nd*kd*id
-c                           var = mi*ld*jd*nd*kd*id
-c                           print*,"mi*ld*jd*nd*kd*id=", var
-c                        end if
-
-c                        ix = (ii + 1) + ki*id + ni*kd*id
-c     a                    + ji*nd*kd*id + li*jd*nd*kd*id
-c     a                    + mi*ld*jd*nd*kd*id
-c                          last plus must come from array
-
-   !                      ix = (ii + 1) + ki*id + ni*kd*id
-   !   b                    + ji*nd*kd*id + li*jd*nd*kd*id
-   !   b                    + ma(m)
-
                         it = it + 1
-                        ! print *, "it:", it, "ix", ix
-c                        if (it /= ix) then
-c                           if (nblock /= 3) then
-c                              print*, "help pls"
-c                           end if
-c                          printer_inner = .true.  
-c                          print_it = .true.
-c                        end if
-                        ! print *, "i", "k", "j", "l"
-                        ! print *, i, k, j, l
-                        ! print *, "it:", it, "plus:", i+k+j+l
-                        
-                        ! v = 100000*m+10000*l+1000*j+100*n+10*k+i
-                        ! print *, "mljnki:", v
                         ! print *,"it:",it,"ikjl:",1000*i+100*k+10*j+l
                         ipos(it) = intpos(ir(i),ic(k),ir(j),ic(l))
-                     ! print *, "i-loop"
 10                   continue
-                  ! print *, "k-loop"
 20                continue
-               ! print *, "n-loop"
 30             continue
-            ! print *, "j-loop"
 40          continue
-         ! print *, "l"
 50       continue
-      ! print *, "m-loop"
 60    continue
-c     print *, "First loop iterations:", it
+      ljki = 1000000*ig(4,1)+10000*ig(3,1)+100*ig(4,2)+ig(3,2)
+      if (it /= 81.and.it/=194481.or.nblock/=2.or.ialfa/=1.or.
+     &ljki/=1010404.and.ljki/=1012222) then
+      print *, "NEW CASE FOUND"
+      print *, "First loop iterations:", it
+      print *, "nblock:", nblock, "ialfa:", ialfa
+      print *, "ljki:", 1000000*ig(4,1)+10000*ig(3,1)
+     &+100*ig(4,2)+ig(3,2)
+      print *, "ljki:", 1000000*l+10000*j+100*k+i 
+      print*,"========================================================="
+      end if
       ! if (it /= ix) then
       ! stop
       ! end if
-      print*, "nblock:", nblock, "ialfa:", ialfa 
-      print*, "it:", it, "ikjl:", 1000*i+100*k+10*j+l !End values
-      print *, "start:", 1000*ig(3,2)+100*ig(4,2)+10*ig(3,1)+ig(4,1)
-      print*,"======================================================="
 
       call izero(it,ipose,1)
       na    = ig(5,ialfa) + ig(1,ialfa) * ig(2,ialfa) - 1
