@@ -1,107 +1,122 @@
       subroutine gwmix(ir,ic,ig,nblock,ialfa,w1,supg,nelec,n1,val)
-c
+c     Combines cikjl, wmix and gmix
+c     
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
 INCLUDE(common/tractlt)
       dimension w1(n1)
       dimension ig(5,nblock)
-      dimension ir(nelec),ic(nelec),supg(0:n2int)
+      dimension ir(nelec),ic(nelec),supg(*)
 !$acc routine (intpos)
+c  supg(0:n2int)
 c
       val=0.0d0
 c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
+
 !$acc data copyin(ir,ic) present(supg)
-!$acc& copyin(ig(5,nblock),w1(1:n1),nblock) 
+!$acc& copyin(ig(5,nblock),w1(1:n1),nblock)
 !$acc& copy(val)
-!$acc parallel loop private(msta,mend) reduction(+:val) present (supg) 
-!$acc& gang vector_length(16)
+!$acc kernels present (supg)
+
       do 51 m=1,nblock
          msta = ig(3,m)
          mend = ig(3,m) + ig(1,m) - 1
-!$acc loop
          do 41 k=msta+1,mend
             do 31 l=msta,k-1
-!$acc loop private (scalar)
-               do 21 i=msta+1,mend
-                  scalar=w1(i)
-!$acc loop seq reduction(+:val)
-                  do 11 j=msta,i-1
-                   val=val+scalar*w1(j)*(supg(intpos(ir(i),ic(k),ir(j),
+              do 21 i=msta+1,mend
+                do 11 j=msta,i-1
+                  !cikjl: calculate the loop vars
+                  ii=i-msta+1
+                  jj=j-msta+1
+                  kk=k-msta+1
+                  ll=l-msta+1
+                  !jacobi ratio theorem to optimize 2nd-o-cofacs
+                  scal=w1((kk-1)*ig(1,m)+ii+ig(5,m)-1)*
+     &                 w1((ll-1)*ig(1,m)+jj+ig(5,m)-1)-
+     &                 w1((ll-1)*ig(1,m)+ii+ig(5,m)-1)*
+     &                 w1((kk-1)*ig(1,m)+jj+ig(5,m)-1)
+                  !(subvec ipos with ipose) * ratio, add to total
+                  val=val+scal*(supg(intpos(ir(i),ic(k),ir(j),
      1            ic(l)))-supg(intpos(ir(i),ic(l),ir(j),ic(k))))
+                  it=it+1 !why is this still here?
 11                continue
 21             continue
 31         continue
 41       continue
 51    continue
 c
-!$acc parallel loop reduction(+:val) gang vector_length(16) 
-!$acc& present (supg,ir,ic,ig,w1) 
       do 60 m=1,nblock-1
-!$acc loop seq
-               do 30 n=m+1,nblock
-!$acc loop 
          do 50 l=ig(4,m),ig(4,m+1)-1
-!$acc loop private (scalar)
             do 40 j=ig(3,m),ig(3,m+1)-1
-             scalar=w1(j)
-!$acc loop 
+              ! wmix: get the first order cofactor from w1
+              jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
+              scalar=w1(jl)
+                do 30 n=m+1,nblock
                   do 20 k=ig(4,n),ig(4,n)+ig(2,n)-1
-!$acc loop seq reduction(+:val)
-                     do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
-                         val=val+w1(i)*scalar*
-     1                      supg(intpos(ir(i),ic(k),ir(j),ic(l)))
+                    do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
+                      ! get first order cofactor from w1
+                      ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
+     1                    -ig(3,n)+ig(5,n)
+                      ! calc 2nd order cofactor * integral calc
+                      ! add to total
+                      val=val+w1(ik)*scalar*
+     2                    supg(intpos(ir(i),ic(k),ir(j),ic(l)))
 10                   continue
 20                continue
+30             continue
 40          continue
 50       continue
-30             continue
 60    continue
 c
-!$acc parallel loop reduction(+:val) present (supg,ir,ic,ig,w1) 
-!$acc& gang vector_length(16) 
       do 120 m=1,ialfa-1
-               do 90 n=m+1,ialfa
          do 110 l=ig(4,m),ig(4,m+1)-1
-!$acc loop private (scalar)
             do 100 j=ig(3,m),ig(3,m+1)-1
-               scalar=w1(j)
-                  do 80 k=ig(4,n),ig(4,n)+ig(2,n)-1
-!$acc loop seq  reduction(+:val)
-                     do 70 i=ig(3,n),ig(3,n)+ig(1,n)-1
-                         val=val-w1(i)*scalar*
-     1                      supg(intpos(ir(i),ic(l),ir(j),ic(k)))
+              ! wmix: get the first order cofactor from w1
+              jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
+              scalar=w1(jl)
+              do 90 n=m+1,ialfa
+                do 80 k=ig(4,n),ig(4,n)+ig(2,n)-1
+                  do 70 i=ig(3,n),ig(3,n)+ig(1,n)-1
+                      ! get first order cofactor from w1
+                      ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
+     1                    -ig(3,n)+ig(5,n)
+                      ! calc 2nd order cofactor * integral calc
+                      ! add to total
+                      val=val-w1(ik)*scalar*
+     2                    supg(intpos(ir(i),ic(l),ir(j),ic(k)))
 70                   continue
 80                continue
+90             continue
 100         continue
 110      continue
-90             continue
 120   continue
-!$acc parallel loop reduction(+:val) present (supg,ir,ic,ig,w1)
-!$acc& gang vector_length(16) 
       do 180 m=ialfa+1,nblock-1
-               do 150 n=m+1,nblock
          do 170 l=ig(4,m),ig(4,m+1)-1
-!$acc loop private (scalar)
             do 160 j=ig(3,m),ig(3,m+1)-1
-                scalar=w1(j)
+              ! wmix: get the first order cofactor from w1
+              jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
+              scalar=w1(jl)
+                do 150 n=m+1,nblock
                   do 140 k=ig(4,n),ig(4,n)+ig(2,n)-1
-!$acc loop  seq  reduction(+:val)
                      do 130 i=ig(3,n),ig(3,n)+ig(1,n)-1
-                         val=val-w1(i)*scalar*
+                        ! get first order cofactor from w1
+                        ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
+     1                     -ig(3,n)+ig(5,n)
+                        ! calc 2nd order cofactor * integral calc
+                        ! add to total
+                        val=val-w1(ik)*scalar*
      1                      supg(intpos(ir(i),ic(l),ir(j),ic(k)))
 130                  continue
 140               continue
+150            continue
 160         continue
 170      continue
-150            continue
 180   continue
-cc!$acc update self (val)
-cc!$acc end kernels
+!$acc end kernels
 !$acc end data
-
       return
       end
    

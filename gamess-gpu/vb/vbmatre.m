@@ -1966,7 +1966,6 @@ c
       logical equal
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
-!$acc routine (intpos,izero)
       it = 0
       do 60 m=1,nblock-1
          do 50 l=ig(4,m),ig(4,m+1)-1
@@ -1975,7 +1974,6 @@ c
                   do 20 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it = it + 1
-                         write(6,'(A,5I5)') 'remco gmix:',it,i,k,j,l
                         ipos(it) = intpos(ir(i),ic(k),ir(j),ic(l))
 10                   continue
 20                continue
@@ -1994,7 +1992,6 @@ c
                   do 80 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 70 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it        = it + 1
-           write(6,'(A,5I5)')'remco gmix a::',it,i,k,j,l
                         ipose(it) = intpos(ir(i),ic(l),ir(j),ic(k))
 70                   continue
 80                continue
@@ -2011,7 +2008,6 @@ c
                   do 140 k=ig(4,n),ig(4,n)+ig(2,n)-1
                      do 130 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it = it + 1
-           write(6,'(A,5I5)')'remco gmix b::',it,i,k,j,l
                         ipose(it) = intpos(ir(i),ic(l),ir(j),ic(k))
 130                  continue
 140               continue
@@ -3452,7 +3448,6 @@ c.....
 c.....integral supermatrices
 c.....
       dimension superg(*),superh(*),supers(*)
-!$acc routine (cik)
       external iparity
 c.....
 INCLUDE(common/vblimit)
@@ -3517,13 +3512,13 @@ c.....
 c.....
 c.....   two electron contribution involving one block at a time
 c.....
-         do 20 i=1,nblock
-            call cikjl(w(nt),ig(1,i),w(ig(5,i)))
-            ii  = ig(1,i)*(ig(1,i)-1)/2
-            nt  = nt + ii * ii
-20       continue
+         ntw=nt
+c         do 20 i=1,nblock
+c            call cikjl(w(nt),ig(1,i),w(ig(5,i)))
+c            ii  = ig(1,i)*(ig(1,i)-1)/2
+c            nt  = nt + ii * ii
+c20       continue
          n2a = nt - n1  - 1
-          ntw=nt
 c        call wmix(w(nt),w,nblock,ig,n2b)
          nt  = nt  + n2b - 1
          n2  = n2a + n2b
@@ -3541,7 +3536,7 @@ c.....
 c        write(6,'(A,5I5)') 'remco n1::',n1,n,n2+n,2*(n2a+n2b),n2a
 c        call gmix(ipos(n),ipos(n2+n),ir,ic,ig,nblock,ialfa)
          call gather(n1         ,g      ,superh,ipos      )
-c        call gatherx(2*(n2a+n2b),g(n1+1),superg,ipos(n1+1))
+c        call gather(2*(n2a+n2b),g(n1+1),superg,ipos(n1+1))
 c          do ijkl=1,2*(n2a+n2b)
 c            print *,'remco ipos::',ipos(n1+ijkl)
 c          enddo
@@ -3550,8 +3545,11 @@ c        call subvec(g(n1+1),g(n1+1),g(nt+1),nt-n1)
 c         do ijkl=ntw,nt
 c           print *,ijkl,w(ijkl),g(ijkl)
 c         enddo
-         call gwmix(ir,ic,ig,nblock,ialfa,w,superg(0),nelec,n1,val)
-         value = (ddotx(n1,g,1,w,1) + val) * dprod
+c         val2=ddot(nt-n1,g(n1+1),1,w(n1+1),1)
+c         val3=ddot(n2a,g(n1+1),1,w(n1+1),1)
+c        call gwmix(ir,ic,ig,nblock,ialfa,w,superg(0),nelec,n1,val)
+         call gwmix(ir,ic,ig,nblock,ialfa,w,superg,nelec,n1,val)
+         value = (ddot(n1,g,1,w,1) + val) * dprod
 c        value = ddotx(nt,g,1,w,1) * dprod
 c.....
       else if (nsing.eq.1) then
@@ -5981,7 +5979,6 @@ c
                do 20 i=msta+1,mend
                   do 10 j=msta,i-1
                      n  = n + 1
-        print *,'remco pikjl::',n
                      ipos (n) = intpos(ir(i),ic(k),ir(j),ic(l))
                      ipose(n) = intpos(ir(i),ic(l),ir(j),ic(k))
 10                continue
@@ -6389,7 +6386,6 @@ c
             scalar = w1(j)
             do 10 i=ig(5,k+1),igend
                it     = it + 1
-               write(6,'(A,4I5)') 'remco wmix::',it,k,i,j
                w2(it) = scalar * w1(i)
 10          continue
 20       continue
