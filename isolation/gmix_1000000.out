@@ -1,0 +1,11 @@
+[yreijne@fs0 isolation]$ pgf90 -o gmix.o ez_gmix.f
+[yreijne@fs0 isolation]$ time gpurun -t 2:0:0 gmix.o > gmix_1000000.out 2>&1
+Reservation number 2626992: Reserved 1 hosts for 7200 seconds 
+Run on 1 hosts for 7260 seconds from Tue May 12 12:25:36 2020
+: node025/0 
+
+
+
+real    31m14.655s
+user    0m0.022s
+sys     0m0.022s

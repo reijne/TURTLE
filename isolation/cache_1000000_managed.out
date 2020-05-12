@@ -1,0 +1,20 @@
+[yreijne@fs0 isolation]$ pgf90 -acc -Minfo=all -ta=tesla:managed -o cache.o cache.f
+mixer:
+     68, Generating Tesla code
+         69, !$acc loop gang, vector(128) ! blockidx%x threadidx%x
+     68, Generating implicit copyin(cache(it,:2,:)) [if not already present]
+         Generating implicit copy(.S0000) [if not already present]
+intpos:
+     88, Generating acc routine seq
+         Generating Tesla code
+
+[yreijne@fs0 isolation]$ time gpurun -t 1:0:0 cache.o > cache_1000000_managed.out 2>&1
+Reservation number 2627069: Reserved 1 hosts for 3600 seconds 
+Run on 1 hosts for 3660 seconds from Tue May 12 16:48:13 2020
+: node025/0 
+ Made it through
+
+
+real    0m35.002s
+user    0m0.033s
+sys     0m0.021s
