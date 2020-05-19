@@ -1,13 +1,12 @@
       subroutine gwmix(ir,ic,ig,nblock,ialfa,w1,supg,nelec,n1,val)
-c     Combines pikjl, wmix, gather and gmix
-c     
+c     Combines cikjl, pikjl, wmix, gmix, gather, ddot and subvec
+c      from matre3.
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
 INCLUDE(common/tractlt)
       dimension w1(n1)
       dimension ig(5,nblock)
       dimension ir(nelec),ic(nelec),supg(*)
-!$acc routine (intpos)
 c  supg(0:n2int)
 c
       val=0.0d0
@@ -16,25 +15,18 @@ c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
 
-!$acc data copyin(ir,ic) present(supg)
-!$acc& copyin(ig(5,nblock),w1(1:n1),nblock)
-!$acc& copy(val)
-!$acc kernels present (supg)
-! parallel loops
-! reduction val
-
       do 51 m=1,nblock
-         msta = ig(3,m)
-         mend = ig(3,m) + ig(1,m) - 1
-         do 41 k=msta+1,mend
-            do 31 l=msta,k-1
-              do 21 i=msta+1,mend
-                do 11 j=msta,i-1
+         !msta = ig(3,m)
+         !mend = ig(3,m) + ig(1,m) - 1
+         do 41 k=ig(3,m)+1, ig(3,m)+ig(1,m)-1
+            do 31 l=ig(3,m), k-1
+              do 21 i=ig(3,m)+1, ig(3,m)+ig(1,m)-1
+                do 11 j=ig(3,m), i-1
                   !cikjl: calculate the loop vars
-                  ii=i-msta+1
-                  jj=j-msta+1
-                  kk=k-msta+1
-                  ll=l-msta+1
+                  ii=i-ig(3,m)+1
+                  jj=j-ig(3,m)+1
+                  kk=k-ig(3,m)+1
+                  ll=l-ig(3,m)+1
                   !jacobi ratio theorem to calculate 2nd-o-cofacs
                   scal=w1((kk-1)*ig(1,m)+ii+ig(5,m)-1)*
      &                 w1((ll-1)*ig(1,m)+jj+ig(5,m)-1)-
@@ -50,29 +42,28 @@ c     enddo
 31         continue
 41       continue
 51    continue
-c     it works yeey
+      val_af = val
+
       do 690 m=1,nblock-1
-        do 590 l=ig(4,m),ig(4,m+1)-1
-          do 490 j=ig(3,m),ig(3,m+1)-1
-            ! wmix: get the first order cofactor from w1
-            jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
-               scalar=w1(jl)
-            do 390 n=m+1,nblock
-              do 290 k=ig(4,n),ig(4,n)+ig(2,n)-1
-                do 190 i=ig(3,n),ig(3,n)+ig(1,n)-1
+        do 590 l=ig(4,m), ig(4,m+1)-1
+          do 490 j=ig(3,m), ig(3,m+1)-1
+            do 390 n=m+1, nblock
+              do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
+                do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
+                  ! wmix: get the first order cofactor from w1
+                  jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
+                  scalar=w1(jl)
                   ! get first order cofactor from w1
                   ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
      1                -ig(3,n)+ig(5,n)
                   ! calc 2nd order cofactor * integral calc
                   ! add to total
                   if (m >= ialfa+1) then
-                    ! print *, "third"
                     val=val - w1(ik)*scalar *
      3                  supg(intpos(ir(i),ic(l),ir(j),ic(k)))
                   end if
 
                   if (m <= ialfa-1 .and. n <= ialfa) then
-                    ! print *, "second"
                     val=val - w1(ik)*scalar *
      2                  supg(intpos(ir(i),ic(l),ir(j),ic(k)))
                   end if
@@ -84,10 +75,9 @@ c     it works yeey
 490         continue
 590       continue
 690     continue
-      ! print *, "ending val concat", val
-      ! end if
-!$acc end kernels
-!$acc end data
+      ! print *, "first:", val_af
+      ! print *, "second:", val - val_af
+      ! print *, "done", val
       ! stop
       return
       end
