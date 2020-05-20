@@ -10,17 +10,22 @@ INCLUDE(common/tractlt)
 c  supg(0:n2int)
 c
       val=0.0d0
+      val_1=0.0d0
+      val_2=0.0d0
+      it = 0
 c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
+      if (nblock /= 2.and.nblock /= 3) then
+        print *, "NBLOCK @@", nblock
+      end if
 
       do 51 m=1,nblock
-         !msta = ig(3,m)
-         !mend = ig(3,m) + ig(1,m) - 1
-         do 41 k=ig(3,m)+1, ig(3,m)+ig(1,m)-1
+         mend = ig(3,m) + ig(1,m) - 1
+         do 41 k=ig(3,m)+1, mend
             do 31 l=ig(3,m), k-1
-              do 21 i=ig(3,m)+1, ig(3,m)+ig(1,m)-1
+              do 21 i=ig(3,m)+1, mend
                 do 11 j=ig(3,m), i-1
                   !cikjl: calculate the loop vars
                   ii=i-ig(3,m)+1
@@ -34,7 +39,7 @@ c     enddo
      &                 w1((kk-1)*ig(1,m)+jj+ig(5,m)-1)
                   !(subvec ipos with ipose) * 2nd-o-cofactor, add to total
                   ! matrix element val
-                  val=val+scal*(supg(intpos(ir(i),ic(k),ir(j),
+                  val_1=val_1+scal*(supg(intpos(ir(i),ic(k),ir(j),
      1            ic(l)))-supg(intpos(ir(i),ic(l),ir(j),ic(k))))
                   !it=it+1 !why is this still here? leftover
 11                continue
@@ -42,7 +47,6 @@ c     enddo
 31         continue
 41       continue
 51    continue
-      val_af = val
 
       do 690 m=1,nblock-1
         do 590 l=ig(4,m), ig(4,m+1)-1
@@ -52,31 +56,28 @@ c     enddo
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
-                  scalar=w1(jl)
                   ! get first order cofactor from w1
                   ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
      1                -ig(3,n)+ig(5,n)
-                  ! calc 2nd order cofactor * integral calc
-                  ! add to total
-                  if (m >= ialfa+1) then
-                    val=val - w1(ik)*scalar *
-     3                  supg(intpos(ir(i),ic(l),ir(j),ic(k)))
+                  ! calc 2nd order cofactor * integral
+                  s=w1(jl)*w1(ik)*supg(intpos(ir(i),ic(l),ir(j),ic(k)))
+
+                  ! subtract from total if necessary
+                  if (m>=ialfa+1.or.m<=ialfa-1.and.n<=ialfa)then
+                    val_2 = val_2 - s
                   end if
 
-                  if (m <= ialfa-1 .and. n <= ialfa) then
-                    val=val - w1(ik)*scalar *
-     2                  supg(intpos(ir(i),ic(l),ir(j),ic(k)))
-                  end if
-                    val=val+w1(ik)*scalar*
-     1                  supg(intpos(ir(i),ic(k),ir(j),ic(l)))
+                  ! add to total
+                  val_2 = val_2 + s
 190               continue
 290             continue
 390           continue
 490         continue
 590       continue
 690     continue
-      ! print *, "first:", val_af
-      ! print *, "second:", val - val_af
+      ! print *, "first:", val_1
+      ! print *, "second:", val_2
+      val = val_1 + val_2
       ! print *, "done", val
       ! stop
       return
@@ -86,7 +87,6 @@ c     enddo
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-!$acc exit data delete (supg)
       return
       end
     
@@ -94,13 +94,11 @@ INCLUDE(common/tractlt)
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-!$acc enter data copyin(supg)
       return
       end
        
       function intposx(i,j,k,l)
       implicit REAL (a-h,o-z)
-!$acc routine
       intposx=0
       return
       end
