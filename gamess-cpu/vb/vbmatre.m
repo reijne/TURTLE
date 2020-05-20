@@ -308,6 +308,7 @@ c
      &          supers(*),superh(*),superg(*),ipos   (*),weight(*),
      &          g     (*),iortho(*),s     (*),scr1   (*),scr2  (*),
      &          scr3  (*),ndetps(*),q(*)
+      print *, "meen"
       if (lcases) then
          call izero(2*ncases,icase,1)
          call  zero(ncases,times)
@@ -424,6 +425,7 @@ _ELSE
      &            nwpack,ncoeff,imax,ndum11,ndum12,'read')
 _ENDIF
       narray = 0
+      print *, "hsmat"
 c     call putintdev(superg)
       if (imax.gt.maxcas) call vberr(
      +'Highest occupied MO index too big, Adapt arrays in /qice/'
@@ -652,11 +654,14 @@ _IF(parallel)
 INCLUDE(common/parinf)
 _ENDIF
       logical oipsci
+      integer cache(194481, 2)
       data iagain/0/
       ind(i,j) = max(i,j) * (max(i,j)-1)/2 + min(i,j)
+      cache(1, 1) = -1
 c.....
 c.....initialise io channels
 c.....
+      print *, "bamilt"
       enul = evb - core
 c
 _IF(parallel)
@@ -798,16 +803,16 @@ c.....
 c.
 c...           per slater det there is one with alphas and betas
 c...           just the other way around, use this
-               call hathab(dd,ds,icp,jcp,supers,superh,
+               call hathabC(dd,ds,icp,jcp,supers,superh,
      &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
      &                  nelec,iortho,northo,nbody,nis,njs,idet,jdet,
      &                  idetps(iid),idetps(jid),coeff(iid),coeff(jid)
-     &                                          ,detcomb,dettot)
+     &                                          ,detcomb,dettot, cache)
             else
-               call hatham(dd,ds,icp,jcp,supers,superh,
+               call hathamC(dd,ds,icp,jcp,supers,superh,
      &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
      &                  nelec,iortho,northo,nbody,nis,njs,idet,jdet,
-     &                  coeff(iid),coeff(jid),detcomb,dettot)
+     &                  coeff(iid),coeff(jid),detcomb,dettot, cache)
               end if
             endif
 c
@@ -945,7 +950,9 @@ c.....   and the total dimension (nstruc), for the davidson
      &            scr1,scr2,scr3,s,g,supers,superh,superg,ipos,
      &            weight,nelec,ngroup,nalfa,iortho,northo,q,lword,
      &            grh,grs,diagh,diags,nfock,nfockd)
+     
       implicit REAL  (a-h,o-z) , integer   (i-n)
+      ! define fdict
 
 c.....this subroutine will calculate the column and the diagonal element for
 c.....routine bamilt, it will use fock matrix elements for column if possible or requested
@@ -990,6 +997,7 @@ _IF(parallel)
       call vclr(diagh,1,ngroup)
       call vclr(diags,1,ngroup)
 _ENDIF
+      print *,"grhsdiag"
       iid  = 1
       it   = 1
       kscr = 1
@@ -1298,10 +1306,380 @@ c
         write(iwr,*) ll,' elements of supers cleared '
         write(iwr,*) nn,' nonzero elements , largest element ',ss
         print *,' scri ',scri
-	if (oprs) then
-	   print *,' CLEANED S-MATRIX crit ',scri,nsa
-	   call prtri(supers,nsa)
-	end if
+	    if (oprs) then
+	    print *,' CLEANED S-MATRIX crit ',scri,nsa
+	    call prtri(supers,nsa)
+	    end if
+      end if
+c
+      return
+      end
+
+      
+      subroutine grhsdiagC(pacdet,idet,jdet,detcomb,dettot,icp,jcp,
+     &            idetps,coeff,ig,igroup,ndetps,
+     &            scr1,scr2,scr3,s,g,supers,superh,superg,ipos,
+     &            weight,nelec,ngroup,nalfa,iortho,northo,q,lword,
+     &            grh,grs,diagh,diags,nfock,nfockd, cache)
+            implicit REAL  (a-h,o-z) , integer   (i-n)
+            ! define fdict
+
+c.....this subroutine will calculate the column and the diagonal element for
+c.....routine bamilt, it will use fock matrix elements for column if possible or requested
+      common/subinf/nwidth
+INCLUDE(common/hsinfo)
+INCLUDE(common/scftvb)
+INCLUDE(common/turtleparam)
+INCLUDE(common/c8_16vb)
+INCLUDE(../m4/common/sizes)
+INCLUDE(../m4/common/iofile)
+INCLUDE(common/brill)
+INCLUDE(common/splice)
+INCLUDE(common/twice)
+INCLUDE(common/ffile)
+INCLUDE(common/tractlt)
+c...   length of next common uncertain / please check
+      common /fast/ nospin,nosymm,nosymc
+      logical nospin,nosymm,nosymc
+      logical otovirtual, ofrdouble, ofock, ozero, oroot
+INCLUDE(common/vbpert)
+INCLUDE(common/vbcri)
+_IF(parallel)
+INCLUDE(common/parinf)
+_ENDIF
+      data icoward,ncoward/0,100/
+
+      dimension pacdet(*),idet(nelec,*),jdet(nelec,*),detcomb(*),
+     &          dettot(*),idetps(*),coeff(*),ig(5,*),igroup(5,*),
+     &          ndetps(*),scr1(*),
+     &          scr2(*),scr3(*),s(*),g(*),supers(*),superh(*),
+     &          superg(*),ipos(*),weight(*),iortho(*),grh(*),grs(*),
+     &          diagh(*),diags(*),icp(*),jcp(*),q(*), cache(194481, 2)
+      data iagain/0/
+      itri(i,j) = max(i,j)*(max(i,j)-1)/2+min(i,j)
+c
+      nfock = 0
+      nfockd = 0
+      enul = evb - core
+_IF(parallel)
+      call vclr(grh,1,ngroup)
+      call vclr(grs,1,ngroup)
+      call vclr(diagh,1,ngroup)
+      call vclr(diags,1,ngroup)
+_ENDIF
+      print *,"grhsdiagC"
+      iid  = 1
+      it   = 1
+      kscr = 1
+c
+      if (fckp) then
+         nn=nsa+ncore
+         lennn=nn*(nn+1)/2
+         kfock=kscr
+         kscr=kfock+lennn
+         nword=lword-kscr
+         kvb7_fcmo =  kscra7vb('kvb7_fcmo',lennn,'r','n')
+         if (kvb7_fcmo.lt.0) then
+            call vberr('fock matrix needed in grhsdiag, but not found')
+         else
+            kvb7_fcmo =  kscra7vb('kvb7_fcmo',lennn,'r','r')
+            call rdedx(q(kfock),lennn,kvb7_fcmo,num8)
+         endif
+      end if
+c
+c      igroup = 0
+      iq = 0
+      i  = 0
+      do inequi=1,nequi
+         do ji=min(inequi,2),nex(iq+1)+1
+            i = i + 1
+c
+c.....      do 20 i=1,ngroup
+c
+c
+c.....It should first be checked which B-States can be calculated wiht a Fock matrix element
+c.....A number of criteria exist for Fock:
+c.....1  the excitation is doc --> uoc
+c.....2  the from orbital (doc) is orthogonal to all other doc's
+c.....3  the   to orbital (uoc) is orthogonal to all other uoc's
+c.....4  the from orbital (doc) is orthogonal to the to orbital (uoc)
+c.....Note that criteria 2 - 4 need the overlap matrix, which is present in supers
+c
+         ofock = .false.
+         if (fckp.and.i.ne.1) then
+         ofrdouble =.false.
+         otovirtual=.true.
+         ozero =.true.
+         fock = 0.0d0
+         fdiagfr = 0.0d0
+         fdiagto = 0.0d0
+         do k=iq+1,iq+iequi(inequi)
+            ifr = iex(1,k)
+            do i2=1,ndoubly
+               if (ifr.eq.idoubly(i2)) then
+                  ofrdouble =.true.
+c                  exit
+               end if
+            end do
+            do j=1,nsa
+            if (j.ne.ifr) then
+               if (dabs(supers(itri(ifr,j))).gt.1.0d-14) then
+                  ozero = .false.
+                  exit
+               end if
+            end if
+            end do
+            ito = iex(ji,k)
+            isign = ieqsig(ji,k)
+            if (ito.le.nscf) otovirtual = .false.
+            do j=1,nsa
+            if (j.ne.ito) then
+               if (dabs(supers(itri(ito,j))).gt.1.0d-14) then
+                  ozero = .false.
+                  exit
+               end if
+            end if
+            end do
+            fock=fock + isign*2*q(kfock-1+itri(ifr+ncore,ito+ncore))
+            fdiagfr = fdiagfr + q(kfock-1+itri(ifr+ncore,ifr+ncore))
+            fdiagto = fdiagto + q(kfock-1+itri(ito+ncore,ito+ncore))
+         end do
+c           print *,'Bstate',i-1,'from',ifr,'to',ito,ofrdouble,otovirtual
+c           print *,'korneel fock',ofrdouble,otovirtual,ozero,ofock
+c
+         if (ofrdouble.and.otovirtual.and.ozero) ofock = .true.
+cjvl           if (ofock) print *,'Using fock for B-state',i-1
+c
+         end if
+c.....We now have an ofock, which is true if gradient of the current B-state
+c.....can be calculated using a fock matrix element. This means that if ofock is true
+c.....that matrix element can be skipped and replaced by the appropriate fock matrix element.
+c...
+c......
+c.....unpack 'left' determinants of group  i
+c.....
+         ni = igroup(1,i)
+         call izero(ni*nelec,idet,1)
+         call unpack(pacdet(it),n8_16,idet,ni*nelec)
+         it     = it  + (ni * nelec - 1)/(64/n8_16) + 1
+         jt     = 1
+         jid    = 1
+         ihamil = 1
+c.....only the first element of row i is calculated
+         j=1
+c
+            nj = igroup(1,j)
+_IF(parstruc)
+            icounter = icounter + 1
+            if (ido.lt.icounter) ido = ipg_dlbtask()
+c           write(iwr,*) 'i have to do structure',ido,' am at ',icounter
+            if (icounter.ne.ido) then
+               jt  = jt  + (nj * nelec - 1)/(64/n8_16) + 1
+               go to 9
+            end if
+_ENDIF
+c.....
+c.....do the same thing for group  j  ('right' determinants)
+c.....
+            call izero(nj*nelec,jdet,1)
+            call unpack(pacdet(jt),n8_16,jdet,nj*nelec)
+            jt  = jt  + (nj * nelec - 1)/(64/n8_16) + 1
+c.....
+c.....now calculate the matrix elements between determinants belonging
+c.....to group  i and group  j respectively
+c.....
+            if (exact(igroup(2,i)).and.exact(igroup(2,j)).and.
+     &                                              .not.nosymc) then
+               isym = iequi(igroup(2,i))
+               jsym = iequi(igroup(2,j))
+               if (isym.ge.jsym) then
+                  jsym = 1
+               else
+                  isym = 1
+               end if
+            else if (j.eq.1.and.exact(igroup(2,i))) then
+               isym = iequi(igroup(2,i))
+               jsym = 1
+            else
+               isym = 1
+               jsym = 1
+            end if
+            nis = ni/isym
+            njs = nj/jsym
+c
+            if (ofock) then
+               dd = fock * grs(1)
+               nfock = nfock + 1
+_IF(parallel)
+      if (.not.oroot()) dd = 0.0d0
+_ENDIF
+               icoward = icoward + 1
+               if (mod(icoward,ncoward).eq.0) then
+                  call onlys(ds,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,nis,njs,idet,jdet,
+     &                  coeff(iid),coeff(jid),detcomb,dettot)
+                  ddds = ds
+_IF(parallel)
+                  call pg_dgop(7182,ddds,1,'+')
+_ENDIF
+                  if (abs(ddds).gt.1.0d-14) then
+                     write(iwr,'(a12,f17.15)') ' overlap s ' ,ddds
+                     call caserr('oeps no Fock')
+                  end if
+               end if
+               ds = 0.0d0
+            else
+            if (ndetps(i).eq.1.and.ndetps(j).eq.1) then
+c.
+c...           per slater det there is one with alphas and betas
+c...           just the other way around, use this
+               call hathabC(dd,ds,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,nis,njs,idet,jdet,
+     &                  idetps(iid),idetps(jid),coeff(iid),coeff(jid)
+     &                                          ,detcomb,dettot, cache)
+         else
+               call hathamC(dd,ds,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,nis,njs,idet,jdet,
+     &                  coeff(iid),coeff(jid),detcomb,dettot, cache)
+               end if
+            end if
+c
+c....       check if we got something
+c
+            d1d = dd * isym * jsym
+            d1s = ds * isym * jsym
+10          continue
+c.....
+c.....we have arrived at the diagonal of the h-matrix. calculate the
+c.....elements of group i with itself and write the results of the i-th
+c.....cycle. For now, approximate this element with a Fock matrix element.
+c.....
+_IF(parstruc)
+         icounter = icounter + 1
+         if (ido.lt.icounter) ido = ipg_dlbtask()
+c        write(iwr,*) 'i have to do structure',ido,' am at ',icounter
+         if (icounter.ne.ido) then
+c            ihamil = ihamil - 1
+            go to 12
+         end if
+_ENDIF
+         if (fockdiagonal.and.ofock) then
+            icoward = icoward + 1
+            if (mod(icoward,ncoward).eq.0) then
+            call onlys(ds,icp,jcp,supers,superh,
+     &                superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                nelec,iortho,northo,nbody,ni,ni,idet,idet,
+     &                coeff(iid),coeff(iid),detcomb,dettot)
+            ddds = ds
+_IF(parallel)
+            call pg_dgop(7183,ddds,1,'+')
+_ENDIF
+            if (abs(ddds/grs(1)-2.0d0).gt.1.0d-13) then
+               write(iwr,'(a12,f17.15)') ' diagonal s ' ,ddds
+               call caserr('diagonal ne 2')
+            end if
+            end if
+            ds = 2.0d0 * grs(1) 
+            dd = (enul+fdiagto-fdiagfr)*ds
+            nfockd = nfockd + 1
+            if (.not.oroot()) then
+               dd = 0.0d0
+               ds = 0.0d0
+            end if
+         else
+            call hathadC(dd,ds,icp,jcp,supers,superh,
+     &               superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &               nelec,iortho,northo,nbody,ni,idet,coeff(iid),
+     &               detcomb,dettot, cache)
+         endif
+         ddd = dd
+         dds = ds
+
+12       iid    = iid +  igroup(3,i)
+c.....
+c....       save the first column and the diagonal of both h and s
+c....       brillouin has to be checked for presence
+c....       diagonal is element ihamil
+c....
+         diagh(i) = ddd
+         diags(i) = dds
+         grh(i) = d1d
+         grs(i) = d1s
+_IF(parallel)
+         if (i.eq.1) then
+            call pg_dgop(7180,grh(1),1,'+')
+            call pg_dgop(490,diagh(1),1,'+')
+            call pg_dgop(7181,grs(1),1,'+')
+            call pg_dgop(491,diags(1),1,'+')
+         end if
+_ENDIF
+         end do
+c
+         iq = iq + iequi(inequi)
+c
+      end do
+20    continue
+c
+c.....   dump first column and diagonal info (at end of h/s file)
+c.....   for e.g. perturbation calculations
+c
+c
+_IF(parallel)
+      call pg_dgop(7180,grh(2),ngroup-1,'+')
+      call pg_dgop(490,diagh(2),ngroup-1,'+')
+      call pg_dgop(7181,grs(2),ngroup-1,'+')
+      call pg_dgop(491,diags(2),ngroup-1,'+')
+_ENDIF
+c
+c...  get max brillouin-condition
+c
+      brmax = 0.0d0
+      enul = grh(1)/grs(1)
+      do i=2,ngroup
+         brmax = max(brmax,abs(grh(i)-enul*grs(i)))
+      end do
+      call clredx
+c
+      minfock = min(minfock,nfock)
+      maxfock = max(maxfock,nfock)
+      minfockd = min(minfockd,nfockd)
+      maxfockd = max(maxfockd,nfockd)
+c
+      if (scri.gt.0.0) then
+c...  clear supers (Olatz)
+c
+         kk = 0
+         ll = 0
+         do i=1,nsa
+            do j=1,i-1
+               kk =  itri(i,j)
+               if (dabs(supers(kk)).lt.scri) then
+                  supers(kk) = 0.0d0
+                  ll = ll + 1
+               end if
+            end do
+         end do
+         kk = 0
+         ss = 0.0d0
+         nn = 0
+         do i=1,nsa
+            do j=1,i-1
+               kk =  itri(i,j)
+               if (dabs(supers(kk)).gt.0.0d0) nn = nn+1
+               ss = dmax1(ss,supers(kk))
+            end do
+            kk = kk + 1
+         end do
+         write(iwr,*) ll,' elements of supers cleared '
+         write(iwr,*) nn,' nonzero elements , largest element ',ss
+         print *,' scri ',scri
+         if (oprs) then
+            print *,' CLEANED S-MATRIX crit ',scri,nsa
+            call prtri(supers,nsa)
+         end if
       end if
 c
       return
@@ -1363,6 +1741,7 @@ c
       if (ovbper.and.nitscf.gt.ifirsp) ikind = ntype
       Enul = diagh(1)/diags(1)
 c
+      print *, "classify_brill"
       ii = 0
       iq = 0
       npert = 0
@@ -1522,6 +1901,7 @@ c.....
 INCLUDE(common/vbcri)
 c...
       dimension s(nr,nc),ir(nr),ic(nc)
+      print *, "bior"
       watch = .false.
       singu = .false.
       irank = 0
@@ -1619,6 +1999,7 @@ c.....in the montfoort/broer-way
 c.....
       dimension s(ndim,ndim),w(ndim*ndim)
 c.....
+      print *, "c00"
       it = 0
       do 30 k=1,ndim-1
          do 20 i=1,ndim-1
@@ -1645,6 +2026,7 @@ c
 c.....
 c.....the overlap-matrix is singular. use factorised cofactor algorithm
 c.....
+      print *, "c0000"
       do 10 i=1,ndim
          d(i) = s(i,i)
          s(i,i) = 1.0d0
@@ -1681,6 +2063,7 @@ c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
       dimension s(ncol-1,ncol),w(*)
+      print *, "c0k"
       do 10 i=1,ncol-1
          w(i) = s(i,ncol)
 10    continue
@@ -1692,6 +2075,7 @@ c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
       dimension s(ncol-2,ncol),w(*),x(*),y(*)
+      print *, "c0k0l"
       do 10 i=1,ncol-2
          x(i) = s(i,ncol-1)
          y(i) = s(i,ncol  )
@@ -1715,6 +2099,7 @@ c
 c
 c.....
       dimension w(*),x(ncol,ncol),y(*),d(*),s(ncol-1,ncol)
+      print *,"c0kjl"
       nrow = ncol - 1
       do 10 i=1,nrow
          d(i)   = s(i,i)
@@ -1746,6 +2131,7 @@ c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
       dimension w(*),s(ndim,ndim),x(ndim,ndim),y(ndim,ndim)
+      print *, "c2222"
       s(ndim-1,ndim-1) = 1.0d0
       s(ndim  ,ndim  ) = 1.0d0
       do 30 i=1,ndim
@@ -1779,6 +2165,7 @@ c
 c
 c.....
       dimension w(*),x(ncol,ncol),y(*),s(ncol-1,ncol)
+      print *, "c2kjl"
       nrow = ncol - 1
       s(nrow,nrow) = 1.0d0
       do 10 i=1,nrow
@@ -1807,6 +2194,7 @@ c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
       dimension s(nrow,nrow-1),w(*)
+      print *, "ci0t"
       do 10 j=1,nrow-1
          w(j) = s(nrow,j)
 10    continue
@@ -1818,6 +2206,7 @@ c
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
       dimension s(nrow,nrow-2),w(*),x(*),y(*)
+      print *, "ci0j0"
       do 10 i=1,nrow-2
          x(i) = s(nrow-1,i)
          y(i) = s(nrow  ,i)
@@ -1841,6 +2230,7 @@ c
 c
 c.....
       dimension w(*),x(nrow,nrow),y(*),d(*),s(nrow,nrow-1)
+      print *, "ci0jl"
       ncol = nrow - 1
       do 10 i=1,ncol
          d(i)   = s(i,i)
@@ -1873,6 +2263,7 @@ c
 c
 c.....
       dimension w(*),x(nrow,nrow),y(*),s(nrow,nrow-1)
+      print *, "ci2jl"
       ncol = nrow - 1
       s(ncol,ncol) = 1.0d0
       do 10 i=1,ncol
@@ -1909,6 +2300,7 @@ c.....
 c.....
 c.....copy s(i,i) into d(i), make s(i,i) 1.0
 c.....
+      print *, "cik"
       do 10 i=1,ndim
          d(i) = s(i,i)
          s(i,i) = 1.0d0
@@ -1945,6 +2337,7 @@ c
 c.....
 c.....use jacobi ratio theorem
 c.....
+      print *, "cikjl"
       it = 0
       do 40 k=2,n
          do 30 l=1,k-1
@@ -1960,24 +2353,36 @@ c.....
       return
       end
 c     ============================================================
-      subroutine gmix(ipos,ipose,ir,ic,ig,nblock,ialfa)
+      subroutine gmix(ipos,ipose,ir,ic,ig,nblock,ialfa, itin, cache)
 c
+      use dictionary
       implicit REAL  (a-h,o-z) , integer   (i-n)
-      ! integer :: v
+      ! integer cases(it, 2)
       ! integer, dimension(nblock) :: ma
 c
 c      real start, stop
 
       logical equal
-      dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
+      dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*), cache(194481, 2)
       common /posit/ iky(3)
+      integer key(4)
+      type(dictionary_t) :: dict
 
 c      print *, "Start of subroutine gmix"
 c      print *, "nblock=", nblock
 c      print *, "ialfa=", ialfa
 c      print *, ""
 c      call cpu_time(start)
+      print*, "gmix"
       it = 0
+      if (cache(1, 1) /= -1) then
+         do x=1, intin
+            print*, cache(x, 1), cache(x, 2)
+         end do
+         stop
+      else
+         !normal calculations. which will fill cache
+      
 c      printer_inner = .false.
 c      print_it = .false.
 c     Unroll m loops 
@@ -1991,6 +2396,11 @@ c              maybe even from here
                      do 10 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it = it + 1
                         ! print *,"it:",it,"ikjl:",1000*i+100*k+10*j+l
+                        if (itin == 194481) then
+                           cache(it, 1) = 1000000*i+10000*k+100*j+l
+                        end if
+                        print *, "it=", it
+                        print *, "placing", 1000000*i+10000*k+100*j+l
                         ipos(it) = intpos(ir(i),ic(k),ir(j),ic(l))
 10                   continue
 20                continue
@@ -1998,17 +2408,18 @@ c              maybe even from here
 40          continue
 50       continue
 60    continue
-      ljki = 1000000*ig(4,1)+10000*ig(3,1)+100*ig(4,2)+ig(3,2)
-      if (it /= 81.and.it/=194481.or.nblock/=2.or.ialfa/=1.or.
-     &ljki/=1010404.and.ljki/=1012222) then
-      print *, "NEW CASE FOUND"
+   !    stop
+   !    ljki = 1000000*ig(4,1)+10000*ig(3,1)+100*ig(4,2)+ig(3,2)
+   !    if (it /= 81.and.it/=194481.or.nblock/=2.or.ialfa/=1.or.
+   !   &ljki/=1010404.and.ljki/=1012222) then
+   !    print *, "NEW CASE FOUND"
       print *, "First loop iterations:", it
       print *, "nblock:", nblock, "ialfa:", ialfa
       print *, "ljki:", 1000000*ig(4,1)+10000*ig(3,1)
      &+100*ig(4,2)+ig(3,2)
       print *, "ljki:", 1000000*l+10000*j+100*k+i 
       print*,"========================================================="
-      end if
+   !    end if
       ! if (it /= ix) then
       ! stop
       ! end if
@@ -2025,6 +2436,9 @@ c              maybe even from here
                      do 70 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it        = it + 1
                         ipose(it) = intpos(ir(i),ic(l),ir(j),ic(k))
+                        if (itin == 194481) then
+                           cache(it, 2) = 1000000*i+10000*l+100*j+k
+                        end if
 70                   continue
 80                continue
 90             continue
@@ -2045,12 +2459,20 @@ c      print *, "Second loop iterations:", it
                      do 130 i=ig(3,n),ig(3,n)+ig(1,n)-1
                         it = it + 1
                         ipose(it) = intpos(ir(i),ic(l),ir(j),ic(k))
+                        if (itin == 194481) then
+                           cache(it, 2) = 1000000*i+10000*l+100*j+k
+                        end if
 130                  continue
 140               continue
 150            continue
 160         continue
 170      continue
-180   continue
+180   continue         
+      end if
+
+      key = (/ it, nblock, ialfa, 5 /)
+      dict = (key.kvp.cache)
+      
 c      print *, "Third loop iterations:", it - intermediate
 c      call cpu_time(stop)
 c      print *, start
@@ -2489,6 +2911,7 @@ c...   length of next common uncertain / please check
 c.....
 c.....unpack all determinants for the group at hand, at once.
 c.....
+      print *, "getdet"
       call izero(ndets*nelec,idet,1)
       call unpack(pacdet,n8_16,idet,ndets * nelec)
 c.....
@@ -2546,6 +2969,7 @@ _ENDIF
 c
 c     read determinant-numbers / dummy here
 c
+      print *, "getpac"
       ndettot = 0
       do 10 i=1,nstruc
          ndettot = ndettot + iscr(i)
@@ -2732,6 +3156,7 @@ _ENDIF
 c.....
 c.....initialise io chanals
 c.....
+      print *, "hamiltt"
       call brtsbh(ihbloc,ihfile)
       it  = 1
       ind = 1
@@ -2976,6 +3401,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel) 
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "hathab"
       ii = 1
       jj = 1
       call vclr(scr4,1,ndetj)
@@ -3063,6 +3489,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel)  
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "hathad"
       ii = 1
       jj = 1
       call vclr(scr4,1,ndeti)
@@ -3122,6 +3549,172 @@ c.....  last additions were wrong, correct
       dettot  = ddot(ndeti,scr5,1,trani,1)
       return
       end
+      subroutine hathabC(detcomb,dettot,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,ndeti,ndetj,idet,jdet,
+     &                  idetps,jdetps,trani,tranj,scr4,scr5, cache)
+      implicit REAL  (a-h,o-z) ,  integer   (i-n)
+c.....
+c.....same as matham, only this one can skip determinants (use spin
+c.....symmetry)
+c.....
+      dimension icp(*),trani(*),tranj(*),scr4(*),scr5(*),
+     &          supers(*),superg(*),superh(*),ig(*),ipos(*),weight(*),
+     &          scr2(*),scr3(*),s(*),g(*),iortho(*),idet(*),jdet(*),
+     &          scr1(*),idetps(*),jdetps(*),jcp(*), cache(194481, 2)
+INCLUDE(common/vblimit)
+INCLUDE(../m4/common/iofile)
+_IF(parallel) 
+INCLUDE(common/parinf)
+_ENDIF
+      print *, "hathabC"
+      ii = 1
+      jj = 1
+      call vclr(scr4,1,ndetj)
+      call vclr(scr5,1,ndetj)
+      do 40 i=1,ndeti
+c.....
+c.....   copies of the determinants must be made because of the pivot
+c.....   search that can cause parity changes
+c.....
+         if (idetps(i).eq.0) then
+            do 30 j=1,ndetj
+_IF(parallel)
+_IFN(parstruc)
+            icounter = icounter + 1
+            if (ido.lt.icounter) ido = ipg_dlbtask()
+c          write(iwr,*) 'i have to do determinant',ido,' am at ',icounter
+            if (ido.ne.icounter) then
+               jj = jj + nelec
+               go to 30
+            end if
+_ENDIF
+_ENDIF
+               do 20 k=1,nelec
+                  jcp(k) = jdet(k+jj-1)
+                  icp(k) = idet(k+ii-1)
+20             continue
+c.....
+c.....         find the blocking structure of this matrix element
+c.....
+               call symblo(icp,jcp,nelec,nalfa,iortho,northo,
+     &                                  supers,ipos,dprod,
+     &                                  nbody,ig,s)
+c             call sillyy(nelec,nalfa,ig,nbody,icp,jcp,Q(iscopy))
+               if (nsing.le.2) then
+                  call matre3(detcomb,dettot,icp,jcp,
+     &                        supers,superh,superg,
+     &                        ig,nbody,nelec,
+     &                        ipos,weight,nalfa,dprod,
+     &                        scr1,scr2,scr3,s,g, cache)
+                  scr4(j) = scr4(j) + detcomb * trani(i)
+                  scr5(j) = scr5(j) + dettot  * trani(i)
+      if (jdetps(j).ne.0) then
+                     do 50 k=1,ndeti
+                        i2 = k
+50                   if (idetps(k).eq.i) goto 52
+52                   j2 = jdetps(j)
+                  else
+                     do 54 k=1,ndetj
+                        j2 = k
+54                   if (jdetps(k).eq.j) goto 55
+55                   do 56 k=1,ndeti
+                        i2 = k
+56                   if (idetps(k).eq.i) goto 58
+58                   continue
+                  end if
+      scr4(j2) = scr4(j2) + detcomb * trani(i2)
+                  scr5(j2) = scr5(j2) + dettot  * trani(i2)
+               end if
+               jj = jj + nelec
+30          continue
+         end if
+         ii = ii + nelec
+         jj = 1
+40    continue
+      detcomb = ddot(ndetj,scr4,1,tranj,1)
+      dettot  = ddot(ndetj,scr5,1,tranj,1)
+      return
+      end
+      subroutine hathadC(detcomb,dettot,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,ndeti,idet,
+     &                  trani,scr4,scr5, cache)
+      implicit REAL  (a-h,o-z) ,  integer   (i-n)
+c.....
+c.....this does the same thing as matham, but now the matrix-elements
+c.....are being calculated for a group of determinants among themselves
+c.....(i.e. we have arrived at the diagonal)
+c.....
+      dimension icp(*),jcp(*),supers(*),
+     &          superg(*),superh(*),ig(*),ipos(*),weight(*),scr1(*),
+     &          scr2(*),scr3(*),s(*),g(*),iortho(*),idet(*),trani(*),
+     &          scr4(*),scr5(*), cache(194481, 2)
+INCLUDE(common/vblimit)
+INCLUDE(../m4/common/iofile)
+_IF(parallel)  
+INCLUDE(common/parinf)
+_ENDIF
+      print *, "hathadC"
+      ii = 1
+      jj = 1
+      call vclr(scr4,1,ndeti)
+      call vclr(scr5,1,ndeti)
+      do 40 i=1,ndeti
+c.....
+c.....   copies of the determinants must be made because of the pivot
+c.....   search that can cause parity changes
+c.....
+         do 30 j=1,i
+_IF(parallel)  
+_IFN(parstruc)
+            icounter = icounter + 1
+            if (ido.lt.icounter) ido = ipg_dlbtask()
+c         write(iwr,*) 'i have to do determinant',ido,' am at ',icounter
+            if (ido.ne.icounter) then
+               detcomb = 0.0d0
+               dettot = 0.0d0
+               jj = jj + nelec
+               go to 30
+            end if
+_ENDIF
+_ENDIF
+            do 20 k=1,nelec
+               jcp(k) = idet(k+jj-1)
+               icp(k) = idet(k+ii-1)
+20          continue
+c.....
+c.....      find the blocking structure of this matrix element and
+c.....      determine its consequences for the calculation.
+c.....
+            call symblo(icp,jcp,nelec,nalfa,iortho,northo,supers,
+     &                                         ipos,dprod,nbody,ig,s)
+c           call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
+            if (nsing.le.2) then
+               call matre3(detcomb,dettot,icp,jcp,
+     &                     supers,superh,superg,
+     &                     ig,nbody,nelec,
+     &                     ipos,weight,nalfa,dprod,
+     &                     scr1,scr2,scr3,s,g, cache)
+c               call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
+               scr4(j) = scr4(j) + detcomb * trani(i)
+               scr5(j) = scr5(j) + dettot  * trani(i)
+               scr4(i) = scr4(i) + detcomb * trani(j)
+               scr5(i) = scr5(i) + dettot  * trani(j)
+            end if
+            it = it + 1
+            jj = jj + nelec
+30      continue
+c.....  last additions were wrong, correct
+      scr4(i) = scr4(i) - detcomb * trani(i)
+      scr5(i) = scr5(i) - dettot  * trani(i)
+      ii = ii + nelec
+      jj = 1
+40    continue
+      detcomb = ddot(ndeti,scr4,1,trani,1)
+      dettot  = ddot(ndeti,scr5,1,trani,1)
+      return
+      end
       subroutine hatham(detcomb,dettot,icp,jcp,supers,superh,
      &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
      &                  nelec,iortho,northo,nbody,ndeti,ndetj,idet,jdet,
@@ -3141,6 +3734,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel)
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "hatham"
       ii = 1
       jj = 1
       call vclr(scr4,1,ndetj)
@@ -3192,6 +3786,77 @@ c              call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
       dettot  = ddot(ndetj,scr5,1,tranj,1)
       return
       end
+      subroutine hathamC(detcomb,dettot,icp,jcp,supers,superh,
+     &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
+     &                  nelec,iortho,northo,nbody,ndeti,ndetj,idet,jdet,
+     &                  trani,tranj,scr4,scr5, cache)
+      implicit REAL  (a-h,o-z) ,  integer   (i-n)
+c.....
+c.....in this routine the matrix elements between the determinants as
+c.....defined in idet and jdet are calculated and at the same time
+c.....are processed to yield the total matrix-element
+c.....
+      dimension icp(*),jcp(*),supers(*),
+     &          superg(*),superh(*),ig(*),ipos(*),weight(*),scr1(*),
+     &          scr2(*),scr3(*),s(*),g(*),iortho(*),idet(*),jdet(*),
+     &          trani(*),tranj(*),scr4(*),scr5(*), cache(194481, 2)
+INCLUDE(common/vblimit)
+INCLUDE(../m4/common/iofile)
+_IF(parallel)
+INCLUDE(common/parinf)
+_ENDIF
+      print *, "hathamC"
+      ii = 1
+      jj = 1
+      call vclr(scr4,1,ndetj)
+      call vclr(scr5,1,ndetj)
+      do 40 i=1,ndeti
+c.....
+c.....   copies of the determinants must be made because of the pivot
+c.....   search that can cause parity changes
+c.....
+         do 30 j=1,ndetj
+_IF(parallel)
+_IFN(parstruc)
+            icounter = icounter + 1
+            if (ido.lt.icounter) ido = ipg_dlbtask()
+c         write(iwr,*) 'i have to do determinant',ido,' am at ',icounter
+            if (ido.ne.icounter) then
+               jj = jj + nelec
+               go to 30
+            end if
+_ENDIF
+_ENDIF
+            do 20 k=1,nelec
+               jcp(k) = jdet(k+jj-1)
+               icp(k) = idet(k+ii-1)
+20          continue
+c.....
+c.....      find the blocking structure of this matrix element
+c.....
+            call symblo(icp,jcp,nelec,nalfa,iortho,northo,supers,
+     &                                          ipos,dprod,nbody,ig,s)
+c           call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
+            if (nsing.le.2) then
+               call matre3(detcomb,dettot,icp,jcp,
+     &                     supers,superh,superg,
+     &                     ig,nbody,nelec,
+     &                     ipos,weight,nalfa,dprod,
+     &                     scr1,scr2,scr3,s,g, cache)
+c              call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
+               scr4(j) = scr4(j) + detcomb * trani(i)
+               scr5(j) = scr5(j) + dettot * trani(i)
+            end if
+            it = it + 1
+            jj = jj + nelec
+30       continue
+         ii = ii + nelec
+         jj = 1
+40    continue
+      detcomb = ddot(ndetj,scr4,1,tranj,1)
+      dettot  = ddot(ndetj,scr5,1,tranj,1)
+      return
+      end
       subroutine onlys(dettot,icp,jcp,supers,superh,
      &                  superg,ig,ipos,weight,nalfa,scr1,scr2,scr3,s,g,
      &                  nelec,iortho,northo,nbody,ndeti,ndetj,idet,jdet,
@@ -3211,6 +3876,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel)
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "onlys"
       ii = 1
       jj = 1
       call vclr(scr5,1,ndetj)
@@ -3279,6 +3945,7 @@ c.....fill idetps with the mapping, ndetps contains 1 if so, 0 if not
       dimension ibdet(nelec,nb),idetps(nb),ndetps(1),icp(nelec)
       common /fast/ nospin,nosymm,nosymc
       logical nospin,nosymm,nosymc
+      print *, "match"
       if (nalfa.ne.nelec-nalfa.or.nospin.or.nb.eq.1) then
 c.....   forget it
          ndetps(1) = 0
@@ -3320,6 +3987,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel)
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "mathad"
       it = 1
       ii = 1
       jj = 1
@@ -3392,6 +4060,7 @@ INCLUDE(../m4/common/iofile)
 _IF(parallel)
 INCLUDE(common/parinf)
 _ENDIF
+      print *, "matham"
       it = 1
       ii = 1
       jj = 1
@@ -3445,8 +4114,9 @@ c              call sillyy(nelec,nalfa,ig,nbody,icp,jcp,supers)
       return
       end
       subroutine matre3(value,det,ir,ic,supers,superh,superg,ig,nblock,
-     &          nelec,ipos,w,nalfa,dprod,scr1,scr2,scr3,s,g)
+     &          nelec,ipos,w,nalfa,dprod,scr1,scr2,scr3,s,g, cache)
 c
+      use dictionary
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
 c.....
@@ -3485,7 +4155,8 @@ c.....
 c.....
 c.....                   = (nelec*(nelec-1)/2)**2
 c.....
-      dimension ipos(*),w(*),scr1(*),scr2(*),scr3(*),g(*)
+      dimension ipos(*),w(*),scr1(*),scr2(*),scr3(*),g(*) 
+      dimension cache(194481, 2)
 c.....
 c.....integral supermatrices
 c.....
@@ -3500,6 +4171,7 @@ c.....
 c     for debugging, determinants are give via symblo
 c     in common /detcop/
 _IF(debug)
+      print *, "matre3"
       k2 = nelec**2+1
       call matre2(valu2,supers,superh,superg,
      &            w,w(k2),nelec,nalfa,
@@ -3521,6 +4193,7 @@ c      end do
 c      print *
       value  = 0.0d0
       det    = 0.0d0
+      print *, "matre3"
       if (nsing.eq.0) then
 c.....
          icase = 1
@@ -3562,6 +4235,8 @@ c.....
          n2a = nt - n1  - 1
           ntw=nt
          call wmix(w(nt),w,nblock,ig,n2b) !set cofactors in w at nt->
+         ! print *, "wmix ret: it=", n2b
+         ! stop
          nt  = nt  + n2b - 1
          n2  = n2a + n2b
 c.....
@@ -3574,7 +4249,8 @@ c.....
 c.....   mixed contributions
 c.....
          n = n + n2a
-         call gmix(ipos(n),ipos(n2+n),ir,ic,ig,nblock,ialfa)
+         call gmix(ipos(n),ipos(n2+n),ir,ic,ig,nblock,ialfa, n2b, cache)
+         stop
          ! ipos at (it) to g
          call gather(n1         ,g      ,superh,ipos      )
          call gather(2*(n2a+n2b),g(n1+1),superg,ipos(n1+1))
@@ -5230,6 +5906,7 @@ c
  
       icaselist(icase) = icaselist(icase) + 1
 
+      print *, "icaseprint"
       do i=1,35
         if ( icaselist(i) .eq. 1 ) then
           write(20,110) i
@@ -5252,6 +5929,7 @@ INCLUDE(common/turtleparam)
       common /cases/ icase(2*ncases),times(ncases),token(3*ncases)
 INCLUDE(../m4/common/iofile)
       character*8 token
+      print *, "mtype"
       totalt = 0.0d0
       itotal = 0
       timem  = 0.0d0
@@ -5313,6 +5991,7 @@ c
       dimension ir(*),ic(*),ipos(*)
       common /posit/ iky(3)
       ind(i,j) = iky(max(i,j)) + min(i,j)
+      print *, "p00"
       n = 0
       do 20 k=1,ndim
          do 10 i=1,ndim
@@ -5328,6 +6007,7 @@ c
 c
       dimension ipos(*),ipose(*),ir(*),ic(*)
       common /posit/ iky(3)
+      print *, "p0000"
       n = 0
       do 40 k=2,ndim
          do 30 l=1,k-1
@@ -5349,6 +6029,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "p00ab"
       irfix = ir(ifix)
       icfix = ic(kfix)
       n     = 0
@@ -5377,6 +6058,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "p0a0b"
       n = 0
       iifix = ir(ifix)
       ijfix = ir(jfix)
@@ -5404,6 +6086,7 @@ c
 c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "p0abb"
       n     = 0
       irfix = ir(ifix)
       do 30 j=ig(3,is2),ig(3,is2)+ig(1,is2)-1
@@ -5424,6 +6107,7 @@ c
       dimension ic(*),ipos(*)
       common /posit/ iky(3)
       ind(i,j) = iky(max(i,j)) + min(i,j)
+      print *, "p0k"
       do 10 k=1,nc
          ipos(k) = ind(ir,ic(k))
 10    continue
@@ -5436,6 +6120,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "p0k00"
       n     = 0
       iifix = ir(ifix)
       ijfix = ir(jfix)
@@ -5460,6 +6145,7 @@ c
 c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "p0k0l"
       iri = ir(ifix)
       irj = ir(jfix)
       n  = 0
@@ -5478,6 +6164,7 @@ c
 c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "p0kjl"
       it = 0
       do 30 k=2,ig(2,is1)
          do 20 l=1,k-1
@@ -5496,6 +6183,7 @@ c
 c
       dimension ipos(*),ipose(*),ir(*),ic(*)
       common /posit/ iky(3)
+      print *, "p2222"
       n = 0
       do 40 k=2,nc
          do 30 l=1,k-1
@@ -5560,6 +6248,7 @@ c
       common /posit/ iky(3)
       ick = ic(kfix)
       icl = ic(lfix)
+      print *, "pa00b"
       n  = 0
       do 20 i=ig(3,is1)+1,ig(3,is1)+ig(1,is1)-1
          do 10 j=ig(3,is1),i-1
@@ -5576,6 +6265,7 @@ c
 c
       dimension ipose(*),ipos(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "pa0ab"
       n     = 0
       icfix = ic(kfix)
       do 30 l=ig(4,is2),ig(4,is2)+ig(2,is2)-1
@@ -5596,6 +6286,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "pa0b0"
       n = 0
       ikfix = ic(kfix)
       ilfix = ic(lfix)
@@ -5624,6 +6315,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "pa0bc"
       n     = 0
       icfix = ic(kfix)
       if (equal) then
@@ -5655,6 +6347,7 @@ c
       dimension ir(*),ic(*),ipos(*)
       common /posit/ iky(3)
       ind(i,j) = iky(max(i,j)) + min(i,j)
+      print *, "pab"
       n = 0
       do 20 k=1,nc
          do 10 i=1,nr
@@ -5671,6 +6364,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "pab0c"
       n     = 0
       irfix = ir(ifix)
       if (equal) then
@@ -5701,6 +6395,7 @@ c
 c
       dimension ipos(*),ipose(*),ir1(*),ic1(*),ir2(*),ic2(*)
       common /posit/ iky(3)
+      print *, "pabaa"
       n   = 0
       nc1 = nr1 - 1
       nr2 = nc2 - 1
@@ -5735,6 +6430,7 @@ c
       dimension ipose(*),ipos(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
       n = 0
+      print *, "pabab"
       do 40 k=ig(4,is2)+1,ig(4,is2)+ig(2,is2)-1
          do 30 l=ig(4,is2),k-1
             do 20 i=ig(3,is1)+1,ig(3,is1)+ig(1,is1)-1
@@ -5754,6 +6450,7 @@ c
 c
       dimension ipose(*),ipos(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "pabac"
       n = 0
       do 40 k=ig(4,isb),ig(4,isb)+ig(2,isb)-1
          do 30 l=ig(4,isa),ig(4,isa)+ig(2,isa)-1
@@ -5774,6 +6471,7 @@ c
 c
       dimension ipose(*),ipos(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
+      print *, "pabcb"
       n = 0
       do 40 i=ig(3,isb),ig(3,isb)+ig(1,isb)-1
          do 30 j=ig(3,isa),ig(3,isa)+ig(1,isa)-1
@@ -5795,6 +6493,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       logical equal
       common /posit/ iky(3)
+      print *, "pabcd"
       n = 0
       if (equal) then
          do 40 l=ig(4,iscb),ig(4,iscb)+ig(2,iscb)-1
@@ -5941,6 +6640,7 @@ c
       dimension ir(*),ic(*),ipos(*),ig(5,*)
       common /posit/ iky(3)
       ind(i,j) = iky(max(i,j)) + min(i,j)
+      print *, "pik"
       n = 0
       do 30 m=1,nblock
          do 20 k=ig(4,m),ig(4,m)+ig(2,m)-1
@@ -5959,6 +6659,7 @@ c
       dimension ipos(*),ipose(*),ir(*),ic(*),ig(5,*)
       common /posit/ iky(3)
       n  = 0
+      print *, "pik00"
       do 30 m=1,nblock
          do 20 k=ig(4,m),ig(4,m)+ig(2,m)-1
             do 10 i=ig(3,m),ig(3,m)+ig(1,m)-1
