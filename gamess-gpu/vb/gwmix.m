@@ -13,25 +13,115 @@ c
       val=0.0d0
       val_1=0.0d0
       val_2=0.0d0
+      val_3=0.0d0
       it = 0
 c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
-      if (nblock /= 2.and.nblock /= 3) then
-        print *, "NBLOCK @@", nblock
-      end if
-
 !$acc data copyin(ir,ic) present(supg)
 !$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
+!       if (nblock == 2) then
+!         print *, "nblock = 2"
+!         ! 1: m = 1
+!         mend = ig(3,1) + ig(1,1) - 1
+!         toplus = ig(3,1) + 1 !three-one-plus
+!         fomin = ig(5,1) - 1  !five-one-minus
+!         do 42 k=toplus, mend
+!           do 32 l=ig(3,1), k-1
+!             do 22 i=toplus, mend
+!               do 12 j=ig(3,1), i-1
+!                   !cikjl: calculate the loop vars
+!                   ii=i-toplus
+!                   jj=j-toplus
+!                   kk=k-toplus
+!                   ll=l-toplus
+!                   !jacobi ratio theorem to calculate 2nd-o-cofacs
+!                   scal=w1((kk-1)*ig(1,1)+ii+fomin)*
+!      &                 w1((ll-1)*ig(1,1)+jj+fomin)-
+!      &                 w1((ll-1)*ig(1,1)+ii+fomin)*
+!      &                 w1((kk-1)*ig(1,1)+jj+fomin)
+!                   !(subvec ipos with ipose) * 2nd-o-cofactor, add to total
+!                   ! matrix element val
+!                   val_1=val_1+scal*(supg(intpos(ir(i),ic(k),ir(j),
+!      1            ic(l)))-supg(intpos(ir(i),ic(l),ir(j),ic(k))))
+! 12                continue
+! 22             continue
+! 32         continue
+! 42       continue
+!         print *, "1:m = 1 done"
+!         ! 1: m = 2
+!         mend = ig(3,2) + ig(1,2) - 1
+!         toplus = ig(3,2) + 1 !three-one-plus
+!         fomin = ig(5,2) - 1  !five-one-minus
+!         do 43 k=toplus, mend
+!           do 33 l=ig(3,2), k-1
+!             do 23 i=toplus, mend
+!               do 13 j=ig(3,2), i-1
+!                   !cikjl: calculate the loop vars
+!                   ii=i-toplus
+!                   jj=j-toplus
+!                   kk=k-toplus
+!                   ll=l-toplus
+!                   !jacobi ratio theorem to calculate 2nd-o-cofacs
+!                   scal=w1((kk-1)*ig(1,2)+ii+fomin)*
+!      &                 w1((ll-1)*ig(1,2)+jj+fomin)-
+!      &                 w1((ll-1)*ig(1,2)+ii+fomin)*
+!      &                 w1((kk-1)*ig(1,2)+jj+fomin)
+!                   !(subvec ipos with ipose) * 2nd-o-cofactor, add to total
+!                   ! matrix element val
+!                   val_2=val_2+scal*(supg(intpos(ir(i),ic(k),ir(j),
+!      1            ic(l)))-supg(intpos(ir(i),ic(l),ir(j),ic(k))))
+! 13                continue
+! 23             continue
+! 33         continue
+! 43       continue
+!         print *, "1:m = 2 done"
+!         ! 2: m = 1
+!         do 591 l=ig(4,1), ig(4,m+1)-1
+!           do 491 j=ig(3,1), ig(3,m+1)-1
+!             do 391 n=m+1, nblock
+!               do 291 k=ig(4,n), ig(4,n)+ig(2,n)-1
+!                 do 191 i=ig(3,n), ig(3,n)+ig(1,n)-1
+!                   ! wmix: get the first order cofactor from w1
+!                   jl=(l-ig(4,1))*(ig(3,m+1)-ig(3,1))+j-ig(3,1)+ig(5,1)
+!                   ! get first order cofactor from w1
+!                   ik=(k-ig(4,n))*(ig(3,n)+ig(1,n)-ig(3,n))+i
+!      1                -ig(3,n)+ig(5,n)
+!                   ! calc 2nd order cofactor * integral
+!                   s=w1(jl)*w1(ik)*supg(intpos(ir(i),ic(l),ir(j),ic(k)))
+            
+!                   ! subtract from total if necessary
+!                   if (m>=ialfa+1.or.m<=ialfa-1.and.n<=ialfa)then
+!                     val_3 = val_3 - s
+!                   end if
+
+!                   ! add to total
+!                   val_3 = val_3 + s
+! 191               continue
+! 291             continue
+! 391           continue
+! 491         continue
+! 591       continue
+!         print *, "2:m = 1 done"
+!         ! else if (nblock == 3) then
+!         ! 1: m = 1, m = 2, m = 3
+!         ! 2: m = 1, m = 2
+!       else
+!         print *, "standard loops"
+        !standard loops
+!$acc parallel loop 
+!$acc& reduction(+:val_1) 
       do 51 m=1,nblock
          mend = ig(3,m) + ig(1,m) - 1
+!$acc loop reduction(+:val_1) private(m, mend)
          do 41 k=ig(3,m)+1, mend
-!$acc parallel loop reduction(+:val_1)
+!$acc loop reduction(+:val_1) private(m, mend)
             do 31 l=ig(3,m), k-1
-!$acc loop reduction(+:val_1)
+!$acc loop reduction(+:val_1) private(m, mend)
               do 21 i=ig(3,m)+1, mend
-!$acc loop reduction(+:val_1)
+!$acc loop reduction(+:val_1) private(m, mend, k, l, i, j)
+!%acc& private(ii, jj, kk, ll, scal)
                 do 11 j=ig(3,m), i-1
                   !cikjl: calculate the loop vars
                   ii=i-ig(3,m)+1
@@ -51,18 +141,21 @@ c     enddo
 11                continue
 21             continue
 31         continue
-!$acc end parallel loop
 41       continue
 51    continue
 
+!$acc parallel loop 
+!$acc& reduction(+:val_2) 
       do 690 m=1,nblock-1
+!$acc loop reduction(+:val_2) private(m)
         do 590 l=ig(4,m), ig(4,m+1)-1
+!$acc loop reduction(+:val_2) private(m)
           do 490 j=ig(3,m), ig(3,m+1)-1
-!$acc parallel loop reduction(+:val_2)
+!$acc loop reduction(+:val_2) private(m)
             do 390 n=m+1, nblock
-!$acc loop reduction(+:val_2)
+!$acc loop reduction(+:val_2) private(m, n)
               do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
-!$acc loop reduction(+:val_2)
+!$acc loop reduction(+:val_2) private(m, l, j, n, k, i, jl, ik, s) 
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
@@ -82,17 +175,18 @@ c     enddo
 190               continue
 290             continue
 390           continue
-!$acc end parallel loop
 490         continue
 590       continue
 690     continue
+!$acc end parallel loop
+      ! end if
 !$acc end data
-      ! print *, "first:", val_1
-      ! print *, "second:", val_2
-!$acc wait
-      val = val_1 + val_2
-      ! print *, "done", val
-      ! stop
+      print *, "first:", val_1
+      print *, "second:", val_2
+      print *, "third:", val_3
+      val = val_1 + val_2 + val_3
+      print *, "done", val
+      stop
       return
       end
    
