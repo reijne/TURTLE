@@ -110,29 +110,30 @@ c     enddo
 !       else
 !         print *, "standard loops"
         !standard loops
-!$acc parallel loop 
-!$acc& reduction(+:val_1) 
+!$acc parallel loop reduction(+:val_1) seq
       do 51 m=1,nblock
          mend = ig(3,m) + ig(1,m) - 1
-!$acc loop reduction(+:val_1) private(m, mend)
+!$acc loop reduction(+:val_1) seq 
          do 41 k=ig(3,m)+1, mend
-!$acc loop reduction(+:val_1) private(m, mend)
+!$acc loop reduction(+:val_1) 
             do 31 l=ig(3,m), k-1
-!$acc loop reduction(+:val_1) private(m, mend)
+!$acc loop reduction(+:val_1) 
               do 21 i=ig(3,m)+1, mend
-!$acc loop reduction(+:val_1) private(m, mend, k, l, i, j)
-!%acc& private(ii, jj, kk, ll, scal)
+!$acc loop reduction(+:val_1) private(three_m_plus, five_m_mins)
+!$acc& private(ii, jj, kk, ll, scal)
                 do 11 j=ig(3,m), i-1
                   !cikjl: calculate the loop vars
-                  ii=i-ig(3,m)+1
-                  jj=j-ig(3,m)+1
-                  kk=k-ig(3,m)+1
-                  ll=l-ig(3,m)+1
+                  three_m_plus = ig(3, m) + 1
+                  five_m_min = ig(5,m) - 1
+                  ii = i - three_em_plus
+                  jj = j - three_em_plus
+                  kk = k - three_em_plus
+                  ll = l - three_em_plus
                   !jacobi ratio theorem to calculate 2nd-o-cofacs
-                  scal=w1((kk-1)*ig(1,m)+ii+ig(5,m)-1)*
-     &                 w1((ll-1)*ig(1,m)+jj+ig(5,m)-1)-
-     &                 w1((ll-1)*ig(1,m)+ii+ig(5,m)-1)*
-     &                 w1((kk-1)*ig(1,m)+jj+ig(5,m)-1)
+                  scal=w1((kk-1)*ig(1,m)+ii+five_m_min)*
+     &                 w1((ll-1)*ig(1,m)+jj+five_m_min)-
+     &                 w1((ll-1)*ig(1,m)+ii+five_m_min)*
+     &                 w1((kk-1)*ig(1,m)+jj+five_m_min)
                   !(subvec ipos with ipose) * 2nd-o-cofactor, add to total
                   ! matrix element val
                   val_1=val_1+scal*(supg(intpos(ir(i),ic(k),ir(j),
@@ -143,19 +144,19 @@ c     enddo
 31         continue
 41       continue
 51    continue
+      print *, val_1
 
-!$acc parallel loop 
-!$acc& reduction(+:val_2) 
+!$acc parallel loop reduction(+:val_2) seq
       do 690 m=1,nblock-1
-!$acc loop reduction(+:val_2) private(m)
+!$acc loop reduction(+:val_2) seq
         do 590 l=ig(4,m), ig(4,m+1)-1
-!$acc loop reduction(+:val_2) private(m)
+!$acc loop reduction(+:val_2) seq
           do 490 j=ig(3,m), ig(3,m+1)-1
-!$acc loop reduction(+:val_2) private(m)
+!$acc loop reduction(+:val_2)
             do 390 n=m+1, nblock
-!$acc loop reduction(+:val_2) private(m, n)
+!$acc loop reduction(+:val_2)
               do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
-!$acc loop reduction(+:val_2) private(m, l, j, n, k, i, jl, ik, s) 
+!$acc loop reduction(+:val_2) private(jl, ik, s) 
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
