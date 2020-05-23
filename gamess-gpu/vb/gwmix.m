@@ -7,6 +7,7 @@ INCLUDE(common/tractlt)
       dimension w1(n1)
       dimension ig(5,nblock)
       dimension ir(nelec),ic(nelec),supg(*)
+!$acc routine(intpos)
 c  supg(0:n2int)
 c
       val=0.0d0
@@ -14,12 +15,16 @@ c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
+!$acc data copyin(ir,ic) present(supg)
+!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
       do 51 m=1,nblock
          !msta = ig(3,m)
          !mend = ig(3,m) + ig(1,m) - 1
          do 41 k=ig(3,m)+1, ig(3,m)+ig(1,m)-1
             do 31 l=ig(3,m), k-1
               do 21 i=ig(3,m)+1, ig(3,m)+ig(1,m)-1
+!$acc parallel loop private(ii, jj, kk, ll, ig5min, scal)
+!$acc& reduction(+:val)
                 do 11 j=ig(3,m), i-1
                   !cikjl: calculate the loop vars
                   ! ig3mp = ig(3,m)+1 
@@ -40,6 +45,7 @@ c     enddo
      1            ic(l)))-supg(intpos(ir(i),ic(l),ir(j),ic(k))))
                   !it=it+1 !why is this still here? leftover
 11                continue
+!$acc end parallel loop
 21             continue
 31         continue
 41       continue
@@ -50,6 +56,7 @@ c     enddo
           do 490 j=ig(3,m), ig(3,m+1)-1
             do 390 n=m+1, nblock
               do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
+!$acc parallel loop private(jl, ik) reduction(+:val)
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
@@ -65,11 +72,13 @@ c     enddo
                     val=val + w1(ik) * w1(jl) *
      1                  supg(intpos(ir(i),ic(k),ir(j),ic(l)))
 190               continue
+!$acc end parallel loop
 290             continue
 390           continue
 490         continue
 590       continue
 690     continue
+!$acc end data
       ! print *, "first:", val_af
       ! print *, "second:", val - val_af
       ! print *, "done", val
