@@ -44,7 +44,7 @@ c     enddo
 31         continue
 41       continue
 51    continue
-      val_af = val
+      ! val_af = val
       do 690 m=1,nblock-1
         do 590 l=ig(4,m), ig(4,m+1)-1
           do 490 j=ig(3,m), ig(3,m+1)-1
