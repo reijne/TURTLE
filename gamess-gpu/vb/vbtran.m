@@ -1627,7 +1627,7 @@ _INCLUDE(../m4/common/sizes)
 c      save ikyiky,nocc,nocc1,lbase
       integer ikyiky(mxorbvb*(mxorbvb+1)/2),nocc,nocc1,lbase
       integer iky(maxorb)
-c!$acc declare create(ikyiky,iky,nocc,nocc1,lbase)
+!$acc declare create(ikyiky,iky,nocc,nocc1,lbase)
       end module
 
 c*******************************************************************************
@@ -1635,7 +1635,7 @@ c*******************************************************************************
 c
       use ikyg
       implicit none
-c!$acc routine
+!$acc routine
 c
 c     determine position in closely packed  2-el integral array
 c     used in VB
@@ -1769,7 +1769,7 @@ c
          end do
       end  do
 
-c!$acc update device (ikyiky,iky,nocc,nocc1,lbase)
+!$acc update device (ikyiky,iky,nocc,nocc1,lbase)
       setintpos = ibase
 c       
       return
