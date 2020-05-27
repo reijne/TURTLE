@@ -8,7 +8,7 @@ INCLUDE(common/tractlt)
         dimension w1(n1)
         dimension ig(5,nblock)
         dimension ir(nelec),ic(nelec),supg(*)
-!$acc routine(intpos)
+c!$acc routine(intpos)
 c  supg(0:n2int)
 c
         sum=0.0d0
@@ -17,17 +17,17 @@ c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
-!$acc data copyin(ir,ic) present(supg), copy(sum)
-!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
+c!$acc data copyin(ir,ic) present(supg), copy(sum)
+c!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
         do 51 m=1,nblock
            !msta = ig(3,m)
            !mend = ig(3,m) + ig(1,m) - 1
            do 41 k=ig(3,m)+1, ig(3,m)+ig(1,m)-1
-!$acc parallel loop reduction(+:sum)
+c!$acc parallel loop reduction(+:sum)
             do 31 l=ig(3,m), k-1
-!$acc loop reduction(+:sum)
+c!$acc loop reduction(+:sum)
                 do 21 i=ig(3,m)+1, ig(3,m)+ig(1,m)-1
-!$acc loop reduction(+:sum) private(ii, jj, kk, ll, ig5min)
+c!$acc loop reduction(+:sum) private(ii, jj, kk, ll, ig5min)
                   do 11 j=ig(3,m), i-1
                     !cikjl: calculate the loop vars
                     ! ig3mp = ig(3,m)+1 
@@ -50,7 +50,7 @@ c     enddo
 11                continue
 21             continue
 31         continue
-!$acc end parallel loop
+c!$acc end parallel loop
 41       continue
 51    continue
   
@@ -58,11 +58,11 @@ c     enddo
         do 690 m=1, nblock-1
           do 590 l=ig(4,m), ig(4,m+1)-1
             do 490 j=ig(3,m), ig(3,m+1)-1
-!$acc parallel loop reduction(+:sum)
+c!$acc parallel loop reduction(+:sum)
               do 390 n=m+1, nblock
-!$acc loop reduction(+:sum)
+c!$acc loop reduction(+:sum)
                 do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
-!$acc loop reduction(+:sum) private(jl, ik, soo)
+c!$acc loop reduction(+:sum) private(jl, ik, soo)
                   do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                     ! wmix: get the first order cofactor from w1
                     jl=(l-ig(4,m))*(ig(3,m+1)-ig(3,m))+j-ig(3,m)+ig(5,m)
@@ -79,12 +79,12 @@ c     enddo
 190               continue
 290             continue
 390           continue
-!$acc end parallel loop
+c!$acc end parallel loop
 490         continue
 590       continue
 690     continue
   
-!$acc end data
+c!$acc end data
         ! print*, "2nd done:" , it
         ! print *, sum
         ! print *, som
@@ -100,7 +100,7 @@ c     enddo
         implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
         dimension supg(0:n2int)
-!$acc exit data delete (supg)
+c!$acc exit data delete (supg)
         return
         end
       
@@ -108,13 +108,13 @@ INCLUDE(common/tractlt)
         implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
         dimension supg(0:n2int)
-!$acc enter data copyin(supg)
+c!$acc enter data copyin(supg)
         return
         end
          
         function intposx(i,j,k,l)
         implicit REAL (a-h,o-z)
-!$acc routine
+c!$acc routine
         intposx=0
         return
         end
