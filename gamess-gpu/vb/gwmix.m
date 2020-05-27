@@ -1,13 +1,15 @@
       subroutine gwmix(ir,ic,ig,nblock,ialfa,w1,supg,nelec,n1,sum)
 c     Combines cikjl, pikjl, wmix, gmix, (gather, ddot and subvec)
-c     from matre3.
+c     from matre3. 
+c     ====================LIFTED + ACC===========================
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
 INCLUDE(common/tractlt)
       dimension w1(n1)
       dimension ig(5,nblock)
       dimension ir(nelec),ic(nelec),supg(*)
-c!$acc routine(intpos)
+      ! include "cuda_profiler_api.h"
+!$acc routine(intpos)
 c  supg(0:n2int)
 c
       sum=0.0d0
@@ -16,21 +18,23 @@ c     print *,'remco ig::',nblock,ialfa
 c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
-c!$acc data copyin(ir,ic) present(supg), copy(sum)
-c!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
+      ! cudaProfilerStart()
+!$acc data copyin(ir,ic) present(supg), copy(sum)
+!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
       do 51 m=1,nblock
         end = ig(3,m)+ig(1,m)-1
         do 41 k=ig(3,m)+1, end
-c!$acc parallel loop reduction(+:sum)
           kk=k-ig(3,m)
+!$acc parallel loop reduction(+:sum) private(end, kk)
           do 31 l=ig(3,m), k-1
               ll=l-ig(3,m)
-c!$acc loop reduction(+:sum)
+!$acc loop reduction(+:sum) private(end, kk, ll)
               do 21 i=ig(3,m)+1, end
-c!$acc loop reduction(+:sum) private(ii, jj, kk, ig5min)
                 ii=i-ig(3,m)
                 kki = (kk)*ig(1,m)+ii+ig(5,m)
                 lli = (ll)*ig(1,m)+ii+ig(5,m)
+!$acc loop reduction(+:sum) private(ii, jj, kk, ll)
+!$&acc private(end, kki, lli)
                 do 11 j=ig(3,m), i-1
                 !cikjl: calculate the loop vars
                 ! ig3mp = ig(3,m)+1 
@@ -47,7 +51,7 @@ c!$acc loop reduction(+:sum) private(ii, jj, kk, ig5min)
 11                continue
 21             continue
 31         continue
-c!$acc end parallel loop
+!$acc end parallel loop
 41       continue
 51    continue
 
@@ -56,14 +60,14 @@ c!$acc end parallel loop
         m1 = m+1
         do 590 l=ig(4,m), ig(4,m1)-1
           do 490 j=ig(3,m), ig(3,m1)-1
-c!$acc parallel loop reduction(+:sum)
             jl=(l-ig(4,m))*(ig(3,m1)-ig(3,m))+j-ig(3,m)+ig(5,m)
+!$acc parallel loop reduction(+:sum) private(m1, jl)
             do 390 n=m1, nblock
               in = (ig(3,n)+ig(1,n)-ig(3,n))
-c!$acc loop reduction(+:sum)
+!$acc loop reduction(+:sum) private(m1, jl, in)
               do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
                 ki = k-ig(4,n)
-c!$acc loop reduction(+:sum) private(jl, ik, soo)
+!$acc loop reduction(+:sum) private(jl, ik, soo, m1, in)
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   ! get first order cofactor from w1
@@ -78,12 +82,12 @@ c!$acc loop reduction(+:sum) private(jl, ik, soo)
 190               continue
 290             continue
 390           continue
-c!$acc end parallel loop
+!$acc end parallel loop
 490         continue
 590       continue
 690     continue
 
-c!$acc end data
+!$acc end data
       ! print*, "2nd done:" , it
       ! print *, sum
       ! print *, som
@@ -92,6 +96,8 @@ c!$acc end data
       ! print *, "first:", sum_af
       ! print *, "second:", sum - sum_af
       ! print *, "done", sum
+      ! cudaProfilerStop()
+      ! stop
       return
       end
    
@@ -99,7 +105,7 @@ c!$acc end data
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-c!$acc exit data delete (supg)
+!$acc exit data delete (supg)
       return
       end
     
@@ -107,13 +113,13 @@ c!$acc exit data delete (supg)
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-c!$acc enter data copyin(supg)
+!$acc enter data copyin(supg)
       return
       end
        
       function intposx(i,j,k,l)
       implicit REAL (a-h,o-z)
-c!$acc routine
+!$acc routine
       intposx=0
       return
       end
