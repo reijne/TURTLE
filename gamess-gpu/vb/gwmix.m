@@ -9,7 +9,7 @@ INCLUDE(common/tractlt)
       dimension ig(5,nblock)
       dimension ir(nelec),ic(nelec),supg(*)
       ! include "cuda_profiler_api.h"
-!$acc routine(intpos)
+c!$acc routine(intpos)
 c  supg(0:n2int)
 c
       sum=0.0d0
@@ -19,21 +19,21 @@ c     do i=1,nblock
 c       print *,(ig(k,i),k=1,5)
 c     enddo
       ! cudaProfilerStart()
-!$acc data copyin(ir,ic) present(supg), copy(sum)
-!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
+c!$acc data copyin(ir,ic) present(supg), copy(sum)
+c!$acc& copyin(ig(5,nblock), w1(1:n1), nblock)
       do 51 m=1,nblock
         end = ig(3,m)+ig(1,m)-1
         do 41 k=ig(3,m)+1, end
           kk=k-ig(3,m)
-!$acc parallel loop reduction(+:sum) private(end, kk)
+c!$acc parallel loop reduction(+:sum) private(end, kk)
           do 31 l=ig(3,m), k-1
               ll=l-ig(3,m)
-!$acc loop reduction(+:sum) private(end, kk, ll)
+c!$acc loop reduction(+:sum) private(end, kk, ll)
               do 21 i=ig(3,m)+1, end
                 ii=i-ig(3,m)
                 kki = (kk)*ig(1,m)+ii+ig(5,m)
                 lli = (ll)*ig(1,m)+ii+ig(5,m)
-!$acc loop reduction(+:sum) private(ii, jj, kk, ll)
+c!$acc loop reduction(+:sum) private(ii, jj, kk, ll)
 !$&acc private(end, kki, lli)
                 do 11 j=ig(3,m), i-1
                 !cikjl: calculate the loop vars
@@ -51,7 +51,7 @@ c     enddo
 11                continue
 21             continue
 31         continue
-!$acc end parallel loop
+c!$acc end parallel loop
 41       continue
 51    continue
 
@@ -61,13 +61,13 @@ c     enddo
         do 590 l=ig(4,m), ig(4,m1)-1
           do 490 j=ig(3,m), ig(3,m1)-1
             jl=(l-ig(4,m))*(ig(3,m1)-ig(3,m))+j-ig(3,m)+ig(5,m)
-!$acc parallel loop reduction(+:sum) private(m1, jl)
+c!$acc parallel loop reduction(+:sum) private(m1, jl)
             do 390 n=m1, nblock
               in = (ig(3,n)+ig(1,n)-ig(3,n))
-!$acc loop reduction(+:sum) private(m1, jl, in)
+c!$acc loop reduction(+:sum) private(m1, jl, in)
               do 290 k=ig(4,n), ig(4,n)+ig(2,n)-1
                 ki = k-ig(4,n)
-!$acc loop reduction(+:sum) private(jl, ik, soo, m1, in)
+c!$acc loop reduction(+:sum) private(jl, ik, soo, m1, in)
                 do 190 i=ig(3,n), ig(3,n)+ig(1,n)-1
                   ! wmix: get the first order cofactor from w1
                   ! get first order cofactor from w1
@@ -82,12 +82,12 @@ c     enddo
 190               continue
 290             continue
 390           continue
-!$acc end parallel loop
+c!$acc end parallel loop
 490         continue
 590       continue
 690     continue
 
-!$acc end data
+c!$acc end data
       ! print*, "2nd done:" , it
       ! print *, sum
       ! print *, som
@@ -105,7 +105,7 @@ c     enddo
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-!$acc exit data delete (supg)
+c!$acc exit data delete (supg)
       return
       end
     
@@ -113,13 +113,13 @@ INCLUDE(common/tractlt)
       implicit REAL  (a-h,o-z) , integer   (i-n)
 INCLUDE(common/tractlt)
       dimension supg(0:n2int)
-!$acc enter data copyin(supg)
+c!$acc enter data copyin(supg)
       return
       end
        
       function intposx(i,j,k,l)
       implicit REAL (a-h,o-z)
-!$acc routine
+c!$acc routine
       intposx=0
       return
       end
