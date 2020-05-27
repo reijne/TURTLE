@@ -1,7 +1,7 @@
       subroutine gwmix(ir,ic,ig,nblock,ialfa,w1,supg,nelec,n1,sum)
 c     Combines cikjl, pikjl, wmix, gmix, (gather, ddot and subvec)
 c     from matre3. 
-c     ====================LIFTED + ACC===========================
+c     ====================LIFTED + NOACC==========================
       implicit REAL  (a-h,o-z) , integer   (i-n)
 c
 INCLUDE(common/tractlt)
