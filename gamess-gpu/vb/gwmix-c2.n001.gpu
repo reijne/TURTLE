@@ -1,0 +1,757 @@
+#include "cuda_runtime.h"
+#include "pgi_cuda_runtime.h"
+#include "gwmix.n001.h"
+extern "C" __global__ __launch_bounds__(128) void
+gwmix_38_gpu(
+    int g24,
+    signed char* redbuf,
+    signed char* __restrict__ p26/* ig */,
+    signed char* __restrict__ p28/* w1 */,
+    signed char* __restrict__ p30/* supg */,
+    signed char* __restrict__ p33/* ir */,
+    signed char* __restrict__ p35/* ic */,
+    const signed char* __restrict__ p36/* sum */,
+    int x1/* k */,
+    int x4/* m */)
+{
+int _i_1, _i_2, _i_3, _i_4, _i_5, _i_6;
+double _d_1, _d_2;
+signed char* _p_1, *_p_2, *_p_3, *_p_4, *_p_5;
+double x15/* soo */;
+int x22/* .i0031 */;
+int x23/* .j0140 */;
+int x26/* .t0013 */;
+int x28/* .i0061 */;
+int x29/* .j0130 */;
+double r37;
+extern  __shared__ double S58[];
+signed char* p60;
+signed char* rb62;
+signed char* rb74;
+int i75i;
+double r76;
+double r82;
+int rc16;
+int rc17;
+signed char* rb94;
+int sr101;
+int sr102;
+int sr103;
+int sr104;
+int sr105;
+int e111;
+int e113;
+int e116;
+int e118;
+int e119;
+int e129;
+int j224;
+int j223;
+int j219;
+int j216;
+int j175;
+int j145;
+__shared__ double e138;
+p60 = redbuf;
+redbuf = (redbuf)+((long long)((g24)*(8)));
+r37 = (0.00000000000000000E+0);
+rb62 = (signed char*)(&S58);
+rb74 = rb62;
+e111 = (*( int*)(((p26/* ig */)+(((long long)(x4/* m */))*(20LL)))+(-12LL)));
+if( ((e111)>=(x1/* k */)))  goto _BB_86;
+e129 = (x1/* k */)-(*( int*)(((p26/* ig */)+(((long long)(x4/* m */))*(20LL)))+(-12LL)));
+j216 = (((int)gridDim.x)-((int)gridDim.x))+(e129);
+j224 = 0;
+_BB_23: ;
+__syncthreads();
+e113 = (((int)blockIdx.x)+(e111))+(j224);
+if( ((((((int)blockIdx.x)-(e129))+(j224))+(1))>0)) goto _BB_24;
+sr101 = (*( int*)(((p26/* ig */)+(((long long)(x4/* m */))*(20LL)))+(-12LL)));
+_i_1 = (*( int*)((p26/* ig */)+(((long long)((x4/* m */)+(-1)))*(20LL))));
+_i_2 = (_i_1-(sr101))+(sr101);
+x29/* .j0130 */ = _i_1;
+x28/* .i0061 */ = sr101;
+if( ((_i_2)<=(1)))  goto _BB_24;
+x26/* .t0013 */ = (x29/* .j0130 */)-(1);
+r76 = (0.00000000000000000E+0);
+i75i = 0;
+if( (((i75i)-(x26/* .t0013 */))>(-1)))  goto _BB_79;
+j175 = (x29/* .j0130 */)+(-1);
+j223 = 0;
+_BB_43: ;
+e116 = (x28/* .i0061 */)+(j223);
+sr102 = (*( int*)(((p26/* ig */)+(((long long)(x4/* m */))*(20LL)))+(-12LL)));
+_i_1 = ((x28/* .i0061 */)+(j223))-(sr102);
+x23/* .j0140 */ = (_i_1)+(1);
+x22/* .i0031 */ = sr102;
+if( ((_i_1)<=(-1)))  goto _BB_44;
+__syncthreads();
+r82 = (0.00000000000000000E+0);
+j145 = x23/* .j0140 */;
+j219 = 0;
+_BB_63: ;
+if( ((((((int)threadIdx.x)-(x23/* .j0140 */))+(j219))+(1))>0)) goto _BB_60;
+_p_1 = (signed char*)((p26/* ig */)+(((long long)(x4/* m */))*(20LL)));
+sr103 = (*( int*)((_p_1)+(-12LL)));
+e119 = (e116)-(sr103);
+_i_6 = (x1/* k */)-(sr103);
+_i_5 = (e113)-(sr103);
+sr104 = (*( int*)((_p_1)+(-4LL)));
+sr105 = (*( int*)((p26/* ig */)+(((long long)((x4/* m */)+(-1)))*(20LL))));
+_i_1 = (sr105)*(_i_5);
+_i_2 = (((int)threadIdx.x)+(x22/* .i0031 */))+(j219);
+_i_3 = ((_i_2)-(sr103))+(sr104);
+_d_1 = (( double*)p28/* w1 */)[((_i_3)+(_i_1))+(-1)];
+e118 = sr104;
+_i_4 = (sr105)*(_i_6);
+x15/* soo */ = (_d_1*(( double*)p28/* w1 */)[((e119)+(e118))+(_i_4)])-((( double*)p28/* w1 */)[((_i_3)+(_i_4))+(-1)]*(( double*)p28/* w1 */)[((e119)+(e118))+(_i_1)]);
+_p_2 = (signed char*)(((p33/* ir */)+(((long long)(((x28/* .i0061 */)+(j223))+(1)))*(4LL)))+(-4LL));
+_p_3 = (signed char*)(((p35/* ic */)+(((long long)(x1/* k */))*(4LL)))+(-4LL));
+_p_4 = (signed char*)(((p33/* ir */)+(((long long)(_i_2))*(4LL)))+(-4LL));
+_p_5 = (signed char*)(((p35/* ic */)+(((long long)(e113))*(4LL)))+(-4LL));
+_d_2 = (( double*)p30/* supg */)[(intpos_((signed char*)(_p_2), (signed char*)(_p_3), (signed char*)(_p_4), (signed char*)(_p_5)))+(-1)];
+r82 = ((_d_2-(( double*)p30/* supg */)[(intpos_((signed char*)(_p_2), (signed char*)(_p_5), (signed char*)(_p_4), (signed char*)(_p_3)))+(-1)])*(x15/* soo */))+(r82);
+_BB_60: ;
+j145 = (j145)+(-128);
+j219 = (j219)+(128);
+if( ((j145)>0)) goto _BB_63;
+rb94 = ( signed char*)((signed char*)(((signed char*)((double*)(rb74)))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb94) = (r82);
+rc16 = 128;
+rc17 = 128;
+__syncthreads();
+_BB_67: ;
+if( ((rc16)<(2)))  goto _BB_85;
+__syncthreads();
+rc16 = (int)((rc16)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc16))-(rc17))>(-1)))  goto _BB_70;
+*( double*)(rb94) = ((*( double*)(rb94))+(*( double*)(((signed char*)(rb94))+((long long)((rc16)*(8))))));
+_BB_70: ;
+rc17 = rc16;
+goto _BB_67;
+_BB_85: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_75;
+r76 = (r76)+(*( double*)(rb94));
+_BB_75: ;
+__syncthreads();
+_BB_44: ;
+j175 = (j175)+(-1);
+j223 = (j223)+(1);
+if( ((j175)>0)) goto _BB_43;
+_BB_79: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_73;
+r37 = r76;
+e138 = r37;
+__threadfence_block();
+_BB_73: ;
+__syncthreads();
+r37 = e138;
+_BB_24: ;
+j216 = (j216)+(-((int)gridDim.x));
+j224 = (j224)+((int)gridDim.x);
+if( ((j216)>0)) goto _BB_23;
+_BB_86: ;
+(( double*)p60)[(int)blockIdx.x] = (r37);
+}
+extern "C" __global__ __launch_bounds__(256) void
+gwmix_38_gpu__red(
+    int g24,
+    signed char* redbuf,
+    signed char* __restrict__ p26/* ig */,
+    signed char* __restrict__ p28/* w1 */,
+    signed char* __restrict__ p30/* supg */,
+    signed char* __restrict__ p33/* ir */,
+    signed char* __restrict__ p35/* ic */,
+    signed char* p36/* sum */,
+    int x1/* k */,
+    int x4/* m */)
+{
+int _i_1;
+extern  __shared__ double S58[];
+signed char* p60;
+int rg0;
+signed char* rb140;
+int rc4;
+int rc5;
+double rt0;
+int j43;
+p60 = redbuf;
+redbuf = (redbuf)+((long long)((g24)*(8)));
+if( (((int)blockIdx.x)!=0)) goto _BB_6;
+rt0 = (0.00000000000000000E+0);
+if( (((int)threadIdx.x)>((g24)+(-1))))  goto _BB_12;
+rt0 = (( double*)p60)[(int)threadIdx.x];
+rg0 = ((int)threadIdx.x)+((int)blockDim.x);
+j43 = 0;
+_BB_10: ;
+if( (((((((int)blockDim.x)-(g24))+((int)threadIdx.x))+(j43))+(1))>0)) goto _BB_12;
+rt0 = (rt0)+(( double*)p60)[rg0];
+rg0 = (rg0)+((int)blockDim.x);
+j43 = (j43)+((int)blockDim.x);
+goto _BB_10;
+_BB_12: ;
+rb140 = ( signed char*)((signed char*)(((signed char*)((double*)((signed char*)(&S58))))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb140) = (rt0);
+rc4 = (int)blockDim.x;
+if( (((((int)blockDim.x)-(g24))+(-1))<0)) goto _BB_14;
+_i_1 = (g24)-(1);
+rc4 = (_i_1)|((int)(_i_1)>>(1));
+rc4 = (rc4)|((int)(rc4)>>(2));
+rc4 = (rc4)|((int)(rc4)>>(4));
+rc4 = (rc4)|((int)(rc4)>>(8));
+rc4 = (rc4)|((int)(rc4)>>(16));
+rc4 = (rc4)+(1);
+_BB_14: ;
+rc5 = rc4;
+_BB_15: ;
+if( ((rc4)<(65)))  goto _BB_19;
+__syncthreads();
+rc4 = (int)((rc4)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc4))-(rc5))>(-1)))  goto _BB_18;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+((long long)((rc4)*(8))))));
+_BB_18: ;
+rc5 = rc4;
+goto _BB_15;
+_BB_19: ;
+__syncthreads();
+if( (((int)threadIdx.x)>(31)))  goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(256LL))));
+__threadfence_block();
+__syncwarp(-1);
+if( (((int)threadIdx.x)>(15)))  goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(128LL))));
+__threadfence_block();
+__syncwarp(65535);
+if( (((int)threadIdx.x)>(7)))  goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(64LL))));
+__threadfence_block();
+__syncwarp(255);
+if( (((int)threadIdx.x)>(3)))  goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(32LL))));
+__threadfence_block();
+__syncwarp(15);
+if( (((int)threadIdx.x)>(1)))  goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(16LL))));
+__threadfence_block();
+__syncwarp(3);
+if( (((int)threadIdx.x)>0)) goto _BB_6;
+*( double*)(rb140) = ((*( double*)(rb140))+(*( double*)(((signed char*)(rb140))+(8LL))));
+*( double*)(p36/* sum */) = ((*( double*)(p36/* sum */))+(*( double*)(rb140)));
+_BB_6: ;
+}
+extern "C" __global__ __launch_bounds__(128) void
+gwmix_71_gpu(
+    int g23,
+    signed char* redbuf,
+    int tc1,
+    signed char* __restrict__ p27/* le */,
+    signed char* __restrict__ p28/* ig */,
+    signed char* __restrict__ p30/* w1 */,
+    const signed char* __restrict__ p32/* sum */,
+    signed char* __restrict__ p33/* supg */,
+    signed char* __restrict__ p36/* ir */,
+    signed char* __restrict__ p38/* ic */,
+    int x7/* ialfa */)
+{
+int _i_1, _i_2;
+int x22/* .i0031 */;
+int x23/* .j0030 */;
+int x27/* .t0002 */;
+int x29/* .i0061 */;
+int x30/* .j0020 */;
+double r39;
+signed char* rb59;
+extern  __shared__ double S60[];
+signed char* p62;
+signed char* rb64;
+double y67;
+signed char* rb78;
+int i79i;
+double r80;
+int i87i;
+double r88;
+double vy93/* soo */;
+int vy94/* j */;
+int vy95/* l */;
+int rc16;
+int rc17;
+signed char* rb101;
+int rc4;
+int rc5;
+int sr108;
+int sr109;
+int j183;
+int j181;
+int j178;
+int j171;
+int j152;
+int j124;
+__shared__ int e148;
+__shared__ int e149;
+__shared__ int e150;
+__shared__ double e151;
+p62 = redbuf;
+redbuf = (redbuf)+((long long)((g23)*(8)));
+r39 = (0.00000000000000000E+0);
+rb64 = (signed char*)(&S60);
+rb78 = rb64;
+y67 = (1.00000000000000000E+0);
+j171 = (((int)blockIdx.x)-(tc1))+(1);
+j178 = -(tc1);
+_BB_26: ;
+if( ((j171)>0)) goto _BB_24;
+if( (((int)threadIdx.x)!=0)) goto _BB_93;
+__pgi_dmodulox((y67)-(1.00000000000000000E+0), (double)((*( int*)(p27/* le */))));
+sr108 = (*( int*)((p28/* ig */)+(32LL)));
+_i_1 = (*( int*)((p28/* ig */)+(24LL)));
+_i_2 = ((sr108)+_i_1)-(sr108);
+x30/* .j0020 */ = _i_1;
+x29/* .i0061 */ = sr108;
+e148 = (_i_2)<=0;
+e149 = x29/* .i0061 */;
+e150 = x30/* .j0020 */;
+__threadfence_block();
+_BB_93: ;
+__syncthreads();
+x29/* .i0061 */ = e149;
+x30/* .j0020 */ = e150;
+if( (((int)(e148))!=0)) goto _BB_90;
+x27/* .t0002 */ = x30/* .j0020 */;
+r80 = (0.00000000000000000E+0);
+i79i = 0;
+if( (((i79i)-(x27/* .t0002 */))>(-1)))  goto _BB_87;
+j152 = x30/* .j0020 */;
+j183 = 0;
+_BB_54: ;
+sr109 = (*( int*)((p28/* ig */)+(28LL)));
+_i_1 = (*( int*)((p28/* ig */)+(20LL)));
+_i_2 = ((sr109)+_i_1)-(sr109);
+x23/* .j0030 */ = _i_1;
+x22/* .i0031 */ = sr109;
+if( ((_i_2)<=0)) goto _BB_46;
+__syncthreads();
+r88 = (0.00000000000000000E+0);
+j124 = x23/* .j0030 */;
+j181 = 0;
+_BB_61: ;
+i87i = ((int)threadIdx.x)+(j181);
+if( ((((((int)threadIdx.x)-(x23/* .j0030 */))+(j181))+(1))>0)) goto _BB_62;
+_i_1 = (*( int*)((p28/* ig */)+(28LL)));
+_i_2 = (*( int*)((p28/* ig */)+(8LL)));
+vy93/* soo */ = (( double*)p30/* w1 */)[((((vy94/* j */)+(*( int*)((p28/* ig */)+(16LL))))+((_i_1-_i_2)*((vy95/* l */)-(*( int*)((p28/* ig */)+(12LL))))))-_i_2)+(-1)]*(( double*)p30/* w1 */)[(((((x22/* .i0031 */)+(*( int*)((p28/* ig */)+(36LL))))+(i87i))-_i_1)+((*( int*)((p28/* ig */)+(20LL)))*(((x29/* .i0061 */)+(j183))-(*( int*)((p28/* ig */)+(32LL))))))+(-1)];
+if( ((-(x7/* ialfa */))>=0)) goto _BB_70;
+if( (((x7/* ialfa */)+(-2))<0)) goto _BB_71;
+_BB_70: ;
+r88 = (r88)-((vy93/* soo */)*(( double*)p33/* supg */)[(intpos_(((p36/* ir */)+(((long long)((((int)threadIdx.x)+(x22/* .i0031 */))+(j181)))*(4LL)))+(-4LL), ((p38/* ic */)+(((long long)(vy95/* l */))*(4LL)))+(-4LL), ((p36/* ir */)+(((long long)(vy94/* j */))*(4LL)))+(-4LL), ((p38/* ic */)+(((long long)((x29/* .i0061 */)+(j183)))*(4LL)))+(-4LL)))+(-1)]);
+_BB_71: ;
+r88 = (r88)+((vy93/* soo */)*(( double*)p33/* supg */)[(intpos_(((p36/* ir */)+(((long long)((((int)threadIdx.x)+(x22/* .i0031 */))+(j181)))*(4LL)))+(-4LL), ((p38/* ic */)+(((long long)((x29/* .i0061 */)+(j183)))*(4LL)))+(-4LL), ((p36/* ir */)+(((long long)(vy94/* j */))*(4LL)))+(-4LL), ((p38/* ic */)+(((long long)(vy95/* l */))*(4LL)))+(-4LL)))+(-1)]);
+_BB_62: ;
+j124 = (j124)+(-128);
+j181 = (j181)+(128);
+if( ((j124)>0)) goto _BB_61;
+rb101 = ( signed char*)((signed char*)(((signed char*)((double*)(rb78)))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb101) = (r88);
+rc16 = 128;
+rc17 = 128;
+__syncthreads();
+_BB_73: ;
+if( ((rc16)<(2)))  goto _BB_92;
+__syncthreads();
+rc16 = (int)((rc16)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc16))-(rc17))>(-1)))  goto _BB_76;
+*( double*)(rb101) = ((*( double*)(rb101))+(*( double*)(((signed char*)(rb101))+((long long)((rc16)*(8))))));
+_BB_76: ;
+rc17 = rc16;
+goto _BB_73;
+_BB_92: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_81;
+r80 = (r80)+(*( double*)(rb101));
+_BB_81: ;
+__syncthreads();
+_BB_46: ;
+j152 = (j152)+(-1);
+j183 = (j183)+(1);
+if( ((j152)>0)) goto _BB_54;
+_BB_87: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_85;
+r39 = r80;
+e151 = r39;
+__threadfence_block();
+_BB_85: ;
+__syncthreads();
+r39 = e151;
+_BB_90: ;
+y67 = (y67)+(1.00000000000000000E+0);
+_BB_24: ;
+j171 = (j171)+((int)gridDim.x);
+j178 = (j178)+((int)gridDim.x);
+if( ((j178)<0)) goto _BB_26;
+rb59 = ( signed char*)((signed char*)(((signed char*)((double*)((signed char*)(&S60))))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb59) = (r39);
+rc4 = 128;
+rc5 = 128;
+_BB_96: ;
+if( ((rc4)<(65)))  goto _BB_100;
+__syncthreads();
+rc4 = (int)((rc4)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc4))-(rc5))>(-1)))  goto _BB_99;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+((long long)((rc4)*(8))))));
+_BB_99: ;
+rc5 = rc4;
+goto _BB_96;
+_BB_100: ;
+__syncthreads();
+if( (((int)threadIdx.x)>(31)))  goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(256LL))));
+__threadfence_block();
+__syncwarp(-1);
+if( (((int)threadIdx.x)>(15)))  goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(128LL))));
+__threadfence_block();
+__syncwarp(65535);
+if( (((int)threadIdx.x)>(7)))  goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(64LL))));
+__threadfence_block();
+__syncwarp(255);
+if( (((int)threadIdx.x)>(3)))  goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(32LL))));
+__threadfence_block();
+__syncwarp(15);
+if( (((int)threadIdx.x)>(1)))  goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(16LL))));
+__threadfence_block();
+__syncwarp(3);
+if( (((int)threadIdx.x)>0)) goto _BB_101;
+*( double*)(rb59) = ((*( double*)(rb59))+(*( double*)(((signed char*)(rb59))+(8LL))));
+(( double*)p62)[(int)blockIdx.x] = ((*( double*)(rb59)));
+_BB_101: ;
+}
+extern "C" __global__ __launch_bounds__(256) void
+gwmix_71_gpu__red(
+    int g23,
+    signed char* redbuf,
+    int tc1,
+    signed char* __restrict__ p27/* le */,
+    signed char* __restrict__ p28/* ig */,
+    signed char* __restrict__ p30/* w1 */,
+    signed char* p32/* sum */,
+    signed char* __restrict__ p33/* supg */,
+    signed char* __restrict__ p36/* ir */,
+    signed char* __restrict__ p38/* ic */,
+    int x7/* ialfa */)
+{
+int _i_1;
+extern  __shared__ double S60[];
+signed char* p62;
+int rg0;
+signed char* rb153;
+int rc4;
+int rc5;
+double rt0;
+int j43;
+p62 = redbuf;
+redbuf = (redbuf)+((long long)((g23)*(8)));
+if( (((int)blockIdx.x)!=0)) goto _BB_6;
+rt0 = (0.00000000000000000E+0);
+if( (((int)threadIdx.x)>((g23)+(-1))))  goto _BB_12;
+rt0 = (( double*)p62)[(int)threadIdx.x];
+rg0 = ((int)threadIdx.x)+((int)blockDim.x);
+j43 = 0;
+_BB_10: ;
+if( (((((((int)blockDim.x)-(g23))+((int)threadIdx.x))+(j43))+(1))>0)) goto _BB_12;
+rt0 = (rt0)+(( double*)p62)[rg0];
+rg0 = (rg0)+((int)blockDim.x);
+j43 = (j43)+((int)blockDim.x);
+goto _BB_10;
+_BB_12: ;
+rb153 = ( signed char*)((signed char*)(((signed char*)((double*)((signed char*)(&S60))))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb153) = (rt0);
+rc4 = (int)blockDim.x;
+if( (((((int)blockDim.x)-(g23))+(-1))<0)) goto _BB_14;
+_i_1 = (g23)-(1);
+rc4 = (_i_1)|((int)(_i_1)>>(1));
+rc4 = (rc4)|((int)(rc4)>>(2));
+rc4 = (rc4)|((int)(rc4)>>(4));
+rc4 = (rc4)|((int)(rc4)>>(8));
+rc4 = (rc4)|((int)(rc4)>>(16));
+rc4 = (rc4)+(1);
+_BB_14: ;
+rc5 = rc4;
+_BB_15: ;
+if( ((rc4)<(65)))  goto _BB_19;
+__syncthreads();
+rc4 = (int)((rc4)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc4))-(rc5))>(-1)))  goto _BB_18;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+((long long)((rc4)*(8))))));
+_BB_18: ;
+rc5 = rc4;
+goto _BB_15;
+_BB_19: ;
+__syncthreads();
+if( (((int)threadIdx.x)>(31)))  goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(256LL))));
+__threadfence_block();
+__syncwarp(-1);
+if( (((int)threadIdx.x)>(15)))  goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(128LL))));
+__threadfence_block();
+__syncwarp(65535);
+if( (((int)threadIdx.x)>(7)))  goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(64LL))));
+__threadfence_block();
+__syncwarp(255);
+if( (((int)threadIdx.x)>(3)))  goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(32LL))));
+__threadfence_block();
+__syncwarp(15);
+if( (((int)threadIdx.x)>(1)))  goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(16LL))));
+__threadfence_block();
+__syncwarp(3);
+if( (((int)threadIdx.x)>0)) goto _BB_6;
+*( double*)(rb153) = ((*( double*)(rb153))+(*( double*)(((signed char*)(rb153))+(8LL))));
+*( double*)(p32/* sum */) = ((*( double*)(p32/* sum */))+(*( double*)(rb153)));
+_BB_6: ;
+}
+extern "C" __global__ __launch_bounds__(128) void
+gwmix_103_gpu(
+    int g21,
+    signed char* redbuf,
+    int n9,
+    signed char* __restrict__ p24/* nblock */,
+    signed char* __restrict__ p25/* ig */,
+    signed char* __restrict__ p27/* w1 */,
+    const signed char* __restrict__ p29/* sum */,
+    signed char* __restrict__ p30/* supg */,
+    signed char* __restrict__ p33/* ir */,
+    signed char* __restrict__ p35/* ic */,
+    int x3/* m */,
+    int x6/* j */,
+    int x7/* l */,
+    int x10/* ialfa */)
+{
+int _i_1, _i_2, _i_3;
+signed char* _p_1, *_p_2;
+int x25/* .i0031 */;
+int x26/* .j0090 */;
+int x29/* .t0008 */;
+int x31/* .i0061 */;
+int x32/* .j0080 */;
+double r36;
+extern  __shared__ double S61[];
+signed char* p63;
+signed char* rb65;
+int i70s;
+int i71i;
+signed char* rb76;
+int i77i;
+double r78;
+double r84;
+double vy89/* soo */;
+int rc16;
+int rc17;
+signed char* rb95;
+int sr102;
+int sr103;
+int e115;
+int j212;
+int j203;
+int j201;
+int j198;
+int j167;
+int j129;
+__shared__ double e124;
+p63 = redbuf;
+redbuf = (redbuf)+((long long)((g21)*(8)));
+r36 = (0.00000000000000000E+0);
+rb65 = (signed char*)(&S61);
+rb76 = rb65;
+if( (((*( int*)(p24/* nblock */)))<=(x3/* m */)))  goto _BB_92;
+e115 = (*( int*)(p24/* nblock */))-(x3/* m */);
+i70s = 0;
+j198 = (((int)gridDim.x)-((int)gridDim.x))+(e115);
+j212 = 0;
+_BB_23: ;
+__syncthreads();
+i71i = ((int)blockIdx.x)+(i70s);
+if( ((((((int)blockIdx.x)-(e115))+(j212))+(1))>0)) goto _BB_24;
+_p_1 = (signed char*)((p25/* ig */)+(((long long)((((n9)+((int)blockIdx.x))+(j212))+(1)))*(20LL)));
+sr102 = (*( int*)((_p_1)+(-8LL)));
+_i_1 = (*( int*)((_p_1)+(-16LL)));
+x32/* .j0080 */ = (*( int*)(((p25/* ig */)+(((long long)(((n9)+(i71i))+(1)))*(20LL)))+(-16LL)));
+x31/* .i0061 */ = sr102;
+if( ((_i_1)<=0)) goto _BB_24;
+x29/* .t0008 */ = x32/* .j0080 */;
+r78 = (0.00000000000000000E+0);
+i77i = 0;
+if( (((i77i)-(x29/* .t0008 */))>(-1)))  goto _BB_85;
+j167 = x32/* .j0080 */;
+j203 = 0;
+_BB_54: ;
+_i_1 = ((n9)+((int)blockIdx.x))+(j212);
+sr103 = (*( int*)(((p25/* ig */)+(((long long)((_i_1)+(1)))*(20LL)))+(-12LL)));
+_i_2 = (*( int*)((p25/* ig */)+(((long long)(_i_1))*(20LL))));
+_i_3 = (_i_2-(sr103))+(sr103);
+x26/* .j0090 */ = _i_2;
+x25/* .i0031 */ = sr103;
+if( ((_i_3)<=0)) goto _BB_46;
+__syncthreads();
+r84 = (0.00000000000000000E+0);
+j129 = x26/* .j0090 */;
+j201 = 0;
+_BB_65: ;
+if( ((((((int)threadIdx.x)-(x26/* .j0090 */))+(j201))+(1))>0)) goto _BB_62;
+_p_1 = (signed char*)((p25/* ig */)+(((long long)(x3/* m */))*(20LL)));
+_i_1 = (*( int*)((_p_1)+(-12LL)));
+_i_2 = ((n9)+((int)blockIdx.x))+(j212);
+_p_2 = (signed char*)((p25/* ig */)+(((long long)((_i_2)+(1)))*(20LL)));
+vy89/* soo */ = (( double*)p27/* w1 */)[((((x6/* j */)-_i_1)+(*( int*)((_p_1)+(-4LL))))+(((*( int*)((_p_1)+(8LL)))-_i_1)*((x7/* l */)-(*( int*)((_p_1)+(-8LL))))))+(-1)]*(( double*)p27/* w1 */)[(((((((int)threadIdx.x)+(x25/* .i0031 */))+(j201))-(*( int*)((_p_2)+(-12LL))))+(*( int*)((_p_2)+(-4LL))))+((*( int*)((p25/* ig */)+(((long long)(_i_2))*(20LL))))*(((x31/* .i0061 */)+(j203))-(*( int*)((_p_2)+(-8LL))))))+(-1)];
+if( ((((x10/* ialfa */)-(x3/* m */))+(1))<=0)) goto _BB_70;
+if( ((((x10/* ialfa */)-(x3/* m */))+(-1))<0)) goto _BB_71;
+if( ((((((n9)-(x10/* ialfa */))+((int)blockIdx.x))+(j212))+(1))>0)) goto _BB_71;
+_BB_70: ;
+r84 = (r84)-((vy89/* soo */)*(( double*)p30/* supg */)[(intpos_(((p33/* ir */)+(((long long)((((int)threadIdx.x)+(x25/* .i0031 */))+(j201)))*(4LL)))+(-4LL), ((p35/* ic */)+(((long long)(x7/* l */))*(4LL)))+(-4LL), ((p33/* ir */)+(((long long)(x6/* j */))*(4LL)))+(-4LL), ((p35/* ic */)+(((long long)((x31/* .i0061 */)+(j203)))*(4LL)))+(-4LL)))+(-1)]);
+_BB_71: ;
+r84 = (r84)+((vy89/* soo */)*(( double*)p30/* supg */)[(intpos_(((p33/* ir */)+(((long long)((((int)threadIdx.x)+(x25/* .i0031 */))+(j201)))*(4LL)))+(-4LL), ((p35/* ic */)+(((long long)((x31/* .i0061 */)+(j203)))*(4LL)))+(-4LL), ((p33/* ir */)+(((long long)(x6/* j */))*(4LL)))+(-4LL), ((p35/* ic */)+(((long long)(x7/* l */))*(4LL)))+(-4LL)))+(-1)]);
+_BB_62: ;
+j129 = (j129)+(-128);
+j201 = (j201)+(128);
+if( ((j129)>0)) goto _BB_65;
+rb95 = ( signed char*)((signed char*)(((signed char*)((double*)(rb76)))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb95) = (r84);
+rc16 = 128;
+rc17 = 128;
+__syncthreads();
+_BB_73: ;
+if( ((rc16)<(2)))  goto _BB_91;
+__syncthreads();
+rc16 = (int)((rc16)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc16))-(rc17))>(-1)))  goto _BB_76;
+*( double*)(rb95) = ((*( double*)(rb95))+(*( double*)(((signed char*)(rb95))+((long long)((rc16)*(8))))));
+_BB_76: ;
+rc17 = rc16;
+goto _BB_73;
+_BB_91: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_81;
+r78 = (r78)+(*( double*)(rb95));
+_BB_81: ;
+__syncthreads();
+_BB_46: ;
+j167 = (j167)+(-1);
+j203 = (j203)+(1);
+if( ((j167)>0)) goto _BB_54;
+_BB_85: ;
+if( (((int)threadIdx.x)!=0)) goto _BB_79;
+r36 = r78;
+e124 = r36;
+__threadfence_block();
+_BB_79: ;
+__syncthreads();
+r36 = e124;
+_BB_24: ;
+i70s = ((int)gridDim.x)+(i70s);
+j198 = (j198)+(-((int)gridDim.x));
+j212 = (j212)+((int)gridDim.x);
+if( ((j198)>0)) goto _BB_23;
+_BB_92: ;
+(( double*)p63)[(int)blockIdx.x] = (r36);
+}
+extern "C" __global__ __launch_bounds__(256) void
+gwmix_103_gpu__red(
+    int g21,
+    signed char* redbuf,
+    int n9,
+    signed char* __restrict__ p24/* nblock */,
+    signed char* __restrict__ p25/* ig */,
+    signed char* __restrict__ p27/* w1 */,
+    signed char* p29/* sum */,
+    signed char* __restrict__ p30/* supg */,
+    signed char* __restrict__ p33/* ir */,
+    signed char* __restrict__ p35/* ic */,
+    int x3/* m */,
+    int x6/* j */,
+    int x7/* l */,
+    int x10/* ialfa */)
+{
+int _i_1;
+extern  __shared__ double S61[];
+signed char* p63;
+int rg0;
+signed char* rb126;
+int rc4;
+int rc5;
+double rt0;
+int j43;
+p63 = redbuf;
+redbuf = (redbuf)+((long long)((g21)*(8)));
+if( (((int)blockIdx.x)!=0)) goto _BB_6;
+rt0 = (0.00000000000000000E+0);
+if( (((int)threadIdx.x)>((g21)+(-1))))  goto _BB_12;
+rt0 = (( double*)p63)[(int)threadIdx.x];
+rg0 = ((int)threadIdx.x)+((int)blockDim.x);
+j43 = 0;
+_BB_10: ;
+if( (((((((int)blockDim.x)-(g21))+((int)threadIdx.x))+(j43))+(1))>0)) goto _BB_12;
+rt0 = (rt0)+(( double*)p63)[rg0];
+rg0 = (rg0)+((int)blockDim.x);
+j43 = (j43)+((int)blockDim.x);
+goto _BB_10;
+_BB_12: ;
+rb126 = ( signed char*)((signed char*)(((signed char*)((double*)((signed char*)(&S61))))+((long long)(((int)threadIdx.x)*(8)))));
+*( double*)(rb126) = (rt0);
+rc4 = (int)blockDim.x;
+if( (((((int)blockDim.x)-(g21))+(-1))<0)) goto _BB_14;
+_i_1 = (g21)-(1);
+rc4 = (_i_1)|((int)(_i_1)>>(1));
+rc4 = (rc4)|((int)(rc4)>>(2));
+rc4 = (rc4)|((int)(rc4)>>(4));
+rc4 = (rc4)|((int)(rc4)>>(8));
+rc4 = (rc4)|((int)(rc4)>>(16));
+rc4 = (rc4)+(1);
+_BB_14: ;
+rc5 = rc4;
+_BB_15: ;
+if( ((rc4)<(65)))  goto _BB_19;
+__syncthreads();
+rc4 = (int)((rc4)+(1))>>(1);
+if( (((((int)threadIdx.x)+(rc4))-(rc5))>(-1)))  goto _BB_18;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+((long long)((rc4)*(8))))));
+_BB_18: ;
+rc5 = rc4;
+goto _BB_15;
+_BB_19: ;
+__syncthreads();
+if( (((int)threadIdx.x)>(31)))  goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(256LL))));
+__threadfence_block();
+__syncwarp(-1);
+if( (((int)threadIdx.x)>(15)))  goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(128LL))));
+__threadfence_block();
+__syncwarp(65535);
+if( (((int)threadIdx.x)>(7)))  goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(64LL))));
+__threadfence_block();
+__syncwarp(255);
+if( (((int)threadIdx.x)>(3)))  goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(32LL))));
+__threadfence_block();
+__syncwarp(15);
+if( (((int)threadIdx.x)>(1)))  goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(16LL))));
+__threadfence_block();
+__syncwarp(3);
+if( (((int)threadIdx.x)>0)) goto _BB_6;
+*( double*)(rb126) = ((*( double*)(rb126))+(*( double*)(((signed char*)(rb126))+(8LL))));
+*( double*)(p29/* sum */) = ((*( double*)(p29/* sum */))+(*( double*)(rb126)));
+_BB_6: ;
+}
+extern "C" __device__ int
+intposx_(
+    const signed char* x2/* i */,
+    const signed char* x3/* j */,
+    const signed char* x4/* k */,
+    const signed char* x5/* l */)
+{
+return 0;
+}
